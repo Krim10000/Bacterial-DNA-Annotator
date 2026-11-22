@@ -1,0 +1,7 @@
+streamlit>=1.30
+pandas>=2.0
+numpy>=1.24
+biopython>=1.81
+pyrodigal>=3.0
+requests>=2.31
+pyyaml>=6.0

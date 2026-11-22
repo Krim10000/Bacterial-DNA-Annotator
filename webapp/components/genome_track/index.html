@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root { color-scheme: light dark; }
+  html, body { margin: 0; padding: 0; background: transparent; }
+  #wrap { width: 100%; }
+  svg { max-width: 100%; height: auto; display: block; }
+  .hit { cursor: pointer; }
+  .hit:hover { opacity: .72; }
+  .hit:focus { outline: none; }
+  .hit:hover rect, .hit:hover circle, .hit:hover line { stroke: #ff4b4b; }
+  #hint {
+    font: 11px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #7a7f8c; padding: 2px 4px 0;
+  }
+</style>
+</head>
+<body>
+<div id="wrap" role="img" aria-label="Genome window with clickable tracks"></div>
+<div id="hint">Haz clic en un gen, operón, promotor u horquilla para ver su ficha. TSS/TTS están en la pestaña de transcripción.</div>
+<script>
+  // Componente Streamlit mínimo, sin build ni dependencias: habla el protocolo
+  // de componentes por postMessage.
+  const wrap = document.getElementById("wrap");
+  const hint = document.getElementById("hint");
+
+  function post(type, payload) {
+    window.parent.postMessage(
+      Object.assign({ isStreamlitMessage: true, type: type }, payload || {}),
+      "*"
+    );
+  }
+  function setHeight() {
+    const h = document.body.scrollHeight + 4;
+    post("streamlit:setFrameHeight", { height: h });
+  }
+  function setValue(value) {
+    post("streamlit:setComponentValue", { value: value, dataType: "json" });
+  }
+
+  function bindClicks() {
+    wrap.querySelectorAll("[data-kind]").forEach((el) => {
+      el.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        const kind = el.getAttribute("data-kind");
+        const id = el.getAttribute("data-id");
+        const ts = Date.now();
+        clickedAt = ts;
+        rerendered = false;
+        setValue({ kind: kind, id: id, ts: ts });
+        setTimeout(() => {
+          if (!rerendered) navigate(kind, id);
+        }, 1200);
+      });
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("role", "button");
+      el.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter" || ev.key === " ") {
+          ev.preventDefault();
+          el.click();
+        }
+      });
+    });
+  }
+
+  let lastArgs = {};
+  let clickedAt = 0;
+  let rerendered = false;
+
+  function navigate(kind, id) {
+    // Respaldo: si Streamlit no procesa el valor (pasa con SVGs grandes),
+    // recargamos la app con el elemento seleccionado en la URL.
+    try {
+      const url = new URL(window.parent.location.href);
+      url.searchParams.set("sel", kind + ":" + id);
+      if (lastArgs.pos !== undefined && lastArgs.pos !== null)
+        url.searchParams.set("pos", String(lastArgs.pos));
+      if (lastArgs.contig) url.searchParams.set("contig", String(lastArgs.contig));
+      if (lastArgs.window) url.searchParams.set("w", String(lastArgs.window));
+      window.parent.location.href = url.toString();
+    } catch (err) {
+      console.warn("[genome_track] no se pudo navegar", err);
+    }
+  }
+
+  function render(args) {
+    lastArgs = args || {};
+    if (clickedAt) rerendered = true;
+    wrap.innerHTML = args && args.svg ? args.svg : "";
+    bindClicks();
+    hint.style.display = args && args.show_hint === false ? "none" : "block";
+    requestAnimationFrame(setHeight);
+  }
+
+  window.addEventListener("message", (event) => {
+    const data = event.data;
+    if (!data || data.type !== "streamlit:render") return;
+    render(data.args);
+  });
+
+  post("streamlit:componentReady", { apiVersion: 1 });
+  requestAnimationFrame(setHeight);
+</script>
+</body>
+</html>

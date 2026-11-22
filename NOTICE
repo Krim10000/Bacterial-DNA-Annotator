@@ -1,0 +1,21 @@
+Anotador de ADN bacteriano
+Copyright (c) 2026 Camilo Rojas Bravo
+
+This product includes software developed by third parties. The original code
+of this repository is licensed under the MIT License (see LICENSE). The
+following components are distributed under the Apache License 2.0 and require
+this notice:
+
+  - Streamlit — Copyright (c) Streamlit Inc.
+  - PyTorch — Copyright (c) Meta Platforms, Inc. and affiliates
+  - tom-select — Copyright (c) Tom Select contributors
+
+Their full license text is in LICENSES/Apache-2.0.txt.
+
+Components under other licenses (GPL-3.0, BSD-3-Clause, MIT, ViennaRNA) and the
+data sources are listed in THIRD_PARTY_LICENSES.md and DATA_NOTICE.md.
+
+AI assistance: DeepSeek Harness (DSH) with the DeepSeek model, November 2026,
+was used for code review, interface translation, documentation, GUI testing and
+packaging. Scientific decisions, data and validation remain the author's
+responsibility.

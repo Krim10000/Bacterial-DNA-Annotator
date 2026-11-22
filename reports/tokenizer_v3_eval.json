@@ -1,0 +1,608 @@
+{
+  "created_at": "2026-11-20T02:42:14.598757+00:00",
+  "genomes": [
+    "NC_002620.2",
+    "NZ_CP043026.1",
+    "NZ_CP117180.1",
+    "NZ_CP135180.1",
+    "NC_002932.3",
+    "NC_019693.1"
+  ],
+  "v2": {
+    "model": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/tokenizer_v2/dna_sp_v2.model",
+    "vocab_size": 4096,
+    "genomes": {
+      "NC_002620.2": {
+        "nt": 1072950,
+        "tokens": 269859,
+        "nt_per_token": 3.9759652262848375,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 3809,
+        "vocab_used_frac": 0.929931640625,
+        "token_entropy_bits": 8.600646553197018
+      },
+      "NZ_CP043026.1": {
+        "nt": 1370182,
+        "tokens": 359827,
+        "nt_per_token": 3.80789101429298,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 3448,
+        "vocab_used_frac": 0.841796875,
+        "token_entropy_bits": 7.7490077266909125
+      },
+      "NZ_CP117180.1": {
+        "nt": 1692950,
+        "tokens": 421551,
+        "nt_per_token": 4.016002808675581,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 3661,
+        "vocab_used_frac": 0.893798828125,
+        "token_entropy_bits": 8.555223743773098
+      },
+      "NZ_CP135180.1": {
+        "nt": 902863,
+        "tokens": 235439,
+        "nt_per_token": 3.83480646791738,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 3462,
+        "vocab_used_frac": 0.84521484375,
+        "token_entropy_bits": 7.839603006605964
+      },
+      "NC_002932.3": {
+        "nt": 2000000,
+        "tokens": 476593,
+        "nt_per_token": 4.196452738500146,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 3857,
+        "vocab_used_frac": 0.941650390625,
+        "token_entropy_bits": 8.918839561213446
+      },
+      "NC_019693.1": {
+        "nt": 2000000,
+        "tokens": 494085,
+        "nt_per_token": 4.047886497262617,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 3880,
+        "vocab_used_frac": 0.947265625,
+        "token_entropy_bits": 8.782481911356212
+      }
+    },
+    "global": {
+      "nt": 9038945,
+      "tokens": 2257354,
+      "nt_per_token": 4.004221313980882,
+      "unk": 0,
+      "unk_rate": 0.0,
+      "roundtrip_ok": 120,
+      "roundtrip_n": 120
+    },
+    "window_1kb_tokens": {
+      "mean": 252.49748743718592,
+      "p5": 235,
+      "p50": 252,
+      "p95": 270,
+      "n": 1194
+    },
+    "estimated_tokens_1_386gbp": 346134714,
+    "motifs": {
+      "TATAAT": {
+        "single_token": true,
+        "pieces": [
+          "▁",
+          "TATAAT"
+        ],
+        "pieces_core": [
+          "TATAAT"
+        ],
+        "context_single_rate": 1.0,
+        "context_n": 719
+      },
+      "TTGACA": {
+        "single_token": true,
+        "pieces": [
+          "▁",
+          "TTGACA"
+        ],
+        "pieces_core": [
+          "TTGACA"
+        ],
+        "context_single_rate": 1.0,
+        "context_n": 720
+      },
+      "AGGAGG": {
+        "single_token": true,
+        "pieces": [
+          "▁",
+          "AGGAGG"
+        ],
+        "pieces_core": [
+          "AGGAGG"
+        ],
+        "context_single_rate": 0.6960926193921853,
+        "context_n": 691
+      },
+      "ATG": {
+        "single_token": true,
+        "pieces": [
+          "▁",
+          "ATG"
+        ],
+        "pieces_core": [
+          "ATG"
+        ],
+        "context_single_rate": 0.9888888888888889,
+        "context_n": 720
+      },
+      "TAA": {
+        "single_token": true,
+        "pieces": [
+          "▁",
+          "TAA"
+        ],
+        "pieces_core": [
+          "TAA"
+        ],
+        "context_single_rate": 1.0,
+        "context_n": 720
+      },
+      "TAG": {
+        "single_token": true,
+        "pieces": [
+          "▁",
+          "TAG"
+        ],
+        "pieces_core": [
+          "TAG"
+        ],
+        "context_single_rate": 1.0,
+        "context_n": 720
+      },
+      "TGA": {
+        "single_token": true,
+        "pieces": [
+          "▁",
+          "TGA"
+        ],
+        "pieces_core": [
+          "TGA"
+        ],
+        "context_single_rate": 0.9777777777777777,
+        "context_n": 720
+      }
+    },
+    "iupac": {
+      "seq": "ACGTRYKMSWBDHVNN",
+      "pieces": [
+        "▁",
+        "ACGT",
+        "R",
+        "Y",
+        "K",
+        "M",
+        "S",
+        "W",
+        "BDHV",
+        "N",
+        "N"
+      ],
+      "unk": 1,
+      "unk_rate": 0.09090909090909091,
+      "piece_to_id": {
+        "R": 4091,
+        "Y": 4090,
+        "K": 4093,
+        "M": 4092,
+        "S": 4089,
+        "W": 4094,
+        "B": 0,
+        "D": 0,
+        "H": 0,
+        "V": 0,
+        "N": 4095
+      },
+      "all_known": false
+    },
+    "special": {
+      "pad": {
+        "id": -1,
+        "piece": null
+      },
+      "unk": {
+        "id": 0,
+        "piece": "<unk>"
+      },
+      "bos": {
+        "id": 1,
+        "piece": "<s>"
+      },
+      "eos": {
+        "id": 2,
+        "piece": "</s>"
+      },
+      "mask": {
+        "id": 0,
+        "piece": null
+      },
+      "all_distinct": false
+    },
+    "n_run": {
+      "nt": 1000,
+      "tokens": 1001,
+      "nt_per_token": 0.999000999000999,
+      "unk_rate": 0.0
+    },
+    "dummy_prefix_pieces": 2,
+    "top_tokens": [
+      [
+        "TAA",
+        22181
+      ],
+      [
+        "TAG",
+        16097
+      ],
+      [
+        "ATG",
+        14783
+      ],
+      [
+        "TGA",
+        12287
+      ],
+      [
+        "CTT",
+        2588
+      ],
+      [
+        "ATT",
+        2257
+      ],
+      [
+        "CTTT",
+        2057
+      ],
+      [
+        "CAAA",
+        2010
+      ],
+      [
+        "TTT",
+        1936
+      ],
+      [
+        "AAG",
+        1825
+      ],
+      [
+        "A",
+        1680
+      ],
+      [
+        "TTTT",
+        1642
+      ],
+      [
+        "AAAA",
+        1600
+      ],
+      [
+        "CAG",
+        1466
+      ],
+      [
+        "ATTT",
+        1403
+      ]
+    ]
+  },
+  "v3": {
+    "model": "data/tokenizer_v3_256/dna_sp_v3.model",
+    "vocab_size": 256,
+    "genomes": {
+      "NC_002620.2": {
+        "nt": 1072950,
+        "tokens": 362758,
+        "nt_per_token": 2.95775696194157,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 246,
+        "vocab_used_frac": 0.9609375,
+        "token_entropy_bits": 6.521198910517656
+      },
+      "NZ_CP043026.1": {
+        "nt": 1370182,
+        "tokens": 469173,
+        "nt_per_token": 2.9204195467343603,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 239,
+        "vocab_used_frac": 0.93359375,
+        "token_entropy_bits": 6.052045610868108
+      },
+      "NZ_CP117180.1": {
+        "nt": 1692950,
+        "tokens": 571626,
+        "nt_per_token": 2.961639253637868,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 239,
+        "vocab_used_frac": 0.93359375,
+        "token_entropy_bits": 6.4689376720301
+      },
+      "NZ_CP135180.1": {
+        "nt": 902863,
+        "tokens": 307668,
+        "nt_per_token": 2.9345365783896926,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 239,
+        "vocab_used_frac": 0.93359375,
+        "token_entropy_bits": 6.124159869538062
+      },
+      "NC_002932.3": {
+        "nt": 2000000,
+        "tokens": 661066,
+        "nt_per_token": 3.025416524219972,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 243,
+        "vocab_used_frac": 0.94921875,
+        "token_entropy_bits": 6.5325202517444705
+      },
+      "NC_019693.1": {
+        "nt": 2000000,
+        "tokens": 671856,
+        "nt_per_token": 2.9768283679836154,
+        "unk": 0,
+        "unk_rate": 0.0,
+        "unique_tokens": 239,
+        "vocab_used_frac": 0.93359375,
+        "token_entropy_bits": 6.5889074521608055
+      }
+    },
+    "global": {
+      "nt": 9038945,
+      "tokens": 3044147,
+      "nt_per_token": 2.9692866343182507,
+      "unk": 0,
+      "unk_rate": 0.0,
+      "roundtrip_ok": 120,
+      "roundtrip_n": 120
+    },
+    "window_1kb_tokens": {
+      "mean": 337.85929648241205,
+      "p5": 328,
+      "p50": 338,
+      "p95": 347,
+      "n": 1194
+    },
+    "estimated_tokens_1_386gbp": 466778782,
+    "motifs": {
+      "TATAAT": {
+        "single_token": true,
+        "pieces": [
+          "TATAAT"
+        ],
+        "pieces_core": [
+          "TATAAT"
+        ],
+        "context_single_rate": 1.0,
+        "context_n": 719
+      },
+      "TTGACA": {
+        "single_token": true,
+        "pieces": [
+          "TTGACA"
+        ],
+        "pieces_core": [
+          "TTGACA"
+        ],
+        "context_single_rate": 1.0,
+        "context_n": 720
+      },
+      "AGGAGG": {
+        "single_token": true,
+        "pieces": [
+          "AGGAGG"
+        ],
+        "pieces_core": [
+          "AGGAGG"
+        ],
+        "context_single_rate": 0.703328509406657,
+        "context_n": 691
+      },
+      "ATG": {
+        "single_token": true,
+        "pieces": [
+          "ATG"
+        ],
+        "pieces_core": [
+          "ATG"
+        ],
+        "context_single_rate": 0.9930555555555556,
+        "context_n": 720
+      },
+      "TAA": {
+        "single_token": true,
+        "pieces": [
+          "TAA"
+        ],
+        "pieces_core": [
+          "TAA"
+        ],
+        "context_single_rate": 1.0,
+        "context_n": 720
+      },
+      "TAG": {
+        "single_token": true,
+        "pieces": [
+          "TAG"
+        ],
+        "pieces_core": [
+          "TAG"
+        ],
+        "context_single_rate": 1.0,
+        "context_n": 720
+      },
+      "TGA": {
+        "single_token": true,
+        "pieces": [
+          "TGA"
+        ],
+        "pieces_core": [
+          "TGA"
+        ],
+        "context_single_rate": 0.6583333333333333,
+        "context_n": 720
+      }
+    },
+    "iupac": {
+      "seq": "ACGTRYKMSWBDHVNN",
+      "pieces": [
+        "ACG",
+        "T",
+        "R",
+        "Y",
+        "K",
+        "M",
+        "S",
+        "W",
+        "B",
+        "D",
+        "H",
+        "V",
+        "N",
+        "N"
+      ],
+      "unk": 0,
+      "unk_rate": 0.0,
+      "piece_to_id": {
+        "R": 15,
+        "Y": 16,
+        "K": 17,
+        "M": 18,
+        "S": 19,
+        "W": 20,
+        "B": 21,
+        "D": 22,
+        "H": 23,
+        "V": 24,
+        "N": 25
+      },
+      "all_known": true
+    },
+    "special": {
+      "pad": {
+        "id": 0,
+        "piece": "<pad>"
+      },
+      "unk": {
+        "id": 1,
+        "piece": "<unk>"
+      },
+      "bos": {
+        "id": 2,
+        "piece": "<bos>"
+      },
+      "eos": {
+        "id": 3,
+        "piece": "<eos>"
+      },
+      "mask": {
+        "id": 4,
+        "piece": "<mask>"
+      },
+      "all_distinct": true
+    },
+    "n_run": {
+      "nt": 1000,
+      "tokens": 1000,
+      "nt_per_token": 1.0,
+      "unk_rate": 0.0
+    },
+    "dummy_prefix_pieces": 0,
+    "top_tokens": [
+      [
+        "TAA",
+        22181
+      ],
+      [
+        "TTG",
+        21954
+      ],
+      [
+        "TAG",
+        16097
+      ],
+      [
+        "ATG",
+        15382
+      ],
+      [
+        "AA",
+        9259
+      ],
+      [
+        "TT",
+        8350
+      ],
+      [
+        "CT",
+        7923
+      ],
+      [
+        "ATT",
+        7509
+      ],
+      [
+        "AG",
+        7436
+      ],
+      [
+        "CA",
+        7429
+      ],
+      [
+        "AAG",
+        7306
+      ],
+      [
+        "TCT",
+        6683
+      ],
+      [
+        "CCA",
+        6540
+      ],
+      [
+        "AT",
+        6124
+      ],
+      [
+        "GTG",
+        5927
+      ]
+    ]
+  },
+  "comparison": {
+    "nt_per_token_v2": 4.004221313980882,
+    "nt_per_token_v3": 2.9692866343182507,
+    "compression_ratio_v3_vs_v2": 0.7415390912462505,
+    "unk_rate_v2": 0.0,
+    "unk_rate_v3": 0.0,
+    "iupac_known_v2": false,
+    "iupac_known_v3": true,
+    "motifs_single_v2": 7,
+    "motifs_single_v3": 7,
+    "dummy_prefix_v2": 2,
+    "dummy_prefix_v3": 0,
+    "tokens_1_386gbp_v2": 346134714,
+    "tokens_1_386gbp_v3": 466778782
+  }
+}

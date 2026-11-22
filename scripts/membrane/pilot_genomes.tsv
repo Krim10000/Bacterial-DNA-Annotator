@@ -1,0 +1,14 @@
+# Genomas piloto membrane-builder (10 filas + cabecera).
+# Seleccion: 10 filoes distintos, genomas completos (no MAGs), 0.85-5.6 Mb,
+# con GFF/proteina/DIAMOND Swiss-Prot disponibles en data/annotations_ab_initio/.
+# genome	phylum	organism	rationale
+GCF_002157165.1_ASM215716v1	Pseudomonadota	Acidovorax carolinensis	suelo/agua dulce; betaproteobacteria con repertorio de transporte y secrecion
+GCF_016027375.1_ASM1602737v1	Bacillota	Clostridium perfringens	anaerobio Gram-positivo; sortasas, toxinas y sistemas de secrecion
+GCF_025725725.1_ASM2572572v1	Actinomycetota	Brachybacterium huguangmaarense	Actinomycetota de ambiente salino; alto GC y membrana compleja
+GCF_003815875.1_ASM381587v1	Bacteroidota	Chryseobacterium lactis	Bacteroidota ambiental; porinas y transportadores de membrana externa
+GCF_050500235.1_ASM5050023v1	Cyanobacteriota	Microcystis protocystis	Cianobacteria; membranas tilacoidales y transporte de nutrientes
+GCF_040833985.2_ASM4083398v1	Spirochaetota	Leptospira mgodei	Espiroqueta diderma; lipoproteinas y transporte de membrana externa
+GCF_000014025.1_ASM1402v1	Campylobacterota	Aliarcobacter butzleri	patogeno entérico; T4SS y sistemas de eflujo
+GCF_028622095.1_ASM2862209v1	Deinococcota	Deinococcus aquaticus	radiortolerante; envoltura y transporte de iones
+GCF_001027025.1_ASM102702v1	Thermotogota	Kosmotoga pacifica	termofilo; membrana y transporte adaptados a alta temperatura
+GCF_002804025.1_ASM280402v1	Mycoplasmatota	Mesoplasma tabanidae	genoma reducido sin pared; contraste de densidad de membrana/transporte

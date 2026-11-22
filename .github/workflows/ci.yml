@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "v1.0"]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Tests Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Instalar dependencias mínimas
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-annotator.txt pytest pyyaml
+      - name: Auditar rutas de scripts
+        run: python tools/audit_script_paths.py
+      - name: Compilar todos los módulos
+        run: python -m compileall -q scripts webapp modules tools
+      - name: Tests de la aplicación
+        run: python -m pytest tests -q
+      - name: Descubrimiento y autoprueba de módulos
+        run: |
+          python -m modules --list
+          python -m modules --selftest all
+      - name: Tests del motor de genes fantasma
+        working-directory: scripts/ghost
+        run: PYTHONPATH=. python -m unittest discover -s tests -q
+      - name: Comprobar sintaxis del instalador
+        run: |
+          bash -n install.sh
+          bash -n lanzar.sh
+          bash install.sh --dry-run --no-desktop
+
+  gui-smoke:
+    name: Arranque de la GUI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-annotator.txt
+      - name: Arrancar Streamlit y comprobar que responde
+        run: |
+          streamlit run webapp/app.py --server.headless true \
+            --server.port 8501 --browser.gatherUsageStats false &
+          for i in $(seq 1 40); do
+            sleep 1
+            if curl -sf -o /dev/null http://127.0.0.1:8501/; then
+              echo "GUI responde"; exit 0
+            fi
+          done
+          echo "La GUI no respondió"; exit 1
+
+  gui-playwright:
+    name: GUI clicable con Playwright
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Instalar dependencias y navegador
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-annotator.txt playwright
+          playwright install --with-deps chromium
+      - name: Arrancar la GUI
+        run: |
+          streamlit run webapp/app.py --server.headless true \
+            --server.port 8501 --browser.gatherUsageStats false &
+          for i in $(seq 1 40); do
+            sleep 1
+            curl -sf -o /dev/null http://127.0.0.1:8501/ && break
+          done
+      - name: Probar idiomas, demo y clic en un gen
+        run: python tools/gui_smoke.py http://127.0.0.1:8501
+      - name: Guardar capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gui-smoke
+          path: .scratch/gui_smoke
+          if-no-files-found: ignore

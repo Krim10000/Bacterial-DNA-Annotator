@@ -1,0 +1,7 @@
+include README.md README.en.md LICENSE NOTICE THIRD_PARTY_LICENSES.md DATA_NOTICE.md CITATION.cff
+recursive-include webapp/locales *.json
+recursive-include webapp/components *
+recursive-include webapp/samples *
+recursive-include docs *.md
+recursive-include LICENSES *.txt
+recursive-include modules *.py

@@ -1,0 +1,12 @@
+{
+ "checkpoint": "dna_model_v2_epoch6.pt",
+ "n_windows": 8,
+ "window_promoter": 256,
+ "auroc": {
+  "Promotores (TATAAT)": 0.6666666666666666,
+  "RBS (AGGAGG)": 0.3333333333333333,
+  "Start (ATG) vs Stop (TAA)": 0.3333333333333333
+ },
+ "device": "cpu",
+ "tokenizer": "data/tokenizer_v2/dna_sp_v2.model"
+}

@@ -1,0 +1,8 @@
+{
+  "checkpoint": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/checkpoints_descargados/checkpoints/dna_model_bidirectional_epoch6.pt",
+  "accuracy": 0.6923076923076923,
+  "auroc": 0.6666666666666667,
+  "n_windows": 65,
+  "pos_motif": "TATAAT",
+  "neg_motif": "GCGCGC"
+}

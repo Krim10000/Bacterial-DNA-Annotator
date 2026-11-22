@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "Si usas este proyecto en un trabajo académico, cita esta referencia y las herramientas que aparecen en THIRD_PARTY_LICENSES.md."
+title: "Anotador de ADN bacteriano: anotación, rutas metabólicas y regulación"
+type: software
+version: 1.0.0
+date-released: "2026-11-22"
+license: MIT
+authors:
+  - family-names: "Rojas Bravo"
+    given-names: "Camilo"
+    email: "Camilo.Rojas@usach.cl"
+    affiliation: "Universidad de Santiago de Chile (USACH)"
+keywords:
+  - bioinformatics
+  - bacterial genomics
+  - genome annotation
+  - metabolic gap filling
+  - operon prediction
+  - Streamlit
+abstract: >-
+  Anotador de genomas bacterianos desde cero: encuentra CDS, tRNA y rRNA,
+  descubre ORFs no anotados, reconstruye rutas metabólicas, busca brechas y
+  propone operones y promotores. Incluye una interfaz web en español, inglés y
+  chino, un navegador de genoma clicable y descargas en GFF3/TSV/JSON.
+notes: >-
+  Asistencia de desarrollo: DeepSeek Harness (DSH) con el modelo DeepSeek,
+  noviembre de 2026, en revisión de código, traducción de la interfaz,
+  documentación, pruebas de GUI y empaquetado. Las decisiones científicas, los
+  datos y la validación de resultados son responsabilidad del autor.

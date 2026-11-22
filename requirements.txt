@@ -1,0 +1,27 @@
+# núcleo de datos
+pyyaml>=6.0
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+scikit-learn>=1.3
+networkx>=3.0
+matplotlib>=3.7
+tqdm>=4.65
+requests>=2.31
+
+# genómica
+biopython>=1.76
+pyrodigal>=3.0
+
+# GUI
+streamlit>=1.30
+
+# estructura de ARN (terminadores, horquillas, ΔG)
+ViennaRNA>=2.6
+
+# modelo de ADN: solo para entrenar/inferir, no hace falta para anotar
+# torch>=2.0
+
+# Anotación estructural automática (M-CSA)
+enzymm>=0.5
+pyjess>=0.10

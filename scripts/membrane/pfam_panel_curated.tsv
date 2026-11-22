@@ -1,0 +1,260 @@
+# Panel Pfam curado para la capa de membrana/transporte (piloto membrane-builder).
+# Formato: pfam_name<TAB>role<TAB>subgroup<TAB>tc<TAB>note
+# role: transporter | sbp | secretion | membrane | lipoprotein | signal
+# tc: clase TC solo cuando la asignacion familia->TC es inequivoca; "." si no.
+# No se usa sustrato de esta tabla: el sustrato solo sale de Swiss-Prot explicito.
+ABC_tran	transporter	ABC	3.A.1	ATPase de sistemas ABC
+ABC_tran_2	transporter	ABC	3.A.1	ATPasa ABC putativa
+ABC_membrane	transporter	ABC	3.A.1	Permeasa de sistemas ABC
+ABC2_membrane	transporter	ABC	3.A.1	Permeasa ABC tipo 2
+ABC_export	transporter	T1SS/ABC	3.A.1	Exportador ABC (posible T1SS)
+ABC_trans_aux	lipoprotein	ABC-aux	3.A.1	Lipoproteina auxiliar de transporte ABC
+MFS_1	transporter	MFS	2.A.1	Major facilitator superfamily
+MFS_2	transporter	MFS	2.A.1	MFS/sugar transport
+Sugar_tr	transporter	MFS	2.A.1	Transportador de azucares MFS
+LacY_symp	transporter	MFS	2.A.1	Simportador proton/azucar LacY
+AA_permease	transporter	APC	2.A.3	Permeasa de aminoacidos APC
+AA_permease_2	transporter	APC	2.A.3	Permeasa de aminoacidos APC
+AA_permease_C	transporter	APC	2.A.3	Dominio C-terminal APC
+BCCT	transporter	BCCT	2.A.15	Betaina/carnitina/colina
+SSF	transporter	SSS	2.A.21	Simportador sodio:soluto
+Sulfate_transp	transporter	SulP	2.A.53	Permeasa de sulfato
+PHO4	transporter	PiT	2.A.20	Transportador de fosfato
+Ammonium_transp	transporter	Amt	2.A.49	Transportador de amonio
+MIP	transporter	MIP	1.A.8	Acuaporina/canal de agua
+Form_Nir_trans	transporter	FNT	2.A.44	Formiato/nitrito
+Nramp	transporter	NRAMP	2.A.55	Metales divalentes
+Cation_efflux	transporter	CDF	2.A.4	Eflujo de cationes
+Na_H_Exchanger	transporter	CPA	2.A.36	Antiporte Na+/H+
+TrkH	transporter	Trk	2.A.38	Transporte de K+
+K_trans	transporter	KUP	.	Transportador de K+
+CorA	transporter	CorA	1.A.35	Canal de Mg2+
+MgtE	transporter	MgtE	2.A.19	Transportador de Mg2+
+Zip	transporter	ZIP	2.A.5	Transportador de zinc
+FeoB_N	transporter	FeoB	2.A.68	Transporte ferroso
+FeoB_C	transporter	FeoB	2.A.68	Transporte ferroso, dominio C
+ACR_tran	transporter	RND	2.A.6	Eflujo RND (AcrB/AcrD/AcrF)
+MatE	transporter	MATE	2.A.66	Eflujo MATE
+EmrE	transporter	SMR	2.A.7	Eflujo SMR
+Multi_Drug_Res	transporter	SMR	2.A.7	Resistencia a multiples drogas, SMR
+DcuA_DcuB	transporter	DASS	2.A.13	Transportador anaerobio C4-dicarboxilato
+DcuC	transporter	DASS	2.A.13	Transportador C4-dicarboxilato
+DctM	transporter	TRAP	2.A.56	Componente M de TRAP
+DctQ	transporter	TRAP	2.A.56	Componente Q de TRAP
+TctA	transporter	TTT	2.A.80	Tripartito tricarboxilato
+TctB	transporter	TTT	2.A.80	Tripartito tricarboxilato
+TctC	sbp	TTT	2.A.80	Receptor periplasmico tripartito
+PUNUT	transporter	NCS2	.	Purinas/nucleobases
+Xan_ur_permease	transporter	NCS2	2.A.40	Xantina/uracilo
+Nucleoside_tran	transporter	NCS1	2.A.41	Nucleosidos
+Nuc_H_symport	transporter	NCS1	2.A.41	Nucleosidos/H+
+PTR2	transporter	POT	2.A.17	Oligopeptidos/dipeptidos
+oligo_HPY	transporter	POT	2.A.17	Oligopeptidos/dipeptidos
+OmpC-like	transporter	POT	2.A.17	Permeasa de oligopeptidos
+OPT	transporter	OPT	2.A.67	Transportador de oligopeptidos
+FecCD	transporter	Fe3+	2.A.54	Transporte de hierro ferrichromo
+TonB_dep_Rec_b-barrel	transporter	TonB	1.B.14	Receptor dependiente de TonB
+Porin_1	transporter	porin	1.B.1	Porina general Gram-negativa
+Porin_2	transporter	porin	1.B.1	Porina
+Porin_4	transporter	porin	1.B.1	Porina Gram-negativa
+Porin_7	transporter	porin	1.B.1	Porina general bacteriana
+Porin_OmpG	transporter	porin	1.B.1	Porina OmpG
+Porin_OmpL1	transporter	porin	1.B.1	Porina de Leptospira
+LamB	transporter	porin	1.B.1	Maltoporina
+OmpW	transporter	porin	.	Porina OmpW
+MscL	transporter	channel	1.A.22	Canal mecano-sensible MscL
+MscS_TM	transporter	channel	1.A.23	Canal mecano-sensible MscS
+MscS_porin	transporter	channel	1.A.23	Canal mecano-sensible MscS
+E1-E2_ATPase	transporter	P-type	3.A.3	ATPasa tipo P (bomba de cationes)
+LptF_LptG	transporter	Lpt	.	Permeasa de exportacion de LPS
+LptD	transporter	Lpt	.	Translocon LptD
+LptD_2	transporter	Lpt	.	LptD
+LptC	membrane	Lpt	.	LptC
+LptE	lipoprotein	Lpt	.	Lipoproteina LptE
+FtsX	transporter	ABC-like	.	Permeasa FtsX
+FtsX_ECD	transporter	ABC-like	.	Dominio extracelular FtsX
+ExbD	transporter	TonB	.	Complejo ExbB/ExbD
+MotA_ExbB	membrane	Mot	.	Canal MotA/TolQ/ExbB
+MotB_plug	membrane	Mot	.	MotB
+SBP_bac_1	sbp	SBP	.	Proteina de union a solutos bacteriana
+SBP_bac_3	sbp	SBP	.	Proteina de union a solutos bacteriana
+SBP_bac_5	sbp	SBP	.	Proteina de union a solutos bacteriana
+SBP_bac_6	sbp	SBP	.	Proteina de union a solutos bacteriana
+SBP_bac_8	sbp	SBP	.	Proteina de union a solutos bacteriana
+SBP_bac_11	sbp	SBP	.	Proteina de union a solutos bacteriana
+ABC_sub_bind	sbp	SBP	.	SBP de transportador ABC
+Bmp	sbp	SBP	.	SBP tipo PnrA
+ZnuA	sbp	SBP	.	Componente periplasmico de captacion de zinc
+SecY	membrane	Sec	3.A.5	Translocon SecY
+SecE	membrane	Sec	3.A.5	Translocon SecE
+SecG	membrane	Sec	3.A.5	Translocon SecG
+SecD_SecF_C	membrane	Sec	3.A.5	SecD/SecF
+SecD-TM1	membrane	Sec	3.A.5	SecD TM1
+SecD_1st	membrane	Sec	3.A.5	SecDF P1
+SecDF_P1_head	membrane	Sec	3.A.5	SecDF P1
+YajC	membrane	Sec	3.A.5	Subunidad YajC
+SecA_PP_bind	secretion	Sec	3.A.5	ATPasa SecA
+SecA_DEAD	secretion	Sec	3.A.5	ATPasa SecA
+SecA_C	secretion	Sec	3.A.5	ATPasa SecA C-terminal
+60KD_IMP	membrane	YidC	.	Insertasa YidC/Oxa1
+YidC_periplas	membrane	YidC	.	Dominio periplasmico YidC
+YidC_C	membrane	YidC	.	Dominio C-terminal YidC
+TatA_B_E	secretion	Tat	2.A.64	Translocasa TatA
+TatC	secretion	Tat	2.A.64	Translocasa TatC
+TatB_TM	secretion	Tat	2.A.64	TatB
+LGT	membrane	lipoprotein-biogenesis	.	Lgt: transferasa diacilglicerol
+Peptidase_A8	membrane	lipoprotein-biogenesis	.	LspA: peptidasa senal II
+Peptidase_S26	membrane	SPase-I	.	Peptidasa senal I
+LNT_N	membrane	lipoprotein-biogenesis	.	Lnt: aciltransferasa de lipoproteinas
+LntA_helical	membrane	lipoprotein-biogenesis	.	Lnt
+LolA	lipoprotein	Lol	.	Transportador de lipoproteinas LolA
+LolB	lipoprotein	Lol	.	Lipoproteina LolB
+LptM_cons	lipoprotein	Lpt	.	Lipoproteina LptM
+MlaA	lipoprotein	Mla	.	Lipoproteina MlaA
+RcsF	lipoprotein	Rcs	.	Lipoproteina RcsF
+Slp	lipoprotein	Slp	.	Lipoproteina de membrana externa Slp
+SusD-like	lipoprotein	SusD	.	Lipoproteina SusD/RagB
+Lipoprotein_1	lipoprotein	lipoprotein	.	Familia de lipoproteinas
+Lipoprotein_2	lipoprotein	lipoprotein	.	Familia de lipoproteinas
+Lipoprotein_3	lipoprotein	lipoprotein	.	Familia de lipoproteinas
+Lipoprotein_6	lipoprotein	lipoprotein	.	Familia de lipoproteinas
+Lipoprotein_7	lipoprotein	lipoprotein	.	Adhesina lipoproteina
+Lipoprotein_8	lipoprotein	lipoprotein	.	Lipoproteina hipotetica
+Lipoprotein_9	lipoprotein	lipoprotein	.	Lipoproteina NlpA
+Lipoprotein_10	lipoprotein	lipoprotein	.	Lipoproteina de micoplasma
+Lipoprotein_16	lipoprotein	lipoprotein	.	Lipoproteina no caracterizada
+Lipoprotein_17	lipoprotein	lipoprotein	.	Dominio asociado a lipoproteina
+Lipoprotein_19	lipoprotein	lipoprotein	.	Lipoproteina YnbE
+Lipoprotein_20	lipoprotein	lipoprotein	.	Lipoproteina YfhG
+Lipoprotein_21	lipoprotein	lipoprotein	.	Lipoproteina LppP/LprE
+Lipoprotein_22	lipoprotein	lipoprotein	.	Familia de lipoproteinas
+Lipoprotein_23	lipoprotein	lipoprotein	.	Lipoproteina no caracterizada
+LPP	lipoprotein	lipoprotein	.	Lipoproteina con cremallera de leucina
+LppA	lipoprotein	lipoprotein	.	Lipoproteina de Mycobacterium
+Lpp-LpqN	lipoprotein	lipoprotein	.	Lipoproteina LpqN
+LppX_LprAFG	lipoprotein	lipoprotein	.	Lipoproteina LppX/LprA
+LpqE-like	lipoprotein	lipoprotein	.	Lipoproteina LpqE
+LpqS	lipoprotein	lipoprotein	.	Lipoproteina LpqS
+LpqV	lipoprotein	lipoprotein	.	Lipoproteina LpqV
+LprD	lipoprotein	lipoprotein	.	Lipoproteina LprD
+Lpr_N	lipoprotein	lipoprotein	.	Lipoproteina Lpr
+Lipoprotein_Ltp	lipoprotein	lipoprotein	.	Lipoproteina de superficie
+Lipl32	lipoprotein	lipoprotein	.	Lipoproteina de Spirochaetales
+Lepto_lipo	lipoprotein	lipoprotein	.	Lipoproteina de Leptospira
+Mollicu_LP	lipoprotein	lipoprotein	.	Lipoproteina de Mollicutes
+Mlp	lipoprotein	lipoprotein	.	Familia de lipoproteinas Mlp
+LPP20	lipoprotein	lipoprotein	.	Lipoproteina LPP20
+MapA_lipoprotein	lipoprotein	lipoprotein	.	Lipoproteina MapA
+InvH	lipoprotein	lipoprotein	.	Lipoproteina InvH
+LPAM_1	lipoprotein	lipobox	.	Sitio de union lipidica de lipoproteinas
+Secretin	secretion	T2SS/T3SS	.	Secretina
+Secretin_N	secretion	T2SS/T3SS	.	Secretina, dominio N
+Secretin_N_2	secretion	T2SS/T3SS	.	Secretina, dominio N
+T2SSB	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SSC	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SSE	secretion	T2SS/T4SS	.	ATPasa de T2SS/T4SS
+T2SSE_N	secretion	T2SS	.	ATPasa T2SS, dominio N
+T2SSF	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SSG	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SSI	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SSJ	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SSK	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SSL	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SSM	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SSM_N	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SSN	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SSppdC	secretion	T2SS	.	Sistema de secrecion tipo II
+T2SS_GspG	secretion	T2SS	.	Pseudopilina GspG
+T2SS_PulS_OutS	secretion	T2SS	.	Pilotina lipoproteina
+GspD_N	secretion	T2SS	.	Secretina GspD, dominio N
+GspE_helical	secretion	T2SS	.	ATPasa GspE
+GSPE_N1E	secretion	T2SS	.	ATPasa GspE
+GspH	secretion	T2SS	.	Pseudopilina GspH
+GspL_M	secretion	T2SS	.	GspL transmembrana
+GspL_C	secretion	T2SS	.	GspL periplasmico
+Bac_export_2	secretion	T3SS	.	FlhB/HrpN/YscU/SpaS
+T3SS_needle_E	secretion	T3SS	.	Componente de aguja T3SS
+T3SS_needle_F	secretion	T3SS	.	Aguja T3SS
+T3SS_needle_reg	secretion	T3SS	.	Regulador de aguja T3SS
+T3SS_ATPase_C	secretion	T3SS	.	ATPasa EscN
+T3SS_SCTL	secretion	T3SS	.	Proteina estator T3SS
+T3SS_TC	secretion	T3SS	.	Componente del complejo de punta
+T3SS_LEE_assoc	secretion	T3SS	.	Subunidad asociada a LEE
+PrgH	secretion	T3SS	.	PrgH/EprH
+OrgA_MxiK	secretion	T3SS	.	OrgA/MxiK
+HrpE	secretion	T3SS	.	HrpE/YscL/FliH
+HrpB1_HrpK	secretion	T3SS	.	HrpB1/HrpK
+HrpB2	secretion	T3SS	.	HrpB2
+HrpB4	secretion	T3SS	.	HrpB4
+HrpB7	secretion	T3SS	.	HrpB7
+YscW	secretion	T3SS	.	Chaperona lipoproteina YscW
+Chaperone_III	secretion	T3SS	.	Chaperona T3SS
+T4SS	secretion	T4SS	.	Sistema de secrecion tipo IV
+T4SS-DNA_transf	secretion	T4SS	.	Transferencia de ADN T4SS
+T4SS_pilin	secretion	T4SS	.	Pilina T4SS
+CagE_TrbE_VirB	secretion	T4SS	.	Componente T4SS
+CagX	secretion	T4SS	.	Proteina de transferencia conjugal
+VirB8	secretion	T4SS	.	VirB8
+VirB4_C	secretion	T4SS	.	ATPasa VirB4
+VirB4_TrbE_N	secretion	T4SS	.	ATPasa VirB4/TrbE
+VirD4_N	secretion	T4SS	.	Proteina de acoplamiento VirD4
+TrbL	secretion	T4SS	.	TrbL/VirB6
+TrbL_2	secretion	T4SS	.	TrbL/VirB6
+TrbL_3	secretion	T4SS	.	TrbL/VirB6
+TrbL_4	secretion	T4SS	.	TrbL/VirB6
+TrbL_5	secretion	T4SS	.	TrbL/VirB6
+TraD	secretion	T4SS	.	Transferencia conjugal TraD
+TraG_hel	secretion	T4SS	.	TraG helicoidal
+Autotransporter	secretion	T5SS	.	Autotransportador
+Omp_AT	secretion	T5SS	.	Autotransportador de membrana externa
+IAT_beta	secretion	T5SS	.	Autotransportador inverso
+Pertactin	secretion	T5SS	.	Pertactina
+ShlB	secretion	T5SS	.	ShlB/FhaC/HecB
+AIDA	secretion	T5SS	.	Adhesina autotransportadora AIDA
+Autotransptr-assoc	secretion	T5SS	.	Dominio asociado a autotransportador
+TssC	secretion	T6SS	.	TssC/VipB
+TssC_VipB_N	secretion	T6SS	.	TssC/VipB
+TssC_VipB_C	secretion	T6SS	.	TssC/VipB
+TssD	secretion	T6SS	.	Hcp/TssD
+T6SS-SciN	secretion	T6SS	.	Lipoproteina TssJ
+TssM_N_TM	secretion	T6SS	.	TssM
+IcmF-related	secretion	T6SS	.	IcmF
+IcmF-related_N	secretion	T6SS	.	IcmF
+IcmF_C	secretion	T6SS	.	IcmF
+DotU	secretion	T6SS	.	DotU
+T6SS_VipA	secretion	T6SS	.	VipA
+VipB	secretion	T6SS	.	VipB
+VipB_2	secretion	T6SS	.	VipB
+T6SS_HCP	secretion	T6SS	.	Hcp
+T6SS_TssF	secretion	T6SS	.	TssF
+T6SS_TssG	secretion	T6SS	.	TssG
+T6SS_VasE	secretion	T6SS	.	VasE
+T6SS_VasJ	secretion	T6SS	.	VasJ
+TssN	secretion	T6SS	.	TssN
+TssO	secretion	T6SS	.	TssO
+VasL	secretion	T6SS	.	VasL
+TssR	secretion	T6SS	.	TssR
+EssA	secretion	T7SS	.	EssA/Wss
+EccC_N	secretion	T7SS	.	EccC
+EccC_2nd	secretion	T7SS	.	EccC
+EccD	secretion	T7SS	.	EccD
+EccE	secretion	T7SS	.	EccE
+T7SS_ESX1_EccB	secretion	T7SS	.	EccB
+YukC	secretion	T7SS	.	YukC
+YukD	secretion	T7SS	.	YukD
+CsgG	secretion	T8SS	.	CsgG
+CsgF	secretion	T8SS	.	CsgF
+CHU_C	secretion	T9SS-substrate	.	Senal de secrecion tipo IX
+Por_Secre_tail	secretion	T9SS-substrate	.	Cola de secrecion T9SS
+PorP_SprF	secretion	T9SS	.	PorP/SprF
+PorV	secretion	T9SS	.	PorV
+PorU_2nd	secretion	T9SS	.	PorU
+PorD	secretion	T9SS	.	PorD
+Sortase	secretion	sortase	.	Sortasa
+Gram_pos_anchor	secretion	sortase-substrate	.	Motivo LPXTG
+LPXTG_assoc	secretion	sortase-substrate	.	Dominio asociado a LPXTG
+YSIRK_signal	signal	SP-Gram+	.	Signal peptide YSIRK
+ESPR	signal	SP-T5SS	.	Signal peptide extendido T5SS
+Class_IIIsignal	signal	SP-arquea	.	Signal peptide clase III
+KxYKxGKxW_sig	signal	SP-Gram+	.	Signal peptide KxYKxGKxW
+TAT_signal	signal	Tat-signal	.	Senal de translocacion Tat

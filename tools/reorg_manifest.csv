@@ -1,0 +1,28 @@
+source_dir,target_dir,py_files,action,risk,notes
+00_data_prep,data_prep,9,move,low,renombrar prefijo numérico
+01_annotation,annotation,8,move+merge,medium,fusiona con 04_defense; colisión orchestrator.py
+04_defense,annotation,4,merge,medium,renombrar orchestrator.py a orchestrator_defense.py
+03_oric,oric,8,move,low,
+05_metabolism,metabolism,29,move+merge,medium,fusiona con 12_transport_t1
+12_transport_t1,metabolism,6,merge,low,sin colisiones de nombres
+06_mobile,mobile,13,move,low,
+07_membrane,membrane,7,move,low,
+08_taxonomy,taxonomy,13,move,low,
+06_structure_3d,structure,3,merge,medium,renombrar orchestrator.py si colisiona
+15_structure,structure,14,move+merge,medium,
+15_allostery,allostery,30,move,medium,rutas absolutas a scripts/15_allostery
+10_regulation,regulation,7,move+merge,high,importa 09_ghost y 11_validation
+13_tss_tts,regulation,4,merge,high,11 scripts inyectan 12_operon_finder
+10_chains,regulation,2,merge,low,
+12_operon_finder,regulation,13,merge,high,11 consumidores por sys.path; se fusiona con regulation y se actualizan las 11 rutas
+11_evidence,evidence,15,move+merge,medium,fusiona con 13_reannotation
+13_reannotation,evidence,3,merge,low,
+11_validation,validation,25,move+merge,high,fusiona con 02_benchmark; muchos consumidores
+02_benchmark,validation,4,merge,medium,orchestrator.py único
+07_ml,07_ml,5,keep,low,fuera de alcance v1.0 (ML custom; no se mueve)
+08_eval,08_eval,2,keep,low,fuera de alcance v1.0 (ML custom; no se mueve)
+12_interpretability,interpretability,6,move,low,
+09_ghost,ghost,4,move,high,paquete ghost/ + tests/ + Dockerfile + CI
+14_targets,targets,9,move,low,sin __main__; revisar si convertirlos en CLI
+lib,lib,5,keep,low,imports desde scripts/lib
+tests,tests,2,keep,low,unificar con tests de ghost en fase posterior

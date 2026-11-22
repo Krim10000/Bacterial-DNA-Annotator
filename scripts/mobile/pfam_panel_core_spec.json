@@ -1,0 +1,157 @@
+{
+  "panel_version": "core-2026-11-20",
+  "_comment": "Panel n\u00facleo para el barrido de 400 genomas: subconjunto espec\u00edfico del panel de 339 del piloto. Excluye modelos amplios que solo daban falsos positivos (MFS_1, Lactamase_B, APH gen\u00e9rico, Penicillinase_R, WHD_BLACT, RE_* tipo II) y subdominios Cas redundantes.",
+  "categories": {
+    "transposase": [
+      "PF01609",
+      "PF13586",
+      "PF13612",
+      "PF13701",
+      "PF13737",
+      "PF13751",
+      "PF13843",
+      "PF03400",
+      "PF03050",
+      "PF13817",
+      "PF01610",
+      "PF01526",
+      "PF12762",
+      "PF13610",
+      "PF01710"
+    ],
+    "integrase": [
+      "PF00665",
+      "PF13333",
+      "PF13683",
+      "PF00589",
+      "PF00239",
+      "PF12835"
+    ],
+    "cas": [
+      "PF03750",
+      "PF08506",
+      "PF09481",
+      "PF09485",
+      "PF09559",
+      "PF09827",
+      "PF10040",
+      "PF12469",
+      "PF16592",
+      "PF16593",
+      "PF16595",
+      "PF17262",
+      "PF17893",
+      "PF17894",
+      "PF17952",
+      "PF17955",
+      "PF18019",
+      "PF18061",
+      "PF18070",
+      "PF18395",
+      "PF18470",
+      "PF18525",
+      "PF19308",
+      "PF20158",
+      "PF20822",
+      "PF20823",
+      "PF20824",
+      "PF21350",
+      "PF21384",
+      "PF21574"
+    ],
+    "restriction": [
+      "PF39139",
+      "PF33327",
+      "PF12161",
+      "PF30447",
+      "PF04471",
+      "PF38120",
+      "PF10117",
+      "PF01555",
+      "PF11407",
+      "PF11487"
+    ],
+    "toxin_antitoxin": [
+      "PF06296",
+      "PF02452",
+      "PF04014",
+      "PF01845",
+      "PF07362",
+      "PF07927",
+      "PF05534",
+      "PF09907",
+      "PF05016",
+      "PF15738",
+      "PF06769",
+      "PF15723",
+      "PF02604"
+    ],
+    "phage": [
+      "PF03592",
+      "PF04466",
+      "PF05119",
+      "PF04860",
+      "PF05065",
+      "PF13272",
+      "PF16936",
+      "PF00959",
+      "PF04984",
+      "PF06199",
+      "PF04865",
+      "PF07921",
+      "PF03335",
+      "PF03406"
+    ],
+    "conjugation": [
+      "PF03432",
+      "PF03389",
+      "PF07996",
+      "PF02534",
+      "PF06412"
+    ],
+    "defense_other": [
+      "PF08849",
+      "PF08747",
+      "PF11009",
+      "PF10923",
+      "PF26305",
+      "PF38652",
+      "PF14253",
+      "PF10899",
+      "PF08665",
+      "PF08870"
+    ],
+    "amr_betalactam": [
+      "PF00144",
+      "PF13354"
+    ],
+    "amr_aminoglycoside": [
+      "PF02522",
+      "PF13427",
+      "PF04655"
+    ],
+    "amr_chloramphenicol": [
+      "PF00302",
+      "PF07931"
+    ],
+    "amr_efflux": [
+      "PF00893",
+      "PF13536",
+      "PF10766",
+      "PF17080",
+      "PF05232"
+    ],
+    "virulence": [
+      "PF00353",
+      "PF02794",
+      "PF06109",
+      "PF00419",
+      "PF04619",
+      "PF01024",
+      "PF03498",
+      "PF01376",
+      "PF03433",
+      "PF03507"
+    ]
+  }
+}

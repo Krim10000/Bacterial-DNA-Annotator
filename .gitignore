@@ -1,0 +1,87 @@
+# ---------------------------------------------------------------------------
+# Datos y salidas regenerables (no se publican)
+# ---------------------------------------------------------------------------
+data/**
+!data/README.md
+logs/
+logs_*.log
+out/
+out_fl/
+reports/*.png
+reports/*.pdf
+cache/
+.cache/
+.scratch/
+
+# Bases de datos grandes
+Rfam.cm*
+*.dmnd
+*.hmm
+*.hmm.gz
+data/db/
+data/doric*/
+data/doric*
+doric*.tar.gz
+doric*.rar
+data/terminators/
+data/regulondb/
+data/dbtbs/
+
+# Modelos y pesos (se regeneran o se descargan aparte)
+*.pt
+*.pth
+*.pkl
+*.pkl.gz
+*.ckpt
+checkpoints_descargados/
+dna_model*.pt
+dna_cloud_package*.tar.gz
+
+# Herramientas descargadas
+foldseek/
+diamond-linux64.tar.gz
+
+# Anotaciones y artefactos derivados
+data/annotations_ab_initio/
+data/parsed_annotations/
+data/embeddings/
+data/regulation/
+data/processed*/
+data/raw/
+data/raw_excluded/
+data/tokenizer/*.model
+data/tokenizer/*.vocab
+data/tokenizer/corpus.txt
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.venv_*/
+venv/
+.env
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.whl
+
+# ---------------------------------------------------------------------------
+# Sistema y editores
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+.ipynb_checkpoints/
+
+# Configuración local de la interfaz
+.cache/ui_config.json
+
+# Repositorio limpio generado por tools/make_release_repo.sh
+dist/

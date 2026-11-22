@@ -1,0 +1,3 @@
+# Opcional: puntuación de "sentido biológico" con ESM-2 8M (CPU)
+torch>=2.0
+fair-esm>=0.4

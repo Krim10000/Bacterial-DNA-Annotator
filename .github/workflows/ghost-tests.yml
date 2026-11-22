@@ -1,0 +1,28 @@
+name: ghost-tests
+
+on:
+  push:
+    paths:
+      - "scripts/ghost/**"
+      - "webapp/**"
+  pull_request:
+    paths:
+      - "scripts/ghost/**"
+      - "webapp/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Instalar dependencias mínimas
+        run: pip install numpy
+      - name: Pruebas del motor
+        working-directory: scripts/ghost
+        run: PYTHONPATH=. python -m unittest discover -s tests -v
+      - name: Smoke test de la webapp
+        working-directory: webapp
+        run: python -c "import ast; ast.parse(open('app.py').read()); ast.parse(open('annotator.py').read()); print('webapp OK')"
