@@ -1,8 +1,9 @@
 # Complejos con CPU: evaluación restringida por vecindad génica
 
 **Estado 2026-11-23:** fase 1 implementada en `webapp/complexes.py` (18 firmas,
-`complexes.tsv`, columnas en proteínas y brechas, tabla GUI), auditoría de los
-400 en `tools/audit_complexes_400.py` y pista `complexes` en el navegador.
+`complexes.tsv`, columnas en proteínas y brechas, tabla GUI), puente al modelo
+K-12 existente (`webapp/complex_model.py`), auditoría de los 400 en
+`tools/audit_complexes_400.py` y pista `complexes` en el navegador.
 No hay todavía template PDB/Foldseek para interfaz cuaternaria.
 
 ## Principio
