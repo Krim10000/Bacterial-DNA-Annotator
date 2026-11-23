@@ -62,6 +62,18 @@ En estos casos, la actividad catalítica puede residir en una subunidad, pero la
 reacción fisiológica requiere el complejo. La anotación individual puede ser
 correcta y la red seguir mostrando una brecha.
 
+## Primer resultado real
+
+En `GCF_000006985.1_ASM698v1` (158 brechas, 6 complejos por vecindad):
+
+- 0/158 brechas pudieron asociarse a un complejo por EC/Rhea;
+- los complejos detectados (ATP sintasa, NADH deshidrogenasa, nitrogenasa,
+  citocromo bc1, Fts) no explican las brechas de este genoma;
+- las 158 quedan `not_evaluated`, no `closed`.
+
+Interpretación: en este genoma la estructura cuaternaria **no** es la
+explicación principal de las brechas. No se fuerza una asociación.
+
 ## Cómo diagnosticarlo sin GPU
 
 1. **Mapa reacción → complejo** con Complex Portal, EcoCyc/MetaCyc (si hay
