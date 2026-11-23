@@ -42,6 +42,7 @@ full = [
   "pyyaml>=6.0",
   "ViennaRNA>=2.6",
 ]
+oric = ["orcapy==1.0.1"]
 esm = ["torch>=2.0", "fair-esm>=0.4"]
 dev = ["pytest>=8.0", "pytest-cov>=5.0"]
 

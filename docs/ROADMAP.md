@@ -132,3 +132,5 @@ base funcional curada, empaquetado y benchmark público.
 - [`PROTEINAS_REGULADORAS.md`](PROTEINAS_REGULADORAS.md)
 - [`PIPELINE_GENOMA.md`](PIPELINE_GENOMA.md)
 - [`GPU_STATUS.md`](GPU_STATUS.md)
+- [`BENCHMARK.md`](BENCHMARK.md)
+- [`INTEGRATIONS.md`](INTEGRATIONS.md)

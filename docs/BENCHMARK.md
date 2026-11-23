@@ -92,6 +92,8 @@ basarse en funciones y benchmarks, no en popularidad.
 **No hacer:** reescribir el pipeline, competir con PGAP en submission, prometer
 FBA o presentar EGAPx/RAST como comparadores bacterianos.
 
+Plan de integración concreta: [`INTEGRATIONS.md`](INTEGRATIONS.md).
+
 ## Fuentes
 
 - https://github.com/Krim10000/Bacterial-DNA-Annotator
