@@ -1,0 +1,31 @@
+name: "✨ Idea / mejora"
+description: "Propón una función, módulo o mejora de documentación"
+title: "[idea] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: ¿Qué problema resuelve?
+      description: "Describe el uso real, no solo la función."
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: "Cómo lo imaginas; si es un módulo, qué opciones tendría."
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Alcance
+      options:
+        - Ciencia / pipeline
+        - GUI
+        - Módulo nuevo
+        - Documentación / traducción
+        - Instalación / distribución
+    validations:
+      required: true

@@ -4,7 +4,8 @@ from __future__ import annotations
 import shutil
 from pathlib import Path
 
-from modules.base import Module, ModuleStatus, Option
+from modules._summary import read_tsv, write_summary
+from modules.base import Module, ModuleResult, ModuleStatus, Option, RunContext
 
 
 def _status(data_root: Path):
@@ -13,6 +14,27 @@ def _status(data_root: Path):
         return ModuleStatus(False, ("No se encontraron Foldseek ni P2Rank.",),
                             {"tools": tools})
     return ModuleStatus(True, detail={"tools": tools})
+
+
+def _run(ctx: RunContext, _inputs=None) -> ModuleResult:
+    base = ctx.data_root / "metabolism" / "targets"
+    files = {
+        "revision": base / "FIVE_FILTERS_1000_REVIEW.tsv",
+        "alpha_fill": base / "ALPHAFILL_HITS.tsv",
+        "sitios_activos": base / "ACTIVE_SITE_STRUCTURAL_MAP.tsv",
+        "candidatos": base / "STRUCTURAL_CANDIDATES.tsv",
+    }
+    if not base.exists():
+        return ModuleResult("structure", False,
+                            error="Falta data/metabolism/targets.")
+    data = {"source": str(base), "rows": {}}
+    for key, path in files.items():
+        data["rows"][key] = len(read_tsv(path)) if path.exists() else None
+    pdb = base / "structures"
+    data["pdb_files"] = len(list(pdb.glob("*.pdb"))) if pdb.exists() else 0
+    out, res = write_summary(ctx, "structure", "structure", data)
+    res.outputs["source"] = base
+    return res
 
 
 def _selftest() -> str:
@@ -44,6 +66,8 @@ MODULE = Module(
                help="Predice la estructura del ORF exacto; opcional y de pago."),
     ),
     docs="docs/FIVE_STRUCTURAL_FILTERS.md",
+    run_label="Resumir estructura",
+    run_fn=_run,
     selftest_fn=_selftest,
     status_fn=_status,
     estimate_fn=lambda cfg: "1–5 min por proteína (ESMFold: 1–2 min y crédito)",

@@ -1,5 +1,7 @@
 # Módulos autodescubiertos
 
+🌐 **Español** · [English](MODULES.en.md)
+
 La aplicación tiene dos capas:
 
 1. **Núcleo** (`webapp/`): anotación, navegador, datos, i18n.
@@ -127,17 +129,17 @@ Metabolismo consume las proteínas de Anotación).
 | `annotation` | Anotación de FASTA | 10 | sí |
 | `metabolism` | Red metabólica y brechas | 5 | sí (requiere datos) |
 | `regulation` | Regulación y operones | 4 | ✅ resumen por genoma |
-| `structure` | Estructura y filtros | 6 | pendiente |
+| `structure` | Estructura y filtros | 6 | ✅ resumen global |
 | `mobile` | Móviles y defensa | 4 | ✅ resumen por genoma |
-| `ghost` | Genes fantasma | 3 | pendiente |
+| `ghost` | Genes fantasma | 3 | ✅ ejecuta sobre FASTA |
 | `taxonomy` | Taxonomía y ANI | 4 | ✅ resumen por genoma |
 | `membrane` | Membrana y transporte | 4 | ✅ resumen por genoma |
 | `targets` | Targets esenciales | 3 | ✅ resumen global |
 | `validation` | Validación y benchmarks | 4 | ✅ resumen global |
 
 Los módulos de resumen leen tablas/JSON ya calculados y devuelven conteos
-verificables; **no recalculan** el pipeline. `structure` y `ghost` siguen
-pendientes de conectar su ejecución. Todos se pueden probar con
+verificables; **no recalculan** el pipeline. `ghost` sí ejecuta el motor de ORFs
+sobre un FASTA de entrada. Todos se pueden probar con
 `python -m modules --selftest <id>`.
 
 ## CLI

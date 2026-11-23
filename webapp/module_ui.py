@@ -127,7 +127,7 @@ def _run_inputs(module: Module, data_root: Path):
             return None
         return st.selectbox(tr("Genoma"), genomes,
                             key=f"mod_genome_{module.id}")
-    if module.id == "annotation":
+    if module.input_kind == "fasta":
         uploaded = st.file_uploader(
             tr("FASTA para anotar"), type=["fa", "fna", "fasta", "fas", "gz"],
             accept_multiple_files=True, key="mod_annot_files",

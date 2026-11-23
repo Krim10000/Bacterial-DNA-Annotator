@@ -2,6 +2,8 @@
 
 # 🧬 Bacterial DNA annotator
 
+[![CI](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml/badge.svg)](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/Krim10000/Bacterial-DNA-Annotator)](https://github.com/Krim10000/Bacterial-DNA-Annotator/releases)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12-blue)](pyproject.toml)
@@ -188,7 +190,7 @@ python -m modules --describe annotation
 python -m modules --selftest annotation
 ```
 
-Full contract in [`docs/MODULES.md`](docs/MODULES.md).
+Full contract in [`docs/MODULES.en.md`](docs/MODULES.en.md).
 
 ## 📦 Data: what the repository includes and what it does not
 

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "🙏 Créditos y licencias"
+    url: "https://github.com/Krim10000/Bacterial-DNA-Annotator/blob/v1.0/THIRD_PARTY_LICENSES.md"
+    about: "Antes de reportar, revisa la autoría y las licencias de datos y herramientas."
+  - name: "🔐 Seguridad"
+    url: "https://github.com/Krim10000/Bacterial-DNA-Annotator/blob/v1.0/SECURITY.md"
+    about: "No abras un issue público para vulnerabilidades."

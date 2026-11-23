@@ -998,5 +998,9 @@
  "Sin tabla de componentes. Genera con `python scripts/validation/operon_components.py`.": "没有组件表。用 `python scripts/validation/operon_components.py` 生成。",
  "Sin horquillas anotadas. Genera con `bash run_pipeline.sh hairpins` (K-12) o `python scripts/regulation/annotate_hairpins.py --gff ... --fasta ...`.": "没有注释的发夹结构。用 `bash run_pipeline.sh hairpins`（K-12）或 `python scripts/regulation/annotate_hairpins.py --gff ... --fasta ...` 生成。",
  "¿Te sirvió?": "对你有帮助吗？",
- "Dale una estrella en GitHub:": "在 GitHub 上给它一颗星："
+ "Dale una estrella en GitHub:": "在 GitHub 上给它一颗星：",
+ "Resumir estructura": "汇总结构",
+ "Buscar genes fantasma": "寻找幽灵基因",
+ "🔬 Hipótesis estructurales": "🔬 结构假设",
+ "No se encontraron ORFs candidatos.": "未找到候选 ORF。"
 }

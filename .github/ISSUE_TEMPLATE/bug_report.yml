@@ -1,0 +1,58 @@
+name: "🐛 Error / Bug"
+description: "Algo no funciona o da un resultado incorrecto"
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar. Incluye el comando exacto y el genoma/etapa.
+        No adjuntes datos restringidos ni claves.
+  - type: input
+    id: version
+    attributes:
+      label: Versión
+      description: "Salida de `cat VERSION` o commit (`git log -1 --oneline`)"
+      placeholder: "v1.0.0 / 6ca2fe5"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - Anotación / FASTA
+        - Navegador de genoma
+        - Módulos
+        - Metabolismo / brechas
+        - Regulación / operones
+        - Instalación / GUI
+        - Documentación
+        - Otro
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+      description: "Comando, genoma (público o demo) y resultado esperado."
+      placeholder: |
+        1. `bash install.sh`
+        2. `bash run_pipeline.sh doctor`
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs o captura
+      description: "Pega el error sin datos sensibles."
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Comprobaciones
+      options:
+        - label: Probé con la demo (`webapp/samples/demo.fna`)
+        - label: Revisé `docs/INSTALL.md` y `docs/GPU_STATUS.md`
+        - label: No incluí datos restringidos ni tokens

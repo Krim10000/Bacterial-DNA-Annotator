@@ -1,5 +1,7 @@
 # Arquitectura de la aplicación
 
+🌐 **Español** · [English](ARCHITECTURE.en.md)
+
 ## Vista de pájaro
 
 ```

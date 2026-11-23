@@ -66,6 +66,9 @@ def is_candidate(s: str) -> bool:
         return False
     if not re.search(r"[A-Za-zÁÉÍÓÚáéíóúÑñÜü]", s):
         return False
+    if s.lower().endswith((".tsv", ".json", ".csv", ".py", ".md", ".sh",
+                           ".png", ".txt")):
+        return False
     if s.startswith(SKIP_PREFIXES):
         return False
     if any(k in s for k in SKIP_CONTAINS):

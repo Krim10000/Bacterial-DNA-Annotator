@@ -32,3 +32,15 @@ def test_validation_summary(tmp_path: Path):
     res = mod.run(ctx)
     assert res.ok, res.error
     assert res.metrics["rows"]["operons"] > 0
+
+
+def test_ghost_runs_on_demo(tmp_path: Path):
+    mod = get("ghost")
+    assert mod is not None and mod.input_kind == "fasta"
+    demo = Path(__file__).resolve().parents[1] / "webapp" / "samples" / "demo.fna"
+    ctx = RunContext(data_root=tmp_path, out_root=tmp_path / "out",
+                     config=mod.defaults())
+    res = mod.run(ctx, [("demo.fna", demo.read_bytes())])
+    assert res.ok, res.error
+    assert res.metrics["demo"]["orfs"] > 0
+    assert (tmp_path / "out" / "ghost" / "ghost_candidates.tsv").exists()

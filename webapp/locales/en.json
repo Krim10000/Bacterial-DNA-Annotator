@@ -998,5 +998,9 @@
  "Sin tabla de componentes. Genera con `python scripts/validation/operon_components.py`.": "No components table. Generate with `python scripts/validation/operon_components.py`.",
  "Sin horquillas anotadas. Genera con `bash run_pipeline.sh hairpins` (K-12) o `python scripts/regulation/annotate_hairpins.py --gff ... --fasta ...`.": "No annotated hairpins. Generate with `bash run_pipeline.sh hairpins` (K-12) or `python scripts/regulation/annotate_hairpins.py --gff ... --fasta ...`.",
  "¿Te sirvió?": "Did it help?",
- "Dale una estrella en GitHub:": "Give it a star on GitHub:"
+ "Dale una estrella en GitHub:": "Give it a star on GitHub:",
+ "Resumir estructura": "Summarize structure",
+ "Buscar genes fantasma": "Find ghost genes",
+ "🔬 Hipótesis estructurales": "🔬 Structural hypotheses",
+ "No se encontraron ORFs candidatos.": "No candidate ORFs found."
 }
