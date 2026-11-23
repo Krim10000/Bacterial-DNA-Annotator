@@ -76,6 +76,8 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
             "n_complete": c.get("n_complete"), "n_incomplete": c.get("n_incomplete"),
             "n_ambiguous": c.get("n_ambiguous"),
             "n_candidate": c.get("n_candidate", 0),
+            "n_suspected": sum(1 for x in (c.get("complexes") or [])
+                               if x.get("status") == "complex_suspected"),
             "rows": len(c.get("complexes") or []),
         }
     if res.get("oric"):

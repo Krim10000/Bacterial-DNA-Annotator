@@ -114,6 +114,13 @@ CPU puede hacer **evaluación por plantilla**, no predicción de novo:
 No es AlphaFold-Multimer. Para predecir una interfaz nueva hace falta GPU
 (AlphaFold-Multimer, Boltz, etc.) y validación.
 
+## Pista de nombre, no etiqueta
+
+`protein_paths.tsv` incluye `subunit_hint`/`subunit_evidence`. Solo indica que el
+producto del hit contiene *subunit* o *component*; no asigna complejo. Medición
+K-12: 20,5 % fuera del catálogo, 44,2 % de subunidades curadas sin esa palabra.
+Ver [`SUBUNIT_NAMES.md`](SUBUNIT_NAMES.md).
+
 ## Amarillo = sospecha, no cierre
 
 Cada fila lleva `complex_flag`:

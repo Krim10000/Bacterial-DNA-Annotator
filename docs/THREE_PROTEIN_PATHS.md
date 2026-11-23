@@ -27,6 +27,8 @@ completo.
 | `evidence_strength` | `strong`, `moderate`, `weak`, `none` |
 | `evidence_toward` | `named_function`, `uncharacterized_family`, `unknown` |
 | `interpretation` | explicación legible con pident y cobertura |
+| `subunit_hint` | `named_subunit` / `none`; solo si el producto contiene *subunit* o *component* |
+| `subunit_evidence` | `product_name_only`; no es prueba de pertenencia a complejo |
 
 Reglas:
 
@@ -122,6 +124,11 @@ El camino C todavía es un plan CPU; no está automatizado por completo.
 Una subunidad de un complejo obligado puede caer en A/B/C; el pipeline no
 ensambla el complejo ni exige estequiometría. Ver [`COMPLEX_GAPS.md`](COMPLEX_GAPS.md).
 No confundir "subunidad anotada" con "complejo funcional".
+
+`subunit_hint` es solo el nombre del producto. En K-12, 20,5 % de los nombres
+con *subunit/component* quedan fuera del catálogo curado, pero varios son
+subunidades reales no catalogadas; 44,2 % de las subunidades curadas no llevan
+esa palabra. Ver [`SUBUNIT_NAMES.md`](SUBUNIT_NAMES.md).
 
 ## Regla
 

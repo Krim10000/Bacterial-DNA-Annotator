@@ -1747,6 +1747,16 @@ def render_result(res: dict) -> None:
                     st.warning(w)
             rows = fun.get("rows") or []
             if rows:
+                st.caption(
+                    "`subunit_hint=named_subunit` solo significa que el producto "
+                    "del hit contiene 'subunit' o 'component'. No prueba que sea "
+                    "una subunidad ni que pertenezca a un complejo. "
+                    "Ver docs/SUBUNIT_NAMES.md."
+                )
+                hint_n = sum(1 for r in rows
+                             if r.get("subunit_hint") == "named_subunit")
+                st.caption(f"Con pista de nombre: **{hint_n}** proteínas. "
+                           f"Es una pista débil, no una etiqueta.")
                 st.dataframe(pd.DataFrame(rows).head(500), width="stretch",
                              hide_index=True)
                 st.download_button(
@@ -1757,18 +1767,38 @@ def render_result(res: dict) -> None:
                 )
             comp = res.get("complexes")
             if comp:
-                st.markdown("#### 🧩 Complejos por vecindad")
+                st.markdown("#### 🧩 Complejos por vecindad, catálogo y ortología")
                 st.caption(
                     "Solo genes del mismo contig y hebra dentro de la ventana. "
                     "La vecindad no demuestra interacción física. "
-                    "Color: verde = completo; amarillo = se sospecha complejo "
-                    "incompleto; naranja = ambiguo; gris = no evaluado."
+                    "Color: verde = completo; azul = transferido inferido; "
+                    "amarillo = sospecha/incompleto; naranja = ambiguo; "
+                    "gris = no evaluado."
                 )
-                c1, c2, c3 = st.columns(3)
+                crs = comp.get("complexes") or []
+                suspected = sum(1 for c in crs
+                                if c.get("status") == "complex_suspected")
+                candidates = sum(1 for c in crs
+                                 if c.get("status") == "complex_candidate")
+                c1, c2, c3, c4, c5 = st.columns(5)
                 c1.metric("Completos", comp.get("n_complete", 0))
                 c2.metric("Incompletos", comp.get("n_incomplete", 0))
                 c3.metric("Ambiguos", comp.get("n_ambiguous", 0))
-                crs = comp.get("complexes") or []
+                c4.metric("Sospecha fuerte", suspected)
+                c5.metric("Candidatos", candidates)
+                with st.expander("Cómo leer los complejos y el amarillo"):
+                    st.markdown(
+                        "- **Verde:** firma curada completa.\n"
+                        "- **Azul:** complejo transferido desde K-12 por "
+                        "ortología recíproca; nivel B, no experimental.\n"
+                        "- **Amarillo:** se sospecha un complejo incompleto o "
+                        "candidato; **no cierra la brecha**.\n"
+                        "- **Naranja:** más de un complejo compatible.\n"
+                        "- **Gris:** no evaluado.\n\n"
+                        "Una brecha solo se asocia a un complejo si una EC/Rhea "
+                        "del complejo produce exactamente su metabolito. "
+                        "La estructura cuaternaria no se predice: se sospecha."
+                    )
                 if crs:
                     st.dataframe(pd.DataFrame(crs), width="stretch",
                                  hide_index=True)

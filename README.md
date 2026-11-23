@@ -37,9 +37,68 @@ routes, operons and regulatory loops — always with evidence and limits.
 | Metabolic routes and gaps | ✅ implemented |
 | Operons and promoters | 🟡 precomputed for the 400; not automatic for a new FASTA |
 | Regulatory loops | 🟡 partial: candidates/operators; direction/magnitude blocked by GPU and experiments |
-| Protein complexes (CPU neighborhood) | 🟡 candidate/complete/incomplete; no quaternary prediction |
+| Protein complexes (CPU) | 🟡 neighborhood + K-12 prior + orthology transfer; no quaternary prediction |
 | Unknown-protein reduction (400 genomes) | 🟡 partial: cheap filters and structural gating; full structure set pending |
 | DNA language model | ⛔ experimental, not evaluated |
+
+## 🧩 Protein complexes and the word “subunit”
+
+Complexes run on CPU and are **not** a quaternary-structure predictor:
+
+- curated neighborhood signatures (same contig, same strand, ≤300 bp);
+- K-12 genomic model (`scripts/complexes/build_candidates.py`);
+- ComplexPortal K-12 catalog and reciprocal-orthology transfer;
+- optional per-species ComplexPortal catalog (`fetch_complexportal.py`).
+
+Statuses are explicit:
+
+```text
+complex_complete / complex_inferred_complete   green / blue
+complex_incomplete / complex_suspected          yellow
+complex_candidate                               yellow
+complex_ambiguous                               orange
+not_evaluated                                   grey
+```
+
+A yellow complex **does not close a metabolic gap**. A gap is associated only
+when an EC/Rhea of the complex produces that exact metabolite.
+
+### “subunit” in the DIAMOND hit
+
+DIAMOND does not tell whether a protein is a subunit. `subunit_hint` only means
+the Swiss-Prot product name contains *subunit* or *component*:
+
+```text
+subunit_hint = named_subunit
+subunit_evidence = product_name_only
+```
+
+Measured on K-12 against the curated ComplexPortal catalog:
+
+| metric | value |
+|---|---:|
+| proteins named subunit/component | 513 |
+| outside the curated catalog | 105 (20.5 %) |
+| name precision vs catalog | 79.5 % |
+| name recall vs catalog | 55.8 % |
+| curated subunits not named “subunit” | 44.2 % |
+
+The 20.5 % are **outside the catalog, not proven false**: several are real
+subunits of complexes the catalog does not cover (DNA polymerase III, ribosomal
+L36B, ABC transporters). The exact false-name rate needs experimental truth.
+Details: [`docs/SUBUNIT_NAMES.md`](docs/SUBUNIT_NAMES.md).
+
+Commands:
+
+```bash
+python scripts/complexes/transfer_orthology.py
+python scripts/complexes/fetch_complexportal.py --taxid <taxid>   --functional <genome>/functional.tsv --genes <genome>/genes.tsv
+python tools/audit_subunit_names.py
+```
+
+Transfer, mass and phylogenetic profile:
+[`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md). Catalog limits:
+[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md).
 
 oriC implementation, success rates and lessons: [`docs/ORIC.md`](docs/ORIC.md).
 

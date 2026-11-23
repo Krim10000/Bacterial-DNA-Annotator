@@ -30,9 +30,61 @@
 | 代谢通路与缺口 | ✅ 已实现 |
 | 操纵子与启动子 | 🟡 400 个基因组已预计算；新 FASTA 尚未自动 |
 | 调控环路 | 🟡 部分：候选/操作子已有；方向和幅度受 GPU 与实验限制 |
-| 蛋白质复合物（CPU 邻域） | 🟡 候选/完整/不完整；不预测四级结构 |
+| 蛋白质复合物（CPU） | 🟡 邻域 + K-12 先验 + 同源转移；不预测四级结构 |
 | 未知蛋白缩减（400 个基因组） | 🟡 部分：已有廉价过滤和结构门控；结构集尚未完成 |
 | DNA 语言模型 | ⛔ 实验性，未评估 |
+
+## 🧩 蛋白质复合物与“subunit”
+
+复合物在 CPU 上运行，**不是**四级结构预测器：
+
+- 人工审编的邻域特征（同一 contig、同一链、≤300 bp）；
+- K-12 基因组模型（`scripts/complexes/build_candidates.py`）；
+- ComplexPortal K-12 目录和双向同源转移；
+- 按物种的可选 ComplexPortal 目录（`fetch_complexportal.py`）。
+
+状态明确：
+
+```text
+complex_complete / complex_inferred_complete   绿色 / 蓝色
+complex_incomplete / complex_suspected          黄色
+complex_candidate                               黄色
+complex_ambiguous                               橙色
+not_evaluated                                   灰色
+```
+
+黄色复合物**不会关闭代谢缺口**。只有当复合物的 EC/Rhea 恰好产生该代谢物时，缺口才与复合物关联。
+
+### DIAMOND 结果中的 “subunit”
+
+DIAMOND 不会说明蛋白质是否为亚基。`subunit_hint` 只表示 Swiss-Prot 产物名称中包含 *subunit* 或 *component*：
+
+```text
+subunit_hint = named_subunit
+subunit_evidence = product_name_only
+```
+
+在 K-12 上对照 ComplexPortal 人工审编目录的测量：
+
+| 指标 | 数值 |
+|---|---:|
+| 名称含 subunit/component 的蛋白质 | 513 |
+| 不在人工审编目录中 | 105（20.5 %） |
+| 名称相对目录的精确率 | 79.5 % |
+| 名称相对目录的召回率 | 55.8 % |
+| 人工审编亚基中名称不含 “subunit” | 44.2 % |
+
+20.5 % 是**不在目录中，并非已证明为假**：其中一些是目录未覆盖的真实亚基（DNA 聚合酶 III、核糖体 L36B、ABC 转运蛋白）。真实假名率需要实验真值。详见 [`docs/SUBUNIT_NAMES.md`](docs/SUBUNIT_NAMES.md)。
+
+命令：
+
+```bash
+python scripts/complexes/transfer_orthology.py
+python scripts/complexes/fetch_complexportal.py --taxid <taxid>   --functional <genome>/functional.tsv --genes <genome>/genes.tsv
+python tools/audit_subunit_names.py
+```
+
+转移、质量和系统发育谱：[`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md)。目录限制：[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md)。
 
 oriC 的实现、成功率和经验：[`docs/ORIC.md`](docs/ORIC.md)。
 

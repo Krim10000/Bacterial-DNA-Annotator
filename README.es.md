@@ -39,9 +39,68 @@ metabólicas, operones y bucles de regulación, siempre con evidencia y límites
 | Rutas metabólicas y brechas | ✅ implementado |
 | Operones y promotores | 🟡 precalculado en los 400; no automático en FASTA nuevo |
 | Bucles de regulación | 🟡 parcial: candidatos/operadores; dirección/magnitud bloqueadas por GPU y experimentos |
-| Complejos proteicos (vecindad CPU) | 🟡 candidato/completo/incompleto; sin predicción cuaternaria |
+| Complejos proteicos (CPU) | 🟡 vecindad + prior K-12 + transferencia por ortología; sin predicción cuaternaria |
 | Reducción de desconocidas (400 genomas) | 🟡 parcial: filtros baratos y gating estructural; falta completar estructuras |
 | Modelo de lenguaje de ADN | ⛔ experimental, no evaluado |
+
+## 🧩 Complejos y la palabra “subunit”
+
+Los complejos corren en CPU y **no** son un predictor de estructura cuaternaria:
+
+- firmas curadas por vecindad (mismo contig, misma hebra, ≤300 pb);
+- modelo genómico K-12 (`scripts/complexes/build_candidates.py`);
+- catálogo ComplexPortal K-12 y transferencia por ortología recíproca;
+- catálogo ComplexPortal por especie (`fetch_complexportal.py`), opcional.
+
+Estados explícitos:
+
+```text
+complex_complete / complex_inferred_complete   verde / azul
+complex_incomplete / complex_suspected          amarillo
+complex_candidate                               amarillo
+complex_ambiguous                               naranja
+not_evaluated                                   gris
+```
+
+Un complejo amarillo **no cierra una brecha metabólica**. Una brecha solo se
+asocia si una EC/Rhea del complejo produce exactamente ese metabolito.
+
+### “subunit” en el hit de DIAMOND
+
+DIAMOND no dice si una proteína es subunidad. `subunit_hint` solo indica que el
+nombre del producto en Swiss-Prot contiene *subunit* o *component*:
+
+```text
+subunit_hint = named_subunit
+subunit_evidence = product_name_only
+```
+
+Medición en K-12 contra el catálogo curado ComplexPortal:
+
+| métrica | valor |
+|---|---:|
+| proteínas con subunit/component en el nombre | 513 |
+| fuera del catálogo curado | 105 (20,5 %) |
+| precisión del nombre vs catálogo | 79,5 % |
+| recall del nombre vs catálogo | 55,8 % |
+| subunidades curadas sin “subunit” en el nombre | 44,2 % |
+
+El 20,5 % está **fuera del catálogo, no probado como falso**: varias son
+subunidades reales que el catálogo no cubre (DNA polimerasa III, L36B
+ribosómica, transportadores ABC). La tasa real de nombres falsos necesita
+verdad experimental. Detalle: [`docs/SUBUNIT_NAMES.md`](docs/SUBUNIT_NAMES.md).
+
+Comandos:
+
+```bash
+python scripts/complexes/transfer_orthology.py
+python scripts/complexes/fetch_complexportal.py --taxid <taxid>   --functional <genoma>/functional.tsv --genes <genoma>/genes.tsv
+python tools/audit_subunit_names.py
+```
+
+Transferencia, masa y perfil filogenético:
+[`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md). Límites de catálogo:
+[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md).
 
 Implementación, tasas de éxito y lecciones de oriC: [`docs/ORIC.md`](docs/ORIC.md).
 
