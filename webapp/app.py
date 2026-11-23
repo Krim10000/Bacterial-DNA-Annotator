@@ -51,6 +51,7 @@ from annotator import (  # noqa: E402
 )
 from functional import annotate as annotate_functional  # noqa: E402
 from complexes import infer as infer_complexes, enrich_rows as enrich_complex_rows  # noqa: E402
+from complex_model import run as run_complex_model  # noqa: E402
 import oric as oric_engine  # noqa: E402
 from closures import (  # noqa: E402
     LABEL as CLOSURE_LABEL,
@@ -2027,6 +2028,14 @@ def main() -> None:
                                 res["features"],
                                 res["functional"].get("hits") or {},
                                 res["genome"])
+                            model = run_complex_model(
+                                res["features"],
+                                res["functional"].get("hits") or {},
+                                OUT_ROOT, res["genome"], DATA_ROOT)
+                            if model.get("ok"):
+                                comp["complexes"] += model["complexes"]
+                                comp["by_protein"].update(model["by_protein"])
+                                comp["n_candidate"] = model.get("n_candidate", 0)
                             enrich_complex_rows(
                                 res["functional"].get("rows") or [], comp)
                             res["complexes"] = comp

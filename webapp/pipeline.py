@@ -18,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from annotator import annotate, build_report  # noqa: E402
 from functional import annotate as functional_annotate, write_paths  # noqa: E402
 from complexes import infer as infer_complexes, enrich_gaps, enrich_rows, write as write_complexes  # noqa: E402
+from complex_model import run as run_complex_model  # noqa: E402
 import oric  # noqa: E402
 from esmfold_tools import close_gaps  # noqa: E402
 from structure_evidence import evidence_for_rows  # noqa: E402
@@ -73,6 +74,7 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
         summary["complexes"] = {
             "n_complete": c.get("n_complete"), "n_incomplete": c.get("n_incomplete"),
             "n_ambiguous": c.get("n_ambiguous"),
+            "n_candidate": c.get("n_candidate", 0),
             "rows": len(c.get("complexes") or []),
         }
     if res.get("oric"):
@@ -240,6 +242,13 @@ def main() -> int:
                 comp = infer_complexes(res["features"],
                                        res["functional"].get("hits") or {},
                                        res["genome"])
+                model = run_complex_model(
+                    res["features"], res["functional"].get("hits") or {},
+                    args.outdir, res["genome"], args.data_root)
+                if model.get("ok"):
+                    comp["complexes"] += model["complexes"]
+                    comp["by_protein"].update(model["by_protein"])
+                    comp["n_candidate"] = model.get("n_candidate", 0)
                 enrich_rows(res["functional"].get("rows") or [], comp)
                 write_paths(res["functional"].get("rows") or [], args.outdir,
                             res["genome"])

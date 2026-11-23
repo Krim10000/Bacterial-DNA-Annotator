@@ -19,6 +19,17 @@ La proximidad génica es **necesaria pero no suficiente**. Un operón no es un
 complejo, y un complejo puede tener genes dispersos. Por eso el resultado se
 etiqueta como `complex_candidate`, no como `confirmed`.
 
+## Modelo K-12 existente
+
+No se reimplementó: `webapp/complex_model.py` escribe `genes.tsv`/`operons.tsv`
+desde la anotación y llama a `scripts/complexes/build_candidates.py
+--apply-only`. El modelo K-12 se usa como **prior genómico** y sus clusters
+salen como `complex_candidate` amarillos.
+
+Validación publicada del modelo en K-12: R@1 0,917 con STRING sin el canal
+`database`; 0,765 sin STRING. En otro genoma no está calibrado: es una
+sospecha, no una probabilidad.
+
 ## Flujo CPU posterior a la primera pasada
 
 ```text
