@@ -37,6 +37,7 @@ routes, operons and regulatory loops — always with evidence and limits.
 | Metabolic routes and gaps | ✅ implemented |
 | Operons and promoters | 🟡 precomputed for the 400; not automatic for a new FASTA |
 | Regulatory loops | 🟡 partial: candidates/operators; direction/magnitude blocked by GPU and experiments |
+| Protein complexes (CPU neighborhood) | 🟡 candidate/complete/incomplete; no quaternary prediction |
 | Unknown-protein reduction (400 genomes) | 🟡 partial: cheap filters and structural gating; full structure set pending |
 | DNA language model | ⛔ experimental, not evaluated |
 

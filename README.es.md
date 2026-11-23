@@ -39,6 +39,7 @@ metabólicas, operones y bucles de regulación, siempre con evidencia y límites
 | Rutas metabólicas y brechas | ✅ implementado |
 | Operones y promotores | 🟡 precalculado en los 400; no automático en FASTA nuevo |
 | Bucles de regulación | 🟡 parcial: candidatos/operadores; dirección/magnitud bloqueadas por GPU y experimentos |
+| Complejos proteicos (vecindad CPU) | 🟡 candidato/completo/incompleto; sin predicción cuaternaria |
 | Reducción de desconocidas (400 genomas) | 🟡 parcial: filtros baratos y gating estructural; falta completar estructuras |
 | Modelo de lenguaje de ADN | ⛔ experimental, no evaluado |
 
