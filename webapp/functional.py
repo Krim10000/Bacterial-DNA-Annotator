@@ -243,9 +243,14 @@ def annotate(proteins: list[dict[str, Any]], data_root: Path, outdir: Path,
 def write_paths(rows: list[dict[str, Any]], outdir: Path, genome: str) -> Path:
     """Escribe protein_paths.tsv con todas las columnas presentes."""
     path = outdir / f"{genome}.protein_paths.tsv"
-    cols = list(rows[0]) if rows else ["protein_id", "path"]
+    cols: list[str] = []
+    for r in rows:
+        for k in r:
+            if k not in cols:
+                cols.append(k)
+    cols = cols or ["protein_id", "path"]
     with path.open("w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, delimiter="\t", fieldnames=cols)
+        w = csv.DictWriter(fh, delimiter="\t", fieldnames=cols, restval="")
         w.writeheader()
         w.writerows(rows)
     return path

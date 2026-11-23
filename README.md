@@ -19,9 +19,11 @@ Built so a high-school student can use it without fear and a researcher with
 their own data can use it too: every result states **where it comes from**, with
 what **confidence**, and what it does **not** prove.
 
-> **You do not need a GPU.** Annotation, gaps, operons and the browser all run on
-> CPU. The GPU is only used for local ESMFold and for training the DNA model,
-> which are optional. See [`docs/GPU_STATUS.en.md`](docs/GPU_STATUS.en.md).
+> **You do not need a GPU.** Annotation, A/B/C, domains, membrane, complexes,
+> gaps, operons and the browser run on CPU. The GPU is only for structure
+> prediction (ESMFold/AlphaFold-Multimer/Boltz), coevolution and training the
+> DNA model. It does not turn a hypothesis into a confirmed function.
+> See [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md).
 
 ## 🧭 Scope at a glance
 
@@ -99,7 +101,7 @@ python tools/audit_subunit_names.py
 
 Transfer, mass and phylogenetic profile:
 [`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md). Catalog limits:
-[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md).
+[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md).
 
 oriC implementation, success rates and lessons: [`docs/ORIC.md`](docs/ORIC.md).
 

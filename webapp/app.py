@@ -1747,6 +1747,18 @@ def render_result(res: dict) -> None:
                     st.warning(w)
             rows = fun.get("rows") or []
             if rows:
+                with st.expander("Límites CPU/GPU de A/B/C y estructura"):
+                    st.markdown(
+                        "- **A/B/C:** clasificación por homología Swiss-Prot. "
+                        "A no es función confirmada; C no es ausencia de función.\n"
+                        "- **B estructural:** CPU busca modelos AFDB locales; "
+                        "no pliega ni filtra automáticamente.\n"
+                        "- **C dominios:** hmmscan contra un panel Pfam curado; "
+                        "es una hipótesis de familia, no una función.\n"
+                        "- **GPU:** AlphaFold-Multimer/Boltz/ESMFold local para "
+                        "estructura; no cambia la etiqueta A/B/C.\n"
+                        "- **Regla:** ninguna estructura cierra una brecha."
+                    )
                 st.caption(
                     "`subunit_hint=named_subunit` solo significa que el producto "
                     "del hit contiene 'subunit' o 'component'. No prueba que sea "
@@ -1755,8 +1767,14 @@ def render_result(res: dict) -> None:
                 )
                 hint_n = sum(1 for r in rows
                              if r.get("subunit_hint") == "named_subunit")
+                b_afdb = sum(1 for r in rows
+                             if r.get("structural_status") == "afdb_model_available")
+                c_dom = sum(1 for r in rows if r.get("domain"))
                 st.caption(f"Con pista de nombre: **{hint_n}** proteínas. "
                            f"Es una pista débil, no una etiqueta.")
+                st.caption(f"B con modelo AFDB local: **{b_afdb}**. "
+                           f"C con dominio Pfam: **{c_dom}**. "
+                           "Modelo/dominio no confirman función ni complejo.")
                 st.dataframe(pd.DataFrame(rows).head(500), width="stretch",
                              hide_index=True)
                 st.download_button(

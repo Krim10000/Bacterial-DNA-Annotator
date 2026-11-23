@@ -21,6 +21,8 @@ from complexes import infer as infer_complexes, enrich_gaps, enrich_rows, write 
 from complex_model import run as run_complex_model  # noqa: E402
 from complex_transfer import load as load_complex_transfer  # noqa: E402
 from membrane_layer import run as run_membrane  # noqa: E402
+from domain_layer import run as run_domains  # noqa: E402
+from structural_b import run as run_structural_b  # noqa: E402
 import oric  # noqa: E402
 from esmfold_tools import close_gaps  # noqa: E402
 from structure_evidence import evidence_for_rows  # noqa: E402
@@ -81,6 +83,15 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
                                if x.get("status") == "complex_suspected"),
             "rows": len(c.get("complexes") or []),
         }
+    if res.get("structural_b"):
+        b = res["structural_b"]
+        summary["structural_b"] = {"ok": b.get("ok"),
+                                   "n_available": b.get("n_available", 0),
+                                   "reason": b.get("reason", "")}
+    if res.get("domains"):
+        d = res["domains"]
+        summary["domains"] = {"ok": d.get("ok"), "n": d.get("n", 0),
+                              "reason": d.get("reason", "")}
     if res.get("membrane"):
         m = res["membrane"]
         summary["membrane"] = {"ok": m.get("ok"), "rows": m.get("n_rows", 0),
@@ -248,6 +259,20 @@ def main() -> int:
             except Exception as exc:  # noqa: BLE001
                 print(f"[aviso] anotación funcional no ejecutada: {exc}", file=sys.stderr)
         if res.get("functional"):
+            try:
+                dom = run_domains(
+                    res["functional"].get("rows") or [], res.get("proteins") or [],
+                    args.outdir, res["genome"], args.data_root, cpu=args.threads)
+                res["domains"] = dom
+            except Exception as exc:  # noqa: BLE001
+                print(f"[aviso] dominios no evaluados: {exc}", file=sys.stderr)
+            try:
+                res["structural_b"] = run_structural_b(
+                    res["functional"].get("rows") or [], args.outdir,
+                    res["genome"], args.data_root)
+            except Exception as exc:  # noqa: BLE001
+                print(f"[aviso] estado estructural B no evaluado: {exc}",
+                      file=sys.stderr)
             try:
                 comp = infer_complexes(res["features"],
                                        res["functional"].get("hits") or {},

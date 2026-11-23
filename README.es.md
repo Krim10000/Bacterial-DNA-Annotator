@@ -19,9 +19,11 @@ Pensado para que lo use un estudiante de secundaria sin miedo y un
 investigador con datos propios: cada resultado declara **de dónde sale**, con
 qué **confianza** y qué **no** prueba.
 
-> **No necesitas GPU.** La anotación, las brechas, los operones y el navegador
-> funcionan en CPU. La GPU solo se usa para ESMFold local y para entrenar el
-> modelo de ADN, que son opcionales. Ver [`docs/GPU_STATUS.md`](docs/GPU_STATUS.md).
+> **No necesitas GPU.** La anotación, A/B/C, dominios, membrana, complejos,
+> brechas, operones y navegador funcionan en CPU. La GPU solo se usa para
+> estructura (ESMFold/AlphaFold-Multimer/Boltz), coevolución y entrenamiento del
+> modelo de ADN. No convierte una hipótesis en función confirmada.
+> Ver [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md).
 
 ![Resultados de anotación](webapp/screenshot_v2_results.png)
 
@@ -101,7 +103,7 @@ python tools/audit_subunit_names.py
 
 Transferencia, masa y perfil filogenético:
 [`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md). Límites de catálogo:
-[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md).
+[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md).
 
 Implementación, tasas de éxito y lecciones de oriC: [`docs/ORIC.md`](docs/ORIC.md).
 

@@ -14,6 +14,7 @@ está la evidencia.
 | Nombre "subunit" | [`SUBUNIT_NAMES.md`](SUBUNIT_NAMES.md) | medido K-12 | no usar como etiqueta |
 | Catálogos de complejos | [`COMPLEX_CATALOGS.md`](COMPLEX_CATALOGS.md) | solo K-12 | ampliar ComplexPortal |
 | Transferencia K-12 | [`COMPLEX_TRANSFER.md`](COMPLEX_TRANSFER.md) | implementada | Foldseek/coevolución |
+| Límites CPU/GPU | [`CPU_GPU_LIMITS.md`](CPU_GPU_LIMITS.md) | implementado | estructura GPU |
 | Brechas y complejos | [`COMPLEX_GAPS.md`](COMPLEX_GAPS.md) · [`COMPLEX_CPU.md`](COMPLEX_CPU.md) | no evaluado | clústeres + firmas + pista |
 | Reducción de desconocidas | [`UNKNOWN_REDUCTION_PLAN.md`](UNKNOWN_REDUCTION_PLAN.md) | filtros baratos + gating | categorías amplias |
 | Filtros estructurales | [`FILTER_STRATEGY.md`](FILTER_STRATEGY.md) | pLDDT/gating implementado | colas separadas |

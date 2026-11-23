@@ -1033,5 +1033,7 @@
  "⬇️ Membrana (GFF3)": "⬇️ 膜 (GFF3)",
  "Sin filas de membrana para este genoma.": "该基因组没有膜相关行。",
  "Membrana no ejecutada. Requiere hmmscan y el panel Pfam.": "未运行膜分析。需要 hmmscan 和 Pfam 面板。",
- "Membrana/transporte: hmmscan contra un panel Pfam curado, hidropatía tipo Kyte-Doolittle, señal péptido y lipobox. Son heurísticas; no sustituyen TMHMM/SignalP/LipoP.": "膜/转运：针对人工审编 Pfam 面板的 hmmscan、Kyte-Doolittle 疏水性、信号肽和 lipobox。这些是启发式方法，不能替代 TMHMM/SignalP/LipoP。"
+ "Membrana/transporte: hmmscan contra un panel Pfam curado, hidropatía tipo Kyte-Doolittle, señal péptido y lipobox. Son heurísticas; no sustituyen TMHMM/SignalP/LipoP.": "膜/转运：针对人工审编 Pfam 面板的 hmmscan、Kyte-Doolittle 疏水性、信号肽和 lipobox。这些是启发式方法，不能替代 TMHMM/SignalP/LipoP。",
+ "Límites CPU/GPU de A/B/C y estructura": "A/B/C 与结构的 CPU/GPU 限制",
+ "- **A/B/C:** clasificación por homología Swiss-Prot. A no es función confirmada; C no es ausencia de función.\n- **B estructural:** CPU busca modelos AFDB locales; no pliega ni filtra automáticamente.\n- **C dominios:** hmmscan contra un panel Pfam curado; es una hipótesis de familia, no una función.\n- **GPU:** AlphaFold-Multimer/Boltz/ESMFold local para estructura; no cambia la etiqueta A/B/C.\n- **Regla:** ninguna estructura cierra una brecha.": "- **A/B/C：** 基于 Swiss-Prot 同源的分类。A 不是已确认功能；C 不是没有功能。\n- **B 结构：** CPU 查找本地 AFDB 模型；不自动折叠或过滤。\n- **C 结构域：** 对人工审编 Pfam 面板运行 hmmscan；是家族假设，不是功能。\n- **GPU：** 使用 AlphaFold-Multimer/Boltz/本地 ESMFold 获取结构；不改变 A/B/C 标签。\n- **规则：** 任何结构都不能关闭缺口。"
 }

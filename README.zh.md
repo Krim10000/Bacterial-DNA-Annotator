@@ -14,7 +14,7 @@
 
 设计上，一个中学生可以放心上手，带着自己数据的研究人员也同样适用：每个结果都会说明它**来自哪里**、具有怎样的**置信度**，以及它**不能**证明什么。
 
-> **你不需要 GPU。** 注释、缺口、操纵子和浏览器都能在 CPU 上运行。GPU 只用于本地 ESMFold 和训练 DNA 模型，这两项都是可选的。参见 [`docs/GPU_STATUS.en.md`](docs/GPU_STATUS.en.md)。
+> **你不需要 GPU。** 注释、A/B/C、结构域、膜、复合物、缺口、操纵子和浏览器都能在 CPU 上运行。GPU 仅用于结构预测（ESMFold/AlphaFold-Multimer/Boltz）、共进化和训练 DNA 模型。它不会把假设变成已确认功能。参见 [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md)。
 
 ## 🧭 范围一览
 
@@ -85,7 +85,7 @@ python scripts/complexes/fetch_complexportal.py --taxid <taxid>   --functional <
 python tools/audit_subunit_names.py
 ```
 
-转移、质量和系统发育谱：[`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md)。目录限制：[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md)。
+转移、质量和系统发育谱：[`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md)。目录限制：[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md)。
 
 oriC 的实现、成功率和经验：[`docs/ORIC.md`](docs/ORIC.md)。
 

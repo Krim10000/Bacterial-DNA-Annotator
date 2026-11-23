@@ -33,6 +33,9 @@ completo.
 | `interpretation` | explicación legible con pident y cobertura |
 | `subunit_hint` | `named_subunit` / `none`; solo si el producto contiene *subunit* o *component* |
 | `subunit_evidence` | `product_name_only`; no es prueba de pertenencia a complejo |
+| `structural_status` | `afdb_model_available` / `no_afdb_model` (solo B) |
+| `domain` | mejor dominio Pfam del panel para C; hipótesis |
+| `domain_evalue` | e-value del dominio; no confirma función |
 
 Reglas:
 
@@ -126,7 +129,8 @@ El camino B está implementado con `--structure-manifest`,
 
 El camino C todavía es un plan CPU; no está automatizado por completo.
 
-La etiqueta A/B/C **no es una llamada de complejo**. `subunit_hint` es un eje
+La etiqueta A/B/C **no es una llamada de complejo**. B estructural solo
+registra si hay modelo AFDB local; C dominio solo aporta una familia Pfam. `subunit_hint` es un eje
 independiente y no cambia la etiqueta; ver [`SUBUNIT_NAMES.md`](SUBUNIT_NAMES.md).
 
 ## Complejos
