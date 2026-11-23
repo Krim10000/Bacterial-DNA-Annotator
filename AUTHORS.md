@@ -31,7 +31,7 @@ Usa `CITATION.cff` (formato Citation File Format). Si tu gestor de referencias
 no lo lee, cita:
 
 > Rojas Bravo, C. (2026). *Anotador de ADN bacteriano: anotación, rutas
-> metabólicas y regulación* (v1.1.2). Ingeniero en Biotecnología, titulado de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual.
+> metabólicas y regulación* (v1.1.3). Ingeniero en Biotecnología, titulado de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual.
 > Licencia MIT.
 
 Cita también las herramientas y bases de datos que hicieron posible tu

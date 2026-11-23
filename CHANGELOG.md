@@ -3,12 +3,13 @@
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
 Versionado [SemVer](https://semver.org/lang/es/).
 
-## [Unreleased]
+## [1.1.3] — 2026-11-23
 
 ### Añadido
 
 - `README.zh.md`: README completo en chino simplificado, junto a ES/EN.
 - `.zenodo.json` y `docs/ZENODO.md` para emitir el DOI de Zenodo.
+- `README.zh.md` y selector de idioma ES/EN/ZH en los tres README.
 
 ## [1.1.2] — 2026-11-23
 

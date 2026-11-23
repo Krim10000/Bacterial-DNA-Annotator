@@ -3,7 +3,7 @@
 
 [![CI](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml/badge.svg)](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/Krim10000/Bacterial-DNA-Annotator)](https://github.com/Krim10000/Bacterial-DNA-Annotator/releases)
-[![Version](https://img.shields.io/badge/version-1.1.2-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.1.3-blue)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12-blue)](pyproject.toml)
 [![Languages](https://img.shields.io/badge/languages-ES%20|%20EN%20|%20ZH-purple)](#-语言)
