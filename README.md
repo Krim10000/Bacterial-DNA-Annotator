@@ -86,7 +86,7 @@ Measured on K-12 against the curated ComplexPortal catalog:
 The 20.5 % are **outside the catalog, not proven false**: several are real
 subunits of complexes the catalog does not cover (DNA polymerase III, ribosomal
 L36B, ABC transporters). The exact false-name rate needs experimental truth.
-Details: [`docs/SUBUNIT_NAMES.md`](docs/SUBUNIT_NAMES.md).
+Details: [`docs/SUBUNIT_NAMES.md`](docs/SUBUNIT_NAMES.md) · [`docs/COMPLEX_COVERAGE.md`](docs/COMPLEX_COVERAGE.md).
 
 Commands:
 

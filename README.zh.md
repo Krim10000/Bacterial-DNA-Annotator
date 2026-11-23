@@ -74,7 +74,7 @@ subunit_evidence = product_name_only
 | 名称相对目录的召回率 | 55.8 % |
 | 人工审编亚基中名称不含 “subunit” | 44.2 % |
 
-20.5 % 是**不在目录中，并非已证明为假**：其中一些是目录未覆盖的真实亚基（DNA 聚合酶 III、核糖体 L36B、ABC 转运蛋白）。真实假名率需要实验真值。详见 [`docs/SUBUNIT_NAMES.md`](docs/SUBUNIT_NAMES.md)。
+20.5 % 是**不在目录中，并非已证明为假**：其中一些是目录未覆盖的真实亚基（DNA 聚合酶 III、核糖体 L36B、ABC 转运蛋白）。真实假名率需要实验真值。详见 [`docs/SUBUNIT_NAMES.md`](docs/SUBUNIT_NAMES.md) · [`docs/COMPLEX_COVERAGE.md`](docs/COMPLEX_COVERAGE.md)。
 
 命令：
 

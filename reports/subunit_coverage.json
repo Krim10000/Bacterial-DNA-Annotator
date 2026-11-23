@@ -1,0 +1,221 @@
+{
+  "outside_catalog": 105,
+  "covered_by_model": 88,
+  "covered_pct": 83.8,
+  "uncovered": 17,
+  "uncovered_pct": 16.2,
+  "model_evidence": {
+    "nuevo": 81,
+    "parcial": 7
+  },
+  "covered_examples": [
+    {
+      "locus": "b0128",
+      "gene": "yadH",
+      "product": "putative ABC transporter membrane subunit YadH",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b0293",
+      "gene": "ecpA",
+      "product": "common pilus major subunit",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b4506",
+      "gene": "ykgO",
+      "product": "50S ribosomal subunit protein L36B",
+      "evidencia": "parcial"
+    },
+    {
+      "locus": "b0470",
+      "gene": "dnaX",
+      "product": "DNA polymerase III subunit tau",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b0490",
+      "gene": "fetA",
+      "product": "putative iron ABC exporter ATP-binding subunit FetA",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b0491",
+      "gene": "fetB",
+      "product": "putative iron ABC exporter membrane subunit FetB",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b0496",
+      "gene": "ybbP",
+      "product": "putative ABC transporter membrane subunit YbbP",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b0567",
+      "gene": "ybcH",
+      "product": "putative exopolysaccharide secretion system auxiliary component",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b0640",
+      "gene": "holA",
+      "product": "DNA polymerase III subunit delta",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b0711",
+      "gene": "pxpB",
+      "product": "5-oxoprolinase component B",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b0712",
+      "gene": "pxpC",
+      "product": "5-oxoprolinase component C",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b0713",
+      "gene": "pxpA",
+      "product": "5-oxoprolinase component A",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b4592",
+      "gene": "appX",
+      "product": "cytochrome bd-II accessory subunit AppX",
+      "evidencia": "parcial"
+    },
+    {
+      "locus": "b1038",
+      "gene": "csgF",
+      "product": "curli assembly component CsgF",
+      "evidencia": "parcial"
+    },
+    {
+      "locus": "b1041",
+      "gene": "csgB",
+      "product": "curlin, minor subunit",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b1099",
+      "gene": "holB",
+      "product": "DNA polymerase III subunit delta'",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b1164",
+      "gene": "ycgZ",
+      "product": "putative two-component system connector protein YcgZ",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b1165",
+      "gene": "ymgA",
+      "product": "putative two-component system connector protein YmgA",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b1166",
+      "gene": "ariR",
+      "product": "putative two-component system connector protein AriR",
+      "evidencia": "nuevo"
+    },
+    {
+      "locus": "b1311",
+      "gene": "ycjO",
+      "product": "putative ABC transporter membrane subunit YcjO",
+      "evidencia": "nuevo"
+    }
+  ],
+  "uncovered_examples": [
+    {
+      "locus": "b0129",
+      "gene": "yadI",
+      "product": "putative PTS enzyme IIA component YadI"
+    },
+    {
+      "locus": "b0679",
+      "gene": "nagE",
+      "product": "N-acetylglucosamine-specific PTS enzyme IIABC component"
+    },
+    {
+      "locus": "b0938",
+      "gene": "elfA",
+      "product": "putative laminin-binding fimbrial subunit"
+    },
+    {
+      "locus": "b4520",
+      "gene": "ymgF",
+      "product": "division septum component YmgF"
+    },
+    {
+      "locus": "b1500",
+      "gene": "safA",
+      "product": "two-component system connector SafA"
+    },
+    {
+      "locus": "b4602",
+      "gene": "cydH",
+      "product": "cytochrome bd-I accessory subunit CydH"
+    },
+    {
+      "locus": "b4544",
+      "gene": "arnE",
+      "product": "undecaprenyl-phosphate-alpha-L-Ara4N flippase - ArnE subunit"
+    },
+    {
+      "locus": "b2481",
+      "gene": "hyfA",
+      "product": "hydrogenase 4 component A"
+    },
+    {
+      "locus": "b2513",
+      "gene": "yfgM",
+      "product": "ancillary SecYEG translocon subunit"
+    },
+    {
+      "locus": "b2566",
+      "gene": "era",
+      "product": "30S ribosomal subunit maturation GTPase Era"
+    },
+    {
+      "locus": "b2569",
+      "gene": "lepA",
+      "product": "30S ribosomal subunit biogenesis factor LepA"
+    },
+    {
+      "locus": "b3123",
+      "gene": "rnpB",
+      "product": "RNase P catalytic RNA component"
+    },
+    {
+      "locus": "b3682",
+      "gene": "glvB",
+      "product": "putative PTS enzyme II component GlvB"
+    },
+    {
+      "locus": "b3683",
+      "gene": "glvC",
+      "product": "putative PTS enzyme II component GlvC"
+    },
+    {
+      "locus": "b4583",
+      "gene": "phnE1",
+      "product": "phosphonate/phosphate ABC transporter membrane subunit PhnE1"
+    },
+    {
+      "locus": "b4161",
+      "gene": "rsgA",
+      "product": "ribosome small subunit-dependent GTPase A"
+    },
+    {
+      "locus": "b4372",
+      "gene": "holD",
+      "product": "DNA polymerase III subunit psi"
+    }
+  ],
+  "caveat": "Cubierto por el modelo = candidato, no miembro confirmado. Fuera del catálogo no significa falso."
+}

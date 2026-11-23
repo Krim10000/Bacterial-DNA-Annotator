@@ -88,7 +88,7 @@ Medición en K-12 contra el catálogo curado ComplexPortal:
 El 20,5 % está **fuera del catálogo, no probado como falso**: varias son
 subunidades reales que el catálogo no cubre (DNA polimerasa III, L36B
 ribosómica, transportadores ABC). La tasa real de nombres falsos necesita
-verdad experimental. Detalle: [`docs/SUBUNIT_NAMES.md`](docs/SUBUNIT_NAMES.md).
+verdad experimental. Detalle: [`docs/SUBUNIT_NAMES.md`](docs/SUBUNIT_NAMES.md) · [`docs/COMPLEX_COVERAGE.md`](docs/COMPLEX_COVERAGE.md).
 
 Comandos:
 
