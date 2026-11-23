@@ -547,6 +547,24 @@ def build_report(res: dict) -> str:
             lines.append(f"| {row.get('gap','')} | {row.get('query','')} | {row.get('foldseek_top','')} | "
                          f"{row.get('alphafill_ligands','') or '—'} | {row.get('active_site_conserved','')}/"
                          f"{row.get('active_site_rows','')} | {row.get('n_sources','')} | {row.get('verdict','')} |")
+    fun = res.get("functional")
+    if fun:
+        paths = fun.get("paths", {})
+        lines += ["", "## Anotación funcional automática",
+                  f"- Proteínas: {fun.get('n_proteins', 0)} · con hit: {fun.get('n_hits', 0)} · "
+                  f"cobertura: {100*float(fun.get('match_rate') or 0):.1f}%.",
+                  f"- Caminos A/B/C: {paths.get('A', 0)} / {paths.get('B', 0)} / {paths.get('C', 0)}.",
+                  "- A: función nombrada; B: uncharacterized/DUF; C: sin hit Swiss-Prot.",
+                  "- Una clasificación no es una función confirmada."]
+        for w in fun.get("warnings", []):
+            lines.append(f"- Aviso: {w}")
+    o = res.get("oric")
+    if o:
+        lines += ["", "## Origen de replicación (ORCA)",
+                  f"- Estado: `{o.get('status','')}` · posición: {o.get('position','n/d')} · "
+                  f"método: {o.get('validated_by','')}.",
+                  f"- Motivo: {o.get('reason','')}",
+                  "- ORCA no modela plásmidos; DoriC solo aplica con accession conocido."]
     lines += ["", "## Fuentes",
               "- CDS: pyrodigal; tRNA: tRNAscan-SE; rRNA: barrnap/cmsearch.",
               "- ORFs: motor 09_ghost; cada fila declara fuente, evidencia y confianza.",

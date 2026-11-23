@@ -2002,6 +2002,10 @@ def main() -> None:
                             res["oric"] = oric_engine.run(res, DATA_ROOT)
                         except Exception as exc:  # noqa: BLE001
                             res["oric_error"] = str(exc)
+                    try:
+                        res["report_md"] = build_report(res)
+                    except Exception:
+                        pass
                     results.append(res)
                     status.write(
                         f"✅ {name}: {res['coverage']*100:.1f}% anotado · "

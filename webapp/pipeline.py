@@ -231,6 +231,7 @@ def main() -> int:
                 oric.write(res, res["oric"], args.outdir)
             except Exception as exc:  # noqa: BLE001
                 print(f"[aviso] oriC no ejecutado: {exc}", file=sys.stderr)
+        res["report_md"] = build_report(res)
         metabolic = None
         if not args.no_metabolic:
             try:
