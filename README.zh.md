@@ -257,6 +257,15 @@ run_pipeline.sh    stage orchestrator
 
 与 Prokka、Bakta、DRAM、CarveMe 等工具的基准比较：[`docs/BENCHMARK.md`](docs/BENCHMARK.md)。
 
+## 🤝 支持与协作
+
+欢迎通过**基准测试、数据、母语审校、计算资源和代码**参与。当前最需要：
+Bakta/Prokka/DFAST 基准、中文术语审校、macOS/WSL2 测试、`protein_query`
+以及操纵子验证。
+
+**目前没有捐赠链接**；现阶段计算资源和审校时间比小额捐款更有价值。
+详见 [`SUPPORT.md`](SUPPORT.md)。
+
 ## 🔭 路线图
 
 - **蛋白质查询**：蛋白质 FASTA → 同源物、结构域和功能。

@@ -320,6 +320,16 @@ DeepSeek Harness with DeepSeek, November 2026.
 
 Benchmark frente a Prokka, Bakta, DRAM, CarveMe y otras herramientas: [`docs/BENCHMARK.md`](docs/BENCHMARK.md).
 
+## 🤝 Soporte y colaboración
+
+La ayuda más útil es **benchmark, datos, revisión nativa, créditos de cómputo y
+código**. Ahora mismo hacen falta: benchmark contra Bakta/Prokka/DFAST,
+revisión de terminología china, pruebas en macOS/WSL2, `protein_query` y
+validación de operones.
+
+**Todavía no hay enlace de donaciones**; en esta etapa valen más los créditos de
+cómputo y el tiempo de revisión. Ver [`SUPPORT.md`](SUPPORT.md).
+
 ## 🔭 Próximamente
 
 - **Consulta de proteína**: FASTA de proteína → homólogos, dominios y función.

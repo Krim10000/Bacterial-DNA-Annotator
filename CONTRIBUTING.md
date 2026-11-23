@@ -4,6 +4,11 @@ Gracias por querer mejorar el anotador. Este proyecto se usa para investigación
 y docencia, así que la prioridad es **no romper la trazabilidad**: cada número
 debe poder rastrearse hasta su fuente.
 
+## Áreas donde hace falta ayuda
+
+Benchmark, revisión de chino, macOS/WSL2, `protein_query`, operones y
+créditos de GPU. Ver [`SUPPORT.md`](SUPPORT.md).
+
 ## Antes de empezar
 
 1. Lee `docs/ARCHITECTURE.md` y `scripts/README.md`.
