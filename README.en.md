@@ -128,6 +128,7 @@ Six modes in the sidebar:
 | 🧪 **Metabolic pathways** | you explore the already computed analysis of 400 genomes (gaps, closures, operons, mobility, membrane, taxonomy…) |
 | 🧬 **Genome browser** | you see a window of the genome with tracks and **click on a gene** to read its card |
 | 📥 **Reports and downloads** | gathers the available TSV/JSON/Markdown files, with size, source and license, and builds a ZIP of results |
+| 🧩 **Modules** | each module declares its options, status, time and self-test; the interface builds itself |
 | 🙏 **Credits and tools** | who made each piece, with link, citation and license |
 
 ### DNA is clickable
