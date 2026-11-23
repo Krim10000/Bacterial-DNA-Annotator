@@ -1,5 +1,9 @@
 # Complejos con CPU: evaluación restringida por vecindad génica
 
+**Estado 2026-11-23:** fase 1 implementada en `webapp/complexes.py` (11 firmas,
+`complexes.tsv`, columnas en proteínas y brechas, tabla GUI). No hay todavía
+template PDB ni pista en el navegador.
+
 ## Principio
 
 La estructura cuaternaria no se puede predecir de forma fiable con CPU desde
