@@ -110,13 +110,14 @@ No, todavía **no hay paridad total**. Sí hay paridad en el núcleo que define 
 producto: anotación, proteínas, función, metabolismo, brechas y oriC.
 
 La brecha más grande es **regulación/operones**. La segunda es **estructura
-masiva**. Móviles/membrana/taxonomía son pilotos de 10 genomas, no una
-capacidad de los 400.
+masiva**. Membrana y taxonomía ya tienen salidas para 400, pero no se ejecutan
+en un FASTA nuevo; móviles/defensa sigue siendo piloto de 10 genomas.
 
 ## Orden para cerrar la paridad
 
 1. Estabilizar functional + A/B/C + ORCA en 3–5 genomas públicos.
 2. Implementar el módulo `oric` en la GUI con entrada FASTA.
 3. Llevar regulación/operones a un comando reproducible.
-4. Ampliar móviles/membrana/taxonomía a los 400.
+4. Integrar membrana/taxonomía full 400 en el pipeline nuevo y ampliar
+   móviles/defensa a los 400.
 5. Estructura selectiva y GPU.
