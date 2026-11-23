@@ -10,6 +10,10 @@ Ahora el pipeline de un FASTA nuevo:
 - clasifica cada proteína en A, B o C;
 - conserva hit, identidad, e-value y producto.
 
+Para los 400, `functional.tsv` ya existía, pero `protein_paths.tsv` no estaba
+persistido. Se reconstruyó con `tools/rebuild_protein_paths.py` sin volver a
+correr DIAMOND: **400/400 genomas** tienen ahora `protein_paths.tsv`.
+
 Todavía no ejecuta automáticamente los pasos estructurales de B/C. Para B/C el
 pipeline deja el trabajo preparado (`next_step`) y los filtros estructurales
 siguen siendo opcionales (`--structure-manifest`, `--structural-filters`).
@@ -41,23 +45,26 @@ Reglas:
 
 | camino | proteínas | % total | dato clave |
 |---|---:|---:|---|
-| A. Función nombrada | **690.157** | 51,6% | Swiss-Prot con función |
-| B. UniProt uncharacterized/DUF | **54.031** | 4,0% | subconjunto de A; tiene accesión/AFDB |
+| A. Función nombrada | **566.957** | 42,4% | Swiss-Prot con función |
+| B. UniProt uncharacterized/DUF | **123.200** | 9,2% | homólogo no caracterizado/DUF |
 | C. Sin hit Swiss-Prot | **647.588** | 48,4% | sin función curada; 446.927 clusters |
 
-A + C = 1.337.745.  
-B está contenido en A; se trata aparte por su falta de función específica.
+Total: **1.337.745** proteínas. A + B = 690.157 (el antiguo conteo “A” incluía
+las B). B ya no se presenta como subconjunto de A: es una etiqueta separada.
+
+`subunit_hint=named_subunit`: 80.839 proteínas (6,0 %). Es solo nombre, no
+pertenencia a complejo.
 
 ## Camino A — función nombrada
 
-- 690.157 proteínas.
+- 566.957 proteínas.
 - Hit Swiss-Prot con función.
 - Se usa la anotación existente.
 - No requiere estructura para una función básica.
 
 ## Camino B — uncharacterized/DUF con UniProt
 
-- 54.031 proteínas.
+- 123.200 proteínas.
 - 25.058 clusters al 50%.
 - 3.931 accesiones únicas.
 - 1.192 con AFDB.
@@ -118,6 +125,9 @@ El camino B está implementado con `--structure-manifest`,
 `--structural-filters` y `--precomputed-hypotheses`.
 
 El camino C todavía es un plan CPU; no está automatizado por completo.
+
+La etiqueta A/B/C **no es una llamada de complejo**. `subunit_hint` es un eje
+independiente y no cambia la etiqueta; ver [`SUBUNIT_NAMES.md`](SUBUNIT_NAMES.md).
 
 ## Complejos
 

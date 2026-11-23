@@ -12,14 +12,15 @@ reproducir en un genoma nuevo?
 | CDS, tRNA, rRNA, GFF3, proteínas | 400/400 | `annotate` + flags | ✅ |
 | ORFs no anotados y desiertos | 400/400 | `ghost` + desiertos | ✅ |
 | Anotación funcional Swiss-Prot | 400 `functional.tsv` | ahora automática | ✅ nuevo |
-| Caminos A/B/C | conteos agregados | `protein_paths.tsv` | ✅ nuevo (clasificación) |
+| Caminos A/B/C | 400/400 `protein_paths.tsv` | `protein_paths.tsv` | ✅ clasificación; B/C estructural parcial |
+| Complejos por vecindad/ortología | 397/400 con firmas; 400/400 transferencia K-12 | firma + modelo K-12 + transferencia | 🟡 candidatos, sin predicción cuaternaria |
 | Red metabólica, reacciones y brechas | 400 redes | automática si hay DB | ✅ condicionada a datos |
 | oriC ORCA | 400 filas de estado | `webapp/oric.py` | ✅ nuevo |
 | DoriC | 306 genomas con verdad | lookup con `--accession` | 🟡 opcional |
 | Operones/promotores/regulación | 402 directorios | no automático | ❌ |
 | Móviles/defensa | 10 pilotos | módulo de resumen | 🟡 fuera de los 400 |
-| Membrana/transporte | 10 pilotos | módulo de resumen | 🟡 fuera de los 400 |
-| Taxonomía/ANI | 10 pilotos | módulo de resumen | 🟡 fuera de los 400 |
+| Membrana/transporte | 400 TSV `full/` + 10 GFF piloto | no automático | 🟡 datos 400; no pipeline nuevo |
+| Taxonomía/ANI | 400 JSON `full/` | no automático | 🟡 datos 400; no pipeline nuevo |
 | TSS/TTS/horquillas | precalculado | no automático | ❌ |
 | Estructura/filtros | subconjunto | flags opcionales | 🟡 |
 | Targets/allosteria | precalculado | no automático | 🟡 |
@@ -89,8 +90,9 @@ No es un flag: es una etapa nueva.
 
 ### 2. Móviles, membrana y taxonomía
 
-Solo hay 10 genomas piloto, no 400. No son paridad pendiente de los 400; son
-módulos piloto que deben ampliarse.
+Membrana y taxonomía ya tienen salidas `full` para 400 genomas (TSV/JSON), pero
+solo 10 GFF piloto de membrana y **no se ejecutan automáticamente** en un FASTA
+nuevo. Móviles sigue siendo piloto. No son paridad de pipeline nuevo todavía.
 
 ### 3. TSS/TTS/horquillas
 

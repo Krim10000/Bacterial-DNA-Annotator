@@ -1,0 +1,13 @@
+{
+  "genomes": 400,
+  "paths": {
+    "A": 566957,
+    "B": 123200,
+    "C": 647588
+  },
+  "total": 1337745,
+  "subunit_hint": {
+    "none": 1256906,
+    "named_subunit": 80839
+  }
+}
