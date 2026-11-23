@@ -1,4 +1,4 @@
-🌐 [Español](README.md) · **English**
+🌐 [Español](README.md) · **English** · [中文](README.zh.md)
 
 # 🧬 Bacterial DNA annotator
 

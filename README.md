@@ -1,6 +1,6 @@
 # 🧬 Anotador de ADN bacteriano
 
-🌐 **Español** · [English](README.en.md)
+🌐 **Español** · [English](README.en.md) · [中文](README.zh.md)
 
 [![CI](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml/badge.svg)](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/Krim10000/Bacterial-DNA-Annotator)](https://github.com/Krim10000/Bacterial-DNA-Annotator/releases)

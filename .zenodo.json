@@ -1,0 +1,31 @@
+{
+  "title": "Bacterial DNA Annotator: modular annotation and metabolic gap exploration for bacterial genomes",
+  "description": "<p><strong>Bacterial DNA Annotator</strong> is an open-source pipeline and web application for annotating bacterial genomes from scratch and exploring their metabolic gaps. It finds CDS, tRNA and rRNA, discovers unannotated ORFs, reconstructs metabolic networks, proposes operons and promoters, and presents the results in a clickable genome browser.</p><p>Every result declares its source, evidence, confidence and status. The graphical interface is available in Spanish, English and Simplified Chinese, runs on CPU, and includes a 150 kb demo genome. The 10 modules expose options, requirements, estimated time, status, self-test and execution; the ghost-gene module runs directly on an uploaded FASTA.</p><p>The public repository does not redistribute RegulonDB, KEGG, DoriC, STRING, DBTBS or BATTER data. The original code is MIT; third-party components keep their licenses.</p><p>Author: Camilo Rojas Bravo, Biotechnology Engineer graduated from Universidad de Santiago de Chile (USACH), currently without institutional affiliation. Development assistance: DeepSeek Harness (DSH) with DeepSeek, November 2026.</p>",
+  "creators": [
+    {
+      "name": "Rojas Bravo, Camilo",
+      "affiliation": "Biotechnology Engineer, Universidad de Santiago de Chile (USACH); currently without institutional affiliation"
+    }
+  ],
+  "keywords": [
+    "bioinformatics",
+    "bacterial genomics",
+    "genome annotation",
+    "metabolic gap filling",
+    "operon prediction",
+    "reproducible research",
+    "Streamlit"
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "language": "spa",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Krim10000/Bacterial-DNA-Annotator",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Development assistance: DeepSeek Harness (DSH) with DeepSeek, November 2026, for code review, interface translation, documentation, GUI testing and packaging. Scientific decisions, data and validation remain the author's responsibility."
+}
