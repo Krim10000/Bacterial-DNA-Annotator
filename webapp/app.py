@@ -1576,7 +1576,7 @@ def render_result(res: dict) -> None:
 
     tabs = st.tabs(["🔎 Genes fantasma", "🏜️ Desiertos", "🧪 Brechas",
                     "📥 Descargas", "🧾 Features", "🔬 Hipótesis estructural",
-                    "🧬 Función y origen"])
+                    "🧬 Función y origen", "🧫 Membrana"])
 
     with tabs[0]:
         if res["candidates"]:
@@ -1826,6 +1826,42 @@ def render_result(res: dict) -> None:
             )
         else:
             st.info("ORCA no ejecutado: falta el modelo o la dependencia orcapy.")
+
+    with tabs[7]:
+        mem = res.get("membrane")
+        st.caption(
+            "Membrana/transporte: hmmscan contra un panel Pfam curado, "
+            "hidropatía tipo Kyte-Doolittle, señal péptido y lipobox. "
+            "Son heurísticas; no sustituyen TMHMM/SignalP/LipoP."
+        )
+        if not mem:
+            st.info("Membrana no ejecutada. Requiere hmmscan y el panel Pfam.")
+        elif not mem.get("ok"):
+            st.warning(f"No se pudo ejecutar membrana: {mem.get('reason', '')}")
+        else:
+            df = pd.DataFrame(mem.get("rows") or [])
+            if df.empty:
+                st.info("Sin filas de membrana para este genoma.")
+            else:
+                c1, c2, c3 = st.columns(3)
+                c1.metric("Filas", len(df))
+                c2.metric("Alta", int((df.get("confidence") == "high").sum())
+                          if "confidence" in df else 0)
+                c3.metric("Transportadores",
+                          int((df.get("type") == "transporter").sum())
+                          if "type" in df else 0)
+                st.dataframe(df, width="stretch", hide_index=True)
+                st.download_button(
+                    "⬇️ Membrana (TSV)",
+                    df.to_csv(sep="\t", index=False),
+                    file_name=f"{res['genome']}_membrane.tsv", mime="text/plain",
+                )
+                if mem.get("gff"):
+                    st.download_button(
+                        "⬇️ Membrana (GFF3)", Path(mem["gff"]).read_text(),
+                        file_name=f"{res['genome']}_membrane.gff3",
+                        mime="text/plain",
+                    )
 
 
 def main() -> None:

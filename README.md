@@ -36,6 +36,7 @@ routes, operons and regulatory loops — always with evidence and limits.
 | oriC (ORCA + GC skew) | ✅ automatic for new FASTA; DoriC optional with accession |
 | Metabolic routes and gaps | ✅ implemented |
 | Operons and promoters | 🟡 precomputed for the 400; not automatic for a new FASTA |
+| Membrane/transport | ✅ automatic for new FASTA when HMMER + Pfam panel are installed |
 | Regulatory loops | 🟡 partial: candidates/operators; direction/magnitude blocked by GPU and experiments |
 | Protein complexes (CPU) | 🟡 neighborhood + K-12 prior + orthology transfer; no quaternary prediction |
 | Unknown-protein reduction (400 genomes) | 🟡 partial: cheap filters and structural gating; full structure set pending |

@@ -19,7 +19,7 @@ reproducir en un genoma nuevo?
 | DoriC | 306 genomas con verdad | lookup con `--accession` | 🟡 opcional |
 | Operones/promotores/regulación | 402 directorios | no automático | ❌ |
 | Móviles/defensa | 10 pilotos | módulo de resumen | 🟡 fuera de los 400 |
-| Membrana/transporte | 400 TSV `full/` + 10 GFF piloto | no automático | 🟡 datos 400; no pipeline nuevo |
+| Membrana/transporte | 400 TSV `full/` + 10 GFF piloto | `webapp/membrane_layer.py` | ✅ automático si hmmscan + panel |
 | Taxonomía/ANI | 400 JSON `full/` | no automático | 🟡 datos 400; no pipeline nuevo |
 | TSS/TTS/horquillas | precalculado | no automático | ❌ |
 | Estructura/filtros | subconjunto | flags opcionales | 🟡 |
@@ -110,8 +110,9 @@ No, todavía **no hay paridad total**. Sí hay paridad en el núcleo que define 
 producto: anotación, proteínas, función, metabolismo, brechas y oriC.
 
 La brecha más grande es **regulación/operones**. La segunda es **estructura
-masiva**. Membrana y taxonomía ya tienen salidas para 400, pero no se ejecutan
-en un FASTA nuevo; móviles/defensa sigue siendo piloto de 10 genomas.
+masiva**. Membrana ya se ejecuta en un FASTA nuevo si hmmscan y el panel Pfam
+están instalados; taxonomía sigue precalculada. Móviles/defensa sigue siendo
+piloto de 10 genomas.
 
 ## Orden para cerrar la paridad
 

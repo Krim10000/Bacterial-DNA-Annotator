@@ -38,6 +38,7 @@ metabólicas, operones y bucles de regulación, siempre con evidencia y límites
 | oriC (ORCA + GC skew) | ✅ automático en FASTA nuevo; DoriC opcional con accession |
 | Rutas metabólicas y brechas | ✅ implementado |
 | Operones y promotores | 🟡 precalculado en los 400; no automático en FASTA nuevo |
+| Membrana/transporte | ✅ automático en FASTA nuevo si HMMER + panel Pfam están instalados |
 | Bucles de regulación | 🟡 parcial: candidatos/operadores; dirección/magnitud bloqueadas por GPU y experimentos |
 | Complejos proteicos (CPU) | 🟡 vecindad + prior K-12 + transferencia por ortología; sin predicción cuaternaria |
 | Reducción de desconocidas (400 genomas) | 🟡 parcial: filtros baratos y gating estructural; falta completar estructuras |

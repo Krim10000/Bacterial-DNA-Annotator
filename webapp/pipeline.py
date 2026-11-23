@@ -20,6 +20,7 @@ from functional import annotate as functional_annotate, write_paths  # noqa: E40
 from complexes import infer as infer_complexes, enrich_gaps, enrich_rows, write as write_complexes  # noqa: E402
 from complex_model import run as run_complex_model  # noqa: E402
 from complex_transfer import load as load_complex_transfer  # noqa: E402
+from membrane_layer import run as run_membrane  # noqa: E402
 import oric  # noqa: E402
 from esmfold_tools import close_gaps  # noqa: E402
 from structure_evidence import evidence_for_rows  # noqa: E402
@@ -80,6 +81,10 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
                                if x.get("status") == "complex_suspected"),
             "rows": len(c.get("complexes") or []),
         }
+    if res.get("membrane"):
+        m = res["membrane"]
+        summary["membrane"] = {"ok": m.get("ok"), "rows": m.get("n_rows", 0),
+                               "reason": m.get("reason", "")}
     if res.get("oric"):
         o = res["oric"]
         summary["oric"] = {k: o.get(k) for k in
@@ -194,6 +199,8 @@ def main() -> int:
     ap.add_argument("--no-deserts", action="store_true")
     ap.add_argument("--esm", action="store_true", help="Puntuar ORFs con ESM-2")
     ap.add_argument("--no-metabolic", action="store_true")
+    ap.add_argument("--no-membrane", action="store_true",
+                    help="No ejecutar membrana/transporte (hmmscan + Pfam).")
     ap.add_argument("--no-functional", action="store_true",
                     help="No ejecutar DIAMOND/Swiss-Prot automáticamente.")
     ap.add_argument("--no-oric", action="store_true",
@@ -267,6 +274,13 @@ def main() -> int:
                 write_complexes(comp, args.outdir)
             except Exception as exc:  # noqa: BLE001
                 print(f"[aviso] complejos no evaluados: {exc}", file=sys.stderr)
+        if not args.no_membrane and res.get("gff"):
+            try:
+                mem = run_membrane(res, args.outdir, args.data_root,
+                                   cpu=args.threads)
+                res["membrane"] = mem
+            except Exception as exc:  # noqa: BLE001
+                print(f"[aviso] membrana no ejecutada: {exc}", file=sys.stderr)
         if not args.no_oric and res.get("sequences"):
             try:
                 res["oric"] = oric.run(res, args.data_root,
