@@ -45,6 +45,10 @@ class Hit:
     bitscore: float = 0.0
     path: str = "C"
     next_step: str = ""
+    label: str = ""
+    evidence_strength: str = "none"
+    evidence_toward: str = "unknown"
+    interpretation: str = ""
 
 
 def parse_hit(qseqid: str, sseqid: str, stitle: str, pident: float,
@@ -71,11 +75,68 @@ def parse_hit(qseqid: str, sseqid: str, stitle: str, pident: float,
         hit.ec = m.group(1)
     if UNCHARACTERIZED.search(hit.product) or UNCHARACTERIZED.search(hit.entry_name):
         hit.path = "B"
+        hit.label = "B_uncharacterized_homolog"
+        hit.evidence_toward = "uncharacterized_family"
         hit.next_step = "dominios/TM/contexto + estructura selectiva"
+        hit.interpretation = ("Homología a proteína no caracterizada/DUF: "
+                              "evidencia de familia, no de función.")
     else:
         hit.path = "A"
+        hit.label = "A_named_function"
+        hit.evidence_toward = "named_function"
         hit.next_step = "función nombrada; no requiere estructura"
+        hit.interpretation = ("Función nombrada por homología Swiss-Prot; "
+                              "no confirmada experimentalmente.")
     return hit
+
+
+def _evidence(hit: Hit, query_len: int) -> tuple[str, str, str]:
+    """Devuelve (label, fuerza, interpretación) de forma conservadora."""
+    cov = min(1.0, hit.aln_len / max(1, query_len))
+    if hit.path == "A":
+        strength = "strong" if hit.pident >= 70 and cov >= 0.80 else "moderate"
+        label = "A_named_function"
+        toward = "named_function"
+        text = ("Función nombrada por homología; fuerte solo como homología, "
+                "no como función confirmada.")
+    elif hit.path == "B":
+        strength = "moderate" if hit.pident >= 60 and cov >= 0.70 else "weak"
+        label = "B_uncharacterized_homolog"
+        toward = "uncharacterized_family"
+        text = ("Homología a proteína no caracterizada/DUF; la función sigue "
+                "sin resolverse.")
+    else:
+        strength = "none"
+        label = "C_no_swissprot_hit"
+        toward = "unknown"
+        text = ("Sin hit Swiss-Prot; no prueba ausencia de función. "
+                "Requiere dominio/contexto/estructura.")
+    return label, strength, f"{text} (pident={hit.pident:.0f}%, cov={cov:.0%})"
+
+
+def _row_for(protein: dict[str, Any], hit: Hit | None) -> dict[str, Any]:
+    seq = str(protein.get("aa", ""))
+    if hit is None:
+        return {
+            "protein_id": protein["id"], "path": "C",
+            "label": "C_no_swissprot_hit", "evidence_strength": "none",
+            "evidence_toward": "unknown",
+            "interpretation": ("Sin hit Swiss-Prot; no prueba ausencia de "
+                               "función. Requiere dominio/contexto/estructura."),
+            "uniprot": "", "gene": "", "product": "", "ec": "", "organism": "",
+            "pident": "", "coverage": "", "evalue": "",
+            "next_step": "dominios/TM/contexto/estructura selectiva",
+        }
+    label, strength, text = _evidence(hit, len(seq))
+    return {
+        "protein_id": protein["id"], "path": hit.path, "label": label,
+        "evidence_strength": strength, "evidence_toward": hit.evidence_toward,
+        "interpretation": text, "uniprot": hit.uniprot, "gene": hit.gene,
+        "product": hit.product, "ec": hit.ec, "organism": hit.organism,
+        "pident": hit.pident,
+        "coverage": round(min(1.0, hit.aln_len / max(1, len(seq))), 3),
+        "evalue": hit.evalue, "next_step": hit.next_step,
+    }
 
 
 def _diamond_db(db: Path) -> Path:
@@ -150,20 +211,9 @@ def annotate(proteins: list[dict[str, Any]], data_root: Path, outdir: Path,
     by_id = {p["id"]: p for p in proteins}
     rows = []
     for p in proteins:
-        h = hits.get(p["id"])
-        if h is None:
-            path, step = "C", "sin hit Swiss-Prot: dominio/contexto/estructura selectiva"
-            row = {"protein_id": p["id"], "path": path, "uniprot": "",
-                   "gene": "", "product": "", "ec": "", "organism": "",
-                   "pident": "", "evalue": "", "next_step": step}
-        else:
-            path, step = h.path, h.next_step
-            row = {"protein_id": p["id"], "path": path, "uniprot": h.uniprot,
-                   "gene": h.gene, "product": h.product, "ec": h.ec,
-                   "organism": h.organism, "pident": h.pident,
-                   "evalue": h.evalue, "next_step": step}
+        row = _row_for(p, hits.get(p["id"]))
         rows.append(row)
-        result["paths"][path] += 1
+        result["paths"][row["path"]] += 1
 
     result["rows"] = rows
     result.update(

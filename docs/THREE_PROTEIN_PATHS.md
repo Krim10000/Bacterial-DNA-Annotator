@@ -16,6 +16,25 @@ siguen siendo opcionales (`--structure-manifest`, `--structural-filters`).
 El camino C sigue siendo un plan CPU para los 400; no se debe presentar como
 completo.
 
+## Etiquetas interpretables
+
+`protein_paths.tsv` ahora incluye:
+
+| columna | valores |
+|---|---|
+| `path` | A / B / C |
+| `label` | `A_named_function`, `B_uncharacterized_homolog`, `C_no_swissprot_hit` |
+| `evidence_strength` | `strong`, `moderate`, `weak`, `none` |
+| `evidence_toward` | `named_function`, `uncharacterized_family`, `unknown` |
+| `interpretation` | explicación legible con pident y cobertura |
+
+Reglas:
+
+- **A** puede ser `strong` si pident ≥70 % y cobertura ≥80 %; aun así es
+  homología, no función confirmada.
+- **B** nunca pasa de `moderate`; una DUF no resuelve la función.
+- **C** es `none`: no prueba ausencia de función.
+
 ## Resumen
 
 | camino | proteínas | % total | dato clave |

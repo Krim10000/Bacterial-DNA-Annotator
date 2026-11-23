@@ -32,3 +32,21 @@ def test_parse_m8_and_gene_positions(tmp_path: Path):
     feats = [{"id": "cds_1", "start": 1398}, {"id": "cds_2", "start": 2000}]
     pos = gene_positions(feats, {k: {"gene": v.gene} for k, v in hits.items()})
     assert pos == {"dnaa": 1398}
+
+
+def test_interpretable_labels():
+    from webapp.functional import _row_for
+    a = parse_hit("p1", "sp|P03004|DNAA_ECOLI",
+                  "DnaA OS=Escherichia coli GN=dnaA", 99.0, 400, 0.0, 800.0)
+    row = _row_for({"id": "p1", "aa": "M" * 400}, a)
+    assert row["label"] == "A_named_function"
+    assert row["evidence_strength"] == "strong"
+    assert row["evidence_toward"] == "named_function"
+    b = parse_hit("p2", "sp|Q1|DUF1_ECOLI",
+                  "DUF1 domain-containing protein", 40.0, 100, 1e-5, 50.0)
+    row = _row_for({"id": "p2", "aa": "M" * 400}, b)
+    assert row["label"] == "B_uncharacterized_homolog"
+    assert row["evidence_strength"] == "weak"
+    c = _row_for({"id": "p3", "aa": "M" * 100}, None)
+    assert c["label"] == "C_no_swissprot_hit"
+    assert c["evidence_strength"] == "none"

@@ -1724,6 +1724,11 @@ def render_result(res: dict) -> None:
             "El origen se predice con ORCA + GC skew; DoriC solo aplica a "
             "genomas con accession conocido."
         )
+        st.caption(
+            "Etiquetas: A = función nombrada; B = homólogo no caracterizado/DUF; "
+            "C = sin hit Swiss-Prot. `evidence_strength` = strong/moderate/weak/"
+            "none. Una homología fuerte no es una función confirmada."
+        )
         fun = res.get("functional")
         if res.get("functional_error"):
             st.warning(res["functional_error"])

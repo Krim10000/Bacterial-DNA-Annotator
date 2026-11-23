@@ -1001,5 +1001,19 @@
  "🔬 Hipótesis estructurales": "🔬 Structural hypotheses",
  "No se encontraron ORFs candidatos.": "No candidate ORFs found.",
  "Ingeniero en Biotecnología (USACH)": "Biotechnology Engineer (USACH)",
- "Ingeniero en Biotecnología, titulado de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual": "Biotechnology Engineer, graduated from the University of Santiago, Chile (USACH); currently without an institutional affiliation"
+ "Ingeniero en Biotecnología, titulado de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual": "Biotechnology Engineer, graduated from the University of Santiago, Chile (USACH); currently without an institutional affiliation",
+ "Con hit": "With hit",
+ "Posición": "Position",
+ "A / B / C": "A / B / C",
+ "Cobertura": "Coverage",
+ "Proteínas": "Proteins",
+ "⬇️ oriC (GFF3)": "⬇️ oriC (GFF3)",
+ "🧬 Función y origen": "🧬 Function and origin",
+ "⬇️ Caminos de proteínas (TSV)": "⬇️ Protein paths (TSV)",
+ "🧭 Predicción de origen (ORCA + GC skew)…": "🧭 Predicting origin (ORCA + GC skew)…",
+ "🧾 Anotación funcional (DIAMOND/Swiss-Prot)…": "🧾 Functional annotation (DIAMOND/Swiss-Prot)…",
+ "ORCA no ejecutado: falta el modelo o la dependencia orcapy.": "ORCA not run: missing model or orcapy dependency.",
+ "Anotación funcional no ejecutada: falta DIAMOND o Swiss-Prot.": "Functional annotation not run: missing DIAMOND or Swiss-Prot.",
+ "Caracterización automática de proteínas en tres caminos: A función nombrada, B uncharacterized/DUF, C sin hit Swiss-Prot. El origen se predice con ORCA + GC skew; DoriC solo aplica a genomas con accession conocido.": "Automatic protein characterization in three paths: A named function, B uncharacterized/DUF, C no Swiss-Prot hit. Origin is predicted with ORCA + GC skew; DoriC only applies to genomes with a known accession.",
+ "Etiquetas: A = función nombrada; B = homólogo no caracterizado/DUF; C = sin hit Swiss-Prot. `evidence_strength` = strong/moderate/weak/none. Una homología fuerte no es una función confirmada.": "Labels: A = named function; B = uncharacterized/DUF homolog; C = no Swiss-Prot hit. `evidence_strength` = strong/moderate/weak/none. Strong homology is not a confirmed function."
 }

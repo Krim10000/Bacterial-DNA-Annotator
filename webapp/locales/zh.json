@@ -1001,5 +1001,19 @@
  "🔬 Hipótesis estructurales": "🔬 结构假设",
  "No se encontraron ORFs candidatos.": "未找到候选 ORF。",
  "Ingeniero en Biotecnología (USACH)": "生物技术工程师（USACH）",
- "Ingeniero en Biotecnología, titulado de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual": "智利圣地亚哥大学生物技术工程师（USACH 毕业）；目前无机构隶属"
+ "Ingeniero en Biotecnología, titulado de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual": "智利圣地亚哥大学生物技术工程师（USACH 毕业）；目前无机构隶属",
+ "Con hit": "有命中",
+ "Posición": "位置",
+ "A / B / C": "A / B / C",
+ "Cobertura": "覆盖率",
+ "Proteínas": "蛋白质",
+ "⬇️ oriC (GFF3)": "⬇️ oriC（GFF3）",
+ "🧬 Función y origen": "🧬 功能与复制起点",
+ "⬇️ Caminos de proteínas (TSV)": "⬇️ 蛋白质路径（TSV）",
+ "🧭 Predicción de origen (ORCA + GC skew)…": "🧭 预测复制起点（ORCA + GC skew）…",
+ "🧾 Anotación funcional (DIAMOND/Swiss-Prot)…": "🧾 功能注释（DIAMOND/Swiss-Prot）…",
+ "ORCA no ejecutado: falta el modelo o la dependencia orcapy.": "ORCA 未运行：缺少模型或 orcapy 依赖。",
+ "Anotación funcional no ejecutada: falta DIAMOND o Swiss-Prot.": "功能注释未运行：缺少 DIAMOND 或 Swiss-Prot。",
+ "Caracterización automática de proteínas en tres caminos: A función nombrada, B uncharacterized/DUF, C sin hit Swiss-Prot. El origen se predice con ORCA + GC skew; DoriC solo aplica a genomas con accession conocido.": "蛋白质自动表征分为三条路径：A 有名称的功能，B uncharacterized/DUF，C 无 Swiss-Prot 命中。复制起点用 ORCA + GC skew 预测；DoriC 仅适用于有已知 accession 的基因组。",
+ "Etiquetas: A = función nombrada; B = homólogo no caracterizado/DUF; C = sin hit Swiss-Prot. `evidence_strength` = strong/moderate/weak/none. Una homología fuerte no es una función confirmada.": "标签：A = 有名称的功能；B = uncharacterized/DUF 同源物；C = 无 Swiss-Prot 命中。`evidence_strength` = strong/moderate/weak/none。强同源性不等于已确认功能。"
 }
