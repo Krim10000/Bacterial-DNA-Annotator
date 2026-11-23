@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Si usas este proyecto en un trabajo académico, cita esta referencia y las herramientas que aparecen en THIRD_PARTY_LICENSES.md."
 title: "Anotador de ADN bacteriano: anotación, rutas metabólicas y regulación"
 type: software
-version: 1.1.1
+version: 1.1.2
 date-released: "2026-11-23"
 license: MIT
 repository-code: "https://github.com/Krim10000/Bacterial-DNA-Annotator"
@@ -11,7 +11,7 @@ authors:
   - family-names: "Rojas Bravo"
     given-names: "Camilo"
     email: "Camilo.Rojas@usach.cl"
-    affiliation: "Sin afiliación institucional actual; ex estudiante de la Universidad de Santiago de Chile (USACH)"
+    affiliation: "Ingeniero en Biotecnología, titulado de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual"
 keywords:
   - bioinformatics
   - bacterial genomics

@@ -4,7 +4,7 @@
 
 [![CI](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml/badge.svg)](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/Krim10000/Bacterial-DNA-Annotator)](https://github.com/Krim10000/Bacterial-DNA-Annotator/releases)
-[![Versión](https://img.shields.io/badge/versión-1.1.1-blue)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versión-1.1.2-blue)](CHANGELOG.md)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-green)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12-blue)](pyproject.toml)
 [![Idiomas](https://img.shields.io/badge/idiomas-ES%20|%20EN%20|%20ZH-purple)](#-idiomas)
@@ -224,7 +224,7 @@ Detalle, evidencia y costes en [`docs/GPU_STATUS.md`](docs/GPU_STATUS.md).
 
 ## 🙏 Créditos
 
-**Autor:** Camilo Rojas Bravo — ex estudiante de la Universidad de Santiago de Chile (USACH), sin afiliación institucional actual — Camilo.Rojas@usach.cl.
+**Autor:** Camilo Rojas Bravo — Ingeniero en Biotecnología, titulado de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual — Camilo.Rojas@usach.cl.
 
 **Asistencia de desarrollo:** DeepSeek Harness (DSH) con el modelo DeepSeek,
 **noviembre de 2026**, en revisión de código, traducción de la interfaz,
@@ -288,7 +288,9 @@ GFF3/TSV/JSON reports. It runs on CPU; no GPU is required for annotation. It
 does **not** redistribute RegulonDB, KEGG, DoriC, STRING, DBTBS or BATTER data:
 they are downloaded locally under their own terms. Original code is MIT;
 third-party components keep their licenses (several are GPL-3.0). Author:
-Camilo Rojas Bravo (former student at USACH, currently without an institutional affiliation; Camilo.Rojas@usach.cl). Development assistance:
+Camilo Rojas Bravo (Biotechnology Engineer, graduated from USACH;
+currently without an institutional affiliation; Camilo.Rojas@usach.cl).
+Development assistance:
 DeepSeek Harness with DeepSeek, November 2026.
 
 ## ⭐ ¿Te sirvió?

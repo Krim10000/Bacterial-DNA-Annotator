@@ -1993,7 +1993,7 @@ def main() -> None:
     st.caption(
         f"🧬 {tr('Anotador')} v{APP_VERSION} · "
         "👤 **Camilo Rojas Bravo** · "
-        + tr("Ex estudiante de la Universidad de Santiago de Chile") + " · "
+        + tr("Ingeniero en Biotecnología (USACH)") + " · "
         "Camilo.Rojas@usach.cl  \n"
         "🤖 " + tr("Asistencia de desarrollo:") + " "
         + tr("**DeepSeek Harness (DSH)** con DeepSeek,") + " "

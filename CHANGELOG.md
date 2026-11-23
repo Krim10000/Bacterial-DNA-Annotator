@@ -3,6 +3,15 @@
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
 Versionado [SemVer](https://semver.org/lang/es/).
 
+## [1.1.2] — 2026-11-23
+
+### Corregido
+
+- Afiliación del autor precisada: **Ingeniero en Biotecnología, titulado de la
+  Universidad de Santiago de Chile (USACH); sin afiliación institucional
+  actual**. Se actualizaron README, CITATION, AUTHORS, paper, créditos de la
+  GUI y citación descargable.
+
 ## [1.1.1] — 2026-11-23
 
 ### Corregido

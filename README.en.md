@@ -4,7 +4,7 @@
 
 [![CI](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml/badge.svg)](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/Krim10000/Bacterial-DNA-Annotator)](https://github.com/Krim10000/Bacterial-DNA-Annotator/releases)
-[![Version](https://img.shields.io/badge/version-1.1.1-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.1.2-blue)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12-blue)](pyproject.toml)
 [![Languages](https://img.shields.io/badge/languages-ES%20|%20EN%20|%20ZH-purple)](#-languages)
@@ -224,7 +224,7 @@ Details, evidence and costs in [`docs/GPU_STATUS.en.md`](docs/GPU_STATUS.en.md).
 
 ## 🙏 Credits
 
-**Author:** Camilo Rojas Bravo — former student at the University of Santiago, Chile (USACH), currently without an institutional affiliation — Camilo.Rojas@usach.cl.
+**Author:** Camilo Rojas Bravo — Biotechnology Engineer, graduated from the University of Santiago, Chile (USACH); currently without an institutional affiliation — Camilo.Rojas@usach.cl.
 
 **Development assistance:** DeepSeek Harness (DSH) with the DeepSeek model,
 **November 2026**, on code review, interface translation, documentation, GUI
@@ -288,7 +288,9 @@ descargas en GFF3/TSV/JSON. Funciona en CPU; la GPU no es necesaria para anotar.
 No redistribuye datos de RegulonDB, KEGG, DoriC, STRING, DBTBS ni BATTER: se
 descargan localmente bajo sus condiciones. El código original es MIT; las
 herramientas de terceros conservan su licencia (varias son GPL-3.0). Autor:
-Camilo Rojas Bravo (ex estudiante de la USACH, sin afiliación institucional actual; Camilo.Rojas@usach.cl). Asistencia de desarrollo:
+Camilo Rojas Bravo (Ingeniero en Biotecnología, titulado de la USACH;
+sin afiliación institucional actual; Camilo.Rojas@usach.cl).
+Asistencia de desarrollo:
 DeepSeek Harness con DeepSeek, noviembre de 2026.
 
 ## ⭐ Did it help?
