@@ -108,6 +108,9 @@ es una capa de 400 que se puede añadir al navegador.
 
 ## Pendiente
 
-- Foldseek-Multimer contra una base de ensamblajes PDB.
-- Coevolución de interfaz (MSA por par).
-- Importar masas documentadas de ComplexPortal.
+- Foldseek-Multimer: interfaz lista (`scripts/complexes/foldseek_multimer.py`),
+  pero falta una base de ensamblajes PDB; sin DB devuelve `not_configured`.
+- Coevolución de interfaz: requiere MSA por par y cómputo intensivo; no se
+  ejecutó.
+- Importar masas documentadas de ComplexPortal. El gold local no trae
+  `Molecular weight`, así que hoy se reporta masa observada y estequiometría.

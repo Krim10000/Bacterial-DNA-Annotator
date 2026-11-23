@@ -9,7 +9,8 @@
 > 2. masa/estequiometría — **parcial** (masa observada y `expected_n`, sin masa
 >    documentada porque el gold local no la trae);
 > 3. perfil filogenético — **implementado** (`phylo_jacc`);
-> 4. Foldseek-Multimer — **pendiente** (falta DB de ensamblajes);
+> 4. Foldseek-Multimer — **interfaz implementada**
+>    (`foldseek_multimer.py`), falta la DB de ensamblajes PDB;
 > 5. coevolución — **pendiente** (falta MSA/CPU).
 
 Documento de trabajo: qué agregar, en qué orden, con qué evidencia y con qué

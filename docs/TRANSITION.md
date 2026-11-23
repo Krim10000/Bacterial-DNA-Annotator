@@ -10,6 +10,7 @@ está la evidencia.
 | Paridad 400 vs FASTA nuevo | [`PIPELINE_PARITY.md`](PIPELINE_PARITY.md) | auditoría 2026-11-23 | regulación/operones |
 | oriC (ORCA/DoriC) | [`ORIC.md`](ORIC.md) | núcleo implementado | rotación circular, HMM RPA/Rep |
 | Tres caminos A/B/C | [`THREE_PROTEIN_PATHS.md`](THREE_PROTEIN_PATHS.md) | A automático; B/C clasificados | estructura B/C automática |
+| Transferencia K-12 | [`COMPLEX_TRANSFER.md`](COMPLEX_TRANSFER.md) | implementada | Foldseek/coevolución |
 | Brechas y complejos | [`COMPLEX_GAPS.md`](COMPLEX_GAPS.md) · [`COMPLEX_CPU.md`](COMPLEX_CPU.md) | no evaluado | clústeres + firmas + pista |
 | Reducción de desconocidas | [`UNKNOWN_REDUCTION_PLAN.md`](UNKNOWN_REDUCTION_PLAN.md) | filtros baratos + gating | categorías amplias |
 | Filtros estructurales | [`FILTER_STRATEGY.md`](FILTER_STRATEGY.md) | pLDDT/gating implementado | colas separadas |
