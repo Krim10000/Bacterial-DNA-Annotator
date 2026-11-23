@@ -110,10 +110,31 @@ def _pocket_hits(pockets: list[dict], positions: list[int]) -> list[str]:
     return sorted(set(hits))
 
 
+def quality_gate(plddt: float | None, ptm: float | None) -> str:
+    """Clasifica la calidad estructural antes de gastar F3/F4.
+
+    La regla viene de FILTER_STRATEGY.md: con pLDDT/pTM bajos no se interpreta
+    el modelo; con calidad media se revisa, y solo con calidad alta se usa para
+    hipótesis. Si faltan los valores, el resultado es ``unknown`` y no se
+    bloquea el cálculo.
+    """
+    if plddt is None or ptm is None:
+        return "unknown"
+    if plddt >= 0.70 and ptm >= 0.50:
+        return "ok"
+    if plddt >= 0.60 and ptm >= 0.40:
+        return "review"
+    return "low"
+
+
 def run_filters(pdb: Path | str, genome: str = "", uniprot: str = "",
-                sites_file: Path | None = None, foldseek_hits: list[dict] | None = None) -> dict:
+                sites_file: Path | None = None, foldseek_hits: list[dict] | None = None,
+                plddt: float | None = None, ptm: float | None = None) -> dict:
     pdb = Path(pdb)
-    key = "filters_v5_" + _hash(pdb) + "_" + genome + "_" + uniprot + "_" + (str(sites_file) if sites_file else "auto") + "_" + ("local" if foldseek_hits is not None else "api")
+    key = ("filters_v6_" + _hash(pdb) + "_" + genome + "_" + uniprot + "_"
+           + (str(sites_file) if sites_file else "auto") + "_"
+           + ("local" if foldseek_hits is not None else "api") + "_"
+           + f"{plddt}-{ptm}")
     cached = _cache(key)
     if cached is not None:
         return cached
@@ -124,8 +145,21 @@ def run_filters(pdb: Path | str, genome: str = "", uniprot: str = "",
     if enz is None:
         enz = summarize_enzymm(scan_pdbs([pdb], CACHE / f"enzymm_{_hash(pdb)}", jobs=2).get("hits") or [])
         _cache(enz_key, enz)
-    pk = p2rank(pdb)
-    af = alphafill(uniprot) if uniprot else {"hits": [], "error": "sin UniProt"}
+    quality = quality_gate(plddt, ptm)
+    # Gating barato: no gastar P2Rank/AlphaFill si no hay señal F1/F2 o si el
+    # modelo es de baja calidad. F5 se conserva porque es una tabla local.
+    skipped = ""
+    if quality == "low":
+        pk = {"pockets": [], "error": "omitido: pLDDT/pTM bajos"}
+        af = {"hits": [], "error": "omitido: pLDDT/pTM bajos"}
+        skipped = "low_quality"
+    elif not (bool(fs.get("hits")) or bool(enz)):
+        pk = {"pockets": [], "error": "omitido: sin señal F1/F2"}
+        af = {"hits": [], "error": "omitido: sin señal F1/F2"}
+        skipped = "no_structural_signal"
+    else:
+        pk = p2rank(pdb)
+        af = alphafill(uniprot) if uniprot else {"hits": [], "error": "sin UniProt"}
     act = _active_positions(genome, uniprot, sites_file=sites_file)
     ph = _pocket_hits(pk.get("pockets", []), act)
     f = {
@@ -156,6 +190,8 @@ def run_filters(pdb: Path | str, genome: str = "", uniprot: str = "",
         "alphafill_ligands": ";".join(f"{x.get('ligand')}({x.get('pdb_id')})" for x in (af.get("hits") or [])[:5]),
         "f5_active_site": f["f5_active_site"], "active_positions": ";".join(map(str, act)),
         "n_pass": passed, "priority": priority,
+        "plddt": plddt, "ptm": ptm, "quality_gate": quality,
+        "gating": skipped or "evaluado",
         "source": "Foldseek + EnzyMM/PyJess + P2Rank + AlphaFill + UniProt/estructura",
         "limitation": "Filtros computacionales; no confirman función ni cierran brechas.",
         "error": "; ".join(x for x in (fs.get("error"), pk.get("error"), af.get("error")) if x),

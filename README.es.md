@@ -25,6 +25,25 @@ qué **confianza** y qué **no** prueba.
 
 ![Resultados de anotación](webapp/screenshot_v2_results.png)
 
+## 🧭 Alcance de un vistazo
+
+La idea es ir de una secuencia de ADN a la especie, sus proteínas, rutas
+metabólicas, operones y bucles de regulación, siempre con evidencia y límites.
+
+| capa | estado |
+|---|---|
+| Especie / taxonomía | ✅ implementado |
+| Genes, proteínas y ORFs no anotados | ✅ implementado |
+| Función / EC / UniProt | ✅ implementado para homólogos |
+| Rutas metabólicas y brechas | ✅ implementado |
+| Operones y promotores | ✅ implementado |
+| Bucles de regulación | 🟡 parcial: candidatos a represor y operadores; falta dirección/magnitud del efector |
+| Reducción de desconocidas (400 genomas) | 🟡 parcial: filtros baratos y gating estructural; falta completar estructuras |
+| Modelo de lenguaje de ADN | ⛔ experimental, no evaluado |
+
+Estado completo, límites de GPU y política de Kaggle:
+[`docs/ROADMAP.md`](docs/ROADMAP.md).
+
 ## ⚡ Instalación en Ubuntu (3 pasos)
 
 ```bash
@@ -298,6 +317,17 @@ Camilo Rojas Bravo (Biotechnology Engineer, graduated from USACH;
 currently without an institutional affiliation; Camilo.Rojas@usach.cl).
 Development assistance:
 DeepSeek Harness with DeepSeek, November 2026.
+
+## 🔭 Próximamente
+
+- **Consulta de proteína**: FASTA de proteína → homólogos, dominios y función.
+- **Reducción de desconocidas**: terminar los filtros sin GPU y las categorías
+  amplias para los 400 genomas.
+- **GPU/Kaggle**: primer filtro con ESMFold/co-folding en Kaggle; opcional,
+  nunca necesario para anotar un genoma.
+- **Empaquetado**: instalador macOS, guía WSL2 y PyPI.
+
+Detalle y límites honestos: [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
 ## ⭐ ¿Te sirvió?
 

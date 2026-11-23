@@ -23,6 +23,25 @@ what **confidence**, and what it does **not** prove.
 > CPU. The GPU is only used for local ESMFold and for training the DNA model,
 > which are optional. See [`docs/GPU_STATUS.en.md`](docs/GPU_STATUS.en.md).
 
+## 🧭 Scope at a glance
+
+The goal is to go from a DNA sequence to a species, its proteins, metabolic
+routes, operons and regulatory loops — always with evidence and limits.
+
+| layer | status |
+|---|---|
+| Species / taxonomy | ✅ implemented |
+| Genes, proteins, unannotated ORFs | ✅ implemented |
+| Functions / EC / UniProt | ✅ implemented for homologs |
+| Metabolic routes and gaps | ✅ implemented |
+| Operons and promoters | ✅ implemented |
+| Regulatory loops | 🟡 partial: repressor candidates and operators; direction/magnitude of effectors is not |
+| Unknown-protein reduction (400 genomes) | 🟡 partial: cheap filters and structural gating; full structure set pending |
+| DNA language model | ⛔ experimental, not evaluated |
+
+Full status, GPU limits and Kaggle policy:
+[`docs/ROADMAP.en.md`](docs/ROADMAP.en.md).
+
 ![Annotation results](webapp/screenshot_v2_results.png)
 
 ## ⚡ Installing on Ubuntu (3 steps)
@@ -299,6 +318,17 @@ Camilo Rojas Bravo (Ingeniero en Biotecnología, titulado de la USACH;
 sin afiliación institucional actual; Camilo.Rojas@usach.cl).
 Asistencia de desarrollo:
 DeepSeek Harness con DeepSeek, noviembre de 2026.
+
+## 🔭 Roadmap
+
+- **Protein query**: protein FASTA → homologs, domains and function.
+- **Unknown-protein reduction**: finish the GPU-free filters and broad
+  categories for the 400 genomes.
+- **GPU/Kaggle**: first-pass ESMFold/co-folding on Kaggle; optional, never
+  required to annotate a genome.
+- **Packaging**: macOS installer, WSL2 guide and PyPI.
+
+Details and honest limits: [`docs/ROADMAP.en.md`](docs/ROADMAP.en.md).
 
 ## ⭐ Did it help?
 

@@ -29,6 +29,14 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATA = ROOT / "data"
 
 
+def _num(value) -> float | None:
+    """Convierte pLDDT/pTM de TSV a float sin romper si viene vacío."""
+    try:
+        return float(value) if value not in (None, "") else None
+    except (TypeError, ValueError):
+        return None
+
+
 def read_fasta_bytes(path: Path) -> bytes:
     raw = path.read_bytes()
     if path.suffix == ".gz" or raw[:2] == b"\x1f\x8b":
@@ -236,10 +244,14 @@ def main() -> int:
                         if not row.get("pdb"):
                             continue
                         stem = Path(row["pdb"]).stem
-                        out.append(run_filters(row["pdb"], genome=res["genome"],
-                                               uniprot=row.get("uniprot", ""),
-                                               foldseek_hits=(local_hits.get(stem, [])
-                                                              if args.foldseek_local_db else None)))
+                        out.append(run_filters(
+                            row["pdb"], genome=res["genome"],
+                            uniprot=row.get("uniprot", ""),
+                            foldseek_hits=(local_hits.get(stem, [])
+                                           if args.foldseek_local_db else None),
+                            plddt=_num(row.get("plddt")),
+                            ptm=_num(row.get("ptm")),
+                        ))
                     res["five_filters"] = out
                     res["structural_hypotheses"] = [
                         build_hypothesis(x, {"genome": res["genome"],
@@ -268,10 +280,14 @@ def main() -> int:
                 if not r.get("pdb"):
                     continue
                 stem = Path(r["pdb"]).stem
-                frows.append(run_filters(r["pdb"], genome=r.get("genome", ""),
-                                         uniprot=r.get("uniprot", ""),
-                                         foldseek_hits=(local_hits.get(stem, [])
-                                                        if args.foldseek_local_db else None)))
+                frows.append(run_filters(
+                    r["pdb"], genome=r.get("genome", ""),
+                    uniprot=r.get("uniprot", ""),
+                    foldseek_hits=(local_hits.get(stem, [])
+                                   if args.foldseek_local_db else None),
+                    plddt=_num(r.get("plddt")),
+                    ptm=_num(r.get("ptm")),
+                ))
             res["structural_hypotheses"] = from_manifest(mrows, frows)
             res["report_md"] = build_report(res)
         if args.precomputed_hypotheses:

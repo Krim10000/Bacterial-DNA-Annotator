@@ -16,6 +16,25 @@
 
 > **你不需要 GPU。** 注释、缺口、操纵子和浏览器都能在 CPU 上运行。GPU 只用于本地 ESMFold 和训练 DNA 模型，这两项都是可选的。参见 [`docs/GPU_STATUS.en.md`](docs/GPU_STATUS.en.md)。
 
+## 🧭 范围一览
+
+目标是从 DNA 序列出发，了解物种、蛋白质、代谢通路、操纵子以及调控环路，
+并且始终标注证据和局限。
+
+| 层次 | 状态 |
+|---|---|
+| 物种 / 分类学 | ✅ 已实现 |
+| 基因、蛋白质和未注释 ORF | ✅ 已实现 |
+| 功能 / EC / UniProt | ✅ 对同源蛋白已实现 |
+| 代谢通路与缺口 | ✅ 已实现 |
+| 操纵子与启动子 | ✅ 已实现 |
+| 调控环路 | 🟡 部分：已有候选抑制蛋白和操作子；缺少效应物的方向/幅度 |
+| 未知蛋白缩减（400 个基因组） | 🟡 部分：已有廉价过滤和结构门控；结构集尚未完成 |
+| DNA 语言模型 | ⛔ 实验性，未评估 |
+
+完整状态、GPU 限制和 Kaggle 策略：
+[`docs/ROADMAP.md`](docs/ROADMAP.md)。
+
 ![注释结果](webapp/screenshot_v2_results.png)
 
 ## ⚡ 在 Ubuntu 上安装（3 步）
@@ -235,6 +254,15 @@ run_pipeline.sh    stage orchestrator
 ## 🇪🇸 西班牙语摘要
 
 基于 Streamlit 的细菌基因组注释器（西班牙语、英语和简体中文），可点击的基因组浏览器，代谢缺口分析，以及 GFF3/TSV/JSON 下载。它在 CPU 上运行；注释不需要 GPU。它**不**重新分发 RegulonDB、KEGG、DoriC、STRING、DBTBS 或 BATTER 的数据：这些数据按其自身条款在本地下载。原创代码为 MIT；第三方工具保留各自的许可证（其中多项为 GPL-3.0）。作者：Camilo Rojas Bravo（生物技术工程师，毕业于 USACH；目前无机构隶属；Camilo.Rojas@usach.cl）。开发协助：DeepSeek Harness 与 DeepSeek，2026 年 11 月。
+
+## 🔭 路线图
+
+- **蛋白质查询**：蛋白质 FASTA → 同源物、结构域和功能。
+- **未知蛋白缩减**：完成 400 个基因组的无 GPU 过滤和宽泛分类。
+- **GPU/Kaggle**：在 Kaggle 上做首轮 ESMFold/共折叠；可选，注释基因组从不依赖它。
+- **打包**：macOS 安装器、WSL2 指南和 PyPI。
+
+详情与诚实边界：[`docs/ROADMAP.md`](docs/ROADMAP.md)。
 
 ## ⭐ 对你有帮助吗？
 
