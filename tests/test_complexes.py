@@ -21,6 +21,7 @@ def test_complete_and_incomplete_atp():
     assert out["n_complete"] == 1
     assert out["complexes"][0]["status"] == "complex_complete"
     assert out["complexes"][0]["name"].startswith("ATP synthase")
+    assert "7.1.2.2" in out["complexes"][0]["ecs"]
     feats2 = [f for f in feats if f["id"] != "d"]
     out2 = infer(feats2, _hits(feats2), "x")
     assert out2["complexes"][0]["status"] == "complex_incomplete"

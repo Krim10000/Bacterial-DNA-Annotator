@@ -25,50 +25,50 @@ SIGNATURES: list[dict[str, Any]] = [
         "genes": ["atpA", "atpB", "atpC", "atpD", "atpE", "atpF", "atpG",
                   "atpH", "atpI"],
         "essential": ["atpA", "atpB", "atpC", "atpD"],
-        "source": "curated literature; operon atp",
+        "ecs": ["7.1.2.2"], "source": "curated literature; operon atp",
     },
     {
         "id": "NADH_DEHYDROGENASE", "name": "NADH dehydrogenase I (Nuo)",
         "genes": [f"nuo{c}" for c in "ABCDEFGHIJKLMN"],
         "essential": ["nuoB", "nuoC", "nuoD", "nuoE", "nuoF", "nuoG",
                       "nuoH", "nuoI", "nuoJ", "nuoK", "nuoL", "nuoM", "nuoN"],
-        "source": "curated literature; operon nuo",
+        "ecs": ["7.1.1.2"], "source": "curated literature; operon nuo",
     },
     {
         "id": "SUCCINATE_DEHYDROGENASE", "name": "Succinate dehydrogenase",
         "genes": ["sdhA", "sdhB", "sdhC", "sdhD"],
         "essential": ["sdhA", "sdhB", "sdhC", "sdhD"],
-        "source": "curated literature; operon sdh",
+        "ecs": ["1.3.5.1"], "source": "curated literature; operon sdh",
     },
     {
         "id": "CYTOCHROME_BC1", "name": "Cytochrome bc1 complex",
         "genes": ["petA", "petB", "petC"],
         "essential": ["petA", "petB", "petC"],
-        "source": "curated literature; operon pet",
+        "ecs": ["7.1.1.8"], "source": "curated literature; operon pet",
     },
     {
         "id": "CYTOCHROME_OXIDASE", "name": "Cytochrome c oxidase",
         "genes": ["cyoA", "cyoB", "cyoC", "cyoD"],
         "essential": ["cyoA", "cyoB", "cyoC"],
-        "source": "curated literature; operon cyo",
+        "ecs": ["7.1.1.9"], "source": "curated literature; operon cyo",
     },
     {
         "id": "PYRUVATE_DEHYDROGENASE", "name": "Pyruvate dehydrogenase",
         "genes": ["aceE", "aceF", "lpdA"],
         "essential": ["aceE", "aceF", "lpdA"],
-        "source": "curated literature; operon ace",
+        "ecs": ["1.2.4.1", "1.8.1.4"], "source": "curated literature; operon ace",
     },
     {
         "id": "OXOGLUTARATE_DEHYDROGENASE", "name": "2-oxoglutarate dehydrogenase",
         "genes": ["sucA", "sucB", "lpdA"],
         "essential": ["sucA", "sucB", "lpdA"],
-        "source": "curated literature; operon suc",
+        "ecs": ["1.2.4.2", "1.8.1.4"], "source": "curated literature; operon suc",
     },
     {
         "id": "NITROGENASE", "name": "Nitrogenase",
         "genes": ["nifH", "nifD", "nifK"],
         "essential": ["nifH", "nifD", "nifK"],
-        "source": "curated literature; operon nif",
+        "ecs": ["1.18.6.1"], "source": "curated literature; operon nif",
     },
     {
         "id": "SEC_SYSTEM", "name": "Sec secretion system",
@@ -105,6 +105,7 @@ class Complex:
     evidence: str
     confidence: str
     source: str
+    ecs: str = ""
     limitation: str = (
         "Vecindad génica; no demuestra interacción física ni estequiometría. "
         "No usar como confirmación."
@@ -189,6 +190,7 @@ def infer(features: list[dict], hits: dict[str, dict], genome: str = "",
                 missing=";".join(missing), status=status,
                 evidence=f"same contig/strand; gap<={max_gap} bp; genes={len(found)}/{len(expected)}",
                 confidence=conf, source=sig["source"],
+                ecs=";".join(sig.get("ecs", [])),
             ))
             for g in found:
                 pid = str(present[g].get("id", ""))
@@ -227,7 +229,7 @@ def write(result: dict[str, Any], outdir: Path) -> Path:
     rows = result.get("complexes") or []
     cols = ["complex_id", "name", "contig", "start", "end", "subunits",
             "expected", "missing", "status", "evidence", "confidence",
-            "source", "limitation"]
+            "source", "ecs", "limitation"]
     with path.open("w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, delimiter="\t", fieldnames=cols)
         w.writeheader()
@@ -239,30 +241,58 @@ def write(result: dict[str, Any], outdir: Path) -> Path:
 def enrich_rows(rows: list[dict], result: dict[str, Any]) -> list[dict]:
     """Añade columnas de complejo a protein_paths.tsv."""
     by = result.get("by_protein") or {}
+    missing = {c["complex_id"]: c.get("missing", "")
+               for c in result.get("complexes", [])}
     for row in rows:
         c = by.get(row.get("protein_id", ""), {})
-        row["complex_id"] = c.get("complex_id", "")
+        cid = c.get("complex_id", "")
+        row["complex_id"] = cid
+        row["complex_name"] = c.get("complex_name", "")
         row["complex_role"] = c.get("complex_role", "none")
         row["complex_status"] = c.get("complex_status", "not_evaluated")
         row["complex_confidence"] = c.get("complex_confidence", "")
+        row["complex_missing"] = missing.get(cid, "")
     return rows
 
 
 def enrich_gaps(gaps: list[dict], result: dict[str, Any],
                 data_root: Path) -> list[dict]:
-    """Añade complejo a brechas cuando una EC del complejo produce la reacción.
+    """Asocia brechas a complejos por UniProt→Rhea o EC→Rhea.
 
-    Es una asociación por EC/Rhea; si no hay EC, deja ``not_evaluated``.
+    Si el complejo está incompleto, la brecha se marca como
+    ``complex_incomplete``: la explicación es "puede faltar una subunidad",
+    no "la enzima no existe". No cierra la brecha.
     """
-    by = result.get("by_protein") or {}
-    ec_by_complex: dict[str, set[str]] = {}
-    # cargar hits desde el resultado de functional si está disponible
+    comps = {c["complex_id"]: c for c in result.get("complexes", [])}
     rows = result.get("protein_rows") or []
-    for row in rows:
-        cid = row.get("complex_id")
-        ec = row.get("ec")
-        if cid and ec:
-            ec_by_complex.setdefault(cid, set()).add(str(ec))
+    by_pid = {r.get("protein_id"): r for r in rows}
+    rhea_by_complex: dict[str, set[str]] = {}
+    ec_by_complex: dict[str, set[str]] = {}
+    for cid, c in comps.items():
+        rhea, ec = set(), set()
+        for part in str(c.get("subunits", "")).split(";"):
+            if ":" not in part:
+                continue
+            pid = part.split(":", 1)[1]
+            row = by_pid.get(pid, {})
+            acc, e = str(row.get("uniprot", "")), str(row.get("ec", ""))
+            if e:
+                ec.add(e)
+            if acc:
+                # se completa después con la tabla Rhea→UniProt
+                rhea.add(acc)
+        rhea_by_complex[cid] = rhea
+        ec_by_complex[cid] = ec | {x.strip() for x in str(c.get("ecs", "")).split(";") if x.strip()}
+    # Rhea -> UniProt y Rhea -> EC
+    acc_rhea: dict[str, set[str]] = {}
+    p = Path(data_root) / "metabolism" / "rhea2uniprot_sprot.tsv" if data_root else None
+    if p and p.exists():
+        with p.open(encoding="utf-8") as fh:
+            next(fh, None)
+            for line in fh:
+                c = line.rstrip("\n").split("\t")
+                if len(c) >= 4 and c[3]:
+                    acc_rhea.setdefault(c[3], set()).add(f"RHEA:{c[0]}")
     r2e: dict[str, set[str]] = {}
     p = Path(data_root) / "reactions" / "tsv" / "rhea2ec.tsv" if data_root else None
     if p and p.exists():
@@ -272,25 +302,34 @@ def enrich_gaps(gaps: list[dict], result: dict[str, Any],
                 c = line.rstrip("\n").split("\t")
                 if len(c) >= 4 and c[3]:
                     r2e.setdefault(f"RHEA:{c[0]}", set()).add(c[3])
+    for cid in list(rhea_by_complex):
+        rhea_by_complex[cid] = {r for acc in rhea_by_complex[cid]
+                                for r in acc_rhea.get(acc, set())}
     for g in gaps:
-        ecs = set()
-        for r in str(g.get("producers", "")).split(";"):
-            ecs |= r2e.get(r.strip(), set())
-        hit = next((cid for cid, es in ec_by_complex.items() if ecs & es), "")
-        if hit:
-            name = next((c.get("name", "") for c in result.get("complexes", [])
-                         if c.get("complex_id") == hit), "")
-            g["complex_id"] = hit
-            g["complex_name"] = name
-            g["complex_status"] = "complex_associated"
-            g["complex_role"] = "subunit_reaction"
-            g["complex_evidence"] = "EC/Rhea + vecindad"
-            g["complex_confidence"] = "medium"
-        else:
+        producers = {r.strip() for r in str(g.get("producers", "")).split(";") if r.strip()}
+        ecs = {e for r in producers for e in r2e.get(r, set())}
+        matches = [cid for cid in comps
+                   if producers & rhea_by_complex.get(cid, set())
+                   or ecs & ec_by_complex.get(cid, set())]
+        if not matches:
             g.setdefault("complex_id", "")
             g.setdefault("complex_name", "")
             g.setdefault("complex_status", "not_evaluated")
             g.setdefault("complex_role", "none")
             g.setdefault("complex_evidence", "")
             g.setdefault("complex_confidence", "")
+            g.setdefault("complex_missing", "")
+            continue
+        cid = matches[0]
+        c = comps[cid]
+        status = c.get("status", "complex_candidate")
+        if len(matches) > 1:
+            status = "complex_ambiguous"
+        g["complex_id"] = cid
+        g["complex_name"] = c.get("name", "")
+        g["complex_status"] = status
+        g["complex_role"] = "subunit_reaction"
+        g["complex_evidence"] = "UniProt/Rhea + vecindad"
+        g["complex_confidence"] = c.get("confidence", "low")
+        g["complex_missing"] = c.get("missing", "")
     return gaps
