@@ -6,7 +6,7 @@ Sí está implementado, pero **no donde parece**:
 
 | pieza | dónde está | estado |
 |---|---|---|
-| ORCA (ML) | `scripts/oric/03_orca_predict.py`, `35b_orca_from_gbk.py` | implementado para los 400 |
+| ORCA (ML) | `scripts/oric/03_orca_predict.py`, `35b_orca_from_gbk.py`, `webapp/oric.py` | implementado para los 400 y para FASTA nuevo |
 | DoriC | `scripts/oric/02_doric_lookup.py`, `data/doric/` | lookup de verdad de referencia |
 | Marcadores dnaA/dnaN | `scripts/oric/01_validate_markers.py` | implementado |
 | GC skew + cajas DnaA + iterones | `webapp/origin_pipeline.py` | implementado |
@@ -16,9 +16,10 @@ Sí está implementado, pero **no donde parece**:
 Limitaciones actuales:
 
 - **No es un módulo** de `modules/`; no aparece en `python -m modules --list`.
-- En un FASTA subido, el anotador dice explícitamente que **oriC, móviles,
-  defensa y ARN no están disponibles**; la pestaña usa datos precalculados.
-- `orcapy` no está declarado en `pyproject.toml`/requirements.
+- El pipeline de FASTA nuevo ya ejecuta ORCA + GC skew + dnaA; **DoriC no**,
+  porque un FASTA arbitrario no tiene accession. La pestaña del navegador sigue
+  usando datos precalculados para los 400.
+- `orcapy` no estaba declarado; ya existe el extra `oric` en `pyproject.toml`.
 - El modelo `ORCA_RFC_model_1_4_0.pkl.gz` (37 MB) **no se redistribuye** en el
   repo público; hay que aprovisionarlo. SHA-256 local:
   `8221f68f8e70f26b58b97806ecb0ff3390eb092d912f425c9883331a0eb0cd61`.

@@ -1,0 +1,202 @@
+"""Anotación funcional automática y clasificación en tres caminos.
+
+Camino A: hit Swiss-Prot con función nombrada.
+Camino B: hit a proteína uncharacterized/DUF/UPF.
+Camino C: sin hit Swiss-Prot.
+
+No inventa función: conserva el hit, la identidad, el e-value y la fuente.
+Si falta DIAMOND o la base, devuelve un aviso y no rompe la anotación.
+"""
+from __future__ import annotations
+
+import csv
+import json
+import re
+import shutil
+import subprocess
+import tempfile
+from dataclasses import asdict, dataclass, field
+from datetime import datetime
+from pathlib import Path
+from typing import Any
+
+RE_OS = re.compile(r"\bOS=(.*?)(?:\s+OX=|\s+GN=|\s+PE=|\s+SV=|$)")
+RE_GN = re.compile(r"\bGN=([^\s]+)")
+RE_EC_PAREN = re.compile(r"\(EC[ :]*([\d\.]+\.-?[\d\-\.]*)\)")
+RE_EC_EQ = re.compile(r"\bEC[=:]\s*([\d\.]+\.-?[\d\-\.]*)")
+
+UNCHARACTERIZED = re.compile(
+    r"uncharacterized|unknown|duf\d+|upf\d+|putative|hypothetical|"
+    r"protein of unknown function|y[a-z]{2,4}_",
+    re.I,
+)
+
+
+@dataclass
+class Hit:
+    cds_id: str
+    uniprot: str = ""
+    entry_name: str = ""
+    gene: str = ""
+    product: str = ""
+    organism: str = ""
+    ec: str = ""
+    pident: float = 0.0
+    aln_len: int = 0
+    evalue: float = 1.0
+    bitscore: float = 0.0
+    path: str = "C"
+    next_step: str = ""
+
+
+def parse_hit(qseqid: str, sseqid: str, stitle: str, pident: float,
+              aln_len: int, evalue: float, bitscore: float) -> Hit:
+    hit = Hit(cds_id=qseqid, pident=pident, aln_len=aln_len,
+              evalue=evalue, bitscore=bitscore)
+    parts = sseqid.split("|")
+    if len(parts) >= 3:
+        hit.uniprot, hit.entry_name = parts[1], parts[2]
+    else:
+        hit.entry_name = sseqid
+    m = RE_OS.search(stitle)
+    if m:
+        hit.organism = m.group(1).strip()
+    m = RE_GN.search(stitle)
+    if m:
+        hit.gene = m.group(1).split(",")[0].strip()
+    if not hit.gene and "_" in hit.entry_name:
+        hit.gene = hit.entry_name.split("_")[0].lower()
+    cut = stitle.find(" OS=")
+    hit.product = stitle[:cut].strip() if cut > 0 else stitle.strip()
+    m = RE_EC_PAREN.search(stitle) or RE_EC_EQ.search(stitle)
+    if m:
+        hit.ec = m.group(1)
+    if UNCHARACTERIZED.search(hit.product) or UNCHARACTERIZED.search(hit.entry_name):
+        hit.path = "B"
+        hit.next_step = "dominios/TM/contexto + estructura selectiva"
+    else:
+        hit.path = "A"
+        hit.next_step = "función nombrada; no requiere estructura"
+    return hit
+
+
+def _diamond_db(db: Path) -> Path:
+    if db.suffix == ".dmnd":
+        return db
+    return Path(str(db) + ".dmnd")
+
+
+def run_diamond(proteins_faa: Path, db: Path, out_tsv: Path,
+                threads: int = 4, evalue: str = "1e-5") -> None:
+    exe = shutil.which("diamond")
+    if exe is None:
+        raise RuntimeError("diamond no está en PATH")
+    db_path = _diamond_db(db)
+    if not db_path.exists():
+        raise RuntimeError(f"no existe la base DIAMOND: {db_path}")
+    out_tsv.parent.mkdir(parents=True, exist_ok=True)
+    cmd = [
+        exe, "blastp", "-d", str(db_path), "-q", str(proteins_faa),
+        "-o", str(out_tsv), "--outfmt", "6", "qseqid", "sseqid",
+        "pident", "length", "evalue", "bitscore", "stitle",
+        "--evalue", evalue, "--max-target-seqs", "1",
+        "--threads", str(max(1, threads)), "--quiet",
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
+    if res.returncode != 0:
+        raise RuntimeError((res.stderr or res.stdout or "DIAMOND falló")[-500:])
+
+
+def parse_m8(path: Path) -> dict[str, Hit]:
+    hits: dict[str, Hit] = {}
+    if not path.exists():
+        return hits
+    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        cols = line.rstrip("\n").split("\t")
+        if len(cols) < 7:
+            continue
+        try:
+            hit = parse_hit(cols[0], cols[1], cols[6], float(cols[2]),
+                            int(cols[3]), float(cols[4]), float(cols[5]))
+        except ValueError:
+            continue
+        if hit.cds_id not in hits or hit.bitscore > hits[hit.cds_id].bitscore:
+            hits[hit.cds_id] = hit
+    return hits
+
+
+def annotate(proteins: list[dict[str, Any]], data_root: Path, outdir: Path,
+             genome: str, threads: int = 4) -> dict[str, Any]:
+    """Anota proteínas y escribe functional.tsv/json + protein_paths.tsv."""
+    outdir.mkdir(parents=True, exist_ok=True)
+    faa = outdir / f"{genome}.proteins.faa"
+    faa.write_text("".join(f">{p['id']}\n{p['aa']}\n" for p in proteins),
+                   encoding="utf-8")
+    db = data_root / "db" / "swissprot.dmnd"
+    raw = outdir / f"{genome}.functional.tsv"
+    result: dict[str, Any] = {
+        "ok": False, "n_proteins": len(proteins), "n_hits": 0,
+        "warnings": [], "hits": {}, "paths": {"A": 0, "B": 0, "C": 0},
+    }
+    try:
+        run_diamond(faa, db, raw, threads=threads)
+    except Exception as exc:  # noqa: BLE001
+        result["warnings"].append(f"anotación funcional omitida: {exc}")
+        # sin hit no significa camino C: es "no evaluado"
+        result["status"] = "not_evaluated"
+        (outdir / f"{genome}.functional_annotation.json").write_text(
+            json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+        return result
+
+    hits = parse_m8(raw)
+    by_id = {p["id"]: p for p in proteins}
+    rows = []
+    for p in proteins:
+        h = hits.get(p["id"])
+        if h is None:
+            path, step = "C", "sin hit Swiss-Prot: dominio/contexto/estructura selectiva"
+            row = {"protein_id": p["id"], "path": path, "uniprot": "",
+                   "gene": "", "product": "", "ec": "", "organism": "",
+                   "pident": "", "evalue": "", "next_step": step}
+        else:
+            path, step = h.path, h.next_step
+            row = {"protein_id": p["id"], "path": path, "uniprot": h.uniprot,
+                   "gene": h.gene, "product": h.product, "ec": h.ec,
+                   "organism": h.organism, "pident": h.pident,
+                   "evalue": h.evalue, "next_step": step}
+        rows.append(row)
+        result["paths"][path] += 1
+
+    result["rows"] = rows
+    result.update(
+        ok=True, status="ok", n_hits=len(hits),
+        hits={k: asdict(v) for k, v in hits.items()},
+        paths=dict(result["paths"]),
+        match_rate=round(len(hits) / max(1, len(by_id)), 4),
+    )
+    (outdir / f"{genome}.functional_annotation.json").write_text(
+        json.dumps({"report": {k: v for k, v in result.items()
+                               if k not in ("hits", "rows")},
+                    "hits": result["hits"]}, ensure_ascii=False, indent=2),
+        encoding="utf-8")
+    with (outdir / f"{genome}.protein_paths.tsv").open("w", newline="",
+                                                       encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, delimiter="\t", fieldnames=list(rows[0]) if rows
+                           else ["protein_id", "path"])
+        w.writeheader()
+        w.writerows(rows)
+    return result
+
+
+def gene_positions(features: list[dict[str, Any]],
+                   hits: dict[str, dict[str, Any]]) -> dict[str, int]:
+    """Devuelve posiciones de genes dnaA/dnaN a partir de la anotación funcional."""
+    out: dict[str, int] = {}
+    for f in features:
+        h = hits.get(f.get("id", ""))
+        if not h:
+            continue
+        gene = str(h.get("gene", "")).lower()
+        if gene in ("dnaa", "dnan") and gene not in out:
+            out[gene] = int(f.get("start", 0))
+    return out

@@ -30,12 +30,13 @@ routes, operons and regulatory loops — always with evidence and limits.
 
 | layer | status |
 |---|---|
-| Species / taxonomy | ✅ implemented |
+| Species / taxonomy | 🟡 implemented for 10 pilot genomes |
 | Genes, proteins, unannotated ORFs | ✅ implemented |
-| Functions / EC / UniProt | ✅ implemented for homologs |
+| Functions / EC / UniProt | ✅ automatic (A/B/C paths in `protein_paths.tsv`) |
+| oriC (ORCA + GC skew) | ✅ automatic for new FASTA; DoriC optional with accession |
 | Metabolic routes and gaps | ✅ implemented |
-| Operons and promoters | ✅ implemented |
-| Regulatory loops | 🟡 partial: repressor candidates and operators; direction/magnitude of effectors is not |
+| Operons and promoters | 🟡 precomputed for the 400; not automatic for a new FASTA |
+| Regulatory loops | 🟡 partial: candidates/operators; direction/magnitude blocked by GPU and experiments |
 | Unknown-protein reduction (400 genomes) | 🟡 partial: cheap filters and structural gating; full structure set pending |
 | DNA language model | ⛔ experimental, not evaluated |
 
@@ -53,7 +54,7 @@ bash install.sh --with-data
 ```
 
 `install.sh` creates a virtual environment, installs the dependencies, downloads
-Swiss-Prot and Rhea (~120 MB) and adds **«Anotador de ADN» to the applications
+Swiss-Prot, Rhea and the ORCA model (~160 MB) and adds **«Anotador de ADN» to the applications
 menu**. After that:
 
 - open **Anotador de ADN** from Applications, or
@@ -330,6 +331,8 @@ Bakta/Prokka/DFAST benchmarks, Chinese terminology review, macOS/WSL2 testing,
 
 There is **no donation link yet**; compute credits and review time are more
 valuable at this stage. See [`SUPPORT.md`](SUPPORT.md).
+
+Current parity between the 400 genomes and a new FASTA: [`docs/PIPELINE_PARITY.md`](docs/PIPELINE_PARITY.md).
 
 ## 🔭 Roadmap
 

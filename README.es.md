@@ -32,12 +32,13 @@ metabólicas, operones y bucles de regulación, siempre con evidencia y límites
 
 | capa | estado |
 |---|---|
-| Especie / taxonomía | ✅ implementado |
+| Especie / taxonomía | 🟡 implementado en 10 genomas piloto |
 | Genes, proteínas y ORFs no anotados | ✅ implementado |
-| Función / EC / UniProt | ✅ implementado para homólogos |
+| Función / EC / UniProt | ✅ automático (caminos A/B/C en `protein_paths.tsv`) |
+| oriC (ORCA + GC skew) | ✅ automático en FASTA nuevo; DoriC opcional con accession |
 | Rutas metabólicas y brechas | ✅ implementado |
-| Operones y promotores | ✅ implementado |
-| Bucles de regulación | 🟡 parcial: candidatos a represor y operadores; falta dirección/magnitud del efector |
+| Operones y promotores | 🟡 precalculado en los 400; no automático en FASTA nuevo |
+| Bucles de regulación | 🟡 parcial: candidatos/operadores; dirección/magnitud bloqueadas por GPU y experimentos |
 | Reducción de desconocidas (400 genomas) | 🟡 parcial: filtros baratos y gating estructural; falta completar estructuras |
 | Modelo de lenguaje de ADN | ⛔ experimental, no evaluado |
 
@@ -53,7 +54,7 @@ bash install.sh --with-data
 ```
 
 `install.sh` crea un entorno virtual, instala las dependencias, descarga
-Swiss-Prot y Rhea (~120 MB) y añade **«Anotador de ADN» al menú de
+Swiss-Prot, Rhea y el modelo ORCA (~160 MB) y añade **«Anotador de ADN» al menú de
 aplicaciones**. Después:
 
 - abre **Anotador de ADN** desde Aplicaciones, o
@@ -329,6 +330,8 @@ validación de operones.
 
 **Todavía no hay enlace de donaciones**; en esta etapa valen más los créditos de
 cómputo y el tiempo de revisión. Ver [`SUPPORT.md`](SUPPORT.md).
+
+Paridad actual entre los 400 genomas y un FASTA nuevo: [`docs/PIPELINE_PARITY.md`](docs/PIPELINE_PARITY.md).
 
 ## 🔭 Próximamente
 

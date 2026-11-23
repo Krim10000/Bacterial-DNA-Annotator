@@ -16,6 +16,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from annotator import annotate, build_report  # noqa: E402
+from functional import annotate as functional_annotate  # noqa: E402
+import oric  # noqa: E402
 from esmfold_tools import close_gaps  # noqa: E402
 from structure_evidence import evidence_for_rows  # noqa: E402
 from structural_annotation import scan_pdbs, summarize as summarize_enzymm  # noqa: E402
@@ -58,6 +60,18 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
         "deserts": len(res.get("deserts", [])),
         "candidates": len(res.get("candidates", [])),
     }
+    if res.get("functional"):
+        f = res["functional"]
+        summary["functional"] = {
+            "status": f.get("status"), "n_hits": f.get("n_hits"),
+            "match_rate": f.get("match_rate"), "paths": f.get("paths"),
+            "warnings": f.get("warnings"),
+        }
+    if res.get("oric"):
+        o = res["oric"]
+        summary["oric"] = {k: o.get(k) for k in
+                           ("status", "position", "confidence", "reason",
+                            "validated_by", "chromosome", "size")}
     if metabolic:
         gaps = metabolic.get("gaps", [])
         summary["metabolic"] = {
@@ -164,6 +178,12 @@ def main() -> int:
     ap.add_argument("--no-deserts", action="store_true")
     ap.add_argument("--esm", action="store_true", help="Puntuar ORFs con ESM-2")
     ap.add_argument("--no-metabolic", action="store_true")
+    ap.add_argument("--no-functional", action="store_true",
+                    help="No ejecutar DIAMOND/Swiss-Prot automáticamente.")
+    ap.add_argument("--no-oric", action="store_true",
+                    help="No ejecutar ORCA/oriC automáticamente.")
+    ap.add_argument("--accession", default="",
+                    help="Accession (GCF/NC) para consultar DoriC como referencia; opcional.")
     ap.add_argument("--esmfold", choices=["off", "local", "neuros nap"], default="off",
                     help="Cierre de brechas con ESMFold (local o Neurosnap API).")
     ap.add_argument("--esmfold-gaps", type=int, default=3,
@@ -197,6 +217,20 @@ def main() -> int:
             "min_region_len": 150, "min_aa": 60,
         }
         res = annotate(fasta.name, data, options)
+        if not args.no_functional and res.get("proteins"):
+            try:
+                res["functional"] = functional_annotate(
+                    res["proteins"], args.data_root, args.outdir,
+                    res["genome"], threads=args.threads)
+            except Exception as exc:  # noqa: BLE001
+                print(f"[aviso] anotación funcional no ejecutada: {exc}", file=sys.stderr)
+        if not args.no_oric and res.get("sequences"):
+            try:
+                res["oric"] = oric.run(res, args.data_root,
+                                       accession=args.accession)
+                oric.write(res, res["oric"], args.outdir)
+            except Exception as exc:  # noqa: BLE001
+                print(f"[aviso] oriC no ejecutado: {exc}", file=sys.stderr)
         metabolic = None
         if not args.no_metabolic:
             try:

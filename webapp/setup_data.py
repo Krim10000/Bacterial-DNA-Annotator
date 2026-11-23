@@ -25,6 +25,7 @@ URLS = {
     "rhea2uniprot": "https://ftp.expasy.org/databases/rhea/tsv/rhea2uniprot_sprot.tsv",
     "rhea2ec": "https://ftp.expasy.org/databases/rhea/tsv/rhea2ec.tsv",
     "pfam": "https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz",
+    "orca_model": "https://github.com/ZoyavanMeel/ORCA/raw/main/data/output/machine_learning/ORCA_RFC_model_1_4_0.pkl.gz",
 }
 
 
@@ -86,11 +87,19 @@ def ensure_pfam(pfam_dir: Path, force: bool = False) -> None:
     subprocess.run(["hmmpress", "-f", str(hmm)], check=True)
 
 
+def ensure_orca(data_root: Path, force: bool = False) -> None:
+    """Descarga el modelo Random Forest de ORCA (37 MB)."""
+    model = data_root / "models" / "ORCA_RFC_model_1_4_0.pkl.gz"
+    download(URLS["orca_model"], model, force)
+    if model.stat().st_size < 30_000_000:
+        raise RuntimeError(f"modelo ORCA incompleto: {model}")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--data-root", required=True, type=Path)
     ap.add_argument("--pfam", action="store_true", help="descargar también Pfam-A (~600 MB)")
-    ap.add_argument("--only", choices=["all", "rhea", "swissprot"], default="all")
+    ap.add_argument("--only", choices=["all", "rhea", "swissprot", "orca"], default="all")
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args()
 
@@ -103,6 +112,9 @@ def main() -> int:
     if a.only in ("all", "rhea"):
         print("\n[2/2] Rhea")
         ensure_rhea(data_root, a.force)
+    if a.only in ("all", "orca"):
+        print("\n[+] Modelo ORCA")
+        ensure_orca(data_root, a.force)
     if a.pfam:
         print("\n[+] Pfam")
         ensure_pfam(Path("db") / "pfam", a.force)

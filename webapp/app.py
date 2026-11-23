@@ -49,6 +49,8 @@ from annotator import (  # noqa: E402
     deserts_tsv,
     detect_tools,
 )
+from functional import annotate as annotate_functional  # noqa: E402
+import oric as oric_engine  # noqa: E402
 from closures import (  # noqa: E402
     LABEL as CLOSURE_LABEL,
     ORDER as CLOSURE_ORDER,
@@ -1570,7 +1572,8 @@ def render_result(res: dict) -> None:
                             "barrnap", "esm"))
 
     tabs = st.tabs(["🔎 Genes fantasma", "🏜️ Desiertos", "🧪 Brechas",
-                    "📥 Descargas", "🧾 Features", "🔬 Hipótesis estructural"])
+                    "📥 Descargas", "🧾 Features", "🔬 Hipótesis estructural",
+                    "🧬 Función y origen"])
 
     with tabs[0]:
         if res["candidates"]:
@@ -1713,6 +1716,55 @@ def render_result(res: dict) -> None:
 
     with tabs[5]:
         render_hypotheses(res)
+
+    with tabs[6]:
+        st.caption(
+            "Caracterización automática de proteínas en tres caminos: "
+            "A función nombrada, B uncharacterized/DUF, C sin hit Swiss-Prot. "
+            "El origen se predice con ORCA + GC skew; DoriC solo aplica a "
+            "genomas con accession conocido."
+        )
+        fun = res.get("functional")
+        if res.get("functional_error"):
+            st.warning(res["functional_error"])
+        if fun:
+            f1, f2, f3, f4 = st.columns(4)
+            f1.metric("Proteínas", fun.get("n_proteins", 0))
+            f2.metric("Con hit", fun.get("n_hits", 0))
+            f3.metric("Cobertura", f"{100*fun.get('match_rate', 0):.1f}%")
+            f4.metric("A / B / C", " / ".join(
+                str(fun.get("paths", {}).get(k, 0)) for k in ("A", "B", "C")))
+            if fun.get("warnings"):
+                for w in fun["warnings"]:
+                    st.warning(w)
+            rows = fun.get("rows") or []
+            if rows:
+                st.dataframe(pd.DataFrame(rows).head(500), width="stretch",
+                             hide_index=True)
+                st.download_button(
+                    "⬇️ Caminos de proteínas (TSV)",
+                    pd.DataFrame(rows).to_csv(sep="\t", index=False),
+                    file_name=f"{res['genome']}_protein_paths.tsv",
+                    mime="text/plain",
+                )
+        else:
+            st.info("Anotación funcional no ejecutada: falta DIAMOND o Swiss-Prot.")
+        o = res.get("oric")
+        if res.get("oric_error"):
+            st.warning(res["oric_error"])
+        if o:
+            st.markdown("#### 🧭 Origen de replicación")
+            c1, c2, c3 = st.columns(3)
+            c1.metric("Estado", str(o.get("status", "n/d")))
+            c2.metric("Posición", f"{o.get('position'):,}" if o.get("position") else "n/d")
+            c3.metric("Confianza", f"{float(o.get('confidence') or 0):.2f}")
+            st.caption(f"{o.get('validated_by','')} · {o.get('reason','')}")
+            st.download_button(
+                "⬇️ oriC (GFF3)", oric_engine.gff_text(o),
+                file_name=f"{res['genome']}.oric.gff3", mime="text/plain",
+            )
+        else:
+            st.info("ORCA no ejecutado: falta el modelo o la dependencia orcapy.")
 
 
 def main() -> None:
@@ -1936,6 +1988,20 @@ def main() -> None:
                 try:
                     res = annotate(name, data, opts)
                     res["elapsed"] = round(time.time() - t0, 1)
+                    if res.get("proteins"):
+                        status.write("🧾 Anotación funcional (DIAMOND/Swiss-Prot)…")
+                        try:
+                            res["functional"] = annotate_functional(
+                                res["proteins"], DATA_ROOT, OUT_ROOT, res["genome"],
+                                threads=4)
+                        except Exception as exc:  # noqa: BLE001
+                            res["functional_error"] = str(exc)
+                    if res.get("sequences"):
+                        status.write("🧭 Predicción de origen (ORCA + GC skew)…")
+                        try:
+                            res["oric"] = oric_engine.run(res, DATA_ROOT)
+                        except Exception as exc:  # noqa: BLE001
+                            res["oric_error"] = str(exc)
                     results.append(res)
                     status.write(
                         f"✅ {name}: {res['coverage']*100:.1f}% anotado · "

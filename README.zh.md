@@ -23,12 +23,13 @@
 
 | 层次 | 状态 |
 |---|---|
-| 物种 / 分类学 | ✅ 已实现 |
+| 物种 / 分类学 | 🟡 已在 10 个试点基因组实现 |
 | 基因、蛋白质和未注释 ORF | ✅ 已实现 |
-| 功能 / EC / UniProt | ✅ 对同源蛋白已实现 |
+| 功能 / EC / UniProt | ✅ 自动（`protein_paths.tsv` 中 A/B/C 路径） |
+| oriC（ORCA + GC skew） | ✅ 新 FASTA 自动；提供 accession 时可选 DoriC |
 | 代谢通路与缺口 | ✅ 已实现 |
-| 操纵子与启动子 | ✅ 已实现 |
-| 调控环路 | 🟡 部分：已有候选抑制蛋白和操作子；缺少效应物的方向/幅度 |
+| 操纵子与启动子 | 🟡 400 个基因组已预计算；新 FASTA 尚未自动 |
+| 调控环路 | 🟡 部分：候选/操作子已有；方向和幅度受 GPU 与实验限制 |
 | 未知蛋白缩减（400 个基因组） | 🟡 部分：已有廉价过滤和结构门控；结构集尚未完成 |
 | DNA 语言模型 | ⛔ 实验性，未评估 |
 
@@ -45,7 +46,7 @@ cd DNA_TOKEN_BAC
 bash install.sh --with-data
 ```
 
-`install.sh` 会创建虚拟环境、安装依赖、下载 Swiss-Prot 和 Rhea（约 120 MB），并把**«Anotador de ADN»（DNA 注释器）添加进应用程序菜单**。之后：
+`install.sh` 会创建虚拟环境、安装依赖、下载 Swiss-Prot、Rhea 和 ORCA 模型（约 160 MB），并把**«Anotador de ADN»（DNA 注释器）添加进应用程序菜单**。之后：
 
 - 从“应用程序”中打开 **Anotador de ADN**，或者
 - 运行 `./lanzar.sh`（双击同样可用）。
@@ -265,6 +266,8 @@ Bakta/Prokka/DFAST 基准、中文术语审校、macOS/WSL2 测试、`protein_qu
 
 **目前没有捐赠链接**；现阶段计算资源和审校时间比小额捐款更有价值。
 详见 [`SUPPORT.md`](SUPPORT.md)。
+
+400 个基因组与新 FASTA 的当前一致性：[`docs/PIPELINE_PARITY.md`](docs/PIPELINE_PARITY.md)。
 
 ## 🔭 路线图
 

@@ -608,6 +608,8 @@ def annotate(name: str, data: bytes, options: dict) -> dict:
         "gc": round(gc_content(contigs), 4),
         "features": features,
         "proteins": proteins,
+        #: Secuencias de los contigs; necesarias para ORCA, GBK y estructura.
+        "sequences": contigs,
         "candidates": cands,
         "deserts": deserts,
         "stats": stats,
