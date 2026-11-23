@@ -1758,7 +1758,9 @@ def render_result(res: dict) -> None:
                 st.markdown("#### 🧩 Complejos por vecindad")
                 st.caption(
                     "Solo genes del mismo contig y hebra dentro de la ventana. "
-                    "La vecindad no demuestra interacción física."
+                    "La vecindad no demuestra interacción física. "
+                    "Color: verde = completo; amarillo = se sospecha complejo "
+                    "incompleto; naranja = ambiguo; gris = no evaluado."
                 )
                 c1, c2, c3 = st.columns(3)
                 c1.metric("Completos", comp.get("n_complete", 0))

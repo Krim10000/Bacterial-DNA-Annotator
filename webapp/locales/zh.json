@@ -1022,5 +1022,6 @@
  "⬇️ Complejos (TSV)": "⬇️ 复合物（TSV）",
  "Solo genes del mismo contig y hebra dentro de la ventana. La vecindad no demuestra interacción física.": "仅限同一 contig、同一链且在窗口内的基因。邻近并不证明物理相互作用。",
  "Complejos": "复合物",
- "Complejo no encontrado.": "未找到复合物。"
+ "Complejo no encontrado.": "未找到复合物。",
+ "Solo genes del mismo contig y hebra dentro de la ventana. La vecindad no demuestra interacción física. Color: verde = completo; amarillo = se sospecha complejo incompleto; naranja = ambiguo; gris = no evaluado.": "仅限同一 contig、同一链且在窗口内的基因。邻近并不证明物理相互作用。颜色：绿色 = 完整；黄色 = 疑似不完整复合物；橙色 = 模糊；灰色 = 未评估。"
 }

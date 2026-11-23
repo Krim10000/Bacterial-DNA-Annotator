@@ -64,6 +64,7 @@ def interpret_gaps(gaps: list[dict], organism: str = "", ref_size_mb: float = 0)
             "complex_role": "none",
             "complex_confidence": "",
             "complex_missing": "",
+            "complex_flag": "grey",
             "complex_evidence": "",
             "quaternary_status": "unknown",
             "complex_note": (

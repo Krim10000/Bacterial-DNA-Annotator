@@ -95,7 +95,8 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
                 "homolog_status", "homolog_acc", "homolog_pident", "homolog_qcov",
                 "homolog_rhea", "homolog_ec", "mapping_suggestion", "review_class", "known_exception", "exception_note", "hmm_evidence",
                 "complex_id", "complex_name", "complex_status", "complex_role",
-                "complex_evidence", "complex_confidence", "complex_missing", "quaternary_status", "complex_note"]
+                "complex_evidence", "complex_confidence", "complex_missing",
+                "complex_flag", "quaternary_status", "complex_note"]
         lines = ["\t".join(cols)]
         for x in gaps:
             lines.append("\t".join(str(x.get(c, "")) for c in cols))

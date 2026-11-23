@@ -143,10 +143,19 @@ class Complex:
     confidence: str
     source: str
     ecs: str = ""
+    flag: str = "grey"
     limitation: str = (
         "Vecindad génica; no demuestra interacción física ni estequiometría. "
         "No usar como confirmación."
     )
+
+
+def flag(status: str) -> str:
+    """Color de revisión: verde completo, amarillo sospecha, gris sin evaluar."""
+    return {"complex_complete": "green",
+            "complex_incomplete": "yellow",
+            "complex_candidate": "yellow",
+            "complex_ambiguous": "orange"}.get(status, "grey")
 
 
 def _genes_of(features: list[dict], hits: dict[str, dict]) -> list[dict]:
@@ -228,6 +237,7 @@ def infer(features: list[dict], hits: dict[str, dict], genome: str = "",
                 evidence=f"same contig/strand; gap<={max_gap} bp; genes={len(found)}/{len(expected)}",
                 confidence=conf, source=sig["source"],
                 ecs=";".join(sig.get("ecs", [])),
+                flag=flag(status),
             ))
             for g in found:
                 pid = str(present[g].get("id", ""))
@@ -266,7 +276,7 @@ def write(result: dict[str, Any], outdir: Path) -> Path:
     rows = result.get("complexes") or []
     cols = ["complex_id", "name", "contig", "start", "end", "subunits",
             "expected", "missing", "status", "evidence", "confidence",
-            "source", "ecs", "limitation"]
+            "source", "ecs", "flag", "limitation"]
     with path.open("w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, delimiter="\t", fieldnames=cols)
         w.writeheader()
@@ -289,6 +299,7 @@ def enrich_rows(rows: list[dict], result: dict[str, Any]) -> list[dict]:
         row["complex_status"] = c.get("complex_status", "not_evaluated")
         row["complex_confidence"] = c.get("complex_confidence", "")
         row["complex_missing"] = missing.get(cid, "")
+        row["complex_flag"] = flag(row.get("complex_status", ""))
     return rows
 
 
@@ -369,4 +380,9 @@ def enrich_gaps(gaps: list[dict], result: dict[str, Any],
         g["complex_evidence"] = "UniProt/Rhea + vecindad"
         g["complex_confidence"] = c.get("confidence", "low")
         g["complex_missing"] = c.get("missing", "")
+        g["complex_flag"] = flag(status)
+        if status != "complex_complete":
+            g["complex_note"] = (
+                "Se sospecha un complejo incompleto: no cierra la brecha. "
+                "Faltan: " + (c.get("missing", "") or "subunidad no identificada"))
     return gaps

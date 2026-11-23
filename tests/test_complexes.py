@@ -54,6 +54,7 @@ def test_enrich_rows_and_gaps():
     enrich_rows(rows, out)
     assert rows[0]["complex_id"].startswith("ATP_SYNTHASE:")
     assert rows[0]["complex_role"] == "subunit"
+    assert rows[0]["complex_flag"] in ("green", "yellow")
     gaps = [{"producers": "RHEA:1"}]
     enrich_gaps(gaps, {**out, "protein_rows": [{"complex_id": rows[0]["complex_id"],
                                                 "ec": "7.1.2.2"}]}, None)

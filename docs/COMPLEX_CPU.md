@@ -102,6 +102,20 @@ CPU puede hacer **evaluación por plantilla**, no predicción de novo:
 No es AlphaFold-Multimer. Para predecir una interfaz nueva hace falta GPU
 (AlphaFold-Multimer, Boltz, etc.) y validación.
 
+## Amarillo = sospecha, no cierre
+
+Cada fila lleva `complex_flag`:
+
+- `green`: complejo completo;
+- `yellow`: complejo incompleto o candidato, **se sospecha** que falta una
+  subunidad;
+- `orange`: ambiguo;
+- `grey`: no evaluado.
+
+Una brecha amarilla no se cierra: se explica como “posible complejo
+incompleto”. El texto `complex_note` lo dice y lista las subunidades faltantes.
+No se cambia el estado metabólico a `confirmed`.
+
 ## Visualización en el navegador
 
 ### Pista `complexes`

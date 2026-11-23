@@ -1022,5 +1022,6 @@
  "⬇️ Complejos (TSV)": "⬇️ Complexes (TSV)",
  "Solo genes del mismo contig y hebra dentro de la ventana. La vecindad no demuestra interacción física.": "Only genes on the same contig and strand within the window. Proximity does not prove physical interaction.",
  "Complejos": "Complexes",
- "Complejo no encontrado.": "Complex not found."
+ "Complejo no encontrado.": "Complex not found.",
+ "Solo genes del mismo contig y hebra dentro de la ventana. La vecindad no demuestra interacción física. Color: verde = completo; amarillo = se sospecha complejo incompleto; naranja = ambiguo; gris = no evaluado.": "Only genes on the same contig and strand within the window. Proximity does not prove physical interaction. Color: green = complete; yellow = suspected incomplete complex; orange = ambiguous; grey = not evaluated."
 }
