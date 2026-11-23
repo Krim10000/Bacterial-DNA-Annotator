@@ -1,0 +1,25 @@
+genome	chebi	complex_id	complex_name	frac_mapped	status
+GCF_000179915.2_ASM17991v2	CHEBI:57292	CPX-1092	Succinyl-CoA synthetase	1.0	complex_suspected
+GCF_000265425.1_ASM26542v1	CHEBI:57292	CPX-1092	Succinyl-CoA synthetase	1.0	complex_suspected
+GCF_001027285.1_ASM102728v1	CHEBI:16881	CPX-3446	TrpAB tryptophan synthase complex	1.0	complex_suspected
+GCF_001676785.2_ASM167678v2	CHEBI:57834	CPX-4384	Putrescine ABC transporter complex	0.5	complex_candidate
+GCF_002269385.1_ASM226938v1	CHEBI:16881	CPX-3446	TrpAB tryptophan synthase complex	1.0	complex_suspected
+GCF_003721155.3_ASM372115v4	CHEBI:57834	CPX-4384	Putrescine ABC transporter complex	0.5	complex_candidate
+GCF_006352065.1_ASM635206v1	CHEBI:57834	CPX-4383	Spermidine ABC transporter complex	0.75	complex_candidate
+GCF_009688965.1_ASM968896v1	CHEBI:64677	CPX-4443	Sodium/lithium ABC transporter complex	1.0	complex_suspected
+GCF_014274685.1_ASM1427468v1	CHEBI:57292	CPX-1092	Succinyl-CoA synthetase	1.0	complex_suspected
+GCF_016446285.1_ASM1644628v1	CHEBI:64677	CPX-4443	Sodium/lithium ABC transporter complex	1.0	complex_suspected
+GCF_022870745.1_ASM2287074v1	CHEBI:57292	CPX-1092	Succinyl-CoA synthetase	1.0	complex_suspected
+GCF_027594505.1_ASM2759450v1	CHEBI:16881	CPX-3446	TrpAB tryptophan synthase complex	1.0	complex_suspected
+GCF_030866825.1_ASM3086682v1	CHEBI:57834	CPX-4384	Putrescine ABC transporter complex	0.5	complex_candidate
+GCF_032102965.1_ASM3210296v1	CHEBI:57834	CPX-4384	Putrescine ABC transporter complex	0.5	complex_candidate
+GCF_033547035.1_ASM3354703v1	CHEBI:16881	CPX-3446	TrpAB tryptophan synthase complex	1.0	complex_suspected
+GCF_037081835.1_ASM3708183v1	CHEBI:57292	CPX-3921	2-oxoglutarate dehydrogenase complex	0.667	complex_candidate
+GCF_037081835.1_ASM3708183v1	CHEBI:57292	CPX-1092	Succinyl-CoA synthetase	1.0	complex_suspected
+GCF_045784305.1_DRML_24019	CHEBI:57834	CPX-4383	Spermidine ABC transporter complex	0.5	complex_candidate
+GCF_054054625.1_ASM5405462v1	CHEBI:57292	CPX-3921	2-oxoglutarate dehydrogenase complex	0.667	complex_candidate
+GCF_054054625.1_ASM5405462v1	CHEBI:57292	CPX-1092	Succinyl-CoA synthetase	1.0	complex_suspected
+GCF_055396605.1_ASM5539660v1	CHEBI:57834	CPX-4383	Spermidine ABC transporter complex	0.5	complex_candidate
+GCF_060026435.1_ASM6002643v1	CHEBI:16881	CPX-3446	TrpAB tryptophan synthase complex	1.0	complex_suspected
+GCF_060030825.1_ASM6003082v1	CHEBI:16881	CPX-3446	TrpAB tryptophan synthase complex	1.0	complex_suspected
+GCF_900217235.1_DPRO_PRJEB22548_v1	CHEBI:57834	CPX-4383	Spermidine ABC transporter complex	0.75	complex_candidate

@@ -1,0 +1,11 @@
+{
+  "summary": {
+    "gaps": 8655,
+    "transferred": 19085,
+    "strong": 8408,
+    "gaps_with_transfer": 22,
+    "gaps_with_strong_transfer": 14,
+    "gaps_unassociated": 8633
+  },
+  "genomes": 400
+}

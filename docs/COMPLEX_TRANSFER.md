@@ -95,6 +95,29 @@ puede añadir sin cambiar el esquema.
 - La transferencia es `documentado_inferido` (`ECO:0005544`), no experimental.
 - No cierra brechas.
 
+## Transferencia contra brechas
+
+`tools/audit_transfer_400.py` cruza las EC/Rhea de los complejos transferidos
+con los metabolitos de las brechas de los 400:
+
+| métrica | valor |
+|---|---:|
+| brechas totales | 8.655 |
+| brechas con transferencia | **22** |
+| brechas con transferencia fuerte (`frac≥0.8`) | **14** |
+| brechas sin asociación | 8.633 |
+
+Ejemplos fuertes:
+
+- `CPX-1092` succinyl-CoA synthetase (varios genomas);
+- `CPX-3446` TrpAB tryptophan synthase;
+- `CPX-4384` putrescine ABC transporter.
+
+Estas 22 se anotan como `complex_suspected`/`amber`, no como cerradas. La
+mayoría de las brechas sigue sin una EC/Rhea que las conecte a un complejo.
+
+Detalle: `reports/transfer_gap_details.tsv`.
+
 ## Sospecha fuerte en pipeline/GUI
 
 La transferencia con `frac_mapped ≥0.8` se integra como
