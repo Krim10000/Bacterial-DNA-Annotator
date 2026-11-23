@@ -51,6 +51,8 @@ Installer options:
 | `bash install.sh --dry-run` | shows what it would do, without touching anything |
 | `bash install.sh --uninstall` | removes the launcher from the menu |
 
+Windows or macOS? Use Docker: [`docs/INSTALL_DOCKER.md`](docs/INSTALL_DOCKER.md).
+
 Updates and how to subscribe to releases: [`docs/UPDATES.md`](docs/UPDATES.md).
 
 On GNOME, the first time you run a `.desktop` file you may have to mark it as

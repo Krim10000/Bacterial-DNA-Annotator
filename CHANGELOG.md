@@ -7,6 +7,12 @@ Versionado [SemVer](https://semver.org/lang/es/).
 
 ### Añadido
 
+- `docker-compose.yml`, `.dockerignore` y `docs/INSTALL_DOCKER.md` para usar la
+  app en Windows/macOS/Linux sin instalar Python.
+- Imagen Docker corregida: copia `modules/`, monta `data/` y `out_fl/`, y usa
+  Debian bookworm.
+
+
 - `docs/UPDATES.md`: cómo suscribirse a releases, comparar versiones y
   actualizar una instalación.
 - Enlaces a actualizaciones en los tres README.

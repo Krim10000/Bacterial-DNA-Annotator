@@ -1,0 +1,12 @@
+services:
+  annotator:
+    build:
+      context: .
+      dockerfile: webapp/Dockerfile
+    image: bacterial-dna-annotator:1.1.3
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./out_fl:/app/out_fl
+    restart: unless-stopped

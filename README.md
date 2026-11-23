@@ -51,6 +51,8 @@ Opciones del instalador:
 | `bash install.sh --dry-run` | muestra lo que haría, sin tocar nada |
 | `bash install.sh --uninstall` | quita el lanzador del menú |
 
+¿Windows o macOS? Usa Docker: [`docs/INSTALL_DOCKER.md`](docs/INSTALL_DOCKER.md).
+
 Actualizaciones y cómo suscribirse a las releases: [`docs/UPDATES.md`](docs/UPDATES.md).
 
 En GNOME, la primera vez que ejecutes un `.desktop` puede que tengas que
