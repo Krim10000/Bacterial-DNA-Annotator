@@ -16,7 +16,7 @@ from repo import REPO_URL
 AUTHOR = {
     "name": "Camilo Rojas Bravo",
     "email": "Camilo.Rojas@usach.cl",
-    "affiliation": "Universidad de Santiago de Chile (USACH)",
+    "affiliation": "Ex estudiante de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual",
     "role": "Diseño, implementación y validación científica",
 }
 

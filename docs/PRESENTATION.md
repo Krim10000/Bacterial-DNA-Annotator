@@ -73,7 +73,7 @@ evaluado ni presentes una brecha como prueba de ausencia.
 | bio.tools | ficha de herramienta | cuenta |
 | JOSS | `paper.md` + revisión | software con tests/docs/licencia |
 | BOSC/ISMB | póster o charla | call abierto |
-| SoIBio / USACH | charla o póster | inscripción |
+| SoIBio / instituciones chilenas | charla o póster | inscripción |
 | r/bioinformatics, Biostars | post con demo | enlace y contexto |
 | Streamlit forum | caso de uso | enlace |
 

@@ -11,7 +11,7 @@ authors:
   - name: Camilo Rojas Bravo
     affiliation: 1
 affiliations:
-  - name: Universidad de Santiago de Chile (USACH), Santiago, Chile
+  - name: "Sin afiliación institucional actual; ex estudiante de la Universidad de Santiago de Chile (USACH), Santiago, Chile"
     index: 1
 date: 23 November 2026
 bibliography: paper.bib

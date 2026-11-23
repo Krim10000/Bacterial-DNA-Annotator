@@ -3,8 +3,8 @@
 ## Autor
 
 **Camilo Rojas Bravo**
-Universidad de Santiago de Chile (USACH)
-Camilo.Rojas@usach.cl
+Ex estudiante de la Universidad de Santiago de Chile (USACH)
+Sin afiliación institucional actual · Camilo.Rojas@usach.cl
 
 Diseño del proyecto, implementación del pipeline, validación científica,
 curaduría de datos y decisiones sobre qué evidencia cuenta como suficiente.
@@ -31,7 +31,7 @@ Usa `CITATION.cff` (formato Citation File Format). Si tu gestor de referencias
 no lo lee, cita:
 
 > Rojas Bravo, C. (2026). *Anotador de ADN bacteriano: anotación, rutas
-> metabólicas y regulación* (v1.0.0). Universidad de Santiago de Chile.
+> metabólicas y regulación* (v1.1.0). Sin afiliación institucional actual; ex estudiante de la Universidad de Santiago de Chile (USACH).
 > Licencia MIT.
 
 Cita también las herramientas y bases de datos que hicieron posible tu

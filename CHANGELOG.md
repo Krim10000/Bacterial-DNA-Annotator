@@ -43,7 +43,7 @@ conoce el proyecto.
   `--dry-run` y `--uninstall`.
 - **Panel de requisitos, tiempos y glosario** para estudiantes: qué es DIAMOND,
   HMMER, Rhea o una brecha, y cuánto tarda cada paso.
-- **Créditos de autoría**: Camilo Rojas Bravo (USACH) y declaración explícita
+- **Créditos de autoría**: Camilo Rojas Bravo (ex estudiante USACH, sin afiliación actual) y declaración explícita
   de la asistencia de DeepSeek Harness con DeepSeek (noviembre de 2026).
 - **Licencias y datos**: `LICENSE` (MIT), `THIRD_PARTY_LICENSES.md`,
   `DATA_NOTICE.md`, `NOTICE` y textos GPL-3.0/Apache-2.0.

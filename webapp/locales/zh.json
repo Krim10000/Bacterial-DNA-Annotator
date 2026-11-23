@@ -561,7 +561,6 @@
  "Decide fronteras de operones sin modelo.": "无模型时判定操纵子边界。",
  "Ese gen ya no está en la ventana actual.": "该基因已不在当前窗口中。",
  "Predice la estructura 3D del ORF exacto.": "预测该 ORF 精确的三维结构。",
- "Universidad de Santiago de Chile (USACH)": "Universidad de Santiago de Chile (USACH)",
  "Encuentra genes, tRNA y rRNA en un FASTA.": "在 FASTA 中查找基因、tRNA 和 rRNA。",
  "Mira en los huecos entre genes conocidos.": "查看已知基因之间的空隙。",
  "Confianza: {c} · fuente: {s} · estado: {e}": "置信度：{c} · 来源：{s} · 状态：{e}",
@@ -700,7 +699,6 @@
  "Multigénicos": "多基因",
  "Transportadores": "转运蛋白",
  "📥 Reportes y descargas": "📥 报告与下载",
- "Universidad de Santiago de Chile": "智利圣地亚哥大学",
  "Asistencia de desarrollo:": "开发协助：",
  "Los datos y las decisiones científicas son del autor.": "数据与科学决策由作者负责。",
  "Anotador": "DNA 注释器",
@@ -1002,5 +1000,7 @@
  "Resumir estructura": "汇总结构",
  "Buscar genes fantasma": "寻找幽灵基因",
  "🔬 Hipótesis estructurales": "🔬 结构假设",
- "No se encontraron ORFs candidatos.": "未找到候选 ORF。"
+ "No se encontraron ORFs candidatos.": "未找到候选 ORF。",
+ "Ex estudiante de la Universidad de Santiago de Chile": "智利圣地亚哥大学前学生",
+ "Ex estudiante de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual": "智利圣地亚哥大学（USACH）校友；目前无机构隶属"
 }

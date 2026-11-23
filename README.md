@@ -224,8 +224,7 @@ Detalle, evidencia y costes en [`docs/GPU_STATUS.md`](docs/GPU_STATUS.md).
 
 ## 🙏 Créditos
 
-**Autor:** Camilo Rojas Bravo — Universidad de Santiago de Chile (USACH) —
-Camilo.Rojas@usach.cl.
+**Autor:** Camilo Rojas Bravo — ex estudiante de la Universidad de Santiago de Chile (USACH), sin afiliación institucional actual — Camilo.Rojas@usach.cl.
 
 **Asistencia de desarrollo:** DeepSeek Harness (DSH) con el modelo DeepSeek,
 **noviembre de 2026**, en revisión de código, traducción de la interfaz,
@@ -289,7 +288,7 @@ GFF3/TSV/JSON reports. It runs on CPU; no GPU is required for annotation. It
 does **not** redistribute RegulonDB, KEGG, DoriC, STRING, DBTBS or BATTER data:
 they are downloaded locally under their own terms. Original code is MIT;
 third-party components keep their licenses (several are GPL-3.0). Author:
-Camilo Rojas Bravo (USACH, Camilo.Rojas@usach.cl). Development assistance:
+Camilo Rojas Bravo (former student at USACH, currently without an institutional affiliation; Camilo.Rojas@usach.cl). Development assistance:
 DeepSeek Harness with DeepSeek, November 2026.
 
 ## ⭐ ¿Te sirvió?

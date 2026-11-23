@@ -561,7 +561,6 @@
  "Decide fronteras de operones sin modelo.": "Decides operon boundaries without a model.",
  "Ese gen ya no está en la ventana actual.": "That gene is no longer in the current window.",
  "Predice la estructura 3D del ORF exacto.": "Predicts the 3D structure of the exact ORF.",
- "Universidad de Santiago de Chile (USACH)": "University of Santiago de Chile (USACH)",
  "Encuentra genes, tRNA y rRNA en un FASTA.": "Finds genes, tRNA and rRNA in a FASTA.",
  "Mira en los huecos entre genes conocidos.": "Looks in the gaps between known genes.",
  "Confianza: {c} · fuente: {s} · estado: {e}": "Confidence: {c} · source: {s} · status: {e}",
@@ -700,7 +699,6 @@
  "Multigénicos": "Polycistronic",
  "Transportadores": "Transporters",
  "📥 Reportes y descargas": "📥 Reports and downloads",
- "Universidad de Santiago de Chile": "University of Santiago, Chile",
  "Asistencia de desarrollo:": "Development assistance:",
  "Los datos y las decisiones científicas son del autor.": "The data and scientific decisions are the author's responsibility.",
  "Anotador": "DNA annotator",
@@ -1002,5 +1000,7 @@
  "Resumir estructura": "Summarize structure",
  "Buscar genes fantasma": "Find ghost genes",
  "🔬 Hipótesis estructurales": "🔬 Structural hypotheses",
- "No se encontraron ORFs candidatos.": "No candidate ORFs found."
+ "No se encontraron ORFs candidatos.": "No candidate ORFs found.",
+ "Ex estudiante de la Universidad de Santiago de Chile": "Former student at the University of Santiago, Chile",
+ "Ex estudiante de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual": "Former student at the University of Santiago, Chile (USACH); currently without an institutional affiliation"
 }
