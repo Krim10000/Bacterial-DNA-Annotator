@@ -558,6 +558,17 @@ def build_report(res: dict) -> str:
                   "- Una clasificación no es una función confirmada."]
         for w in fun.get("warnings", []):
             lines.append(f"- Aviso: {w}")
+    comp = res.get("complexes")
+    if comp and comp.get("complexes"):
+        lines += ["", "## Complejos por vecindad génica",
+                  "- Solo genes del mismo contig/hebra dentro de la ventana.",
+                  "- La vecindad no demuestra interacción física ni estequiometría.",
+                  "", "| complejo | estado | subunidades | faltan | confianza |",
+                  "|---|---|---|---|---|"]
+        for c in comp["complexes"][:15]:
+            lines.append(f"| {c.get('name','')} | {c.get('status','')} | "
+                         f"{len(str(c.get('subunits','')).split(';'))} | "
+                         f"{c.get('missing','') or '—'} | {c.get('confidence','')} |")
     o = res.get("oric")
     if o:
         lines += ["", "## Origen de replicación (ORCA)",

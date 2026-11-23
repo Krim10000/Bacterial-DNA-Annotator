@@ -50,6 +50,7 @@ from annotator import (  # noqa: E402
     detect_tools,
 )
 from functional import annotate as annotate_functional  # noqa: E402
+from complexes import infer as infer_complexes, enrich_rows as enrich_complex_rows  # noqa: E402
 import oric as oric_engine  # noqa: E402
 from closures import (  # noqa: E402
     LABEL as CLOSURE_LABEL,
@@ -1752,6 +1753,27 @@ def render_result(res: dict) -> None:
                     file_name=f"{res['genome']}_protein_paths.tsv",
                     mime="text/plain",
                 )
+            comp = res.get("complexes")
+            if comp:
+                st.markdown("#### 🧩 Complejos por vecindad")
+                st.caption(
+                    "Solo genes del mismo contig y hebra dentro de la ventana. "
+                    "La vecindad no demuestra interacción física."
+                )
+                c1, c2, c3 = st.columns(3)
+                c1.metric("Completos", comp.get("n_complete", 0))
+                c2.metric("Incompletos", comp.get("n_incomplete", 0))
+                c3.metric("Ambiguos", comp.get("n_ambiguous", 0))
+                crs = comp.get("complexes") or []
+                if crs:
+                    st.dataframe(pd.DataFrame(crs), width="stretch",
+                                 hide_index=True)
+                    st.download_button(
+                        "⬇️ Complejos (TSV)",
+                        pd.DataFrame(crs).to_csv(sep="\t", index=False),
+                        file_name=f"{res['genome']}_complexes.tsv",
+                        mime="text/plain",
+                    )
         else:
             st.info("Anotación funcional no ejecutada: falta DIAMOND o Swiss-Prot.")
         o = res.get("oric")
@@ -1999,6 +2021,13 @@ def main() -> None:
                             res["functional"] = annotate_functional(
                                 res["proteins"], DATA_ROOT, OUT_ROOT, res["genome"],
                                 threads=4)
+                            comp = infer_complexes(
+                                res["features"],
+                                res["functional"].get("hits") or {},
+                                res["genome"])
+                            enrich_complex_rows(
+                                res["functional"].get("rows") or [], comp)
+                            res["complexes"] = comp
                         except Exception as exc:  # noqa: BLE001
                             res["functional_error"] = str(exc)
                     if res.get("sequences"):

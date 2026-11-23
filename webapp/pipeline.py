@@ -16,7 +16,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from annotator import annotate, build_report  # noqa: E402
-from functional import annotate as functional_annotate  # noqa: E402
+from functional import annotate as functional_annotate, write_paths  # noqa: E402
+from complexes import infer as infer_complexes, enrich_gaps, enrich_rows, write as write_complexes  # noqa: E402
 import oric  # noqa: E402
 from esmfold_tools import close_gaps  # noqa: E402
 from structure_evidence import evidence_for_rows  # noqa: E402
@@ -67,6 +68,13 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
             "match_rate": f.get("match_rate"), "paths": f.get("paths"),
             "warnings": f.get("warnings"),
         }
+    if res.get("complexes"):
+        c = res["complexes"]
+        summary["complexes"] = {
+            "n_complete": c.get("n_complete"), "n_incomplete": c.get("n_incomplete"),
+            "n_ambiguous": c.get("n_ambiguous"),
+            "rows": len(c.get("complexes") or []),
+        }
     if res.get("oric"):
         o = res["oric"]
         summary["oric"] = {k: o.get(k) for k in
@@ -86,7 +94,8 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
                 "transport_qcov", "direction_status", "direction_reason", "pathways",
                 "homolog_status", "homolog_acc", "homolog_pident", "homolog_qcov",
                 "homolog_rhea", "homolog_ec", "mapping_suggestion", "review_class", "known_exception", "exception_note", "hmm_evidence",
-                "complex_status", "quaternary_status", "complex_evidence", "complex_note"]
+                "complex_id", "complex_name", "complex_status", "complex_role",
+                "complex_evidence", "complex_confidence", "quaternary_status", "complex_note"]
         lines = ["\t".join(cols)]
         for x in gaps:
             lines.append("\t".join(str(x.get(c, "")) for c in cols))
@@ -225,6 +234,19 @@ def main() -> int:
                     res["genome"], threads=args.threads)
             except Exception as exc:  # noqa: BLE001
                 print(f"[aviso] anotación funcional no ejecutada: {exc}", file=sys.stderr)
+        if res.get("functional"):
+            try:
+                comp = infer_complexes(res["features"],
+                                       res["functional"].get("hits") or {},
+                                       res["genome"])
+                enrich_rows(res["functional"].get("rows") or [], comp)
+                write_paths(res["functional"].get("rows") or [], args.outdir,
+                            res["genome"])
+                comp["protein_rows"] = res["functional"].get("rows") or []
+                res["complexes"] = comp
+                write_complexes(comp, args.outdir)
+            except Exception as exc:  # noqa: BLE001
+                print(f"[aviso] complejos no evaluados: {exc}", file=sys.stderr)
         if not args.no_oric and res.get("sequences"):
             try:
                 res["oric"] = oric.run(res, args.data_root,
@@ -243,6 +265,9 @@ def main() -> int:
                     producer_db=(args.data_root / "db" / "producer_family.dmnd")
                     if (args.data_root / "db" / "producer_family.dmnd").exists() else None,
                 )
+                if res.get("complexes"):
+                    metabolic["gaps"] = enrich_gaps(
+                        metabolic.get("gaps", []), res["complexes"], args.data_root)
                 res["metabolic"] = metabolic
                 res["report_md"] = build_report(res)
             except Exception as exc:

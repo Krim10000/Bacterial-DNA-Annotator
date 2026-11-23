@@ -58,7 +58,11 @@ def interpret_gaps(gaps: list[dict], organism: str = "", ref_size_mb: float = 0)
             "review_status": "",
             # El pipeline actual evalua proteinas individuales: no ensambla
             # complejos ni exige estequiometria de subunidades.
+            "complex_id": "",
+            "complex_name": "",
             "complex_status": "not_evaluated",
+            "complex_role": "none",
+            "complex_confidence": "",
             "complex_evidence": "",
             "quaternary_status": "unknown",
             "complex_note": (

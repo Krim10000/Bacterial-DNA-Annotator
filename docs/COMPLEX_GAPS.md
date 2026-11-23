@@ -76,6 +76,9 @@ correcta y la red seguir mostrando una brecha.
    - `monomer_sufficient`: no requiere complejo.
 6. **No cerrar** la brecha con esto: solo cambiar la explicación y la confianza.
 
+Diseño detallado de evaluación CPU y visualización:
+[`COMPLEX_CPU.md`](COMPLEX_CPU.md).
+
 ## Qué implementar
 
 ### Fase CPU, 2–4 días

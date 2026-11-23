@@ -138,3 +138,4 @@ base funcional curada, empaquetado y benchmark público.
 - [`TRANSITION.md`](TRANSITION.md)
 - [`PIPELINE_PARITY.md`](PIPELINE_PARITY.md)
 - [`COMPLEX_GAPS.md`](COMPLEX_GAPS.md)
+- [`COMPLEX_CPU.md`](COMPLEX_CPU.md)
