@@ -1,5 +1,7 @@
 # Paridad: los 400 genomas vs un FASTA nuevo
 
+Detalle de oriC: [`ORIC.md`](ORIC.md).
+
 **Fecha:** 2026-11-23. **Pregunta:** ¿todo lo que tienen los 400 se puede
 reproducir en un genoma nuevo?
 

@@ -33,6 +33,8 @@
 | 未知蛋白缩减（400 个基因组） | 🟡 部分：已有廉价过滤和结构门控；结构集尚未完成 |
 | DNA 语言模型 | ⛔ 实验性，未评估 |
 
+oriC 的实现、成功率和经验：[`docs/ORIC.md`](docs/ORIC.md)。
+
 完整状态、GPU 限制和 Kaggle 策略：
 [`docs/ROADMAP.md`](docs/ROADMAP.md)。
 
@@ -268,6 +270,8 @@ Bakta/Prokka/DFAST 基准、中文术语审校、macOS/WSL2 测试、`protein_qu
 详见 [`SUPPORT.md`](SUPPORT.md)。
 
 400 个基因组与新 FASTA 的当前一致性：[`docs/PIPELINE_PARITY.md`](docs/PIPELINE_PARITY.md)。
+
+各流程的交接索引：[`docs/TRANSITION.md`](docs/TRANSITION.md)。
 
 ## 🔭 路线图
 

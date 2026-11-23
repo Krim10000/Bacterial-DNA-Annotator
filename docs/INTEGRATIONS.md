@@ -2,6 +2,8 @@
 
 ## 1. Estado real de oriC: ORCA + DoriC
 
+Detalle, lecciones y traspaso: [`ORIC.md`](ORIC.md).
+
 Sí está implementado, pero **no donde parece**:
 
 | pieza | dónde está | estado |

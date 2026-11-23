@@ -25,7 +25,7 @@ Y el equipo puede **reproducir los 400 genomas** con los mismos resultados.
 | Brechas refinadas + soporte | ✅ | 8.655 brechas · soporte en 400 genomas |
 | Catálogo KEGG | ✅ | 194 rutas · 5.361 reacciones |
 | GUI (flujo, cobertura, informe) | ✅ | capturas v6–v8 |
-| **ORCA / DoriC** | ⚠️ | **95/384 con confianza <0,5** |
+| **ORCA / DoriC** | ⚠️ | 400 estados: 271 validated, 77 consensus, 10 lineage, 42 anomalous; ver `docs/ORIC.md` |
 | Móviles / defensa / CRISPR | ⚠️ | precalculado para 400, **no** en GFF ni GUI |
 | Multidioma | ❌ | solo español |
 | Estructura 3D | ⚠️ | Foldseek validado; ESMFold no integrado |
@@ -70,8 +70,7 @@ Y el equipo puede **reproducir los 400 genomas** con los mismos resultados.
 
 **Aceptación:** ≥95% en alta/media y delta mediano a DoriC <5 kb.
 
-**Estado 2026-11-20:** 42 anómalos triados (23 skew-ORCA, 16 sin
-convergencia, 3 solo GC skew); el fix circular completo sigue pendiente.
+**Estado 2026-11-23:** 400 estados; 94/95 de baja confianza resueltos; 42 anómalos triados (23 skew-ORCA, 16 sin convergencia, 3 solo GC skew). La rotación de contigs circulares sigue pendiente. Ver `docs/ORIC.md`.
 
 ### P1 — Cobertura de genomas externos
 

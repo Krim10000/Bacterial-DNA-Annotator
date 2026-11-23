@@ -42,6 +42,8 @@ metabólicas, operones y bucles de regulación, siempre con evidencia y límites
 | Reducción de desconocidas (400 genomas) | 🟡 parcial: filtros baratos y gating estructural; falta completar estructuras |
 | Modelo de lenguaje de ADN | ⛔ experimental, no evaluado |
 
+Implementación, tasas de éxito y lecciones de oriC: [`docs/ORIC.md`](docs/ORIC.md).
+
 Estado completo, límites de GPU y política de Kaggle:
 [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
@@ -332,6 +334,8 @@ validación de operones.
 cómputo y el tiempo de revisión. Ver [`SUPPORT.md`](SUPPORT.md).
 
 Paridad actual entre los 400 genomas y un FASTA nuevo: [`docs/PIPELINE_PARITY.md`](docs/PIPELINE_PARITY.md).
+
+Índice de traspaso por proceso: [`docs/TRANSITION.md`](docs/TRANSITION.md).
 
 ## 🔭 Próximamente
 

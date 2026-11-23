@@ -40,6 +40,8 @@ routes, operons and regulatory loops — always with evidence and limits.
 | Unknown-protein reduction (400 genomes) | 🟡 partial: cheap filters and structural gating; full structure set pending |
 | DNA language model | ⛔ experimental, not evaluated |
 
+oriC implementation, success rates and lessons: [`docs/ORIC.md`](docs/ORIC.md).
+
 Full status, GPU limits and Kaggle policy:
 [`docs/ROADMAP.en.md`](docs/ROADMAP.en.md).
 
@@ -333,6 +335,8 @@ There is **no donation link yet**; compute credits and review time are more
 valuable at this stage. See [`SUPPORT.md`](SUPPORT.md).
 
 Current parity between the 400 genomes and a new FASTA: [`docs/PIPELINE_PARITY.md`](docs/PIPELINE_PARITY.md).
+
+Handoff index for every process: [`docs/TRANSITION.md`](docs/TRANSITION.md).
 
 ## 🔭 Roadmap
 

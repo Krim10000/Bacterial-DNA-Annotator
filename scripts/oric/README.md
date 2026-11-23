@@ -31,5 +31,5 @@ Si era ambiguo, usa DoriC o heurísticas para elegir el mejor candidato.
 * **Uso:** `python scripts/oric/03_orca_predict.py`
 * **Salida:** `data/orca_predictions/{genoma}.json`
 
-Ver estado, límites y plan de integración en
-[`docs/INTEGRATIONS.md`](../../docs/INTEGRATIONS.md).
+Ver estado, lecciones y traspaso en [`docs/ORIC.md`](../../docs/ORIC.md);
+plan de integración en [`docs/INTEGRATIONS.md`](../../docs/INTEGRATIONS.md).

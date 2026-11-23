@@ -135,3 +135,6 @@ functional databases, packaging and a public benchmark.
 - [`GPU_STATUS.md`](GPU_STATUS.md)
 - [`BENCHMARK.md`](BENCHMARK.md)
 - [`INTEGRATIONS.md`](INTEGRATIONS.md)
+- [`ORIC.md`](ORIC.md)
+- [`TRANSITION.md`](TRANSITION.md)
+- [`PIPELINE_PARITY.md`](PIPELINE_PARITY.md)
