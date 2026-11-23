@@ -88,7 +88,44 @@ SIGNATURES: list[dict[str, Any]] = [
         "essential": ["ftsA", "ftsZ"],
         "source": "curated literature; fts",
     },
+    {
+        "id": "CYTOCHROME_BD", "name": "Cytochrome bd oxidase",
+        "genes": ["cydA", "cydB"], "essential": ["cydA", "cydB"],
+        "ecs": ["1.10.3.-"], "source": "curated literature; operon cyd",
+    },
+    {
+        "id": "NITRATE_REDUCTASE", "name": "Nitrate reductase (Nar)",
+        "genes": ["narG", "narH", "narI", "narJ"], "essential": ["narG", "narH"],
+        "ecs": ["1.7.5.1"], "source": "curated literature; operon nar",
+    },
+    {
+        "id": "NITRITE_REDUCTASE", "name": "Nitrite reductase (Nir)",
+        "genes": ["nirB", "nirD"], "essential": ["nirB", "nirD"],
+        "ecs": ["1.7.1.15"], "source": "curated literature; operon nir",
+    },
+    {
+        "id": "HYDROGENASE", "name": "Hydrogenase",
+        "genes": ["hyaA", "hyaB", "hybA", "hybB", "hydA"],
+        "essential": ["hyaA", "hyaB"], "ecs": ["1.12.7.2"],
+        "source": "curated literature; hya/hyb/hyd",
+    },
+    {
+        "id": "FORMATE_DEHYDROGENASE", "name": "Formate dehydrogenase",
+        "genes": ["fdhF", "fdhD", "fdhE"], "essential": ["fdhF"],
+        "ecs": ["1.17.1.9", "1.2.1.2"], "source": "curated literature; fdh",
+    },
+    {
+        "id": "PILI", "name": "Type IV pilus",
+        "genes": ["pilA", "pilB", "pilC", "pilD"], "essential": ["pilA", "pilB"],
+        "source": "curated literature; pil",
+    },
+    {
+        "id": "FIMBRIAE", "name": "Type 1 fimbriae",
+        "genes": ["fimA", "fimC", "fimD", "fimF", "fimG", "fimH"],
+        "essential": ["fimA", "fimH"], "source": "curated literature; fim",
+    },
 ]
+
 
 
 @dataclass

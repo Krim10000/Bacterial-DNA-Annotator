@@ -1021,5 +1021,6 @@
  "Incompletos": "Incomplete",
  "⬇️ Complejos (TSV)": "⬇️ Complexes (TSV)",
  "Solo genes del mismo contig y hebra dentro de la ventana. La vecindad no demuestra interacción física.": "Only genes on the same contig and strand within the window. Proximity does not prove physical interaction.",
- "🧩 Complejos por vecindad": "🧩 Neighborhood complexes"
+ "Complejos": "Complexes",
+ "Complejo no encontrado.": "Complex not found."
 }

@@ -62,6 +62,20 @@ En estos casos, la actividad catalítica puede residir en una subunidad, pero la
 reacción fisiológica requiere el complejo. La anotación individual puede ser
 correcta y la red seguir mostrando una brecha.
 
+## Auditoría de los 400
+
+`tools/audit_complexes_400.py` sobre 400 genomas:
+
+- 2.218 complejos por vecindad;
+- 639 completos y 1.579 incompletos;
+- 8.655 brechas;
+- **0 brechas asociadas por EC/Rhea** en esta primera pasada.
+
+El 0 no prueba que los complejos no importen: la asociación exige que una EC del
+complejo esté mapeada a Rhea y que su producto sea exactamente el metabolito de
+la brecha. Muchas subunidades no tienen EC/Rhea asignada. Por eso las brechas
+quedan `not_evaluated` y no se cierran.
+
 ## Primer resultado real
 
 En `GCF_000006985.1_ASM698v1` (158 brechas, 6 complejos por vecindad):

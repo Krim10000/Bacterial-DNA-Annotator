@@ -92,7 +92,12 @@ def load_tables(data_root: Path, genome: str) -> dict:
         hp = DEMO_DIR / "hairpins.tsv"
     out["hairpins"] = (pd.read_csv(hp, sep="\t", dtype=str).fillna("")
                        if hp.exists() else pd.DataFrame())
-    for key in ("genes", "operons"):
+    cx = _p(data_root, "complexes", f"{genome}.complexes.tsv")
+    if not cx.exists() and genome == "demo":
+        cx = DEMO_DIR / "complexes.tsv"
+    out["complexes"] = (pd.read_csv(cx, sep="\t", dtype=str).fillna("")
+                        if cx.exists() else pd.DataFrame())
+    for key in ("genes", "operons", "complexes"):
         df = out[key]
         for col in ("start", "end"):
             if col in df:
@@ -243,9 +248,9 @@ def svg(tables: dict, contig: str, start: int, end: int,
     se escalonan en dos filas cuando están muy juntas.
     """
     tracks = tracks or {"genes", "operones", "promotores", "horquillas",
-                        "transcripcion"}
+                        "transcripcion", "complejos"}
     span = max(1, end - start)
-    width, height = 1180, 380
+    width, height = 1180, 420
     pad_l, pad_r = 96, 12
     plot_w = width - pad_l - pad_r
 
@@ -256,6 +261,7 @@ def svg(tables: dict, contig: str, start: int, end: int,
     operons = tables.get("operons", pd.DataFrame())
     promoters = tables.get("promoters", pd.DataFrame())
     hairpins = tables.get("hairpins", pd.DataFrame())
+    complexes = tables.get("complexes", pd.DataFrame())
     if "contig" in genes and contig:
         genes = genes[genes["contig"] == contig]
         if "contig" in hairpins:
@@ -267,9 +273,14 @@ def svg(tables: dict, contig: str, start: int, end: int,
     if not operons.empty and "contig" in operons:
         operons = operons[(operons["contig"] == contig)
                           & (operons["end"] >= start) & (operons["start"] <= end)]
+    if not complexes.empty and "contig" in complexes:
+        complexes = complexes[(complexes["contig"] == contig)
+                              & (complexes["end"] >= start)
+                              & (complexes["start"] <= end)]
 
     Y = {"ruler": 30, "genes": 92, "operones": 166, "promotores": 214,
-         "horquillas": 262, "transcripcion": 306, "sospecha": 344}
+         "horquillas": 262, "transcripcion": 306, "complejos": 350,
+         "sospecha": 392}
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="{height}" '
          f'viewBox="0 0 {width} {height}" font-family="sans-serif" '
          f'style="background:#fff;border-radius:8px">']
@@ -287,7 +298,8 @@ def svg(tables: dict, contig: str, start: int, end: int,
     # rótulos de banda
     for key, label in (("genes", "GENES"), ("operones", "OPERONES"),
                        ("promotores", "PROMOTORES"), ("horquillas", "HORQUILLAS"),
-                       ("transcripcion", "TSS / TTS")):
+                       ("transcripcion", "TSS / TTS"),
+                       ("complejos", "COMPLEJOS")):
         active = key in tracks
         o.append(f'<text x="8" y="{Y[key]-6}" font-size="9.5" fill="#808495" '
                  f'font-weight="700" opacity="{1 if active else 0.25}">{label}</text>')
@@ -412,6 +424,27 @@ def svg(tables: dict, contig: str, start: int, end: int,
                      f'{gx+4:.1f},{yt+9}" fill="{TTS_C}" opacity="{op}"/>')
             o.append(f'<line x1="{gx:.1f}" y1="{yt+3}" x2="{gx:.1f}" y2="{yt+9}" '
                      f'stroke="{TTS_C}" stroke-width="1" opacity="{op}"/>')
+            o.append("</g>")
+
+    # complejos por vecindad
+    if "complejos" in tracks:
+        for _, c in complexes.iterrows():
+            gx0, gx1 = x(c["start"]), x(c["end"])
+            status = str(c.get("status", ""))
+            color = {"complex_complete": "#2e7d32",
+                     "complex_incomplete": "#c58a00",
+                     "complex_ambiguous": "#b3261e"}.get(status, "#8b90a0")
+            cid = str(c.get("complex_id") or f"{int(c['start'])}-{int(c['end'])}")
+            tip = (f"{c.get('name','complejo')} · {status} · "
+                   f"{int(c['start']):,}–{int(c['end']):,} pb")
+            o.append(f'<g class="hit" data-kind="complex" data-id="{_esc(cid)}">'
+                     f'<title>{_esc(tip)}</title>')
+            o.append(f'<rect x="{gx0:.1f}" y="{Y["complejos"]-8}" width="{max(6, gx1-gx0):.1f}" '
+                     f'height="16" rx="8" fill="{color}" opacity="0.22" '
+                     f'stroke="{color}" stroke-width="1.6"/>')
+            if gx1 - gx0 > 70:
+                o.append(f'<text x="{gx0+5:.1f}" y="{Y["complejos"]+3}" font-size="8.5" '
+                         f'fill="{color}">{_esc(str(c.get("name", "")))[:32]}</text>')
             o.append("</g>")
 
     # sospecha por cadena metabólica, como banda propia
@@ -567,6 +600,21 @@ def _suspect_detail(data_root: Path, genome: str, sid: str) -> None:
                   "operón metabólico, no una prueba."))
 
 
+def _complex_detail(tables: dict, ident: str) -> None:
+    df = tables.get("complexes", pd.DataFrame())
+    row = _row(df, _match_any(df, ident, ("complex_id",))) if not df.empty else None
+    if not row:
+        st.info(tr("Complejo no encontrado."))
+        return
+    st.markdown(f"### 🧩 {row.get('name', 'Complejo')}")
+    st.caption(f"{row.get('status','')} · confianza {row.get('confidence','')}")
+    st.write(f"**Subunidades:** {row.get('subunits','')}")
+    st.write(f"**Esperadas:** {row.get('expected','')}")
+    st.write(f"**Faltan:** {row.get('missing','') or '—'}")
+    st.write(f"**Evidencia:** {row.get('evidence','')}")
+    st.caption(row.get("limitation", ""))
+
+
 def _render_pick(data_root: Path, genome: str, tables: dict, pick: dict) -> None:
     kind, ident = pick.get("kind"), str(pick.get("id", ""))
     with st.container(border=True):
@@ -592,6 +640,8 @@ def _render_pick(data_root: Path, genome: str, tables: dict, pick: dict) -> None
             _hairpin_detail(tables, ident)
         elif kind in ("tss", "tts"):
             _tx_detail(tables, kind, ident)
+        elif kind == "complex":
+            _complex_detail(tables, ident)
         elif kind == "suspect":
             _suspect_detail(data_root, genome, ident)
         else:
@@ -683,7 +733,7 @@ def render(data_root: Path, genome: str) -> None:
         st.rerun()
 
     # --- pistas visibles: casillas, para poder superponer sin que se pisen
-    t1, t2, t3, t4, t5, t6 = st.columns(6)
+    t1, t2, t3, t4, t5, t6, t7 = st.columns(7)
     tracks: set[str] = set()
     if t1.checkbox("Genes", True, key="br_t_genes"):
         tracks.add("genes")
@@ -696,6 +746,8 @@ def render(data_root: Path, genome: str) -> None:
     ver_sospecha = t5.checkbox("Sospecha metabólica", True, key="br_t_susp")
     if t6.checkbox("TSS / TTS", True, key="br_t_tx"):
         tracks.add("transcripcion")
+    if t7.checkbox("Complejos", True, key="br_t_complex"):
+        tracks.add("complejos")
 
     start, end = int(start), int(start) + size
     wg = genes[(genes["contig"] == contig)
@@ -731,7 +783,9 @@ def render(data_root: Path, genome: str) -> None:
         '<span style="color:#c58a00">▭</span> sospecha por cadena metabólica · '
         '<span style="color:#177245">▲</span> TSS medido · '
         '<span style="color:#177245;opacity:.55">▲</span> TSS alto rendimiento · '
-        '<span style="color:#8a5a22">▼</span> TTS curado',
+        '<span style="color:#8a5a22">▼</span> TTS curado · '
+        '<span style="color:#2e7d32">▭</span> complejo completo · '
+        '<span style="color:#c58a00">▭</span> complejo incompleto',
         unsafe_allow_html=True,
     )
 

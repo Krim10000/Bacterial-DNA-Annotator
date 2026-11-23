@@ -1021,5 +1021,6 @@
  "Incompletos": "不完整",
  "⬇️ Complejos (TSV)": "⬇️ 复合物（TSV）",
  "Solo genes del mismo contig y hebra dentro de la ventana. La vecindad no demuestra interacción física.": "仅限同一 contig、同一链且在窗口内的基因。邻近并不证明物理相互作用。",
- "🧩 Complejos por vecindad": "🧩 邻域复合物"
+ "Complejos": "复合物",
+ "Complejo no encontrado.": "未找到复合物。"
 }

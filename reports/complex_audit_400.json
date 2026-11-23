@@ -1,0 +1,13 @@
+{
+  "summary": {
+    "gaps": 8655,
+    "complexes": 2218,
+    "complete": 639,
+    "incomplete": 1579,
+    "gaps_with_complex": 0,
+    "gaps_complete_complex": 0,
+    "gaps_incomplete_complex": 0,
+    "gaps_unassociated": 8655
+  },
+  "genomes": 400
+}
