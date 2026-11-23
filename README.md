@@ -51,6 +51,8 @@ Opciones del instalador:
 | `bash install.sh --dry-run` | muestra lo que haría, sin tocar nada |
 | `bash install.sh --uninstall` | quita el lanzador del menú |
 
+Actualizaciones y cómo suscribirse a las releases: [`docs/UPDATES.md`](docs/UPDATES.md).
+
 En GNOME, la primera vez que ejecutes un `.desktop` puede que tengas que
 marcarlo como de confianza (clic derecho → *Permitir lanzar*). El instalador ya
 lo deja en `~/.local/share/applications`.

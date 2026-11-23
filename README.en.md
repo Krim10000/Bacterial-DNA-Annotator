@@ -51,6 +51,8 @@ Installer options:
 | `bash install.sh --dry-run` | shows what it would do, without touching anything |
 | `bash install.sh --uninstall` | removes the launcher from the menu |
 
+Updates and how to subscribe to releases: [`docs/UPDATES.md`](docs/UPDATES.md).
+
 On GNOME, the first time you run a `.desktop` file you may have to mark it as
 trusted (right-click → *Allow Launching*). The installer already leaves it in
 `~/.local/share/applications`.
