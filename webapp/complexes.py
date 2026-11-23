@@ -155,6 +155,9 @@ def flag(status: str) -> str:
     return {"complex_complete": "green",
             "complex_incomplete": "yellow",
             "complex_candidate": "yellow",
+            "complex_suspected": "yellow",
+            "complex_inferred_complete": "blue",
+            "complex_inferred_incomplete": "yellow",
             "complex_ambiguous": "orange"}.get(status, "grey")
 
 

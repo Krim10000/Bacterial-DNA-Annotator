@@ -95,6 +95,16 @@ puede añadir sin cambiar el esquema.
 - La transferencia es `documentado_inferido` (`ECO:0005544`), no experimental.
 - No cierra brechas.
 
+## Sospecha fuerte en pipeline/GUI
+
+La transferencia con `frac_mapped ≥0.8` se integra como
+`complex_status="complex_suspected"` y `complex_flag="yellow"` cuando el genoma
+está en los 400. No se queda solo en el navegador: `webapp/complex_transfer.py`
+la carga en la tabla de complejos y en `protein_paths.tsv`.
+
+No se convierte en `confirmed` ni cierra la brecha. La nota dice
+"transferencia por ortología, no interacción demostrada".
+
 ## Visualización
 
 El navegador carga `data/complexes/transfer_<genoma>.tsv` si no hay una tabla

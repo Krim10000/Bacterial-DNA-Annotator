@@ -127,6 +127,16 @@ def main() -> int:
     k12 = read_hits(args.k12, target_first=False)
     target = read_hits(args.target, target_first=True)
     gold = complex_map()
+    # EC de los genes K-12 para poder asociar transferencias a reacciones.
+    ec_by_b: dict[str, set[str]] = defaultdict(set)
+    k12_genes = DATA / "regulation" / "ecoli_k12" / "genes.tsv"
+    if k12_genes.exists():
+        with k12_genes.open(encoding="utf-8", errors="replace") as fh:
+            for r in csv.DictReader(fh, delimiter="\t"):
+                b = (r.get("locus_tag") or "").strip()
+                for ec in re.split(r"[;|,]", r.get("ec") or ""):
+                    if ec.strip():
+                        ec_by_b[b].add(ec.strip())
     mapped = rbh(k12, target)
     genomes = sorted({g for g, _b in mapped})
     print(f"RBH: {len(mapped)} pares; {len(genomes)} genomas; {len(gold)} complejos")
@@ -175,6 +185,7 @@ def main() -> int:
                                   else "incomplete" if n_exp else "unknown"),
                 "mass_kda": round(mass, 1),
                 "phylo_jacc": round(sum(js) / len(js), 3) if js else "",
+                "ecs": ";".join(sorted({e for b in found for e in ec_by_b.get(b, set())})),
                 "evidence_class": "documentado_inferido",
                 "eco": "ECO:0005544",
                 "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",

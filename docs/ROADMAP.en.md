@@ -141,3 +141,4 @@ functional databases, packaging and a public benchmark.
 - [`COMPLEX_GAPS.md`](COMPLEX_GAPS.md)
 - [`COMPLEX_CPU.md`](COMPLEX_CPU.md)
 - [`COMPLEX_TRANSFER.md`](COMPLEX_TRANSFER.md)
+- [`COMPLEX_CATALOGS.md`](COMPLEX_CATALOGS.md)
