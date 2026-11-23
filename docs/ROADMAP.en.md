@@ -104,6 +104,16 @@ not be a requirement for annotating a genome.
 | 5 | macOS installer / WSL2 guide | 1–2 days | test on a clean machine |
 | 6 | PyPI / TestPyPI | 1 day | packaging |
 | 7 | JOSS / bio.tools | 1–3 days | DOI already available |
+| 8 | Reproducible benchmark vs. Bakta/Prokka/DFAST | 2–4 days | 5–6 genomes |
+| 9 | Export SBML draft (CarveMe/COBRApy) | 1 week | Rhea mapping |
+
+## Benchmark
+
+The comparison with 12+ projects (Prokka, Bakta, DRAM, CarveMe, gapseq,
+Operon-mapper, BV-BRC, etc.) is in [`BENCHMARK.md`](BENCHMARK.md).
+Bottom line: base annotation is table stakes; our advantage is local
+integration with evidence and the ES/EN/ZH GUI; the main gap is curated
+functional databases, packaging and a public benchmark.
 
 ## What we do not promise
 

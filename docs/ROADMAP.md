@@ -103,6 +103,16 @@ debe ser un requisito para anotar un genoma.
 | 5 | Instalador macOS / guía WSL2 | 1–2 días | probar en limpio |
 | 6 | PyPI / TestPyPI | 1 día | empaquetado |
 | 7 | JOSS / bio.tools | 1–3 días | DOI ya disponible |
+| 8 | Benchmark reproducible vs. Bakta/Prokka/DFAST | 2–4 días | 5–6 genomas |
+| 9 | Exportar borrador SBML (CarveMe/COBRApy) | 1 semana | mapeo Rhea |
+
+## Benchmark
+
+La comparación con 12+ proyectos (Prokka, Bakta, DRAM, CarveMe, gapseq,
+Operon-mapper, BV-BRC, etc.) está en [`BENCHMARK.md`](BENCHMARK.md).
+Conclusiones: la anotación base es tabla stakes; nuestra ventaja es la
+integración local con evidencia y la GUI ES/EN/ZH; la brecha principal es
+base funcional curada, empaquetado y benchmark público.
 
 ## Lo que no prometemos
 

@@ -255,6 +255,8 @@ run_pipeline.sh    stage orchestrator
 
 基于 Streamlit 的细菌基因组注释器（西班牙语、英语和简体中文），可点击的基因组浏览器，代谢缺口分析，以及 GFF3/TSV/JSON 下载。它在 CPU 上运行；注释不需要 GPU。它**不**重新分发 RegulonDB、KEGG、DoriC、STRING、DBTBS 或 BATTER 的数据：这些数据按其自身条款在本地下载。原创代码为 MIT；第三方工具保留各自的许可证（其中多项为 GPL-3.0）。作者：Camilo Rojas Bravo（生物技术工程师，毕业于 USACH；目前无机构隶属；Camilo.Rojas@usach.cl）。开发协助：DeepSeek Harness 与 DeepSeek，2026 年 11 月。
 
+与 Prokka、Bakta、DRAM、CarveMe 等工具的基准比较：[`docs/BENCHMARK.md`](docs/BENCHMARK.md)。
+
 ## 🔭 路线图
 
 - **蛋白质查询**：蛋白质 FASTA → 同源物、结构域和功能。

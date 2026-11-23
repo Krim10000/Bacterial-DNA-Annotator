@@ -318,6 +318,8 @@ currently without an institutional affiliation; Camilo.Rojas@usach.cl).
 Development assistance:
 DeepSeek Harness with DeepSeek, November 2026.
 
+Benchmark frente a Prokka, Bakta, DRAM, CarveMe y otras herramientas: [`docs/BENCHMARK.md`](docs/BENCHMARK.md).
+
 ## 🔭 Próximamente
 
 - **Consulta de proteína**: FASTA de proteína → homólogos, dominios y función.

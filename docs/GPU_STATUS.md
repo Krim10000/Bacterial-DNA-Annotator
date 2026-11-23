@@ -78,6 +78,21 @@ Coste orientativo documentado: Boltz-2 a escala 25–40 USD; ABFE 100–150 GPU-
 por sistema; MD 10 ns × 3 réplicas 51–135 USD. Nada de esto es necesario para
 usar el anotador.
 
+## 4 · Kaggle como primer filtro de GPU
+
+Kaggle se usa para probar ESMFold, co-folding y modelos grandes **antes** de
+gastar una GPU local o un presupuesto de nube. No es una dependencia del
+anotador:
+
+- las secuencias se suben manualmente y solo con consentimiento;
+- los resultados se importan como tablas o estructuras;
+- la app no se conecta a Kaggle al arrancar;
+- la anotación, las brechas y los operones siguen funcionando en CPU.
+
+El detalle de la línea de represores está en
+[`ALOSTERIA_V1_CIERRE.md`](ALOSTERIA_V1_CIERRE.md) y
+[`ROADMAP.md`](ROADMAP.md).
+
 ## 5 · Decisión para v1.0
 
 El modelo de ADN se publica como **experimental y no evaluado**. Los

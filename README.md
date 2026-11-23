@@ -319,6 +319,8 @@ sin afiliación institucional actual; Camilo.Rojas@usach.cl).
 Asistencia de desarrollo:
 DeepSeek Harness con DeepSeek, noviembre de 2026.
 
+Benchmark against Prokka, Bakta, DRAM, CarveMe and other tools: [`docs/BENCHMARK.md`](docs/BENCHMARK.md).
+
 ## 🔭 Roadmap
 
 - **Protein query**: protein FASTA → homologs, domains and function.
