@@ -2,8 +2,15 @@
 
 > **Integración 2026-11-23:** el pipeline ya llama a `build_candidates.py`
 > mediante `webapp/complex_model.py`; el modelo K-12 se aplica como prior y sus
-> clusters salen como `complex_candidate` amarillos en la GUI. La transferencia
-> por ortología, masa y Foldseek-Multimer siguen pendientes.
+> clusters salen como `complex_candidate` amarillos en la GUI.
+>
+> Estado de esta lista:
+> 1. transferencia por ortología — **implementada** (`transfer_orthology.py`);
+> 2. masa/estequiometría — **parcial** (masa observada y `expected_n`, sin masa
+>    documentada porque el gold local no la trae);
+> 3. perfil filogenético — **implementado** (`phylo_jacc`);
+> 4. Foldseek-Multimer — **pendiente** (falta DB de ensamblajes);
+> 5. coevolución — **pendiente** (falta MSA/CPU).
 
 Documento de trabajo: qué agregar, en qué orden, con qué evidencia y con qué
 criterio se acepta. Nada de esto está implementado todavía salvo lo indicado.

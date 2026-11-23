@@ -97,6 +97,42 @@ def load_tables(data_root: Path, genome: str) -> dict:
         cx = DEMO_DIR / "complexes.tsv"
     out["complexes"] = (pd.read_csv(cx, sep="\t", dtype=str).fillna("")
                         if cx.exists() else pd.DataFrame())
+    if out["complexes"].empty:
+        # Transferencia K-12: no trae coordenadas; se derivan de genes.tsv.
+        tp = _p(data_root, "complexes", f"transfer_{genome}.tsv")
+        if tp.exists() and not out["genes"].empty:
+            tr = pd.read_csv(tp, sep="\t", dtype=str).fillna("")
+            gmap = {str(r.get("gene_id") or r.get("locus_tag")): r
+                    for _, r in out["genes"].iterrows()}
+            rows = []
+            for _, r in tr.iterrows():
+                ids = [x for x in str(r.get("genes_genoma", "")).split(",")
+                       if x in gmap]
+                if len(ids) < 2:
+                    continue
+                coords = [(int(gmap[x]["start"]), int(gmap[x]["end"])) for x in ids]
+                expected = int(r.get("expected_n") or 0)
+                mapped = len(ids)
+                status = ("complex_inferred_complete"
+                          if expected and mapped >= expected
+                          else "complex_inferred_incomplete")
+                rows.append({
+                    "complex_id": r.get("complex_id", ""),
+                    "name": "K-12 transferido: " + str(r.get("complex_name", "")),
+                    "contig": gmap[ids[0]].get("contig", ""),
+                    "start": min(a for a, _ in coords),
+                    "end": max(b for _, b in coords),
+                    "subunits": ";".join(ids), "expected": r.get("expected_n", ""),
+                    "missing": "", "status": status,
+                    "evidence": (f"RBH K-12; frac={r.get('frac_mapped','')}; "
+                                 f"phylo={r.get('phylo_jacc','')}; "
+                                 f"masa={r.get('mass_kda','')} kDa"),
+                    "confidence": "high" if float(r.get("frac_mapped") or 0) >= 0.8 else "medium",
+                    "source": "transferencia por ortología K-12",
+                    "flag": "blue" if status == "complex_inferred_complete" else "yellow",
+                    "limitation": r.get("limitation", ""),
+                })
+            out["complexes"] = pd.DataFrame(rows)
     for key in ("genes", "operons", "complexes"):
         df = out[key]
         for col in ("start", "end"):
@@ -432,7 +468,9 @@ def svg(tables: dict, contig: str, start: int, end: int,
             gx0, gx1 = x(c["start"]), x(c["end"])
             status = str(c.get("status", ""))
             color = {"complex_complete": "#2e7d32",
+                     "complex_inferred_complete": "#1565c0",
                      "complex_incomplete": "#c58a00",
+                     "complex_inferred_incomplete": "#c58a00",
                      "complex_ambiguous": "#b3261e"}.get(status, "#8b90a0")
             cid = str(c.get("complex_id") or f"{int(c['start'])}-{int(c['end'])}")
             tip = (f"{c.get('name','complejo')} · {status} · "
