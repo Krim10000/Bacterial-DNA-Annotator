@@ -1,8 +1,13 @@
+> **Estado: publicado.** DOI de versión:
+> [10.5281/zenodo.24469732](https://doi.org/10.5281/zenodo.24469732).
+> DOI de concepto (última versión):
+> [10.5281/zenodo.24469731](https://doi.org/10.5281/zenodo.24469731).
+
 # DOI con Zenodo
 
-El repositorio ya incluye `.zenodo.json` con título, autoría, licencia,
-keywords y relación con GitHub. Falta conectar Zenodo y publicar una release
-nueva para que Zenodo la archive y emita el DOI.
+El repositorio incluye `.zenodo.json` con título, autoría, licencia, keywords y
+relación con GitHub. **El DOI ya está publicado**; abajo queda el procedimiento
+reproducible para futuras versiones.
 
 ## Opción A — integración GitHub (recomendada)
 
@@ -54,9 +59,9 @@ Publish revisaré contigo título, autoría, licencia y versión.
 
 ## Después del DOI
 
-- Añadir `doi:` a `CITATION.cff`.
-- Añadir badge `DOI` al README.
-- Añadir el DOI al `paper.md` de JOSS.
+- [x] Añadir `doi:` a `CITATION.cff`.
+- [x] Añadir badge `DOI` al README.
+- [x] Añadir el DOI al `paper.md` de JOSS.
 - Registrar la herramienta en bio.tools.
 - Archivar en Software Heritage.
 

@@ -32,7 +32,7 @@ no lo lee, cita:
 
 > Rojas Bravo, C. (2026). *Anotador de ADN bacteriano: anotación, rutas
 > metabólicas y regulación* (v1.1.3). Ingeniero en Biotecnología, titulado de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual.
-> Licencia MIT.
+> DOI: https://doi.org/10.5281/zenodo.24469732. Licencia MIT.
 
 Cita también las herramientas y bases de datos que hicieron posible tu
 resultado; están en `THIRD_PARTY_LICENSES.md` y en la página **Créditos** de la

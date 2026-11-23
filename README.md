@@ -4,6 +4,7 @@
 
 [![CI](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml/badge.svg)](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/Krim10000/Bacterial-DNA-Annotator)](https://github.com/Krim10000/Bacterial-DNA-Annotator/releases)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24469732.svg)](https://doi.org/10.5281/zenodo.24469732)
 [![Versión](https://img.shields.io/badge/versión-1.1.3-blue)](CHANGELOG.md)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-green)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12-blue)](pyproject.toml)
@@ -240,7 +241,8 @@ muchos más. Cada uno tiene su autoría, su cita y su licencia en la página
 ## 📄 Citación y licencia
 
 - Cita con [`CITATION.cff`](CITATION.cff) o con
-  [`AUTHORS.md`](AUTHORS.md#cómo-citar).
+  [`AUTHORS.md`](AUTHORS.md#cómo-citar). DOI de esta versión:
+  [10.5281/zenodo.24469732](https://doi.org/10.5281/zenodo.24469732).
 - Código original: **MIT** ([`LICENSE`](LICENSE)).
 - Dependencias: conservan su licencia. **pyrodigal, orcapy, DIAMOND,
   tRNAscan-SE y barrnap son GPL-3.0**; cualquier distribución que las empaquete

@@ -7,6 +7,7 @@ Versionado [SemVer](https://semver.org/lang/es/).
 
 ### Añadido
 
+- DOI de Zenodo: [10.5281/zenodo.24469732](https://doi.org/10.5281/zenodo.24469732).
 - `README.zh.md`: README completo en chino simplificado, junto a ES/EN.
 - `.zenodo.json` y `docs/ZENODO.md` para emitir el DOI de Zenodo.
 - `README.zh.md` y selector de idioma ES/EN/ZH en los tres README.

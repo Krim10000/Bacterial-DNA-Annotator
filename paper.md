@@ -74,6 +74,8 @@ component that renders SVG tracks and returns the clicked feature. The code has
 unit and integration tests, a path audit for the script tree, and continuous
 integration covering Python 3.10–3.12 and a Playwright smoke test of the GUI.
 
+The archived release is available at https://doi.org/10.5281/zenodo.24469732.
+
 # Acknowledgements
 
 The author thanks the developers of pyrodigal, DIAMOND, HMMER, Infernal,

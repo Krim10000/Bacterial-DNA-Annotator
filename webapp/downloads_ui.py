@@ -78,7 +78,7 @@ Cómo interpretar:
   validación experimental, EC o contexto.
 
 Citación:
-Rojas Bravo, C. (2026). Anotador de ADN bacteriano (v1.1.3). Ingeniero en Biotecnología, titulado de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual.
+Rojas Bravo, C. (2026). Anotador de ADN bacteriano (v1.1.3). https://doi.org/10.5281/zenodo.24469732. Ingeniero en Biotecnología, titulado de la Universidad de Santiago de Chile (USACH); sin afiliación institucional actual.
 Asistencia de desarrollo: DeepSeek Harness con DeepSeek, noviembre de 2026.
 
 Cita también Rhea, UniProt, KEGG y RegulonDB según corresponda. Ver

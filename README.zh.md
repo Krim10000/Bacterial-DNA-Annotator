@@ -3,6 +3,7 @@
 
 [![CI](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml/badge.svg)](https://github.com/Krim10000/Bacterial-DNA-Annotator/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/Krim10000/Bacterial-DNA-Annotator)](https://github.com/Krim10000/Bacterial-DNA-Annotator/releases)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24469732.svg)](https://doi.org/10.5281/zenodo.24469732)
 [![Version](https://img.shields.io/badge/version-1.1.3-blue)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12-blue)](pyproject.toml)
@@ -192,7 +193,8 @@ python -m modules --selftest annotation
 ## 📄 引用与许可
 
 - 引用请使用 [`CITATION.cff`](CITATION.cff) 或
-  [`AUTHORS.md`](AUTHORS.md#cómo-citar)。
+  [`AUTHORS.md`](AUTHORS.md#cómo-citar)。本版本 DOI：
+  [10.5281/zenodo.24469732](https://doi.org/10.5281/zenodo.24469732)。
 - 原创代码：**MIT**（[`LICENSE`](LICENSE)）。
 - 依赖项：各自保留其许可证。**pyrodigal、orcapy、DIAMOND、
   tRNAscan-SE 和 barrnap 为 GPL-3.0**；任何捆绑它们的发行方式
