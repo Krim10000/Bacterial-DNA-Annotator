@@ -41,6 +41,7 @@ python -m webapp.pipeline genoma.fna --outdir results/ \
 - `--structural-filters`: F1 Foldseek, F2 EnzyMM, F3 P2Rank, F4 AlphaFill, F5 sitio activo.
 - `--structure-manifest`: TSV `genome protein_id uniprot pdb` para aplicar filtros a proteínas con estructura.
 - `--foldseek-local-db`: base Foldseek local; evita la API y el 429.
+- `--precomputed-hypotheses`: TSV de hipótesis precalculadas; filtra por genoma.
 
 ## Garantías
 

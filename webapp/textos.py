@@ -48,6 +48,7 @@ T["mode_pathways"] = "🧪 Rutas metabólicas"
 T["mode_browser"] = "🧬 Navegador de genoma"
 T["mode_reports"] = "📥 Reportes y descargas"
 T["mode_modules"] = "🧩 Módulos"
+T["mode_hypotheses"] = "🔬 Hipótesis estructurales"
 T["mode_credits"] = "🙏 Créditos y herramientas"
 T["sidebar_tools"] = (
     "Herramientas detectadas en tu equipo. Si una aparece con ❌, la casilla que "

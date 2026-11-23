@@ -184,4 +184,5 @@ say "$T_DONE"
 echo "  $ROOT/lanzar.sh"
 echo "  http://localhost:8501"
 echo
-echo "Registro de instalación: $LOG"
+STAR_URL="https://github.com/Krim10000/Bacterial-DNA-Annotator"
+echo "⭐ Si te sirvió, dale una estrella: $STAR_URL"

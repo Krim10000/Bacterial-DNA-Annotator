@@ -25,7 +25,7 @@ what **confidence**, and what it does **not** prove.
 ## ⚡ Installing on Ubuntu (3 steps)
 
 ```bash
-git clone <repository-url> DNA_TOKEN_BAC
+git clone https://github.com/Krim10000/Bacterial-DNA-Annotator.git DNA_TOKEN_BAC
 cd DNA_TOKEN_BAC
 bash install.sh --with-data
 ```
@@ -289,6 +289,12 @@ descargan localmente bajo sus condiciones. El código original es MIT; las
 herramientas de terceros conservan su licencia (varias son GPL-3.0). Autor:
 Camilo Rojas Bravo (USACH, Camilo.Rojas@usach.cl). Asistencia de desarrollo:
 DeepSeek Harness con DeepSeek, noviembre de 2026.
+
+## ⭐ Did it help?
+
+If this project saved you time, **give it a star on GitHub**:
+[github.com/Krim10000/Bacterial-DNA-Annotator](https://github.com/Krim10000/Bacterial-DNA-Annotator).
+It costs nothing and helps other people find it.
 
 ---
 

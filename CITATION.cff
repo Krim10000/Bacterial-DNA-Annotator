@@ -5,6 +5,8 @@ type: software
 version: 1.0.0
 date-released: "2026-11-22"
 license: MIT
+repository-code: "https://github.com/Krim10000/Bacterial-DNA-Annotator"
+url: "https://github.com/Krim10000/Bacterial-DNA-Annotator"
 authors:
   - family-names: "Rojas Bravo"
     given-names: "Camilo"

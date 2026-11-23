@@ -10,6 +10,7 @@ Regla de honestidad: si una referencia no se pudo verificar, se escribe
 from __future__ import annotations
 
 from i18n import tr
+from repo import REPO_URL
 
 #: Autoría del proyecto. Se muestra en la GUI, en README y en CITATION.cff.
 AUTHOR = {
@@ -447,6 +448,10 @@ def render() -> None:
         "Si usas este proyecto en un trabajo académico, cita también las "
         "herramientas y bases de datos de las que dependen tus resultados, no "
         "solo este repositorio."
+    )
+    st.markdown(
+        f"⭐ **{tr('¿Te sirvió?')}** {tr('Dale una estrella en GitHub:')} "
+        f"[{REPO_URL}]({REPO_URL})"
     )
 
 

@@ -22,6 +22,7 @@ from structural_annotation import scan_pdbs, summarize as summarize_enzymm  # no
 from structural_filters import run_filters  # noqa: E402
 from structural_hypotheses import build as build_hypothesis, from_manifest  # noqa: E402
 from foldseek_local import batch_search as batch_local_foldseek  # noqa: E402
+from precomputed_hypotheses import load as load_precomputed  # noqa: E402
 from metabolism import build_network  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -171,6 +172,8 @@ def main() -> int:
                     help="TSV genome/protein_id/uniprot/pdb para filtros e hipótesis.")
     ap.add_argument("--foldseek-local-db", type=Path, default=None,
                     help="Base Foldseek local (ej. data/db/foldseek_swissprot); evita la API.")
+    ap.add_argument("--precomputed-hypotheses", type=Path, default=None,
+                    help="TSV de hipótesis precalculadas; filtra por genoma.")
     ap.add_argument("--panel-hmm", type=Path, default=None)
     ap.add_argument("--transport-db", type=Path, default=None)
     args = ap.parse_args()
@@ -271,6 +274,11 @@ def main() -> int:
                                                         if args.foldseek_local_db else None)))
             res["structural_hypotheses"] = from_manifest(mrows, frows)
             res["report_md"] = build_report(res)
+        if args.precomputed_hypotheses:
+            extra = load_precomputed(args.precomputed_hypotheses, genome=res["genome"])
+            if extra:
+                res["structural_hypotheses"] = (res.get("structural_hypotheses") or []) + extra
+                res["report_md"] = build_report(res)
         write_outputs(res, args.outdir, metabolic)
         print(f"OK {res['genome']}: {res['bp']} pb, cobertura {res.get('coverage',0)*100:.1f}%, "
               f"brechas {len(metabolic.get('gaps', [])) if metabolic else 0} -> {args.outdir}")

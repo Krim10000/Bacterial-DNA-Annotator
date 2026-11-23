@@ -996,5 +996,7 @@
  "Sin operones por reglas. Genera con `python scripts/regulation/rule_operons.py`.": "No rule-based operons. Generate with `python scripts/regulation/rule_operons.py`.",
  "Sin tabla de completitud. Ejecuta scripts/metabolism/40_pathway_completeness.py.": "No completeness table. Run scripts/metabolism/40_pathway_completeness.py.",
  "Sin tabla de componentes. Genera con `python scripts/validation/operon_components.py`.": "No components table. Generate with `python scripts/validation/operon_components.py`.",
- "Sin horquillas anotadas. Genera con `bash run_pipeline.sh hairpins` (K-12) o `python scripts/regulation/annotate_hairpins.py --gff ... --fasta ...`.": "No annotated hairpins. Generate with `bash run_pipeline.sh hairpins` (K-12) or `python scripts/regulation/annotate_hairpins.py --gff ... --fasta ...`."
+ "Sin horquillas anotadas. Genera con `bash run_pipeline.sh hairpins` (K-12) o `python scripts/regulation/annotate_hairpins.py --gff ... --fasta ...`.": "No annotated hairpins. Generate with `bash run_pipeline.sh hairpins` (K-12) or `python scripts/regulation/annotate_hairpins.py --gff ... --fasta ...`.",
+ "¿Te sirvió?": "Did it help?",
+ "Dale una estrella en GitHub:": "Give it a star on GitHub:"
 }

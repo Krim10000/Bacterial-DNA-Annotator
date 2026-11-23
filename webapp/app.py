@@ -35,6 +35,7 @@ from metabolism import build_network  # noqa: E402
 from requirements_ui import render_requirements  # noqa: E402
 from active_sites import for_gap as active_sites_for_gap  # noqa: E402
 from hypotheses_ui import render_hypotheses  # noqa: E402
+from precomputed_ui import render as render_precomputed  # noqa: E402
 from esmfold_ui import (  # noqa: E402
     render_esmfold_closure,
     render_structure_evidence,
@@ -1746,6 +1747,8 @@ def main() -> None:
             st.session_state["mode_sel"] = T["mode_browser"]
         elif _m == "rutas":
             st.session_state["mode_sel"] = T["mode_pathways"]
+        elif _m in ("hipotesis", "hipótesis", "hypotheses"):
+            st.session_state["mode_sel"] = T["mode_hypotheses"]
         elif _m in ("creditos", "créditos"):
             st.session_state["mode_sel"] = T["mode_credits"]
         elif _m in ("reportes", "descargas"):
@@ -1761,9 +1764,12 @@ def main() -> None:
     mode = st.sidebar.radio(
         T["mode_label"], [T["mode_annotate"], T["mode_pathways"],
                            T["mode_browser"], T["mode_reports"],
-                           T["mode_modules"], T["mode_credits"]],
+                           T["mode_modules"], T["mode_hypotheses"], T["mode_credits"]],
         help=T["mode_help"], key="mode_sel",
     )
+    if mode == T["mode_hypotheses"]:
+        render_precomputed()
+        return
     if mode == T["mode_credits"]:
         credits.render()
         return
