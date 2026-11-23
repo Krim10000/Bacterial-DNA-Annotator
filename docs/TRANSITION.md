@@ -10,6 +10,7 @@ está la evidencia.
 | Paridad 400 vs FASTA nuevo | [`PIPELINE_PARITY.md`](PIPELINE_PARITY.md) | auditoría 2026-11-23 | regulación/operones |
 | oriC (ORCA/DoriC) | [`ORIC.md`](ORIC.md) | núcleo implementado | rotación circular, HMM RPA/Rep |
 | Tres caminos A/B/C | [`THREE_PROTEIN_PATHS.md`](THREE_PROTEIN_PATHS.md) | A automático; B/C clasificados | estructura B/C automática |
+| Nombre "subunit" | [`SUBUNIT_NAMES.md`](SUBUNIT_NAMES.md) | medido K-12 | no usar como etiqueta |
 | Catálogos de complejos | [`COMPLEX_CATALOGS.md`](COMPLEX_CATALOGS.md) | solo K-12 | ampliar ComplexPortal |
 | Transferencia K-12 | [`COMPLEX_TRANSFER.md`](COMPLEX_TRANSFER.md) | implementada | Foldseek/coevolución |
 | Brechas y complejos | [`COMPLEX_GAPS.md`](COMPLEX_GAPS.md) · [`COMPLEX_CPU.md`](COMPLEX_CPU.md) | no evaluado | clústeres + firmas + pista |

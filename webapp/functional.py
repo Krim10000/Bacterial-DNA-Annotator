@@ -23,6 +23,8 @@ RE_GN = re.compile(r"\bGN=([^\s]+)")
 RE_EC_PAREN = re.compile(r"\(EC[ :]*([\d\.]+\.-?[\d\-\.]*)\)")
 RE_EC_EQ = re.compile(r"\bEC[=:]\s*([\d\.]+\.-?[\d\-\.]*)")
 
+SUBUNIT_NAME = re.compile(r"\bsubunit\b|\bcomponent\b", re.I)
+
 UNCHARACTERIZED = re.compile(
     r"uncharacterized|unknown|duf\d+|upf\d+|putative|hypothetical|"
     r"protein of unknown function|y[a-z]{2,4}_",
@@ -48,6 +50,8 @@ class Hit:
     label: str = ""
     evidence_strength: str = "none"
     evidence_toward: str = "unknown"
+    subunit_hint: str = "none"
+    subunit_evidence: str = ""
     interpretation: str = ""
 
 
@@ -73,6 +77,9 @@ def parse_hit(qseqid: str, sseqid: str, stitle: str, pident: float,
     m = RE_EC_PAREN.search(stitle) or RE_EC_EQ.search(stitle)
     if m:
         hit.ec = m.group(1)
+    if SUBUNIT_NAME.search(hit.product):
+        hit.subunit_hint = "named_subunit"
+        hit.subunit_evidence = "product_name_only"
     if UNCHARACTERIZED.search(hit.product) or UNCHARACTERIZED.search(hit.entry_name):
         hit.path = "B"
         hit.label = "B_uncharacterized_homolog"
@@ -120,7 +127,8 @@ def _row_for(protein: dict[str, Any], hit: Hit | None) -> dict[str, Any]:
         return {
             "protein_id": protein["id"], "path": "C",
             "label": "C_no_swissprot_hit", "evidence_strength": "none",
-            "evidence_toward": "unknown",
+            "evidence_toward": "unknown", "subunit_hint": "none",
+            "subunit_evidence": "",
             "interpretation": ("Sin hit Swiss-Prot; no prueba ausencia de "
                                "función. Requiere dominio/contexto/estructura."),
             "uniprot": "", "gene": "", "product": "", "ec": "", "organism": "",
@@ -131,6 +139,7 @@ def _row_for(protein: dict[str, Any], hit: Hit | None) -> dict[str, Any]:
     return {
         "protein_id": protein["id"], "path": hit.path, "label": label,
         "evidence_strength": strength, "evidence_toward": hit.evidence_toward,
+        "subunit_hint": hit.subunit_hint, "subunit_evidence": hit.subunit_evidence,
         "interpretation": text, "uniprot": hit.uniprot, "gene": hit.gene,
         "product": hit.product, "ec": hit.ec, "organism": hit.organism,
         "pident": hit.pident,

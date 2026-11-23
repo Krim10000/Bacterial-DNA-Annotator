@@ -1,0 +1,74 @@
+{
+  "genes": 4523,
+  "complex_subunits": 731,
+  "named": 513,
+  "named_in_complex": 408,
+  "named_outside_catalog": 105,
+  "named_outside_pct": 20.5,
+  "name_precision_vs_catalog": 79.5,
+  "name_recall_vs_catalog": 55.8,
+  "complex_subunits_not_named_pct": 44.2,
+  "examples_outside": [
+    {
+      "locus": "b0128",
+      "product": "putative ABC transporter membrane subunit YadH"
+    },
+    {
+      "locus": "b0129",
+      "product": "putative PTS enzyme IIA component YadI"
+    },
+    {
+      "locus": "b0293",
+      "product": "common pilus major subunit"
+    },
+    {
+      "locus": "b4506",
+      "product": "50S ribosomal subunit protein L36B"
+    },
+    {
+      "locus": "b0470",
+      "product": "DNA polymerase III subunit tau"
+    },
+    {
+      "locus": "b0490",
+      "product": "putative iron ABC exporter ATP-binding subunit FetA"
+    },
+    {
+      "locus": "b0491",
+      "product": "putative iron ABC exporter membrane subunit FetB"
+    },
+    {
+      "locus": "b0496",
+      "product": "putative ABC transporter membrane subunit YbbP"
+    },
+    {
+      "locus": "b0567",
+      "product": "putative exopolysaccharide secretion system auxiliary component"
+    },
+    {
+      "locus": "b0640",
+      "product": "DNA polymerase III subunit delta"
+    },
+    {
+      "locus": "b0679",
+      "product": "N-acetylglucosamine-specific PTS enzyme IIABC component"
+    },
+    {
+      "locus": "b0711",
+      "product": "5-oxoprolinase component B"
+    },
+    {
+      "locus": "b0712",
+      "product": "5-oxoprolinase component C"
+    },
+    {
+      "locus": "b0713",
+      "product": "5-oxoprolinase component A"
+    },
+    {
+      "locus": "b0938",
+      "product": "putative laminin-binding fimbrial subunit"
+    }
+  ],
+  "caveat": "'Fuera del catálogo' no significa 'no es subunidad': puede ser un complejo no curado o no mapeado."
+}

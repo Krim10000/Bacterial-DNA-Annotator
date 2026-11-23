@@ -34,6 +34,16 @@ def test_parse_m8_and_gene_positions(tmp_path: Path):
     assert pos == {"dnaa": 1398}
 
 
+def test_subunit_hint_is_only_a_name():
+    from webapp.functional import _row_for
+    h = parse_hit("p1", "sp|P0ABB0|ATPA_ECOLI",
+                  "ATP synthase subunit alpha OS=Escherichia coli GN=atpA",
+                  99.0, 400, 0.0, 800.0)
+    row = _row_for({"id": "p1", "aa": "M" * 400}, h)
+    assert row["subunit_hint"] == "named_subunit"
+    assert row["subunit_evidence"] == "product_name_only"
+
+
 def test_interpretable_labels():
     from webapp.functional import _row_for
     a = parse_hit("p1", "sp|P03004|DNAA_ECOLI",
@@ -42,6 +52,7 @@ def test_interpretable_labels():
     assert row["label"] == "A_named_function"
     assert row["evidence_strength"] == "strong"
     assert row["evidence_toward"] == "named_function"
+    assert row["subunit_hint"] == "none"
     b = parse_hit("p2", "sp|Q1|DUF1_ECOLI",
                   "DUF1 domain-containing protein", 40.0, 100, 1e-5, 50.0)
     row = _row_for({"id": "p2", "aa": "M" * 400}, b)
