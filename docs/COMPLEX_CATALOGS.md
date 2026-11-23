@@ -9,7 +9,20 @@
 | gold K-12 | *E. coli* K-12 | `data/complexes/gold_k12.tsv` | 273 complejos |
 | transferencia K-12 | 400 genomas | `data/complexes/transfer_<genoma>.tsv` | ortología, nivel B |
 
-No hay, hoy, un catálogo curado de complejos para cada una de las 400 especies.
+No hay, hoy, un catálogo curado instalado para cada una de las 400 especies.
+
+Herramienta para añadir una especie:
+
+```bash
+python scripts/complexes/fetch_complexportal.py \
+  --taxid 224308 \
+  --functional data/annotations_ab_initio/<genoma>/functional.tsv \
+  --genes data/regulation/<genoma>/genes.tsv
+```
+
+Descarga `complextab/<taxid>.tsv` y escribe `data/complexes/gold_<taxid>.tsv`.
+Requiere que el genoma tenga mapeo UniProt→locus_tag; sin él, el catálogo queda
+vacío o parcial.
 
 ## ¿Se pueden añadir otras especies?
 
