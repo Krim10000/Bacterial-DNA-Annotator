@@ -266,7 +266,7 @@ muchos más. Cada uno tiene su autoría, su cita y su licencia en la página
 - Cita con [`CITATION.cff`](CITATION.cff) o con
   [`AUTHORS.md`](AUTHORS.md#cómo-citar). DOI de esta versión:
   [10.5281/zenodo.24469732](https://doi.org/10.5281/zenodo.24469732).
-- Código original: **MIT** ([`LICENSE`](LICENSE)).
+- Código original: **MIT** ([`LICENSE`](LICENSE) y [`LICENSE-SCOPE.md`](LICENSE-SCOPE.md)).
 - Dependencias: conservan su licencia. **pyrodigal, orcapy, DIAMOND,
   tRNAscan-SE y barrnap son GPL-3.0**; cualquier distribución que las empaquete
   (imagen Docker, `.deb`, servicio) debe cumplir la GPL-3.0.

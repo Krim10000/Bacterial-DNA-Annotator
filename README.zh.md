@@ -219,7 +219,7 @@ python -m modules --selftest annotation
 - 引用请使用 [`CITATION.cff`](CITATION.cff) 或
   [`AUTHORS.md`](AUTHORS.md#cómo-citar)。本版本 DOI：
   [10.5281/zenodo.24469732](https://doi.org/10.5281/zenodo.24469732)。
-- 原创代码：**MIT**（[`LICENSE`](LICENSE)）。
+- 原创代码：**MIT**（[`LICENSE`](LICENSE)、[`LICENSE-SCOPE.md`](LICENSE-SCOPE.md)）。
 - 依赖项：各自保留其许可证。**pyrodigal、orcapy、DIAMOND、
   tRNAscan-SE 和 barrnap 为 GPL-3.0**；任何捆绑它们的发行方式
   （Docker 镜像、`.deb`、服务）都必须遵守 GPL-3.0。
