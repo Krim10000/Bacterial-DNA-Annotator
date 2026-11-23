@@ -39,7 +39,6 @@ def _largest(sequences: dict[str, str]) -> tuple[str, str]:
 
 def _write_gbk(sequences: dict[str, str], features: list[dict],
                hits: dict[str, dict], out: Path) -> str:
-    from Bio.Alphabet import generic_dna
     from Bio.Seq import Seq
     from Bio.SeqFeature import FeatureLocation, SeqFeature
     from Bio.SeqRecord import SeqRecord
@@ -49,8 +48,14 @@ def _write_gbk(sequences: dict[str, str], features: list[dict],
     acc = "".join(c if c.isalnum() or c in "._-" else "_" for c in name)[:40]
     if "." not in acc:
         acc += ".1"
-    rec = SeqRecord(Seq(seq, generic_dna), id=acc, name=acc[:20],
+    try:  # Biopython < 1.78
+        from Bio.Alphabet import generic_dna
+        seq_obj = Seq(seq, generic_dna)
+    except ImportError:  # Biopython >= 1.78
+        seq_obj = Seq(seq)
+    rec = SeqRecord(seq_obj, id=acc, name=acc[:20],
                     description="Bacterial DNA Annotator ab initio")
+    rec.annotations["molecule_type"] = "DNA"
     for f in features:
         if f.get("contig") != name or f.get("type") not in ("CDS", "tRNA", "rRNA"):
             continue
