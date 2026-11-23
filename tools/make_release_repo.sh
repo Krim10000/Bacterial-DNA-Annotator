@@ -23,7 +23,7 @@ echo "Destino: $TARGET"
 mkdir -p "$TARGET"
 
 FILES=(
-  README.md README.en.md LICENSE NOTICE THIRD_PARTY_LICENSES.md DATA_NOTICE.md
+  README.md README.es.md README.zh.md LICENSE NOTICE THIRD_PARTY_LICENSES.md DATA_NOTICE.md
   AUTHORS.md CHANGELOG.md CITATION.cff CONTRIBUTING.md CODE_OF_CONDUCT.md
   SECURITY.md VERSION MANIFEST.in pyproject.toml setup.py
   requirements.txt requirements-annotator.txt

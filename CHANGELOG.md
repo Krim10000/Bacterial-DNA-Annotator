@@ -5,7 +5,12 @@ Versionado [SemVer](https://semver.org/lang/es/).
 
 ## [Unreleased]
 
-### Añadido
+### Cambiado
+
+- `README.md` ahora es el README **en inglés** para la portada internacional de
+  GitHub; el español vive en `README.es.md` y el chino en `README.zh.md`.
+  Los tres tienen selector de idioma y el mismo contenido.
+
 
 - `docker-compose.yml`, `.dockerignore` y `docs/INSTALL_DOCKER.md` para usar la
   app en Windows/macOS/Linux sin instalar Python.

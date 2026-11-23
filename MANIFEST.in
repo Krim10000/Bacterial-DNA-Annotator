@@ -1,4 +1,4 @@
-include README.md README.en.md LICENSE NOTICE THIRD_PARTY_LICENSES.md DATA_NOTICE.md CITATION.cff
+include README.md README.es.md README.zh.md LICENSE NOTICE THIRD_PARTY_LICENSES.md DATA_NOTICE.md CITATION.cff
 recursive-include webapp/locales *.json
 recursive-include webapp/components *
 recursive-include webapp/samples *
