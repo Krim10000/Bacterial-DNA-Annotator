@@ -21,7 +21,8 @@ Limitaciones actuales:
   usando datos precalculados para los 400.
 - `orcapy` no estaba declarado; ya existe el extra `oric` en `pyproject.toml`.
 - El modelo `ORCA_RFC_model_1_4_0.pkl.gz` (37 MB) **no se redistribuye** en el
-  repo público; hay que aprovisionarlo. SHA-256 local:
+  repo público; `python -m webapp.setup_data --data-root data --only orca`
+  lo descarga desde el repositorio de ORCA. SHA-256 local:
   `8221f68f8e70f26b58b97806ecb0ff3390eb092d912f425c9883331a0eb0cd61`.
 - DoriC es una base académica: se consulta localmente, no se redistribuye.
 
