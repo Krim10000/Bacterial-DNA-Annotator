@@ -1886,7 +1886,7 @@ def main() -> None:
         esm_top = st.number_input("Puntuar con ESM los N mejores", 0, 2000, 100, 10,
                                   help=T["param_esm_top"])
 
-    st.subheader("4 · Genomas")
+    st.subheader("Genomas")
     uploaded = st.file_uploader(
         T["upload_label"],
         type=["fa", "fna", "fasta", "fas", "gz"],
