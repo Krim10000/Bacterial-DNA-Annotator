@@ -98,6 +98,12 @@ El camino B está implementado con `--structure-manifest`,
 
 El camino C todavía es un plan CPU; no está automatizado por completo.
 
+## Complejos
+
+Una subunidad de un complejo obligado puede caer en A/B/C; el pipeline no
+ensambla el complejo ni exige estequiometría. Ver [`COMPLEX_GAPS.md`](COMPLEX_GAPS.md).
+No confundir "subunidad anotada" con "complejo funcional".
+
 ## Regla
 
 - Un singleton no es “basura”.

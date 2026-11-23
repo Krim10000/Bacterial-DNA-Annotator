@@ -56,6 +56,16 @@ def interpret_gaps(gaps: list[dict], organism: str = "", ref_size_mb: float = 0)
             "transport_status": "not_checked",
             "evidence_source": "Rhea + 400 genomas",
             "review_status": "",
+            # El pipeline actual evalua proteinas individuales: no ensambla
+            # complejos ni exige estequiometria de subunidades.
+            "complex_status": "not_evaluated",
+            "complex_evidence": "",
+            "quaternary_status": "unknown",
+            "complex_note": (
+                "No evaluado: la red se infiere de proteinas individuales; un "
+                "complejo obligado puede aparecer como brecha sin que falte la "
+                "capacidad enzimatica."
+            ),
         })
     return gaps
 

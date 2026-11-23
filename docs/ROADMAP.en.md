@@ -138,3 +138,4 @@ functional databases, packaging and a public benchmark.
 - [`ORIC.md`](ORIC.md)
 - [`TRANSITION.md`](TRANSITION.md)
 - [`PIPELINE_PARITY.md`](PIPELINE_PARITY.md)
+- [`COMPLEX_GAPS.md`](COMPLEX_GAPS.md)

@@ -85,7 +85,8 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
                 "transport_status", "transport_rhea", "transporter_acc", "transport_pident",
                 "transport_qcov", "direction_status", "direction_reason", "pathways",
                 "homolog_status", "homolog_acc", "homolog_pident", "homolog_qcov",
-                "homolog_rhea", "homolog_ec", "mapping_suggestion", "review_class", "known_exception", "exception_note", "hmm_evidence"]
+                "homolog_rhea", "homolog_ec", "mapping_suggestion", "review_class", "known_exception", "exception_note", "hmm_evidence",
+                "complex_status", "quaternary_status", "complex_evidence", "complex_note"]
         lines = ["\t".join(cols)]
         for x in gaps:
             lines.append("\t".join(str(x.get(c, "")) for c in cols))
