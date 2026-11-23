@@ -4,25 +4,21 @@
 
 ## Bird's-eye view
 
+```text
+Browser (Streamlit) — webapp/app.py
+  ├─ i18n (es/en/zh) — webapp/i18n.py
+  ├─ texts and credits — textos.py · credits.py
+  ├─ clickable genome browser — browser.py + components/
+  └─ requirements/times/GPU — requirements_ui.py
+        │
+        ├── Annotation — annotator.py · pipeline.py
+        └── Already computed data — data/<module>/*.tsv (400 genomes)
+                 │
+      pyrodigal · tRNAscan-SE · barrnap · DIAMOND · ghost
+                 │
+      GFF3 · proteins · TSV · Markdown report · JSON
 ```
-┌──────────────────────────────────────────────────────────────┐
-│  Browser (Streamlit)          webapp/app.py                │
-│  ├─ i18n (es/en/zh)             webapp/i18n.py               │
-│  ├─ texts and credits           textos.py · credits.py       │
-│  ├─ clickable browser          browser.py + components/     │
-│  └─ requirements/times/GPU      requirements_ui.py           │
-└───────────────┬──────────────────────────────────────────────┘
-                │
-        ┌───────▼────────┐        ┌──────────────────────────┐
-        │  Annotation    │        │  Already computed data   │
-        │  annotator.py  │        │  data/<module>/*.tsv     │
-        │  pipeline.py   │        │  (400 genomes)           │
-        └───────┬────────┘        └──────────────────────────┘
-                │
-     pyrodigal · tRNAscan-SE · barrnap · DIAMOND · ghost
-                │
-        GFF3 · proteins · TSV · Markdown report · JSON
-```
+
 
 The GUI **does not recompute** the 400 genomes: it reads already generated
 tables and displays them. Only the *Annotate FASTA* mode runs tools on new

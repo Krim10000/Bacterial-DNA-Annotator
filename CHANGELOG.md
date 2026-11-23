@@ -3,6 +3,18 @@
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
 Versionado [SemVer](https://semver.org/lang/es/).
 
+## [Unreleased]
+
+### Añadido
+
+- `structure` y `ghost` ya ejecutan desde la GUI: resumen estructural y motor
+  de ORFs sobre FASTA, respectivamente.
+- Documentación en inglés: `docs/MODULES.en.md`, `docs/ARCHITECTURE.en.md`.
+- `paper.md` y `paper.bib` para una posible submission a JOSS.
+- `docs/PRESENTATION.md` con pitch, charla de 5 minutos y textos para redes.
+- Plantillas de issue/PR y `assets/social_preview.png`.
+- Badges de CI y release en el README.
+
 ## [1.0.0] — 2026-11-22
 
 Primera versión pensada para publicarse y para que la use alguien que no
