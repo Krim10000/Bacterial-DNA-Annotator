@@ -2115,6 +2115,21 @@ def render_result(res: dict) -> None:
                         file_name=f"{res['genome']}_complexes.tsv",
                         mime="text/plain",
                     )
+                nc = res.get("ncrna")
+                if nc and nc.get("ok") and nc.get("n"):
+                    st.markdown("#### 🧬 ncRNA (Rfam local)")
+                    ndf = pd.DataFrame(nc.get("rows") or [])
+                    st.dataframe(ndf, width="stretch", hide_index=True)
+                    st.caption(
+                        "ncRNA por cmsearch contra un subconjunto Rfam local; "
+                        "es una hipótesis de familia, no una validación experimental."
+                    )
+                    st.download_button(
+                        "⬇️ ncRNA (TSV)",
+                        ndf.to_csv(sep="\t", index=False),
+                        file_name=f"{res['genome']}.ncrna.tsv",
+                        mime="text/plain",
+                    )
                 tax = res.get("taxonomy")
                 if tax:
                     st.markdown("#### 🧭 Taxonomía local")

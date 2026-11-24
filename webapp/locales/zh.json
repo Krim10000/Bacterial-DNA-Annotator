@@ -1324,5 +1324,7 @@
  "Una **brecha** es una reacción que la ruta necesita pero para la que no se encontró una enzima candidata en la anotación (o no se pudo asignar a un gen). No es necesariamente un error: puede faltar anotación, ser una reacción espontánea, un transportador, un complejo o una ruta que el organismo no tiene.": "**缺口**是通路需要、但在注释中找不到候选酶的某个反应（或无法分配到基因）。它不一定是错误：可能是注释缺失、自发反应、转运蛋白、复合体，或该生物根本没有这条通路。",
  "Un **transportador** es una proteína de membrana que mueve un metabolito (sustrato) de un lado a otro de la membrana, sola o acoplada a iones o a ATP. Aquí se infiere por homología con transportadores curados y por la reacción Rhea exacta del metabolito; no se mide el flujo ni la actividad en laboratorio.": "**转运蛋白**是位于膜上的蛋白质，可将代谢物（底物）从膜的一侧运到另一侧，可单独完成，也可与离子或 ATP 偶联。这里依据与已整理转运蛋白的同源性以及代谢物对应的精确 Rhea 转运反应来推断，并未测定运输通量或实验活性。",
  "A **gap** is a reaction the pathway needs but for which no candidate enzyme was found in the annotation (or it could not be assigned to a gene). It is not necessarily an error: annotation may be missing, the reaction may be spontaneous, or it may be handled by a transporter, a complex, or a pathway the organism lacks.": "**缺口**是通路需要、但在注释中找不到候选酶的某个反应（或无法分配到基因）。它不一定是错误：可能是注释缺失、自发反应、转运蛋白、复合体，或该生物根本没有这条通路。",
- "📥 Reportes de este módulo": "📥 本模块报告"
+ "📥 Reportes de este módulo": "📥 本模块报告",
+ "⬇️ ncRNA (TSV)": "⬇️ ncRNA（TSV）",
+ "ncRNA por cmsearch contra un subconjunto Rfam local; es una hipótesis de familia, no una validación experimental.": "通过 cmsearch 对本地 Rfam 子集检测 ncRNA；这是家族假说，不是实验验证。"
 }
