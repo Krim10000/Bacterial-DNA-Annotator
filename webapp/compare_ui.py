@@ -797,17 +797,31 @@ def _render_result(st: Any, result: dict[str, Any]) -> None:
     label_a, label_b = labels["a"], labels["b"]
 
     m1, m2, m3 = st.columns(3)
-    m1.metric(f"Genes {label_a}", counts["genes_a"])
-    m2.metric("Genes compartidos", counts["compartidos"])
-    m3.metric(f"Genes {label_b}", counts["genes_b"])
+    m1.metric(
+        tr("Genes {genoma}").format(genoma=label_a), counts["genes_a"]
+    )
+    m2.metric(tr("Genes compartidos"), counts["compartidos"])
+    m3.metric(
+        tr("Genes {genoma}").format(genoma=label_b), counts["genes_b"]
+    )
     m4, m5 = st.columns(2)
-    m4.metric(f"Exclusivos {label_a}", counts["exclusivos_a"])
-    m5.metric(f"Exclusivos {label_b}", counts["exclusivos_b"])
+    m4.metric(
+        tr("Exclusivos {genoma}").format(genoma=label_a),
+        counts["exclusivos_a"],
+    )
+    m5.metric(
+        tr("Exclusivos {genoma}").format(genoma=label_b),
+        counts["exclusivos_b"],
+    )
     st.caption(
-        "Coincidencias por método: "
-        f"locus_tag={counts['compartidos_locus_tag']}, "
-        f"ID={counts['compartidos_id']}, "
-        f"coordenadas={counts['compartidos_coordenadas']}."
+        tr(
+            "Coincidencias por método: locus_tag={locus_tag}, ID={id}, "
+            "coordenadas={coordenadas}."
+        ).format(
+            locus_tag=counts["compartidos_locus_tag"],
+            id=counts["compartidos_id"],
+            coordenadas=counts["compartidos_coordenadas"],
+        )
     )
 
     st.dataframe(result["table"], hide_index=True, width="stretch")
@@ -817,7 +831,7 @@ def _render_result(st: Any, result: dict[str, Any]) -> None:
         r"[^0-9A-Za-z._-]+", "_", f"{label_a}_vs_{label_b}"
     ).strip("_") or "comparacion"
     st.download_button(
-        "⬇️ Descargar tabla de diferencias (TSV)",
+        tr("⬇️ Descargar tabla de diferencias (TSV)"),
         data=to_tsv(result),
         file_name=f"{safe}_diferencias.tsv",
         mime="text/tab-separated-values",
@@ -825,13 +839,15 @@ def _render_result(st: Any, result: dict[str, Any]) -> None:
     )
 
     if result["warnings"]:
-        with st.expander(f"Advertencias ({len(result['warnings'])})"):
+        with st.expander(
+            tr("Advertencias ({n})").format(n=len(result["warnings"]))
+        ):
             for warning in result["warnings"]:
                 st.warning(warning)
 
-    with st.expander("Qué no prueba esta comparación"):
+    with st.expander(tr("Qué no prueba esta comparación")):
         for limit in result["limits"]:
-            st.write("• " + limit)
+            st.write("• " + tr(limit))
 
 
 def render_compare() -> None:
@@ -849,15 +865,15 @@ def render_compare() -> None:
     col_a, col_b = st.columns(2)
     with col_a:
         label_a = (
-            st.text_input("Etiqueta del genoma A", value="A",
+            st.text_input(tr("Etiqueta del genoma A"), value="A",
                           key="compare_label_a") or "A"
         ).strip() or "A"
         upload_a = st.file_uploader(
-            "GFF3 del genoma A", type=_UPLOAD_TYPES, key="compare_file_a"
+            tr("GFF3 del genoma A"), type=_UPLOAD_TYPES, key="compare_file_a"
         )
         path_a = (
             st.text_input(
-                "… o ruta local al GFF3 del genoma A",
+                tr("… o ruta local al GFF3 del genoma A"),
                 value="",
                 key="compare_path_a",
                 placeholder="/ruta/genoma_a.gff3",
@@ -866,15 +882,15 @@ def render_compare() -> None:
         source_a = upload_a if upload_a is not None else (path_a or None)
     with col_b:
         label_b = (
-            st.text_input("Etiqueta del genoma B", value="B",
+            st.text_input(tr("Etiqueta del genoma B"), value="B",
                           key="compare_label_b") or "B"
         ).strip() or "B"
         upload_b = st.file_uploader(
-            "GFF3 del genoma B", type=_UPLOAD_TYPES, key="compare_file_b"
+            tr("GFF3 del genoma B"), type=_UPLOAD_TYPES, key="compare_file_b"
         )
         path_b = (
             st.text_input(
-                "… o ruta local al GFF3 del genoma B",
+                tr("… o ruta local al GFF3 del genoma B"),
                 value="",
                 key="compare_path_b",
                 placeholder="/ruta/genoma_b.gff3",
@@ -892,34 +908,36 @@ def render_compare() -> None:
         st.session_state[_SIG_KEY] = signature
         st.session_state.pop(_STATE_KEY, None)
 
-    if st.button("Comparar GFF3", type="primary", key="compare_run"):
+    if st.button(tr("Comparar GFF3"), type="primary", key="compare_run"):
         if source_a is None or source_b is None:
             st.session_state.pop(_STATE_KEY, None)
-            st.warning(
+            st.warning(tr(
                 "Selecciona un GFF3 para A y otro para B, como archivo o "
                 "como ruta."
-            )
+            ))
         elif label_a == label_b:
             st.session_state.pop(_STATE_KEY, None)
-            st.error("Las etiquetas de los genomas deben ser distintas.")
+            st.error(tr("Las etiquetas de los genomas deben ser distintas."))
         else:
             try:
-                with st.spinner("Comparando anotaciones…"):
+                with st.spinner(tr("Comparando anotaciones…")):
                     result = compare_gff(
                         source_a, source_b, label_a=label_a, label_b=label_b
                     )
             except Exception as exc:  # noqa: BLE001 - se muestra al usuario
                 st.session_state.pop(_STATE_KEY, None)
-                st.error(f"No se pudo comparar: {exc}")
+                st.error(
+                    tr("No se pudo comparar: {error}").format(error=exc)
+                )
             else:
                 st.session_state[_STATE_KEY] = result
 
     result = st.session_state.get(_STATE_KEY)
     if result is None:
-        st.info(
+        st.info(tr(
             "Cuando compares, verás cuántos genes tiene cada genoma, cuáles "
             "comparten locus_tag/ID/coordenadas y cuáles son exclusivos. "
             "La tabla se puede descargar como TSV."
-        )
+        ))
     else:
         _render_result(st, result)

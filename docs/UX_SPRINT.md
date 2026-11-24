@@ -32,10 +32,18 @@
 - La ficha de gen solo descarga ADN si el FASTA local está disponible.
 - El catálogo de reportes no incluye todos los JSON.
 
-## Pendiente
+## Integrado después
 
-1. Agrupar el menú en Anotar / Explorar / Catálogo / Reportes.
-2. Glosario contextual dentro de cada módulo.
-3. Reporte descargable por módulo (no solo centro global).
-4. Tree of life gráfico, no solo texto.
-5. Completar i18n de visor, comparador y reportes.
+1. Menú agrupado en Anotar / Explorar / Catálogo / Reportes / Créditos.
+2. `help_ui` contextual dentro de cada módulo.
+3. Reportes descargables por módulo desde `downloads_ui`.
+4. Árbol de vida SVG además del textual.
+5. i18n de visor 3D, comparador, fichas, árbol y reportes.
+
+## Límites que siguen
+
+- El árbol SVG es estático (sin zoom/pan).
+- La tabla de reportes sigue siendo un catálogo global, aunque haya descargas
+  por módulo.
+- El contenido de los reportes de auditoría está en español.
+- La vista circular estima la longitud desde la anotación.

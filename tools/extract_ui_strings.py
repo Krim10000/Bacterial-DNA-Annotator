@@ -33,14 +33,20 @@ UI_FILES = [
     "webapp/i18n.py",
     "webapp/downloads_ui.py",
     "webapp/module_ui.py",
+    "webapp/compare_ui.py",
+    "webapp/structure_viewer.py",
+    "webapp/gene_card.py",
+    "webapp/taxonomy_tree_ui.py",
+    "webapp/help_ui.py",
 ]
 TEXTOS = "webapp/textos.py"
 
 # Nombres cuyo valor es una etiqueta de interfaz (aunque se pase por variable).
 LABEL_VARS = {"LAYOUTS", "LAYOUT_INTRO", "TOOL_LABEL", "TOOL_DESC",
               "RULE_LABEL", "PIECES", "GROUPS", "LICENSES_NOTE",
-              "STEPS", "SYSTEM", "GLOSSARY", "AUTHOR", "AI_HELP",
-              "HAIRPIN_MEANING"}
+              "STEPS", "SYSTEM", "GLOSSARY", "STATUS_GLOSSARY",
+              "AUTHOR", "AI_HELP", "HAIRPIN_MEANING", "CAPTION_COMPARE",
+              "LIMITS", "HELP", "HELP_TEXTS"}
 
 TEXT_METHODS = {
     "title", "header", "subheader", "caption", "markdown", "info", "warning",

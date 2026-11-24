@@ -8,6 +8,7 @@ interactivos durante la ejecución.
 """
 from __future__ import annotations
 
+from collections.abc import Callable, Mapping, Sequence
 import io
 import json
 import math
@@ -33,6 +34,8 @@ from i18n import (  # noqa: E402
 )
 from metabolism import build_network  # noqa: E402
 from requirements_ui import render_requirements, render_glossary  # noqa: E402
+from help_ui import render_help  # noqa: E402
+from downloads_ui import render_module_reports  # noqa: E402
 from active_sites import for_gap as active_sites_for_gap  # noqa: E402
 from hypotheses_ui import render_hypotheses  # noqa: E402
 from precomputed_ui import render as render_precomputed  # noqa: E402
@@ -645,7 +648,6 @@ def render_operons() -> None:
     st.caption(credits.line("regulondb"))
     render_rule_operons()
     render_hairpins()
-    render_suspects()
 
 
 @st.cache_data(show_spinner=False)
@@ -966,6 +968,7 @@ def render_mobile_typed() -> None:
 
 
 def render_membrane_typed() -> None:
+    render_help("membrana", key_prefix="membrane_mode")
     st.caption(T["membrane_intro"])
     pilot = DATA_ROOT / "membrane"
     if not pilot.exists():
@@ -1009,6 +1012,7 @@ def render_membrane_typed() -> None:
 
 
 def render_taxonomy() -> None:
+    render_help("taxonomia", key_prefix="taxonomy_mode")
     st.caption(T["taxonomy_intro"])
     pilot = DATA_ROOT / "taxonomy"
     if not pilot.exists():
@@ -1103,6 +1107,7 @@ def render_chains() -> None:
 
 
 def render_transport_t1() -> None:
+    render_help("transporte", key_prefix="transport_mode")
     st.caption(T["transport_intro"])
     base = DATA_ROOT / "metabolism" / "transport_t1"
     hits = base / "t1_hits.tsv"
@@ -1168,6 +1173,239 @@ def _global_genome() -> str:
     return GENOME_CHOICES[0] if GENOME_CHOICES else ""
 
 
+# ---------------------------------------------------------------------------
+# Navegación lateral: datos y funciones puras (sin Streamlit)
+# ---------------------------------------------------------------------------
+# ``mode_sel`` sigue guardando la etiqueta visible (compatibilidad con enlaces
+# y con el estado anterior). ``mode_key`` guarda la clave canónica y es lo que
+# usa el despacho, para que cambiar de idioma no rompa la selección.
+TREE_MODE_LABEL = "🌳 Árbol de vida"
+
+MODE_LABELS: dict[str, str] = {
+    "annotate": "mode_annotate",
+    "browser": "mode_browser",
+    "tree": "mode_tree",
+    "pathways": "mode_pathways",
+    "modules": "mode_modules",
+    "reports": "mode_reports",
+    "hypotheses": "mode_hypotheses",
+    "credits": "mode_credits",
+}
+
+MENU_GROUPS: tuple[dict, ...] = (
+    {
+        "id": "anotar",
+        "title": "Anotar",
+        "icon": "🧬",
+        "caption": "Sube uno o varios FASTA y anótalos.",
+        "modes": ("annotate",),
+    },
+    {
+        "id": "explorar",
+        "title": "Explorar genoma",
+        "icon": "🧭",
+        "caption": "Navegador y árbol de vida del genoma activo.",
+        "modes": ("browser", "tree"),
+    },
+    {
+        "id": "catalogo",
+        "title": "Catálogo",
+        "icon": "📚",
+        "caption": "Rutas y módulos de los 400; no cambian la especie activa.",
+        "modes": ("pathways", "modules"),
+    },
+    {
+        "id": "reportes",
+        "title": "Reportes",
+        "icon": "📥",
+        "caption": "Descargas e hipótesis estructurales ya calculadas.",
+        "modes": ("reports", "hypotheses"),
+    },
+    {
+        "id": "creditos",
+        "title": "Créditos",
+        "icon": "🙏",
+        "caption": "Autores, herramientas y límites.",
+        "modes": ("credits",),
+    },
+)
+
+# Valores de ``?modo=`` aceptados. Los primeros son los históricos: no se
+# eliminan para no romper enlaces compartidos.
+MODE_QUERY_ALIASES: dict[str, str] = {
+    "navegador": "browser",
+    "browser": "browser",
+    "rutas": "pathways",
+    "hipotesis": "hypotheses",
+    "hipótesis": "hypotheses",
+    "hypotheses": "hypotheses",
+    "creditos": "credits",
+    "créditos": "credits",
+    "reportes": "reports",
+    "descargas": "reports",
+    "modulos": "modules",
+    "módulos": "modules",
+    "modules": "modules",
+    "anotar": "annotate",
+    "arbol": "tree",
+    "árbol": "tree",
+    "tree": "tree",
+}
+
+# Valor canónico que se escribe en la URL al navegar desde el menú.
+MODE_QUERY_VALUES: dict[str, str] = {
+    "annotate": "anotar",
+    "browser": "navegador",
+    "tree": "arbol",
+    "pathways": "rutas",
+    "modules": "modulos",
+    "reports": "reportes",
+    "hypotheses": "hipotesis",
+    "credits": "creditos",
+}
+
+
+def flat_menu_modes() -> tuple[str, ...]:
+    """Todas las claves de modo, en el orden en que se muestran."""
+    return tuple(mode for group in MENU_GROUPS for mode in group["modes"])
+
+
+def menu_group_for(mode_key: str) -> str | None:
+    """Bloque del menú al que pertenece una clave de modo."""
+    for group in MENU_GROUPS:
+        if mode_key in group["modes"]:
+            return group["id"]
+    return None
+
+
+def mode_from_query(value: str | None) -> str | None:
+    """Traduce ``?modo=`` a clave canónica; ``None`` si no se reconoce."""
+    if not value:
+        return None
+    return MODE_QUERY_ALIASES.get(str(value).strip().lower())
+
+
+def mode_key_from_label(label: str | None,
+                        labels: Mapping[str, str]) -> str | None:
+    """Recupera la clave canónica a partir de la etiqueta visible guardada."""
+    if not label:
+        return None
+    for key, text in labels.items():
+        if text == label:
+            return key
+    return None
+
+
+def active_species_label(genome: str | None) -> str:
+    """Etiqueta única de la especie activa, también para ``demo``."""
+    return f"Especie activa: {genome or 'sin genoma'}"
+
+
+def resolve_active_genome(requested: str | None,
+                          options: Sequence[str]) -> str:
+    """Elige el genoma pedido si existe; nunca bloquea ``demo``.
+
+    Si ``?genoma=demo`` no está entre las opciones, se cae a la primera
+    opción en vez de dejar la selección vacía.
+    """
+    opts = list(options)
+    if requested and requested in opts:
+        return requested
+    return opts[0] if opts else ""
+
+
+CATALOG_SPECIES_NOTE = (
+    "Los módulos de catálogo (Rutas metabólicas y Módulos) usan los 400 "
+    "genomas y no cambian la especie activa."
+)
+
+
+def species_scope_note(genome: str | None) -> str:
+    """Aclara si la especie activa es normal o la demo."""
+    if genome == "demo":
+        return ("Genoma de demostración (`demo`): puedes cambiarlo a otro "
+                "genoma en este selector; la URL no lo bloquea.")
+    return CATALOG_SPECIES_NOTE
+
+
+# ---------------------------------------------------------------------------
+# Rutas metabólicas: dos vistas excluyentes (especie activa | catálogo 400)
+# ---------------------------------------------------------------------------
+PATHWAY_SCOPE_CATALOG = "catalogo"
+PATHWAY_SCOPE_SPECIES = "especie"
+PATHWAY_SCOPE_ORDER: tuple[str, ...] = (
+    PATHWAY_SCOPE_CATALOG, PATHWAY_SCOPE_SPECIES)
+
+# Pestañas que leen ``_global_genome()``. El resto navega el catálogo o es
+# agregado, así que nunca debe mezclarse con la especie activa.
+PATHWAY_SPECIES_TABS = frozenset({
+    "render_catalog",
+    "render_kegg",
+    "render_curated",
+    "render_origin",
+    "render_suspects_tab",
+})
+
+PathwayItem = tuple[str, Callable[[], None]]
+
+
+def normalize_pathway_scope(scope: str | None) -> str:
+    if scope in PATHWAY_SCOPE_ORDER:
+        return scope
+    return PATHWAY_SCOPE_CATALOG
+
+
+def pathway_scope_options(genome: str | None) -> dict[str, str]:
+    """Etiquetas visibles del selector de alcance."""
+    return {
+        PATHWAY_SCOPE_CATALOG: "📚 Catálogo de 400 genomas",
+        PATHWAY_SCOPE_SPECIES: f"🧬 Especie activa: {genome or 'sin genoma'}",
+    }
+
+
+def pathway_scope_caption(scope: str, genome: str | None,
+                          n_catalog: int | None = None) -> str:
+    """Texto que hace explícito qué se está viendo y qué no se mezcla."""
+    scope = normalize_pathway_scope(scope)
+    if scope == PATHWAY_SCOPE_SPECIES:
+        return (f"Vista de **especie activa: {genome or 'sin genoma'}**. "
+                "Solo análisis calculados para ese genoma; cámbialo arriba, "
+                "en la barra lateral.")
+    catalog = (f"400 genomas ({n_catalog} con datos locales)"
+               if n_catalog else "400 genomas")
+    return (f"Vista de **catálogo: {catalog}**. No usa la especie activa: "
+            "elige un genoma del catálogo dentro de cada pestaña.")
+
+
+def pathway_scope_items(items: Sequence[PathwayItem],
+                        scope: str) -> list[PathwayItem]:
+    """Separa pestañas de especie activa y de catálogo, sin solapamiento."""
+    species_scope = normalize_pathway_scope(scope) == PATHWAY_SCOPE_SPECIES
+    return [
+        (label, fn) for label, fn in items
+        if (getattr(fn, "__name__", "") in PATHWAY_SPECIES_TABS)
+        == species_scope
+    ]
+
+
+def pathway_scope_groups(
+    groups: Sequence[tuple[str, Sequence[PathwayItem]]],
+    scope: str,
+) -> list[tuple[str, list[PathwayItem]]]:
+    """Filtra grupos por alcance y descarta los que quedan vacíos."""
+    filtered: list[tuple[str, list[PathwayItem]]] = []
+    for title, items in groups:
+        kept = pathway_scope_items(items, scope)
+        if kept:
+            filtered.append((title, kept))
+    return filtered
+
+
+def render_suspects_tab() -> None:
+    """Pestaña de especie; ``render_suspects`` se define más abajo."""
+    render_suspects()
+
+
 LAYOUTS = {
     "A": [
         ("🧪 Metabolismo y rutas", [
@@ -1182,6 +1420,7 @@ LAYOUTS = {
         ]),
         ("🧩 Genoma y elementos", [
             ("🧩 Operones", render_operons),
+            ("🔗 Sospechas metabólicas", render_suspects_tab),
             ("🦠 Móviles y defensa", render_mobile),
             ("🧬 Móviles por tipo", render_mobile_typed),
             ("🧫 Membrana", render_membrane_typed),
@@ -1209,6 +1448,7 @@ LAYOUTS = {
         ]),
         ("🧩 Genoma y regulación", [
             ("🧩 Operones", render_operons),
+            ("🔗 Sospechas metabólicas", render_suspects_tab),
             ("🦠 Móviles y defensa", render_mobile),
             ("🧫 Membrana", render_membrane_typed),
             ("🗺️ Mapeo de genes", render_mapping),
@@ -1237,6 +1477,7 @@ LAYOUTS = {
         ]),
         ("🧩 Operones", [
             ("🧩 Operones", render_operons),
+            ("🔗 Sospechas metabólicas", render_suspects_tab),
             ("🧬 Móviles por tipo", render_mobile_typed),
         ]),
         ("🧪 Rutas", [
@@ -1425,10 +1666,9 @@ def render_targets() -> None:
 def render_pathways() -> None:
     st.subheader("🧪 Rutas metabólicas")
     st.caption(
-        "Análisis ya calculado de los 400 genomas del proyecto. Cada pestaña "
-        "responde una pregunta distinta; empieza por «Brechas» si buscas qué le "
-        "falta a una bacteria, y por «Operones» si te interesa cómo se organizan "
-        "sus genes."
+        "Elige primero el alcance: el **genoma activo** o el **catálogo de 400** "
+        "genomas ya calculados. Cada pestaña responde una pregunta distinta; "
+        "empieza por «Brechas» si buscas qué le falta a una bacteria."
     )
     if not (DATA_ROOT / "reactions" / "tsv" / "rhea2ec.tsv").exists():
         st.warning("Faltan los recursos de Rhea. Se descargan una sola vez.")
@@ -1448,26 +1688,21 @@ def render_pathways() -> None:
         return
 
     # ---- selector de vista: tres navegaciones sobre las mismas pantallas -----
-    # enlace compartible: ?layout=B&genoma=GCF_...
+    # enlace compartible: ?layout=B&modo=rutas (el genoma lo resuelve el menú).
     try:
         qp = st.query_params
         if qp.get("layout") in ("A", "B", "C"):
             st.session_state["layout"] = qp["layout"]
-        if qp.get("genoma") and qp["genoma"] in PROJECT_GENOMES:
-            st.session_state["genoma_global"] = qp["genoma"]
     except Exception:
         pass
 
     cfg = _load_ui()
     if "layout" not in st.session_state and cfg.get("layout") in ("A", "B", "C"):
         st.session_state["layout"] = cfg["layout"]
-    if (PROJECT_GENOMES and "genoma_global" not in st.session_state
-            and cfg.get("genoma") in PROJECT_GENOMES):
-        st.session_state["genoma_global"] = cfg["genoma"]
 
     with st.sidebar.popover("⚙️ Configuración",
-                            help="Vista de navegación y genoma activo. "
-                                 "Se recuerdan en este equipo."):
+                            help="Vista de navegación y alcance del catálogo. "
+                                 "La especie activa se cambia arriba, sobre el menú."):
         layout = st.radio(
             "Vista de navegación", ["A", "B", "C"], horizontal=True,
             key="layout",
@@ -1479,19 +1714,42 @@ def render_pathways() -> None:
             "B": "**B · Por tareas** — ¿qué quieres hacer?",
             "C": "**C · Por objeto** — Genoma → Genes → Operones → Rutas → Brechas.",
         }[layout])
-        if PROJECT_GENOMES:
-            cur = _global_genome()
-            idx = PROJECT_GENOMES.index(cur) if cur in PROJECT_GENOMES else 0
-            st.selectbox("Genoma activo", PROJECT_GENOMES, index=idx,
-                         key="genoma_global", help=T["help_genoma"])
+        st.caption("La especie activa se elige en el selector de arriba y no se "
+                   "cambia desde esta vista.")
 
-    if layout != cfg.get("layout") or _global_genome() != cfg.get("genoma"):
-        _save_ui({"layout": layout, "genoma": _global_genome()})
+    if layout != cfg.get("layout"):
+        _save_ui({"layout": layout})
+
+    # ---- alcance: una sola cosa a la vez -----------------------------------
+    # Especie activa usa únicamente pestañas que leen _global_genome(); el
+    # catálogo usa las demás y nunca muestra datos del genoma activo.
+    genome = _global_genome()
+    current_scope = normalize_pathway_scope(st.session_state.get("pathway_scope"))
+    scope_options = pathway_scope_options(genome)
+    scope = st.radio(
+        "¿Qué estás viendo?",
+        list(PATHWAY_SCOPE_ORDER),
+        index=PATHWAY_SCOPE_ORDER.index(current_scope),
+        format_func=scope_options.get,
+        horizontal=True,
+        key="pathway_scope",
+        help="**Catálogo de 400**: análisis precalculados de todo el conjunto. "
+             "**Especie activa**: solo el genoma elegido arriba. No se mezclan.",
+    )
+    scope = normalize_pathway_scope(scope)
+    st.info(pathway_scope_caption(scope, genome, len(PROJECT_GENOMES)))
 
     # Las etiquetas viven en español en LAYOUTS; se traducen al mostrarlas.
-    groups = tr_tree(LAYOUTS[layout])
+    groups = pathway_scope_groups(tr_tree(LAYOUTS[layout]), scope)
+    if not groups:
+        st.info("Este diseño no tiene pestañas para esta vista. Prueba otro "
+                "diseño en ⚙️ Configuración o cambia el alcance.")
+        return
     names = [g[0] for g in groups]
-    section = st.sidebar.radio(tr("Sección"), names, key=f"nav_{layout}")
+    # La clave incluye el alcance para que al cambiarlo no quede una sección
+    # seleccionada que ya no existe.
+    section = st.sidebar.radio(tr("Sección"), names,
+                               key=f"nav_{layout}_{scope}")
 
     st.caption(tr(LAYOUT_INTRO[layout]))
     items = dict(groups)[section]
@@ -1727,6 +1985,8 @@ def render_result(res: dict) -> None:
         render_hypotheses(res)
 
     with tabs[6]:
+        render_help("complejos", key_prefix=f"complex_{res['genome']}")
+        render_module_reports("complex", PROJECT, key_prefix=f"complex_{res['genome']}")
         st.caption(
             "Caracterización automática de proteínas en tres caminos: "
             "A función nombrada, B uncharacterized/DUF, C sin hit Swiss-Prot. "
@@ -1858,6 +2118,8 @@ def render_result(res: dict) -> None:
                 tax = res.get("taxonomy")
                 if tax:
                     st.markdown("#### 🧭 Taxonomía local")
+                    render_help("taxonomia", key_prefix=f"tax_{res['genome']}")
+                    render_module_reports("taxonomy", PROJECT, key_prefix=f"tax_{res['genome']}")
                     if tax.get("status") != "ok":
                         st.info(f"Taxonomía no disponible: {tax.get('reason','')}")
                     else:
@@ -1895,6 +2157,8 @@ def render_result(res: dict) -> None:
             st.info("ORCA no ejecutado: falta el modelo o la dependencia orcapy.")
 
     with tabs[7]:
+        render_help("membrana", key_prefix=f"mem_{res['genome']}")
+        render_module_reports("membrane", PROJECT, key_prefix=f"mem_{res['genome']}")
         mem = res.get("membrane")
         st.caption(
             "Membrana/transporte: hmmscan contra un panel Pfam curado, "
@@ -1931,6 +2195,9 @@ def render_result(res: dict) -> None:
                     )
 
     with tabs[8]:
+        render_help("operones", key_prefix=f"op_{res['genome']}")
+        render_module_reports("regulation", PROJECT, key_prefix=f"op_{res['genome']}")
+        render_help("regulacion", key_prefix=f"reg_{res['genome']}")
         st.caption(
             "Operones y promotores **putativos** construidos por reglas sobre "
             "las features de este FASTA. `evidence=rule_based`: son hipótesis, "
@@ -2027,6 +2294,82 @@ def render_result(res: dict) -> None:
         render_compare()
 
 
+def _mode_labels() -> dict[str, str]:
+    """Etiquetas visibles de cada clave; ``tree`` no vive en ``textos.T``."""
+    tree_label = tr(TREE_MODE_LABEL)
+    labels: dict[str, str] = {}
+    for key, textos_key in MODE_LABELS.items():
+        value = T.get(textos_key)
+        labels[key] = value if value else tree_label
+    return labels
+
+
+def _resolve_mode_key(labels: Mapping[str, str]) -> str:
+    """Clave activa, aceptando el ``mode_sel`` de sesiones anteriores."""
+    current = st.session_state.get("mode_key")
+    if current in labels:
+        return current
+    current = mode_key_from_label(st.session_state.get("mode_sel"), labels)
+    return current or "annotate"
+
+
+def _go_to_mode(mode_key: str) -> None:
+    """Callback de navegación: mantiene ``mode_sel`` y la URL alineados."""
+    labels = _mode_labels()
+    if mode_key not in labels:
+        return
+    st.session_state["mode_key"] = mode_key
+    st.session_state["mode_sel"] = labels[mode_key]
+    # Se recuerda el ?modo= aplicado para no reaplicarlo en cada rerun (eso
+    # dejaría el menú bloqueado). Si la URL se edita, el valor cambia y sí se
+    # aplica; si el navegador no permite escribirla, se marca el valor viejo.
+    previous = None
+    try:
+        previous = st.query_params.get("modo")
+        st.query_params["modo"] = MODE_QUERY_VALUES[mode_key]
+        st.session_state["_mode_from_url"] = (
+            st.query_params.get("modo") or MODE_QUERY_VALUES[mode_key])
+    except Exception:
+        st.session_state["_mode_from_url"] = previous
+
+
+def _render_more_block() -> None:
+    """Accesos rápidos de la parte superior: glosario, reportes y créditos."""
+    with st.sidebar.popover("➕ " + tr("Más"),
+                            help=tr("Glosario, reportes y créditos")):
+        st.markdown("**📖 " + tr("Glosario y límites") + "**")
+        render_glossary()
+        st.divider()
+        st.button("📥 " + tr("Reportes y descargas"), key="more_reports",
+                  width="stretch", on_click=_go_to_mode, args=("reports",))
+        st.button("🙏 " + tr("Créditos y herramientas"), key="more_credits",
+                  width="stretch", on_click=_go_to_mode, args=("credits",))
+
+
+def _render_sidebar_menu() -> str:
+    """Dibuja el menú agrupado y devuelve la clave canónica activa."""
+    labels = _mode_labels()
+    current = _resolve_mode_key(labels)
+    st.session_state["mode_key"] = current
+    st.session_state["mode_sel"] = labels[current]
+    for i, group in enumerate(MENU_GROUPS):
+        st.sidebar.markdown(
+            f"**{group['icon']} {tr(group['title'])}**")
+        st.sidebar.caption(tr(group["caption"]))
+        for mode_key in group["modes"]:
+            st.sidebar.button(
+                labels[mode_key],
+                key=f"nav_{mode_key}",
+                type="primary" if mode_key == current else "secondary",
+                width="stretch",
+                on_click=_go_to_mode,
+                args=(mode_key,),
+            )
+        if i < len(MENU_GROUPS) - 1:
+            st.sidebar.divider()
+    return current
+
+
 def main() -> None:
     init_language()
     language_selector()
@@ -2052,38 +2395,44 @@ def main() -> None:
             "Cada etiqueta declara su fuente y su nivel de confianza."
         )
 
-    # enlace directo: ?modo=rutas&layout=B&genoma=...
+    # enlace directo: ?modo=rutas&layout=B&genoma=demo
     try:
-        _m = st.query_params.get("modo")
-        if _m in ("navegador", "browser"):
-            st.session_state["mode_sel"] = T["mode_browser"]
-        elif _m == "rutas":
-            st.session_state["mode_sel"] = T["mode_pathways"]
-        elif _m in ("hipotesis", "hipótesis", "hypotheses"):
-            st.session_state["mode_sel"] = T["mode_hypotheses"]
-        elif _m in ("creditos", "créditos"):
-            st.session_state["mode_sel"] = T["mode_credits"]
-        elif _m in ("reportes", "descargas"):
-            st.session_state["mode_sel"] = T["mode_reports"]
-        elif _m in ("modulos", "módulos", "modules"):
-            st.session_state["mode_sel"] = T["mode_modules"]
-        elif _m == "anotar":
-            st.session_state["mode_sel"] = T["mode_annotate"]
-        if st.query_params.get("genoma"):
-            st.session_state["genoma_global"] = st.query_params["genoma"]
+        # ?modo= se aplica cuando cambia respecto al último aplicado. Así un
+        # enlace compartido funciona y editar la URL también, sin que el menú
+        # quede bloqueado tras navegar con los botones.
+        _query_mode = mode_from_query(st.query_params.get("modo"))
+        if (_query_mode
+                and _query_mode != st.session_state.get("_mode_from_url")):
+            _query_labels = _mode_labels()
+            st.session_state["mode_key"] = _query_mode
+            st.session_state["mode_sel"] = _query_labels[_query_mode]
+            st.session_state["_mode_from_url"] = _query_mode
     except Exception:
         pass
-    # La especie activa debe estar por encima del menú; los módulos de catálogo
-    # muestran los 400 y no deben confundirse con el genoma seleccionado.
+
+    # La especie activa va siempre por encima del menú y es la única fuente de
+    # verdad para los módulos de especie. Los de catálogo no la cambian.
     _reg = DATA_ROOT / "regulation"
     _opts = (sorted(d.name for d in _reg.iterdir()
                     if d.is_dir() and (d / "genes.tsv").exists())
              if _reg.exists() else [])
     if DEMO_GENOME and "demo" not in _opts:
         _opts = ["demo"] + _opts
-    _cur = st.session_state.get("genoma_global") or (_opts[0] if _opts else "")
-    if _cur not in _opts:
-        _cur = _opts[0] if _opts else ""
+
+    # ?genoma= se aplica al entrar y cuando la URL cambia, incluido demo. El
+    # marcador evita que un enlace viejo fije la especie tras cambiarla.
+    try:
+        _query_genome = st.query_params.get("genoma")
+    except Exception:
+        _query_genome = None
+    if (_query_genome
+            and _query_genome != st.session_state.get("_genome_from_url")):
+        st.session_state["genoma_global"] = _query_genome
+        if _query_genome in _opts:
+            st.session_state["active_genome_sel"] = _query_genome
+        st.session_state["_genome_from_url"] = _query_genome
+
+    _cur = resolve_active_genome(st.session_state.get("genoma_global"), _opts)
     st.sidebar.markdown("### 🦠 " + tr("Especie activa"))
     if _opts:
         _sel = st.sidebar.selectbox(
@@ -2094,71 +2443,58 @@ def main() -> None:
                 "muestran los 400 y no cambian esta selección."),
         )
         st.session_state["genoma_global"] = _sel
-        st.sidebar.caption(tr("Especie: {g}").format(g=_sel))
+        st.sidebar.markdown(f"**{active_species_label(_sel)}**")
+        st.sidebar.caption(tr(CATALOG_SPECIES_NOTE))
+        if _sel == "demo":
+            st.sidebar.caption(tr(species_scope_note("demo")))
+        # Mantiene ?genoma= alineado con el selector. Si el navegador no
+        # permite escribirlo, se recuerda el valor anterior para no reaplicarlo.
+        _previous_qp_genome = None
+        try:
+            _previous_qp_genome = st.query_params.get("genoma")
+            if (_previous_qp_genome
+                    and _previous_qp_genome != _sel):
+                st.query_params["genoma"] = _sel
+            st.session_state["_genome_from_url"] = (
+                st.query_params.get("genoma") or _sel)
+        except Exception:
+            st.session_state["_genome_from_url"] = _previous_qp_genome
     else:
+        st.sidebar.markdown(f"**{active_species_label('')}**")
         st.sidebar.caption(tr("Sin genomas anotados."))
-    st.sidebar.caption(tr(
-        "Los módulos de catálogo (móviles, membrana, taxonomía, complejos) "
-        "muestran el conjunto; los de especie usan el genoma activo."))
-    with st.sidebar.expander(tr("❓ Glosario y límites")):
-        render_glossary()
-    _tree_mode = tr("🌳 Árbol de vida")
-    mode = st.sidebar.radio(
-        T["mode_label"], [T["mode_annotate"], T["mode_pathways"],
-                           T["mode_browser"], _tree_mode, T["mode_reports"],
-                           T["mode_modules"], T["mode_hypotheses"], T["mode_credits"]],
-        help=T["mode_help"], key="mode_sel",
-    )
-    if mode == T["mode_hypotheses"]:
+
+    # Bloque "Más" arriba del menú: glosario, reportes y créditos.
+    _render_more_block()
+    # Menú lateral agrupado en bloques (Anotar / Explorar / Catálogo /
+    # Reportes / Créditos). ``mode_sel`` se mantiene sincronizado.
+    mode_key = _render_sidebar_menu()
+
+    if mode_key == "hypotheses":
         render_precomputed()
         return
-    if mode == T["mode_credits"]:
+    if mode_key == "credits":
         credits.render()
         return
-    if mode == _tree_mode:
+    if mode_key == "tree":
         taxonomy_tree_ui.render(
             DATA_ROOT, new_genome=st.session_state.get("genoma_global") or None)
         return
-    if mode == T["mode_reports"]:
+    if mode_key == "reports":
         downloads_ui.render(PROJECT)
         return
-    if mode == T["mode_modules"]:
+    if mode_key == "modules":
         module_ui.render(DATA_ROOT, OUT_ROOT)
         return
-    if mode == T["mode_pathways"]:
+    if mode_key == "pathways":
         render_pathways()
         return
-    if mode == T["mode_browser"]:
-        # se ofrece lo que tiene anotación de verdad, no la lista de "free living"
-        reg = DATA_ROOT / "regulation"
-        opciones = (sorted(d.name for d in reg.iterdir()
-                           if d.is_dir() and (d / "genes.tsv").exists())
-                    if reg.exists() else [])
-        if DEMO_GENOME and "demo" not in opciones:
-            opciones = ["demo"] + opciones
-        if "ecoli_k12" in opciones:
-            opciones = ["ecoli_k12"] + [o for o in opciones if o != "ecoli_k12"]
-        if not opciones:
+    if mode_key == "browser":
+        # Una sola especie activa: se elige arriba, no se duplica aquí.
+        elegido = st.session_state.get("genoma_global") or _global_genome()
+        if not elegido:
             st.error("No hay genomas del proyecto anotados todavía. "
                      "Ejecuta primero el pipeline de los 400.")
             return
-        actual = st.session_state.get("genoma_global") or ""
-        if actual not in opciones:
-            actual = opciones[0] if opciones else ""
-        st.sidebar.selectbox(
-            "Genoma activo", opciones,
-            index=opciones.index(actual) if actual in opciones else 0,
-            key="genoma_global", help=T["help_genoma"],
-        )
-        elegido = st.session_state.get("genoma_global") or actual
-        # Si el usuario cambia de genoma, no dejar el ?genoma=demo anterior
-        # forzando la selección en cada recarga.
-        try:
-            _qp = st.query_params.get("genoma")
-            if _qp and _qp != elegido:
-                del st.query_params["genoma"]
-        except (KeyError, TypeError):
-            pass
         browser.render(DATA_ROOT, elegido)
         return
 

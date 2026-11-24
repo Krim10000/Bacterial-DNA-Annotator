@@ -103,6 +103,172 @@ ELEMENTS_ON_SCREEN_NOTE = (
     "columna *tipo* indica la pista y el contador de arriba resume cuántos hay."
 )
 
+# --------------------------------------------------------------- ayuda in situ
+#: Título común de los expanders de ayuda. Siempre es el mismo para que el
+#: lector reconozca el patrón «aquí me explican lo que estoy viendo».
+HELP_EXPANDER_TITLE = "❓ ¿Qué estoy viendo?"
+
+ALL_ELEMENTS_LABEL = "Todos los elementos en pantalla"
+ALL_ELEMENTS_LEGEND = (
+    "**«Todos los elementos en pantalla»** reúne en una sola tabla todo lo "
+    "dibujado en la ventana actual y lo resalta en el dibujo. No añade "
+    "elementos de fuera de la ventana ni del resto del genoma."
+)
+
+ELEMENTS_ON_SCREEN_HELP = (
+    "**Qué lista.** Cada fila es un elemento **dibujado en la ventana actual**, "
+    "no el genoma completo: genes, operones, promotores, horquillas, TSS/TTS, "
+    "complejos y sospechas metabólicas. Al mover la ventana o cambiar de "
+    "contig, la tabla cambia.\n\n"
+    "**Cómo leerla.** *tipo* es la pista; *etiqueta* es el nombre visible; "
+    "*inicio* y *fin* son coordenadas en pb; *detalle* resume la evidencia. El "
+    "contador y la tabla salen de la misma consulta a la ventana, por eso "
+    "coinciden con el dibujo.\n\n"
+    "**Qué puedes hacer.** Haz clic en una fila para abrir su ficha y llevarla "
+    "al dibujo; «Ver en el dibujo» fija `?sel=tipo:id`. Si algo no aparece, "
+    "activa su pista arriba o mueve la ventana.\n\n"
+    "**Límite.** Que un elemento esté en pantalla no significa que esté "
+    "validado: es lo que el pipeline anotó para esa región, con su clase y su "
+    "confianza."
+)
+
+HAIRPIN_HELP = (
+    "**Qué es.** Una horquilla es un plegamiento del ARN (tallo y bucle) que "
+    "se dibuja en las coordenadas del ADN donde está codificado. Un `ΔG` más "
+    "negativo indica un tallo más estable; también se muestran la longitud del "
+    "tallo, el GC y la cola poli-U.\n\n"
+    "**Terminación.** Una horquilla al **final** de un operón, sobre todo si va "
+    "seguida de poli-U, es candidata a terminador: corta la transcripción y "
+    "cierra la unidad.\n\n"
+    "**Atenuación.** Una horquilla **dentro** del operón puede ser un "
+    "atenuador: termina el transcrito antes de tiempo según las condiciones, "
+    "pero el operón sigue existiendo y puede regularse. Por eso la posición "
+    "relativa al operón importa tanto como la estructura.\n\n"
+    "**Clases A/B/C.** A = estructura clara, tallo largo y GC sobre el fondo "
+    "del genoma; B = intermedia, no se distingue del azar; C = débil, "
+    "probablemente sin función de terminación.\n\n"
+    "**Límite.** Es una predicción termodinámica y de contexto, no una medida "
+    "experimental: una horquilla aislada no prueba terminación ni atenuación."
+)
+
+CIRCULAR_HELP = (
+    "**Lineal vs circular.** La vista de arriba es una **ventana lineal**: una "
+    "porción del contig entre dos coordenadas. La vista circular dibuja el "
+    "**contig completo** y marca en naranja la porción que ocupa esa ventana.\n\n"
+    "**Cómo leerla.** El arco naranja es la ventana lineal, no un cromosoma "
+    "aparte. Los ticks marcan posiciones; el centro resume qué fracción del "
+    "contig se está viendo. Si la ventana cruza el origen, el arco da la "
+    "vuelta.\n\n"
+    "**Para qué sirve.** Para ubicar la ventana en el contexto del contig "
+    "entero y notar cuánto queda fuera. La tabla, las fichas y la selección "
+    "siguen usando la ventana lineal.\n\n"
+    "**Límite.** La longitud del contig se estima desde la anotación (extremo "
+    "del último gen), no desde el ensamblado completo; en genomas draft puede "
+    "faltar material. Un contig no es necesariamente el cromosoma completo."
+)
+
+OPERON_HELP = (
+    "**Operón.** Un operón es un grupo de genes contiguos, en la misma hebra, "
+    "que se transcriben juntos. Aquí se propone por proximidad y hebra, con "
+    "una confianza; no es una prueba experimental.\n\n"
+    "**Promotor.** Es la región donde se une la ARN polimerasa (con su factor "
+    "σ) para iniciar la transcripción. Se resumen las cajas **−35** y **−10**, "
+    "el espaciador, la σ, el score y los desajustes.\n\n"
+    "**Cómo leerlos juntos.** El promotor se asocia al operón y se dibuja como "
+    "una marca vertical; al elegirlo se abre su ficha y el operón queda "
+    "resaltado. Una confianza alta no sustituye a un TSS curado ni a un "
+    "terminador experimental.\n\n"
+    "**Límite.** En la demo los operones son una agrupación por proximidad y "
+    "los genes, predicciones ab initio: sirven para probar el navegador, no "
+    "para conclusiones biológicas."
+)
+
+HELP_TEXTS = {
+    "elements": ELEMENTS_ON_SCREEN_HELP,
+    "hairpins": HAIRPIN_HELP,
+    "circular": CIRCULAR_HELP,
+    "operons": OPERON_HELP,
+}
+
+
+def help_expander(topic: str) -> None:
+    """Muestra la explicación in situ de ``topic`` bajo el título común.
+
+    No depende de datos ni de estado: Streamlit solo pinta el expander. Si el
+    tema no existe, no dibuja nada (útil para llamadas defensivas).
+    """
+    text = HELP_TEXTS.get(str(topic))
+    if not text:
+        return
+    with st.expander(HELP_EXPANDER_TITLE):
+        st.markdown(text)
+
+
+def _is_demo_value(value) -> bool:
+    """``True`` si el valor de un query param representa el genoma demo."""
+    if isinstance(value, (list, tuple)):
+        return any(str(v).strip() == "demo" for v in value)
+    return str(value or "").strip() == "demo"
+
+
+def clear_demo_query(query):
+    """Devuelve ``query`` sin el parámetro ``genoma=demo``.
+
+    Acepta un mapping (``dict`` o ``st.query_params``) y devuelve un ``dict``
+    nuevo, o una cadena tipo ``?genoma=demo&pos=10`` y devuelve una cadena de
+    la misma forma. No muta la entrada ni importa Streamlit: es una función
+    pura y se puede probar sin runtime.
+
+    El resto de parámetros (``pos``, ``w``, ``contig``, ``sel``, ``modo``…) se
+    conserva tal cual. Solo se elimina ``genoma`` cuando su valor es ``demo``;
+    un ``genoma=GCF_…`` compartible sigue intacto.
+    """
+    if query is None:
+        return {}
+    if isinstance(query, str):
+        prefix = "?" if query.startswith("?") else ""
+        raw = query[1:] if prefix else query
+        pairs = [p for p in raw.split("&") if p]
+        if not pairs:
+            return ""
+        kept = []
+        for pair in pairs:
+            key, _, value = pair.partition("=")
+            if key.strip() == "genoma" and _is_demo_value(value):
+                continue
+            kept.append(pair)
+        return prefix + "&".join(kept)
+    if not hasattr(query, "items"):
+        return {}
+    cleaned: dict = {}
+    for key, value in query.items():
+        if str(key) == "genoma" and _is_demo_value(value):
+            continue
+        cleaned[key] = value
+    return cleaned
+
+
+def _clear_demo_query_from_url() -> bool:
+    """Quita ``?genoma=demo`` de la URL tras consumirlo en esta ejecución.
+
+    El enlace ``?modo=navegador&genoma=demo`` sigue abriendo la demo, pero al
+    navegar a otro genoma el parámetro viejo no vuelve a forzar la selección en
+    cada rerun. Devuelve ``True`` si eliminó el parámetro.
+    """
+    try:
+        current = dict(st.query_params)
+    except Exception:
+        return False
+    cleaned = clear_demo_query(current)
+    if "genoma" not in current or "genoma" in cleaned:
+        return False
+    try:
+        del st.query_params["genoma"]
+        return True
+    except (KeyError, TypeError):
+        return False
+
+
 # Componente propio: convierte el SVG en algo clicable sin añadir dependencias.
 _COMPONENT_DIR = Path(__file__).resolve().parent / "components" / "genome_track"
 _genome_track = declare_component("genome_track", path=str(_COMPONENT_DIR))
@@ -1572,12 +1738,16 @@ def _render_pick(data_root: Path, genome: str, tables: dict, pick: dict) -> None
 
 def render(data_root: Path, genome: str) -> None:
     """Dibuja la vista del navegador para un genoma."""
+    # El enlace ?genoma=demo ya se consumió al elegir ``genome``; se retira de
+    # la URL para que no vuelva a imponer la demo al cambiar de genoma.
+    _clear_demo_query_from_url()
     st.subheader("🧬 Navegador de genoma")
     st.caption(
         "Ventana del genoma con sus pistas apiladas. El **eje es común**: cada "
         "posición en pb se alinea en todas las pistas, y cada pista tiene su "
         "banda para que no se pisen. Marca las que quieras ver."
     )
+    st.caption("🧾 " + ALL_ELEMENTS_LEGEND)
 
     tables = load_tables(data_root, genome)
     if genome == "demo":
@@ -1831,6 +2001,7 @@ def render(data_root: Path, genome: str) -> None:
             "cromosoma aparte, es el mismo contig visto entero. Los ticks "
             "marcan posiciones y el centro indica qué fracción ocupa la ventana."
         )
+        help_expander("circular")
         st.markdown(circular_svg(contig, int(c_len), start, end),
                     unsafe_allow_html=True)
         st.caption(f"Longitud estimada desde la anotación: {int(c_len):,} pb. "
@@ -1893,6 +2064,7 @@ def render(data_root: Path, genome: str) -> None:
     # --- tabla resumen de elementos en pantalla
     st.markdown("### 🧾 Elementos en pantalla")
     st.caption(ELEMENTS_ON_SCREEN_NOTE)
+    help_expander("elements")
     m1, m2 = st.columns([1, 2])
     with m1:
         st.metric("Elementos en pantalla", len(screen_elements))
@@ -1902,7 +2074,7 @@ def render(data_root: Path, genome: str) -> None:
                    "lo que se ve en la ventana lineal. No incluye el resto del genoma.")
 
     ver_todos = st.checkbox(
-        "Todos los elementos en pantalla",
+        ALL_ELEMENTS_LABEL,
         key="br_all_elements",
         help=("Incluye genes, operones, promotores, horquillas, TSS/TTS, "
               "complejos y sospechas de esta ventana; también los resalta en "
@@ -2007,6 +2179,7 @@ def render(data_root: Path, genome: str) -> None:
                 _ver("gene", str(gid), "br_go_gen")
 
     with t_ops:
+        help_expander("operons")
         wops = tables["operons"]
         if not wops.empty and {"contig", "start", "end"} <= set(wops.columns):
             wops = wops[(wops["contig"] == contig)
@@ -2030,6 +2203,7 @@ def render(data_root: Path, genome: str) -> None:
                 _ver("operon", str(oid), "br_go_op")
 
     with t_prom:
+        help_expander("operons")
         prom = tables["promoters"]
         if (not prom.empty and not tables["operons"].empty
                 and {"contig", "start", "end", "operon_id"}
@@ -2059,6 +2233,7 @@ def render(data_root: Path, genome: str) -> None:
                 _ver("promoter", str(pid), "br_go_prom")
 
     with t_hp:
+        help_expander("hairpins")
         hp = tables["hairpins"]
         if not hp.empty and {"contig", "start", "end"} <= set(hp.columns):
             hp = hp[(hp["contig"] == contig)
