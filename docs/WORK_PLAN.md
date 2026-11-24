@@ -5,6 +5,9 @@
 explicable y honesto** para bacterias, con benchmark externo y release
 reproducible.
 
+**Restricción:** no hay GPU. El release 1.x debe cerrarse **sin GPU**. Las tareas
+GPU pasan a un backlog separado y no bloquean la release.
+
 ## 1. Posición
 
 No competir en gene calling con Bakta/Prokka. Ganar en:
@@ -38,7 +41,9 @@ No competir en gene calling con Bakta/Prokka. Ganar en:
 4. No entrenar y validar con el mismo gold.
 5. No redistribuir datos restringidos.
 6. Cada tarea deja test, doc y salida reproducible.
-7. GPU solo para estructura/coevolución, nunca para “cerrar” función.
+7. Sin GPU no se pliega masivamente ni se hace coevolución. El núcleo CPU debe
+   ser útil por sí solo.
+8. La GPU, si aparece, solo añade estructura/coevolución; nunca “cierra” función.
 
 ## 4. Líneas de trabajo
 
@@ -49,7 +54,7 @@ No competir en gene calling con Bakta/Prokka. Ganar en:
 | C | Función remota y bases curadas | P0 | functional-remote |
 | D | Regulación/operones/TSS | P0 | regulation-auto |
 | E | Complejos: holdout y priorización | P1 | cluster-calibration |
-| F | Estructura CPU/GPU | P1 | b-structural + root |
+| F | Estructura CPU (AFDB/PDB/Foldseek local) | P1 | b-structural + root |
 | G | Brechas: criterio de cierre | P1 | root + nuevo `gap-closure` |
 | H | Móviles/defensa/AMR/BGC | P1 | nuevo `mobile-defense` |
 | I | Taxonomía automática | P1 | root |
@@ -102,11 +107,13 @@ No competir en gene calling con Bakta/Prokka. Ganar en:
 - [ ] Conseguir ComplexPortal de otras especies.
 - [ ] Holdout real por especie/complejo.
 - [ ] Revisar P1 (207) y P2 (1.350).
-- [ ] Foldseek-Multimer con DB de ensamblajes.
-- [ ] GPU: ESMFold/AlphaFold-Multimer/Boltz para top priorizado.
-- [ ] Integrar pLDDT/ipTM/pDockQ en GUI.
+- [ ] Foldseek local con DB de monómeros/ensamblajes disponibles.
+- [ ] AFDB/PDB para B/C priorizados, sin plegar.
+- [ ] Visor 3D y B-factor/RMSX.
+- [ ] No prometer pLDDT/ipTM sin GPU.
 
-**Métrica:** precisión de alta confianza ≥0,80 en holdout; no cerrar brechas.
+**Métrica:** precisión de alta confianza ≥0,80 en holdout; cobertura estructural
+CPU medida; no cerrar brechas.
 
 ### Semanas 10–11 — Cobertura y producto
 
@@ -153,19 +160,30 @@ No competir en gene calling con Bakta/Prokka. Ganar en:
 ### P1
 
 6. Holdout de complejos.
-7. Estructura GPU/Foldseek.
+7. Estructura CPU: AFDB/PDB, Foldseek local, visor; GPU fuera de 1.x.
 8. Brechas con criterio de cierre.
 9. Móviles/defensa/AMR.
 10. Taxonomía.
 11. Bioconda/Galaxy.
 12. GUI comparar/explicar.
 
-### P2
+### P2 — CPU
 
-13. Coevolución.
-14. FBA/SBML.
-15. BGC.
-16. Rendimiento/offline extremo.
+13. FBA/SBML.
+14. BGC.
+15. Rendimiento/offline extremo.
+16. Flipbook/RMSX solo si hay trayectoria y R (extra opcional).
+
+### Backlog GPU (no bloquea 1.x)
+
+- ESMFold local.
+- AlphaFold-Multimer/ColabFold.
+- Boltz-2.
+- Foldseek-Multimer con DB de ensamblajes.
+- Coevolución con MSA.
+- MD/RMSX a escala.
+
+Se activan solo si hay GPU y datos; no se anuncian como parte de 1.x.
 
 ## 7. KPIs
 
@@ -179,9 +197,11 @@ No competir en gene calling con Bakta/Prokka. Ganar en:
 | oriC | mediana a DoriC | ≤5 kb |
 | Membrana | acuerdo TMHMM | ≥0,90 |
 | Complejos | precisión alta confianza | ≥0,80 holdout |
+| Estructura CPU | cobertura AFDB/PDB | medida |
 | Brechas | cierres con evidencia | 0 sin prueba |
 | Tiempo 5 Mb | CPU | <5 min |
 | Reproducibilidad | release + DOI | cada release |
+| GPU | no requerida | 1.x CPU-only |
 
 ## 7b. Extra: dinámica (RMSX/Flipbook)
 
@@ -202,7 +222,7 @@ Sin R/MDAnalysis/trayectoria: `not_configured`. No cierra brechas.
 | Bakta/Prokka no instalables | Docker/Conda; reportar `not_evaluable` |
 | Datos restringidos | no redistribuir; versionar fuentes |
 | Circularidad | holdout por especie/complejo |
-| GPU escasa | priorizar top; CPU para resto |
+| Sin GPU | no plegar; usar AFDB/PDB; GPU en backlog |
 | Exceso de candidatos | P1/P2 y filtros de evidencia |
 | Sobreafirmar | etiquetas y `closure=no` |
 | Benchmarks caros | lotes y CI semanal |
@@ -215,6 +235,18 @@ No es tener más columnas. Es:
 precisión medida + cobertura + calibración + explicabilidad
 + reproducibilidad + adopción
 ```
+
+## 9b. Definición de terminado CPU-only
+
+Una release 1.x CPU-only está terminada cuando:
+
+- benchmark externo ejecutado o `not_evaluable` documentado;
+- A/B/C, membrana, regulación, complejos y oriC reproducibles en CPU;
+- B/C tienen estado/dominio/contexto, no estructura masiva;
+- complejos están priorizados y no se presentan como validados;
+- packaging y GUI funcionan sin GPU;
+- ningún resultado GPU es requisito;
+- las limitaciones están en README/docs.
 
 ## 10. Regla final
 
