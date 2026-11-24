@@ -13,6 +13,11 @@ Principios de diseño
   las demás se atenúan, para no saturar.
 - **Nada de decisiones automáticas**: aquí se muestra lo que otros pasos
   calcularon, con su clase y su confianza.
+- **Lo que se ve es lo que se lista**: la tabla «elementos en pantalla» y su
+  contador salen de la misma ventana que el dibujo; una fila se puede llevar
+  al SVG, resaltarla y compartirla con ``?sel=tipo:id``.
+- **Lineal + circular**: la vista circular complementaria recuerda que la
+  ventana lineal es una porción del contig, no el contig completo.
 
 Uso desde `app.py`
 ------------------
@@ -23,12 +28,15 @@ from __future__ import annotations
 
 from pathlib import Path
 import csv
+import math
+import re
 
 import pandas as pd
 import streamlit as st
 from streamlit.components.v1 import declare_component
 
 from i18n import tr
+import gene_card as _gene_card
 
 # ---------------------------------------------------------------- constantes
 GENE_FWD = "#4a7ebb"
@@ -47,6 +55,54 @@ OPERON = "#8e6cc9"
 WINDOW_SIZES = {"5 kb": 5_000, "10 kb": 10_000, "25 kb": 25_000,
                 "50 kb": 50_000, "100 kb": 100_000}
 
+#: Tamaños de ventana en pb, ordenados, para elegir el zoom de un elemento.
+WINDOW_STEPS = tuple(sorted(WINDOW_SIZES.values()))
+
+#: Etiquetas humanas de las pistas que se pueden resumir y resaltar.
+ELEMENT_KIND_LABELS = {
+    "gene": "Genes",
+    "operon": "Operones",
+    "promoter": "Promotores",
+    "hairpin": "Horquillas",
+    "tss": "TSS",
+    "tts": "TTS",
+    "complex": "Complejos",
+    "suspect": "Sospechas",
+}
+
+ELEMENT_KIND_NAMES = {
+    "gene": "Gen",
+    "operon": "Operón",
+    "promoter": "Promotor",
+    "hairpin": "Horquilla",
+    "tss": "TSS",
+    "tts": "TTS",
+    "complex": "Complejo",
+    "suspect": "Sospecha",
+}
+
+ELEMENT_KIND_SINGULAR = {
+    "gene": "gen",
+    "operon": "operón",
+    "promoter": "promotor",
+    "hairpin": "horquilla",
+    "tss": "TSS",
+    "tts": "TTS",
+    "complex": "complejo",
+    "suspect": "sospecha",
+}
+
+#: Columnas de la tabla «elementos en pantalla». ``kind``/``id`` son la clave
+#: que comparten la tabla, el SVG (``data-kind``/``data-id``) y ``_render_pick``.
+ELEMENT_COLUMNS = ("tipo", "kind", "id", "etiqueta", "inicio", "fin", "detalle")
+
+ELEMENTS_ON_SCREEN_NOTE = (
+    "La tabla lista **solo los elementos dibujados en la ventana actual** "
+    "(genes, operones, promotores, horquillas, TSS/TTS, complejos y sospechas). "
+    "No es el genoma completo: al mover la ventana cambia el conjunto. La "
+    "columna *tipo* indica la pista y el contador de arriba resume cuántos hay."
+)
+
 # Componente propio: convierte el SVG en algo clicable sin añadir dependencias.
 _COMPONENT_DIR = Path(__file__).resolve().parent / "components" / "genome_track"
 _genome_track = declare_component("genome_track", path=str(_COMPONENT_DIR))
@@ -54,7 +110,7 @@ _genome_track = declare_component("genome_track", path=str(_COMPONENT_DIR))
 
 def genome_track(svg_markup: str, key: str = "genome_track", *,
                  pos: int | None = None, contig: str | None = None,
-                 window: int | None = None) -> dict | None:
+                 window: int | str | None = None) -> dict | None:
     """Dibuja el SVG y devuelve el elemento pulsado (o None).
 
     ``pos``/``contig``/``window`` permiten que el componente construya una URL
@@ -288,15 +344,40 @@ def _esc(s) -> str:
             .replace(">", "&gt;"))
 
 
+def _esc_attr(s) -> str:
+    return _esc(s).replace('"', "&quot;")
+
+
+def _split_focus(focus: str) -> tuple[str | None, str]:
+    """Separa ``"gene:b0001"`` en ``("gene", "b0001")``.
+
+    Si no hay prefijo de tipo se conserva el comportamiento histórico (un gen
+    se puede seleccionar solo por su nombre). El identificador de una horquilla
+    ya contiene ``:`` (``contig:inicio-fin``), así que solo se parte la primera
+    aparición.
+    """
+    raw = str(focus or "")
+    if ":" in raw:
+        kind, _, ident = raw.partition(":")
+        if kind in ELEMENT_KIND_LABELS:
+            return kind, ident
+    return None, raw
+
+
 def svg(tables: dict, contig: str, start: int, end: int,
         tracks: set[str] | None = None, focus: str = "",
         suspects: pd.DataFrame | None = None,
-        tss: pd.DataFrame | None = None, tts: pd.DataFrame | None = None) -> str:
+        tss: pd.DataFrame | None = None, tts: pd.DataFrame | None = None,
+        *, highlight_all: bool = False) -> str:
     """Dibuja la ventana como SVG ancho.
 
     Cada pista vive en su propia banda vertical, así que nunca se solapan: se
     pueden mostrar todas a la vez sin que se pisen. Las etiquetas de los genes
     se escalonan en dos filas cuando están muy juntas.
+
+    ``focus`` acepta ``"tipo:id"`` (por ejemplo ``gene:b0001`` u
+    ``operon:op1``) y añade la clase ``sel-hit`` al grupo correspondiente.
+    ``highlight_all`` marca todos los elementos clicables con ``all-hit``.
     """
     tracks = tracks or {"genes", "operones", "promotores", "horquillas",
                         "transcripcion", "complejos"}
@@ -304,9 +385,23 @@ def svg(tables: dict, contig: str, start: int, end: int,
     width, height = 1180, 420
     pad_l, pad_r = 96, 12
     plot_w = width - pad_l - pad_r
+    focus_kind, focus_id = _split_focus(focus)
 
     def x(bp: float) -> float:
         return pad_l + (bp - start) / span * plot_w
+
+    def hit_class(kind: str, ident) -> str:
+        cls = "hit"
+        if highlight_all:
+            cls += " all-hit"
+        if focus_id and str(ident) == focus_id and focus_kind in (None, kind):
+            cls += " sel-hit"
+        return cls
+
+    def hit_open(kind: str, ident) -> str:
+        return (f'<g class="{hit_class(kind, ident)}" data-kind="{kind}" '
+                f'data-id="{_esc_attr(ident)}">')
+
 
     genes = tables.get("genes", pd.DataFrame())
     operons = tables.get("operons", pd.DataFrame())
@@ -335,6 +430,12 @@ def svg(tables: dict, contig: str, start: int, end: int,
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="{height}" '
          f'viewBox="0 0 {width} {height}" font-family="sans-serif" '
          f'style="background:#fff;border-radius:8px">']
+    if focus_id or highlight_all:
+        o.append("<style>"
+                 ".hit.sel-hit>rect,.hit.sel-hit>circle,.hit.sel-hit>line,"
+                 ".hit.sel-hit>polygon{stroke:#ff4b4b;stroke-width:3}"
+                 ".hit.all-hit{filter:drop-shadow(0 0 2px #f0a400)}"
+                 "</style>")
 
     # regla
     o.append(f'<line x1="{pad_l}" y1="{Y["ruler"]}" x2="{width-pad_r}" y2="{Y["ruler"]}" stroke="#c9cfda"/>')
@@ -369,8 +470,7 @@ def svg(tables: dict, contig: str, start: int, end: int,
                    or f"{int(g['start'])}-{int(g['end'])}")
             tip_txt = (f"{name or gid} · {int(g['start']):,}–{int(g['end']):,} pb · "
                        f"hebra {'−' if rev else '+'}")
-            o.append(f'<g class="hit" data-kind="gene" data-id="{_esc(gid)}">'
-                     f'<title>{_esc(tip_txt)}</title>')
+            o.append(hit_open("gene", gid) + f'<title>{_esc(tip_txt)}</title>')
             # zona de clic algo mayor que el rectángulo visible
             o.append(f'<rect x="{gx0-2:.1f}" y="{yg-16}" width="{max(6.0, w+4):.1f}" '
                      f'height="32" fill="transparent"/>')
@@ -383,7 +483,11 @@ def svg(tables: dict, contig: str, start: int, end: int,
                 else:
                     o.append(f'<polygon points="{gx1:.1f},{yg-11} {gx1:.1f},{yg+11} '
                              f'{gx1+tip:.1f},{yg}" fill="{color}"/>')
-            if focus and focus in (g.get("locus_tag"), g.get("gene_id"), g.get("gene_name")):
+            gene_focus = (focus_kind in (None, "gene") and focus_id
+                          and focus_id in (str(g.get("locus_tag") or ""),
+                                           str(g.get("gene_id") or ""),
+                                           str(g.get("gene_name") or "")))
+            if gene_focus:
                 o.append(f'<rect x="{gx0-3:.1f}" y="{yg-15}" width="{w+6:.1f}" height="30" '
                          f'fill="none" stroke="#ff4b4b" stroke-width="2"/>')
             o.append("</g>")
@@ -407,8 +511,8 @@ def svg(tables: dict, contig: str, start: int, end: int,
             gx0, gx1 = x(op["start"]), x(op["end"])
             lab = op.get("label") or op.get("operon_id") or ""
             oid = op.get("operon_id") or lab or f"{int(op['start'])}-{int(op['end'])}"
-            o.append(f'<g class="hit" data-kind="operon" data-id="{_esc(oid)}">'
-                     f'<title>{_esc(lab or oid)} · operón</title>')
+            o.append(hit_open("operon", oid)
+                     + f'<title>{_esc(lab or oid)} · operón</title>')
             o.append(f'<rect x="{gx0:.1f}" y="{Y["operones"]-8}" width="{max(4, gx1-gx0):.1f}" '
                      f'height="16" rx="8" fill="none" stroke="{OPERON}" stroke-width="1.8"/>')
             if gx1 - gx0 > 70 and lab:
@@ -426,8 +530,8 @@ def svg(tables: dict, contig: str, start: int, end: int,
             gx = x(op["start"])
             sigma = p.get("sigma", "")
             pid = p.get("operon_id") or op.get("operon_id") or f"{int(op['start'])}"
-            o.append(f'<g class="hit" data-kind="promoter" data-id="{_esc(pid)}">'
-                     f'<title>Promotor {_esc(str(pid))} · σ{_esc(str(sigma))}</title>')
+            o.append(hit_open("promoter", pid)
+                     + f'<title>Promotor {_esc(str(pid))} · σ{_esc(str(sigma))}</title>')
             o.append(f'<line x1="{gx:.1f}" y1="{Y["promotores"]-9}" x2="{gx:.1f}" '
                      f'y2="{Y["promotores"]+9}" stroke="{PROMOTER}" stroke-width="2"/>')
             o.append(f'<circle cx="{gx:.1f}" cy="{Y["promotores"]-11}" r="3" fill="{PROMOTER}"/>')
@@ -440,8 +544,8 @@ def svg(tables: dict, contig: str, start: int, end: int,
             gx = x(h["start"])
             color = HAIRPIN.get(str(h.get("class", "C_debil")), HAIRPIN["C_debil"])
             hid = f"{contig}:{int(h['start'])}-{int(h['end'])}"
-            o.append(f'<g class="hit" data-kind="hairpin" data-id="{_esc(hid)}">'
-                     f'<title>Horquilla {_esc(str(h.get("class", "")))} · '
+            o.append(hit_open("hairpin", hid)
+                     + f'<title>Horquilla {_esc(str(h.get("class", "")))} · '
                      f'{int(h["start"]):,}–{int(h["end"]):,} pb</title>')
             o.append(f'<line x1="{gx:.1f}" y1="{Y["horquillas"]-10}" x2="{gx:.1f}" '
                      f'y2="{Y["horquillas"]+10}" stroke="{color}" stroke-width="1.6"/>')
@@ -458,7 +562,8 @@ def svg(tables: dict, contig: str, start: int, end: int,
             gx = x(t["pos"])
             full = t.get("source") in ("curado", "BSGatlas")
             op = 1.0 if full else 0.55
-            o.append(f'<g><title>TSS · {int(t["pos"]):,} pb · '
+            o.append(hit_open("tss", int(t["pos"]))
+                     + f'<title>TSS · {int(t["pos"]):,} pb · '
                      f'{_esc(str(t.get("source", "")))}</title>')
             o.append(f'<polygon points="{gx:.1f},{yt-16} {gx-4:.1f},{yt-9} '
                      f'{gx+4:.1f},{yt-9}" fill="{TSS_C}" opacity="{op}"/>')
@@ -470,7 +575,8 @@ def svg(tables: dict, contig: str, start: int, end: int,
                 continue
             gx = x(t["pos"])
             op = 1.0
-            o.append(f'<g><title>TTS · {int(t["pos"]):,} pb</title>')
+            o.append(hit_open("tts", int(t["pos"]))
+                     + f'<title>TTS · {int(t["pos"]):,} pb</title>')
             o.append(f'<polygon points="{gx:.1f},{yt+16} {gx-4:.1f},{yt+9} '
                      f'{gx+4:.1f},{yt+9}" fill="{TTS_C}" opacity="{op}"/>')
             o.append(f'<line x1="{gx:.1f}" y1="{yt+3}" x2="{gx:.1f}" y2="{yt+9}" '
@@ -490,8 +596,7 @@ def svg(tables: dict, contig: str, start: int, end: int,
             cid = str(c.get("complex_id") or f"{int(c['start'])}-{int(c['end'])}")
             tip = (f"{c.get('name','complejo')} · {status} · "
                    f"{int(c['start']):,}–{int(c['end']):,} pb")
-            o.append(f'<g class="hit" data-kind="complex" data-id="{_esc(cid)}">'
-                     f'<title>{_esc(tip)}</title>')
+            o.append(hit_open("complex", cid) + f'<title>{_esc(tip)}</title>')
             o.append(f'<rect x="{gx0:.1f}" y="{Y["complejos"]-8}" width="{max(6, gx1-gx0):.1f}" '
                      f'height="16" rx="8" fill="{color}" opacity="0.22" '
                      f'stroke="{color}" stroke-width="1.6"/>')
@@ -507,8 +612,8 @@ def svg(tables: dict, contig: str, start: int, end: int,
         for si, (_, s) in enumerate(suspects.iterrows()):
             gx0, gx1 = x(s["start"]), x(s["end"])
             sid = f"{int(s['start'])}-{int(s['end'])}"
-            o.append(f'<g class="hit" data-kind="suspect" data-id="{_esc(sid)}">'
-                     f'<title>Sospecha metabólica · {_esc(str(s.get("n_genes")))} genes</title>')
+            o.append(hit_open("suspect", sid)
+                     + f'<title>Sospecha metabólica · {_esc(str(s.get("n_genes")))} genes</title>')
             o.append(f'<rect x="{gx0:.1f}" y="{Y["sospecha"]-8}" width="{max(6, gx1-gx0):.1f}" '
                      f'height="16" rx="8" fill="#ffe9c7" stroke="#c58a00" stroke-width="1.6"/>')
             if gx1 - gx0 > 60:
@@ -537,6 +642,654 @@ def suspects_window(data_root: Path, genome: str, contig: str,
     return df.sort_values("start").reset_index(drop=True)
 
 
+# ------------------------------------------- geometría circular y selección
+# Estas funciones son puras (no tocan Streamlit) para poder probarlas con
+# DataFrames sintéticos. La UI solo las usa para fijar la ventana y el resalte.
+
+def _as_int(value) -> int | None:
+    """Convierte coordenadas/ids numéricos sin romperse con NaN o cadenas."""
+    try:
+        if value is None:
+            return None
+        if isinstance(value, float) and math.isnan(value):
+            return None
+        text = str(value).strip()
+        if not text or text.lower() in ("nan", "none", "<na>"):
+            return None
+        return int(float(text))
+    except (TypeError, ValueError, OverflowError):
+        return None
+
+
+def _first_match(df: pd.DataFrame | None, ident, cols: tuple[str, ...], *,
+                 contig: str | None = None) -> dict | None:
+    """Primera fila cuyo valor coincida en alguna de ``cols``.
+
+    Tolera tablas vacías y columnas ausentes; si hay varias filas prefiere la
+    del contig actual, para que un locus repetido no salte a otro contig.
+    """
+    if df is None or not isinstance(df, pd.DataFrame) or df.empty:
+        return None
+    mask = pd.Series(False, index=df.index)
+    for col in cols:
+        if col in df.columns:
+            mask |= df[col].astype(str) == str(ident)
+    sub = df[mask]
+    if sub.empty:
+        return None
+    if contig and "contig" in sub.columns:
+        same = sub[sub["contig"].astype(str) == str(contig)]
+        if not same.empty:
+            sub = same
+    return sub.iloc[0].to_dict()
+
+
+def _coords(row: dict | None) -> tuple[int, int] | None:
+    if not row:
+        return None
+    start, end = _as_int(row.get("start")), _as_int(row.get("end"))
+    if start is None or end is None:
+        return None
+    return start, end
+
+
+def element_span(kind: str, ident: str, tables: dict,
+                 *, suspects: pd.DataFrame | None = None,
+                 contig: str | None = None) -> dict | None:
+    """Localiza un elemento de la tabla/SVG y devuelve su intervalo.
+
+    Mantiene la misma identidad que el dibujo: genes por ``locus_tag`` →
+    ``gene_id`` → ``gene_name``, horquillas por ``contig:inicio-fin``, etc.
+    Los promotores heredan las coordenadas de su operón porque la tabla de
+    promotores no trae coordenadas propias.
+    """
+    kind = str(kind or "").strip().lower()
+    ident = str(ident or "").strip()
+    tables = tables or {}
+    genes = tables.get("genes", pd.DataFrame())
+    operons = tables.get("operons", pd.DataFrame())
+
+    if kind == "gene":
+        row = _first_match(genes, ident,
+                           ("locus_tag", "gene_id", "gene_name"), contig=contig)
+        coords = _coords(row)
+        if row is None or coords is None:
+            return None
+        start, end = coords
+        gid = (row.get("locus_tag") or row.get("gene_id")
+               or row.get("gene_name") or f"{start}-{end}")
+        label = (row.get("gene_name") or row.get("locus_tag")
+                 or row.get("gene_id") or gid)
+        bits = [str(row.get("product") or "").strip()]
+        if row.get("ec"):
+            bits.append(f"EC {row['ec']}")
+        return {"kind": kind, "id": str(gid), "label": str(label),
+                "contig": str(row.get("contig") or contig or ""),
+                "start": start, "end": end,
+                "detail": " · ".join(b for b in bits if b)}
+
+    if kind == "operon":
+        row = _first_match(operons, ident, ("operon_id", "label"), contig=contig)
+        coords = _coords(row)
+        if row is None or coords is None:
+            return None
+        start, end = coords
+        oid = row.get("operon_id") or row.get("label") or f"{start}-{end}"
+        label = row.get("label") or row.get("operon_id") or oid
+        detail = (f"{row.get('n_genes', '—')} genes · "
+                  f"{row.get('span_bp', '—')} pb · {row.get('confidence', '—')}")
+        return {"kind": kind, "id": str(oid), "label": str(label),
+                "contig": str(row.get("contig") or contig or ""),
+                "start": start, "end": end, "detail": detail}
+
+    if kind == "promoter":
+        promoters = tables.get("promoters", pd.DataFrame())
+        p = _first_match(promoters, ident, ("operon_id", "label"))
+        if p is None:
+            return None
+        oid = str(p.get("operon_id") or p.get("label") or "")
+        op = (_first_match(operons, oid, ("operon_id",), contig=contig)
+              if oid else None)
+        coords = _coords(p)
+        if coords is None:
+            coords = _coords(op)
+        if coords is None:
+            return None
+        start, end = coords
+        pid = (p.get("operon_id") or (op.get("operon_id") if op is not None else None)
+               or p.get("label") or f"{start}")
+        p_contig = (p.get("contig") or (op.get("contig") if op is not None else None)
+                    or contig or "")
+        detail = (f"σ{p.get('sigma', '—')} · score {p.get('score', '—')} · "
+                  f"−35 {p.get('box35', '—')} · −10 {p.get('box10', '—')}")
+        return {"kind": kind, "id": str(pid),
+                "label": f"Promotor · {oid or pid}",
+                "contig": str(p_contig), "start": start, "end": end,
+                "detail": detail}
+
+    if kind == "hairpin":
+        hairpins = tables.get("hairpins", pd.DataFrame())
+        if (hairpins is None or hairpins.empty
+                or "start" not in hairpins.columns or "end" not in hairpins.columns):
+            return None
+        hp_contig, coords_text = contig, ident
+        if ":" in ident:
+            hp_contig, _, coords_text = ident.partition(":")
+        m = re.match(r"^(-?\d+)-(-?\d+)$", coords_text.strip())
+        if not m:
+            return None
+        start, end = int(m.group(1)), int(m.group(2))
+        sub = hairpins
+        if "contig" in sub.columns and hp_contig:
+            sub = sub[sub["contig"].astype(str) == str(hp_contig)]
+        s_num = pd.to_numeric(sub["start"], errors="coerce")
+        e_num = pd.to_numeric(sub["end"], errors="coerce")
+        hit = sub[(s_num == start) & (e_num == end)]
+        if hit.empty:
+            return None
+        row = hit.iloc[0].to_dict()
+        hid = f"{hp_contig or contig}:{start}-{end}"
+        detail = (f"clase {row.get('class', '—')} · ΔG {row.get('dG', '—')} · "
+                  f"tallo {row.get('stem', '—')} pb")
+        return {"kind": kind, "id": hid,
+                "label": f"Horquilla {row.get('class', '')}".strip(),
+                "contig": str(hp_contig or row.get("contig") or ""),
+                "start": start, "end": end, "detail": detail}
+
+    if kind == "complex":
+        complexes = tables.get("complexes", pd.DataFrame())
+        row = _first_match(complexes, ident, ("complex_id",), contig=contig)
+        coords = _coords(row)
+        if row is None or coords is None:
+            return None
+        start, end = coords
+        cid = row.get("complex_id") or f"{start}-{end}"
+        detail = (f"{row.get('status', '—')} · confianza "
+                  f"{row.get('confidence', '—')}")
+        return {"kind": kind, "id": str(cid),
+                "label": str(row.get("name") or cid),
+                "contig": str(row.get("contig") or contig or ""),
+                "start": start, "end": end, "detail": detail}
+
+    if kind == "suspect":
+        row = _first_match(suspects, ident, ("id", "suspect_id"), contig=contig)
+        if row is None and isinstance(suspects, pd.DataFrame) and not suspects.empty:
+            m = re.match(r"^(-?\d+)-(-?\d+)$", ident)
+            if m and "start" in suspects.columns and "end" in suspects.columns:
+                start, end = int(m.group(1)), int(m.group(2))
+                s_num = pd.to_numeric(suspects["start"], errors="coerce")
+                e_num = pd.to_numeric(suspects["end"], errors="coerce")
+                hit = suspects[(s_num == start) & (e_num == end)]
+                row = hit.iloc[0].to_dict() if not hit.empty else None
+        coords = _coords(row)
+        if row is None or coords is None:
+            return None
+        start, end = coords
+        sid = f"{start}-{end}"
+        return {"kind": kind, "id": sid,
+                "label": f"Sospecha · {row.get('n_genes', '—')} genes",
+                "contig": str(row.get("contig") or contig or ""),
+                "start": start, "end": end,
+                "detail": str(row.get("products") or "")}
+
+    if kind in ("tss", "tts"):
+        pos = _as_int(ident)
+        if pos is None:
+            return None
+        return {"kind": kind, "id": str(pos),
+                "label": f"{kind.upper()} · {pos:,} pb",
+                "contig": str(contig or ""), "start": pos, "end": pos,
+                "detail": ""}
+
+    return None
+
+
+def contig_lengths(tables: dict) -> dict[str, int]:
+    """Longitud aproximada de cada contig, a partir de la anotación.
+
+    No se lee el FASTA (el navegador solo tiene tablas); se usa el mayor ``end``
+    anotado. Es suficiente para la vista circular y se dice en la leyenda.
+    """
+    out: dict[str, int] = {}
+    for key in ("genes", "operons", "complexes", "hairpins"):
+        df = (tables or {}).get(key)
+        if (df is None or not isinstance(df, pd.DataFrame) or df.empty
+                or "contig" not in df.columns or "end" not in df.columns):
+            continue
+        sub = df[["contig", "end"]].copy()
+        sub["end"] = pd.to_numeric(sub["end"], errors="coerce")
+        sub = sub.dropna(subset=["contig", "end"])
+        if sub.empty:
+            continue
+        grouped = sub.groupby(sub["contig"].astype(str))["end"].max()
+        for name, value in grouped.items():
+            out[str(name)] = max(out.get(str(name), 0), int(value))
+    return out
+
+
+def viewport_for_span(span_start: int, span_end: int, contig_len: int, *,
+                      pad: int = 1_000, min_size: int = 1_000,
+                      size_options: tuple[int, ...] = WINDOW_STEPS) -> dict:
+    """Ventana de zoom centrada en un elemento y contenida en el contig.
+
+    Elige el menor tamaño de ``size_options`` que deja ``pad`` pb a cada lado;
+    si el elemento es enorme, usa el mayor tamaño disponible (el resalte sigue
+    funcionando aunque no quepa entero).
+    """
+    length = max(1, int(contig_len))
+    start = max(0, min(int(span_start), length))
+    end = max(start, min(int(span_end), length))
+    content = end - start
+    needed = max(int(min_size), content + 2 * int(pad))
+    options = sorted({int(o) for o in size_options if int(o) > 0}) or [needed]
+    size = next((o for o in options if o >= needed), options[-1])
+    center = (start + end) / 2.0
+    lo = int(round(center - size / 2.0))
+    lo = max(0, min(lo, max(0, length - size)))
+    hi = lo + size
+    label = next((lab for lab, bp in WINDOW_SIZES.items() if bp == size), None)
+    if label is None:
+        label = f"{size / 1000:g} kb" if size >= 1_000 else f"{size} pb"
+    return {"start": lo, "end": hi, "size": size, "size_label": label,
+            "contains": lo <= start and hi >= end}
+
+
+def selection_window(kind: str, ident: str, tables: dict, contig: str,
+                     start: int, end: int, *,
+                     contig_len: int | None = None,
+                     suspects: pd.DataFrame | None = None,
+                     pad: int = 1_000, min_size: int = 1_000) -> dict | None:
+    """Selección completa: elemento + ventana de zoom + si ya estaba visible.
+
+    Es la función que usa el botón «Ver en el dibujo». Devuelve ``None`` si el
+    elemento no está en las tablas cargadas (por ejemplo, una horquilla que ya
+    no existe).
+    """
+    info = element_span(kind, ident, tables, suspects=suspects, contig=contig)
+    if info is None:
+        return None
+    item_contig = str(info.get("contig") or contig or "")
+    length = contig_len if contig_len else contig_lengths(tables).get(item_contig)
+    if not length:
+        length = max(int(info["end"]), int(end), int(start) + 1, 1)
+    length = max(1, int(length), int(info["end"]))
+    view = viewport_for_span(info["start"], info["end"], length,
+                             pad=pad, min_size=min_size)
+    in_current = (item_contig == str(contig)
+                  and int(start) <= info["start"] and info["end"] <= int(end))
+    return {**info, "contig_len": length,
+            "view_start": view["start"], "view_end": view["end"],
+            "size": view["size"], "size_label": view["size_label"],
+            "in_current_window": in_current,
+            "view_contains": view["contains"]}
+
+
+# ------------------------------------- tabla y contador de elementos en pantalla
+def _empty_elements() -> pd.DataFrame:
+    return pd.DataFrame({col: pd.Series(dtype="object")
+                         for col in ELEMENT_COLUMNS})
+
+
+def _window_slice(df: pd.DataFrame | None, contig: str,
+                  start: int, end: int) -> pd.DataFrame:
+    """Filas cuyas coordenadas se solapan con la ventana; tolera tablas vacías."""
+    if df is None or not isinstance(df, pd.DataFrame) or df.empty:
+        return pd.DataFrame()
+    if "start" not in df.columns or "end" not in df.columns:
+        return df.iloc[0:0].copy()
+    sub = df
+    if contig and "contig" in sub.columns:
+        sub = sub[sub["contig"].astype(str) == str(contig)]
+    s_num = pd.to_numeric(sub["start"], errors="coerce")
+    e_num = pd.to_numeric(sub["end"], errors="coerce")
+    return sub[(e_num >= int(start)) & (s_num <= int(end))]
+
+
+def all_elements_on_screen(tables: dict, contig: str, start: int, end: int,
+                           *, tss: pd.DataFrame | None = None,
+                           tts: pd.DataFrame | None = None,
+                           suspects: pd.DataFrame | None = None) -> pd.DataFrame:
+    """Tabla única de todo lo que se dibuja en la ventana actual.
+
+    Devuelve columnas estables incluso sin datos: ``tipo`` (etiqueta humana),
+    ``kind``/``id`` (identidad que comparten SVG y ficha), ``etiqueta``,
+    ``inicio``, ``fin`` y ``detalle``. No incluye nada fuera de la ventana.
+    """
+    tables = tables or {}
+    rows: list[dict] = []
+
+    def add(kind: str, ident, label, item_start, item_end, detail: str = "") -> None:
+        s_int, e_int = _as_int(item_start), _as_int(item_end)
+        if s_int is None or e_int is None:
+            return
+        rows.append({
+            "tipo": ELEMENT_KIND_NAMES.get(kind, kind),
+            "kind": kind,
+            "id": str(ident),
+            "etiqueta": str(label or ident),
+            "inicio": s_int,
+            "fin": e_int,
+            "detalle": str(detail or ""),
+        })
+
+    genes = _window_slice(tables.get("genes"), contig, start, end)
+    for _, r in genes.iterrows():
+        s_int, e_int = _as_int(r.get("start")), _as_int(r.get("end"))
+        gid = (r.get("locus_tag") or r.get("gene_id") or r.get("gene_name")
+               or f"{s_int}-{e_int}")
+        label = r.get("gene_name") or r.get("locus_tag") or r.get("gene_id") or gid
+        detail = " · ".join(str(v) for v in
+                            (r.get("product"), r.get("ec")) if v)
+        add("gene", gid, label, s_int, e_int, detail)
+
+    operons = _window_slice(tables.get("operons"), contig, start, end)
+    for _, r in operons.iterrows():
+        s_int, e_int = _as_int(r.get("start")), _as_int(r.get("end"))
+        oid = r.get("operon_id") or r.get("label") or f"{s_int}-{e_int}"
+        detail = (f"{r.get('n_genes', '—')} genes · "
+                  f"{r.get('span_bp', '—')} pb · {r.get('confidence', '—')}")
+        add("operon", oid, r.get("label") or oid, s_int, e_int, detail)
+
+    promoters = tables.get("promoters")
+    if isinstance(promoters, pd.DataFrame) and not promoters.empty:
+        all_operons = tables.get("operons")
+        op_by_id: dict[str, dict] = {}
+        if isinstance(all_operons, pd.DataFrame) and not all_operons.empty \
+                and "operon_id" in all_operons.columns:
+            op_by_id = {str(op.get("operon_id")): op
+                        for _, op in all_operons.iterrows()}
+        for _, p in promoters.iterrows():
+            oid = str(p.get("operon_id") or p.get("label") or "")
+            op = op_by_id.get(oid)
+            s_int, e_int = _as_int(p.get("start")), _as_int(p.get("end"))
+            if s_int is None or e_int is None:
+                s_int = _as_int(op.get("start")) if op is not None else None
+                e_int = _as_int(op.get("end")) if op is not None else None
+            if s_int is None or e_int is None:
+                continue
+            p_contig = (p.get("contig")
+                        or (op.get("contig") if op is not None else None)
+                        or contig or "")
+            if contig and p_contig and str(p_contig) != str(contig):
+                continue
+            if e_int < int(start) or s_int > int(end):
+                continue
+            pid = (p.get("operon_id")
+                   or (op.get("operon_id") if op is not None else None)
+                   or p.get("label") or f"{s_int}")
+            detail = (f"σ{p.get('sigma', '—')} · score {p.get('score', '—')} · "
+                      f"−35 {p.get('box35', '—')} · −10 {p.get('box10', '—')}")
+            add("promoter", pid, f"Promotor · {oid or pid}", s_int, e_int, detail)
+
+    hairpins = _window_slice(tables.get("hairpins"), contig, start, end)
+    for _, r in hairpins.iterrows():
+        s_int, e_int = _as_int(r.get("start")), _as_int(r.get("end"))
+        if s_int is None or e_int is None:
+            continue
+        hp_contig = str(r.get("contig") or contig or "")
+        hid = f"{contig}:{s_int}-{e_int}"
+        detail = (f"clase {r.get('class', '—')} · ΔG {r.get('dG', '—')} · "
+                  f"tallo {r.get('stem', '—')} pb")
+        add("hairpin", hid, f"Horquilla {r.get('class', '')}".strip(),
+            s_int, e_int, detail)
+
+    for kind, frame in (("tss", tss), ("tts", tts)):
+        if (frame is None or not isinstance(frame, pd.DataFrame) or frame.empty
+                or "pos" not in frame.columns):
+            continue
+        positions = pd.to_numeric(frame["pos"], errors="coerce")
+        sub = frame[(positions >= int(start)) & (positions <= int(end))]
+        for _, r in sub.iterrows():
+            pos = _as_int(r.get("pos"))
+            if pos is None:
+                continue
+            detail = " · ".join(str(v) for v in
+                                (r.get("source"), r.get("detail")) if v)
+            add(kind, str(pos), f"{kind.upper()} · {pos:,} pb",
+                pos, pos, detail)
+
+    complexes = _window_slice(tables.get("complexes"), contig, start, end)
+    for _, r in complexes.iterrows():
+        s_int, e_int = _as_int(r.get("start")), _as_int(r.get("end"))
+        cid = r.get("complex_id") or f"{s_int}-{e_int}"
+        detail = (f"{r.get('status', '—')} · confianza "
+                  f"{r.get('confidence', '—')}")
+        add("complex", cid, r.get("name") or cid, s_int, e_int, detail)
+
+    suspect_rows = _window_slice(suspects, contig, start, end)
+    for _, r in suspect_rows.iterrows():
+        s_int, e_int = _as_int(r.get("start")), _as_int(r.get("end"))
+        sid = f"{s_int}-{e_int}"
+        add("suspect", sid, f"Sospecha · {r.get('n_genes', '—')} genes",
+            s_int, e_int, str(r.get("products") or ""))
+
+    if not rows:
+        return _empty_elements()
+    table = pd.DataFrame(rows, columns=list(ELEMENT_COLUMNS))
+    return table.sort_values(["inicio", "fin", "tipo"]).reset_index(drop=True)
+
+
+def element_counts(table: pd.DataFrame | None) -> dict[str, int]:
+    """Conteo por ``kind`` de la tabla de elementos en pantalla."""
+    if (table is None or not isinstance(table, pd.DataFrame) or table.empty
+            or "kind" not in table.columns):
+        return {}
+    counts = table["kind"].astype(str).value_counts()
+    return {str(k): int(v) for k, v in counts.items()}
+
+
+def elements_counter_text(counts: dict[str, int] | None) -> str:
+    """Frase del contador: total + desglose por pista, en español."""
+    clean = {str(k): int(v) for k, v in (counts or {}).items() if int(v) > 0}
+    total = sum(clean.values())
+    if total == 0:
+        return "0 elementos en pantalla"
+    noun = "elemento" if total == 1 else "elementos"
+    ordered = [k for k in ELEMENT_KIND_LABELS if k in clean]
+    ordered += [k for k in clean if k not in ELEMENT_KIND_LABELS]
+    parts = []
+    for k in ordered:
+        n = clean[k]
+        label = (ELEMENT_KIND_SINGULAR.get(k, k) if n == 1
+                 else ELEMENT_KIND_LABELS.get(k, k).lower())
+        parts.append(f"{n} {label}")
+    return f"{total} {noun} en pantalla: " + " · ".join(parts)
+
+
+def parse_sel(value) -> dict | None:
+    """Convierte ``?sel=gene:b0001`` en ``{"kind": "gene", "id": "b0001"}``."""
+    raw = str(value or "").strip()
+    if not raw or ":" not in raw:
+        return None
+    kind, _, ident = raw.partition(":")
+    kind = kind.strip().lower()
+    ident = ident.strip()
+    if kind not in ELEMENT_KIND_LABELS or not ident:
+        return None
+    return {"kind": kind, "id": ident}
+
+
+def _safe_slug(value: str) -> str:
+    """Nombre de archivo seguro para el CSV de exportación."""
+    text = "".join(ch if (ch.isalnum() or ch in "-_.") else "_"
+                   for ch in str(value))
+    return text.strip("._")[:60] or "genoma"
+
+
+
+# ------------------------------------------------------- vista circular SVG
+def _polar(cx: float, cy: float, radius: float,
+           angle_deg: float) -> tuple[float, float]:
+    """Punto en un círculo; 0° arriba y los ángulos crecen en sentido horario."""
+    rad = math.radians(float(angle_deg))
+    return (cx + radius * math.sin(rad), cy - radius * math.cos(rad))
+
+
+def _arc_path(cx: float, cy: float, radius: float,
+              angle0: float, angle1: float) -> str:
+    """Camino SVG de un arco circular (sentido horario)."""
+    sweep = float(angle1) - float(angle0)
+    if abs(sweep) < 1e-9:
+        return ""
+    p0 = _polar(cx, cy, radius, angle0)
+    p1 = _polar(cx, cy, radius, angle1)
+    if abs(sweep) >= 359.999:
+        mid = float(angle0) + sweep / 2.0
+        pm = _polar(cx, cy, radius, mid)
+        return (f"M {p0[0]:.2f} {p0[1]:.2f} "
+                f"A {radius:.2f} {radius:.2f} 0 1 1 {pm[0]:.2f} {pm[1]:.2f} "
+                f"A {radius:.2f} {radius:.2f} 0 1 1 {p1[0]:.2f} {p1[1]:.2f}")
+    large = 1 if abs(sweep) > 180 else 0
+    sweep_flag = 1 if sweep > 0 else 0
+    return (f"M {p0[0]:.2f} {p0[1]:.2f} "
+            f"A {radius:.2f} {radius:.2f} 0 {large} {sweep_flag} "
+            f"{p1[0]:.2f} {p1[1]:.2f}")
+
+
+def circular_geometry(contig_len: int, start: int, end: int, *,
+                      cx: float = 210.0, cy: float = 220.0,
+                      radius: float = 128.0, tick_count: int = 12) -> dict:
+    """Geometría pura del contig circular y de la ventana lineal.
+
+    - 0° está arriba y los ángulos crecen en sentido horario.
+    - La ventana puede cruzar el origen (``start + span > contig_len``).
+    - Si la ventana abarca todo el contig, ``full_circle`` es ``True`` y no hay
+      un único arco SVG: se dibuja un anillo completo.
+    """
+    length = max(1, int(contig_len))
+    s = max(0, int(start))
+    e = max(s, int(end))
+    raw_span = e - s
+    full_circle = raw_span >= length
+    span = length if full_circle else min(raw_span, length)
+    start_mod = s % length
+    start_angle = 360.0 * start_mod / length
+    sweep = 360.0 if full_circle else 360.0 * span / length
+    end_angle = start_angle + sweep
+    window_path = ("" if full_circle or sweep <= 0
+                   else _arc_path(cx, cy, radius, start_angle, end_angle))
+    count = max(4, int(tick_count))
+    major_ticks = {0, count // 4, count // 2, (3 * count) // 4}
+    ticks: list[dict] = []
+    for i in range(count):
+        angle = 360.0 * i / count
+        pos = length * i / count
+        major = i in major_ticks
+        x1, y1 = _polar(cx, cy, radius, angle)
+        x2, y2 = _polar(cx, cy, radius + (10.0 if major else 5.0), angle)
+        lx, ly = _polar(cx, cy, radius + (24.0 if major else 16.0), angle)
+        ticks.append({"pos": int(round(pos)), "angle": angle, "major": major,
+                      "x1": x1, "y1": y1, "x2": x2, "y2": y2,
+                      "label_x": lx, "label_y": ly})
+    start_point = _polar(cx, cy, radius, start_angle)
+    end_point = _polar(cx, cy, radius, end_angle)
+    return {
+        "contig_len": length,
+        "start": s, "end": e, "span": span,
+        "fraction": 1.0 if full_circle else span / length,
+        "cx": cx, "cy": cy, "radius": radius,
+        "start_angle": start_angle, "end_angle": end_angle,
+        "sweep": sweep, "full_circle": full_circle,
+        "wraps": (not full_circle) and (start_mod + span) > length,
+        "window_path": window_path,
+        "start_point": start_point, "end_point": end_point,
+        "ticks": ticks,
+    }
+
+
+def circular_svg(contig: str, contig_len: int, start: int, end: int, *,
+                 width: int = 560, height: int = 500,
+                 tick_count: int = 12) -> str:
+    """SVG autónomo del contig circular con la ventana lineal resaltada.
+
+    No usa librerías: es un dibujo geométrico con un anillo gris (contig), un
+    arco naranja (ventana), ticks y una leyenda que explica que la ventana
+    lineal es una porción del círculo.
+    """
+    width = max(360, int(width))
+    height = max(380, int(height))
+    cx = round(width * 0.38, 1)
+    cy = round(height * 0.46, 1)
+    radius = round(min(width * 0.24, height * 0.28), 1)
+    geo = circular_geometry(contig_len, start, end, cx=cx, cy=cy,
+                            radius=radius, tick_count=tick_count)
+    length = geo["contig_len"]
+    frac = geo["fraction"] * 100.0
+    contig_safe = _esc_attr(contig)
+    aria = (f"Contig {contig} de {length:,} pb en vista circular; la ventana "
+            f"lineal {geo['start']:,}–{geo['end']:,} pb es la porción resaltada.")
+    out = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" '
+        f'viewBox="0 0 {width} {height}" font-family="sans-serif" role="img" '
+        f'aria-label="{_esc_attr(aria)}" '
+        f'style="max-width:{width}px;height:auto;display:block">',
+        f'<title>{_esc_attr(aria)}</title>',
+        f'<text x="12" y="22" font-size="14" font-weight="700" fill="#2f3440">'
+        f'Contig {_esc(contig)}</text>',
+        f'<text x="12" y="40" font-size="11" fill="#7a7f8c">'
+        f'{length:,} pb · vista circular complementaria</text>',
+        f'<circle data-role="contig" cx="{cx}" cy="{cy}" r="{radius}" '
+        f'fill="#fbfcfe" stroke="#dfe3ea" stroke-width="18"/>',
+    ]
+    if geo["full_circle"]:
+        out.append(f'<circle data-role="window" cx="{cx}" cy="{cy}" '
+                   f'r="{radius}" fill="none" stroke="#e8710a" '
+                   f'stroke-width="18" opacity="0.9"/>')
+    elif geo["window_path"]:
+        out.append(f'<path data-role="window" d="{geo["window_path"]}" '
+                   f'fill="none" stroke="#e8710a" stroke-width="18" '
+                   f'opacity="0.9" stroke-linecap="butt"/>')
+        for role, point in (("start", geo["start_point"]),
+                            ("end", geo["end_point"])):
+            out.append(f'<circle data-role="window-{role}" cx="{point[0]:.2f}" '
+                       f'cy="{point[1]:.2f}" r="4.5" fill="#b34700" '
+                       f'stroke="#fff" stroke-width="1.5"/>')
+    out.append('<g data-role="ticks">')
+    for tick in geo["ticks"]:
+        stroke = "#8f96a6" if tick["major"] else "#c3c9d4"
+        out.append(f'<line x1="{tick["x1"]:.2f}" y1="{tick["y1"]:.2f}" '
+                   f'x2="{tick["x2"]:.2f}" y2="{tick["y2"]:.2f}" '
+                   f'stroke="{stroke}" '
+                   f'stroke-width="{1.6 if tick["major"] else 0.9}"/>')
+        if tick["major"]:
+            out.append(f'<text x="{tick["label_x"]:.2f}" '
+                       f'y="{tick["label_y"]:.2f}" text-anchor="middle" '
+                       f'font-size="9.5" fill="#6f7482">'
+                       f'{tick["pos"]:,}</text>')
+    out.append("</g>")
+    # centro: identidad del contig y fracción que ocupa la ventana
+    out.append(f'<text x="{cx}" y="{cy - 16}" text-anchor="middle" '
+               f'font-size="12" font-weight="700" fill="#2f3440">'
+               f'{_esc(contig)}</text>')
+    out.append(f'<text x="{cx}" y="{cy + 2}" text-anchor="middle" '
+               f'font-size="11" fill="#5b6070">{length:,} pb</text>')
+    out.append(f'<text x="{cx}" y="{cy + 20}" text-anchor="middle" '
+               f'font-size="11" fill="#b34700">{frac:.1f}% del contig</text>')
+    out.append(f'<text x="{cx}" y="{cy + 37}" text-anchor="middle" '
+               f'font-size="10" fill="#7a7f8c">'
+               f'ventana {geo["start"]:,}–{geo["end"]:,} pb</text>')
+    # leyenda
+    legend_y = height - 92
+    out.append(f'<g data-role="legend" font-size="11" fill="#3b3f4a">')
+    out.append(f'<line x1="28" y1="{legend_y}" x2="58" y2="{legend_y}" '
+               f'stroke="#dfe3ea" stroke-width="8"/>')
+    out.append(f'<text x="68" y="{legend_y + 4}">Contig completo · '
+               f'{length:,} pb</text>')
+    out.append(f'<line x1="28" y1="{legend_y + 24}" x2="58" '
+               f'y2="{legend_y + 24}" stroke="#e8710a" stroke-width="8"/>')
+    out.append(f'<text x="68" y="{legend_y + 28}">Ventana lineal actual · '
+               f'{geo["start"]:,}–{geo["end"]:,} pb</text>')
+    if geo["wraps"]:
+        out.append(f'<text x="68" y="{legend_y + 48}" fill="#b34700">'
+                   f'La ventana cruza el origen del contig circular.</text>')
+    out.append("</g>")
+    out.append(f'<text x="12" y="{height - 14}" font-size="11" fill="#5b6070">'
+               f'La ventana lineal es una porción del círculo: el rectángulo de '
+               f'arriba muestra solo ese tramo.</text>')
+    out.append("</svg>")
+    return "".join(out)
+
+
 # ------------------------------------------------------- ficha al hacer clic
 def _match_any(df: pd.DataFrame, value, cols: tuple[str, ...]) -> pd.Series:
     """Máscara booleana tolerante a columnas ausentes."""
@@ -554,28 +1307,47 @@ def _row(df: pd.DataFrame, mask) -> dict | None:
     return sub.iloc[0].to_dict() if len(sub) else None
 
 
-def _gene_detail(tables: dict, gid: str) -> None:
+def load_genome_sequences(data_root: Path, genome: str) -> dict[str, str]:
+    """Carga el FASTA local del genoma (raw o raw_excluded) al abrir una ficha."""
+    import gzip
+    for sub in ("raw", "raw_excluded"):
+        path = Path(data_root) / sub / f"{genome}_genomic.fna.gz"
+        if not path.exists():
+            continue
+        out: dict[str, str] = {}
+        name, chunks = "", []
+        try:
+            with gzip.open(path, "rt", errors="replace") as fh:
+                for line in fh:
+                    line = line.strip()
+                    if line.startswith(">"):
+                        if name:
+                            out[name] = "".join(chunks)
+                        name = line[1:].split()[0]
+                        chunks = []
+                    else:
+                        chunks.append(line)
+                if name:
+                    out[name] = "".join(chunks)
+        except OSError:
+            return {}
+        return out
+    return {}
+
+
+def _gene_detail(tables: dict, gid: str, data_root: Path | None = None,
+                 genome: str = "") -> None:
     g = _row(tables["genes"], _match_any(
         tables["genes"], gid, ("locus_tag", "gene_id", "gene_name")))
     if not g:
         st.warning(tr("Ese gen ya no está en la ventana actual."))
         return
-    name = g.get("gene_name") or g.get("locus_tag") or g.get("gene_id")
-    st.markdown(f"### 🧬 {name}")
-    c1, c2, c3, c4 = st.columns(4)
-    c1.metric(tr("Longitud"), f"{int(g['end']) - int(g['start']) + 1:,} pb")
-    c2.metric(tr("Hebra"), "−" if str(g.get("strand")) in ("-1", "-") else "+")
-    c3.metric(tr("Inicio"), f"{int(g['start']):,}")
-    c4.metric(tr("Fin"), f"{int(g['end']):,}")
-    st.markdown(f"**{tr('Producto')}:** {g.get('product') or tr('sin anotar')}")
-    if g.get("locus_tag"):
-        st.markdown(f"**Locus tag:** `{g['locus_tag']}`")
-    if g.get("ec"):
-        st.markdown(f"**EC:** `{g['ec']}`")
-    if g.get("gene_type") or g.get("rna"):
-        st.markdown(f"**{tr('Tipo')}:** {g.get('gene_type') or g.get('rna')}")
-    st.caption(tr("Confianza: {c} · fuente: {s} · estado: {e}").format(
-        c=g.get("confidence", "—"), s=g.get("source", "—"), e=g.get("status", "—")))
+    data_root = Path(data_root) if data_root is not None else Path("data")
+    seqs = load_genome_sequences(data_root, genome) if genome else {}
+    _gene_card.render_gene_card(
+        g, genome, data_root, sequences=seqs,
+        key_prefix=f"browser_{genome}_{gid}",
+    )
 
 
 def _operon_detail(tables: dict, oid: str) -> None:
@@ -668,15 +1440,112 @@ def _complex_detail(tables: dict, ident: str) -> None:
     st.caption(row.get("limitation", ""))
 
 
+def _query_value(name: str) -> str | None:
+    """Lee un query param sin romperse fuera de una ejecución de Streamlit."""
+    try:
+        value = st.query_params.get(name)
+    except Exception:
+        return None
+    if isinstance(value, (list, tuple)):
+        value = value[0] if value else None
+    return None if value is None else str(value)
+
+
+def _focus_payload(kind: str, ident: str, *, source: str = "tabla",
+                   ts=None) -> dict:
+    return {"kind": str(kind), "id": str(ident), "source": source, "ts": ts}
+
+
+def _focus_key(focus: dict | None) -> str:
+    if not isinstance(focus, dict):
+        return ""
+    kind, ident = focus.get("kind"), focus.get("id")
+    if kind and ident is not None:
+        return f"{kind}:{ident}"
+    return ""
+
+
+def _activate_element(data_root: Path, genome: str, tables: dict,
+                      kind: str, ident: str, *,
+                      suspects: pd.DataFrame | None = None) -> None:
+    """Fija ``sel`` y, si hace falta, la ventana; luego resalta el elemento.
+
+    Si el elemento ya está dentro de la ventana no se mueve el viewport: se
+    resalta donde el usuario lo está viendo. Si está fuera, se deja preparada
+    una vista de zoom que se aplica al inicio del siguiente rerun (antes de
+    crear los widgets, para que Streamlit no conserve los valores viejos).
+    """
+    contig = str(st.session_state.get("br_contig") or "")
+    try:
+        cur_start = int(st.session_state.get("br_start") or 0)
+    except (TypeError, ValueError):
+        cur_start = 0
+    cur_size = WINDOW_SIZES.get(str(st.session_state.get("br_size_sel")), 10_000)
+    info = selection_window(kind, ident, tables, contig, cur_start,
+                            cur_start + cur_size,
+                            contig_len=contig_lengths(tables).get(contig),
+                            suspects=suspects)
+    if info is None:
+        st.warning(tr("Ese elemento ya no está en las tablas cargadas."))
+        return
+    focus_id = str(info["id"])
+    st.session_state["br_focus"] = _focus_payload(kind, focus_id, source="tabla")
+    st.session_state["br_focus_key"] = f"{kind}:{focus_id}"
+    st.session_state.pop("br_dismissed_key", None)
+    st.session_state.pop("br_dismissed", None)
+    if info["in_current_window"]:
+        view_start = cur_start
+        view_label = str(st.session_state.get("br_size_sel") or "")
+    else:
+        view_start = info["view_start"]
+        view_label = info["size_label"]
+        st.session_state["br_pending_view"] = {
+            "contig": info["contig"], "start": view_start,
+            "size_label": view_label,
+        }
+    try:
+        st.query_params["sel"] = f"{kind}:{focus_id}"
+        st.query_params["contig"] = str(info["contig"])
+        st.query_params["pos"] = str(view_start)
+        if view_label in WINDOW_SIZES:
+            st.query_params["w"] = view_label
+    except Exception:
+        pass
+    st.rerun()
+
+
+def _clear_focus() -> None:
+    """Quita el resalte y el ``sel`` de la URL, sin tocar la ventana."""
+    focused = st.session_state.get("br_focus_key")
+    if focused:
+        st.session_state["br_auto_disabled"] = focused
+    st.session_state.pop("br_focus", None)
+    st.session_state.pop("br_focus_key", None)
+    st.session_state.pop("br_dismissed_key", None)
+    st.session_state.pop("br_url_sel_seen", None)
+    st.session_state["br_dismissed"] = None
+    try:
+        if st.query_params.get("sel"):
+            del st.query_params["sel"]
+    except (KeyError, TypeError):
+        pass
+    st.rerun()
+
+
 def _render_pick(data_root: Path, genome: str, tables: dict, pick: dict) -> None:
     kind, ident = pick.get("kind"), str(pick.get("id", ""))
     with st.container(border=True):
         head, close = st.columns([6, 1])
         with head:
-            st.caption(tr("Has hecho clic en el dibujo. Esta ficha explica ese elemento."))
+            st.caption(tr("Elemento seleccionado (tabla, dibujo o enlace). "
+                          "Esta ficha explica ese elemento."))
         with close:
             if st.button("✖ " + tr("Cerrar"), key="br_close_pick"):
                 st.session_state["br_dismissed"] = pick.get("ts")
+                st.session_state["br_dismissed_key"] = f"{kind}:{ident}"
+                st.session_state.pop("br_focus", None)
+                st.session_state.pop("br_focus_key", None)
+                st.session_state.pop("br_url_sel_seen", None)
                 if st.query_params.get("sel"):
                     try:
                         del st.query_params["sel"]
@@ -684,7 +1553,7 @@ def _render_pick(data_root: Path, genome: str, tables: dict, pick: dict) -> None
                         pass
                 st.rerun()
         if kind == "gene":
-            _gene_detail(tables, ident)
+            _gene_detail(tables, ident, data_root, genome)
         elif kind == "operon":
             _operon_detail(tables, ident)
         elif kind == "promoter":
@@ -727,21 +1596,84 @@ def render(data_root: Path, genome: str) -> None:
         st.warning("El genoma no tiene contigs anotados.")
         return
 
+    max_pos = max(0, int(genes["end"].max()))
     if st.session_state.get("br_genome") != genome:
         ini = 50_000 if genome == "ecoli_k12" else int(genes["start"].min())
-        st.session_state.update({"br_genome": genome, "br_contig": contigs[0],
-                                 "br_start": ini, "br_size": 10_000})
-    # enlace directo a una región: ?pos=123456&w=10+kb&sel=gene:b0048
-    try:
-        if st.query_params.get("pos"):
-            st.session_state["br_start"] = int(st.query_params["pos"])
-        wq = st.query_params.get("w")
-        if wq in WINDOW_SIZES:
-            st.session_state["br_size_sel"] = wq
-        if st.query_params.get("contig") in contigs:
-            st.session_state["br_contig"] = st.query_params["contig"]
-    except (TypeError, ValueError):
-        pass
+        st.session_state.update({
+            "br_genome": genome, "br_contig": contigs[0],
+            "br_contig_sel": contigs[0], "br_start": ini, "br_pos": ini,
+            "br_size": 10_000, "br_size_sel": "10 kb",
+        })
+        st.session_state.pop("br_focus", None)
+        st.session_state.pop("br_focus_key", None)
+        st.session_state.pop("br_auto_row", None)
+        st.session_state.pop("br_auto_disabled", None)
+        st.session_state["br_qp_token"] = None
+
+    # Vista pendiente de un botón «Ver en el dibujo». Se aplica antes de crear
+    # los widgets para que los controles no conserven el valor anterior.
+    pending = st.session_state.pop("br_pending_view", None)
+    if isinstance(pending, dict):
+        p_contig = pending.get("contig")
+        if p_contig in contigs:
+            st.session_state["br_contig"] = p_contig
+            st.session_state["br_contig_sel"] = p_contig
+        p_start = pending.get("start")
+        if p_start is not None:
+            try:
+                p_start = min(max(0, int(p_start)), max_pos)
+            except (TypeError, ValueError):
+                p_start = None
+            if p_start is not None:
+                st.session_state["br_start"] = p_start
+                st.session_state["br_pos"] = p_start
+        if pending.get("size_label") in WINDOW_SIZES:
+            st.session_state["br_size_sel"] = pending["size_label"]
+
+    # Enlace directo a una región: ?pos=123456&w=10+kb&contig=c1&sel=gene:b0048
+    # El token evita reaplicar la URL en cada rerun y pisar lo que movió el
+    # usuario; solo cambia cuando la URL cambia.
+    qp_pos = _query_value("pos")
+    qp_w = _query_value("w")
+    qp_contig = _query_value("contig")
+    qp_token = "|".join(x or "" for x in (qp_pos, qp_w, qp_contig))
+    if qp_token != st.session_state.get("br_qp_token"):
+        try:
+            if qp_pos is not None:
+                p_start = min(max(0, int(qp_pos)), max_pos)
+                st.session_state["br_start"] = p_start
+                st.session_state["br_pos"] = p_start
+            if qp_w in WINDOW_SIZES:
+                st.session_state["br_size_sel"] = qp_w
+            if qp_contig in contigs:
+                st.session_state["br_contig"] = qp_contig
+                st.session_state["br_contig_sel"] = qp_contig
+        except (TypeError, ValueError):
+            pass
+        st.session_state["br_qp_token"] = qp_token
+
+    # ?sel=tipo:id deja el elemento resaltado al abrir un enlace compartido.
+    # Se aplica solo cuando el valor de la URL cambia, para que un clic en el
+    # dibujo no sea pisado en el siguiente rerun por el sel anterior.
+    raw_sel = _query_value("sel")
+    url_sel = parse_sel(raw_sel)
+    if url_sel and str(raw_sel or "") != st.session_state.get("br_url_sel_seen"):
+        st.session_state["br_url_sel_seen"] = str(raw_sel or "")
+        info = element_span(url_sel["kind"], url_sel["id"], tables,
+                            contig=st.session_state.get("br_contig"))
+        f_kind = url_sel["kind"]
+        f_id = str(info["id"]) if info else url_sel["id"]
+        f_key = f"{f_kind}:{f_id}"
+        if f_key != st.session_state.get("br_focus_key"):
+            st.session_state["br_focus"] = _focus_payload(
+                f_kind, f_id, source="url")
+            st.session_state["br_focus_key"] = f_key
+            st.session_state.pop("br_dismissed_key", None)
+            if info and f_id != url_sel["id"]:
+                try:
+                    st.query_params["sel"] = f_key
+                except Exception:
+                    pass
 
     # --- búsqueda
     q = st.text_input(
@@ -761,28 +1693,42 @@ def render(data_root: Path, genome: str) -> None:
             )
             if st.button("Saltar a este resultado", key="br_jump"):
                 h = hits[pick]
-                if h["contig"]:
-                    st.session_state["br_contig"] = h["contig"]
-                st.session_state["br_start"] = max(0, h["pos"] - 2_000)
+                st.session_state["br_pending_view"] = {
+                    "contig": h["contig"] or st.session_state.get("br_contig"),
+                    "start": max(0, h["pos"] - 2_000),
+                    "size_label": st.session_state.get("br_size_sel"),
+                }
                 st.rerun()
 
     # --- controles
+    # Los valores viven en Session State (para que los botones puedan fijar la
+    # vista); por eso el widget no recibe ``value``/``index`` a la vez.
+    if st.session_state.get("br_contig") not in contigs:
+        st.session_state["br_contig"] = contigs[0]
+    if st.session_state.get("br_contig_sel") not in contigs:
+        st.session_state["br_contig_sel"] = st.session_state["br_contig"]
+    if st.session_state.get("br_size_sel") not in WINDOW_SIZES:
+        st.session_state["br_size_sel"] = "10 kb"
+    st.session_state.setdefault(
+        "br_pos", min(int(st.session_state.get("br_start", 0)), max_pos))
     c1, c2, c3, c4, c5 = st.columns([2, 2, 1.6, 1, 1])
-    contig = c1.selectbox("Contig", contigs,
-                          index=contigs.index(st.session_state["br_contig"])
-                          if st.session_state["br_contig"] in contigs else 0,
-                          key="br_contig_sel")
+    contig = c1.selectbox("Contig", contigs, key="br_contig_sel")
     st.session_state["br_contig"] = contig
-    size_label = c2.selectbox("Ventana", list(WINDOW_SIZES), index=1, key="br_size_sel")
+    size_label = c2.selectbox("Ventana", list(WINDOW_SIZES), key="br_size_sel")
     size = WINDOW_SIZES[size_label]
-    start = c3.number_input("Posición (pb)", 0, max(0, int(genes["end"].max())),
-                            int(st.session_state["br_start"]), step=size, key="br_pos")
+    start = c3.number_input("Posición (pb)", 0, max_pos, step=size, key="br_pos")
     st.session_state["br_start"] = int(start)
     if c4.button("◀", key="br_left"):
-        st.session_state["br_start"] = max(0, int(start) - size)
+        st.session_state["br_pending_view"] = {
+            "contig": contig, "start": max(0, int(start) - size),
+            "size_label": size_label,
+        }
         st.rerun()
     if c5.button("▶", key="br_right"):
-        st.session_state["br_start"] = int(start) + size
+        st.session_state["br_pending_view"] = {
+            "contig": contig, "start": max(0, int(start) + size),
+            "size_label": size_label,
+        }
         st.rerun()
 
     # --- pistas visibles: casillas, para poder superponer sin que se pisen
@@ -805,17 +1751,66 @@ def render(data_root: Path, genome: str) -> None:
     start, end = int(start), int(start) + size
     wg = genes[(genes["contig"] == contig)
                & (genes["end"] >= start) & (genes["start"] <= end)].sort_values("start")
-    susp = suspects_window(data_root, genome, contig, start, end) if ver_sospecha else pd.DataFrame()
+    susp = (suspects_window(data_root, genome, contig, start, end)
+            if ver_sospecha else pd.DataFrame())
+    screen_elements = all_elements_on_screen(
+        tables, contig, start, end, tss=tss_df, tts=tts_df, suspects=susp,
+    )
+    counts = element_counts(screen_elements)
+    if "br_all_elements" not in st.session_state:
+        st.session_state["br_all_elements"] = True
+    highlight_all = bool(st.session_state.get("br_all_elements", True))
+
     st.caption(f"{genome} · {contig} · {start:,}–{end:,} pb · "
-               f"{len(wg)} genes en la ventana")
+               f"{len(screen_elements)} elementos en pantalla "
+               f"({len(wg)} genes en la ventana)")
+
+    focus = st.session_state.get("br_focus")
+    focus = focus if isinstance(focus, dict) else None
+    focus_key = _focus_key(focus)
+    focus_kind = str(focus.get("kind") or "") if focus else ""
+    focus_id = str(focus.get("id") or "") if focus else ""
 
     clicked = genome_track(
         svg(tables, contig, start, end, tracks=tracks, suspects=susp,
-            tss=tss_df, tts=tts_df),
-        key="genome_track",
+            tss=tss_df, tts=tts_df, focus=focus_key,
+            highlight_all=highlight_all),
+        key="genome_track", pos=start, contig=contig, window=size_label,
     )
-    if clicked and clicked.get("ts") != st.session_state.get("br_dismissed"):
-        _render_pick(data_root, genome, tables, clicked)
+
+    # Clic en el dibujo: se guarda la selección y se rerenderiza para que el
+    # grupo reciba la clase de resalte. El ts evita bucles con el valor que el
+    # componente conserva entre ejecuciones.
+    if clicked:
+        ts = clicked.get("ts")
+        if (ts != st.session_state.get("br_dismissed")
+                and ts != st.session_state.get("br_last_click_ts")):
+            clicked_kind = str(clicked.get("kind") or "")
+            clicked_id = str(clicked.get("id") or "")
+            if clicked_kind and clicked_id:
+                st.session_state["br_last_click_ts"] = ts
+                new_key = f"{clicked_kind}:{clicked_id}"
+                st.session_state["br_focus"] = _focus_payload(
+                    clicked_kind, clicked_id, source="dibujo", ts=ts)
+                st.session_state["br_focus_key"] = new_key
+                st.session_state.pop("br_dismissed_key", None)
+                try:
+                    st.query_params["sel"] = new_key
+                    st.query_params["contig"] = contig
+                    st.query_params["pos"] = str(start)
+                    if size_label in WINDOW_SIZES:
+                        st.query_params["w"] = size_label
+                    st.session_state["br_url_sel_seen"] = new_key
+                except Exception:
+                    pass
+                st.rerun()
+
+    if (focus and focus_key
+            and st.session_state.get("br_dismissed_key") != focus_key):
+        _render_pick(data_root, genome, tables, {
+            "kind": focus_kind, "id": focus_id,
+            "ts": focus.get("ts") if focus else None,
+        })
 
     # --- distancias
     if len(wg) > 1:
@@ -825,6 +1820,22 @@ def render(data_root: Path, genome: str) -> None:
             st.caption(f"Distancia entre genes contiguos: mediana "
                        f"{pd.Series(gaps).median():.0f} pb · mínimo {min(gaps)} pb · "
                        f"máximo {max(gaps)} pb")
+
+    # --- vista circular complementaria
+    c_len = contig_lengths(tables).get(str(contig))
+    if c_len:
+        st.markdown("#### 🧭 Vista circular del contig")
+        st.caption(
+            "El contig se dibuja como un **círculo completo**. La **ventana "
+            "lineal** de arriba es la porción naranja resaltada: no es un "
+            "cromosoma aparte, es el mismo contig visto entero. Los ticks "
+            "marcan posiciones y el centro indica qué fracción ocupa la ventana."
+        )
+        st.markdown(circular_svg(contig, int(c_len), start, end),
+                    unsafe_allow_html=True)
+        st.caption(f"Longitud estimada desde la anotación: {int(c_len):,} pb. "
+                   "La vista circular es complementaria; la tabla y las fichas "
+                   "siguen usando la ventana lineal.")
 
     # --- leyenda
     st.markdown(
@@ -841,19 +1852,21 @@ def render(data_root: Path, genome: str) -> None:
         '<span style="color:#c58a00">▭</span> complejo incompleto',
         unsafe_allow_html=True,
     )
-
-    # --- detalle por pestañas: aquí se "pincha" en cada elemento
-    t_genes, t_ops, t_prom, t_hp, t_susp, t_tx = st.tabs(
-        ["🧬 Genes", "🧩 Operones", "🎯 Promotores", "🌀 Horquillas",
-         "🔗 Sospechas", "📡 Transcripción"]
-    )
+    if highlight_all:
+        st.caption("🟡 Resaltado suave: todos los elementos de la tabla "
+                   "«Todos los elementos en pantalla».")
+    if focus_key:
+        st.caption(f"🔴 Elemento seleccionado: `{focus_key}`. Pulsa "
+                   "«Quitar resaltado» en la tabla o ✖ en la ficha para limpiarlo.")
+        if st.button("✖ Quitar resaltado", key="br_clear_focus_top"):
+            _clear_focus()
 
     def _elegir(df: pd.DataFrame, cols: list[str], key: str) -> int | None:
         """Tabla seleccionable; devuelve el índice de la fila elegida."""
         if df.empty:
             st.caption("Nada en esta ventana.")
             return None
-        cols = [c for c in cols if c in df.columns]
+        cols = [c for c in cols if c in df.columns] or list(df.columns)
         try:
             ev = st.dataframe(df[cols], width="stretch", hide_index=True,
                               on_select="rerun", selection_mode="single-row",
@@ -867,15 +1880,101 @@ def render(data_root: Path, genome: str) -> None:
                                format_func=lambda i: " · ".join(
                                    str(df.iloc[i].get(c, ""))[:30] for c in cols[:3]))
             return int(idx)
-        st.caption("Haz clic en una fila para ver el detalle.")
+        st.caption("Haz clic en una fila para ver el detalle y llevarla al dibujo.")
         return None
 
+    def _ver(kind: str, ident: str, key: str) -> None:
+        """Botón común de las pestañas: fija sel/viewport y resalta."""
+        if st.button("🔎 Ver en el dibujo", key=key):
+            _activate_element(data_root, genome, tables, kind, ident,
+                              suspects=susp)
+
+
+    # --- tabla resumen de elementos en pantalla
+    st.markdown("### 🧾 Elementos en pantalla")
+    st.caption(ELEMENTS_ON_SCREEN_NOTE)
+    m1, m2 = st.columns([1, 2])
+    with m1:
+        st.metric("Elementos en pantalla", len(screen_elements))
+    with m2:
+        st.markdown(f"**{elements_counter_text(counts)}**")
+        st.caption("Este contador y la tabla usan exactamente la misma fuente: "
+                   "lo que se ve en la ventana lineal. No incluye el resto del genoma.")
+
+    ver_todos = st.checkbox(
+        "Todos los elementos en pantalla",
+        key="br_all_elements",
+        help=("Incluye genes, operones, promotores, horquillas, TSS/TTS, "
+              "complejos y sospechas de esta ventana; también los resalta en "
+              "el dibujo superior."),
+    )
+    if ver_todos:
+        if screen_elements.empty:
+            st.caption("No hay elementos en esta ventana. Prueba a mover la "
+                       "posición o a activar más pistas.")
+        else:
+            i = _elegir(
+                screen_elements,
+                ["tipo", "etiqueta", "inicio", "fin", "detalle"],
+                "br_tab_all",
+            )
+            if i is not None:
+                row = screen_elements.iloc[int(i)]
+                row_key = f"{row['kind']}:{row['id']}"
+                # Al elegir una fila se lleva al dibujo automáticamente. Se
+                # recuerda la última fila para no repetir el rerun en cada
+                # ejecución mientras la selección siga puesta.
+                if (row_key != st.session_state.get("br_auto_row")
+                        and row_key != st.session_state.get("br_auto_disabled")):
+                    st.session_state["br_auto_row"] = row_key
+                    _activate_element(data_root, genome, tables,
+                                      str(row["kind"]), str(row["id"]),
+                                      suspects=susp)
+                st.markdown(
+                    f"**{row.get('etiqueta', '')}** · {row.get('tipo', '')} · "
+                    f"{int(row['inicio']):,}–{int(row['fin']):,} pb"
+                )
+                if str(row.get("detalle") or "").strip():
+                    st.caption(str(row["detalle"]))
+                b1, b2 = st.columns([1.3, 1])
+                with b1:
+                    if st.button("🔎 Ver en el dibujo", key="br_all_go"):
+                        _activate_element(data_root, genome, tables,
+                                          str(row["kind"]), str(row["id"]),
+                                          suspects=susp)
+                with b2:
+                    if st.button("✖ Quitar resaltado", key="br_all_clear"):
+                        _clear_focus()
+            csv_bytes = screen_elements.to_csv(index=False).encode("utf-8")
+            safe_contig = _safe_slug(contig)
+            st.download_button(
+                "⬇️ Exportar todos los elementos en pantalla (CSV)",
+                data=csv_bytes,
+                file_name=f"elementos_{genome}_{safe_contig}_{start}_{end}.csv",
+                mime="text/csv",
+                key="br_dl_all",
+            )
+            st.caption("La exportación incluye exactamente esta ventana, no el "
+                       "genoma completo. Si eliges una fila, «Ver en el dibujo» "
+                       "fija `sel` y, si hace falta, acerca la ventana.")
+    else:
+        st.caption("Activa «Todos los elementos en pantalla» para ver la tabla "
+                   "combinada, exportarla y resaltar sus elementos. Las pestañas "
+                   "de abajo siguen disponibles pista por pista.")
+
+    # --- detalle por pestañas: aquí se "pincha" en cada elemento
+    t_genes, t_ops, t_prom, t_hp, t_susp, t_tx, t_cx = st.tabs(
+        ["🧬 Genes", "🧩 Operones", "🎯 Promotores", "🌀 Horquillas",
+         "🔗 Sospechas", "📡 Transcripción", "🧩 Complejos"]
+    )
+
     with t_genes:
-        i = _elegir(wg.reset_index(drop=True),
+        wg_view = wg.reset_index(drop=True)
+        i = _elegir(wg_view,
                     ["locus_tag", "gene_name", "product", "start", "end", "strand", "ec"],
                     "br_tab_gen")
         if i is not None:
-            r = wg.reset_index(drop=True).iloc[i]
+            r = wg_view.iloc[i]
             st.markdown(f"### 🧬 {r.get('gene_name') or r.get('locus_tag')}")
             a, b, c = st.columns(3)
             a.markdown(f"**Producto**  \n{r.get('product','') or '—'}")
@@ -902,17 +2001,22 @@ def render(data_root: Path, genome: str) -> None:
                         st.markdown(f"**Promotor**: −35 `{pr.get('box35','')}` · "
                                     f"−10 `{pr.get('box10','')}` · σ **{pr.get('sigma','')}** "
                                     f"(score {pr.get('score','')})")
+            gid = (r.get("locus_tag") or r.get("gene_id")
+                   or r.get("gene_name"))
+            if gid:
+                _ver("gene", str(gid), "br_go_gen")
 
     with t_ops:
         wops = tables["operons"]
-        if not wops.empty and "contig" in wops:
+        if not wops.empty and {"contig", "start", "end"} <= set(wops.columns):
             wops = wops[(wops["contig"] == contig)
                         & (wops["end"] >= start) & (wops["start"] <= end)]
-        i = _elegir(wops.reset_index(drop=True),
+        wops_view = wops.reset_index(drop=True)
+        i = _elegir(wops_view,
                     ["label", "n_genes", "start", "end", "strand", "span_bp", "confidence"],
                     "br_tab_op")
         if i is not None:
-            r = wops.reset_index(drop=True).iloc[i]
+            r = wops_view.iloc[i]
             st.markdown(f"### 🧩 {r.get('label') or r.get('operon_id')}")
             a, b, c = st.columns(3)
             a.markdown(f"**Genes**  \n{r.get('n_genes')} · {r.get('span_bp','')} pb")
@@ -921,20 +2025,27 @@ def render(data_root: Path, genome: str) -> None:
             c.markdown(f"**Confianza**  \n{r.get('confidence','') or '—'}")
             st.caption(f"Genes: {r.get('gene_names') or r.get('genes','')}")
             st.caption(f"Evidencia: {r.get('evidence','') or '—'}")
+            oid = r.get("operon_id") or r.get("label")
+            if oid:
+                _ver("operon", str(oid), "br_go_op")
 
     with t_prom:
         prom = tables["promoters"]
-        if not prom.empty and not tables["operons"].empty:
+        if (not prom.empty and not tables["operons"].empty
+                and {"contig", "start", "end", "operon_id"}
+                <= set(tables["operons"].columns)
+                and "operon_id" in prom.columns):
             ids = set(tables["operons"].loc[
                 (tables["operons"]["contig"] == contig)
                 & (tables["operons"]["end"] >= start)
                 & (tables["operons"]["start"] <= end), "operon_id"].astype(str))
             prom = prom[prom["operon_id"].astype(str).isin(ids)]
-        i = _elegir(prom.reset_index(drop=True),
+        prom_view = prom.reset_index(drop=True)
+        i = _elegir(prom_view,
                     ["operon_id", "sigma", "box35", "box10", "spacer", "score", "confidence"],
                     "br_tab_prom")
         if i is not None:
-            r = prom.reset_index(drop=True).iloc[i]
+            r = prom_view.iloc[i]
             st.markdown(f"### 🎯 Promotor de {r.get('operon_id')}")
             st.markdown(f"**Caja −35** `{r.get('box35','')}` (desajustes {r.get('mm35','')})  \n"
                         f"**Caja −10** `{r.get('box10','')}` (desajustes {r.get('mm10','')})  \n"
@@ -943,18 +2054,22 @@ def render(data_root: Path, genome: str) -> None:
             st.caption("Un promotor es la marca donde la ARN polimerasa empieza a "
                        "copiar. La caja −10 y la −35 son las dos secuencias que "
                        "reconoce el factor sigma.")
+            pid = r.get("operon_id") or r.get("label")
+            if pid:
+                _ver("promoter", str(pid), "br_go_prom")
 
     with t_hp:
         hp = tables["hairpins"]
-        if not hp.empty and "contig" in hp:
+        if not hp.empty and {"contig", "start", "end"} <= set(hp.columns):
             hp = hp[(hp["contig"] == contig)
                     & (hp["end"] >= start) & (hp["start"] <= end)]
-        i = _elegir(hp.reset_index(drop=True),
+        hp_view = hp.reset_index(drop=True)
+        i = _elegir(hp_view,
                     ["start", "end", "class", "dG", "stem", "gc", "polyU",
                      "left_gene", "right_gene"],
                     "br_tab_hp")
         if i is not None:
-            r = hp.reset_index(drop=True).iloc[i]
+            r = hp_view.iloc[i]
             cls = str(r.get("class", ""))
             st.markdown(f"### 🌀 Horquilla en {r.get('start')}–{r.get('end')}")
             st.markdown(f"**Clase** {cls} — {HAIRPIN_MEANING.get(cls, '')}  \n"
@@ -964,17 +2079,20 @@ def render(data_root: Path, genome: str) -> None:
             st.caption("La clase compara el tallo con el fondo de GC del genoma. "
                        "A: estructura clara; B: intermedia, no se distingue del azar; "
                        "C: débil.")
+            hid = f"{contig}:{int(float(r['start']))}-{int(float(r['end']))}"
+            _ver("hairpin", hid, "br_go_hp")
 
     with t_susp:
         if susp.empty:
             st.caption("Sin sospechas de cadena metabólica en esta ventana.")
         else:
-            i = _elegir(susp.reset_index(drop=True),
+            susp_view = susp.reset_index(drop=True)
+            i = _elegir(susp_view,
                         ["n_genes", "products", "reactions", "gap_mean",
                          "shared_metabolites", "confidence"],
                         "br_tab_susp")
             if i is not None:
-                r = susp.reset_index(drop=True).iloc[i]
+                r = susp_view.iloc[i]
                 st.markdown(f"### 🔗 Sospecha: {r.get('n_genes')} genes contiguos")
                 st.markdown(f"**Genes**: {r.get('genes','')}  \n"
                             f"**Enzimas**: {r.get('products','')}  \n"
@@ -985,10 +2103,14 @@ def render(data_root: Path, genome: str) -> None:
                            "contiguas en el ADN, es **sospecha** de operón "
                            "metabólico. No es prueba: hay rutas contiguas que no "
                            "son operones y operones sin ruta asociada.")
+                sid = f"{int(float(r['start']))}-{int(float(r['end']))}"
+                _ver("suspect", sid, "br_go_susp")
 
     with t_tx:
-        wt = tss_df[(tss_df.pos >= start) & (tss_df.pos <= end)] if not tss_df.empty else tss_df
-        wtt = tts_df[(tts_df.pos >= start) & (tts_df.pos <= end)] if not tts_df.empty else tts_df
+        wt = (tss_df[(tss_df.pos >= start) & (tss_df.pos <= end)]
+              if not tss_df.empty else tss_df)
+        wtt = (tts_df[(tts_df.pos >= start) & (tts_df.pos <= end)]
+               if not tts_df.empty else tts_df)
         if wt.empty and wtt.empty:
             st.caption("Sin TSS ni TTS anotados en esta ventana.")
         else:
@@ -999,12 +2121,45 @@ def render(data_root: Path, genome: str) -> None:
             )
             if not wt.empty:
                 st.markdown(f"**TSS en la ventana ({len(wt)})**")
-                st.dataframe(wt[["pos", "strand", "source", "detail"]],
-                             width="stretch", hide_index=True)
+                wt_view = wt.reset_index(drop=True)
+                i = _elegir(wt_view, ["pos", "strand", "source", "detail"],
+                            "br_tab_tss")
+                if i is not None:
+                    pos = int(float(wt_view.iloc[i]["pos"]))
+                    st.caption(f"TSS en {pos:,} pb · {wt_view.iloc[i].get('source', '')}")
+                    _ver("tss", str(pos), "br_go_tss")
             if not wtt.empty:
                 st.markdown(f"**TTS en la ventana ({len(wtt)})**")
-                st.dataframe(wtt[["pos", "strand", "source", "detail"]],
-                             width="stretch", hide_index=True)
+                wtt_view = wtt.reset_index(drop=True)
+                i = _elegir(wtt_view, ["pos", "strand", "source", "detail"],
+                            "br_tab_tts")
+                if i is not None:
+                    pos = int(float(wtt_view.iloc[i]["pos"]))
+                    st.caption(f"TTS en {pos:,} pb · {wtt_view.iloc[i].get('source', '')}")
+                    _ver("tts", str(pos), "br_go_tts")
+
+    with t_cx:
+        cxs = tables["complexes"]
+        if not cxs.empty and {"contig", "start", "end"} <= set(cxs.columns):
+            cxs = cxs[(cxs["contig"] == contig)
+                      & (cxs["end"] >= start) & (cxs["start"] <= end)]
+        cxs_view = cxs.reset_index(drop=True)
+        i = _elegir(cxs_view,
+                    ["complex_id", "name", "status", "start", "end",
+                     "subunits", "confidence", "limitation"],
+                    "br_tab_cx")
+        if i is not None:
+            r = cxs_view.iloc[i]
+            st.markdown(f"### 🧩 {r.get('name') or r.get('complex_id')}")
+            st.caption(f"{r.get('status','')} · confianza {r.get('confidence','')}")
+            st.markdown(f"**Coordenadas** {r.get('start')}–{r.get('end')} pb  \n"
+                        f"**Subunidades** {r.get('subunits','') or '—'}  \n"
+                        f"**Evidencia** {r.get('evidence','') or '—'}")
+            if r.get("limitation"):
+                st.caption(r.get("limitation"))
+            cid = r.get("complex_id")
+            if cid:
+                _ver("complex", str(cid), "br_go_cx")
 
     st.info(
         "**Terminador ≠ atenuador.** Una horquilla al final de un operón lo "

@@ -38,6 +38,7 @@ from hypotheses_ui import render_hypotheses  # noqa: E402
 from precomputed_ui import render as render_precomputed  # noqa: E402
 import structure_viewer
 from compare_ui import render_compare
+import taxonomy_tree_ui
 from esmfold_ui import (  # noqa: E402
     render_esmfold_closure,
     render_structure_evidence,
@@ -2072,11 +2073,39 @@ def main() -> None:
             st.session_state["genoma_global"] = st.query_params["genoma"]
     except Exception:
         pass
+    # La especie activa debe estar por encima del menú; los módulos de catálogo
+    # muestran los 400 y no deben confundirse con el genoma seleccionado.
+    _reg = DATA_ROOT / "regulation"
+    _opts = (sorted(d.name for d in _reg.iterdir()
+                    if d.is_dir() and (d / "genes.tsv").exists())
+             if _reg.exists() else [])
+    if DEMO_GENOME and "demo" not in _opts:
+        _opts = ["demo"] + _opts
+    _cur = st.session_state.get("genoma_global") or (_opts[0] if _opts else "")
+    if _cur not in _opts:
+        _cur = _opts[0] if _opts else ""
+    st.sidebar.markdown("### 🦠 " + tr("Especie activa"))
+    if _opts:
+        _sel = st.sidebar.selectbox(
+            tr("Especie activa"), _opts,
+            index=_opts.index(_cur) if _cur in _opts else 0,
+            key="active_genome_sel", help=tr(
+                "Genoma que usan los módulos de especie. Los módulos de catálogo "
+                "muestran los 400 y no cambian esta selección."),
+        )
+        st.session_state["genoma_global"] = _sel
+        st.sidebar.caption(tr("Especie: {g}").format(g=_sel))
+    else:
+        st.sidebar.caption(tr("Sin genomas anotados."))
+    st.sidebar.caption(tr(
+        "Los módulos de catálogo (móviles, membrana, taxonomía, complejos) "
+        "muestran el conjunto; los de especie usan el genoma activo."))
     with st.sidebar.expander(tr("❓ Glosario y límites")):
         render_glossary()
+    _tree_mode = tr("🌳 Árbol de vida")
     mode = st.sidebar.radio(
         T["mode_label"], [T["mode_annotate"], T["mode_pathways"],
-                           T["mode_browser"], T["mode_reports"],
+                           T["mode_browser"], _tree_mode, T["mode_reports"],
                            T["mode_modules"], T["mode_hypotheses"], T["mode_credits"]],
         help=T["mode_help"], key="mode_sel",
     )
@@ -2085,6 +2114,10 @@ def main() -> None:
         return
     if mode == T["mode_credits"]:
         credits.render()
+        return
+    if mode == _tree_mode:
+        taxonomy_tree_ui.render(
+            DATA_ROOT, new_genome=st.session_state.get("genoma_global") or None)
         return
     if mode == T["mode_reports"]:
         downloads_ui.render(PROJECT)
@@ -2118,6 +2151,14 @@ def main() -> None:
             key="genoma_global", help=T["help_genoma"],
         )
         elegido = st.session_state.get("genoma_global") or actual
+        # Si el usuario cambia de genoma, no dejar el ?genoma=demo anterior
+        # forzando la selección en cada recarga.
+        try:
+            _qp = st.query_params.get("genoma")
+            if _qp and _qp != elegido:
+                del st.query_params["genoma"]
+        except (KeyError, TypeError):
+            pass
         browser.render(DATA_ROOT, elegido)
         return
 
