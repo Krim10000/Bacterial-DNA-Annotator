@@ -583,6 +583,19 @@ def _split_focus(focus: str) -> tuple[str | None, str]:
     return None, raw
 
 
+def _strand_rows(df: pd.DataFrame, strand: str) -> pd.DataFrame:
+    """Filas de una tabla cuya hebra normalizada coincide.
+
+    Las tablas sin columna ``strand`` solo se asignan a ``""`` (sin hebra);
+    nunca se inventa una hebra.
+    """
+    if df is None or not isinstance(df, pd.DataFrame) or df.empty:
+        return pd.DataFrame() if df is None else df
+    if "strand" not in df.columns:
+        return df if strand == "" else df.iloc[0:0]
+    return df[df["strand"].map(normalize_strand) == strand]
+
+
 def svg(tables: dict, contig: str, start: int, end: int,
         tracks: set[str] | None = None, focus: str = "",
         suspects: pd.DataFrame | None = None,
@@ -601,7 +614,19 @@ def svg(tables: dict, contig: str, start: int, end: int,
     tracks = tracks or {"genes", "operones", "promotores", "horquillas",
                         "transcripcion", "complejos"}
     span = max(1, end - start)
-    width, height = 1180, 448
+    width, height = 1180, 900
+    # Dos secciones: + arriba, − abajo; sin hebra al final.
+    Y = {
+        "+": {"genes": 82, "operones": 132, "promotores": 166,
+              "horquillas": 200, "transcripcion": 234},
+        "−": {"genes": 330, "operones": 380, "promotores": 414,
+              "horquillas": 448, "transcripcion": 482},
+        "": {"genes": 0, "operones": 570, "promotores": 604,
+             "horquillas": 638, "transcripcion": 672},
+    }
+    SECTION_LABELS = {"+": "HEBRA + · 5'→3' →",
+                      "−": "HEBRA − · 5'→3' ←",
+                      "": "SIN HEBRA / NO DETERMINADA"}
     pad_l, pad_r = 96, 12
     plot_w = width - pad_l - pad_r
     focus_kind, focus_id = _split_focus(focus)
@@ -643,10 +668,9 @@ def svg(tables: dict, contig: str, start: int, end: int,
                               & (complexes["end"] >= start)
                               & (complexes["start"] <= end)]
 
-    Y = {"ruler": 28,
-         "genes_plus": GENE_LANE_Y["+"], "genes_minus": GENE_LANE_Y["−"],
-         "operones": 188, "promotores": 232, "horquillas": 278,
-         "transcripcion": 320, "complejos": 362, "sospecha": 404}
+    Y["ruler"] = 28
+    Y["complejos"] = 736
+    Y["sospecha"] = 780
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="{height}" '
          f'viewBox="0 0 {width} {height}" font-family="sans-serif" '
          f'style="background:#fff;border-radius:8px">']
@@ -667,21 +691,32 @@ def svg(tables: dict, contig: str, start: int, end: int,
         o.append(f'<text x="{xx:.1f}" y="{Y["ruler"]-10}" font-size="11" fill="#8b90a0" '
                  f'text-anchor="{anchor}">{bp:,.0f}</text>')
 
-    # rótulos de banda (los de genes van dentro de cada carril)
-    for key, label in (("operones", "OPERONES"),
-                       ("promotores", "PROMOTORES"), ("horquillas", "HORQUILLAS"),
-                       ("transcripcion", "TSS / TTS"),
-                       ("complejos", "COMPLEJOS")):
-        active = key in tracks
-        o.append(f'<text x="8" y="{Y[key]-6}" font-size="9.5" fill="#808495" '
-                 f'font-weight="700" opacity="{1 if active else 0.25}">{label}</text>')
+    # Títulos de sección y rótulos de banda por hebra.
+    for sec, label in SECTION_LABELS.items():
+        if sec == "" and not (suspects is not None and not suspects.empty):
+            # la sección sin hebra solo se rotula si hay complejos/sospechas
+            if complexes.empty:
+                continue
+        y0 = Y[sec]["operones"] - 52 if sec else Y[sec]["operones"] - 28
+        o.append(f'<rect x="0" y="{y0-18}" width="{width}" height="24" '
+                 f'fill="{"#eef5ff" if sec == "+" else "#fff7e6" if sec == "−" else "#f4f5f7"}"/>')
+        o.append(f'<text x="8" y="{y0-2}" font-size="12" fill="#3b3f4a" '
+                 f'font-weight="700">{label}</text>')
+        for key, txt in (("operones", "OPERONES"), ("promotores", "PROMOTORES"),
+                         ("horquillas", "HORQUILLAS"), ("transcripcion", "TSS / TTS")):
+            active = key in tracks
+            o.append(f'<text x="8" y="{Y[sec][key]-6}" font-size="9.5" '
+                     f'fill="#808495" font-weight="700" '
+                     f'opacity="{1 if active else 0.25}">{txt}</text>')
+    o.append(f'<text x="8" y="{Y["complejos"]-6}" font-size="9.5" fill="#808495" '
+             f'font-weight="700" opacity="{1 if "complejos" in tracks else 0.25}">COMPLEJOS</text>')
 
     # genes en DOS carriles: + arriba, − abajo. La punta de cada gen apunta
     # siempre en el sentido de lectura 5'→3' (derecha en +, izquierda en −).
     if "genes" in tracks:
         layout = gene_lane_layout(genes)
         for lane in GENE_LANE_ORDER:
-            yg = GENE_LANE_Y[lane]
+            yg = Y[lane]["genes"]
             lane_rows = layout[layout["lane"] == lane]
             o.append(f'<g data-role="gene-lane" data-lane="{lane}" '
                      f'data-reading="{GENE_LANE_READING[lane]}" '
@@ -744,83 +779,88 @@ def svg(tables: dict, contig: str, start: int, end: int,
                          f'fill="#3b3f4a" text-anchor="middle">{_esc(name)[:16]}</text>')
             o.append("</g>")
 
-    # operones
+    # operones por hebra
     if "operones" in tracks:
-        for _, op in operons.iterrows():
-            gx0, gx1 = x(op["start"]), x(op["end"])
-            lab = op.get("label") or op.get("operon_id") or ""
-            oid = op.get("operon_id") or lab or f"{int(op['start'])}-{int(op['end'])}"
-            o.append(hit_open("operon", oid)
-                     + f'<title>{_esc(lab or oid)} · operón</title>')
-            o.append(f'<rect x="{gx0:.1f}" y="{Y["operones"]-8}" width="{max(4, gx1-gx0):.1f}" '
-                     f'height="16" rx="8" fill="none" stroke="{OPERON}" stroke-width="1.8"/>')
-            if gx1 - gx0 > 70 and lab:
-                o.append(f'<text x="{gx0+5:.1f}" y="{Y["operones"]+3}" font-size="9" '
-                         f'fill="{OPERON}">{_esc(lab)[:30]}</text>')
-            o.append("</g>")
+        for sec in ("+", "−", ""):
+            y = Y[sec]["operones"]
+            for _, op in _strand_rows(operons, sec).iterrows():
+                gx0, gx1 = x(op["start"]), x(op["end"])
+                lab = op.get("label") or op.get("operon_id") or ""
+                oid = op.get("operon_id") or lab or f"{int(op['start'])}-{int(op['end'])}"
+                o.append(hit_open("operon", oid)
+                         + f'<title>{_esc(lab or oid)} · operón</title>')
+                o.append(f'<rect x="{gx0:.1f}" y="{y-8}" width="{max(4, gx1-gx0):.1f}" '
+                         f'height="16" rx="8" fill="none" stroke="{OPERON}" stroke-width="1.8"/>')
+                if gx1 - gx0 > 70 and lab:
+                    o.append(f'<text x="{gx0+5:.1f}" y="{y+3}" font-size="9" '
+                             f'fill="{OPERON}">{_esc(lab)[:30]}</text>')
+                o.append("</g>")
 
-    # promotores
+    # promotores por hebra del operón
     if "promotores" in tracks and not promoters.empty and not operons.empty:
         by_id = {str(r.get("operon_id")): r for _, r in operons.iterrows()}
-        for _, p in promoters.iterrows():
-            op = by_id.get(str(p.get("operon_id")))
-            if op is None:
-                continue
-            gx = x(op["start"])
-            sigma = p.get("sigma", "")
-            pid = p.get("operon_id") or op.get("operon_id") or f"{int(op['start'])}"
-            o.append(hit_open("promoter", pid)
-                     + f'<title>Promotor {_esc(str(pid))} · σ{_esc(str(sigma))}</title>')
-            o.append(f'<line x1="{gx:.1f}" y1="{Y["promotores"]-9}" x2="{gx:.1f}" '
-                     f'y2="{Y["promotores"]+9}" stroke="{PROMOTER}" stroke-width="2"/>')
-            o.append(f'<circle cx="{gx:.1f}" cy="{Y["promotores"]-11}" r="3" fill="{PROMOTER}"/>')
-            o.append("</g>")
-            # el sigma no se repite en el dibujo: va en la leyenda y en el detalle
+        for sec in ("+", "−", ""):
+            y = Y[sec]["promotores"]
+            for _, p in promoters.iterrows():
+                op = by_id.get(str(p.get("operon_id")))
+                if op is None or normalize_strand(op.get("strand")) != sec:
+                    continue
+                gx = x(op["start"])
+                sigma = p.get("sigma", "")
+                pid = p.get("operon_id") or op.get("operon_id") or f"{int(op['start'])}"
+                o.append(hit_open("promoter", pid)
+                         + f'<title>Promotor {_esc(str(pid))} · σ{_esc(str(sigma))}</title>')
+                o.append(f'<line x1="{gx:.1f}" y1="{y-9}" x2="{gx:.1f}" '
+                         f'y2="{y+9}" stroke="{PROMOTER}" stroke-width="2"/>')
+                o.append(f'<circle cx="{gx:.1f}" cy="{y-11}" r="3" fill="{PROMOTER}"/>')
+                o.append("</g>")
 
-    # horquillas
+    # horquillas por hebra
     if "horquillas" in tracks:
-        for hi, (_, h) in enumerate(hairpins.iterrows()):
-            gx = x(h["start"])
-            color = HAIRPIN.get(str(h.get("class", "C_debil")), HAIRPIN["C_debil"])
-            hid = f"{contig}:{int(h['start'])}-{int(h['end'])}"
-            o.append(hit_open("hairpin", hid)
-                     + f'<title>Horquilla {_esc(str(h.get("class", "")))} · '
-                     f'{int(h["start"]):,}–{int(h["end"]):,} pb</title>')
-            o.append(f'<line x1="{gx:.1f}" y1="{Y["horquillas"]-10}" x2="{gx:.1f}" '
-                     f'y2="{Y["horquillas"]+10}" stroke="{color}" stroke-width="1.6"/>')
-            o.append(f'<circle cx="{gx:.1f}" cy="{Y["horquillas"]-12}" r="5" fill="none" '
-                     f'stroke="{color}" stroke-width="2"/>')
-            o.append("</g>")
+        for sec in ("+", "−", ""):
+            y = Y[sec]["horquillas"]
+            for hi, (_, h) in enumerate(_strand_rows(hairpins, sec).iterrows()):
+                gx = x(h["start"])
+                color = HAIRPIN.get(str(h.get("class", "C_debil")), HAIRPIN["C_debil"])
+                hid = f"{contig}:{int(h['start'])}-{int(h['end'])}"
+                o.append(hit_open("hairpin", hid)
+                         + f'<title>Horquilla {_esc(str(h.get("class", "")))} · '
+                         f'{int(h["start"]):,}–{int(h["end"]):,} pb</title>')
+                o.append(f'<line x1="{gx:.1f}" y1="{y-10}" x2="{gx:.1f}" '
+                         f'y2="{y+10}" stroke="{color}" stroke-width="1.6"/>')
+                o.append(f'<circle cx="{gx:.1f}" cy="{y-12}" r="5" fill="none" '
+                         f'stroke="{color}" stroke-width="2"/>')
+                o.append("</g>")
 
-    # TSS (triángulo hacia arriba) y TTS (hacia abajo): medidos vs inferidos
+    # TSS/TTS por hebra (si la tabla no trae hebra, van a sin hebra)
     if "transcripcion" in tracks:
-        yt = Y["transcripcion"]
-        for _, t in (tss if tss is not None else pd.DataFrame()).iterrows():
-            if not (start <= t["pos"] <= end):
-                continue
-            gx = x(t["pos"])
-            full = t.get("source") in ("curado", "BSGatlas")
-            op = 1.0 if full else 0.55
-            o.append(hit_open("tss", int(t["pos"]))
-                     + f'<title>TSS · {int(t["pos"]):,} pb · '
-                     f'{_esc(str(t.get("source", "")))}</title>')
-            o.append(f'<polygon points="{gx:.1f},{yt-16} {gx-4:.1f},{yt-9} '
-                     f'{gx+4:.1f},{yt-9}" fill="{TSS_C}" opacity="{op}"/>')
-            o.append(f'<line x1="{gx:.1f}" y1="{yt-9}" x2="{gx:.1f}" y2="{yt-3}" '
-                     f'stroke="{TSS_C}" stroke-width="1" opacity="{op}"/>')
-            o.append("</g>")
-        for _, t in (tts if tts is not None else pd.DataFrame()).iterrows():
-            if not (start <= t["pos"] <= end):
-                continue
-            gx = x(t["pos"])
-            op = 1.0
-            o.append(hit_open("tts", int(t["pos"]))
-                     + f'<title>TTS · {int(t["pos"]):,} pb</title>')
-            o.append(f'<polygon points="{gx:.1f},{yt+16} {gx-4:.1f},{yt+9} '
-                     f'{gx+4:.1f},{yt+9}" fill="{TTS_C}" opacity="{op}"/>')
-            o.append(f'<line x1="{gx:.1f}" y1="{yt+3}" x2="{gx:.1f}" y2="{yt+9}" '
-                     f'stroke="{TTS_C}" stroke-width="1" opacity="{op}"/>')
-            o.append("</g>")
+        for sec in ("+", "−", ""):
+            yt = Y[sec]["transcripcion"]
+            for _, t in (tss if tss is not None else pd.DataFrame()).iterrows():
+                if normalize_strand(t.get("strand")) != sec or not (start <= t["pos"] <= end):
+                    continue
+                gx = x(t["pos"])
+                full = t.get("source") in ("curado", "BSGatlas")
+                op = 1.0 if full else 0.55
+                o.append(hit_open("tss", int(t["pos"]))
+                         + f'<title>TSS · {int(t["pos"]):,} pb · '
+                         f'{_esc(str(t.get("source", "")))}</title>')
+                o.append(f'<polygon points="{gx:.1f},{yt-16} {gx-4:.1f},{yt-9} '
+                         f'{gx+4:.1f},{yt-9}" fill="{TSS_C}" opacity="{op}"/>')
+                o.append(f'<line x1="{gx:.1f}" y1="{yt-9}" x2="{gx:.1f}" y2="{yt-3}" '
+                         f'stroke="{TSS_C}" stroke-width="1" opacity="{op}"/>')
+                o.append("</g>")
+            for _, t in (tts if tts is not None else pd.DataFrame()).iterrows():
+                if normalize_strand(t.get("strand")) != sec or not (start <= t["pos"] <= end):
+                    continue
+                gx = x(t["pos"])
+                o.append(hit_open("tts", int(t["pos"]))
+                         + f'<title>TTS · {int(t["pos"]):,} pb</title>')
+                o.append(f'<polygon points="{gx:.1f},{yt+16} {gx-4:.1f},{yt+9} '
+                         f'{gx+4:.1f},{yt+9}" fill="{TTS_C}" opacity="1"/>')
+                o.append(f'<line x1="{gx:.1f}" y1="{yt+3}" x2="{gx:.1f}" y2="{yt+9}" '
+                         f'stroke="{TTS_C}" stroke-width="1"/>')
+                o.append("</g>")
 
     # complejos por vecindad
     if "complejos" in tracks:

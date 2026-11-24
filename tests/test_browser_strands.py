@@ -400,3 +400,28 @@ def test_overlaps_expander_copy_and_warning():
     assert "st.expander" in source
     assert "overlap_table_view" in source
     assert "OVERLAP_WARNING" in source
+
+
+def test_svg_groups_plus_and_minus_sections():
+    import pandas as pd
+    from webapp.browser import svg
+    genes = pd.DataFrame([
+        {"id": "g1", "locus_tag": "g1", "gene_name": "a", "product": "p",
+         "contig": "c", "start": 100, "end": 300, "strand": "+",
+         "gene_type": "CDS"},
+        {"id": "g2", "locus_tag": "g2", "gene_name": "b", "product": "q",
+         "contig": "c", "start": 200, "end": 400, "strand": "-",
+         "gene_type": "CDS"},
+    ])
+    operons = pd.DataFrame([
+        {"operon_id": "o1", "label": "o1", "contig": "c", "start": 100,
+         "end": 300, "strand": "+"},
+    ])
+    out = svg({"genes": genes, "operons": operons}, "c", 0, 1000,
+              tracks={"genes", "operones"})
+    assert "HEBRA +" in out
+    assert "HEBRA −" in out
+    # el operón + se dibuja en la banda + (Y=132, rect en y=124),
+    # no en la banda − (rect en y=372).
+    assert 'y="124"' in out
+    assert 'y="372"' not in out
