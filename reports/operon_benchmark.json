@@ -1,0 +1,275 @@
+{
+  "schema": "operon_benchmark/v1",
+  "generated_at": "2026-11-24T02:28:59Z",
+  "status": "evaluated",
+  "reason_code": "",
+  "reason": "",
+  "evaluation_level": "full",
+  "genome": "ecoli_k12",
+  "gold": {
+    "path": "data/regulondb/gt/gt_operons.tsv",
+    "fmt": "tsv",
+    "searched": []
+  },
+  "pred": {
+    "path": "data/operon_finder/ecoli_k12_operons_rules.tsv",
+    "fmt": "tsv",
+    "searched": []
+  },
+  "parameters": {
+    "min_genes": 2,
+    "min_overlap": 0.5,
+    "alias": "data/regulondb/gt/gt_gene_aliases.tsv"
+  },
+  "counts": {
+    "gt_rows": 2605,
+    "pred_rows": 2490,
+    "gt_operons_raw": 2581,
+    "pred_operons_raw": 2490,
+    "gt_operons_filtered": 827,
+    "pred_operons_filtered": 847,
+    "pred_operons_with_mapped_genes": 815,
+    "gt_genes": 4509,
+    "pred_genes": 4308,
+    "pred_genes_filtered": 2665,
+    "shared_genes": 4206,
+    "shared_genes_filtered": 2599,
+    "pred_gene_mapping_coverage": 0.9752,
+    "pred_gene_tokens_unmapped": 66,
+    "pred_genes_unmapped": 66,
+    "aliased_pred_genes": 0,
+    "gt_without_coords": 0,
+    "pred_without_coords": 0,
+    "gt_skipped_mapping": 21,
+    "pred_skipped_mapping": 0,
+    "top_unmapped_genes": [
+      {
+        "gene": "b0024",
+        "n": 1
+      },
+      {
+        "gene": "b4727",
+        "n": 1
+      },
+      {
+        "gene": "b4728",
+        "n": 1
+      },
+      {
+        "gene": "b4765",
+        "n": 1
+      },
+      {
+        "gene": "b4586",
+        "n": 1
+      },
+      {
+        "gene": "b4709",
+        "n": 1
+      },
+      {
+        "gene": "b4710",
+        "n": 1
+      },
+      {
+        "gene": "b4766",
+        "n": 1
+      },
+      {
+        "gene": "b4729",
+        "n": 1
+      },
+      {
+        "gene": "b4730",
+        "n": 1
+      }
+    ]
+  },
+  "by_strand": {
+    "all": {
+      "status": "evaluated",
+      "n_gt_operons": 827,
+      "n_pred_operons": 847,
+      "n_shared_genes": 2287,
+      "gene_pair": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.8283,
+        "recall": 0.77,
+        "f1": 0.7981,
+        "tp": 3618,
+        "n_pred": 4368,
+        "n_gt": 4699
+      },
+      "gene_exact": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.5693,
+        "recall": 0.5611,
+        "f1": 0.5652,
+        "tp": 464,
+        "n_pred": 815,
+        "n_gt": 827,
+        "n_exact": 464,
+        "exact_rate": 0.5611
+      },
+      "interval_overlap": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.7615,
+        "recall": 0.7799,
+        "f1": 0.7706,
+        "tp": 645,
+        "n_pred": 847,
+        "n_gt": 827,
+        "n_matched": 645,
+        "n_pred_without_coords": 0,
+        "n_gt_without_coords": 0,
+        "min_overlap": 0.5
+      },
+      "interval_exact": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.5455,
+        "recall": 0.5586,
+        "f1": 0.552,
+        "tp": 462,
+        "n_pred": 847,
+        "n_gt": 827,
+        "n_matched": 462,
+        "n_pred_without_coords": 0,
+        "n_gt_without_coords": 0,
+        "min_overlap": 1.0,
+        "n_exact": 462,
+        "exact_rate": 0.5586
+      }
+    },
+    "+": {
+      "status": "evaluated",
+      "n_gt_operons": 401,
+      "n_pred_operons": 423,
+      "n_shared_genes": 1115,
+      "gene_pair": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.8678,
+        "recall": 0.7398,
+        "f1": 0.7987,
+        "tp": 1706,
+        "n_pred": 1966,
+        "n_gt": 2306
+      },
+      "gene_exact": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.5651,
+        "recall": 0.5736,
+        "f1": 0.5693,
+        "tp": 230,
+        "n_pred": 407,
+        "n_gt": 401,
+        "n_exact": 230,
+        "exact_rate": 0.5736
+      },
+      "interval_overlap": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.7541,
+        "recall": 0.7955,
+        "f1": 0.7743,
+        "tp": 319,
+        "n_pred": 423,
+        "n_gt": 401,
+        "n_matched": 319,
+        "n_pred_without_coords": 0,
+        "n_gt_without_coords": 0,
+        "min_overlap": 0.5
+      },
+      "interval_exact": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.5461,
+        "recall": 0.5761,
+        "f1": 0.5607,
+        "tp": 231,
+        "n_pred": 423,
+        "n_gt": 401,
+        "n_matched": 231,
+        "n_pred_without_coords": 0,
+        "n_gt_without_coords": 0,
+        "min_overlap": 1.0,
+        "n_exact": 231,
+        "exact_rate": 0.5761
+      }
+    },
+    "-": {
+      "status": "evaluated",
+      "n_gt_operons": 426,
+      "n_pred_operons": 424,
+      "n_shared_genes": 1172,
+      "gene_pair": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.796,
+        "recall": 0.799,
+        "f1": 0.7975,
+        "tp": 1912,
+        "n_pred": 2402,
+        "n_gt": 2393
+      },
+      "gene_exact": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.5735,
+        "recall": 0.5493,
+        "f1": 0.5612,
+        "tp": 234,
+        "n_pred": 408,
+        "n_gt": 426,
+        "n_exact": 234,
+        "exact_rate": 0.5493
+      },
+      "interval_overlap": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.7689,
+        "recall": 0.7653,
+        "f1": 0.7671,
+        "tp": 326,
+        "n_pred": 424,
+        "n_gt": 426,
+        "n_matched": 326,
+        "n_pred_without_coords": 0,
+        "n_gt_without_coords": 0,
+        "min_overlap": 0.5
+      },
+      "interval_exact": {
+        "status": "evaluated",
+        "reason": "",
+        "precision": 0.5448,
+        "recall": 0.5423,
+        "f1": 0.5435,
+        "tp": 231,
+        "n_pred": 424,
+        "n_gt": 426,
+        "n_matched": 231,
+        "n_pred_without_coords": 0,
+        "n_gt_without_coords": 0,
+        "min_overlap": 1.0,
+        "n_exact": 231,
+        "exact_rate": 0.5423
+      }
+    }
+  },
+  "warnings": [
+    "21 filas con mapping_ok distinto de yes excluidas del gold evaluable.",
+    "3 filas sin lista de genes ignoradas.",
+    "66 genes de la predicción no están en el universo gold y se excluyen de las métricas por gen.",
+    "El gold no declara contig en algunas filas: el contig se trata como comodín en el emparejamiento de intervalos."
+  ],
+  "promoters": {
+    "status": "not_evaluable",
+    "reason": "Este benchmark mide estructura de operones. No se compara promoters_auto con gt_promoters porque una ventana upstream no es un TSS y no se define aquí un emparejamiento TSS→ventana; no se inventa gold."
+  },
+  "command": "python tools/benchmark_operons.py --gold data/regulondb/gt/gt_operons.tsv --pred data/operon_finder/ecoli_k12_operons_rules.tsv --genome ecoli_k12 --json reports/operon_benchmark.json --md reports/operon_benchmark.md"
+}

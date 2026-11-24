@@ -1,0 +1,69 @@
+# Receta Bioconda preparada localmente. NO publicada.
+#
+# La fuente es el propio checkout para poder construir y validar sin red.
+# Antes de enviar la receta a bioconda-recipes hay que sustituir
+# `source.path` por la URL del tarball de una release y añadir el `sha256`
+# real de ese tarball (calculado con `sha256sum`). No se inventa ningún hash.
+package:
+  name: dna-poc-annotator
+  version: "1.1.3"
+
+source:
+  path: ../..
+  # Para publicar, reemplazar `path` por algo como:
+  # url: https://github.com/Krim10000/Bacterial-DNA-Annotator/archive/refs/tags/v<version>.tar.gz
+  # sha256: <hash real del tarball; no inventar>
+
+build:
+  noarch: python
+  number: 0
+  script: build.sh
+  entry_points:
+    - dna-annotate = webapp.pipeline:main
+
+requirements:
+  host:
+    - python >=3.10
+    - pip
+    - setuptools >=68
+    - wheel
+  run:
+    - python >=3.10
+    # Dependencias declaradas en pyproject.toml [project].dependencies.
+    - streamlit >=1.30
+    - py3dmol >=2.4
+    - stmol >=0.0.9
+    - pandas >=2.0
+    - numpy >=1.24
+    - biopython >=1.81
+    - pyrodigal >=3.0
+    # `requests` se importa sin condición en webapp/esmfold_tools.py y
+    # webapp/structure_evidence.py, pero falta en pyproject.toml.
+    - requests >=2.31
+
+test:
+  imports:
+    - webapp
+    - webapp.pipeline
+  commands:
+    - dna-annotate --help
+    - python -m webapp.pipeline --help
+
+about:
+  home: https://github.com/Krim10000/Bacterial-DNA-Annotator
+  summary: "Bacterial genome annotator: GFF3, metabolic gaps, evidence and GUI."
+  description: |
+    Anotador de genomas bacterianos con pipeline headless y GUI Streamlit.
+    Produce GFF3, proteínas, candidatos de novo, brechas metabólicas e
+    informe. Esta receta instala el paquete Python y el entry point
+    `dna-annotate`; los datos de referencia y las herramientas externas
+    (tRNAscan-SE, barrnap, DIAMOND, HMMER, Foldseek, ESMFold, etc.) no
+    forman parte de este paquete.
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  dev_url: https://github.com/Krim10000/Bacterial-DNA-Annotator
+  doc_url: https://github.com/Krim10000/Bacterial-DNA-Annotator/blob/v1.0/docs/INSTALL.md
+
+# Antes de publicar hay que añadir `extra.recipe-maintainers` con las
+# cuentas de GitHub que acepten mantener la receta. No se inventan aquí.

@@ -1,0 +1,167 @@
+{
+  "schema": "external-benchmark/v1",
+  "generated_at": "2026-11-24T02:26:42Z",
+  "project_root": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc",
+  "scope": "Benchmark externo con datos locales, sin red ni descargas. La ejecución de terceros solo ocurre con --run.",
+  "parameters": {
+    "tool": "all",
+    "run": false,
+    "genome": "data/raw/GCF_000006985.1_ASM698v1_genomic.fna.gz",
+    "reference_gff": "data/annotations/GCF_000006985.1_ASM698v1.gff.gz",
+    "overlap_threshold": 0.5,
+    "timeout_seconds": 1800.0,
+    "exclude_pseudo": true,
+    "bakta_db": null
+  },
+  "environment": {
+    "tools": {
+      "bakta": {
+        "tool": "bakta",
+        "label": "Bakta",
+        "binary": "bakta",
+        "available": false,
+        "path": null,
+        "reason": "binario 'bakta' no encontrado en PATH (shutil.which)"
+      },
+      "prokka": {
+        "tool": "prokka",
+        "label": "Prokka",
+        "binary": "prokka",
+        "available": false,
+        "path": null,
+        "reason": "binario 'prokka' no encontrado en PATH (shutil.which)"
+      },
+      "dfast": {
+        "tool": "dfast",
+        "label": "DFAST",
+        "binary": "dfast",
+        "available": false,
+        "path": null,
+        "reason": "binario 'dfast' no encontrado en PATH (shutil.which)"
+      }
+    },
+    "available_tools": [],
+    "missing_tools": [
+      "bakta",
+      "prokka",
+      "dfast"
+    ]
+  },
+  "reference": {
+    "status": "ok",
+    "path": "data/annotations/GCF_000006985.1_ASM698v1.gff.gz",
+    "counts": {
+      "CDS": 1989,
+      "tRNA": 50,
+      "rRNA": 6
+    },
+    "contigs": 1,
+    "sequence_regions": 1,
+    "excluded_pseudo": 47,
+    "invalid_lines": 0,
+    "hypothetical": {
+      "cds": 1989,
+      "with_product": 1989,
+      "without_product": 0,
+      "hypothetical": 289,
+      "pct_hypothetical": 14.53
+    }
+  },
+  "results": {
+    "bakta": {
+      "tool": "bakta",
+      "label": "Bakta",
+      "binary": "bakta",
+      "available": false,
+      "binary_path": null,
+      "run": null,
+      "comparison": null,
+      "not_evaluable": [
+        {
+          "metric": "ejecución externa",
+          "reason": "binario 'bakta' no encontrado en PATH (shutil.which)"
+        }
+      ],
+      "limitations": [
+        "No se ejecutó ninguna herramienta: el binario no está instalado."
+      ],
+      "status": "not_evaluable",
+      "reason": "binario 'bakta' no encontrado en PATH (shutil.which)"
+    },
+    "prokka": {
+      "tool": "prokka",
+      "label": "Prokka",
+      "binary": "prokka",
+      "available": false,
+      "binary_path": null,
+      "run": null,
+      "comparison": null,
+      "not_evaluable": [
+        {
+          "metric": "ejecución externa",
+          "reason": "binario 'prokka' no encontrado en PATH (shutil.which)"
+        }
+      ],
+      "limitations": [
+        "No se ejecutó ninguna herramienta: el binario no está instalado."
+      ],
+      "status": "not_evaluable",
+      "reason": "binario 'prokka' no encontrado en PATH (shutil.which)"
+    },
+    "dfast": {
+      "tool": "dfast",
+      "label": "DFAST",
+      "binary": "dfast",
+      "available": false,
+      "binary_path": null,
+      "run": null,
+      "comparison": null,
+      "not_evaluable": [
+        {
+          "metric": "ejecución externa",
+          "reason": "binario 'dfast' no encontrado en PATH (shutil.which)"
+        }
+      ],
+      "limitations": [
+        "No se ejecutó ninguna herramienta: el binario no está instalado."
+      ],
+      "status": "not_evaluable",
+      "reason": "binario 'dfast' no encontrado en PATH (shutil.which)"
+    }
+  },
+  "not_evaluable": [
+    {
+      "tool": "bakta",
+      "metric": "ejecución externa",
+      "reason": "binario 'bakta' no encontrado en PATH (shutil.which)"
+    },
+    {
+      "tool": "prokka",
+      "metric": "ejecución externa",
+      "reason": "binario 'prokka' no encontrado en PATH (shutil.which)"
+    },
+    {
+      "tool": "dfast",
+      "metric": "ejecución externa",
+      "reason": "binario 'dfast' no encontrado en PATH (shutil.which)"
+    }
+  ],
+  "limitations": [
+    "No se descargó nada: el script solo lee datos locales y, con --run, ejecuta un binario ya instalado.",
+    "Una herramienta ausente no es un cero ni un fracaso del método: queda como not_evaluable.",
+    "La referencia GFF es el gold de esta comparación; no se evalúa función, rutas ni dominios.",
+    "Los porcentajes de hipotéticas dependen de cómo cada herramienta nombra 'product'.",
+    "No se declara superioridad entre herramientas sin un gold independiente y ejecuciones pareadas."
+  ],
+  "command": [
+    "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/.venv/bin/python",
+    "tools/benchmark_external.py",
+    "--genome",
+    "data/raw/GCF_000006985.1_ASM698v1_genomic.fna.gz",
+    "--reference-gff",
+    "data/annotations/GCF_000006985.1_ASM698v1.gff.gz",
+    "--tool",
+    "all",
+    "--quiet"
+  ]
+}

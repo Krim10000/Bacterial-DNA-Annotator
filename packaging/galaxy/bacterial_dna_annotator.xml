@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool id="bacterial_dna_annotator" name="Bacterial DNA Annotator" version="1.1.3" profile="23.0">
+    <description>annotate a bacterial genome (GFF3, candidate TSV and JSON summary)</description>
+
+    <requirements>
+        <requirement type="package" version="1.1.3">dna-poc-annotator</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+mkdir -p out &&
+ln -s '$input' input.fna &&
+python -m webapp.pipeline input.fna
+    --outdir out
+    --threads \${GALAXY_SLOTS:-1}
+    --no-trna --no-rrna
+    --no-functional --no-membrane --no-oric --no-metabolic
+    ]]></command>
+
+    <inputs>
+        <param name="input" type="data" format="fasta"
+               label="Bacterial genome (FASTA)"
+               help="FASTA plano (o gzip si Galaxy lo entrega con formato fasta)."/>
+    </inputs>
+
+    <outputs>
+        <data name="gff" format="gff3" from_work_dir="out/input.gff3"
+              label="${tool.name} on ${on_string}: GFF3"/>
+        <data name="tsv" format="tsv" from_work_dir="out/input.candidates.tsv"
+              label="${tool.name} on ${on_string}: de novo candidates (TSV)"/>
+        <data name="json" format="json" from_work_dir="out/input.summary.json"
+              label="${tool.name} on ${on_string}: summary (JSON)"/>
+    </outputs>
+
+    <help><![CDATA[
+**Bacterial DNA Annotator**
+
+Anota un genoma bacteriano en FASTA y devuelve:
+
+- **GFF3** con los CDS predichos por pyrodigal.
+- **TSV** de ORFs/candidatos de novo del motor ghost.
+- **JSON** con el resumen del genoma (pb, GC, cobertura, features).
+
+El wrapper es deliberadamente mínimo. Desactiva las fases que necesitan
+datos de referencia o binarios externos que no están en el paquete:
+
+- tRNAscan-SE (tRNA) y barrnap (rRNA).
+- DIAMOND/Swiss-Prot, membrana/Pfam, ORCA y la red metabólica.
+
+Por eso no se producen ``gaps.tsv`` ni las tablas de evidencia estructural.
+Para la anotación completa, usar el pipeline desde la línea de comandos con
+los datos y las herramientas instalados.
+    ]]></help>
+</tool>

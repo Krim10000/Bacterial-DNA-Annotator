@@ -1,0 +1,2504 @@
+{
+  "meta": {
+    "herramienta": "tools/complex_holdout.py",
+    "generado_utc": "2026-11-24T02:28:47+00:00",
+    "sin_red": true,
+    "no_modifica_datos": true,
+    "advertencia": "Holdout de complejos: si no hay catálogo independiente, el resultado es not_evaluable. No se inventa precisión."
+  },
+  "inputs": {
+    "complexes_dir": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/complexes",
+    "raw_dir": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/complexes/raw",
+    "k12_genes": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/complexes/k12_genes.tsv",
+    "model_json": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/complexes/model_k12.genomic.json",
+    "clusters_k12": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/complexes/clusters_ecoli_k12_evidencia.tsv",
+    "genes_k12_mapeados": 4275
+  },
+  "procedencia_modelo": {
+    "fuente": "model_json",
+    "trained_genome": "ecoli_k12",
+    "genomas_entrenamiento": [
+      "ecoli_k12"
+    ],
+    "gold_path": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/complexes/gold_k12.tsv",
+    "gold_complexes_declarados": 273,
+    "gold_complexes_encontrados": 273,
+    "n_pos": 1773,
+    "n_neg": 265042,
+    "training_gold_ids": [
+      "CPX-1005",
+      "CPX-1075",
+      "CPX-1079",
+      "CPX-1081",
+      "CPX-1082",
+      "CPX-1083",
+      "CPX-1084",
+      "CPX-1085",
+      "CPX-1086",
+      "CPX-1087",
+      "CPX-1088",
+      "CPX-1090",
+      "CPX-1092",
+      "CPX-1093",
+      "CPX-1094",
+      "CPX-1095",
+      "CPX-1096",
+      "CPX-1104",
+      "CPX-180",
+      "CPX-1923",
+      "CPX-1925",
+      "CPX-1929",
+      "CPX-1931",
+      "CPX-1932",
+      "CPX-1933",
+      "CPX-1934",
+      "CPX-1936",
+      "CPX-1937",
+      "CPX-1944",
+      "CPX-1945",
+      "CPX-1948",
+      "CPX-1950",
+      "CPX-1951",
+      "CPX-1952",
+      "CPX-1953",
+      "CPX-1954",
+      "CPX-1957",
+      "CPX-1958",
+      "CPX-1961",
+      "CPX-1962",
+      "CPX-1963",
+      "CPX-1967",
+      "CPX-1968",
+      "CPX-1970",
+      "CPX-1974",
+      "CPX-1975",
+      "CPX-1978",
+      "CPX-1979",
+      "CPX-1980",
+      "CPX-2102",
+      "CPX-2104",
+      "CPX-2105",
+      "CPX-2106",
+      "CPX-2107",
+      "CPX-2113",
+      "CPX-2114",
+      "CPX-2119",
+      "CPX-2123",
+      "CPX-2126",
+      "CPX-2134",
+      "CPX-2135",
+      "CPX-2138",
+      "CPX-2139",
+      "CPX-2140",
+      "CPX-2141",
+      "CPX-2144",
+      "CPX-2145",
+      "CPX-2150",
+      "CPX-2151",
+      "CPX-2153",
+      "CPX-2155",
+      "CPX-2177",
+      "CPX-2197",
+      "CPX-2242",
+      "CPX-2254",
+      "CPX-2313",
+      "CPX-243",
+      "CPX-2508",
+      "CPX-2532",
+      "CPX-2543",
+      "CPX-2634",
+      "CPX-268",
+      "CPX-269",
+      "CPX-28",
+      "CPX-281",
+      "CPX-2843",
+      "CPX-2844",
+      "CPX-2853",
+      "CPX-2855",
+      "CPX-3090",
+      "CPX-3091",
+      "CPX-3099",
+      "CPX-317",
+      "CPX-3175",
+      "CPX-3176",
+      "CPX-319",
+      "CPX-320",
+      "CPX-3206",
+      "CPX-3299",
+      "CPX-3445",
+      "CPX-3446",
+      "CPX-3447",
+      "CPX-3464",
+      "CPX-3564",
+      "CPX-3568",
+      "CPX-3569",
+      "CPX-3573",
+      "CPX-3575",
+      "CPX-3576",
+      "CPX-3577",
+      "CPX-3578",
+      "CPX-3579",
+      "CPX-3580",
+      "CPX-3585",
+      "CPX-3742",
+      "CPX-3743",
+      "CPX-3802",
+      "CPX-3807",
+      "CPX-3821",
+      "CPX-3861",
+      "CPX-3921",
+      "CPX-3943",
+      "CPX-3949",
+      "CPX-3964",
+      "CPX-3966",
+      "CPX-3982",
+      "CPX-4005",
+      "CPX-4021",
+      "CPX-4022",
+      "CPX-403",
+      "CPX-4063",
+      "CPX-4102",
+      "CPX-4115",
+      "CPX-4119",
+      "CPX-4121",
+      "CPX-4262",
+      "CPX-4263",
+      "CPX-4264",
+      "CPX-4265",
+      "CPX-4268",
+      "CPX-4273",
+      "CPX-4281",
+      "CPX-4284",
+      "CPX-4286",
+      "CPX-4312",
+      "CPX-4313",
+      "CPX-4314",
+      "CPX-4315",
+      "CPX-4316",
+      "CPX-4317",
+      "CPX-4318",
+      "CPX-4319",
+      "CPX-4320",
+      "CPX-4321",
+      "CPX-4323",
+      "CPX-4324",
+      "CPX-4325",
+      "CPX-4328",
+      "CPX-4329",
+      "CPX-4341",
+      "CPX-4342",
+      "CPX-4343",
+      "CPX-4344",
+      "CPX-4345",
+      "CPX-4346",
+      "CPX-4348",
+      "CPX-4362",
+      "CPX-4381",
+      "CPX-4383",
+      "CPX-4384",
+      "CPX-4385",
+      "CPX-4386",
+      "CPX-4387",
+      "CPX-4388",
+      "CPX-4403",
+      "CPX-4404",
+      "CPX-4406",
+      "CPX-4407",
+      "CPX-4422",
+      "CPX-4443",
+      "CPX-4446",
+      "CPX-4465",
+      "CPX-4468",
+      "CPX-4471",
+      "CPX-4601",
+      "CPX-4602",
+      "CPX-4681",
+      "CPX-4683",
+      "CPX-4743",
+      "CPX-4781",
+      "CPX-4783",
+      "CPX-4822",
+      "CPX-4841",
+      "CPX-4862",
+      "CPX-4881",
+      "CPX-4883",
+      "CPX-4884",
+      "CPX-4885",
+      "CPX-4886",
+      "CPX-4887",
+      "CPX-4888",
+      "CPX-4901",
+      "CPX-5024",
+      "CPX-5041",
+      "CPX-5046",
+      "CPX-5056",
+      "CPX-5122",
+      "CPX-5123",
+      "CPX-5124",
+      "CPX-5126",
+      "CPX-5157",
+      "CPX-5158",
+      "CPX-5159",
+      "CPX-5161",
+      "CPX-5201",
+      "CPX-5222",
+      "CPX-5245",
+      "CPX-5281",
+      "CPX-5283",
+      "CPX-5284",
+      "CPX-5361",
+      "CPX-5541",
+      "CPX-5542",
+      "CPX-5544",
+      "CPX-5561",
+      "CPX-5581",
+      "CPX-5623",
+      "CPX-5625",
+      "CPX-5626",
+      "CPX-5628",
+      "CPX-5629",
+      "CPX-5674",
+      "CPX-5681",
+      "CPX-5718",
+      "CPX-5745",
+      "CPX-5747",
+      "CPX-5748",
+      "CPX-5762",
+      "CPX-5763",
+      "CPX-5764",
+      "CPX-5781",
+      "CPX-5782",
+      "CPX-5884",
+      "CPX-5885",
+      "CPX-5887",
+      "CPX-5888",
+      "CPX-5890",
+      "CPX-5892",
+      "CPX-5898",
+      "CPX-5899",
+      "CPX-5909",
+      "CPX-5910",
+      "CPX-5911",
+      "CPX-5912",
+      "CPX-5941",
+      "CPX-5943",
+      "CPX-5967",
+      "CPX-5968",
+      "CPX-5969",
+      "CPX-5979",
+      "CPX-5990",
+      "CPX-5994",
+      "CPX-6019",
+      "CPX-6020",
+      "CPX-6021",
+      "CPX-6022",
+      "CPX-6023",
+      "CPX-6026",
+      "CPX-6028",
+      "CPX-6029",
+      "CPX-6035",
+      "CPX-8282",
+      "CPX-996"
+    ],
+    "advierte_k12": true
+  },
+  "catalogos": [
+    {
+      "catalogo": "complexportal_83333",
+      "genomas": [
+        "ecoli_k12"
+      ],
+      "complejos": 324,
+      "con_2_o_mas_genes_mapeados": 283,
+      "con_menos_de_2_genes_mapeados": 41,
+      "en_gold": 273,
+      "fuente": "ComplexPortal",
+      "codigos_evidencia": {
+        "ECO:0000353": 176,
+        "ECO:0005547": 134,
+        "ECO:0005544": 1,
+        "ECO:0005546": 13
+      }
+    },
+    {
+      "catalogo": "gold_k12",
+      "genomas": [
+        "ecoli_k12"
+      ],
+      "complejos": 273,
+      "con_2_o_mas_genes_mapeados": 273,
+      "con_menos_de_2_genes_mapeados": 0,
+      "en_gold": 273,
+      "fuente": "ComplexPortal",
+      "codigos_evidencia": {
+        "inferida": 140,
+        "experimental": 133
+      }
+    }
+  ],
+  "holdout": {
+    "estado": "not_evaluable",
+    "evaluable_independiente": false,
+    "motivo": "No hay catálogo ComplexPortal para un genoma fuera del entrenamiento; el único catálogo local es K-12.",
+    "genomas_entrenamiento": [
+      "ecoli_k12"
+    ],
+    "catalogos_independientes": [],
+    "estrategias": {
+      "genoma": {
+        "estado": "not_evaluable",
+        "motivo": "No hay catálogo ComplexPortal para un genoma fuera del entrenamiento; el único catálogo local es K-12.",
+        "genomas_entrenamiento": [
+          "ecoli_k12"
+        ],
+        "catalogos_independientes": [],
+        "evaluaciones": []
+      },
+      "complejo": {
+        "estado": "exploratorio_no_independiente",
+        "definicion": "Complejos presentes en ComplexPortal crudo pero ausentes del gold usado para entrenar. El genoma K-12 sigue siendo el genoma de entrenamiento; no es un holdout independiente.",
+        "catalogo_total": 324,
+        "catalogo_holdout": 51,
+        "catalogo_holdout_evaluable": 10,
+        "excluidos_menos_de_2_genes": 41,
+        "ids_excluidos": [
+          "CPX-1077",
+          "CPX-1927",
+          "CPX-1928",
+          "CPX-1930",
+          "CPX-1943",
+          "CPX-1946",
+          "CPX-1955",
+          "CPX-1959",
+          "CPX-1960",
+          "CPX-1965",
+          "CPX-1966",
+          "CPX-1976",
+          "CPX-2115",
+          "CPX-2116",
+          "CPX-2117",
+          "CPX-2118",
+          "CPX-2120",
+          "CPX-2121",
+          "CPX-2124",
+          "CPX-2125",
+          "CPX-2132",
+          "CPX-2133",
+          "CPX-2136",
+          "CPX-2137",
+          "CPX-2142",
+          "CPX-2149",
+          "CPX-2152",
+          "CPX-2206",
+          "CPX-2947",
+          "CPX-3178",
+          "CPX-3190",
+          "CPX-3570",
+          "CPX-3822",
+          "CPX-5285",
+          "CPX-5624",
+          "CPX-5627",
+          "CPX-5765",
+          "CPX-5906",
+          "CPX-5908",
+          "CPX-8283",
+          "CPX-93"
+        ],
+        "recall": {
+          "0.3": {
+            "umbral": 0.3,
+            "catalogo_recuperado": 8,
+            "catalogo": 10,
+            "recall": 0.8
+          },
+          "0.5": {
+            "umbral": 0.5,
+            "catalogo_recuperado": 6,
+            "catalogo": 10,
+            "recall": 0.6
+          },
+          "0.7": {
+            "umbral": 0.7,
+            "catalogo_recuperado": 4,
+            "catalogo": 10,
+            "recall": 0.4
+          },
+          "0.9": {
+            "umbral": 0.9,
+            "catalogo_recuperado": 3,
+            "catalogo": 10,
+            "recall": 0.3
+          }
+        },
+        "detalle": [
+          {
+            "complex_id": "CPX-4389",
+            "complex_name": "YcjNOP ABC transporter complex",
+            "genes": 3,
+            "mejor_prediccion": "ecoli_k12:cx373",
+            "jaccard": 1.0,
+            "recuperado_umbral_principal": true
+          },
+          {
+            "complex_id": "CPX-4450",
+            "complex_name": "Putative amino acid ABC transporter complex",
+            "genes": 3,
+            "mejor_prediccion": "ecoli_k12:cx509",
+            "jaccard": 1.0,
+            "recuperado_umbral_principal": true
+          },
+          {
+            "complex_id": "CPX-5125",
+            "complex_name": "RuvABC Holliday junction resolvase complex",
+            "genes": 3,
+            "mejor_prediccion": "ecoli_k12:cx424",
+            "jaccard": 1.0,
+            "recuperado_umbral_principal": true
+          },
+          {
+            "complex_id": "CPX-4449",
+            "complex_name": "Low affinity betaine ABC transporter complex",
+            "genes": 3,
+            "mejor_prediccion": "ecoli_k12:cx185",
+            "jaccard": 0.75,
+            "recuperado_umbral_principal": true
+          },
+          {
+            "complex_id": "CPX-282",
+            "complex_name": "Hydrogenase-2 complex",
+            "genes": 4,
+            "mejor_prediccion": "ecoli_k12:cx42",
+            "jaccard": 0.6667,
+            "recuperado_umbral_principal": true
+          },
+          {
+            "complex_id": "CPX-5942",
+            "complex_name": "Galactitol-specific enzyme II complex",
+            "genes": 2,
+            "mejor_prediccion": "ecoli_k12:cx182",
+            "jaccard": 0.5,
+            "recuperado_umbral_principal": true
+          },
+          {
+            "complex_id": "CPX-1924",
+            "complex_name": "DNA polymerase III holoenzyme complex",
+            "genes": 8,
+            "mejor_prediccion": "ecoli_k12:cx51",
+            "jaccard": 0.4444,
+            "recuperado_umbral_principal": false
+          },
+          {
+            "complex_id": "CPX-5780",
+            "complex_name": "lambdaN-dependent processive transcription antitermination complex",
+            "genes": 8,
+            "mejor_prediccion": "ecoli_k12:cx511",
+            "jaccard": 0.375,
+            "recuperado_umbral_principal": false
+          },
+          {
+            "complex_id": "CPX-1926",
+            "complex_name": "DNA polymerase III clamp loader complex",
+            "genes": 4,
+            "mejor_prediccion": "ecoli_k12:cx51",
+            "jaccard": 0.2857,
+            "recuperado_umbral_principal": false
+          },
+          {
+            "complex_id": "CPX-2244",
+            "complex_name": "Translation initiation factor complex",
+            "genes": 2,
+            "mejor_prediccion": "",
+            "jaccard": 0.0,
+            "recuperado_umbral_principal": false
+          }
+        ],
+        "precision": {
+          "estado": "not_evaluable",
+          "motivo": "La precisión requeriría puntuar contra todo el catálogo, que incluye complejos de entrenamiento; se reporta solo recall del holdout."
+        },
+        "advertencia": "La selección no es aleatoria: muchos complejos raw-only son homómeros/unidades sin mapeo. No usar estos recall como generalización."
+      }
+    }
+  },
+  "evaluaciones": {
+    "in_sample_k12": {
+      "estado": "in_sample_k12_no_holdout",
+      "predicciones": 960,
+      "catalogo": 273,
+      "metricas": {
+        "predicciones": 960,
+        "catalogo_elegible": 273,
+        "umbral_principal": 0.5,
+        "principal": {
+          "umbral": 0.5,
+          "predicciones_tp": 167,
+          "catalogo_recuperado": 198,
+          "precision": 0.174,
+          "recall": 0.7253,
+          "f1": 0.2806
+        },
+        "umbrales": {
+          "0.3": {
+            "umbral": 0.3,
+            "predicciones_tp": 189,
+            "catalogo_recuperado": 232,
+            "precision": 0.1969,
+            "recall": 0.8498,
+            "f1": 0.3197
+          },
+          "0.5": {
+            "umbral": 0.5,
+            "predicciones_tp": 167,
+            "catalogo_recuperado": 198,
+            "precision": 0.174,
+            "recall": 0.7253,
+            "f1": 0.2806
+          },
+          "0.7": {
+            "umbral": 0.7,
+            "predicciones_tp": 103,
+            "catalogo_recuperado": 106,
+            "precision": 0.1073,
+            "recall": 0.3883,
+            "f1": 0.1681
+          },
+          "0.9": {
+            "umbral": 0.9,
+            "predicciones_tp": 80,
+            "catalogo_recuperado": 81,
+            "precision": 0.0833,
+            "recall": 0.2967,
+            "f1": 0.1301
+          }
+        },
+        "jaccard_prediccion": {
+          "n": 960,
+          "mean": 0.1586,
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.75,
+          "max": 1.0
+        },
+        "jaccard_catalogo": {
+          "n": 273,
+          "mean": 0.6412,
+          "min": 0.0,
+          "p25": 0.4,
+          "median": 0.6667,
+          "p75": 1.0,
+          "p90": 1.0,
+          "max": 1.0
+        },
+        "predicciones_con_solapamiento": 239,
+        "predicciones_jaccard_1": 80,
+        "catalogo_recuperado_alguna_vez": 270
+      },
+      "por_confianza": {
+        "alta": {
+          "predicciones": 498,
+          "precision": 0.261,
+          "recall_catalogo_por_grupo": 0.5458,
+          "f1": 0.3532,
+          "predicciones_tp": 130
+        },
+        "baja": {
+          "predicciones": 233,
+          "precision": 0.0558,
+          "recall_catalogo_por_grupo": 0.0549,
+          "f1": 0.0554,
+          "predicciones_tp": 13
+        },
+        "media": {
+          "predicciones": 229,
+          "precision": 0.1048,
+          "recall_catalogo_por_grupo": 0.1245,
+          "f1": 0.1138,
+          "predicciones_tp": 24
+        }
+      },
+      "por_evidencia": {
+        "documentado": {
+          "predicciones": 86,
+          "precision": 1.0,
+          "recall_catalogo_por_grupo": 0.3736,
+          "f1": 0.544,
+          "predicciones_tp": 86
+        },
+        "nuevo": {
+          "predicciones": 757,
+          "precision": 0.0,
+          "recall_catalogo_por_grupo": 0.0,
+          "f1": 0.0,
+          "predicciones_tp": 0
+        },
+        "parcial": {
+          "predicciones": 84,
+          "precision": 0.6905,
+          "recall_catalogo_por_grupo": 0.2418,
+          "f1": 0.3581,
+          "predicciones_tp": 58
+        },
+        "subcomplejo": {
+          "predicciones": 33,
+          "precision": 0.697,
+          "recall_catalogo_por_grupo": 0.1099,
+          "f1": 0.1898,
+          "predicciones_tp": 23
+        }
+      },
+      "advertencia": "K-12 es el genoma de entrenamiento y el gold de 273 complejos se usó para entrenar. Estas cifras son in-sample; no son precisión de generalización."
+    },
+    "holdout_complejo_k12": {
+      "estado": "exploratorio_no_independiente",
+      "definicion": "Complejos presentes en ComplexPortal crudo pero ausentes del gold usado para entrenar. El genoma K-12 sigue siendo el genoma de entrenamiento; no es un holdout independiente.",
+      "catalogo_total": 324,
+      "catalogo_holdout": 51,
+      "catalogo_holdout_evaluable": 10,
+      "excluidos_menos_de_2_genes": 41,
+      "ids_excluidos": [
+        "CPX-1077",
+        "CPX-1927",
+        "CPX-1928",
+        "CPX-1930",
+        "CPX-1943",
+        "CPX-1946",
+        "CPX-1955",
+        "CPX-1959",
+        "CPX-1960",
+        "CPX-1965",
+        "CPX-1966",
+        "CPX-1976",
+        "CPX-2115",
+        "CPX-2116",
+        "CPX-2117",
+        "CPX-2118",
+        "CPX-2120",
+        "CPX-2121",
+        "CPX-2124",
+        "CPX-2125",
+        "CPX-2132",
+        "CPX-2133",
+        "CPX-2136",
+        "CPX-2137",
+        "CPX-2142",
+        "CPX-2149",
+        "CPX-2152",
+        "CPX-2206",
+        "CPX-2947",
+        "CPX-3178",
+        "CPX-3190",
+        "CPX-3570",
+        "CPX-3822",
+        "CPX-5285",
+        "CPX-5624",
+        "CPX-5627",
+        "CPX-5765",
+        "CPX-5906",
+        "CPX-5908",
+        "CPX-8283",
+        "CPX-93"
+      ],
+      "recall": {
+        "0.3": {
+          "umbral": 0.3,
+          "catalogo_recuperado": 8,
+          "catalogo": 10,
+          "recall": 0.8
+        },
+        "0.5": {
+          "umbral": 0.5,
+          "catalogo_recuperado": 6,
+          "catalogo": 10,
+          "recall": 0.6
+        },
+        "0.7": {
+          "umbral": 0.7,
+          "catalogo_recuperado": 4,
+          "catalogo": 10,
+          "recall": 0.4
+        },
+        "0.9": {
+          "umbral": 0.9,
+          "catalogo_recuperado": 3,
+          "catalogo": 10,
+          "recall": 0.3
+        }
+      },
+      "detalle": [
+        {
+          "complex_id": "CPX-4389",
+          "complex_name": "YcjNOP ABC transporter complex",
+          "genes": 3,
+          "mejor_prediccion": "ecoli_k12:cx373",
+          "jaccard": 1.0,
+          "recuperado_umbral_principal": true
+        },
+        {
+          "complex_id": "CPX-4450",
+          "complex_name": "Putative amino acid ABC transporter complex",
+          "genes": 3,
+          "mejor_prediccion": "ecoli_k12:cx509",
+          "jaccard": 1.0,
+          "recuperado_umbral_principal": true
+        },
+        {
+          "complex_id": "CPX-5125",
+          "complex_name": "RuvABC Holliday junction resolvase complex",
+          "genes": 3,
+          "mejor_prediccion": "ecoli_k12:cx424",
+          "jaccard": 1.0,
+          "recuperado_umbral_principal": true
+        },
+        {
+          "complex_id": "CPX-4449",
+          "complex_name": "Low affinity betaine ABC transporter complex",
+          "genes": 3,
+          "mejor_prediccion": "ecoli_k12:cx185",
+          "jaccard": 0.75,
+          "recuperado_umbral_principal": true
+        },
+        {
+          "complex_id": "CPX-282",
+          "complex_name": "Hydrogenase-2 complex",
+          "genes": 4,
+          "mejor_prediccion": "ecoli_k12:cx42",
+          "jaccard": 0.6667,
+          "recuperado_umbral_principal": true
+        },
+        {
+          "complex_id": "CPX-5942",
+          "complex_name": "Galactitol-specific enzyme II complex",
+          "genes": 2,
+          "mejor_prediccion": "ecoli_k12:cx182",
+          "jaccard": 0.5,
+          "recuperado_umbral_principal": true
+        },
+        {
+          "complex_id": "CPX-1924",
+          "complex_name": "DNA polymerase III holoenzyme complex",
+          "genes": 8,
+          "mejor_prediccion": "ecoli_k12:cx51",
+          "jaccard": 0.4444,
+          "recuperado_umbral_principal": false
+        },
+        {
+          "complex_id": "CPX-5780",
+          "complex_name": "lambdaN-dependent processive transcription antitermination complex",
+          "genes": 8,
+          "mejor_prediccion": "ecoli_k12:cx511",
+          "jaccard": 0.375,
+          "recuperado_umbral_principal": false
+        },
+        {
+          "complex_id": "CPX-1926",
+          "complex_name": "DNA polymerase III clamp loader complex",
+          "genes": 4,
+          "mejor_prediccion": "ecoli_k12:cx51",
+          "jaccard": 0.2857,
+          "recuperado_umbral_principal": false
+        },
+        {
+          "complex_id": "CPX-2244",
+          "complex_name": "Translation initiation factor complex",
+          "genes": 2,
+          "mejor_prediccion": "",
+          "jaccard": 0.0,
+          "recuperado_umbral_principal": false
+        }
+      ],
+      "precision": {
+        "estado": "not_evaluable",
+        "motivo": "La precisión requeriría puntuar contra todo el catálogo, que incluye complejos de entrenamiento; se reporta solo recall del holdout."
+      },
+      "advertencia": "La selección no es aleatoria: muchos complejos raw-only son homómeros/unidades sin mapeo. No usar estos recall como generalización."
+    },
+    "transferencias_k12_cobertura": {
+      "estado": "cobertura_derivada_no_holdout",
+      "filas_transferencia": 19085,
+      "genomas_con_transferencia": 400,
+      "complejos_transferidos": 258,
+      "complejos_transferidos_en_gold": 258,
+      "complejos_transferidos_en_raw": 258,
+      "complejos_transferidos_fuera_de_catalogo": 0,
+      "cobertura_complejos_gold": 0.9451,
+      "cobertura_complejos_raw": 0.7963,
+      "genes_k12_en_transferencias": 701,
+      "cobertura_genes_gold": 0.959,
+      "cobertura_genes_raw": 0.9069,
+      "complejos_gold_completos": 255,
+      "complejos_gold_parciales": 3,
+      "complejos_gold_sin_cobertura": 15,
+      "complejos_gold_sin_cobertura_ids": [
+        "CPX-1079",
+        "CPX-1086",
+        "CPX-3743",
+        "CPX-4063",
+        "CPX-4102",
+        "CPX-4115",
+        "CPX-4119",
+        "CPX-5625",
+        "CPX-5626",
+        "CPX-5764",
+        "CPX-5781",
+        "CPX-5979",
+        "CPX-6021",
+        "CPX-6023",
+        "CPX-6026"
+      ],
+      "fraccion_media_por_complejo": 0.9415,
+      "fraccion_mediana_por_complejo": 1.0,
+      "detalle_complejos": [
+        {
+          "complex_id": "CPX-3807",
+          "genes": 34,
+          "observados": 34,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3802",
+          "genes": 21,
+          "observados": 21,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-243",
+          "genes": 13,
+          "observados": 13,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5885",
+          "genes": 9,
+          "observados": 9,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4022",
+          "genes": 8,
+          "observados": 8,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5674",
+          "genes": 8,
+          "observados": 8,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1095",
+          "genes": 7,
+          "observados": 7,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1936",
+          "genes": 7,
+          "observados": 7,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-317",
+          "genes": 7,
+          "observados": 7,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5718",
+          "genes": 7,
+          "observados": 7,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-6028",
+          "genes": 7,
+          "observados": 7,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1929",
+          "genes": 6,
+          "observados": 6,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5909",
+          "genes": 6,
+          "observados": 6,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5910",
+          "genes": 6,
+          "observados": 6,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1005",
+          "genes": 5,
+          "observados": 3,
+          "fraccion": 0.6
+        },
+        {
+          "complex_id": "CPX-1923",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1951",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1952",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3568",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4316",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4317",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4321",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4343",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4344",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4345",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4346",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4348",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4422",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4881",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4883",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4884",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4885",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4886",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4887",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4888",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5782",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5887",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5911",
+          "genes": 5,
+          "observados": 5,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1082",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1083",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1931",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1932",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1953",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1967",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1978",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2102",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2119",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2144",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2150",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2254",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2843",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2844",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3206",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3445",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3464",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3564",
+          "genes": 4,
+          "observados": 3,
+          "fraccion": 0.75
+        },
+        {
+          "complex_id": "CPX-3576",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3577",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3578",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3579",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3580",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3585",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3949",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-403",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4315",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4318",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4319",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4323",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4324",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4325",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4328",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4329",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4362",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4381",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4383",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4384",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4385",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4386",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4403",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4404",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4446",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5161",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5994",
+          "genes": 4,
+          "observados": 4,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1085",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1090",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1094",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1096",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1925",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1945",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1950",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1961",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1974",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1975",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2105",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2107",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2114",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2123",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2126",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2197",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2532",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2634",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-268",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-281",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2855",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3099",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-320",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3861",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3921",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3943",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4262",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4263",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4264",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4265",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4268",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4273",
+          "genes": 3,
+          "observados": 2,
+          "fraccion": 0.6667
+        },
+        {
+          "complex_id": "CPX-4281",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4284",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4286",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4312",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4313",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4314",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4320",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4341",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4342",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4387",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4388",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4406",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4407",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4443",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4465",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4468",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4681",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4683",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4781",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4822",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4841",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5046",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5122",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5283",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5284",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5541",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5581",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5628",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5967",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5968",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5969",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5990",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-6019",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-6021",
+          "genes": 3,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-6029",
+          "genes": 3,
+          "observados": 3,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1075",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1079",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-1081",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1084",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1086",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-1087",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1088",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1092",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1093",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1104",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-180",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1933",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1934",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1937",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1944",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1948",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1954",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1957",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1958",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1962",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1963",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1968",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1970",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1979",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-1980",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2104",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2106",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2113",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2134",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2135",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2138",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2139",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2140",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2141",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2145",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2151",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2153",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2155",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2177",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2242",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2313",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2508",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2543",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-269",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-28",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-2853",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3090",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3091",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3175",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3176",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-319",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3299",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3446",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3447",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3569",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3573",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3575",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3742",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3743",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-3821",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3964",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3966",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-3982",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4005",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4021",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4063",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-4102",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-4115",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-4119",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-4121",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4471",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4601",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4602",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4743",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4783",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4862",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-4901",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5024",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5041",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5056",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5123",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5124",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5126",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5157",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5158",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5159",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5201",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5222",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5245",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5281",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5361",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5542",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5544",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5561",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5623",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5625",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-5626",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-5629",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5681",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5745",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5747",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5748",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5762",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5763",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5764",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-5781",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-5884",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5888",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5890",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5892",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5898",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5899",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5912",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5941",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5943",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-5979",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-6020",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-6022",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-6023",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-6026",
+          "genes": 2,
+          "observados": 0,
+          "fraccion": 0.0
+        },
+        {
+          "complex_id": "CPX-6035",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-8282",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        },
+        {
+          "complex_id": "CPX-996",
+          "genes": 2,
+          "observados": 2,
+          "fraccion": 1.0
+        }
+      ],
+      "advertencia": "Las transferencias se derivan del mismo catálogo K-12; esto mide cobertura, no precisión ni generalización."
+    }
+  },
+  "limitaciones": [
+    "Hay 273 complejos gold + 324 crudos locales (597 filas de catálogo) y todos pertenecen a K-12 (ComplexPortal taxón 83333). No hay catálogo curado de otra especie; por eso el holdout independiente es `not_evaluable`.",
+    "El modelo declara `trained_genome=ecoli_k12` y 273 complejos gold usados en entrenamiento. Cualquier evaluación sobre K-12 es in-sample y no mide generalización.",
+    "El holdout por complejo usa 10 complejos raw-only con >=2 genes mapeados; excluye 41 por falta de genes/estequiometría. No es una muestra aleatoria: los homómeros y complejos sin mapeo quedan fuera, y el genoma sigue siendo K-12.",
+    "El emparejamiento es por Jaccard de conjuntos de genes. No usa `curado_id`, no evalúa estequiometría, isoformas ni interfaces, y puede fallar con complejos que comparten subunidades.",
+    "Las transferencias cubren 258 complejos y se derivan del mismo catálogo K-12; su cobertura no es precisión. RBH no trae cobertura de alineamiento ni demuestra interacción física.",
+    "Los clusters `model_<genoma>.complexes.tsv` de los 400 genomas no se evalúan aquí porque no hay catálogo ComplexPortal de sus especies; solo K-12 tiene gold local.",
+    "No hay validación experimental en otras especies, ni gold independiente para los 400 genomas. El informe no cierra brechas ni cambia el pipeline, la app/GUI o los datos."
+  ]
+}

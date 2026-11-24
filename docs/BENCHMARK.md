@@ -92,6 +92,8 @@ basarse en funciones y benchmarks, no en popularidad.
 **No hacer:** reescribir el pipeline, competir con PGAP en submission, prometer
 FBA o presentar EGAPx/RAST como comparadores bacterianos.
 
+Benchmark externo ejecutable (Bakta/Prokka/DFAST): [`EXTERNAL_BENCHMARK.md`](EXTERNAL_BENCHMARK.md).
+
 Plan de integración concreta: [`INTEGRATIONS.md`](INTEGRATIONS.md).
 
 ## Fuentes
