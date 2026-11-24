@@ -14,12 +14,14 @@ está en [`reports/mobile_coverage.json`](../reports/mobile_coverage.json) y
   la auditoría no asume ese número, lo lee del archivo.
 - **400/400** tienen TSV tipado, GFF3, archivo de espaciadores y capa previa.
   Son **44.832 filas** tipadas.
-- **310/400** tienen FASTA y por tanto CRISPR de novo evaluable. Los **90**
-  restantes no tienen FASTA: sus filas de móviles/defensa/AMR/virulencia existen,
-  pero CRISPR queda `not_available` (no evaluado). Por eso la cobertura
-  **completa es 310/400** y **parcial 90/400**, no 400/400.
-- No falta ningún TSV ni GFF del inventario. Lo que falta para que los 400 sean
-  evaluables de punta a punta es el **FASTA de 90 genomas**.
+- **400/400** tienen FASTA y CRISPR de novo evaluable. 310 están en
+  `data/raw/` y **90 en `data/raw_excluded/`**: son genomas pequeños,
+  posibles parásitos o simbiontes intracelulares, movidos deliberadamente para
+  no distorsionar las métricas del conjunto libre. No estaban perdidos.
+- La lista canónica de los 90 es
+  `data/operon_finder/excluded_genomes.json`; la justificación está en
+  [`DATA_ORGANIZATION.md`](DATA_ORGANIZATION.md).
+- No falta ningún TSV, GFF ni FASTA del inventario.
 - No se ejecutó ninguna base externa ni se creó/rellenó ninguna anotación.
 
 ## Fuentes auditadas
@@ -33,7 +35,8 @@ está en [`reports/mobile_coverage.json`](../reports/mobile_coverage.json) y
 | `data/mobile_typing/_work/full/` | intermedios del pipeline | 400 genomas |
 | `data/mobile_defense/features.tsv` | capa previa (sin contig/hebra) | 400 genomas · 161.688 filas |
 | `data/annotations_ab_initio/*/annotation.gff3` | entrada ab initio | 400 |
-| `data/raw/*_genomic.fna.gz` | FASTA para CRISPR | 310 |
+| `data/raw/*_genomic.fna.gz` | FASTA libres | 310 |
+| `data/raw_excluded/*_genomic.fna.gz` | FASTA de los 90 excluidos (pequeños/parásitos) | 90 |
 | `data/mobile_typing/summary_full.json` | resumen declarado | 400 procesados · 44.832 filas |
 | `data/mobile_typing/validation_full.json` | validación declarada | `pass`, 0 errores |
 
@@ -102,16 +105,16 @@ como está.
 | TSV tipado ausente | 0 | el inventario está cubierto |
 | GFF3 ausente | 0 | idem |
 | Espaciadores ausentes con FASTA | 0 | idem |
-| **FASTA ausente** | **90** | CRISPR de novo no evaluable |
-| CRISPR no evaluado | 90 | `not_available`, no “sin arrays” |
+| **FASTA ausente** | **0** | 310 libres + 90 excluidos |
+| CRISPR no evaluado | **0** | los 400 tienen FASTA |
 | Sin capa previa | 0 | `features.tsv` cubre 400 |
 | Sin ninguna salida | 0 | todos tienen al menos TSV/GFF/previo |
 
-Con los datos actuales, “llegar a 400” no requiere recalcular los 400: requiere
-conseguir el FASTA de los 90 genomas y volver a correr las etapas dependientes de
-secuencia (`22_run_full.sh crispr` y luego `build`). Eso no se hizo aquí: la
-tarea prohíbe red y ejecución de bases/herramientas externas. La lista completa
-de los 90 está en `reports/mobile_coverage.json` (`gaps.fasta_missing`).
+Con los datos actuales, la cobertura de archivos es **400/400**. Los 90 FASTA
+están en `data/raw_excluded/`; no hay que descargarlos. Están excluidos de las
+métricas del conjunto libre, no del catálogo. La lista completa y el motivo están
+en `data/operon_finder/excluded_genomes.json`. El campo `gaps.fasta_missing`
+del JSON queda vacío.
 
 ### Brechas de método (no de archivos)
 
@@ -159,10 +162,10 @@ siendo `full`. Las capas que determinan `full`/`partial` son `typed_mobile`,
 
 En los 400 genomas del inventario:
 
-- **310** tienen cobertura `full` (TSV + GFF + CRISPR evaluable).
-- **90** tienen cobertura `partial`: TSV/GFF/previo presentes, CRISPR no
-  evaluado por falta de FASTA; `not_available = {fasta, crispr_scan}`.
-- **0** quedan `none` (sin TSV tipado).
+- **400** tienen cobertura `full` (TSV + GFF + CRISPR evaluable).
+- **90** de ellos tienen el FASTA en `data/raw_excluded/` y están excluidos de
+  las métricas del conjunto libre; siguen anotados y auditados.
+- **0** quedan `partial` o `none` por falta de FASTA.
 
 El detalle por genoma y por filo está en
 [`reports/mobile_coverage.md`](../reports/mobile_coverage.md); la versión

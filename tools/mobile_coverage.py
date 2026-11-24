@@ -264,15 +264,18 @@ def _discover(data_root: Path, layout: dict) -> dict:
             if path.is_dir() and (path / "annotation.gff3").is_file()
         )
 
-    raw_root = data_root / "raw"
-    fasta_genomes: list[str] = []
-    if raw_root.is_dir():
-        suffix = "_genomic.fna.gz"
-        fasta_genomes = sorted(
-            path.name[: -len(suffix)]
-            for path in raw_root.glob(f"*{suffix}")
-            if path.is_file()
-        )
+    # FASTA en data/raw; los 90 genomas pequeños/endosimbiontes se movieron a
+    # data/raw_excluded. Se buscan ambas ubicaciones sin copiar ni mover nada.
+    suffix = "_genomic.fna.gz"
+    fasta_map: dict[str, tuple[Path, str]] = {}
+    for root_name in ("raw", "raw_excluded"):
+        root = data_root / root_name
+        if not root.is_dir():
+            continue
+        for path in sorted(root.glob(f"*{suffix}")):
+            genome = path.name[: -len(suffix)]
+            fasta_map.setdefault(genome, (path, root_name))
+    fasta_genomes = sorted(fasta_map)
 
     all_genomes = _dedupe(
         sorted(
@@ -297,9 +300,9 @@ def _discover(data_root: Path, layout: dict) -> dict:
         "prior_genomes": set(prior_genomes),
         "annotation_genomes": set(annotation_genomes),
         "fasta_genomes": set(fasta_genomes),
+        "fasta_map": fasta_map,
         "all_genomes": all_genomes,
         "prior_path": prior_path,
-        "raw_root": raw_root,
         "ann_root": ann_root,
     }
 
@@ -435,22 +438,25 @@ def _inspect_genome(
             bytes=gff_bytes,
         )
 
-    fasta_path = discovery["raw_root"] / f"{genome}_genomic.fna.gz"
-    fasta_bytes = _file_bytes(fasta_path)
+    fasta_entry = discovery["fasta_map"].get(genome)
+    fasta_path = fasta_entry[0] if fasta_entry else None
+    fasta_source = fasta_entry[1] if fasta_entry else ""
+    fasta_bytes = _file_bytes(fasta_path) if fasta_path else 0
     if fasta_bytes:
         fasta_layer = _layer(
             "available",
             None,
             path=_rel(fasta_path, data_root),
             bytes=fasta_bytes,
+            source=fasta_source,
         )
         fasta_ok = True
     else:
         fasta_layer = _layer(
             "not_available",
-            "sin FASTA en data/raw (las búsquedas dependientes de secuencia no se pueden evaluar)",
-            path=_rel(fasta_path, data_root) if fasta_path.exists() else None,
-            bytes=fasta_bytes,
+            "sin FASTA en data/raw ni data/raw_excluded",
+            path=None,
+            bytes=0,
         )
         fasta_ok = False
 
