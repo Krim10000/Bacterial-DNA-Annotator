@@ -583,6 +583,36 @@ def _split_focus(focus: str) -> tuple[str | None, str]:
     return None, raw
 
 
+def _complex_strands(complexes: pd.DataFrame, genes: pd.DataFrame) -> pd.DataFrame:
+    """Añade ``strand`` a complejos a partir de sus subunidades, si es única.
+
+    Un complejo con subunidades en ambas hebras queda sin hebra: no se elige
+    una arbitrariamente.
+    """
+    if complexes is None or not isinstance(complexes, pd.DataFrame) or complexes.empty:
+        return complexes
+    if "strand" in complexes.columns:
+        return complexes
+    gmap = {}
+    if isinstance(genes, pd.DataFrame) and not genes.empty:
+        for _, g in genes.iterrows():
+            for key in ("locus_tag", "gene_id", "gene_name"):
+                val = _text(g.get(key))
+                if val:
+                    gmap[val] = normalize_strand(g.get("strand"))
+    out = complexes.copy()
+    strands = []
+    for _, c in out.iterrows():
+        ss = set()
+        for part in _text(c.get("subunits")).split(";"):
+            pid = part.split(":", 1)[-1].strip()
+            if pid in gmap and gmap[pid]:
+                ss.add(gmap[pid])
+        strands.append(next(iter(ss)) if len(ss) == 1 else "")
+    out["strand"] = strands
+    return out
+
+
 def _strand_rows(df: pd.DataFrame, strand: str) -> pd.DataFrame:
     """Filas de una tabla cuya hebra normalizada coincide.
 
@@ -618,11 +648,12 @@ def svg(tables: dict, contig: str, start: int, end: int,
     # Dos secciones: + arriba, − abajo; sin hebra al final.
     Y = {
         "+": {"genes": 82, "operones": 132, "promotores": 166,
-              "horquillas": 200, "transcripcion": 234},
+              "horquillas": 200, "transcripcion": 234, "complejos": 272},
         "−": {"genes": 330, "operones": 380, "promotores": 414,
-              "horquillas": 448, "transcripcion": 482},
+              "horquillas": 448, "transcripcion": 482, "complejos": 520},
         "": {"genes": 0, "operones": 570, "promotores": 604,
-             "horquillas": 638, "transcripcion": 672},
+             "horquillas": 638, "transcripcion": 672,
+             "complejos": 736},
     }
     SECTION_LABELS = {"+": "HEBRA + · 5'→3' →",
                       "−": "HEBRA − · 5'→3' ←",
@@ -651,7 +682,8 @@ def svg(tables: dict, contig: str, start: int, end: int,
     operons = tables.get("operons", pd.DataFrame())
     promoters = tables.get("promoters", pd.DataFrame())
     hairpins = tables.get("hairpins", pd.DataFrame())
-    complexes = tables.get("complexes", pd.DataFrame())
+    complexes = _complex_strands(tables.get("complexes", pd.DataFrame()),
+                                  tables.get("genes", pd.DataFrame()))
     if "contig" in genes and contig:
         genes = genes[genes["contig"] == contig]
         if "contig" in hairpins:
@@ -669,7 +701,6 @@ def svg(tables: dict, contig: str, start: int, end: int,
                               & (complexes["start"] <= end)]
 
     Y["ruler"] = 28
-    Y["complejos"] = 736
     Y["sospecha"] = 780
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="{height}" '
          f'viewBox="0 0 {width} {height}" font-family="sans-serif" '
@@ -697,19 +728,23 @@ def svg(tables: dict, contig: str, start: int, end: int,
             # la sección sin hebra solo se rotula si hay complejos/sospechas
             if complexes.empty:
                 continue
-        y0 = Y[sec]["operones"] - 52 if sec else Y[sec]["operones"] - 28
-        o.append(f'<rect x="0" y="{y0-18}" width="{width}" height="24" '
-                 f'fill="{"#eef5ff" if sec == "+" else "#fff7e6" if sec == "−" else "#f4f5f7"}"/>')
-        o.append(f'<text x="8" y="{y0-2}" font-size="12" fill="#3b3f4a" '
-                 f'font-weight="700">{label}</text>')
+        if sec:
+            header_y = Y[sec]["genes"] - 38
+        else:
+            header_y = Y[sec]["operones"] - 30
+        o.append(f'<rect x="0" y="{header_y-20}" width="{width}" height="27" '
+                 f'fill="{"#e3efff" if sec == "+" else "#fff1d6" if sec == "−" else "#eceef2"}"/>')
+        o.append(f'<text x="8" y="{header_y-1}" font-size="13.5" fill="#26303f" '
+                 f'font-weight="800">{label}</text>')
         for key, txt in (("operones", "OPERONES"), ("promotores", "PROMOTORES"),
                          ("horquillas", "HORQUILLAS"), ("transcripcion", "TSS / TTS")):
             active = key in tracks
             o.append(f'<text x="8" y="{Y[sec][key]-6}" font-size="9.5" '
                      f'fill="#808495" font-weight="700" '
                      f'opacity="{1 if active else 0.25}">{txt}</text>')
-    o.append(f'<text x="8" y="{Y["complejos"]-6}" font-size="9.5" fill="#808495" '
-             f'font-weight="700" opacity="{1 if "complejos" in tracks else 0.25}">COMPLEJOS</text>')
+        if "complejos" in tracks and sec in Y:
+            o.append(f'<text x="8" y="{Y[sec]["complejos"]-6}" font-size="9.5" '
+                     f'fill="#808495" font-weight="700">COMPLEJOS</text>')
 
     # genes en DOS carriles: + arriba, − abajo. La punta de cada gen apunta
     # siempre en el sentido de lectura 5'→3' (derecha en +, izquierda en −).
@@ -862,27 +897,30 @@ def svg(tables: dict, contig: str, start: int, end: int,
                          f'stroke="{TTS_C}" stroke-width="1"/>')
                 o.append("</g>")
 
-    # complejos por vecindad
+    # complejos por hebra derivada de sus subunidades
     if "complejos" in tracks:
-        for _, c in complexes.iterrows():
-            gx0, gx1 = x(c["start"]), x(c["end"])
-            status = str(c.get("status", ""))
-            color = {"complex_complete": "#2e7d32",
-                     "complex_inferred_complete": "#1565c0",
-                     "complex_incomplete": "#c58a00",
-                     "complex_inferred_incomplete": "#c58a00",
-                     "complex_ambiguous": "#b3261e"}.get(status, "#8b90a0")
-            cid = str(c.get("complex_id") or f"{int(c['start'])}-{int(c['end'])}")
-            tip = (f"{c.get('name','complejo')} · {status} · "
-                   f"{int(c['start']):,}–{int(c['end']):,} pb")
-            o.append(hit_open("complex", cid) + f'<title>{_esc(tip)}</title>')
-            o.append(f'<rect x="{gx0:.1f}" y="{Y["complejos"]-8}" width="{max(6, gx1-gx0):.1f}" '
-                     f'height="16" rx="8" fill="{color}" opacity="0.22" '
-                     f'stroke="{color}" stroke-width="1.6"/>')
-            if gx1 - gx0 > 70:
-                o.append(f'<text x="{gx0+5:.1f}" y="{Y["complejos"]+3}" font-size="8.5" '
-                         f'fill="{color}">{_esc(str(c.get("name", "")))[:32]}</text>')
-            o.append("</g>")
+        for sec in ("+", "−", ""):
+            y = Y[sec]["complejos"]
+            for _, c in _strand_rows(complexes, sec).iterrows():
+                gx0, gx1 = x(c["start"]), x(c["end"])
+                status = str(c.get("status", ""))
+                color = {"complex_complete": "#2e7d32",
+                         "complex_inferred_complete": "#1565c0",
+                         "complex_incomplete": "#c58a00",
+                         "complex_inferred_incomplete": "#c58a00",
+                         "complex_ambiguous": "#b3261e"}.get(status, "#8b90a0")
+                cid = str(c.get("complex_id") or f"{int(c['start'])}-{int(c['end'])}")
+                tip = (f"{c.get('name','complejo')} · {status} · "
+                       f"{int(c['start']):,}–{int(c['end']):,} pb · "
+                       f"hebra {sec or 'no determinada'}")
+                o.append(hit_open("complex", cid) + f'<title>{_esc(tip)}</title>')
+                o.append(f'<rect x="{gx0:.1f}" y="{y-8}" width="{max(6, gx1-gx0):.1f}" '
+                         f'height="16" rx="8" fill="{color}" opacity="0.22" '
+                         f'stroke="{color}" stroke-width="1.6"/>')
+                if gx1 - gx0 > 70:
+                    o.append(f'<text x="{gx0+5:.1f}" y="{y+3}" font-size="8.5" '
+                             f'fill="{color}">{_esc(str(c.get("name", "")))[:32]}</text>')
+                o.append("</g>")
 
     # sospecha por cadena metabólica, como banda propia
     if suspects is not None and not suspects.empty:
@@ -1407,7 +1445,8 @@ def element_span(kind: str, ident: str, tables: dict,
                 "start": start, "end": end, "detail": detail}
 
     if kind == "complex":
-        complexes = tables.get("complexes", pd.DataFrame())
+        complexes = _complex_strands(tables.get("complexes", pd.DataFrame()),
+                                  tables.get("genes", pd.DataFrame()))
         row = _first_match(complexes, ident, ("complex_id",), contig=contig)
         coords = _coords(row)
         if row is None or coords is None:

@@ -15,9 +15,12 @@ proteínas, función y metabolismo.
 
 ## Navegador
 
-- carril `+` arriba;
-- carril `−` abajo;
+- sección **HEBRA +** con todos sus elementos;
+- sección **HEBRA −** con todos sus elementos;
+- sección **SIN HEBRA** para complejos sin hebra única, TSS/TTS sin dato y sospechas;
 - flechas en sentido de lectura;
+- complejos: la hebra se deriva de sus subunidades; si hay subunidades en ambas hebras, quedan sin hebra;
+- horquillas: usan su `strand` cuando existe; las `intergénica` quedan sin hebra;
 - tabla “Solapamientos en pantalla”;
 - `bp_solape`, hebras, `mismo_marco` y `locus_compartido`;
 - no se elimina ni decide cuál es correcto.

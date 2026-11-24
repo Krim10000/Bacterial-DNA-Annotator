@@ -425,3 +425,38 @@ def test_svg_groups_plus_and_minus_sections():
     # no en la banda − (rect en y=372).
     assert 'y="124"' in out
     assert 'y="372"' not in out
+
+
+def test_complex_strand_derived_from_subunits():
+    import pandas as pd
+    from webapp.browser import _complex_strands
+    genes = pd.DataFrame([
+        {"locus_tag": "g1", "gene_id": "g1", "strand": "+"},
+        {"locus_tag": "g2", "gene_id": "g2", "strand": "-"},
+    ])
+    cx = pd.DataFrame([
+        {"complex_id": "c1", "subunits": "a:g1;b:g1"},
+        {"complex_id": "c2", "subunits": "a:g2"},
+        {"complex_id": "c3", "subunits": "a:g1;b:g2"},
+    ])
+    out = _complex_strands(cx, genes).set_index("complex_id")["strand"].to_dict()
+    assert out["c1"] == "+"
+    assert out["c2"] == "−"
+    assert out["c3"] == ""
+
+
+def test_section_header_does_not_overlap_gene_label():
+    import pandas as pd
+    from webapp.browser import svg
+    genes = pd.DataFrame([
+        {"id": "g1", "locus_tag": "g1", "gene_name": "a", "product": "p",
+         "contig": "c", "start": 100, "end": 300, "strand": "+",
+         "gene_type": "CDS"},
+    ])
+    out = svg({"genes": genes}, "c", 0, 1000, tracks={"genes"})
+    # cabecera de sección (font-size 13.5) va por encima del rótulo del carril
+    header = out.find("HEBRA +")
+    lane = out.find("GENES +")
+    assert header != -1 and lane != -1
+    # no exigimos orden textual, pero sí que haya espacio vertical declarado
+    assert "font-size=\"13.5\"" in out
