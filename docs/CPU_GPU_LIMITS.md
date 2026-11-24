@@ -60,7 +60,7 @@ python -m webapp.pipeline genoma.fna --outdir results/ \
   --esmfold local --esmfold-gaps 3 --structure-evidence --structural-filters
 
 # AlphaFold-Multimer/Boltz: solo el top de pares candidatos
-# (scripts/modelado; requiere GPU y MSA)
+# (scripts de modelado GPU; requiere GPU y MSA)
 ```
 
 No se debe correr sobre 647.588 C ni sobre todos los pares. Priorizar:
