@@ -654,10 +654,12 @@ def coverage_stats(genes: pd.DataFrame, contig_len: int | None = None) -> dict:
 
 
 def _hairpin_strands(hairpins: pd.DataFrame, genes: pd.DataFrame) -> pd.DataFrame:
-    """Asigna hebra a horquillas ``intergénica`` desde el gen flanqueante.
+    """Corrige el esquema antiguo de horquillas.
 
-    Es una heurística explícita, no una prueba experimental: el terminador se
-    busca aguas abajo del gen. Si no hay relación clara, queda sin hebra.
+    En los TSV antiguos ``strand`` contiene ``"intergénica"``: eso es una
+    **localización**, no una hebra. La hebra se deriva del gen izquierdo
+    (la misma convención que ``scripts/regulation/pipeline.py`` para TTS);
+    si no existe, del derecho. La localización se conserva en ``location``.
     """
     if hairpins is None or not isinstance(hairpins, pd.DataFrame) or hairpins.empty:
         return hairpins
@@ -665,37 +667,32 @@ def _hairpin_strands(hairpins: pd.DataFrame, genes: pd.DataFrame) -> pd.DataFram
     if isinstance(genes, pd.DataFrame) and not genes.empty:
         for _, g in genes.iterrows():
             stg = normalize_strand(g.get("strand"))
-            if not stg:
-                continue
-            item = (stg, _as_int(g.get("start")), _as_int(g.get("end")))
-            for key in ("locus_tag", "gene_id", "gene_name"):
-                val = _text(g.get(key))
-                if val:
-                    gmap[val] = item
+            if stg:
+                for key in ("locus_tag", "gene_id", "gene_name"):
+                    val = _text(g.get(key))
+                    if val:
+                        gmap[val] = stg
     out = hairpins.copy()
-    assigned, sources = [], []
+    strands, sources, locations = [], [], []
     for _, h in out.iterrows():
         stg = normalize_strand(h.get("strand"))
+        old = _text(h.get("strand"))
+        location = _text(h.get("location")) or (
+            old if old and stg == "" else "intergénica")
         if stg:
-            assigned.append(stg); sources.append("anotación")
+            strands.append(stg); sources.append("anotación"); locations.append(location)
             continue
-        hs, he = _as_int(h.get("start")), _as_int(h.get("end"))
-        cand = []
+        chosen, source = "", "sin gen flanqueante"
         for key in ("left_gene", "right_gene"):
             gid = _text(h.get(key))
-            g = gmap.get(gid)
-            if g and hs is not None and he is not None:
-                gst, gs, ge = g
-                if gst == "+" and hs >= (ge or 0):
-                    cand.append("+")
-                elif gst == "−" and he <= (gs or 0):
-                    cand.append("−")
-        if len(set(cand)) == 1:
-            assigned.append(cand[0]); sources.append("gen flanqueante")
-        else:
-            assigned.append(""); sources.append("no determinada")
-    out["strand"] = assigned
+            if gid in gmap:
+                chosen = gmap[gid]
+                source = "gen izquierdo" if key == "left_gene" else "gen derecho"
+                break
+        strands.append(chosen); sources.append(source); locations.append(location)
+    out["strand"] = strands
     out["strand_source"] = sources
+    out["location"] = locations
     return out
 
 

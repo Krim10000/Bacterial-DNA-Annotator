@@ -11,8 +11,13 @@ Método: en cada región intergénica se deslizan ventanas de tamaño fijo y se
 toma la mejor. Se miden tallo, GC, bucle y poli-U (proxy) y ΔG (ViennaRNA).
 
 Salida (`data/operon_finder/<genoma>_hairpins.tsv`):
-    genome contig start end strand class stem gc loop polyU dG gap
+    genome contig start end strand location class stem gc loop polyU dG gap
     left_gene right_gene
+
+``strand`` es la hebra del gen izquierdo (la misma convención que TTS en
+``pipeline.py``); ``location`` conserva la clase ``intergénica``. En TSV
+antiguos el campo ``strand`` contenía ``intergénica``: eso era un error de
+esquema, no una horquilla sin hebra.
 
 Uso
 ---
@@ -125,7 +130,9 @@ def main() -> int:
                 "genome": a.genome, "contig": contig,
                 "start": x["end"] + h["start"],
                 "end": x["end"] + h["start"] + len(h["window"]),
-                "strand": "intergénica", "class": h["cls"],
+                "strand": ("-" if str(x.get("strand", "+")) in
+                           ("-", "-1", "reverse", "rev") else "+"),
+                "location": "intergénica", "class": h["cls"],
                 "stem": h["stem"], "gc": f"{h['gc']:.2f}", "loop": h["loop"],
                 "polyU": h["polyU"], "dG": h["dG"], "gap": gap,
                 "left_gene": x.get("locus_tag", ""), "right_gene": y.get("locus_tag", ""),

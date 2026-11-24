@@ -20,7 +20,7 @@ proteínas, función y metabolismo.
 - sección **SIN HEBRA** para complejos sin hebra única, TSS/TTS sin dato y sospechas;
 - flechas en sentido de lectura;
 - complejos: la hebra se deriva de sus subunidades; si hay subunidades en ambas hebras, quedan sin hebra;
-- horquillas: usan su `strand` cuando existe; las `intergénica` quedan sin hebra;
+- horquillas: en TSV antiguos `strand="intergénica"` era una **localización**, no una hebra; el navegador deriva la hebra del gen izquierdo (misma convención que TTS) y conserva `location`; los TSV nuevos escriben `strand` real + `location`;
 - tabla “Solapamientos en pantalla”;
 - `bp_solape`, hebras, `mismo_marco` y `locus_compartido`;
 - no se elimina ni decide cuál es correcto.
