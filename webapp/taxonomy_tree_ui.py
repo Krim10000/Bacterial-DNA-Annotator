@@ -1633,6 +1633,38 @@ def _common_prefix(first: Sequence[str], second: Sequence[str]) -> list[str]:
     return common
 
 
+def zoom_html(svg: str, *, title: str = "Árbol taxonómico", height: int = 620) -> str:
+    """Envuelve el SVG con zoom, reset y pantalla completa (sin dependencias)."""
+    return f"""<!doctype html>
+<html><head><meta charset="utf-8"><title>{title}</title>
+<style>
+body {{ margin:0; font-family: system-ui, sans-serif; background:#fff; }}
+#bar {{ display:flex; gap:6px; align-items:center; padding:6px 8px; background:#f8fafc; border-bottom:1px solid #e2e8f0; position:sticky; top:0; z-index:2; }}
+#bar button {{ cursor:pointer; border:1px solid #cbd5e1; background:#fff; border-radius:6px; padding:4px 9px; }}
+#bar span {{ font-size:12px; color:#475569; }}
+#viewport {{ overflow:auto; height:{height - 44}px; border:0; background:#fff; }}
+#inner {{ transform-origin: 0 0; width:max-content; }}
+</style></head><body>
+<div id="bar">
+  <button onclick="zoom(1.2)">+</button>
+  <button onclick="zoom(1/1.2)">−</button>
+  <button onclick="reset()">Ajustar</button>
+  <button onclick="full()">⛶ Pantalla completa</button>
+  <span id="pct">100%</span>
+</div>
+<div id="viewport"><div id="inner">{svg}</div></div>
+<script>
+let scale=1; const inner=document.getElementById('inner'), pct=document.getElementById('pct');
+function apply(){{ inner.style.transform='scale('+scale+')'; pct.textContent=Math.round(scale*100)+'%'; }}
+function zoom(f){{ scale=Math.max(0.2, Math.min(4, scale*f)); apply(); }}
+function reset(){{ scale=1; apply(); document.getElementById('viewport').scrollTo(0,0); }}
+function full(){{ const el=document.documentElement; if(el.requestFullscreen) el.requestFullscreen(); }}
+document.getElementById('viewport').addEventListener('wheel', function(e){{ if(e.ctrlKey){{ e.preventDefault(); zoom(e.deltaY<0?1.12:1/1.12); }} }}, {{passive:false}});
+apply();
+</script>
+</body></html>"""
+
+
 def render(
     data_root: Path | str | None = None,
     new_genome: str | None = None,
@@ -1819,13 +1851,20 @@ def render(
         "verde discontinuo: rama nueva/externa. SVG generado en Python, "
         "sin dependencias extra ni red."
     )
-    st.markdown(
-        '<div style="overflow:auto; max-height:72vh; border:1px solid '
-        '#e2e8f0; border-radius:8px; padding:8px; background:#ffffff;">'
-        f'<div style="min-width:{int(layout["width"])}px">{svg}</div>'
-        "</div>",
-        unsafe_allow_html=True,
-    )
+    try:
+        import streamlit.components.v1 as components
+    except Exception:  # tests con un Streamlit mínimo
+        components = None
+    if components is not None:
+        components.html(
+            zoom_html(svg, title="Árbol taxonómico", height=620),
+            height=640, scrolling=True,
+        )
+    else:
+        st.markdown(
+            '<div style="overflow:auto; max-height:72vh;">' + svg + '</div>',
+            unsafe_allow_html=True,
+        )
     st.download_button(
         "Descargar SVG",
         svg,

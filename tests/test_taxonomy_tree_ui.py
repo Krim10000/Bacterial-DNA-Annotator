@@ -934,3 +934,11 @@ def test_render_shows_svg_and_download_buttons(
     assert html_download[2]["mime"] == taxonomy_tree_ui.HTML_MIME
     assert html_download[2]["file_name"] == "arbol_taxonomico.html"
     assert str(html_download[1][1]).startswith("<!DOCTYPE html>")
+
+
+def test_zoom_html_controls():
+    from webapp.taxonomy_tree_ui import zoom_html
+    html = zoom_html('<svg></svg>')
+    assert 'requestFullscreen' in html
+    assert 'zoom(' in html and 'Ajustar' in html
+    assert '<svg></svg>' in html

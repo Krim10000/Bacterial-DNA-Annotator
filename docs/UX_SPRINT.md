@@ -42,7 +42,7 @@
 
 ## Límites que siguen
 
-- El árbol SVG es estático (sin zoom/pan).
+- El árbol SVG tiene zoom, reset y pantalla completa; sigue siendo un SVG generado localmente.
 - La tabla de reportes sigue siendo un catálogo global, aunque haya descargas
   por módulo.
 - El contenido de los reportes de auditoría está en español.
