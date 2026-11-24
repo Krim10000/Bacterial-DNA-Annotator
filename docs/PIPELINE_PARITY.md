@@ -13,6 +13,8 @@ reproducir en un genoma nuevo?
 | ORFs no anotados y desiertos | 400/400 | `ghost` + desiertos | ✅ |
 | Anotación funcional Swiss-Prot | 400 `functional.tsv` | ahora automática | ✅ nuevo |
 | Caminos A/B/C | 400/400 `protein_paths.tsv` | `protein_paths.tsv` | ✅ clasificación; B/C estructural parcial |
+| Comparar genomas | módulo compare_ui + pestaña GUI | `compare_ui.py` | 🟡 GFF/coordenadas, sin identidad |
+| Homología remota | módulo remote_homology | `--remote-homology` | 🟡 DB local; no cambia A/B/C |
 | Complejos por vecindad/ortología | 397/400 firmas; 400/400 transferencia; 281.090 clusters del modelo | firma + modelo K-12 + transferencia | 🟡 candidatos, sin predicción cuaternaria |
 | Red metabólica, reacciones y brechas | 400 redes | automática si hay DB | ✅ condicionada a datos |
 | oriC ORCA | 400 filas de estado | `webapp/oric.py` | ✅ nuevo |

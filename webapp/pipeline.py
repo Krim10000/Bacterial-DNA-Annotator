@@ -24,6 +24,7 @@ from membrane_layer import run as run_membrane  # noqa: E402
 from domain_layer import run as run_domains  # noqa: E402
 from structural_b import run as run_structural_b, evaluate as evaluate_structural_b  # noqa: E402
 from context_layer import run as run_context  # noqa: E402
+from remote_homology import run as run_remote_homology  # noqa: E402
 from regulation_layer import DEFAULT_MAX_GAP, run as run_regulation  # noqa: E402
 import oric  # noqa: E402
 from esmfold_tools import close_gaps  # noqa: E402
@@ -84,6 +85,13 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
             "n_suspected": sum(1 for x in (c.get("complexes") or [])
                                if x.get("status") == "complex_suspected"),
             "rows": len(c.get("complexes") or []),
+        }
+    if res.get("remote_homology"):
+        rh = res["remote_homology"]
+        summary["remote_homology"] = {
+            "ok": rh.get("ok"), "n_bc": rh.get("n_bc", 0),
+            "n_hit": rh.get("n_hit", 0), "sources": rh.get("sources", []),
+            "reason": rh.get("reason", ""),
         }
     if res.get("context_c"):
         c = res["context_c"]
@@ -239,6 +247,8 @@ def main() -> int:
                     help="Permitir P2Rank/AlphaFill/APIs en filtros B (por defecto solo local).")
     ap.add_argument("--no-membrane", action="store_true",
                     help="No ejecutar membrana/transporte (hmmscan + Pfam).")
+    ap.add_argument("--remote-homology", action="store_true",
+                    help="Auditar B/C contra DBs locales UniRef/TrEMBL/InterPro/eggNOG/Pfam.")
     ap.add_argument("--no-functional", action="store_true",
                     help="No ejecutar DIAMOND/Swiss-Prot automáticamente.")
     ap.add_argument("--no-oric", action="store_true",
@@ -320,6 +330,15 @@ def main() -> int:
                     args.outdir, res["genome"], cpu=args.threads)
             except Exception as exc:  # noqa: BLE001
                 print(f"[aviso] contexto C no evaluado: {exc}", file=sys.stderr)
+            if args.remote_homology:
+                try:
+                    res["remote_homology"] = run_remote_homology(
+                        res["functional"].get("rows") or [],
+                        res.get("proteins") or [], args.outdir, res["genome"],
+                        args.data_root, threads=args.threads)
+                except Exception as exc:  # noqa: BLE001
+                    print(f"[aviso] homología remota no ejecutada: {exc}",
+                          file=sys.stderr)
             try:
                 comp = infer_complexes(res["features"],
                                        res["functional"].get("hits") or {},

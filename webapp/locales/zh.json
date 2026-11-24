@@ -1052,5 +1052,6 @@
  "🧊 Estructura 3D": "🧊 3D 结构",
  "Ruta local a PDB/mmCIF": "本地 PDB/mmCIF 路径",
  "results/<genoma>_esmfold/modelo.pdb": "results/<genome>_esmfold/model.pdb",
- "Visor de coordenadas PDB. Puedes subir un PDB/mmCIF o indicar una ruta local. Una estructura experimental, AFDB o ESMFold no confirma función, sustrato, interfaz ni cierra brechas.": "PDB 坐标查看器。上传 PDB/mmCIF 或提供本地路径。实验结构、AFDB 或 ESMFold 结构都不能确认功能、底物或界面，也不能关闭缺口。"
+ "Visor de coordenadas PDB. Puedes subir un PDB/mmCIF o indicar una ruta local. Una estructura experimental, AFDB o ESMFold no confirma función, sustrato, interfaz ni cierra brechas.": "PDB 坐标查看器。上传 PDB/mmCIF 或提供本地路径。实验结构、AFDB 或 ESMFold 结构都不能确认功能、底物或界面，也不能关闭缺口。",
+ "🔀 Comparar genomas": "🔀 比较基因组"
 }

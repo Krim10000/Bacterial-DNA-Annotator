@@ -37,6 +37,7 @@ from active_sites import for_gap as active_sites_for_gap  # noqa: E402
 from hypotheses_ui import render_hypotheses  # noqa: E402
 from precomputed_ui import render as render_precomputed  # noqa: E402
 import structure_viewer
+from compare_ui import render_compare
 from esmfold_ui import (  # noqa: E402
     render_esmfold_closure,
     render_structure_evidence,
@@ -1579,7 +1580,8 @@ def render_result(res: dict) -> None:
     tabs = st.tabs(["🔎 Genes fantasma", "🏜️ Desiertos", "🧪 Brechas",
                     "📥 Descargas", "🧾 Features", "🔬 Hipótesis estructural",
                     "🧬 Función y origen", "🧫 Membrana",
-                    "📐 Regulación (reglas)", "🧊 Estructura 3D"])
+                    "📐 Regulación (reglas)", "🧊 Estructura 3D",
+                    "🔀 Comparar genomas"])
 
     with tabs[0]:
         if res["candidates"]:
@@ -1776,6 +1778,8 @@ def render_result(res: dict) -> None:
                 c_ctx = sum(1 for r in rows if r.get("context_hypothesis"))
                 c_tmhmm = sum(1 for r in rows
                               if r.get("tmhmm_status") == "ok")
+                c_remote = sum(1 for r in rows
+                               if r.get("remote_status") == "hit")
                 b_filtered = sum(1 for r in rows
                                  if str(r.get("filter_status", "")).startswith("evaluated"))
                 st.caption(f"Con pista de nombre: **{hint_n}** proteínas. "
@@ -1785,6 +1789,7 @@ def render_result(res: dict) -> None:
                            f"C con dominio Pfam: **{c_dom}**. "
                            f"C con contexto: **{c_ctx}**; "
                            f"C con TMHMM: **{c_tmhmm}**. "
+                           f"B/C con homología remota: **{c_remote}**. "
                            "Modelo/dominio/contexto no confirman función ni complejo.")
                 dfp = pd.DataFrame(rows)
                 f1, f2 = st.columns(2)
@@ -1994,6 +1999,9 @@ def render_result(res: dict) -> None:
                     path_pdb, key=f"pdb_local_{res['genome']}",
                     caption=f"Ruta: {path_pdb}",
                 )
+
+    with tabs[10]:
+        render_compare()
 
 
 def main() -> None:
