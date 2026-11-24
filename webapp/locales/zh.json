@@ -1335,5 +1335,11 @@
  "No hay secuencias del último FASTA anotado.": "最近注释的 FASTA 没有序列。",
  "El genoma no tiene linaje local. Se puede calcular un vecino por k-mers contra los 400; es una aproximación CPU, no ANI ni identificación taxonómica.": "该基因组没有本地谱系。可计算其与 400 个基因组的 k-mer 邻居；这是 CPU 近似，不是 ANI，也不是分类学鉴定。",
  "🧬 **Carriles de genes:** **+** arriba (5'→3' →) y **−** abajo (5'→3' ←). Cada gen es una flecha en su sentido de lectura; el clic, el zoom y el resaltado se mantienen.": "🧬 **基因轨道：** **+** 在上（5′→3′ →），**−** 在下（5′→3′ ←）。每个基因是指向其阅读方向的箭头；点击、缩放和高亮保持可用。",
- "🧬 **Carriles de genes:** **+** arriba (5'→3' →) y **−** abajo (5'→3' ←). Cada gen es una flecha en su sentido de lectura; el clic, el zoom y el resaltado funcionan igual en ambos carriles.": "🧬 **基因轨道：** **+** 在上（5′→3′ →），**−** 在下（5′→3′ ←）。每个基因是指向其阅读方向的箭头；点击、缩放和高亮在两条轨道上同样有效。"
+ "🧬 **Carriles de genes:** **+** arriba (5'→3' →) y **−** abajo (5'→3' ←). Cada gen es una flecha en su sentido de lectura; el clic, el zoom y el resaltado funcionan igual en ambos carriles.": "🧬 **基因轨道：** **+** 在上（5′→3′ →），**−** 在下（5′→3′ ←）。每个基因是指向其阅读方向的箭头；点击、缩放和高亮在两条轨道上同样有效。",
+ "🧬 Proteínas": "🧬 蛋白质",
+ "Ver proteína de…": "查看蛋白质：",
+ "No hay CDS en esta ventana.": "此窗口没有 CDS。",
+ "⬇️ Proteínas de la ventana (FASTA)": "⬇️ 此窗口蛋白质（FASTA）",
+ "No hay FASTA local para este genoma; no se puede traducir.": "该基因组没有本地 FASTA，无法翻译。",
+ "La pestaña Proteínas traduce cada CDS con el código genético estándar. Es una traducción automática: no confirma el marco, el inicio ni la función. Si no hay FASTA del genoma, no se inventa la secuencia.": "蛋白质标签页使用标准遗传密码翻译每个 CDS。这是自动翻译：不确认读框、起始或功能。没有基因组 FASTA 时不虚构序列。"
 }

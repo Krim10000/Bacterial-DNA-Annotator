@@ -1335,5 +1335,11 @@
  "No hay secuencias del último FASTA anotado.": "No sequences from the last annotated FASTA.",
  "El genoma no tiene linaje local. Se puede calcular un vecino por k-mers contra los 400; es una aproximación CPU, no ANI ni identificación taxonómica.": "The genome has no local lineage. A k-mer neighbor against the 400 can be computed; it is a CPU approximation, not ANI or taxonomic identification.",
  "🧬 **Carriles de genes:** **+** arriba (5'→3' →) y **−** abajo (5'→3' ←). Cada gen es una flecha en su sentido de lectura; el clic, el zoom y el resaltado se mantienen.": "🧬 **Gene lanes:** **+** above (5′→3′ →) and **−** below (5′→3′ ←). Each gene is an arrow in its reading direction; click, zoom and highlighting are preserved.",
- "🧬 **Carriles de genes:** **+** arriba (5'→3' →) y **−** abajo (5'→3' ←). Cada gen es una flecha en su sentido de lectura; el clic, el zoom y el resaltado funcionan igual en ambos carriles.": "🧬 **Gene lanes:** **+** above (5′→3′ →) and **−** below (5′→3′ ←). Each gene is an arrow in its reading direction; click, zoom and highlighting work the same in both lanes."
+ "🧬 **Carriles de genes:** **+** arriba (5'→3' →) y **−** abajo (5'→3' ←). Cada gen es una flecha en su sentido de lectura; el clic, el zoom y el resaltado funcionan igual en ambos carriles.": "🧬 **Gene lanes:** **+** above (5′→3′ →) and **−** below (5′→3′ ←). Each gene is an arrow in its reading direction; click, zoom and highlighting work the same in both lanes.",
+ "🧬 Proteínas": "🧬 Proteins",
+ "Ver proteína de…": "View protein for…",
+ "No hay CDS en esta ventana.": "No CDS in this window.",
+ "⬇️ Proteínas de la ventana (FASTA)": "⬇️ Proteins in this window (FASTA)",
+ "No hay FASTA local para este genoma; no se puede traducir.": "No local FASTA for this genome; cannot translate.",
+ "La pestaña Proteínas traduce cada CDS con el código genético estándar. Es una traducción automática: no confirma el marco, el inicio ni la función. Si no hay FASTA del genoma, no se inventa la secuencia.": "The Proteins tab translates each CDS with the standard genetic code. It is automatic: it does not confirm frame, start or function. Without genome FASTA, no sequence is invented."
 }

@@ -236,6 +236,11 @@ HELP_TEXTS = {
     "hairpins": HAIRPIN_HELP,
     "circular": CIRCULAR_HELP,
     "operons": OPERON_HELP,
+    "protein": (
+        "La pestaña Proteínas traduce cada CDS con el código genético estándar. "
+        "Es una traducción automática: no confirma el marco, el inicio ni la "
+        "función. Si no hay FASTA del genoma, no se inventa la secuencia."
+    ),
 }
 
 
@@ -2569,9 +2574,9 @@ def render(data_root: Path, genome: str) -> None:
                    "de abajo siguen disponibles pista por pista.")
 
     # --- detalle por pestañas: aquí se "pincha" en cada elemento
-    t_genes, t_ops, t_prom, t_hp, t_susp, t_tx, t_cx = st.tabs(
+    t_genes, t_ops, t_prom, t_hp, t_susp, t_tx, t_cx, t_prot = st.tabs(
         ["🧬 Genes", "🧩 Operones", "🎯 Promotores", "🌀 Horquillas",
-         "🔗 Sospechas", "📡 Transcripción", "🧩 Complejos"]
+         "🔗 Sospechas", "📡 Transcripción", "🧩 Complejos", "🧬 Proteínas"]
     )
 
     with t_genes:
@@ -2769,6 +2774,57 @@ def render(data_root: Path, genome: str) -> None:
             cid = r.get("complex_id")
             if cid:
                 _ver("complex", str(cid), "br_go_cx")
+
+    with t_prot:
+        help_expander("protein")
+        seqs = load_genome_sequences(data_root, genome)
+        prot_rows = []
+        for _, g in wg.iterrows():
+            dna = ""
+            aa = ""
+            if seqs:
+                dna = _gene_card.extract_gene_dna(
+                    seqs.get(str(g.get("contig", "")), ""),
+                    int(g.get("start", 0)), int(g.get("end", 0)),
+                    g.get("strand", "+"))
+                aa = _gene_card.translate_dna(dna) if dna else ""
+            prot_rows.append({
+                "locus_tag": g.get("locus_tag") or g.get("gene_id") or "",
+                "gene": g.get("gene_name") or "",
+                "product": g.get("product") or "",
+                "strand": g.get("strand", ""),
+                "aa_len": len(aa) if aa else "",
+                "protein_preview": aa[:60] + ("…" if len(aa) > 60 else ""),
+            })
+        pdf = pd.DataFrame(prot_rows)
+        if pdf.empty:
+            st.info("No hay CDS en esta ventana.")
+        else:
+            if seqs:
+                st.caption(f"{len(pdf)} CDS traducidos con el código genético "
+                           "estándar. Traducción automática: no valida marco, "
+                           "inicio ni función.")
+            else:
+                st.info("No hay FASTA local para este genoma; no se puede traducir.")
+            st.dataframe(pdf[["locus_tag", "gene", "product", "strand",
+                              "aa_len", "protein_preview"]],
+                         width="stretch", hide_index=True)
+            sel = st.selectbox("Ver proteína de…", pdf["locus_tag"].tolist(),
+                               key=f"br_prot_sel_{genome}_{contig}")
+            row = pdf[pdf["locus_tag"] == sel].iloc[0].to_dict()
+            gid = str(row["locus_tag"])
+            _gene_detail(tables, gid, data_root, genome)
+            if seqs:
+                fasta = "".join(
+                    f">{r['locus_tag']} {r['product']}\n{r['protein_preview']}\n"
+                    for r in prot_rows if r["protein_preview"]
+                )
+                st.download_button(
+                    "⬇️ Proteínas de la ventana (FASTA)", fasta,
+                    file_name=f"{genome}_window_proteins.faa",
+                    mime="text/x-fasta",
+                    key=f"br_prot_dl_{genome}_{contig}",
+                )
 
     st.info(
         "**Terminador ≠ atenuador.** Una horquilla al final de un operón lo "
