@@ -23,7 +23,7 @@ what **confidence**, and what it does **not** prove.
 > gaps, operons and the browser run on CPU. The GPU is only for structure
 > prediction (ESMFold/AlphaFold-Multimer/Boltz), coevolution and training the
 > DNA model. It does not turn a hypothesis into a confirmed function.
-> See [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/STRUCTURE_VIEWER.md`](docs/STRUCTURE_VIEWER.md) · [`docs/PACKAGING.md](docs/PACKAGING.md) · [`docs/REMOTE_HOMOLOGY.md](docs/REMOTE_HOMOLOGY.md) · [`docs/COMPLEX_HOLDOUT.md](docs/COMPLEX_HOLDOUT.md) · [`docs/OPERON_BENCHMARK.md](docs/OPERON_BENCHMARK.md) · [`docs/EXTERNAL_BENCHMARK.md](docs/EXTERNAL_BENCHMARK.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md).
+> See [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/WORK_PLAN.md`](docs/WORK_PLAN.md) · [`docs/STRUCTURE_VIEWER.md`](docs/STRUCTURE_VIEWER.md) · [`docs/PACKAGING.md](docs/PACKAGING.md) · [`docs/REMOTE_HOMOLOGY.md](docs/REMOTE_HOMOLOGY.md) · [`docs/COMPLEX_HOLDOUT.md](docs/COMPLEX_HOLDOUT.md) · [`docs/OPERON_BENCHMARK.md](docs/OPERON_BENCHMARK.md) · [`docs/EXTERNAL_BENCHMARK.md](docs/EXTERNAL_BENCHMARK.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md).
 
 ## 🧭 Scope at a glance
 
@@ -101,7 +101,7 @@ python tools/audit_subunit_names.py
 
 Transfer, mass and phylogenetic profile:
 [`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md). Catalog limits:
-[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/COMPLEX_MODEL_400.md`](docs/COMPLEX_MODEL_400.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/STRUCTURE_VIEWER.md`](docs/STRUCTURE_VIEWER.md) · [`docs/PACKAGING.md](docs/PACKAGING.md) · [`docs/REMOTE_HOMOLOGY.md](docs/REMOTE_HOMOLOGY.md) · [`docs/COMPLEX_HOLDOUT.md](docs/COMPLEX_HOLDOUT.md) · [`docs/OPERON_BENCHMARK.md](docs/OPERON_BENCHMARK.md) · [`docs/EXTERNAL_BENCHMARK.md](docs/EXTERNAL_BENCHMARK.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md).
+[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/COMPLEX_MODEL_400.md`](docs/COMPLEX_MODEL_400.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/WORK_PLAN.md`](docs/WORK_PLAN.md) · [`docs/STRUCTURE_VIEWER.md`](docs/STRUCTURE_VIEWER.md) · [`docs/PACKAGING.md](docs/PACKAGING.md) · [`docs/REMOTE_HOMOLOGY.md](docs/REMOTE_HOMOLOGY.md) · [`docs/COMPLEX_HOLDOUT.md](docs/COMPLEX_HOLDOUT.md) · [`docs/OPERON_BENCHMARK.md](docs/OPERON_BENCHMARK.md) · [`docs/EXTERNAL_BENCHMARK.md](docs/EXTERNAL_BENCHMARK.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md).
 
 oriC implementation, success rates and lessons: [`docs/ORIC.md`](docs/ORIC.md).
 

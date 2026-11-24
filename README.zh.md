@@ -14,7 +14,7 @@
 
 设计上，一个中学生可以放心上手，带着自己数据的研究人员也同样适用：每个结果都会说明它**来自哪里**、具有怎样的**置信度**，以及它**不能**证明什么。
 
-> **你不需要 GPU。** 注释、A/B/C、结构域、膜、复合物、缺口、操纵子和浏览器都能在 CPU 上运行。GPU 仅用于结构预测（ESMFold/AlphaFold-Multimer/Boltz）、共进化和训练 DNA 模型。它不会把假设变成已确认功能。参见 [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/STRUCTURE_VIEWER.md`](docs/STRUCTURE_VIEWER.md) · [`docs/PACKAGING.md](docs/PACKAGING.md) · [`docs/REMOTE_HOMOLOGY.md](docs/REMOTE_HOMOLOGY.md) · [`docs/COMPLEX_HOLDOUT.md](docs/COMPLEX_HOLDOUT.md) · [`docs/OPERON_BENCHMARK.md](docs/OPERON_BENCHMARK.md) · [`docs/EXTERNAL_BENCHMARK.md](docs/EXTERNAL_BENCHMARK.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md)。
+> **你不需要 GPU。** 注释、A/B/C、结构域、膜、复合物、缺口、操纵子和浏览器都能在 CPU 上运行。GPU 仅用于结构预测（ESMFold/AlphaFold-Multimer/Boltz）、共进化和训练 DNA 模型。它不会把假设变成已确认功能。参见 [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/WORK_PLAN.md`](docs/WORK_PLAN.md) · [`docs/STRUCTURE_VIEWER.md`](docs/STRUCTURE_VIEWER.md) · [`docs/PACKAGING.md](docs/PACKAGING.md) · [`docs/REMOTE_HOMOLOGY.md](docs/REMOTE_HOMOLOGY.md) · [`docs/COMPLEX_HOLDOUT.md](docs/COMPLEX_HOLDOUT.md) · [`docs/OPERON_BENCHMARK.md](docs/OPERON_BENCHMARK.md) · [`docs/EXTERNAL_BENCHMARK.md](docs/EXTERNAL_BENCHMARK.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md)。
 
 ## 🧭 范围一览
 
@@ -85,7 +85,7 @@ python scripts/complexes/fetch_complexportal.py --taxid <taxid>   --functional <
 python tools/audit_subunit_names.py
 ```
 
-转移、质量和系统发育谱：[`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md)。目录限制：[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/COMPLEX_MODEL_400.md`](docs/COMPLEX_MODEL_400.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/STRUCTURE_VIEWER.md`](docs/STRUCTURE_VIEWER.md) · [`docs/PACKAGING.md](docs/PACKAGING.md) · [`docs/REMOTE_HOMOLOGY.md](docs/REMOTE_HOMOLOGY.md) · [`docs/COMPLEX_HOLDOUT.md](docs/COMPLEX_HOLDOUT.md) · [`docs/OPERON_BENCHMARK.md](docs/OPERON_BENCHMARK.md) · [`docs/EXTERNAL_BENCHMARK.md](docs/EXTERNAL_BENCHMARK.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md)。
+转移、质量和系统发育谱：[`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md)。目录限制：[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/COMPLEX_MODEL_400.md`](docs/COMPLEX_MODEL_400.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/WORK_PLAN.md`](docs/WORK_PLAN.md) · [`docs/STRUCTURE_VIEWER.md`](docs/STRUCTURE_VIEWER.md) · [`docs/PACKAGING.md](docs/PACKAGING.md) · [`docs/REMOTE_HOMOLOGY.md](docs/REMOTE_HOMOLOGY.md) · [`docs/COMPLEX_HOLDOUT.md](docs/COMPLEX_HOLDOUT.md) · [`docs/OPERON_BENCHMARK.md](docs/OPERON_BENCHMARK.md) · [`docs/EXTERNAL_BENCHMARK.md](docs/EXTERNAL_BENCHMARK.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md)。
 
 oriC 的实现、成功率和经验：[`docs/ORIC.md`](docs/ORIC.md)。
 
