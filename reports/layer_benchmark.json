@@ -1,0 +1,632 @@
+{
+  "schema": "layer-benchmark/v1",
+  "generated_at": "2026-11-24T01:17:29Z",
+  "project_root": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc",
+  "scope": "Solo datos locales; sin red, sin reentrenar y sin modificar pipeline/GUI/docs.",
+  "layers": [
+    "abc",
+    "membrane",
+    "complexes",
+    "oric"
+  ],
+  "sections": {
+    "abc": {
+      "layer": "A/B/C",
+      "status": "partial",
+      "metrics": {
+        "genomes": 400,
+        "proteins": 1337745,
+        "labels": {
+          "A_named_function": {
+            "n": 566957,
+            "pct": 42.38
+          },
+          "B_uncharacterized_homolog": {
+            "n": 123200,
+            "pct": 9.21
+          },
+          "C_no_swissprot_hit": {
+            "n": 647588,
+            "pct": 48.41
+          }
+        },
+        "evidence_strength": {
+          "strong": {
+            "n": 76124,
+            "pct": 5.69
+          },
+          "moderate": {
+            "n": 503880,
+            "pct": 37.67
+          },
+          "weak": {
+            "n": 110153,
+            "pct": 8.23
+          },
+          "none": {
+            "n": 647588,
+            "pct": 48.41
+          }
+        },
+        "label_x_evidence": {
+          "A_named_function": {
+            "strong": 76124,
+            "moderate": 490833,
+            "weak": 0,
+            "none": 0,
+            "unknown": 0
+          },
+          "B_uncharacterized_homolog": {
+            "strong": 0,
+            "moderate": 13047,
+            "weak": 110153,
+            "none": 0,
+            "unknown": 0
+          },
+          "C_no_swissprot_hit": {
+            "strong": 0,
+            "moderate": 0,
+            "weak": 0,
+            "none": 647588,
+            "unknown": 0
+          }
+        },
+        "with_uniprot": {
+          "n": 690157,
+          "pct": 51.59
+        },
+        "with_gene": {
+          "n": 690157,
+          "pct": 51.59
+        },
+        "subunit_hint_named": {
+          "n": 80839,
+          "pct": 6.04
+        },
+        "per_genome_spread": {
+          "proteins_min": 531,
+          "proteins_median": 2863.0,
+          "proteins_max": 11514,
+          "a_pct_min": 6.33,
+          "a_pct_median": 45.65,
+          "a_pct_max": 65.49
+        },
+        "batch_summary": {
+          "path": "data/annotations_ab_initio/batch_summary.json",
+          "expected_cds": 1337745,
+          "matches_protein_rows": true
+        },
+        "gold_domains_or_function": {
+          "found": false,
+          "checked": [
+            "data/complexes/gold_k12.tsv",
+            "data/doric_ground_truth.json",
+            "data/benchmark/benchmark_summary.json",
+            "data/annotations"
+          ],
+          "note": "Los archivos encontrados son gold de complejos, de oriC, de llamada de genes o anotación NCBI de estructura. Ninguno se usa como gold de dominios/función para A/B/C: los productos NCBI no son una verdad de dominios y compararlos exigiría un mapeo y criterios que este benchmark no inventa."
+        }
+      },
+      "sources": [
+        "data/annotations_ab_initio",
+        "data/annotations_ab_initio/batch_summary.json"
+      ],
+      "not_evaluable": [
+        {
+          "metric": "precisión/recall de función nombrada (A) contra gold",
+          "reason": "No existe una tabla local de gold de función para los 400 genomas. 'A' significa hit Swiss-Prot con nombre, no función confirmada experimentalmente."
+        },
+        {
+          "metric": "precisión/recall de dominios (B/C) contra gold",
+          "reason": "No hay gold local de Pfam/InterPro para estos genomas. El panel Pfam de membrana es un panel de búsqueda, no verdad de referencia."
+        }
+      ],
+      "limitations": [
+        "A/B/C es una ruta por homología, no una llamada de función confirmada.",
+        "'C' significa sin hit Swiss-Prot; no significa que la proteína no tenga función.",
+        "Los conteos dependen de la versión de Swiss-Prot/DIAMOND usada por el pipeline.",
+        "No se evalúa la identidad de la función (solo si hay un nombre asignado).",
+        "Existe anotación NCBI local (data/annotations) con product, pero se usa para estructura/llamada de genes; no se trata como gold de dominios/función."
+      ]
+    },
+    "membrane": {
+      "layer": "Membrana",
+      "status": "partial",
+      "metrics": {
+        "genomes": 400,
+        "rows": 319715,
+        "unique_proteins": 319715,
+        "types": {
+          "tm": {
+            "n": 104828,
+            "pct": 32.79
+          },
+          "signal_peptide": {
+            "n": 128208,
+            "pct": 40.1
+          },
+          "lipoprotein": {
+            "n": 18560,
+            "pct": 5.81
+          },
+          "transporter": {
+            "n": 58069,
+            "pct": 18.16
+          },
+          "secretion": {
+            "n": 10050,
+            "pct": 3.14
+          }
+        },
+        "confidence": {
+          "high": {
+            "n": 54951,
+            "pct": 17.19
+          },
+          "medium": {
+            "n": 52485,
+            "pct": 16.42
+          },
+          "low": {
+            "n": 212279,
+            "pct": 66.4
+          }
+        },
+        "high_medium": {
+          "n": 107436,
+          "pct": 33.6
+        },
+        "transporters": {
+          "n": 58069,
+          "with_substrate": 5456,
+          "pct_with_substrate": 9.4
+        },
+        "validation": {
+          "source": "data/membrane/validation_full.json",
+          "ok": true,
+          "processed_ok": true,
+          "checked_at": "2026-11-21T03:54:32Z",
+          "genomes": 400,
+          "rows": 319715,
+          "gff_features": 319715,
+          "errors": 0,
+          "pending": 0,
+          "genomes_ok": 400,
+          "consistent_with_tables": true
+        }
+      },
+      "sources": [
+        "data/membrane/full",
+        "data/membrane/gff/full",
+        "scripts/membrane/05_validate_outputs.py",
+        "data/membrane/validation_full.json"
+      ],
+      "not_evaluable": [
+        {
+          "metric": "precisión de localización (TM/SP/lipoproteína/secreción)",
+          "reason": "La validación local (05_validate_outputs.py) comprueba cabecera, coordenadas, protein_id y correspondencia TSV-GFF; no hay gold biológico local (TMHMM/SignalP/LipoP/UniProt) para medir aciertos."
+        }
+      ],
+      "limitations": [
+        "TM/SP/lipobox son heurísticos; no se usaron TMHMM/SignalP/LipoP.",
+        "El panel Pfam es de 255 modelos; algunas familias están subrepresentadas.",
+        "66,4 % de las filas son confianza 'low'; 'low' es hipótesis, no localización confirmada.",
+        "La validación estructural no demuestra que la asignación sea correcta."
+      ]
+    },
+    "complexes": {
+      "layer": "Complejos",
+      "status": "internal_no_blind",
+      "metrics": {
+        "benchmark_type": "internal_reconstruction_no_blind",
+        "blind": false,
+        "gold": {
+          "n": 273,
+          "genes": 731,
+          "evidence_class": {
+            "inferida": 140,
+            "experimental": 133
+          },
+          "size_bins": {
+            "5+": 38,
+            "3-4": 112,
+            "2": 123
+          }
+        },
+        "clusters": {
+          "n": 960,
+          "genes": 2934,
+          "confidence": {
+            "alta": 498,
+            "media": 229,
+            "baja": 233
+          },
+          "existing_evidence_labels": {
+            "documentado": 86,
+            "nuevo": 757,
+            "subcomplejo": 33,
+            "parcial": 84
+          }
+        },
+        "thresholds": {
+          "0.8": {
+            "any_cluster_covers_gold": {
+              "n": 88,
+              "pct": 32.23
+            },
+            "one_to_one": {
+              "pairs": 86,
+              "gold_recall": 0.315,
+              "cluster_concordance": 0.0896,
+              "gene_recall": 0.3653,
+              "gene_purity": 1.0
+            },
+            "clusters_with_best_jaccard_ge": {
+              "n": 86,
+              "pct": 8.96
+            },
+            "high_confidence_with_best_jaccard_ge": {
+              "n": 82,
+              "pct_of_high": 16.47
+            },
+            "gold_by_evidence": {
+              "experimental": {
+                "n": 133,
+                "covered_any": 35,
+                "pct": 26.32
+              },
+              "inferida": {
+                "n": 140,
+                "covered_any": 53,
+                "pct": 37.86
+              }
+            },
+            "gold_by_size": {
+              "2": {
+                "n": 123,
+                "covered_any": 23,
+                "pct": 18.7
+              },
+              "3-4": {
+                "n": 112,
+                "covered_any": 57,
+                "pct": 50.89
+              },
+              "5+": {
+                "n": 38,
+                "covered_any": 8,
+                "pct": 21.05
+              }
+            }
+          },
+          "0.5": {
+            "any_cluster_covers_gold": {
+              "n": 198,
+              "pct": 72.53
+            },
+            "one_to_one": {
+              "pairs": 167,
+              "gold_recall": 0.6117,
+              "cluster_concordance": 0.174,
+              "gene_recall": 0.6881,
+              "gene_purity": 0.8415
+            },
+            "clusters_with_best_jaccard_ge": {
+              "n": 167,
+              "pct": 17.4
+            },
+            "high_confidence_with_best_jaccard_ge": {
+              "n": 130,
+              "pct_of_high": 26.1
+            },
+            "gold_by_evidence": {
+              "experimental": {
+                "n": 133,
+                "covered_any": 87,
+                "pct": 65.41
+              },
+              "inferida": {
+                "n": 140,
+                "covered_any": 111,
+                "pct": 79.29
+              }
+            },
+            "gold_by_size": {
+              "2": {
+                "n": 123,
+                "covered_any": 77,
+                "pct": 62.6
+              },
+              "3-4": {
+                "n": 112,
+                "covered_any": 99,
+                "pct": 88.39
+              },
+              "5+": {
+                "n": 38,
+                "covered_any": 22,
+                "pct": 57.89
+              }
+            }
+          }
+        },
+        "gold_with_any_cluster": {
+          "n": 270,
+          "pct": 98.9
+        },
+        "artifacts": {
+          "transfer_files": 400,
+          "model_complex_files": 400,
+          "note": "Inventario de artefactos para los 400. No hay gold de transferencia; no se calcula precisión sobre ellos."
+        },
+        "circularity": {
+          "risk": "high",
+          "reason": "El modelo de pares se ajustó con gold_k12.tsv y los clusters K-12 se generaron aplicándolo al mismo genoma. El solapamiento con el gold no es una validación ciega.",
+          "what_it_does_not_measure": "Precisión predictiva en genomas no vistos ni complejos ausentes del catálogo ComplexPortal."
+        }
+      },
+      "sources": [
+        "data/complexes/gold_k12.tsv",
+        "data/complexes/clusters_ecoli_k12_evidencia.tsv",
+        "data/complexes/clusters_ecoli_k12.tsv",
+        "scripts/complexes/annotate_evidence.py",
+        "data/complexes/transfer_*.tsv",
+        "data/complexes/model_*.complexes.tsv"
+      ],
+      "not_evaluable": [
+        {
+          "metric": "precisión predictiva ciega / externa",
+          "reason": "El gold K-12 se usó para ajustar el modelo y para etiquetar los clusters; no hay un conjunto K-12 held-out ni otro genoma con gold de complejos."
+        },
+        {
+          "metric": "falsos positivos en clusters 'nuevo'",
+          "reason": "No hay verdad para complejos fuera de ComplexPortal; un cluster no catalogado no puede contarse como falso positivo."
+        }
+      ],
+      "limitations": [
+        "Benchmark interno y no ciego: el solapamiento con gold está favorecido por construcción.",
+        "Gold solo de E. coli K-12 (ComplexPortal), 273 complejos con >=2 genes.",
+        "Complejos grandes (50S, 30S, complejo I) quedan casi todos fuera de Jaccard >=0,8.",
+        "No se evalúa estequiometría ni interacción física; 'documentado' es coincidencia de subunidades.",
+        "Los clusters 'nuevo'/'parcial' no son necesariamente falsos: el mundo está abierto."
+      ]
+    },
+    "oric": {
+      "layer": "oriC",
+      "status": "partial",
+      "metrics": {
+        "genomes_with_status": 400,
+        "doric_dataset": {
+          "release": "DoriC 14.0",
+          "csv_file": "DoriC14_release_20261012.csv",
+          "csv_rows": 530178,
+          "csv_sha256": "05cace4532993b5c0c727ce0b800b165e81da2a4f0e21f6f005782bc27c0fe86",
+          "note": "DoriC no se redistribuye; se usa solo como referencia local."
+        },
+        "status_counts": {
+          "anomalous": {
+            "n": 42,
+            "pct": 10.5
+          },
+          "consensus": {
+            "n": 77,
+            "pct": 19.25
+          },
+          "lineage_specific": {
+            "n": 10,
+            "pct": 2.5
+          },
+          "validated": {
+            "n": 271,
+            "pct": 67.75
+          }
+        },
+        "validated_by_counts": {
+          "DoriC + GC skew": {
+            "n": 6,
+            "pct": 1.5
+          },
+          "GC skew": {
+            "n": 7,
+            "pct": 1.75
+          },
+          "GC skew (linaje sin dnaA)": {
+            "n": 10,
+            "pct": 2.5
+          },
+          "ORCA": {
+            "n": 35,
+            "pct": 8.75
+          },
+          "ORCA + DoriC + dnaA": {
+            "n": 265,
+            "pct": 66.25
+          },
+          "ORCA + proximidad dnaA": {
+            "n": 77,
+            "pct": 19.25
+          }
+        },
+        "doric_available": {
+          "n": 306,
+          "pct": 76.5
+        },
+        "without_doric": {
+          "n": 94,
+          "pct": 23.5,
+          "status_counts": {
+            "anomalous": 7,
+            "consensus": 77,
+            "lineage_specific": 10
+          }
+        },
+        "validated_anchored": {
+          "n": 271,
+          "min_bp": 0,
+          "median_bp": 4755.0,
+          "mean_bp": 21517.0,
+          "p90_bp": 28992.0,
+          "max_bp": 1304960,
+          "within_1000bp": {
+            "n": 87,
+            "pct": 32.1
+          },
+          "within_10000bp": {
+            "n": 176,
+            "pct": 64.94
+          },
+          "within_50000bp": {
+            "n": 267,
+            "pct": 98.52
+          },
+          "beyond_max_threshold": {
+            "n": 4,
+            "pct": 1.48
+          },
+          "n_status": 271,
+          "n_with_doric": 271,
+          "n_using_doric": 271,
+          "outside_50kb": {
+            "n": 4,
+            "examples": [
+              {
+                "genome": "GCF_000484535.1_ASM48453v1",
+                "distance_bp": 1304960
+              },
+              {
+                "genome": "GCF_055387105.1_ASM5538710v1",
+                "distance_bp": 1042460
+              },
+              {
+                "genome": "GCF_055390195.1_ASM5539019v1",
+                "distance_bp": 681318
+              },
+              {
+                "genome": "GCF_021057185.1_ASM2105718v1",
+                "distance_bp": 267813
+              }
+            ]
+          }
+        },
+        "anomalous_with_doric": {
+          "n": 35,
+          "min_bp": 55015,
+          "median_bp": 257863.0,
+          "mean_bp": 618278.4,
+          "p90_bp": 1465934.6,
+          "max_bp": 3169157,
+          "within_1000bp": {
+            "n": 0,
+            "pct": 0.0
+          },
+          "within_10000bp": {
+            "n": 0,
+            "pct": 0.0
+          },
+          "within_50000bp": {
+            "n": 0,
+            "pct": 0.0
+          },
+          "beyond_max_threshold": {
+            "n": 35,
+            "pct": 100.0
+          },
+          "n_status": 42,
+          "note": "Por definición el estado anomalous agrupa discrepancias; la distancia no es una medida de acierto del pipeline."
+        },
+        "all_with_doric": {
+          "n": 306,
+          "min_bp": 0,
+          "median_bp": 6654.5,
+          "mean_bp": 89774.0,
+          "p90_bp": 111254.0,
+          "max_bp": 3169157,
+          "within_1000bp": {
+            "n": 87,
+            "pct": 28.43
+          },
+          "within_10000bp": {
+            "n": 176,
+            "pct": 57.52
+          },
+          "within_50000bp": {
+            "n": 267,
+            "pct": 87.25
+          },
+          "beyond_max_threshold": {
+            "n": 39,
+            "pct": 12.75
+          }
+        },
+        "orca_only_vs_doric": {
+          "n": 306,
+          "min_bp": 5,
+          "median_bp": 16544.0,
+          "mean_bp": 226375.6,
+          "p90_bp": 631750.0,
+          "max_bp": 6198282,
+          "within_1000bp": {
+            "n": 39,
+            "pct": 12.75
+          },
+          "within_10000bp": {
+            "n": 126,
+            "pct": 41.18
+          },
+          "within_50000bp": {
+            "n": 211,
+            "pct": 68.95
+          },
+          "beyond_max_threshold": {
+            "n": 95,
+            "pct": 31.05
+          },
+          "delta_bp_checked": 306,
+          "delta_bp_mismatches": 0,
+          "delta_bp_recomputed_matches": true,
+          "without_length": 0
+        },
+        "consensus": {
+          "n": 77,
+          "with_doric": 0,
+          "distance": "not_evaluable"
+        },
+        "lineage_specific": {
+          "n": 10,
+          "with_doric": 0,
+          "distance": "not_evaluable"
+        },
+        "without_length": 0
+      },
+      "sources": [
+        "data/orca_predictions_fix/oriC_status.tsv",
+        "data/orca_predictions",
+        "data/annotations_ab_initio",
+        "data/doric",
+        "scripts/oric/03_orca_predict.py"
+      ],
+      "not_evaluable": [
+        {
+          "metric": "exactitud independiente del pipeline oriC",
+          "reason": "Los 271 estados validated usan DoriC (271 con DoriC explícito en validated_by); no hay ningún validated sin DoriC. La distancia mide consistencia con el ancla, no acierto independiente."
+        },
+        {
+          "metric": "distancia a verdad externa para consensus",
+          "reason": "Los 77 consensus no tienen DoriC (0 con DoriC). El estado combina ORCA y proximidad a dnaA, no una verdad externa."
+        },
+        {
+          "metric": "distancia para lineage_specific y anomalous sin DoriC",
+          "reason": "lineage_specific=10, anomalous sin DoriC=7; no hay verdad externa para medir distancia."
+        }
+      ],
+      "limitations": [
+        "DoriC es una referencia curada, no una verdad universal; 94/400 genomas no tienen DoriC.",
+        "DoriC puede cruzar el origen (start > end); se usa start como ancla, igual que 03_orca_predict.py.",
+        "ORCA asume linealidad; no se rota el contig en este benchmark.",
+        "La tabla de estados no trae replicón: para la distancia se usa el contig más largo como cromosoma.",
+        "El estado 'validated' no es accuracy: 271/271 usan DoriC como ancla.",
+        "El estado 'anomalous' se define por discrepancia; su distancia no mide desempeño global."
+      ]
+    }
+  }
+}

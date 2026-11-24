@@ -17,7 +17,7 @@ reproducir en un genoma nuevo?
 | Red metabólica, reacciones y brechas | 400 redes | automática si hay DB | ✅ condicionada a datos |
 | oriC ORCA | 400 filas de estado | `webapp/oric.py` | ✅ nuevo |
 | DoriC | 306 genomas con verdad | lookup con `--accession` | 🟡 opcional |
-| Operones/promotores/regulación | 402 directorios | no automático | ❌ |
+| Operones/promotores/regulación | 402 directorios + reglas en FASTA nuevo | `regulation_layer.py` | 🟡 reglas; sin TSS/TTS |
 | Móviles/defensa | 10 pilotos | módulo de resumen | 🟡 fuera de los 400 |
 | Membrana/transporte | 400 TSV `full/` + 10 GFF piloto | `webapp/membrane_layer.py` | ✅ automático si hmmscan + panel |
 | Taxonomía/ANI | 400 JSON `full/` | no automático | 🟡 datos 400; no pipeline nuevo |
@@ -109,8 +109,9 @@ experimentales. No son parte del núcleo CPU.
 No, todavía **no hay paridad total**. Sí hay paridad en el núcleo que define el
 producto: anotación, proteínas, función, metabolismo, brechas y oriC.
 
-La brecha más grande es **regulación/operones**. La segunda es **estructura
-masiva**. Membrana ya se ejecuta en un FASTA nuevo si hmmscan y el panel Pfam
+La brecha más grande sigue siendo **regulación experimental/TSS/TTS**. La regla
+de operones/promotores ya corre en FASTA nuevo, pero no es transcripción. La
+segunda brecha es **estructura masiva**. Membrana ya se ejecuta en un FASTA nuevo si hmmscan y el panel Pfam
 están instalados; taxonomía sigue precalculada. Móviles/defensa sigue siendo
 piloto de 10 genomas.
 

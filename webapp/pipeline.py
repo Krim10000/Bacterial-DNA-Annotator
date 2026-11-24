@@ -24,6 +24,7 @@ from membrane_layer import run as run_membrane  # noqa: E402
 from domain_layer import run as run_domains  # noqa: E402
 from structural_b import run as run_structural_b, evaluate as evaluate_structural_b  # noqa: E402
 from context_layer import run as run_context  # noqa: E402
+from regulation_layer import DEFAULT_MAX_GAP, run as run_regulation  # noqa: E402
 import oric  # noqa: E402
 from esmfold_tools import close_gaps  # noqa: E402
 from structure_evidence import evidence_for_rows  # noqa: E402
@@ -88,6 +89,14 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
         c = res["context_c"]
         summary["context_c"] = {"ok": c.get("ok"), "n": c.get("n", 0),
                                 "reason": c.get("reason", "")}
+    if res.get("regulation"):
+        r = res["regulation"]
+        summary["regulation"] = {
+            "ok": r.get("ok"), "n_operons": r.get("n_operons", 0),
+            "n_promoters": r.get("n_promoters", 0),
+            "evidence": "rule_based", "status": "hypothesis_not_experimental",
+            "reason": r.get("reason", ""),
+        }
     if res.get("structural_b_filters"):
         bf = res["structural_b_filters"]
         summary["structural_b_filters"] = {
@@ -221,6 +230,9 @@ def main() -> int:
     ap.add_argument("--no-rrna", action="store_true")
     ap.add_argument("--no-ghost", action="store_true")
     ap.add_argument("--no-deserts", action="store_true")
+    ap.add_argument("--operon-max-gap", type=int, default=DEFAULT_MAX_GAP,
+                    help="Hueco máximo (pb) para unir CDS en un operón "
+                         "putativo por reglas (default 300).")
     ap.add_argument("--esm", action="store_true", help="Puntuar ORFs con ESM-2")
     ap.add_argument("--no-metabolic", action="store_true")
     ap.add_argument("--no-membrane", action="store_true",
@@ -264,6 +276,15 @@ def main() -> int:
             "min_region_len": 150, "min_aa": 60,
         }
         res = annotate(fasta.name, data, options)
+        if res.get("features"):
+            try:
+                res["regulation"] = run_regulation(
+                    res["features"], args.outdir, res["genome"],
+                    max_gap=args.operon_max_gap,
+                    sequences=res.get("sequences"))
+            except Exception as exc:  # noqa: BLE001
+                print(f"[aviso] regulación automática no ejecutada: {exc}",
+                      file=sys.stderr)
         if not args.no_functional and res.get("proteins"):
             try:
                 res["functional"] = functional_annotate(

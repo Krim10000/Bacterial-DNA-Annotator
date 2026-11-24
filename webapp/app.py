@@ -50,6 +50,7 @@ from annotator import (  # noqa: E402
     detect_tools,
 )
 from functional import annotate as annotate_functional  # noqa: E402
+from regulation_layer import run as run_regulation  # noqa: E402
 from complexes import infer as infer_complexes, enrich_rows as enrich_complex_rows  # noqa: E402
 from complex_model import run as run_complex_model  # noqa: E402
 from complex_transfer import load as load_complex_transfer  # noqa: E402
@@ -1576,7 +1577,8 @@ def render_result(res: dict) -> None:
 
     tabs = st.tabs(["🔎 Genes fantasma", "🏜️ Desiertos", "🧪 Brechas",
                     "📥 Descargas", "🧾 Features", "🔬 Hipótesis estructural",
-                    "🧬 Función y origen", "🧫 Membrana"])
+                    "🧬 Función y origen", "🧫 Membrana",
+                    "📐 Regulación (reglas)"])
 
     with tabs[0]:
         if res["candidates"]:
@@ -1780,11 +1782,23 @@ def render_result(res: dict) -> None:
                            f"C con dominio Pfam: **{c_dom}**. "
                            f"C con contexto: **{c_ctx}**. "
                            "Modelo/dominio/contexto no confirman función ni complejo.")
-                st.dataframe(pd.DataFrame(rows).head(500), width="stretch",
-                             hide_index=True)
+                dfp = pd.DataFrame(rows)
+                f1, f2 = st.columns(2)
+                paths = sorted(x for x in dfp.get("path", pd.Series()).dropna().unique())
+                pick_paths = f1.multiselect("Filtrar camino", paths, default=paths,
+                                            key="pp_paths")
+                cstat = sorted(x for x in dfp.get("complex_status", pd.Series()).dropna().unique())
+                pick_cstat = f2.multiselect("Filtrar complejo", cstat, default=cstat,
+                                            key="pp_cstat")
+                view = dfp
+                if pick_paths:
+                    view = view[view["path"].isin(pick_paths)]
+                if pick_cstat and "complex_status" in view:
+                    view = view[view["complex_status"].isin(pick_cstat)]
+                st.dataframe(view.head(500), width="stretch", hide_index=True)
                 st.download_button(
                     "⬇️ Caminos de proteínas (TSV)",
-                    pd.DataFrame(rows).to_csv(sep="\t", index=False),
+                    view.to_csv(sep="\t", index=False),
                     file_name=f"{res['genome']}_protein_paths.tsv",
                     mime="text/plain",
                 )
@@ -1885,6 +1899,71 @@ def render_result(res: dict) -> None:
                         file_name=f"{res['genome']}_membrane.gff3",
                         mime="text/plain",
                     )
+
+    with tabs[8]:
+        st.caption(
+            "Operones y promotores **putativos** construidos por reglas sobre "
+            "las features de este FASTA. `evidence=rule_based`: son hipótesis, "
+            "no evidencia experimental. Un operón se agrupa por mismo "
+            "contig/hebra con hueco ≤ 300 pb; el promotor es una ventana fija "
+            "de 50 pb upstream y una coincidencia de consenso -35 TTGACA / "
+            "-10 TATAAT (espaciador 15-19)."
+        )
+        reg = res.get("regulation")
+        if res.get("regulation_error"):
+            st.warning(f"Regulación automática no ejecutada: "
+                       f"{res['regulation_error']}")
+        elif not reg:
+            st.info("Regulación automática no ejecutada para este genoma.")
+        elif not reg.get("ok"):
+            st.warning(f"No se pudo construir la regulación: "
+                       f"{reg.get('reason', '')}")
+        else:
+            ops = reg.get("rows") or []
+            proms = reg.get("promoter_rows") or []
+            c1, c2, c3 = st.columns(3)
+            c1.metric("Operones", len(ops))
+            c2.metric("Promotores", len(proms))
+            c3.metric("Con caja -10/-35",
+                      sum(1 for p in proms if p.get("box_found") == "yes"))
+            st.caption(
+                "Cada fila declara `evidence=rule_based`, `confidence` "
+                "(low/medium) y `limitation`. Ninguna etiqueta demuestra "
+                "cotranscripción ni un TSS; no se usan RegulonDB/DBTBS ni red."
+            )
+            if ops:
+                st.markdown("##### Operones")
+                dfo = pd.DataFrame(ops)
+                cols = [c for c in ("operon_id", "contig", "strand", "start",
+                                    "end", "n_genes", "genes",
+                                    "max_internal_gap", "confidence",
+                                    "limitation") if c in dfo.columns]
+                st.dataframe(dfo[cols], width="stretch", hide_index=True)
+                st.download_button(
+                    "⬇️ Operones (TSV)",
+                    dfo.to_csv(sep="\t", index=False),
+                    file_name=f"{res['genome']}.operons_auto.tsv",
+                    mime="text/plain", key=f"dl_ops_{res['genome']}",
+                )
+            else:
+                st.info("Sin operones putativos para este genoma.")
+            if proms:
+                st.markdown("##### Promotores putativos")
+                dfp = pd.DataFrame(proms)
+                cols = [c for c in ("promoter_id", "operon_id", "contig",
+                                    "strand", "gene_id", "start", "end",
+                                    "box35", "mm35", "box10", "mm10",
+                                    "spacer", "score", "box_found",
+                                    "confidence") if c in dfp.columns]
+                st.dataframe(dfp[cols], width="stretch", hide_index=True)
+                st.download_button(
+                    "⬇️ Promotores (TSV)",
+                    dfp.to_csv(sep="\t", index=False),
+                    file_name=f"{res['genome']}.promoters_auto.tsv",
+                    mime="text/plain", key=f"dl_proms_{res['genome']}",
+                )
+            else:
+                st.info("Sin promotores putativos para este genoma.")
 
 
 def main() -> None:
@@ -2108,6 +2187,14 @@ def main() -> None:
                 try:
                     res = annotate(name, data, opts)
                     res["elapsed"] = round(time.time() - t0, 1)
+                    if res.get("features"):
+                        status.write("📐 Operones y promotores por reglas…")
+                        try:
+                            res["regulation"] = run_regulation(
+                                res["features"], OUT_ROOT, res["genome"],
+                                sequences=res.get("sequences"))
+                        except Exception as exc:  # noqa: BLE001
+                            res["regulation_error"] = str(exc)
                     if res.get("proteins"):
                         status.write("🧾 Anotación funcional (DIAMOND/Swiss-Prot)…")
                         try:

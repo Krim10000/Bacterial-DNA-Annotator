@@ -23,7 +23,7 @@ qué **confianza** y qué **no** prueba.
 > brechas, operones y navegador funcionan en CPU. La GPU solo se usa para
 > estructura (ESMFold/AlphaFold-Multimer/Boltz), coevolución y entrenamiento del
 > modelo de ADN. No convierte una hipótesis en función confirmada.
-> Ver [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md).
+> Ver [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md).
 
 ![Resultados de anotación](webapp/screenshot_v2_results.png)
 
@@ -39,7 +39,7 @@ metabólicas, operones y bucles de regulación, siempre con evidencia y límites
 | Función / EC / UniProt | ✅ automático (caminos A/B/C en `protein_paths.tsv`) |
 | oriC (ORCA + GC skew) | ✅ automático en FASTA nuevo; DoriC opcional con accession |
 | Rutas metabólicas y brechas | ✅ implementado |
-| Operones y promotores | 🟡 precalculado en los 400; no automático en FASTA nuevo |
+| Operones y promotores | 🟡 precalculado en los 400; automático por reglas en FASTA nuevo (hipótesis) |
 | Membrana/transporte | ✅ automático en FASTA nuevo si HMMER + panel Pfam están instalados |
 | Bucles de regulación | 🟡 parcial: candidatos/operadores; dirección/magnitud bloqueadas por GPU y experimentos |
 | Complejos proteicos (CPU) | 🟡 vecindad + prior K-12 + transferencia por ortología; sin predicción cuaternaria |
@@ -103,7 +103,7 @@ python tools/audit_subunit_names.py
 
 Transferencia, masa y perfil filogenético:
 [`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md). Límites de catálogo:
-[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/COMPLEX_MODEL_400.md`](docs/COMPLEX_MODEL_400.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md).
+[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/COMPLEX_MODEL_400.md`](docs/COMPLEX_MODEL_400.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md).
 
 Implementación, tasas de éxito y lecciones de oriC: [`docs/ORIC.md`](docs/ORIC.md).
 

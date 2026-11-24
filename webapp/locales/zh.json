@@ -1035,5 +1035,17 @@
  "Membrana no ejecutada. Requiere hmmscan y el panel Pfam.": "未运行膜分析。需要 hmmscan 和 Pfam 面板。",
  "Membrana/transporte: hmmscan contra un panel Pfam curado, hidropatía tipo Kyte-Doolittle, señal péptido y lipobox. Son heurísticas; no sustituyen TMHMM/SignalP/LipoP.": "膜/转运：针对人工审编 Pfam 面板的 hmmscan、Kyte-Doolittle 疏水性、信号肽和 lipobox。这些是启发式方法，不能替代 TMHMM/SignalP/LipoP。",
  "Límites CPU/GPU de A/B/C y estructura": "A/B/C 与结构的 CPU/GPU 限制",
- "- **A/B/C:** clasificación por homología Swiss-Prot. A no es función confirmada; C no es ausencia de función.\n- **B estructural:** CPU busca modelos AFDB locales; no pliega ni filtra automáticamente.\n- **C dominios:** hmmscan contra un panel Pfam curado; es una hipótesis de familia, no una función.\n- **GPU:** AlphaFold-Multimer/Boltz/ESMFold local para estructura; no cambia la etiqueta A/B/C.\n- **Regla:** ninguna estructura cierra una brecha.": "- **A/B/C：** 基于 Swiss-Prot 同源的分类。A 不是已确认功能；C 不是没有功能。\n- **B 结构：** CPU 查找本地 AFDB 模型；不自动折叠或过滤。\n- **C 结构域：** 对人工审编 Pfam 面板运行 hmmscan；是家族假设，不是功能。\n- **GPU：** 使用 AlphaFold-Multimer/Boltz/本地 ESMFold 获取结构；不改变 A/B/C 标签。\n- **规则：** 任何结构都不能关闭缺口。"
+ "- **A/B/C:** clasificación por homología Swiss-Prot. A no es función confirmada; C no es ausencia de función.\n- **B estructural:** CPU busca modelos AFDB locales; no pliega ni filtra automáticamente.\n- **C dominios:** hmmscan contra un panel Pfam curado; es una hipótesis de familia, no una función.\n- **GPU:** AlphaFold-Multimer/Boltz/ESMFold local para estructura; no cambia la etiqueta A/B/C.\n- **Regla:** ninguna estructura cierra una brecha.": "- **A/B/C：** 基于 Swiss-Prot 同源的分类。A 不是已确认功能；C 不是没有功能。\n- **B 结构：** CPU 查找本地 AFDB 模型；不自动折叠或过滤。\n- **C 结构域：** 对人工审编 Pfam 面板运行 hmmscan；是家族假设，不是功能。\n- **GPU：** 使用 AlphaFold-Multimer/Boltz/本地 ESMFold 获取结构；不改变 A/B/C 标签。\n- **规则：** 任何结构都不能关闭缺口。",
+ "Filtrar camino": "筛选路径",
+ "Con caja -10/-35": "含 -10/-35 框",
+ "Filtrar complejo": "筛选复合物",
+ "⬇️ Operones (TSV)": "⬇️ 操纵子（TSV）",
+ "⬇️ Promotores (TSV)": "⬇️ 启动子（TSV）",
+ "📐 Regulación (reglas)": "📐 调控（规则）",
+ "📐 Operones y promotores por reglas…": "📐 按规则构建操纵子与启动子…",
+ "Sin operones putativos para este genoma.": "该基因组没有推定操纵子。",
+ "Sin promotores putativos para este genoma.": "该基因组没有推定启动子。",
+ "Regulación automática no ejecutada para este genoma.": "该基因组未运行自动调控分析。",
+ "Cada fila declara `evidence=rule_based`, `confidence` (low/medium) y `limitation`. Ninguna etiqueta demuestra cotranscripción ni un TSS; no se usan RegulonDB/DBTBS ni red.": "每行都声明 `evidence=rule_based`、`confidence`（low/medium）和 `limitation`。任何标签都不能证明共转录或 TSS；不使用 RegulonDB/DBTBS，也不使用网络。",
+ "Operones y promotores **putativos** construidos por reglas sobre las features de este FASTA. `evidence=rule_based`: son hipótesis, no evidencia experimental. Un operón se agrupa por mismo contig/hebra con hueco ≤ 300 pb; el promotor es una ventana fija de 50 pb upstream y una coincidencia de consenso -35 TTGACA / -10 TATAAT (espaciador 15-19).": "基于本 FASTA 的 features，按规则构建的**推定**操纵子与启动子。`evidence=rule_based`：它们是假说，不是实验证据。操纵子按同一 contig/链、缺口 ≤ 300 pb 分组；启动子是一段上游 50 pb 的固定窗口，以及与共有序列 -35 TTGACA / -10 TATAAT 的匹配（间隔 15-19）。"
 }

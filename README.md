@@ -23,7 +23,7 @@ what **confidence**, and what it does **not** prove.
 > gaps, operons and the browser run on CPU. The GPU is only for structure
 > prediction (ESMFold/AlphaFold-Multimer/Boltz), coevolution and training the
 > DNA model. It does not turn a hypothesis into a confirmed function.
-> See [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md).
+> See [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md).
 
 ## 🧭 Scope at a glance
 
@@ -37,7 +37,7 @@ routes, operons and regulatory loops — always with evidence and limits.
 | Functions / EC / UniProt | ✅ automatic (A/B/C paths in `protein_paths.tsv`) |
 | oriC (ORCA + GC skew) | ✅ automatic for new FASTA; DoriC optional with accession |
 | Metabolic routes and gaps | ✅ implemented |
-| Operons and promoters | 🟡 precomputed for the 400; not automatic for a new FASTA |
+| Operons and promoters | 🟡 precomputed for the 400; rule-based automatic for new FASTA (hypothesis) |
 | Membrane/transport | ✅ automatic for new FASTA when HMMER + Pfam panel are installed |
 | Regulatory loops | 🟡 partial: candidates/operators; direction/magnitude blocked by GPU and experiments |
 | Protein complexes (CPU) | 🟡 neighborhood + K-12 prior + orthology transfer; no quaternary prediction |
@@ -101,7 +101,7 @@ python tools/audit_subunit_names.py
 
 Transfer, mass and phylogenetic profile:
 [`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md). Catalog limits:
-[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/COMPLEX_MODEL_400.md`](docs/COMPLEX_MODEL_400.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md).
+[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/COMPLEX_MODEL_400.md`](docs/COMPLEX_MODEL_400.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md).
 
 oriC implementation, success rates and lessons: [`docs/ORIC.md`](docs/ORIC.md).
 
