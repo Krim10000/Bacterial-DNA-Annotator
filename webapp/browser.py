@@ -653,6 +653,52 @@ def coverage_stats(genes: pd.DataFrame, contig_len: int | None = None) -> dict:
             "union_pct": pct(u), "plus_pct": pct(pp), "minus_pct": pct(mm)}
 
 
+def _hairpin_strands(hairpins: pd.DataFrame, genes: pd.DataFrame) -> pd.DataFrame:
+    """Asigna hebra a horquillas ``intergénica`` desde el gen flanqueante.
+
+    Es una heurística explícita, no una prueba experimental: el terminador se
+    busca aguas abajo del gen. Si no hay relación clara, queda sin hebra.
+    """
+    if hairpins is None or not isinstance(hairpins, pd.DataFrame) or hairpins.empty:
+        return hairpins
+    gmap = {}
+    if isinstance(genes, pd.DataFrame) and not genes.empty:
+        for _, g in genes.iterrows():
+            stg = normalize_strand(g.get("strand"))
+            if not stg:
+                continue
+            item = (stg, _as_int(g.get("start")), _as_int(g.get("end")))
+            for key in ("locus_tag", "gene_id", "gene_name"):
+                val = _text(g.get(key))
+                if val:
+                    gmap[val] = item
+    out = hairpins.copy()
+    assigned, sources = [], []
+    for _, h in out.iterrows():
+        stg = normalize_strand(h.get("strand"))
+        if stg:
+            assigned.append(stg); sources.append("anotación")
+            continue
+        hs, he = _as_int(h.get("start")), _as_int(h.get("end"))
+        cand = []
+        for key in ("left_gene", "right_gene"):
+            gid = _text(h.get(key))
+            g = gmap.get(gid)
+            if g and hs is not None and he is not None:
+                gst, gs, ge = g
+                if gst == "+" and hs >= (ge or 0):
+                    cand.append("+")
+                elif gst == "−" and he <= (gs or 0):
+                    cand.append("−")
+        if len(set(cand)) == 1:
+            assigned.append(cand[0]); sources.append("gen flanqueante")
+        else:
+            assigned.append(""); sources.append("no determinada")
+    out["strand"] = assigned
+    out["strand_source"] = sources
+    return out
+
+
 def _complex_strands(complexes: pd.DataFrame, genes: pd.DataFrame) -> pd.DataFrame:
     """Añade ``strand`` a complejos a partir de sus subunidades, si es única.
 
@@ -751,7 +797,8 @@ def svg(tables: dict, contig: str, start: int, end: int,
     genes = tables.get("genes", pd.DataFrame())
     operons = tables.get("operons", pd.DataFrame())
     promoters = tables.get("promoters", pd.DataFrame())
-    hairpins = tables.get("hairpins", pd.DataFrame())
+    hairpins = _hairpin_strands(tables.get("hairpins", pd.DataFrame()),
+                                 tables.get("genes", pd.DataFrame()))
     complexes = _complex_strands(tables.get("complexes", pd.DataFrame()),
                                   tables.get("genes", pd.DataFrame()))
     if "contig" in genes and contig:
@@ -939,9 +986,12 @@ def svg(tables: dict, contig: str, start: int, end: int,
                 gx = x(h["start"])
                 color = HAIRPIN.get(str(h.get("class", "C_debil")), HAIRPIN["C_debil"])
                 hid = f"{contig}:{int(h['start'])}-{int(h['end'])}"
+                _src = _text(h.get("strand_source"))
                 o.append(hit_open("hairpin", hid)
                          + f'<title>Horquilla {_esc(str(h.get("class", "")))} · '
-                         f'{int(h["start"]):,}–{int(h["end"]):,} pb</title>')
+                         f'{int(h["start"]):,}–{int(h["end"]):,} pb · '
+                         f'hebra {sec or "no determinada"}'
+                         + (f' ({_esc(_src)})' if _src else '') + '</title>')
                 o.append(f'<line x1="{gx:.1f}" y1="{y-10}" x2="{gx:.1f}" '
                          f'y2="{y+10}" stroke="{color}" stroke-width="1.6"/>')
                 o.append(f'<circle cx="{gx:.1f}" cy="{y-12}" r="5" fill="none" '
@@ -1497,7 +1547,8 @@ def element_span(kind: str, ident: str, tables: dict,
                 "detail": detail}
 
     if kind == "hairpin":
-        hairpins = tables.get("hairpins", pd.DataFrame())
+        hairpins = _hairpin_strands(tables.get("hairpins", pd.DataFrame()),
+                                 tables.get("genes", pd.DataFrame()))
         if (hairpins is None or hairpins.empty
                 or "start" not in hairpins.columns or "end" not in hairpins.columns):
             return None
@@ -2358,6 +2409,10 @@ def render(data_root: Path, genome: str) -> None:
         "solapamiento; los huecos de una hebra pueden estar cubiertos por la "
         "otra. Longitud estimada desde la anotación."
     )
+    _m1, _m2, _m3 = st.columns(3)
+    _m1.metric("Cobertura unión", f"{_cov['union_pct']}%")
+    _m2.metric("Cobertura hebra +", f"{_cov['plus_pct']}%")
+    _m3.metric("Cobertura hebra −", f"{_cov['minus_pct']}%")
 
     max_pos = max(0, int(genes["end"].max()))
     if st.session_state.get("br_genome") != genome:
@@ -2514,6 +2569,15 @@ def render(data_root: Path, genome: str) -> None:
                        help="Marca la posición oriC precalculada; no la recalcula.")
     if t_or and _oric:
         tracks.add("oric")
+    if _oric:
+        if st.button("🎯 Ir a OriC", key="br_go_oric",
+                     help="Centra la ventana en la posición oriC precalculada."):
+            _pos = int(_oric["pos"])
+            st.session_state["br_pending_view"] = {
+                "contig": contig, "start": max(0, _pos - 5_000),
+                "size_label": "10 kb",
+            }
+            st.rerun()
 
     start, end = int(start), int(start) + size
     wg = genes[(genes["contig"] == contig)

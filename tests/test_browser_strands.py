@@ -488,3 +488,21 @@ def test_coverage_stats_multicontig_uses_sum_of_contigs():
     assert c["length"] == 150
     assert c["union"] == 150
     assert c["union_pct"] == 100.0
+
+
+def test_hairpin_strand_from_downstream_gene():
+    import pandas as pd
+    from webapp.browser import _hairpin_strands
+    genes = pd.DataFrame([
+        {"locus_tag": "g1", "gene_id": "g1", "start": 100, "end": 200, "strand": "+"},
+        {"locus_tag": "g2", "gene_id": "g2", "start": 400, "end": 500, "strand": "-"},
+    ])
+    hp = pd.DataFrame([
+        {"start": 250, "end": 260, "strand": "intergénica", "left_gene": "g1", "right_gene": ""},
+        {"start": 350, "end": 360, "strand": "intergénica", "left_gene": "", "right_gene": "g2"},
+        {"start": 250, "end": 260, "strand": "intergénica", "left_gene": "", "right_gene": ""},
+    ])
+    out = _hairpin_strands(hp, genes)
+    assert out.iloc[0]["strand"] == "+"
+    assert out.iloc[1]["strand"] == "−"
+    assert out.iloc[2]["strand"] == ""
