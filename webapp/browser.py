@@ -447,6 +447,29 @@ TRANS_FILES = {
 }
 
 
+def load_oric(data_root: Path, genome: str) -> dict | None:
+    """Carga la posición oriC precalculada, si existe; no la recalcula."""
+    import json
+    for folder in ("orca_predictions_fix", "orca_predictions"):
+        path = Path(data_root) / folder / f"{genome}.json"
+        if not path.exists():
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        chosen = data.get("chosen") or {}
+        pos = chosen.get("pos")
+        if pos is None:
+            continue
+        return {
+            "genome": genome, "pos": int(pos), "length": data.get("L"),
+            "confidence": chosen.get("conf"), "source": data.get("source", ""),
+            "doric": data.get("doric"),
+        }
+    return None
+
+
 def load_transcription(data_root: Path, genome: str) -> tuple[pd.DataFrame, pd.DataFrame]:
     """TSS y TTS del genoma, con su procedencia (medido vs inferido).
 
