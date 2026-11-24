@@ -1,0 +1,4012 @@
+{
+  "model": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/complexes/model_k12.genomic.json",
+  "genomas": 400,
+  "clusters": 281090,
+  "altas": 281090,
+  "fallos": 0,
+  "omitidos": 0,
+  "ok": 400,
+  "saltados": 0,
+  "resultados": [
+    {
+      "genome": "GCF_000006685.1_ASM668v1",
+      "operons": "regulation",
+      "clusters": 198,
+      "altas": 198,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000006985.1_ASM698v1",
+      "operons": "operon_finder",
+      "clusters": 519,
+      "altas": 519,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000007205.1_ASM720v1",
+      "operons": "regulation",
+      "clusters": 225,
+      "altas": 225,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000007605.1_ASM760v1",
+      "operons": "regulation",
+      "clusters": 223,
+      "altas": 223,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000007985.2_ASM798v2",
+      "operons": "regulation",
+      "clusters": 627,
+      "altas": 627,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000008625.1_ASM862v1",
+      "operons": "regulation",
+      "clusters": 403,
+      "altas": 403,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000008725.1_ASM872v1",
+      "operons": "regulation",
+      "clusters": 193,
+      "altas": 193,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000010305.1_ASM1030v1",
+      "operons": "regulation",
+      "clusters": 844,
+      "altas": 844,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000010985.1_ASM1098v1",
+      "operons": "regulation",
+      "clusters": 416,
+      "altas": 416,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000011905.1_ASM1190v1",
+      "operons": "regulation",
+      "clusters": 320,
+      "altas": 320,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000012485.1_ASM1248v1",
+      "operons": "regulation",
+      "clusters": 457,
+      "altas": 457,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000014025.1_ASM1402v1",
+      "operons": "regulation",
+      "clusters": 465,
+      "altas": 465,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000014125.1_ASM1412v1",
+      "operons": "regulation",
+      "clusters": 347,
+      "altas": 347,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000015045.1_ASM1504v1",
+      "operons": "regulation",
+      "clusters": 657,
+      "altas": 657,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000015125.1_ASM1512v1",
+      "operons": "regulation",
+      "clusters": 629,
+      "altas": 629,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000017685.1_ASM1768v1",
+      "operons": "regulation",
+      "clusters": 834,
+      "altas": 834,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000017805.1_ASM1780v1",
+      "operons": "regulation",
+      "clusters": 1061,
+      "altas": 1061,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000017865.1_ASM1786v1",
+      "operons": "regulation",
+      "clusters": 369,
+      "altas": 369,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000018605.1_ASM1860v1",
+      "operons": "regulation",
+      "clusters": 314,
+      "altas": 314,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000018865.1_ASM1886v1",
+      "operons": "regulation",
+      "clusters": 905,
+      "altas": 905,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000018945.1_ASM1894v1",
+      "operons": "regulation",
+      "clusters": 335,
+      "altas": 335,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000019965.1_ASM1996v1",
+      "operons": "regulation",
+      "clusters": 1013,
+      "altas": 1013,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000020145.1_ASM2014v1",
+      "operons": "regulation",
+      "clusters": 311,
+      "altas": 311,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000020465.1_ASM2046v1",
+      "operons": "regulation",
+      "clusters": 555,
+      "altas": 555,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000020505.1_ASM2050v1",
+      "operons": "regulation",
+      "clusters": 438,
+      "altas": 438,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000020525.1_ASM2052v1",
+      "operons": "regulation",
+      "clusters": 607,
+      "altas": 607,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000020625.1_ASM2062v1",
+      "operons": "regulation",
+      "clusters": 474,
+      "altas": 474,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000020645.1_ASM2064v1",
+      "operons": "regulation",
+      "clusters": 621,
+      "altas": 621,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000020945.1_ASM2094v1",
+      "operons": "regulation",
+      "clusters": 246,
+      "altas": 246,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000020965.1_ASM2096v1",
+      "operons": "regulation",
+      "clusters": 297,
+      "altas": 297,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000020985.1_ASM2098v1",
+      "operons": "regulation",
+      "clusters": 349,
+      "altas": 349,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000021545.1_ASM2154v1",
+      "operons": "regulation",
+      "clusters": 327,
+      "altas": 327,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000021565.1_ASM2156v1",
+      "operons": "regulation",
+      "clusters": 403,
+      "altas": 403,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000021645.1_ASM2164v1",
+      "operons": "regulation",
+      "clusters": 295,
+      "altas": 295,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000021685.1_ASM2168v1",
+      "operons": "regulation",
+      "clusters": 564,
+      "altas": 564,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000021905.1_ASM2190v1",
+      "operons": "regulation",
+      "clusters": 1040,
+      "altas": 1040,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000021945.1_ASM2194v1",
+      "operons": "regulation",
+      "clusters": 836,
+      "altas": 836,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000022145.1_ASM2214v1",
+      "operons": "regulation",
+      "clusters": 989,
+      "altas": 989,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000022565.1_ASM2256v1",
+      "operons": "regulation",
+      "clusters": 754,
+      "altas": 754,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000023325.1_ASM2332v1",
+      "operons": "regulation",
+      "clusters": 425,
+      "altas": 425,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000024405.1_ASM2440v1",
+      "operons": "regulation",
+      "clusters": 707,
+      "altas": 707,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000024425.1_ASM2442v1",
+      "operons": "regulation",
+      "clusters": 637,
+      "altas": 637,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000024845.1_ASM2484v1",
+      "operons": "regulation",
+      "clusters": 626,
+      "altas": 626,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000024905.1_ASM2490v1",
+      "operons": "regulation",
+      "clusters": 288,
+      "altas": 288,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000024985.1_ASM2498v1",
+      "operons": "regulation",
+      "clusters": 740,
+      "altas": 740,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000025005.1_ASM2500v1",
+      "operons": "regulation",
+      "clusters": 613,
+      "altas": 613,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000025605.1_ASM2560v1",
+      "operons": "regulation",
+      "clusters": 329,
+      "altas": 329,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000025725.1_ASM2572v1",
+      "operons": "regulation",
+      "clusters": 588,
+      "altas": 588,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000025885.1_ASM2588v1",
+      "operons": "regulation",
+      "clusters": 306,
+      "altas": 306,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000025905.1_ASM2590v1",
+      "operons": "regulation",
+      "clusters": 707,
+      "altas": 707,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000025945.1_ASM2594v1",
+      "operons": "regulation",
+      "clusters": 659,
+      "altas": 659,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000091545.1_ASM9154v1",
+      "operons": "regulation",
+      "clusters": 469,
+      "altas": 469,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000092425.1_ASM9242v1",
+      "operons": "regulation",
+      "clusters": 627,
+      "altas": 627,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000092785.1_ASM9278v1",
+      "operons": "regulation",
+      "clusters": 434,
+      "altas": 434,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000143725.1_ASM14372v1",
+      "operons": "regulation",
+      "clusters": 529,
+      "altas": 529,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000146065.2_ASM14606v1",
+      "operons": "regulation",
+      "clusters": 317,
+      "altas": 317,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000146505.1_ASM14650v1",
+      "operons": "regulation",
+      "clusters": 722,
+      "altas": 722,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000147715.2_ASM14771v3",
+      "operons": "regulation",
+      "clusters": 506,
+      "altas": 506,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000164905.1_ASM16490v1",
+      "operons": "regulation",
+      "clusters": 402,
+      "altas": 402,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000172155.1_ASM17215v1",
+      "operons": "regulation",
+      "clusters": 1431,
+      "altas": 1431,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000177635.2_ASM17763v2",
+      "operons": "regulation",
+      "clusters": 508,
+      "altas": 508,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000179915.2_ASM17991v2",
+      "operons": "regulation",
+      "clusters": 1035,
+      "altas": 1035,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000183405.1_ASM18340v1",
+      "operons": "regulation",
+      "clusters": 319,
+      "altas": 319,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000185805.1_ASM18580v1",
+      "operons": "regulation",
+      "clusters": 365,
+      "altas": 365,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000186245.1_ASM18624v1",
+      "operons": "regulation",
+      "clusters": 395,
+      "altas": 395,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000191045.1_ASM19104v1",
+      "operons": "regulation",
+      "clusters": 285,
+      "altas": 285,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000195335.1_ASM19533v1",
+      "operons": "regulation",
+      "clusters": 464,
+      "altas": 464,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000195975.1_ASM19597v1",
+      "operons": "regulation",
+      "clusters": 649,
+      "altas": 649,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000196115.1_ASM19611v1",
+      "operons": "regulation",
+      "clusters": 1283,
+      "altas": 1283,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000196175.1_ASM19617v1",
+      "operons": "regulation",
+      "clusters": 810,
+      "altas": 810,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000199675.1_ASM19967v1",
+      "operons": "regulation",
+      "clusters": 668,
+      "altas": 668,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000204255.1_ASM20425v1",
+      "operons": "regulation",
+      "clusters": 221,
+      "altas": 221,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000210915.2_ASM21091v2",
+      "operons": "regulation",
+      "clusters": 756,
+      "altas": 756,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000212395.1_ASM21239v1",
+      "operons": "regulation",
+      "clusters": 289,
+      "altas": 289,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000212675.2_ASM21267v2",
+      "operons": "regulation",
+      "clusters": 785,
+      "altas": 785,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000214155.1_ASM21415v1",
+      "operons": "regulation",
+      "clusters": 997,
+      "altas": 997,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000215975.1_ASM21597v1",
+      "operons": "regulation",
+      "clusters": 326,
+      "altas": 326,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000218625.1_ASM21862v1",
+      "operons": "regulation",
+      "clusters": 421,
+      "altas": 421,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000219725.1_ASM21972v1",
+      "operons": "regulation",
+      "clusters": 557,
+      "altas": 557,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000225345.1_ASM22534v1",
+      "operons": "regulation",
+      "clusters": 512,
+      "altas": 512,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000226295.1_ASM22629v1",
+      "operons": "regulation",
+      "clusters": 658,
+      "altas": 658,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000226315.1_ASM22631v1",
+      "operons": "regulation",
+      "clusters": 504,
+      "altas": 504,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000235405.2_ASM23540v3",
+      "operons": "regulation",
+      "clusters": 391,
+      "altas": 391,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000237205.1_ASM23720v1",
+      "operons": "regulation",
+      "clusters": 531,
+      "altas": 531,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000239475.1_ASM23947v1",
+      "operons": "regulation",
+      "clusters": 183,
+      "altas": 183,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000252445.1_ASM25244v1",
+      "operons": "regulation",
+      "clusters": 954,
+      "altas": 954,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000253035.1_ASM25303v1",
+      "operons": "regulation",
+      "clusters": 576,
+      "altas": 576,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000255135.1_ASM25513v1",
+      "operons": "regulation",
+      "clusters": 383,
+      "altas": 383,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000258405.1_ASM25840v1",
+      "operons": "regulation",
+      "clusters": 598,
+      "altas": 598,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000259275.1_ASM25927v1",
+      "operons": "regulation",
+      "clusters": 330,
+      "altas": 330,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000265295.1_ASM26529v1",
+      "operons": "regulation",
+      "clusters": 488,
+      "altas": 488,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000265425.1_ASM26542v1",
+      "operons": "regulation",
+      "clusters": 1022,
+      "altas": 1022,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000279145.1_ASM27914v1",
+      "operons": "regulation",
+      "clusters": 500,
+      "altas": 500,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000284115.1_ASM28411v1",
+      "operons": "regulation",
+      "clusters": 730,
+      "altas": 730,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000284315.1_ASM28431v1",
+      "operons": "regulation",
+      "clusters": 472,
+      "altas": 472,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000284335.1_ASM28433v1",
+      "operons": "regulation",
+      "clusters": 263,
+      "altas": 263,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000309885.1_ASM30988v1",
+      "operons": "regulation",
+      "clusters": 544,
+      "altas": 544,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000317105.1_ASM31710v1",
+      "operons": "regulation",
+      "clusters": 1359,
+      "altas": 1359,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000317575.1_ASM31757v1",
+      "operons": "regulation",
+      "clusters": 1161,
+      "altas": 1161,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000348725.1_ASM34872v1",
+      "operons": "regulation",
+      "clusters": 599,
+      "altas": 599,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000392435.1_ASM39243v1",
+      "operons": "regulation",
+      "clusters": 250,
+      "altas": 250,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000439435.1_ASM43943v1",
+      "operons": "regulation",
+      "clusters": 284,
+      "altas": 284,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000455605.1_GPTSA100-9",
+      "operons": "regulation",
+      "clusters": 593,
+      "altas": 593,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000471025.2_ASM47102v2",
+      "operons": "regulation",
+      "clusters": 209,
+      "altas": 209,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000479335.1_ASM47933v1",
+      "operons": "regulation",
+      "clusters": 272,
+      "altas": 272,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000484535.1_ASM48453v1",
+      "operons": "regulation",
+      "clusters": 1094,
+      "altas": 1094,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000487995.2_ASM48799v2",
+      "operons": "regulation",
+      "clusters": 404,
+      "altas": 404,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000504085.1_ASM50408v1",
+      "operons": "regulation",
+      "clusters": 370,
+      "altas": 370,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000508245.1_ASM50824v1",
+      "operons": "regulation",
+      "clusters": 252,
+      "altas": 252,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000512735.1_ASM51273v1",
+      "operons": "regulation",
+      "clusters": 355,
+      "altas": 355,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000513475.1_Bbla",
+      "operons": "regulation",
+      "clusters": 218,
+      "altas": 218,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000522985.1_ASM52298v1",
+      "operons": "regulation",
+      "clusters": 1394,
+      "altas": 1394,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000582535.1_ASM58253v1",
+      "operons": "regulation",
+      "clusters": 138,
+      "altas": 138,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000695095.2_ASM69509v2",
+      "operons": "regulation",
+      "clusters": 865,
+      "altas": 865,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000724625.1_ASM72462v1",
+      "operons": "regulation",
+      "clusters": 1128,
+      "altas": 1128,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000767275.3_ASM76727v4",
+      "operons": "regulation",
+      "clusters": 401,
+      "altas": 401,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000800395.1_ASM80039v1",
+      "operons": "regulation",
+      "clusters": 751,
+      "altas": 751,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000803625.1_ASM80362v1",
+      "operons": "regulation",
+      "clusters": 150,
+      "altas": 150,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000828675.1_ASM82867v1",
+      "operons": "regulation",
+      "clusters": 365,
+      "altas": 365,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000829235.1_ASM82923v1",
+      "operons": "regulation",
+      "clusters": 450,
+      "altas": 450,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_000941075.1_ASM94107v1",
+      "operons": "regulation",
+      "clusters": 245,
+      "altas": 245,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001017655.1_ASM101765v1",
+      "operons": "regulation",
+      "clusters": 501,
+      "altas": 501,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001027025.1_ASM102702v1",
+      "operons": "regulation",
+      "clusters": 387,
+      "altas": 387,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001027285.1_ASM102728v1",
+      "operons": "regulation",
+      "clusters": 2372,
+      "altas": 2372,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001027545.1_ASM102754v1",
+      "operons": "regulation",
+      "clusters": 169,
+      "altas": 169,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001273775.1_ASM127377v1",
+      "operons": "regulation",
+      "clusters": 912,
+      "altas": 912,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001296145.1_ASM129614v1",
+      "operons": "regulation",
+      "clusters": 383,
+      "altas": 383,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001458695.1_NiCh1",
+      "operons": "regulation",
+      "clusters": 578,
+      "altas": 578,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001547735.1_ASM154773v1",
+      "operons": "regulation",
+      "clusters": 312,
+      "altas": 312,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001610955.1_ASM161095v1",
+      "operons": "regulation",
+      "clusters": 546,
+      "altas": 546,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001611795.1_ASM161179v1",
+      "operons": "regulation",
+      "clusters": 1828,
+      "altas": 1828,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001618865.1_ASM161886v1",
+      "operons": "regulation",
+      "clusters": 1453,
+      "altas": 1453,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001676785.2_ASM167678v2",
+      "operons": "regulation",
+      "clusters": 585,
+      "altas": 585,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001701045.1_ASM170104v1",
+      "operons": "regulation",
+      "clusters": 600,
+      "altas": 600,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001712875.1_ASM171287v1",
+      "operons": "regulation",
+      "clusters": 66,
+      "altas": 66,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001747405.1_ASM174740v1",
+      "operons": "regulation",
+      "clusters": 538,
+      "altas": 538,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001747425.1_ASM174742v1",
+      "operons": "regulation",
+      "clusters": 1218,
+      "altas": 1218,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001886435.1_ASM188643v1",
+      "operons": "regulation",
+      "clusters": 874,
+      "altas": 874,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001886815.1_ASM188681v1",
+      "operons": "regulation",
+      "clusters": 695,
+      "altas": 695,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001889025.1_ASM188902v1",
+      "operons": "regulation",
+      "clusters": 507,
+      "altas": 507,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_001953175.1_ASM195317v1",
+      "operons": "regulation",
+      "clusters": 450,
+      "altas": 450,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_002139875.1_ASM213987v1",
+      "operons": "regulation",
+      "clusters": 298,
+      "altas": 298,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_002157165.1_ASM215716v1",
+      "operons": "regulation",
+      "clusters": 764,
+      "altas": 764,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_002269385.1_ASM226938v1",
+      "operons": "regulation",
+      "clusters": 931,
+      "altas": 931,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_002302565.1_ASM230256v1",
+      "operons": "regulation",
+      "clusters": 448,
+      "altas": 448,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_002305895.1_ASM230589v1",
+      "operons": "regulation",
+      "clusters": 1693,
+      "altas": 1693,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_002310495.1_ASM231049v1",
+      "operons": "regulation",
+      "clusters": 839,
+      "altas": 839,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_002355835.1_ASM235583v1",
+      "operons": "regulation",
+      "clusters": 142,
+      "altas": 142,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_002804025.1_ASM280402v1",
+      "operons": "regulation",
+      "clusters": 195,
+      "altas": 195,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_002813575.1_ASM281357v1",
+      "operons": "regulation",
+      "clusters": 2241,
+      "altas": 2241,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_002872415.1_ASM287241v1",
+      "operons": "regulation",
+      "clusters": 868,
+      "altas": 868,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003019315.1_ASM301931v1",
+      "operons": "regulation",
+      "clusters": 432,
+      "altas": 432,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003019655.1_ASM301965v1",
+      "operons": "regulation",
+      "clusters": 539,
+      "altas": 539,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003019675.1_ASM301967v1",
+      "operons": "regulation",
+      "clusters": 568,
+      "altas": 568,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003057965.1_ASM305796v1",
+      "operons": "regulation",
+      "clusters": 279,
+      "altas": 279,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003173015.1_ASM317301v1",
+      "operons": "regulation",
+      "clusters": 679,
+      "altas": 679,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003258315.1_ASM325831v1",
+      "operons": "regulation",
+      "clusters": 831,
+      "altas": 831,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003325455.1_ASM332545v1",
+      "operons": "regulation",
+      "clusters": 657,
+      "altas": 657,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003330725.1_ASM333072v1",
+      "operons": "regulation",
+      "clusters": 1538,
+      "altas": 1538,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003351905.1_ASM335190v1",
+      "operons": "regulation",
+      "clusters": 216,
+      "altas": 216,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003353065.1_ASM335306v1",
+      "operons": "regulation",
+      "clusters": 688,
+      "altas": 688,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003355515.1_ASM335551v1",
+      "operons": "regulation",
+      "clusters": 395,
+      "altas": 395,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003366055.1_ASM336605v1",
+      "operons": "regulation",
+      "clusters": 235,
+      "altas": 235,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003491405.1_ASM349140v1",
+      "operons": "regulation",
+      "clusters": 673,
+      "altas": 673,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003544815.1_ASM354481v1",
+      "operons": "regulation",
+      "clusters": 514,
+      "altas": 514,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003574315.2_ASM357431v2",
+      "operons": "regulation",
+      "clusters": 1397,
+      "altas": 1397,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003721155.3_ASM372115v4",
+      "operons": "regulation",
+      "clusters": 713,
+      "altas": 713,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003815875.1_ASM381587v1",
+      "operons": "regulation",
+      "clusters": 1046,
+      "altas": 1046,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003966735.1_ASM396673v1",
+      "operons": "regulation",
+      "clusters": 640,
+      "altas": 640,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_003966975.1_ASM396697v1",
+      "operons": "regulation",
+      "clusters": 619,
+      "altas": 619,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_004087915.1_ASM408791v1",
+      "operons": "regulation",
+      "clusters": 515,
+      "altas": 515,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_004102945.1_ASM410294v1",
+      "operons": "regulation",
+      "clusters": 229,
+      "altas": 229,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_004103715.1_ASM410371v1",
+      "operons": "regulation",
+      "clusters": 526,
+      "altas": 526,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_004214795.1_ASM421479v1",
+      "operons": "regulation",
+      "clusters": 522,
+      "altas": 522,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_004376055.1_ASM437605v2",
+      "operons": "regulation",
+      "clusters": 670,
+      "altas": 670,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_004803815.1_ASM480381v1",
+      "operons": "regulation",
+      "clusters": 358,
+      "altas": 358,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_005144435.2_ASM514443v2",
+      "operons": "regulation",
+      "clusters": 1160,
+      "altas": 1160,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_005697565.1_ASM569756v1",
+      "operons": "regulation",
+      "clusters": 157,
+      "altas": 157,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_006352065.1_ASM635206v1",
+      "operons": "regulation",
+      "clusters": 794,
+      "altas": 794,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_007475525.1_ASM747552v1",
+      "operons": "regulation",
+      "clusters": 442,
+      "altas": 442,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_007747655.1_ASM774765v1",
+      "operons": "regulation",
+      "clusters": 1632,
+      "altas": 1632,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_007750655.1_ASM775065v1",
+      "operons": "regulation",
+      "clusters": 844,
+      "altas": 844,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_007904085.1_ASM790408v1",
+      "operons": "regulation",
+      "clusters": 787,
+      "altas": 787,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_007990365.1_ASM799036v1",
+      "operons": "regulation",
+      "clusters": 460,
+      "altas": 460,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_007990505.1_ASM799050v1",
+      "operons": "regulation",
+      "clusters": 342,
+      "altas": 342,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_007993755.1_ASM799375v1",
+      "operons": "regulation",
+      "clusters": 1123,
+      "altas": 1123,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_007993775.1_ASM799377v1",
+      "operons": "regulation",
+      "clusters": 1380,
+      "altas": 1380,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_008086545.1_ASM808654v1",
+      "operons": "regulation",
+      "clusters": 338,
+      "altas": 338,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_008087625.1_ASM808762v1",
+      "operons": "regulation",
+      "clusters": 1869,
+      "altas": 1869,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_008087665.1_ASM808766v1",
+      "operons": "regulation",
+      "clusters": 1191,
+      "altas": 1191,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_009002475.1_ASM900247v1",
+      "operons": "regulation",
+      "clusters": 1553,
+      "altas": 1553,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_009258225.1_ASM925822v1",
+      "operons": "regulation",
+      "clusters": 484,
+      "altas": 484,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_009688965.1_ASM968896v1",
+      "operons": "regulation",
+      "clusters": 1311,
+      "altas": 1311,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_009689585.1_ASM968958v1",
+      "operons": "regulation",
+      "clusters": 971,
+      "altas": 971,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_009731575.1_ASM973157v1",
+      "operons": "regulation",
+      "clusters": 538,
+      "altas": 538,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_009734425.1_ASM973442v1",
+      "operons": "regulation",
+      "clusters": 637,
+      "altas": 637,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_009905215.1_ASM990521v1",
+      "operons": "regulation",
+      "clusters": 649,
+      "altas": 649,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_010726765.1_ASM1072676v1",
+      "operons": "regulation",
+      "clusters": 1464,
+      "altas": 1464,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_011751885.2_ASM1175188v2",
+      "operons": "regulation",
+      "clusters": 809,
+      "altas": 809,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_013004105.1_ASM1300410v1",
+      "operons": "regulation",
+      "clusters": 935,
+      "altas": 935,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_013128195.2_ASM1312819v2",
+      "operons": "regulation",
+      "clusters": 1878,
+      "altas": 1878,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_013177655.1_ASM1317765v1",
+      "operons": "regulation",
+      "clusters": 347,
+      "altas": 347,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_013340845.1_ASM1334084v1",
+      "operons": "regulation",
+      "clusters": 467,
+      "altas": 467,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_014274685.1_ASM1427468v1",
+      "operons": "regulation",
+      "clusters": 848,
+      "altas": 848,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_014337215.1_ASM1433721v1",
+      "operons": "regulation",
+      "clusters": 564,
+      "altas": 564,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_014337255.1_ASM1433725v1",
+      "operons": "regulation",
+      "clusters": 298,
+      "altas": 298,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_014529625.1_ASM1452962v2",
+      "operons": "regulation",
+      "clusters": 874,
+      "altas": 874,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_014672715.2_ASM1467271v2",
+      "operons": "regulation",
+      "clusters": 423,
+      "altas": 423,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_014701235.1_ASM1470123v1",
+      "operons": "regulation",
+      "clusters": 432,
+      "altas": 432,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_015277775.1_ASM1527777v1",
+      "operons": "regulation",
+      "clusters": 1742,
+      "altas": 1742,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_015356815.2_ASM1535681v2",
+      "operons": "regulation",
+      "clusters": 324,
+      "altas": 324,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_015500095.1_ASM1550009v1",
+      "operons": "regulation",
+      "clusters": 1061,
+      "altas": 1061,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_015775515.1_ASM1577551v1",
+      "operons": "regulation",
+      "clusters": 437,
+      "altas": 437,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_016027375.1_ASM1602737v1",
+      "operons": "regulation",
+      "clusters": 451,
+      "altas": 451,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_016446285.1_ASM1644628v1",
+      "operons": "regulation",
+      "clusters": 544,
+      "altas": 544,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_016724785.1_ASM1672478v1",
+      "operons": "regulation",
+      "clusters": 388,
+      "altas": 388,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_017498545.1_ASM1749854v1",
+      "operons": "regulation",
+      "clusters": 1592,
+      "altas": 1592,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_017893965.1_ASM1789396v1",
+      "operons": "regulation",
+      "clusters": 489,
+      "altas": 489,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_018069705.1_ASM1806970v1",
+      "operons": "regulation",
+      "clusters": 453,
+      "altas": 453,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_018127985.1_ASM1812798v1",
+      "operons": "regulation",
+      "clusters": 551,
+      "altas": 551,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_018137965.1_ASM1813796v1",
+      "operons": "regulation",
+      "clusters": 937,
+      "altas": 937,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_018243235.1_ASM1824323v1",
+      "operons": "regulation",
+      "clusters": 927,
+      "altas": 927,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_018292205.1_ASM1829220v1",
+      "operons": "regulation",
+      "clusters": 943,
+      "altas": 943,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_018304765.1_ASM1830476v1",
+      "operons": "regulation",
+      "clusters": 655,
+      "altas": 655,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_018343815.1_ASM1834381v1",
+      "operons": "regulation",
+      "clusters": 219,
+      "altas": 219,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_018398915.1_ASM1839891v1",
+      "operons": "regulation",
+      "clusters": 448,
+      "altas": 448,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_018771645.1_ASM1877164v1",
+      "operons": "regulation",
+      "clusters": 544,
+      "altas": 544,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_018866205.1_ASM1886620v1",
+      "operons": "regulation",
+      "clusters": 223,
+      "altas": 223,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_019048065.1_ASM1904806v1",
+      "operons": "regulation",
+      "clusters": 892,
+      "altas": 892,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_019048105.1_ASM1904810v1",
+      "operons": "regulation",
+      "clusters": 846,
+      "altas": 846,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_019056495.1_ASM1905649v1",
+      "operons": "regulation",
+      "clusters": 219,
+      "altas": 219,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_019063885.1_ASM1906388v1",
+      "operons": "regulation",
+      "clusters": 773,
+      "altas": 773,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_019552005.1_ASM1955200v1",
+      "operons": "regulation",
+      "clusters": 326,
+      "altas": 326,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_020091585.1_ASM2009158v1",
+      "operons": "regulation",
+      "clusters": 1977,
+      "altas": 1977,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_020549965.1_ASM2054996v1",
+      "operons": "regulation",
+      "clusters": 211,
+      "altas": 211,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_020616335.1_ASM2061633v1",
+      "operons": "regulation",
+      "clusters": 485,
+      "altas": 485,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_021057185.1_ASM2105718v1",
+      "operons": "regulation",
+      "clusters": 293,
+      "altas": 293,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_021117425.1_ASM2111742v1",
+      "operons": "regulation",
+      "clusters": 873,
+      "altas": 873,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_021379005.1_ASM2137900v1",
+      "operons": "regulation",
+      "clusters": 1204,
+      "altas": 1204,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_022026155.1_ASM2202615v1",
+      "operons": "regulation",
+      "clusters": 353,
+      "altas": 353,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_022376835.1_ASM2237683v1",
+      "operons": "regulation",
+      "clusters": 680,
+      "altas": 680,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_022813675.1_ASM2281367v1",
+      "operons": "regulation",
+      "clusters": 373,
+      "altas": 373,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_022814725.1_ASM2281472v1",
+      "operons": "regulation",
+      "clusters": 747,
+      "altas": 747,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_022846135.1_ASM2284613v1",
+      "operons": "regulation",
+      "clusters": 431,
+      "altas": 431,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_022869165.1_ASM2286916v1",
+      "operons": "regulation",
+      "clusters": 646,
+      "altas": 646,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_022870745.1_ASM2287074v1",
+      "operons": "regulation",
+      "clusters": 1000,
+      "altas": 1000,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_023035795.1_ASM2303579v1",
+      "operons": "regulation",
+      "clusters": 308,
+      "altas": 308,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_023035875.1_ASM2303587v1",
+      "operons": "regulation",
+      "clusters": 346,
+      "altas": 346,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_023169805.1_ASM2316980v1",
+      "operons": "regulation",
+      "clusters": 1473,
+      "altas": 1473,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_023921165.1_ASM2392116v1",
+      "operons": "regulation",
+      "clusters": 489,
+      "altas": 489,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_023935825.1_ASM2393582v1",
+      "operons": "regulation",
+      "clusters": 848,
+      "altas": 848,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_024205945.1_ASM2420594v1",
+      "operons": "regulation",
+      "clusters": 385,
+      "altas": 385,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_024338845.1_ASM2433884v1",
+      "operons": "regulation",
+      "clusters": 204,
+      "altas": 204,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_024584745.1_ASM2458474v1",
+      "operons": "regulation",
+      "clusters": 1193,
+      "altas": 1193,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_025148635.1_ASM2514863v1",
+      "operons": "regulation",
+      "clusters": 849,
+      "altas": 849,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_025273655.1_ASM2527365v1",
+      "operons": "regulation",
+      "clusters": 251,
+      "altas": 251,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_025558325.1_ASM2555832v1",
+      "operons": "regulation",
+      "clusters": 381,
+      "altas": 381,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_025725725.1_ASM2572572v1",
+      "operons": "regulation",
+      "clusters": 643,
+      "altas": 643,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_025997855.1_ASM2599785v1",
+      "operons": "regulation",
+      "clusters": 1056,
+      "altas": 1056,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_025997995.1_ASM2599799v1",
+      "operons": "regulation",
+      "clusters": 584,
+      "altas": 584,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_026184435.1_ASM2618443v1",
+      "operons": "regulation",
+      "clusters": 276,
+      "altas": 276,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_026240635.1_ASM2624063v1",
+      "operons": "regulation",
+      "clusters": 879,
+      "altas": 879,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_026965555.1_ASM2696555v1",
+      "operons": "regulation",
+      "clusters": 2537,
+      "altas": 2537,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_027594505.1_ASM2759450v1",
+      "operons": "regulation",
+      "clusters": 648,
+      "altas": 648,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_027625475.1_ASM2762547v1",
+      "operons": "regulation",
+      "clusters": 940,
+      "altas": 940,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_027923555.1_ASM2792355v1",
+      "operons": "regulation",
+      "clusters": 778,
+      "altas": 778,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_028622095.1_ASM2862209v1",
+      "operons": "regulation",
+      "clusters": 815,
+      "altas": 815,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_028728065.1_ASM2872806v1",
+      "operons": "regulation",
+      "clusters": 903,
+      "altas": 903,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_028885455.1_ASM2888545v1",
+      "operons": "regulation",
+      "clusters": 982,
+      "altas": 982,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_029023725.1_ASM2902372v1",
+      "operons": "regulation",
+      "clusters": 1003,
+      "altas": 1003,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_029677705.1_ASM2967770v1",
+      "operons": "regulation",
+      "clusters": 234,
+      "altas": 234,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_029919255.1_ASM2991925v1",
+      "operons": "regulation",
+      "clusters": 503,
+      "altas": 503,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030169785.1_ASM3016978v1",
+      "operons": "regulation",
+      "clusters": 793,
+      "altas": 793,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030253535.1_ASM3025353v1",
+      "operons": "regulation",
+      "clusters": 178,
+      "altas": 178,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030295385.1_ASM3029538v1",
+      "operons": "regulation",
+      "clusters": 648,
+      "altas": 648,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030389965.1_ASM3038996v1",
+      "operons": "regulation",
+      "clusters": 1100,
+      "altas": 1100,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030438115.2_ASM3043811v2",
+      "operons": "regulation",
+      "clusters": 280,
+      "altas": 280,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030439285.2_ASM3043928v2",
+      "operons": "regulation",
+      "clusters": 244,
+      "altas": 244,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030444335.1_ASM3044433v1",
+      "operons": "regulation",
+      "clusters": 525,
+      "altas": 525,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030503875.2_ASM3050387v2",
+      "operons": "regulation",
+      "clusters": 751,
+      "altas": 751,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030520105.1_ASM3052010v1",
+      "operons": "regulation",
+      "clusters": 766,
+      "altas": 766,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030585795.1_ASM3058579v1",
+      "operons": "regulation",
+      "clusters": 286,
+      "altas": 286,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030623445.1_ASM3062344v1",
+      "operons": "regulation",
+      "clusters": 594,
+      "altas": 594,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_030866825.1_ASM3086682v1",
+      "operons": "regulation",
+      "clusters": 972,
+      "altas": 972,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_032050975.1_ASM3205097v1",
+      "operons": "regulation",
+      "clusters": 779,
+      "altas": 779,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_032051675.1_ASM3205167v1",
+      "operons": "regulation",
+      "clusters": 832,
+      "altas": 832,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_032102965.1_ASM3210296v1",
+      "operons": "regulation",
+      "clusters": 614,
+      "altas": 614,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_032595795.2_ASM3259579v2",
+      "operons": "regulation",
+      "clusters": 222,
+      "altas": 222,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_032698475.1_ASM3269847v1",
+      "operons": "regulation",
+      "clusters": 972,
+      "altas": 972,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_033547035.1_ASM3354703v1",
+      "operons": "regulation",
+      "clusters": 2429,
+      "altas": 2429,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_033878955.1_ASM3387895v1",
+      "operons": "regulation",
+      "clusters": 977,
+      "altas": 977,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_033969665.2_ASM3396966v2",
+      "operons": "regulation",
+      "clusters": 247,
+      "altas": 247,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_033971325.1_ASM3397132v1",
+      "operons": "regulation",
+      "clusters": 417,
+      "altas": 417,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_034259205.1_ASM3425920v1",
+      "operons": "regulation",
+      "clusters": 956,
+      "altas": 956,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_034424215.1_ASM3442421v1",
+      "operons": "regulation",
+      "clusters": 1039,
+      "altas": 1039,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_037076345.1_ASM3707634v1",
+      "operons": "regulation",
+      "clusters": 1048,
+      "altas": 1048,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_037076455.1_ASM3707645v1",
+      "operons": "regulation",
+      "clusters": 755,
+      "altas": 755,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_037081835.1_ASM3708183v1",
+      "operons": "regulation",
+      "clusters": 579,
+      "altas": 579,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_037157775.1_ASM3715777v1",
+      "operons": "regulation",
+      "clusters": 2532,
+      "altas": 2532,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_037477945.1_MHOCP",
+      "operons": "regulation",
+      "clusters": 316,
+      "altas": 316,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_038095605.1_ASM3809560v1",
+      "operons": "regulation",
+      "clusters": 786,
+      "altas": 786,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_038396615.1_ASM3839661v1",
+      "operons": "regulation",
+      "clusters": 316,
+      "altas": 316,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_038400315.1_ASM3840031v1",
+      "operons": "regulation",
+      "clusters": 1333,
+      "altas": 1333,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_038443385.1_ASM3844338v1",
+      "operons": "regulation",
+      "clusters": 1657,
+      "altas": 1657,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_038725785.1_ASM3872578v1",
+      "operons": "regulation",
+      "clusters": 1215,
+      "altas": 1215,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_039555295.1_ASM3955529v1",
+      "operons": "regulation",
+      "clusters": 400,
+      "altas": 400,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_039645985.1_ASM3964598v1",
+      "operons": "regulation",
+      "clusters": 548,
+      "altas": 548,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_039994875.1_ASM3999487v1",
+      "operons": "regulation",
+      "clusters": 1167,
+      "altas": 1167,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_040256395.1_GCC_DsonKR87_v1",
+      "operons": "regulation",
+      "clusters": 999,
+      "altas": 999,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_040450955.1_ASM4045095v1",
+      "operons": "regulation",
+      "clusters": 338,
+      "altas": 338,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_040451425.1_ASM4045142v1",
+      "operons": "regulation",
+      "clusters": 315,
+      "altas": 315,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_040564635.1_ASM4056463v1",
+      "operons": "regulation",
+      "clusters": 1324,
+      "altas": 1324,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_040833985.2_ASM4083398v1",
+      "operons": "regulation",
+      "clusters": 845,
+      "altas": 845,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_041026625.1_ASM4102662v1",
+      "operons": "regulation",
+      "clusters": 197,
+      "altas": 197,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_041154365.1_ASM4115436v1",
+      "operons": "regulation",
+      "clusters": 421,
+      "altas": 421,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_041200005.1_ASM4120000v1",
+      "operons": "regulation",
+      "clusters": 374,
+      "altas": 374,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_041505935.1_Fervidobacterium_thailandense_FC2004",
+      "operons": "regulation",
+      "clusters": 378,
+      "altas": 378,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_042033325.1_ASM4203332v1",
+      "operons": "regulation",
+      "clusters": 167,
+      "altas": 167,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_042847215.1_ASM4284721v1",
+      "operons": "regulation",
+      "clusters": 693,
+      "altas": 693,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_044336245.1_ASM4433624v1",
+      "operons": "regulation",
+      "clusters": 1231,
+      "altas": 1231,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_044789115.1_ASM4478911v1",
+      "operons": "regulation",
+      "clusters": 646,
+      "altas": 646,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_045784255.1_ASM4578425v1",
+      "operons": "regulation",
+      "clusters": 1015,
+      "altas": 1015,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_045784305.1_DRML_24019",
+      "operons": "regulation",
+      "clusters": 1245,
+      "altas": 1245,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_045864955.1_ASM4586495v1",
+      "operons": "regulation",
+      "clusters": 327,
+      "altas": 327,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_046267995.1_ASM4626799v1",
+      "operons": "regulation",
+      "clusters": 272,
+      "altas": 272,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_046774955.1_ASM4677495v1",
+      "operons": "regulation",
+      "clusters": 982,
+      "altas": 982,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_046845665.1_ASM4684566v1",
+      "operons": "regulation",
+      "clusters": 767,
+      "altas": 767,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_046845755.1_ASM4684575v1",
+      "operons": "regulation",
+      "clusters": 744,
+      "altas": 744,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_047159735.1_ASM4715973v1",
+      "operons": "regulation",
+      "clusters": 202,
+      "altas": 202,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_048565275.1_ASM4856527v1",
+      "operons": "regulation",
+      "clusters": 1667,
+      "altas": 1667,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_049669535.1_sGff_cult_auto_v1",
+      "operons": "regulation",
+      "clusters": 417,
+      "altas": 417,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_049676565.1_Dip510",
+      "operons": "regulation",
+      "clusters": 427,
+      "altas": 427,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_050039385.1_ASM5003938v1",
+      "operons": "regulation",
+      "clusters": 2037,
+      "altas": 2037,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_050267035.1_ASM5026703v1",
+      "operons": "regulation",
+      "clusters": 356,
+      "altas": 356,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_050389785.1_ASM5038978v1",
+      "operons": "regulation",
+      "clusters": 333,
+      "altas": 333,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_050500235.1_ASM5050023v1",
+      "operons": "regulation",
+      "clusters": 1136,
+      "altas": 1136,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_050563455.1_ASM5056345v1",
+      "operons": "regulation",
+      "clusters": 1608,
+      "altas": 1608,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_050780155.1_QI0013",
+      "operons": "regulation",
+      "clusters": 751,
+      "altas": 751,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_051175385.1_ASM5117538v1",
+      "operons": "regulation",
+      "clusters": 1414,
+      "altas": 1414,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_052161605.1_ASM5216160v1",
+      "operons": "regulation",
+      "clusters": 1346,
+      "altas": 1346,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_054054625.1_ASM5405462v1",
+      "operons": "regulation",
+      "clusters": 719,
+      "altas": 719,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_054917915.1_ASM5491791v1",
+      "operons": "regulation",
+      "clusters": 856,
+      "altas": 856,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055378285.1_ASM5537828v1",
+      "operons": "regulation",
+      "clusters": 514,
+      "altas": 514,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055378975.1_ASM5537897v1",
+      "operons": "regulation",
+      "clusters": 619,
+      "altas": 619,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055379415.1_ASM5537941v1",
+      "operons": "regulation",
+      "clusters": 1056,
+      "altas": 1056,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055379825.1_ASM5537982v1",
+      "operons": "regulation",
+      "clusters": 648,
+      "altas": 648,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055379935.1_ASM5537993v1",
+      "operons": "regulation",
+      "clusters": 691,
+      "altas": 691,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055380895.1_ASM5538089v1",
+      "operons": "regulation",
+      "clusters": 293,
+      "altas": 293,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055383505.1_ASM5538350v1",
+      "operons": "regulation",
+      "clusters": 372,
+      "altas": 372,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055384375.1_ASM5538437v1",
+      "operons": "regulation",
+      "clusters": 399,
+      "altas": 399,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055384745.1_ASM5538474v1",
+      "operons": "regulation",
+      "clusters": 327,
+      "altas": 327,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055385515.1_ASM5538551v1",
+      "operons": "regulation",
+      "clusters": 446,
+      "altas": 446,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055387075.1_ASM5538707v1",
+      "operons": "regulation",
+      "clusters": 395,
+      "altas": 395,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055387105.1_ASM5538710v1",
+      "operons": "regulation",
+      "clusters": 393,
+      "altas": 393,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055387525.1_ASM5538752v1",
+      "operons": "regulation",
+      "clusters": 860,
+      "altas": 860,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055388355.1_ASM5538835v1",
+      "operons": "regulation",
+      "clusters": 1184,
+      "altas": 1184,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055390195.1_ASM5539019v1",
+      "operons": "regulation",
+      "clusters": 407,
+      "altas": 407,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055390205.1_ASM5539020v1",
+      "operons": "regulation",
+      "clusters": 523,
+      "altas": 523,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055390565.1_ASM5539056v1",
+      "operons": "regulation",
+      "clusters": 367,
+      "altas": 367,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055390845.1_ASM5539084v1",
+      "operons": "regulation",
+      "clusters": 378,
+      "altas": 378,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055390895.1_ASM5539089v1",
+      "operons": "regulation",
+      "clusters": 574,
+      "altas": 574,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055391325.1_ASM5539132v1",
+      "operons": "regulation",
+      "clusters": 338,
+      "altas": 338,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055396605.1_ASM5539660v1",
+      "operons": "regulation",
+      "clusters": 436,
+      "altas": 436,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055694045.1_ASM5569404v1",
+      "operons": "regulation",
+      "clusters": 374,
+      "altas": 374,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_055763695.1_ASM5576369v1",
+      "operons": "regulation",
+      "clusters": 1241,
+      "altas": 1241,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_056388415.1_ASM5638841v1",
+      "operons": "regulation",
+      "clusters": 263,
+      "altas": 263,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_058362665.1_ASM5836266v1",
+      "operons": "regulation",
+      "clusters": 1780,
+      "altas": 1780,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_059632245.1_ASM5963224v1",
+      "operons": "regulation",
+      "clusters": 1137,
+      "altas": 1137,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_059696725.1_ASM5969672v1",
+      "operons": "regulation",
+      "clusters": 911,
+      "altas": 911,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_059705355.1_ASM5970535v1",
+      "operons": "regulation",
+      "clusters": 483,
+      "altas": 483,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_059726255.1_ASM5972625v1",
+      "operons": "regulation",
+      "clusters": 931,
+      "altas": 931,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_059726345.1_ASM5972634v1",
+      "operons": "regulation",
+      "clusters": 1636,
+      "altas": 1636,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_060026435.1_ASM6002643v1",
+      "operons": "regulation",
+      "clusters": 2557,
+      "altas": 2557,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_060027055.1_ASM6002705v1",
+      "operons": "regulation",
+      "clusters": 2030,
+      "altas": 2030,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_060030665.1_ASM6003066v1",
+      "operons": "regulation",
+      "clusters": 2750,
+      "altas": 2750,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_060030705.1_ASM6003070v1",
+      "operons": "regulation",
+      "clusters": 1464,
+      "altas": 1464,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_060030825.1_ASM6003082v1",
+      "operons": "regulation",
+      "clusters": 2132,
+      "altas": 2132,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_060031025.1_ASM6003102v1",
+      "operons": "regulation",
+      "clusters": 2100,
+      "altas": 2100,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_060138195.1_ASM6013819v1",
+      "operons": "regulation",
+      "clusters": 2096,
+      "altas": 2096,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_900169565.1_NSJP_Ch1",
+      "operons": "regulation",
+      "clusters": 784,
+      "altas": 784,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_900184705.1_CAMBI-1",
+      "operons": "regulation",
+      "clusters": 436,
+      "altas": 436,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_900217235.1_DPRO_PRJEB22548_v1",
+      "operons": "regulation",
+      "clusters": 866,
+      "altas": 866,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_900239975.1_Chlamydia_sp._S15-834K",
+      "operons": "regulation",
+      "clusters": 220,
+      "altas": 220,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_900475595.1_44343_G01",
+      "operons": "regulation",
+      "clusters": 284,
+      "altas": 284,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_900660485.1_50648_E01-3",
+      "operons": "regulation",
+      "clusters": 283,
+      "altas": 283,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_900660665.1_57612_D01-3",
+      "operons": "regulation",
+      "clusters": 237,
+      "altas": 237,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_901538265.1_ASM90153826v1",
+      "operons": "regulation",
+      "clusters": 1937,
+      "altas": 1937,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_902806995.1_15-2067_O50",
+      "operons": "regulation",
+      "clusters": 221,
+      "altas": 221,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_907165195.1_Cryomorphaceae_CECT30217",
+      "operons": "regulation",
+      "clusters": 817,
+      "altas": 817,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_918320885.1_Harlequin_endosymbiont1",
+      "operons": "regulation",
+      "clusters": 363,
+      "altas": 363,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_946900835.1_NSPWAT",
+      "operons": "regulation",
+      "clusters": 587,
+      "altas": 587,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_947241125.1_NsDNF",
+      "operons": "regulation",
+      "clusters": 922,
+      "altas": 922,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_949774925.1_MFUM-new",
+      "operons": "regulation",
+      "clusters": 470,
+      "altas": 470,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_963264975.1_NZ_220527_assembly_043",
+      "operons": "regulation",
+      "clusters": 430,
+      "altas": 430,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_964030865.1_idDioLine1.Spiroplasma_sp_1.1",
+      "operons": "regulation",
+      "clusters": 275,
+      "altas": 275,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_964030885.1_icBarPell3.Wolbachia_sp_1.1",
+      "operons": "regulation",
+      "clusters": 385,
+      "altas": 385,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_964642095.1_Ff3",
+      "operons": "regulation",
+      "clusters": 436,
+      "altas": 436,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_965152565.1_NS_bockiana",
+      "operons": "regulation",
+      "clusters": 860,
+      "altas": 860,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_976986435.1_NS_calida2",
+      "operons": "regulation",
+      "clusters": 682,
+      "altas": 682,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    },
+    {
+      "genome": "GCF_978936825.1_DTS69",
+      "operons": "regulation",
+      "clusters": 429,
+      "altas": 429,
+      "fallos": 0,
+      "omitidos": 0,
+      "status": "ok",
+      "error": ""
+    }
+  ]
+}

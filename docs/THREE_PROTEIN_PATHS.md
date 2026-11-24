@@ -36,6 +36,10 @@ completo.
 | `structural_status` | `afdb_model_available` / `no_afdb_model` (solo B) |
 | `domain` | mejor dominio Pfam del panel para C; hipótesis |
 | `domain_evalue` | e-value del dominio; no confirma función |
+| `tm_segments` | segmentos hidrofóbicos heurísticos (C); no TMHMM |
+| `signal_peptide` | `yes/no/uncertain` (C); no SignalP |
+| `lipobox` | motivo [LVI][ASTM][AG]C (C) |
+| `context_hypothesis` | `membrane_like/secreted_like/soluble_like/unknown`; hipótesis |
 
 Reglas:
 
@@ -130,7 +134,8 @@ El camino B está implementado con `--structure-manifest`,
 El camino C todavía es un plan CPU; no está automatizado por completo.
 
 La etiqueta A/B/C **no es una llamada de complejo**. B estructural solo
-registra si hay modelo AFDB local; C dominio solo aporta una familia Pfam. `subunit_hint` es un eje
+registra si hay modelo AFDB local y, opcionalmente, filtros; C dominio/contexto
+solo aporta familia Pfam y localización putativa. `subunit_hint` es un eje
 independiente y no cambia la etiqueta; ver [`SUBUNIT_NAMES.md`](SUBUNIT_NAMES.md).
 
 ## Complejos

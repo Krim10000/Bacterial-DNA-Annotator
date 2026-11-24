@@ -1770,11 +1770,16 @@ def render_result(res: dict) -> None:
                 b_afdb = sum(1 for r in rows
                              if r.get("structural_status") == "afdb_model_available")
                 c_dom = sum(1 for r in rows if r.get("domain"))
+                c_ctx = sum(1 for r in rows if r.get("context_hypothesis"))
+                b_filtered = sum(1 for r in rows
+                                 if str(r.get("filter_status", "")).startswith("evaluated"))
                 st.caption(f"Con pista de nombre: **{hint_n}** proteínas. "
                            f"Es una pista débil, no una etiqueta.")
                 st.caption(f"B con modelo AFDB local: **{b_afdb}**. "
+                           f"B con filtros evaluados: **{b_filtered}**. "
                            f"C con dominio Pfam: **{c_dom}**. "
-                           "Modelo/dominio no confirman función ni complejo.")
+                           f"C con contexto: **{c_ctx}**. "
+                           "Modelo/dominio/contexto no confirman función ni complejo.")
                 st.dataframe(pd.DataFrame(rows).head(500), width="stretch",
                              hide_index=True)
                 st.download_button(

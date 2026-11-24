@@ -13,7 +13,7 @@ reproducir en un genoma nuevo?
 | ORFs no anotados y desiertos | 400/400 | `ghost` + desiertos | ✅ |
 | Anotación funcional Swiss-Prot | 400 `functional.tsv` | ahora automática | ✅ nuevo |
 | Caminos A/B/C | 400/400 `protein_paths.tsv` | `protein_paths.tsv` | ✅ clasificación; B/C estructural parcial |
-| Complejos por vecindad/ortología | 397/400 con firmas; 400/400 transferencia K-12 | firma + modelo K-12 + transferencia | 🟡 candidatos, sin predicción cuaternaria |
+| Complejos por vecindad/ortología | 397/400 firmas; 400/400 transferencia; 281.090 clusters del modelo | firma + modelo K-12 + transferencia | 🟡 candidatos, sin predicción cuaternaria |
 | Red metabólica, reacciones y brechas | 400 redes | automática si hay DB | ✅ condicionada a datos |
 | oriC ORCA | 400 filas de estado | `webapp/oric.py` | ✅ nuevo |
 | DoriC | 306 genomas con verdad | lookup con `--accession` | 🟡 opcional |

@@ -22,7 +22,8 @@ from complex_model import run as run_complex_model  # noqa: E402
 from complex_transfer import load as load_complex_transfer  # noqa: E402
 from membrane_layer import run as run_membrane  # noqa: E402
 from domain_layer import run as run_domains  # noqa: E402
-from structural_b import run as run_structural_b  # noqa: E402
+from structural_b import run as run_structural_b, evaluate as evaluate_structural_b  # noqa: E402
+from context_layer import run as run_context  # noqa: E402
 import oric  # noqa: E402
 from esmfold_tools import close_gaps  # noqa: E402
 from structure_evidence import evidence_for_rows  # noqa: E402
@@ -82,6 +83,18 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
             "n_suspected": sum(1 for x in (c.get("complexes") or [])
                                if x.get("status") == "complex_suspected"),
             "rows": len(c.get("complexes") or []),
+        }
+    if res.get("context_c"):
+        c = res["context_c"]
+        summary["context_c"] = {"ok": c.get("ok"), "n": c.get("n", 0),
+                                "reason": c.get("reason", "")}
+    if res.get("structural_b_filters"):
+        bf = res["structural_b_filters"]
+        summary["structural_b_filters"] = {
+            "n_evaluated": bf.get("n_evaluated", 0),
+            "n_no_local_db": bf.get("n_no_local_db", 0),
+            "n_no_model": bf.get("n_no_model", 0),
+            "network": bf.get("network", ""),
         }
     if res.get("structural_b"):
         b = res["structural_b"]
@@ -270,9 +283,19 @@ def main() -> int:
                 res["structural_b"] = run_structural_b(
                     res["functional"].get("rows") or [], args.outdir,
                     res["genome"], args.data_root)
+                res["structural_b_filters"] = evaluate_structural_b(
+                    res["functional"].get("rows") or [], args.outdir,
+                    res["genome"], args.data_root,
+                    foldseek_db=args.foldseek_local_db, cpu=args.threads)
             except Exception as exc:  # noqa: BLE001
                 print(f"[aviso] estado estructural B no evaluado: {exc}",
                       file=sys.stderr)
+            try:
+                res["context_c"] = run_context(
+                    res["functional"].get("rows") or [], res.get("proteins") or [],
+                    args.outdir, res["genome"], cpu=args.threads)
+            except Exception as exc:  # noqa: BLE001
+                print(f"[aviso] contexto C no evaluado: {exc}", file=sys.stderr)
             try:
                 comp = infer_complexes(res["features"],
                                        res["functional"].get("hits") or {},

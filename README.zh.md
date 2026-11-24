@@ -85,7 +85,7 @@ python scripts/complexes/fetch_complexportal.py --taxid <taxid>   --functional <
 python tools/audit_subunit_names.py
 ```
 
-转移、质量和系统发育谱：[`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md)。目录限制：[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md)。
+转移、质量和系统发育谱：[`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md)。目录限制：[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/COMPLEX_MODEL_400.md`](docs/COMPLEX_MODEL_400.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md)。
 
 oriC 的实现、成功率和经验：[`docs/ORIC.md`](docs/ORIC.md)。
 

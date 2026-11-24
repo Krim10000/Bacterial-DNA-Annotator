@@ -133,6 +133,21 @@ def load_tables(data_root: Path, genome: str) -> dict:
                     "limitation": r.get("limitation", ""),
                 })
             out["complexes"] = pd.DataFrame(rows)
+    # Modelo K-12 en lote para los 400: se suma como sospecha amarilla.
+    mp = _p(data_root, "complexes", f"model_{genome}.complexes.tsv")
+    if mp.exists():
+        try:
+            model = pd.read_csv(mp, sep="\t", dtype=str).fillna("")
+            if not model.empty:
+                if out["complexes"].empty:
+                    out["complexes"] = model
+                else:
+                    out["complexes"] = pd.concat([out["complexes"], model],
+                                                 ignore_index=True)
+                    out["complexes"] = out["complexes"].drop_duplicates(
+                        subset=["complex_id"], keep="first")
+        except Exception:
+            pass
     for key in ("genes", "operons", "complexes"):
         df = out[key]
         for col in ("start", "end"):

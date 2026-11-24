@@ -101,7 +101,7 @@ python tools/audit_subunit_names.py
 
 Transfer, mass and phylogenetic profile:
 [`docs/COMPLEX_TRANSFER.md`](docs/COMPLEX_TRANSFER.md). Catalog limits:
-[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md).
+[`docs/COMPLEX_CATALOGS.md`](docs/COMPLEX_CATALOGS.md) · [`docs/COMPLEX_MODEL_400.md`](docs/COMPLEX_MODEL_400.md) · [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md).
 
 oriC implementation, success rates and lessons: [`docs/ORIC.md`](docs/ORIC.md).
 
