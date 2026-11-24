@@ -1918,8 +1918,24 @@ def _row(df: pd.DataFrame, mask) -> dict | None:
 
 
 def load_genome_sequences(data_root: Path, genome: str) -> dict[str, str]:
-    """Carga el FASTA local del genoma (raw o raw_excluded) al abrir una ficha."""
+    """Carga el FASTA local del genoma (raw, raw_excluded o demo)."""
     import gzip
+    if genome == "demo":
+        demo = Path(__file__).resolve().parent / "samples" / "demo.fna"
+        if demo.exists():
+            out: dict[str, str] = {}
+            name, chunks = "", []
+            for line in demo.read_text(encoding="utf-8", errors="replace").splitlines():
+                if line.startswith(">"):
+                    if name:
+                        out[name] = "".join(chunks)
+                    name = line[1:].split()[0]
+                    chunks = []
+                else:
+                    chunks.append(line.strip())
+            if name:
+                out[name] = "".join(chunks)
+            return out
     for sub in ("raw", "raw_excluded"):
         path = Path(data_root) / sub / f"{genome}_genomic.fna.gz"
         if not path.exists():
