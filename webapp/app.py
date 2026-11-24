@@ -2433,8 +2433,10 @@ def main() -> None:
     _opts = (sorted(d.name for d in _reg.iterdir()
                     if d.is_dir() and (d / "genes.tsv").exists())
              if _reg.exists() else [])
-    if DEMO_GENOME and "demo" not in _opts:
-        _opts = ["demo"] + _opts
+    # El demo ya no compite con los 400 genomas reales; solo aparece si no
+    # hay ningún genoma anotado (instalación sin datos).
+    if DEMO_GENOME and not _opts:
+        _opts = ["demo"]
 
     # ?genoma= se aplica al entrar y cuando la URL cambia, incluido demo. El
     # marcador evita que un enlace viejo fije la especie tras cambiarla.

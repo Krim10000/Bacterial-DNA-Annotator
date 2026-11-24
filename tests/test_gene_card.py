@@ -155,7 +155,7 @@ def test_render_without_sequence_reports_it(run_card):
     text = "\n".join(fake.infos)
     assert "Secuencia de ADN no disponible" in text
     assert "No se genera traducción" in text
-    assert "Estructura PDB no disponible" in text
+    assert "No hay PDB local" in text
     assert fake.downloads == []
     assert fake.buttons == []
     assert viewer == []
@@ -167,7 +167,7 @@ def test_render_without_pdb_reports_it(run_card):
     assert any(name.endswith(".fna") for name in files)
     assert any(name.endswith(".faa") for name in files)
     assert not any(name.endswith(".pdb") for name in files)
-    assert any("Estructura PDB no disponible" in note for note in fake.infos)
+    assert any("No hay PDB local" in note for note in fake.infos)
     assert fake.buttons == []
     assert viewer == []
     # La traducción es automática; debe declararse como no validada.

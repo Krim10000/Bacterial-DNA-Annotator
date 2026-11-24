@@ -460,3 +460,31 @@ def test_section_header_does_not_overlap_gene_label():
     assert header != -1 and lane != -1
     # no exigimos orden textual, pero sí que haya espacio vertical declarado
     assert "font-size=\"13.5\"" in out
+
+
+def test_coverage_stats_union_and_strands():
+    import pandas as pd
+    from webapp.browser import coverage_stats
+    genes = pd.DataFrame([
+        {"start": 1, "end": 100, "strand": "+"},
+        {"start": 50, "end": 150, "strand": "+"},
+        {"start": 60, "end": 120, "strand": "-"},
+    ])
+    c = coverage_stats(genes, 200)
+    assert c["union"] == 150
+    assert c["plus"] == 150
+    assert c["minus"] == 61
+    assert c["union_pct"] == 75.0
+
+
+def test_coverage_stats_multicontig_uses_sum_of_contigs():
+    import pandas as pd
+    from webapp.browser import coverage_stats
+    genes = pd.DataFrame([
+        {"contig": "a", "start": 1, "end": 100, "strand": "+"},
+        {"contig": "b", "start": 1, "end": 50, "strand": "-"},
+    ])
+    c = coverage_stats(genes)
+    assert c["length"] == 150
+    assert c["union"] == 150
+    assert c["union_pct"] == 100.0

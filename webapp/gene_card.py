@@ -660,11 +660,22 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
     # --------------------------------------------------------------- PDB
     pdb_raw = _text(gene.get("pdb"))
     if not pdb_raw:
+        # Respaldo local: AFDB cache por accesión UniProt, sin descargar nada.
+        acc = _text(gene.get("uniprot") or gene.get("acc"))
+        if acc and data_root:
+            candidate = (Path(data_root) / "metabolism" / "targets"
+                         / "afdb25k" / f"{acc.split('|')[-1]}.pdb")
+            if candidate.is_file():
+                pdb_raw = str(candidate)
+    if not pdb_raw:
         st.info(_t(
-            "Estructura PDB no disponible para este gen; no se muestra el "
-            "visor 3D ni se genera una estructura.",
-            "PDB structure not available for this gene; the 3D viewer is not "
-            "shown and no structure is generated.",
+            "No hay PDB local para este gen. El proyecto no descarga una "
+            "estructura para cada proteína: usa AFDB/PDB si ya está en la "
+            "caché local o ESMFold explícitamente. No se genera ni inventa "
+            "una estructura.",
+            "No local PDB for this gene. The project does not download a "
+            "structure for every protein: it uses AFDB/PDB from the local "
+            "cache or explicit ESMFold. No structure is generated or invented.",
         ))
         return
 

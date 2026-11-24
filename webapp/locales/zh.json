@@ -1341,5 +1341,10 @@
  "No hay CDS en esta ventana.": "此窗口没有 CDS。",
  "⬇️ Proteínas de la ventana (FASTA)": "⬇️ 此窗口蛋白质（FASTA）",
  "No hay FASTA local para este genoma; no se puede traducir.": "该基因组没有本地 FASTA，无法翻译。",
- "La pestaña Proteínas traduce cada CDS con el código genético estándar. Es una traducción automática: no confirma el marco, el inicio ni la función. Si no hay FASTA del genoma, no se inventa la secuencia.": "蛋白质标签页使用标准遗传密码翻译每个 CDS。这是自动翻译：不确认读框、起始或功能。没有基因组 FASTA 时不虚构序列。"
+ "La pestaña Proteínas traduce cada CDS con el código genético estándar. Es una traducción automática: no confirma el marco, el inicio ni la función. Si no hay FASTA del genoma, no se inventa la secuencia.": "蛋白质标签页使用标准遗传密码翻译每个 CDS。这是自动翻译：不确认读框、起始或功能。没有基因组 FASTA 时不虚构序列。",
+ "OriC": "OriC",
+ "Marca la posición oriC precalculada; no la recalcula.": "标记预计算的 oriC 位置；不重新计算。",
+ "Marcador precalculado; no se recalcula en el navegador. Confianza y fuente están en la pista.": "预计算标记；不在浏览器中重新计算。轨道中显示置信度和来源。",
+ "No local PDB for this gene. The project does not download a structure for every protein: it uses AFDB/PDB from the local cache or explicit ESMFold. No structure is generated or invented.": "该基因没有本地 PDB。项目不会为每个蛋白质下载结构：使用本地缓存中的 AFDB/PDB 或显式 ESMFold。不会生成或虚构结构。",
+ "No hay PDB local para este gen. El proyecto no descarga una estructura para cada proteína: usa AFDB/PDB si ya está en la caché local o ESMFold explícitamente. No se genera ni inventa una estructura.": "该基因没有本地 PDB。项目不会为每个蛋白质下载结构：使用本地缓存中的 AFDB/PDB 或显式 ESMFold。不会生成或虚构结构。"
 }

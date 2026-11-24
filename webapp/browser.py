@@ -71,6 +71,7 @@ ELEMENT_KIND_LABELS = {
     "tts": "TTS",
     "complex": "Complejos",
     "suspect": "Sospechas",
+    "oric": "OriC",
 }
 
 ELEMENT_KIND_NAMES = {
@@ -82,6 +83,7 @@ ELEMENT_KIND_NAMES = {
     "tts": "TTS",
     "complex": "Complejo",
     "suspect": "Sospecha",
+    "oric": "OriC",
 }
 
 ELEMENT_KIND_SINGULAR = {
@@ -583,6 +585,51 @@ def _split_focus(focus: str) -> tuple[str | None, str]:
     return None, raw
 
 
+def coverage_stats(genes: pd.DataFrame, contig_len: int | None = None) -> dict:
+    """Cobertura de CDS por hebra y unión, sin sumar hebras.
+
+    La unión evita contar dos veces genes solapados. La cobertura por hebra
+    puede acercarse al 100 % por separado: no se espera 50/50.
+    """
+    if genes is None or not isinstance(genes, pd.DataFrame) or genes.empty:
+        return {"union": 0, "plus": 0, "minus": 0, "length": int(contig_len or 0),
+                "union_pct": 0.0, "plus_pct": 0.0, "minus_pct": 0.0}
+    rows = genes.copy()
+    rows["start"] = pd.to_numeric(rows.get("start"), errors="coerce")
+    rows["end"] = pd.to_numeric(rows.get("end"), errors="coerce")
+    rows = rows.dropna(subset=["start", "end"])
+    def union(sub):
+        iv = sorted((int(a), int(b)) for a, b in zip(sub["start"], sub["end"]))
+        total, cur_a, cur_b = 0, None, None
+        for a, b in iv:
+            if cur_a is None:
+                cur_a, cur_b = a, b
+            elif a <= cur_b + 1:
+                cur_b = max(cur_b, b)
+            else:
+                total += cur_b - cur_a + 1
+                cur_a, cur_b = a, b
+        if cur_a is not None:
+            total += cur_b - cur_a + 1
+        return total
+    # La cobertura se calcula por contig: no se puede usar max(end) global.
+    groups = (list(rows.groupby("contig", dropna=False))
+              if "contig" in rows.columns else [("", rows)])
+    length = 0
+    u = pp = mm = 0
+    for _, sub in groups:
+        if contig_len and len(groups) == 1:
+            length += int(contig_len)
+        else:
+            length += int(sub["end"].max()) if not sub.empty else 0
+        u += union(sub)
+        pp += union(sub[sub["strand"].map(normalize_strand) == "+"])
+        mm += union(sub[sub["strand"].map(normalize_strand) == "−"])
+    pct = lambda x: round(100 * x / length, 1) if length else 0.0
+    return {"union": u, "plus": pp, "minus": mm, "length": length,
+            "union_pct": pct(u), "plus_pct": pct(pp), "minus_pct": pct(mm)}
+
+
 def _complex_strands(complexes: pd.DataFrame, genes: pd.DataFrame) -> pd.DataFrame:
     """Añade ``strand`` a complejos a partir de sus subunidades, si es única.
 
@@ -630,7 +677,7 @@ def svg(tables: dict, contig: str, start: int, end: int,
         tracks: set[str] | None = None, focus: str = "",
         suspects: pd.DataFrame | None = None,
         tss: pd.DataFrame | None = None, tts: pd.DataFrame | None = None,
-        *, highlight_all: bool = False) -> str:
+        *, highlight_all: bool = False, oric: dict | None = None) -> str:
     """Dibuja la ventana como SVG ancho.
 
     Cada pista vive en su propia banda vertical, así que nunca se solapan: se
@@ -644,20 +691,20 @@ def svg(tables: dict, contig: str, start: int, end: int,
     tracks = tracks or {"genes", "operones", "promotores", "horquillas",
                         "transcripcion", "complejos"}
     span = max(1, end - start)
-    width, height = 1180, 900
+    width, height = 1180, 960
     # Dos secciones: + arriba, − abajo; sin hebra al final.
     Y = {
         "+": {"genes": 82, "operones": 132, "promotores": 166,
               "horquillas": 200, "transcripcion": 234, "complejos": 272},
-        "−": {"genes": 330, "operones": 380, "promotores": 414,
-              "horquillas": 448, "transcripcion": 482, "complejos": 520},
-        "": {"genes": 0, "operones": 570, "promotores": 604,
-             "horquillas": 638, "transcripcion": 672,
-             "complejos": 736},
+        "−": {"genes": 370, "operones": 420, "promotores": 454,
+              "horquillas": 488, "transcripcion": 522, "complejos": 560},
+        "": {"genes": 0, "operones": 620, "promotores": 654,
+             "horquillas": 688, "transcripcion": 722,
+             "complejos": 786},
     }
     SECTION_LABELS = {"+": "HEBRA + · 5'→3' →",
                       "−": "HEBRA − · 5'→3' ←",
-                      "": "SIN HEBRA / NO DETERMINADA"}
+                      "": "INTERGÉNICA / SIN HEBRA DEFINIDA"}
     pad_l, pad_r = 96, 12
     plot_w = width - pad_l - pad_r
     focus_kind, focus_id = _split_focus(focus)
@@ -701,7 +748,7 @@ def svg(tables: dict, contig: str, start: int, end: int,
                               & (complexes["start"] <= end)]
 
     Y["ruler"] = 28
-    Y["sospecha"] = 780
+    Y["sospecha"] = 835
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="{height}" '
          f'viewBox="0 0 {width} {height}" font-family="sans-serif" '
          f'style="background:#fff;border-radius:8px">']
@@ -724,10 +771,8 @@ def svg(tables: dict, contig: str, start: int, end: int,
 
     # Títulos de sección y rótulos de banda por hebra.
     for sec, label in SECTION_LABELS.items():
-        if sec == "" and not (suspects is not None and not suspects.empty):
-            # la sección sin hebra solo se rotula si hay complejos/sospechas
-            if complexes.empty:
-                continue
+        # La sección intergénica se rotula siempre: contiene horquillas
+        # intergénicas, complejos sin hebra única, TSS/TTS sin dato o sospechas.
         if sec:
             header_y = Y[sec]["genes"] - 38
         else:
@@ -745,6 +790,19 @@ def svg(tables: dict, contig: str, start: int, end: int,
         if "complejos" in tracks and sec in Y:
             o.append(f'<text x="8" y="{Y[sec]["complejos"]-6}" font-size="9.5" '
                      f'fill="#808495" font-weight="700">COMPLEJOS</text>')
+
+    # origen de replicación precalculado (marcador vertical, no predicción nueva)
+    if "oric" in tracks and oric and start <= int(oric["pos"]) <= end:
+        gx = x(int(oric["pos"]))
+        o.append(hit_open("oric", int(oric["pos"]))
+                 + f'<title>oriC · {int(oric["pos"]):,} pb · '
+                 f'conf {oric.get("confidence", "—")}</title>')
+        o.append(f'<line x1="{gx:.1f}" y1="{Y["ruler"]}" x2="{gx:.1f}" '
+                 f'y2="{height-10}" stroke="#d81b60" stroke-width="2" '
+                 f'stroke-dasharray="5 4" opacity="0.8"/>')
+        o.append(f'<text x="{gx+4:.1f}" y="{Y["ruler"]-5}" font-size="10" '
+                 f'fill="#d81b60" font-weight="700">ORIC</text>')
+        o.append("</g>")
 
     # genes en DOS carriles: + arriba, − abajo. La punta de cada gen apunta
     # siempre en el sentido de lectura 5'→3' (derecha en +, izquierda en −).
@@ -2229,6 +2287,10 @@ def _render_pick(data_root: Path, genome: str, tables: dict, pick: dict) -> None
             _tx_detail(tables, kind, ident)
         elif kind == "complex":
             _complex_detail(tables, ident)
+        elif kind == "oric":
+            st.markdown("### 🧭 Origen de replicación")
+            st.caption("Marcador precalculado; no se recalcula en el navegador. "
+                       "Confianza y fuente están en la pista.")
         elif kind == "suspect":
             _suspect_detail(data_root, genome, ident)
         else:
@@ -2255,6 +2317,7 @@ def render(data_root: Path, genome: str) -> None:
                    "operones, una agrupación por proximidad; sirve para probar "
                    "el navegador, no para conclusiones biológicas."))
     tss_df, tts_df = load_transcription(data_root, genome)
+    _oric = load_oric(data_root, genome)
     genes = tables["genes"]
     if genes.empty:
         st.warning(f"No hay anotación para **{genome}**. Genera primero la capa "
@@ -2264,6 +2327,14 @@ def render(data_root: Path, genome: str) -> None:
     if not contigs:
         st.warning("El genoma no tiene contigs anotados.")
         return
+    _cov = coverage_stats(genes)
+    st.caption(
+        f"Cobertura anotada (unión de CDS): **{_cov['union_pct']}%** del "
+        f"contig estimado · hebra +: {_cov['plus_pct']}% · hebra −: "
+        f"{_cov['minus_pct']}%. Las hebras pueden sumar más de 100 % por "
+        "solapamiento; los huecos de una hebra pueden estar cubiertos por la "
+        "otra. Longitud estimada desde la anotación."
+    )
 
     max_pos = max(0, int(genes["end"].max()))
     if st.session_state.get("br_genome") != genome:
@@ -2416,6 +2487,10 @@ def render(data_root: Path, genome: str) -> None:
         tracks.add("transcripcion")
     if t7.checkbox("Complejos", True, key="br_t_complex"):
         tracks.add("complejos")
+    t_or = st.checkbox("OriC", True, key="br_t_oric",
+                       help="Marca la posición oriC precalculada; no la recalcula.")
+    if t_or and _oric:
+        tracks.add("oric")
 
     start, end = int(start), int(start) + size
     wg = genes[(genes["contig"] == contig)
@@ -2444,7 +2519,7 @@ def render(data_root: Path, genome: str) -> None:
     clicked = genome_track(
         svg(tables, contig, start, end, tracks=tracks, suspects=susp,
             tss=tss_df, tts=tts_df, focus=focus_key,
-            highlight_all=highlight_all),
+            highlight_all=highlight_all, oric=_oric),
         key="genome_track", pos=start, contig=contig, window=size_label,
     )
     st.caption(

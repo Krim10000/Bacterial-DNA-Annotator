@@ -1341,5 +1341,10 @@
  "No hay CDS en esta ventana.": "No CDS in this window.",
  "⬇️ Proteínas de la ventana (FASTA)": "⬇️ Proteins in this window (FASTA)",
  "No hay FASTA local para este genoma; no se puede traducir.": "No local FASTA for this genome; cannot translate.",
- "La pestaña Proteínas traduce cada CDS con el código genético estándar. Es una traducción automática: no confirma el marco, el inicio ni la función. Si no hay FASTA del genoma, no se inventa la secuencia.": "The Proteins tab translates each CDS with the standard genetic code. It is automatic: it does not confirm frame, start or function. Without genome FASTA, no sequence is invented."
+ "La pestaña Proteínas traduce cada CDS con el código genético estándar. Es una traducción automática: no confirma el marco, el inicio ni la función. Si no hay FASTA del genoma, no se inventa la secuencia.": "The Proteins tab translates each CDS with the standard genetic code. It is automatic: it does not confirm frame, start or function. Without genome FASTA, no sequence is invented.",
+ "OriC": "OriC",
+ "Marca la posición oriC precalculada; no la recalcula.": "Marks the precomputed oriC position; it does not recalculate it.",
+ "Marcador precalculado; no se recalcula en el navegador. Confianza y fuente están en la pista.": "Precomputed marker; not recalculated in the browser. Confidence and source are shown in the track.",
+ "No local PDB for this gene. The project does not download a structure for every protein: it uses AFDB/PDB from the local cache or explicit ESMFold. No structure is generated or invented.": "No local PDB for this gene. The project does not download a structure for every protein: it uses AFDB/PDB from the local cache or explicit ESMFold. No structure is generated or invented.",
+ "No hay PDB local para este gen. El proyecto no descarga una estructura para cada proteína: usa AFDB/PDB si ya está en la caché local o ESMFold explícitamente. No se genera ni inventa una estructura.": "No local PDB for this gene. The project does not download a structure for every protein: it uses AFDB/PDB from the local cache or explicit ESMFold. No structure is generated or invented."
 }
