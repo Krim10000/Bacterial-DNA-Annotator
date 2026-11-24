@@ -20,9 +20,9 @@ investigador con datos propios: cada resultado declara **de dónde sale**, con
 qué **confianza** y qué **no** prueba.
 
 > **No necesitas GPU.** La anotación, A/B/C, dominios, membrana, complejos,
-> brechas, operones y navegador funcionan en CPU. La GPU solo se usa para
-> estructura (ESMFold/AlphaFold-Multimer/Boltz), coevolución y entrenamiento del
-> modelo de ADN. No convierte una hipótesis en función confirmada.
+> brechas, operones y navegador funcionan en CPU. La GPU es opcional y solo se
+> usa para estructura (ESMFold/AlphaFold-Multimer/Boltz) y coevolución.
+> No convierte una hipótesis en función confirmada.
 > Ver [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/WORK_PLAN.md`](docs/WORK_PLAN.md) · [`docs/RMSX.md`](docs/RMSX.md) · [`docs/TAXONOMY_AUTO.md](docs/TAXONOMY_AUTO.md) · [`docs/BENCHMARK_ENV.md](docs/BENCHMARK_ENV.md) · [`docs/BREACH_CLOSURE.md](docs/BREACH_CLOSURE.md) · [`docs/MOBILE_COVERAGE.md](docs/MOBILE_COVERAGE.md) · [`docs/ANNOTATION_PARITY.md](docs/ANNOTATION_PARITY.md) · [`docs/STRUCTURE_VIEWER.md`](docs/STRUCTURE_VIEWER.md) · [`docs/PACKAGING.md](docs/PACKAGING.md) · [`docs/REMOTE_HOMOLOGY.md](docs/REMOTE_HOMOLOGY.md) · [`docs/COMPLEX_HOLDOUT.md](docs/COMPLEX_HOLDOUT.md) · [`docs/OPERON_BENCHMARK.md](docs/OPERON_BENCHMARK.md) · [`docs/EXTERNAL_BENCHMARK.md](docs/EXTERNAL_BENCHMARK.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md).
 
 ![Resultados de anotación](webapp/screenshot_v2_results.png)

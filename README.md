@@ -20,9 +20,9 @@ their own data can use it too: every result states **where it comes from**, with
 what **confidence**, and what it does **not** prove.
 
 > **You do not need a GPU.** Annotation, A/B/C, domains, membrane, complexes,
-> gaps, operons and the browser run on CPU. The GPU is only for structure
-> prediction (ESMFold/AlphaFold-Multimer/Boltz), coevolution and training the
-> DNA model. It does not turn a hypothesis into a confirmed function.
+> gaps, operons and the browser run on CPU. The optional GPU is only for
+> structure prediction (ESMFold/AlphaFold-Multimer/Boltz) and coevolution.
+> It does not turn a hypothesis into a confirmed function.
 > See [`docs/CPU_GPU_LIMITS.md`](docs/CPU_GPU_LIMITS.md) · [`docs/WORK_PLAN.md`](docs/WORK_PLAN.md) · [`docs/RMSX.md`](docs/RMSX.md) · [`docs/TAXONOMY_AUTO.md](docs/TAXONOMY_AUTO.md) · [`docs/BENCHMARK_ENV.md](docs/BENCHMARK_ENV.md) · [`docs/BREACH_CLOSURE.md](docs/BREACH_CLOSURE.md) · [`docs/MOBILE_COVERAGE.md](docs/MOBILE_COVERAGE.md) · [`docs/ANNOTATION_PARITY.md](docs/ANNOTATION_PARITY.md) · [`docs/STRUCTURE_VIEWER.md`](docs/STRUCTURE_VIEWER.md) · [`docs/PACKAGING.md](docs/PACKAGING.md) · [`docs/REMOTE_HOMOLOGY.md](docs/REMOTE_HOMOLOGY.md) · [`docs/COMPLEX_HOLDOUT.md](docs/COMPLEX_HOLDOUT.md) · [`docs/OPERON_BENCHMARK.md](docs/OPERON_BENCHMARK.md) · [`docs/EXTERNAL_BENCHMARK.md](docs/EXTERNAL_BENCHMARK.md) · [`docs/BENCHMARK_LAYERS.md`](docs/BENCHMARK_LAYERS.md) · [`docs/MODEL_CLUSTERS_CALIBRATION.md`](docs/MODEL_CLUSTERS_CALIBRATION.md) · [`docs/REGULATION_AUTO.md`](docs/REGULATION_AUTO.md).
 
 ## 🧭 Scope at a glance
