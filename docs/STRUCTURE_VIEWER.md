@@ -17,6 +17,8 @@ Dependencias: `py3Dmol` y `stmol` (declaradas en `requirements-annotator.txt`).
 
 ## Qué muestra
 
+- opción **Colorear por B-factor/RMSX**; útil para modelos por slice de RMSX.
+
 - proteína en cartoon, color por cadena/conformación;
 - heteroátomos en stick;
 - descarga del PDB.

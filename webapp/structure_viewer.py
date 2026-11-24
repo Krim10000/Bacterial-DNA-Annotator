@@ -31,7 +31,7 @@ def _read_pdb(pdb: str | Path) -> str:
 
 
 def render(pdb: str | Path, key: str = "pdb_viewer", height: int = 440,
-           caption: str = "") -> None:
+           caption: str = "", bfactor: bool = False) -> None:
     """Dibuja un PDB con cartoon y heteroátomos en stick."""
     ok, why = available()
     if not ok:
@@ -45,7 +45,11 @@ def render(pdb: str | Path, key: str = "pdb_viewer", height: int = 440,
                      or text.lstrip().startswith("data_")) else "pdb"
     view = py3Dmol.view(width=760, height=height)
     view.addModel(text, fmt)
-    view.setStyle({"cartoon": {"color": "spectrum"}})
+    if bfactor:
+        view.setStyle({"cartoon": {"colorscheme": {
+            "prop": "b", "gradient": "roygb"}}})
+    else:
+        view.setStyle({"cartoon": {"color": "spectrum"}})
     view.addStyle({"hetflag": True}, {"stick": {"radius": 0.18}})
     view.setBackgroundColor("white")
     view.zoomTo()

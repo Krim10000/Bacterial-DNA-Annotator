@@ -183,6 +183,18 @@ No competir en gene calling con Bakta/Prokka. Ganar en:
 | Tiempo 5 Mb | CPU | <5 min |
 | Reproducibilidad | release + DOI | cada release |
 
+## 7b. Extra: dinámica (RMSX/Flipbook)
+
+No es núcleo de anotación. Se añade como extra opcional para proteínas
+priorizadas con trayectoria MD.
+
+- D1 visor PDB multimodelo + B-factor;
+- D2 adaptador `dynamics_layer.py`;
+- D3 validación contra RMSF;
+- D4 docs/licencias.
+
+Sin R/MDAnalysis/trayectoria: `not_configured`. No cierra brechas.
+
 ## 8. Riesgos
 
 | riesgo | mitigación |

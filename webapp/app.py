@@ -1980,13 +1980,15 @@ def render_result(res: dict) -> None:
             "ruta local. Una estructura experimental, AFDB o ESMFold no confirma "
             "función, sustrato, interfaz ni cierra brechas."
         )
+        use_b = st.checkbox("Colorear por B-factor/RMSX", value=False,
+                            key=f"pdb_b_{res['genome']}")
         up = st.file_uploader("Subir PDB/mmCIF", type=["pdb", "ent", "cif"],
                               key=f"pdb_up_{res['genome']}")
         if up is not None:
             structure_viewer.render(
                 up.read().decode("utf-8", errors="replace"),
                 key=f"pdb_upload_{res['genome']}",
-                caption=f"Archivo subido: {up.name}",
+                caption=f"Archivo subido: {up.name}", bfactor=use_b,
             )
         else:
             path_pdb = st.text_input(
@@ -1997,7 +1999,7 @@ def render_result(res: dict) -> None:
             if path_pdb:
                 structure_viewer.render(
                     path_pdb, key=f"pdb_local_{res['genome']}",
-                    caption=f"Ruta: {path_pdb}",
+                    caption=f"Ruta: {path_pdb}", bfactor=use_b,
                 )
 
     with tabs[10]:
