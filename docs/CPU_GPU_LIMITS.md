@@ -18,8 +18,9 @@ gap            brecha; no se cierra sin evidencia
 | capa | CPU | evidencia | límite |
 |---|---|---|---|
 | A/B/C | DIAMOND/Swiss-Prot | homología | no función confirmada |
-| B estructural | busca AFDB local, manifiesto | modelo disponible | no pliega ni filtra |
+| B estructural | AFDB local, F1/F2/F5 locales | modelo/filtros locales | sin F3/F4 ni APIs por defecto |
 | C dominio | hmmscan panel Pfam | familia/dominio | panel curado, no Pfam completo |
+| C TMHMM | binario local opcional | topología TM | no instalado en este entorno |
 | complejos | firmas + K-12 + transferencia | vecindad/ortología | no estructura cuaternaria |
 | membrana | hmmscan + hidropatía/señal/lipobox | heurística | no TMHMM/SignalP/LipoP |
 | red | Rhea/EC | reacción putativa | no cierra brechas |

@@ -235,6 +235,8 @@ def main() -> int:
                          "putativo por reglas (default 300).")
     ap.add_argument("--esm", action="store_true", help="Puntuar ORFs con ESM-2")
     ap.add_argument("--no-metabolic", action="store_true")
+    ap.add_argument("--structure-b-external", action="store_true",
+                    help="Permitir P2Rank/AlphaFill/APIs en filtros B (por defecto solo local).")
     ap.add_argument("--no-membrane", action="store_true",
                     help="No ejecutar membrana/transporte (hmmscan + Pfam).")
     ap.add_argument("--no-functional", action="store_true",
@@ -307,7 +309,8 @@ def main() -> int:
                 res["structural_b_filters"] = evaluate_structural_b(
                     res["functional"].get("rows") or [], args.outdir,
                     res["genome"], args.data_root,
-                    foldseek_db=args.foldseek_local_db, cpu=args.threads)
+                    foldseek_db=args.foldseek_local_db, cpu=args.threads,
+                    external=args.structure_b_external)
             except Exception as exc:  # noqa: BLE001
                 print(f"[aviso] estado estructural B no evaluado: {exc}",
                       file=sys.stderr)

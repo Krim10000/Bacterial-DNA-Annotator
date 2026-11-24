@@ -10,14 +10,23 @@ Solo aporta **hipótesis de contexto** calculadas con heurísticas declaradas:
   SignalP/Phobius**; los tres estados son ``yes``/``no``/``uncertain``.
 - lipobox: regex ``[LVI][ASTM][AG]C`` en los primeros 40 aa (motivo de
   lipoproteína bacteriana).
+- TMHMM 2.0 real **opcional**: si ``tmhmm`` está en PATH se ejecuta sobre las
+  secuencias C y se reportan ``tmhmm_status``/``tmhmm_pred``/``tmhmm_n_tm``/
+  ``tmhmm_evidence`` **en paralelo** a la heurística ``tm_segments`` (no la
+  sustituyen). Si no está, estado ``not_installed`` y el pipeline sigue. No
+  usa DeepTMHMM, API ni red.
 
-No asigna función, no confirma localización ni complejo. No usa hmmscan,
-DIAMOND ni red: es CPU pura sobre la secuencia de aminoácidos.
+No asigna función, no confirma localización ni complejo. Sin TMHMM, todo el
+cálculo es CPU pura sobre la secuencia de aminoácidos; con TMHMM solo se
+invoca el binario local (nunca la red).
 """
 from __future__ import annotations
 
 import csv
 import re
+import shutil
+import subprocess
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -50,7 +59,20 @@ CONTEXT_NOTE = (
 CONTEXT_FIELDS = (
     "tm_segments", "signal_peptide", "lipobox",
     "context_hypothesis", "context_evidence", "context_note",
+    "tmhmm_status", "tmhmm_pred", "tmhmm_n_tm", "tmhmm_evidence",
 )
+
+# --- TMHMM 2.0 opcional -----------------------------------------------------
+TMHMM_TIMEOUT = 600
+RE_TMHMM_COUNT = re.compile(
+    r"^#\s*(\S+)\s+Number of predicted TMHs:\s*(\d+)", re.I)
+RE_TMHMM_SEGMENT = re.compile(
+    r"^(\S+)\s+TMHMM2\.0\s+(inside|outside|TMhelix)\s+(\d+)\s+(\d+)", re.I)
+RE_TMHMM_SHORT = re.compile(
+    r"^(\S+)\s+PredHel=(\d+)\s+Topology=(\S*)", re.I)
+RE_TMHMM_SIGNAL = re.compile(
+    r"^#\s*(\S+)\s+POSSIBLE N-term signal sequence", re.I)
+REGION_ABBR = {"inside": "i", "outside": "o", "tmhelix": "M"}
 
 
 def _values(seq: str) -> list[float]:
@@ -220,14 +242,110 @@ def context_call(seq: str) -> dict[str, Any]:
     }
 
 
+def tmhmm_available() -> tuple[bool, str]:
+    """Detecta el binario TMHMM 2.0 en PATH. No usa red."""
+    exe = shutil.which("tmhmm")
+    if exe is None:
+        return (False,
+                "tmhmm no está en PATH; se usa solo la heurística tm_segments")
+    return True, exe
+
+
+def parse_tmhmm_output(text: str) -> dict[str, dict[str, Any]]:
+    """Parsea la salida de TMHMM 2.0 (formato largo y ``-short``).
+
+    Devuelve ``{protein_id: {n_tm, topology, segments, nterm_signal}}``.
+    Acepta ``# id Number of predicted TMHs: N`` y ``id PredHel=N
+    Topology=...``; la topología del formato largo se reconstruye a partir de
+    las líneas ``inside``/``outside``/``TMhelix`` (``i``/``o``/``M``).
+    """
+    recs: dict[str, dict[str, Any]] = {}
+
+    def rec_for(pid: str) -> dict[str, Any]:
+        return recs.setdefault(pid, {
+            "n_tm": None, "topology": "", "segments": [],
+            "nterm_signal": False,
+        })
+
+    for line in text.splitlines():
+        m = RE_TMHMM_COUNT.match(line)
+        if m:
+            rec_for(m.group(1))["n_tm"] = int(m.group(2))
+            continue
+        m = RE_TMHMM_SIGNAL.match(line)
+        if m:
+            rec_for(m.group(1))["nterm_signal"] = True
+            continue
+        m = RE_TMHMM_SEGMENT.match(line)
+        if m:
+            rec_for(m.group(1))["segments"].append(
+                (m.group(2).lower(), int(m.group(3)), int(m.group(4))))
+            continue
+        m = RE_TMHMM_SHORT.match(line)
+        if m:
+            rec = rec_for(m.group(1))
+            rec["n_tm"] = int(m.group(2))
+            if m.group(3):
+                rec["topology"] = m.group(3)
+    for rec in recs.values():
+        if not rec["topology"] and rec["segments"]:
+            rec["topology"] = "".join(
+                f"{REGION_ABBR.get(label, '?')}{start}-{end}"
+                for label, start, end in rec["segments"])
+    return recs
+
+
+def _run_tmhmm(seqs: dict[str, str],
+               executable: str) -> dict[str, dict[str, Any]]:
+    """Ejecuta TMHMM local sobre las secuencias C y parsea su salida."""
+    with tempfile.TemporaryDirectory(prefix="tmhmm_") as td:
+        faa = Path(td) / "c.faa"
+        with faa.open("w", encoding="utf-8") as fh:
+            for pid, seq in seqs.items():
+                fh.write(f">{pid}\n{seq}\n")
+        proc = subprocess.run([executable, str(faa)], capture_output=True,
+                              text=True,
+                              timeout=max(TMHMM_TIMEOUT, 2 * len(seqs)))
+        if proc.returncode != 0:
+            raise RuntimeError(
+                (proc.stderr or proc.stdout or "TMHMM falló")[-400:])
+        return parse_tmhmm_output(proc.stdout)
+
+
+def _tmhmm_row_fields(rec: dict[str, Any]) -> dict[str, Any]:
+    """Convierte un registro TMHMM a columnas; ``pred`` es la topología."""
+    n_tm = rec.get("n_tm")
+    topology = str(rec.get("topology") or "")
+    pred = topology or (f"PredHel={n_tm}" if n_tm is not None else "")
+    parts = ["tmhmm real"]
+    if n_tm is not None:
+        parts.append(f"PredHel={n_tm}")
+    if topology:
+        parts.append(f"Topology={topology}")
+    if rec.get("nterm_signal"):
+        parts.append("N-term_signal=si")
+    return {
+        "tmhmm_status": "ok",
+        "tmhmm_pred": pred,
+        "tmhmm_n_tm": n_tm if n_tm is not None else "",
+        "tmhmm_evidence": "; ".join(parts),
+    }
+
+
+def _tmhmm_missing(status: str, evidence: str) -> dict[str, Any]:
+    return {"tmhmm_status": status, "tmhmm_pred": "",
+            "tmhmm_n_tm": "", "tmhmm_evidence": evidence}
+
+
 def run(rows: list[dict], proteins: list[dict], outdir: Path, genome: str,
         cpu: int = 4) -> dict[str, Any]:
     """Añade contexto a las filas del camino C y escribe ``.context_c.tsv``.
 
     Solo procesa filas con ``path == "C"``; las filas A/B quedan intactas.
-    Escribe un TSV con genome, protein_id y los campos de contexto.
-    ``cpu`` se acepta por simetría con las otras capas; el cálculo es una
-    heurística lineal por proteína y se ejecuta en serie (no lanza procesos).
+    Escribe un TSV con genome, protein_id y los campos de contexto y TMHMM.
+    ``cpu`` se acepta por simetría con las otras capas; la heurística es lineal
+    y se ejecuta en serie. TMHMM es opcional: si no está, sus campos quedan
+    ``not_installed`` y el resto se calcula igual.
     """
     try:
         outdir = Path(outdir)
@@ -238,14 +356,44 @@ def run(rows: list[dict], proteins: list[dict], outdir: Path, genome: str,
 
     seqs = {str(p.get("id")): str(p.get("aa", ""))
             for p in (proteins or []) if p.get("id") is not None}
+    c_rows = [row for row in (rows or []) if row.get("path") == "C"]
+
+    tmhmm_ok, tmhmm_exe = tmhmm_available()
+    tmhmm_recs: dict[str, dict[str, Any]] = {}
+    tmhmm_status = "not_installed"
+    tmhmm_reason = tmhmm_exe
+    tmhmm_ran = False
+    if tmhmm_ok:
+        c_seqs = {str(row.get("protein_id", "")): seqs.get(
+            str(row.get("protein_id", "")), "") for row in c_rows}
+        c_seqs = {pid: seq for pid, seq in c_seqs.items() if seq}
+        if c_seqs:
+            try:
+                tmhmm_recs = _run_tmhmm(c_seqs, tmhmm_exe)
+                tmhmm_status, tmhmm_reason, tmhmm_ran = "ok", "", True
+            except Exception as exc:  # noqa: BLE001
+                tmhmm_status = "error"
+                tmhmm_reason = f"tmhmm falló: {exc}"
+        else:
+            tmhmm_status, tmhmm_reason, tmhmm_ran = "ok", "", True
+
     out_rows: list[dict[str, Any]] = []
-    for row in rows or []:
-        if row.get("path") != "C":
-            continue
+    for row in c_rows:
         pid = str(row.get("protein_id", ""))
         seq = seqs.get(pid, "")
         fields = context_call(seq)
         fields.pop("_reason", None)
+        if not tmhmm_ran:
+            fields.update(_tmhmm_missing(tmhmm_status, tmhmm_reason))
+        elif not seq:
+            fields.update(_tmhmm_missing(
+                "no_sequence", "sin secuencia para la proteína C"))
+        elif pid in tmhmm_recs:
+            fields.update(_tmhmm_row_fields(tmhmm_recs[pid]))
+        else:
+            fields.update(_tmhmm_missing(
+                "no_prediction",
+                "tmhmm no devolvió predicción para esta proteína"))
         row.update(fields)
         out_rows.append({"genome": genome, "protein_id": pid, **fields})
 
@@ -261,4 +409,4 @@ def run(rows: list[dict], proteins: list[dict], outdir: Path, genome: str,
         return {"ok": False, "reason": f"no se pudo escribir {path}: {exc}",
                 "n": len(out_rows), "rows": out_rows}
     return {"ok": True, "reason": "", "n": len(out_rows),
-            "rows": out_rows, "tsv": str(path)}
+            "rows": out_rows, "tsv": str(path), "tmhmm_status": tmhmm_status}

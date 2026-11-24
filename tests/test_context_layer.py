@@ -1,11 +1,13 @@
 """Contexto del camino C: heurísticas declaradas y contrato de filas.
 
 Secuencias sintéticas: hidrofóbica (TM), señal péptido Sec/SPI, lipoproteína
-(lipobox) y soluble. No se usan herramientas externas ni red.
+(lipobox) y soluble. TMHMM se prueba con PATH vacío o con un ejecutable stub:
+ningún test depende del binario real ni de red.
 """
 from __future__ import annotations
 
 import csv
+import sys
 from pathlib import Path
 
 from webapp.context_layer import (
@@ -13,6 +15,7 @@ from webapp.context_layer import (
     CONTEXT_NOTE,
     context_call,
     hydrophobic_segments,
+    parse_tmhmm_output,
     run,
     signal_peptide_call,
 )
@@ -32,6 +35,35 @@ SOLUBLE = "MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQAN"
 # Señal Sec realista sin ninguna ventana KD19 sobre umbral: no debe convertirse
 # en membrane_like solo por tener señal péptido.
 SHORT_SIGNAL = "MKQSTIALALLPLLFTPVTKA" + "RTPEMPVLENR"
+
+# Stub de TMHMM 2.0: imprime formato largo para cada id del FASTA. El shebang
+# usa el Python actual para no depender de PATH más allá del directorio stub.
+TMHMM_STUB_BODY = (
+    "import sys\n"
+    "for line in open(sys.argv[1], encoding='utf-8'):\n"
+    "    if not line.startswith('>'):\n"
+    "        continue\n"
+    "    pid = line[1:].strip()\n"
+    "    if pid == 'a1':\n"
+    "        sys.exit(3)\n"  # el FASTA de TMHMM solo debe traer proteínas C
+    "    print(f'# {pid} Length: 100')\n"
+    "    print(f'# {pid} Number of predicted TMHs:  1')\n"
+    "    print(f'# {pid} Exp number of AAs in TMHs: 21.0')\n"
+    "    print(f'# {pid} POSSIBLE N-term signal sequence')\n"
+    "    print(f'{pid}\\tTMHMM2.0\\tinside\\t1\\t10')\n"
+    "    print(f'{pid}\\tTMHMM2.0\\tTMhelix\\t11\\t31')\n"
+    "    print(f'{pid}\\tTMHMM2.0\\toutside\\t32\\t100')\n"
+)
+
+
+def _install_tmhmm_stub(tmp_path: Path, monkeypatch, body: str) -> Path:
+    bindir = tmp_path / "stubbin"
+    bindir.mkdir(exist_ok=True)
+    exe = bindir / "tmhmm"
+    exe.write_text(f"#!{sys.executable}\n" + body, encoding="utf-8")
+    exe.chmod(0o755)
+    monkeypatch.setenv("PATH", str(bindir))
+    return exe
 
 
 def _write_check(tmp_path: Path, rows: list[dict], proteins: list[dict],
@@ -172,3 +204,94 @@ def test_helper_segments_and_signal_states():
     assert signal_peptide_call(SOLUBLE)["status"] == "no"
     assert context_call(SOLUBLE)["context_hypothesis"] == "soluble_like"
     assert context_call("")["context_hypothesis"] == "unknown"
+
+
+# --- TMHMM opcional ---------------------------------------------------------
+
+def test_parse_tmhmm_output_long_and_short():
+    long_out = (
+        "# p1 Length: 100\n"
+        "# p1 Number of predicted TMHs:  1\n"
+        "# p1 POSSIBLE N-term signal sequence\n"
+        "p1\tTMHMM2.0\tinside\t1\t10\n"
+        "p1\tTMHMM2.0\tTMhelix\t11\t31\n"
+        "p1\tTMHMM2.0\toutside\t32\t100\n"
+    )
+    rec = parse_tmhmm_output(long_out)["p1"]
+    assert rec["n_tm"] == 1
+    assert rec["topology"] == "i1-10M11-31o32-100"
+    assert rec["nterm_signal"] is True
+
+    short_out = "p2\tPredHel=2\tTopology=i1-5o6-25i26-40\n"
+    rec2 = parse_tmhmm_output(short_out)["p2"]
+    assert rec2["n_tm"] == 2
+    assert rec2["topology"] == "i1-5o6-25i26-40"
+    assert rec2["nterm_signal"] is False
+
+
+def test_tmhmm_absent_marks_not_installed_and_keeps_heuristic(
+        tmp_path: Path, monkeypatch):
+    empty = tmp_path / "emptybin"
+    empty.mkdir()
+    monkeypatch.setenv("PATH", str(empty))
+    rows = [{"protein_id": "c", "path": "C"}]
+    res, tsv = _write_check(tmp_path, rows, [{"id": "c", "aa": HYDROPHOBIC}])
+    assert res["ok"] is True
+    assert res["tmhmm_status"] == "not_installed"
+    row = rows[0]
+    assert row["tmhmm_status"] == "not_installed"
+    assert row["tmhmm_pred"] == ""
+    assert row["tmhmm_n_tm"] == ""
+    assert "PATH" in row["tmhmm_evidence"]
+    assert row["tm_segments"] >= 1
+    with tsv.open(encoding="utf-8") as fh:
+        reader = csv.DictReader(fh, delimiter="\t")
+        assert "tmhmm_status" in reader.fieldnames
+        data = list(reader)
+    assert data[0]["tmhmm_status"] == "not_installed"
+
+
+def test_tmhmm_stub_reports_parallel_prediction(tmp_path: Path, monkeypatch):
+    _install_tmhmm_stub(tmp_path, monkeypatch, TMHMM_STUB_BODY)
+    rows = [
+        {"protein_id": "c_mem", "path": "C"},
+        {"protein_id": "c_sol", "path": "C"},
+        {"protein_id": "a1", "path": "A"},
+    ]
+    proteins = [
+        {"id": "c_mem", "aa": HYDROPHOBIC},
+        {"id": "c_sol", "aa": SOLUBLE},
+        {"id": "a1", "aa": SOLUBLE},
+    ]
+    res, tsv = _write_check(tmp_path, rows, proteins, genome="stub")
+    assert res["ok"] is True
+    assert res["tmhmm_status"] == "ok"
+    mem, sol, a_row = rows
+    assert mem["tmhmm_status"] == "ok"
+    assert mem["tmhmm_n_tm"] == 1
+    assert mem["tmhmm_pred"] == "i1-10M11-31o32-100"
+    assert "N-term_signal=si" in mem["tmhmm_evidence"]
+    # La heurística se conserva y no se sustituye por TMHMM.
+    assert mem["tm_segments"] >= 1
+    assert sol["tm_segments"] == 0
+    assert sol["tmhmm_n_tm"] == 1
+    for key in ("tmhmm_status", "tmhmm_pred", "tmhmm_n_tm", "tmhmm_evidence"):
+        assert key not in a_row
+    with tsv.open(encoding="utf-8") as fh:
+        data = {d["protein_id"]: d
+                for d in csv.DictReader(fh, delimiter="\t")}
+    assert data["c_mem"]["tmhmm_n_tm"] == "1"
+    assert data["c_mem"]["tmhmm_pred"] == "i1-10M11-31o32-100"
+    assert "a1" not in data
+
+
+def test_tmhmm_failure_does_not_break_run(tmp_path: Path, monkeypatch):
+    body = "import sys\nsys.stderr.write('boom tmhmm')\nsys.exit(2)\n"
+    _install_tmhmm_stub(tmp_path, monkeypatch, body)
+    rows = [{"protein_id": "c", "path": "C"}]
+    res, _ = _write_check(tmp_path, rows, [{"id": "c", "aa": HYDROPHOBIC}])
+    assert res["ok"] is True
+    assert rows[0]["tmhmm_status"] == "error"
+    assert "boom" in rows[0]["tmhmm_evidence"]
+    assert rows[0]["tm_segments"] >= 1
+

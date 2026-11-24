@@ -58,6 +58,12 @@ FILTER_ERROR_LIMITATION = (
     "Fallo técnico durante la evaluación; no interpretar como resultado "
     "negativo."
 )
+LOCAL_ONLY_LIMITATION = (
+    "Modo local sin red: F1 Foldseek local evaluado; F2 EnzyMM y F5 sitios "
+    "activos locales solo si están disponibles. F3 P2Rank y F4 AlphaFill "
+    "quedan sin evaluar; no se consultaron APIs externas. No confirma función "
+    "ni cierra brechas."
+)
 
 
 def _model_dir(data_root: Path) -> Path:
@@ -205,6 +211,103 @@ def _run_filters(pdb: Path, genome: str, uniprot: str,
                        foldseek_hits=foldseek_hits)
 
 
+def _enzymm_local(pdb: Path, workdir: Path,
+                  cpu: int) -> tuple[bool | None, str, int, str]:
+    """F2 local (EnzyMM) sin APIs; ``None`` significa no evaluado."""
+    try:
+        try:
+            from .structural_annotation import scan_pdbs, summarize
+        except ImportError:  # pipeline en modo módulo plano
+            from structural_annotation import scan_pdbs, summarize
+        scan = scan_pdbs([pdb], workdir, jobs=max(1, int(cpu)))
+    except Exception as exc:  # noqa: BLE001
+        return None, f"EnzyMM no evaluado ({type(exc).__name__}: {exc})", 0, ""
+    error = str(scan.get("error") or "")
+    if error:
+        return None, f"EnzyMM no evaluado: {error}", 0, ""
+    hits = summarize(scan.get("hits") or [])
+    templates = ";".join(
+        str(h.get("template_pdb_id"))
+        for h in hits[:5] if h.get("template_pdb_id")
+    )
+    return bool(hits), "", len(hits), templates
+
+
+def _active_site_local(data_root: Path, genome: str,
+                       uniprot: str) -> tuple[bool | None, str, list[int]]:
+    """F5 local desde los mapas de sitios activos; no consulta APIs."""
+    if not genome or not uniprot:
+        return None, "sin genome/uniprot para consultar sitios activos", []
+    base = Path(data_root) / "metabolism" / "targets"
+    paths = [
+        base / "ACTIVE_SITE_STRUCTURAL_MAP.tsv",
+        base / "gap_glycerate" / "ACTIVE_SITE_STRUCTURAL_MAP.tsv",
+    ]
+    existing = [p for p in paths if p.is_file()]
+    if not existing:
+        return None, "mapa local de sitios activos ausente", []
+    positions: list[int] = []
+    for p in existing:
+        try:
+            lines = p.read_text(encoding="utf-8").splitlines()
+        except OSError as exc:
+            return None, f"no se pudo leer {p}: {exc}", []
+        for line in lines[1:]:
+            c = line.split("\t")
+            if (len(c) > 10 and c[0] == genome and c[1] == uniprot
+                    and c[2] == "Active site"
+                    and str(c[10]).lower() == "true"):
+                try:
+                    positions.append(int(c[8]))
+                except (TypeError, ValueError):
+                    continue
+    positions = sorted(set(positions))
+    return bool(positions), "", positions
+
+
+def _apply_local_only_result(row: dict, pdb: Path, genome: str, uniprot: str,
+                             hits: list[dict], data_root: Path, cpu: int,
+                             workdir: Path) -> None:
+    """F1/F2/F5 locales; F3/F4 quedan vacíos y no se toca ninguna API."""
+    _clear_filter_fields(row)
+    top = (hits or [{}])[0]
+    f2, f2_note, enz_hits, templates = _enzymm_local(pdb, workdir, cpu)
+    f5, f5_note, positions = _active_site_local(data_root, genome, uniprot)
+    row["filter_status"] = "evaluated_local_no_external"
+    row["filter_f1_foldseek"] = bool(hits)
+    row["filter_f2_enzymm"] = "" if f2 is None else f2
+    row["filter_f3_pocket"] = ""
+    row["filter_f4_alphafill"] = ""
+    row["filter_f5_active_site"] = "" if f5 is None else f5
+    row["filter_verdict"] = "local_only_partial"
+    limitation = LOCAL_ONLY_LIMITATION
+    if f2 is None or f5 is None:
+        missing = []
+        if f2 is None:
+            missing.append("F2 no disponible")
+        if f5 is None:
+            missing.append("F5 no disponible")
+        limitation += " " + " ".join(missing) + "."
+    row["filter_limitation"] = limitation
+    note_parts = [
+        "modo=local_sin_red",
+        f"foldseek_hits={top.get('pdb_id', '')}",
+        f"foldseek_bits={top.get('bits', '')}",
+        "P2Rank/AlphaFill/APIs=no_consultados",
+    ]
+    if f2 is None:
+        note_parts.append(f"f2_no_evaluado={f2_note}")
+    else:
+        note_parts.append(f"enzymm_hits={enz_hits}")
+        if templates:
+            note_parts.append(f"enzymm_templates={templates}")
+    if f5 is None:
+        note_parts.append(f"f5_no_evaluado={f5_note}")
+    else:
+        note_parts.append("active_positions=" + ";".join(map(str, positions)))
+    row["filter_note"] = "; ".join(note_parts)
+
+
 def _apply_filter_result(row: dict, result: dict) -> None:
     _clear_filter_fields(row)
     for field, key in zip(BOOL_FILTER_FIELDS,
@@ -236,14 +339,19 @@ def _apply_filter_result(row: dict, result: dict) -> None:
 
 def evaluate(rows: list[dict], outdir: Path, genome: str, data_root: Path,
              foldseek_db: str | Path | None = None, cpu: int = 4,
-             max_models: int = 25) -> dict[str, Any]:
+             max_models: int = 25, external: bool = False) -> dict[str, Any]:
     """Evalúa filtros estructurales solo para filas B con modelo AFDB local.
 
     Contrato:
     - Sin ``foldseek_db`` local no se ejecuta ningún filtro ni API externa:
       las filas quedan con ``filter_status="not_evaluated_no_local_db"``.
-    - Con base local se usa ``foldseek_local.batch_search`` y se pasa el
-      resultado a ``structural_filters.run_filters(foldseek_hits=...)``.
+    - Con base local y ``external=False`` (por defecto) solo se usan fuentes
+      locales: F1 Foldseek local, F2 EnzyMM y F5 sitios activos locales si
+      están disponibles. F3/F4 quedan vacíos y no se consultan P2Rank,
+      AlphaFill ni APIs externas.
+    - Con ``external=True`` se conserva el comportamiento delegado:
+      ``structural_filters.run_filters(foldseek_hits=...)`` (puede usar
+      P2Rank/AlphaFill).
     - ``max_models`` limita cuántos modelos se evalúan; el excedente queda
       explícitamente como ``not_evaluated_max_models``.
 
@@ -276,6 +384,8 @@ def evaluate(rows: list[dict], outdir: Path, genome: str, data_root: Path,
             )
 
     n_evaluated = 0
+    n_evaluated_local_only = 0
+    n_evaluated_delegated = 0
     n_no_local_db = 0
     n_max_models = 0
     n_errors = 0
@@ -321,18 +431,39 @@ def evaluate(rows: list[dict], outdir: Path, genome: str, data_root: Path,
         else:
             for row, acc, pdb in selected:
                 hits = _lookup_hits(hits_by, pdb, acc)
-                try:
-                    result = _run_filters(pdb, genome, acc, hits)
-                except Exception as exc:  # noqa: BLE001
-                    n_errors += 1
-                    _set_not_evaluated(
-                        row, "filter_error",
-                        f"run_filters falló: {type(exc).__name__}: {exc}",
-                        FILTER_ERROR_LIMITATION,
-                    )
+                if external:
+                    try:
+                        result = _run_filters(pdb, genome, acc, hits)
+                    except Exception as exc:  # noqa: BLE001
+                        n_errors += 1
+                        _set_not_evaluated(
+                            row, "filter_error",
+                            f"run_filters falló: {type(exc).__name__}: {exc}",
+                            FILTER_ERROR_LIMITATION,
+                        )
+                    else:
+                        _apply_filter_result(row, result)
+                        n_evaluated += 1
+                        n_evaluated_delegated += 1
                 else:
-                    _apply_filter_result(row, result)
-                    n_evaluated += 1
+                    enz_workdir = (outdir / f"{genome}.structure_b_enzymm_work"
+                                   / pdb.stem)
+                    try:
+                        _apply_local_only_result(
+                            row, pdb, genome, acc, hits, data_root, cpu,
+                            enz_workdir,
+                        )
+                    except Exception as exc:  # noqa: BLE001
+                        n_errors += 1
+                        _set_not_evaluated(
+                            row, "filter_error",
+                            f"filtros locales fallaron: "
+                            f"{type(exc).__name__}: {exc}",
+                            FILTER_ERROR_LIMITATION,
+                        )
+                    else:
+                        n_evaluated += 1
+                        n_evaluated_local_only += 1
         for row, acc, pdb in overflow:
             _set_not_evaluated(
                 row, "not_evaluated_max_models",
@@ -343,14 +474,23 @@ def evaluate(rows: list[dict], outdir: Path, genome: str, data_root: Path,
     records = [_record(genome, row, acc, str(pdb))
                for row, acc, pdb in b_rows]
     path = _write_filters(outdir, genome, records)
+    if db is None:
+        network = "not_used"
+    elif external:
+        network = "delegated_to_run_filters"
+    else:
+        network = "local_only"
     return {
         "ok": True,
         "filters": str(path),
         "path": str(path),
         "foldseek_db": str(db) if db is not None else "",
-        "network": "not_used" if db is None else "delegated_to_run_filters",
+        "external": bool(external),
+        "network": network,
         "n_b_with_model": len(with_model),
         "n_evaluated": n_evaluated,
+        "n_evaluated_local_only": n_evaluated_local_only,
+        "n_evaluated_delegated": n_evaluated_delegated,
         "n_no_model": n_no_model,
         "n_no_local_db": n_no_local_db,
         "n_skipped_max_models": n_max_models,

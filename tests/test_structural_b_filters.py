@@ -6,6 +6,9 @@ sin base local se verifica con dobles que fallan si alguien intenta usarlos.
 from __future__ import annotations
 
 import csv
+import subprocess
+import sys
+import textwrap
 from pathlib import Path
 
 import pytest
@@ -154,7 +157,8 @@ def test_evaluate_with_local_db_uses_local_hits_and_maps_filters(
     monkeypatch.setattr(fsl, "batch_search", fake_batch)
     monkeypatch.setattr(sf, "run_filters", fake_filters)
 
-    result = sb.evaluate(rows, outdir, "g", data, foldseek_db=db, cpu=3)
+    result = sb.evaluate(rows, outdir, "g", data, foldseek_db=db, cpu=3,
+                         external=True)
 
     batch = calls["batch"]
     assert batch["pdbs"] == ["P1", "P2"]
@@ -180,6 +184,179 @@ def test_evaluate_with_local_db_uses_local_hits_and_maps_filters(
     assert records[0]["filter_f1_foldseek"] == "true"
     assert records[0]["filter_f2_enzymm"] == "false"
     assert records[0]["filter_f5_active_site"] == "true"
+
+
+def test_evaluate_external_false_uses_only_local_sources(
+        tmp_path: Path, monkeypatch):
+    _pdb(tmp_path, "P1")
+    rows = _rows("P1")
+    outdir = tmp_path / "out"
+    data = tmp_path / "data"
+    db = tmp_path / "local_db"
+    db.write_text("", encoding="utf-8")
+    calls: list[str] = []
+
+    def fake_batch(pdbs, target_db, workdir, threads=8, max_seqs=5):
+        calls.append("batch")
+        return {
+            "hits": {"P1": [{"pdb_id": "1abc", "bits": "123"}]},
+            "error": "",
+        }
+
+    monkeypatch.setattr(fsl, "batch_search", fake_batch)
+    monkeypatch.setattr(
+        sb, "_enzymm_local",
+        lambda pdb, workdir, cpu: (True, "", 2, "9xyz"),
+    )
+    monkeypatch.setattr(
+        sb, "_active_site_local",
+        lambda data_root, genome, uniprot: (True, "", [42]),
+    )
+    # Ninguna de estas rutas debe ejecutarse en modo external=False.
+    _forbid(monkeypatch, sb, "_run_filters", calls)
+    _forbid(monkeypatch, sf, "run_filters", calls)
+    _forbid(monkeypatch, sf, "p2rank", calls)
+    _forbid(monkeypatch, sf, "alphafill", calls)
+    _forbid(monkeypatch, sf, "foldseek_search", calls)
+    _forbid(monkeypatch, requests, "get", calls)
+    _forbid(monkeypatch, requests, "post", calls)
+
+    result = sb.evaluate(rows, outdir, "g", data, foldseek_db=db,
+                         external=False)
+
+    assert calls == ["batch"]
+    assert result["external"] is False
+    assert result["network"] == "local_only"
+    assert result["n_evaluated"] == 1
+    assert result["n_evaluated_local_only"] == 1
+    assert result["n_evaluated_delegated"] == 0
+
+    row = rows[0]
+    assert row["filter_status"] == "evaluated_local_no_external"
+    assert row["filter_f1_foldseek"] is True
+    assert row["filter_f2_enzymm"] is True
+    assert row["filter_f3_pocket"] == ""
+    assert row["filter_f4_alphafill"] == ""
+    assert row["filter_f5_active_site"] is True
+    assert row["filter_verdict"] == "local_only_partial"
+    assert "sin red" in row["filter_limitation"].lower()
+    assert "P2Rank/AlphaFill/APIs=no_consultados" in row["filter_note"]
+    assert "active_positions=42" in row["filter_note"]
+
+    header, records = _read_tsv(Path(result["filters"]))
+    assert header == list(sb.FILTER_COLUMNS)
+    assert records[0]["filter_status"] == "evaluated_local_no_external"
+    assert records[0]["filter_f3_pocket"] == ""
+    assert records[0]["filter_f4_alphafill"] == ""
+    assert records[0]["filter_f5_active_site"] == "true"
+
+
+def test_evaluate_external_false_leaves_unavailable_f2_f5_empty(
+        tmp_path: Path, monkeypatch):
+    _pdb(tmp_path, "P1")
+    rows = _rows("P1")
+    db = tmp_path / "local_db"
+    db.write_text("", encoding="utf-8")
+    calls: list[str] = []
+
+    monkeypatch.setattr(
+        fsl, "batch_search",
+        lambda *a, **k: {"hits": {}, "error": ""},
+    )
+    monkeypatch.setattr(
+        sb, "_enzymm_local",
+        lambda pdb, workdir, cpu: (None, "EnzyMM no instalado", 0, ""),
+    )
+    monkeypatch.setattr(
+        sb, "_active_site_local",
+        lambda data_root, genome, uniprot: (None, "mapa ausente", []),
+    )
+    _forbid(monkeypatch, sb, "_run_filters", calls)
+    _forbid(monkeypatch, sf, "p2rank", calls)
+    _forbid(monkeypatch, sf, "alphafill", calls)
+
+    result = sb.evaluate(rows, tmp_path / "out", "g", tmp_path / "data",
+                         foldseek_db=db, external=False)
+
+    assert calls == []
+    assert result["n_evaluated_local_only"] == 1
+    row = rows[0]
+    assert row["filter_status"] == "evaluated_local_no_external"
+    assert row["filter_f1_foldseek"] is False
+    assert row["filter_f2_enzymm"] == ""
+    assert row["filter_f3_pocket"] == ""
+    assert row["filter_f4_alphafill"] == ""
+    assert row["filter_f5_active_site"] == ""
+    assert "F2 no disponible" in row["filter_limitation"]
+    assert "F5 no disponible" in row["filter_limitation"]
+    assert "f2_no_evaluado=EnzyMM no instalado" in row["filter_note"]
+    assert "f5_no_evaluado=mapa ausente" in row["filter_note"]
+
+
+def test_active_site_local_reads_data_root(tmp_path: Path):
+    base = tmp_path / "data" / "metabolism" / "targets"
+    base.mkdir(parents=True)
+    (base / "ACTIVE_SITE_STRUCTURAL_MAP.tsv").write_text(
+        "genoma\tacc\tfeature\tdescription\tstart\tend\tref_pos\tref_aa\t"
+        "qry_pos\tqry_aa\tconserved\n"
+        "g\tP1\tActive site\tdesc\t10\t10\t10\tA\t42\tA\tTrue\n"
+        "g\tP1\tBinding site\tdesc\t11\t11\t11\tA\t43\tA\tTrue\n",
+        encoding="utf-8",
+    )
+
+    available, note, positions = sb._active_site_local(
+        tmp_path / "data", "g", "P1")
+
+    assert available is True, note
+    assert positions == [42]
+
+
+def test_external_false_does_not_import_api_modules(tmp_path: Path):
+    """Verifica en un intérprete limpio que no se importan módulos de API."""
+    _pdb(tmp_path, "P1")
+    (tmp_path / "db").write_text("", encoding="utf-8")
+    root = Path(__file__).resolve().parents[1]
+    script = textwrap.dedent("""
+        import sys
+        from pathlib import Path
+
+        import webapp.foldseek_local as fsl
+        import webapp.structural_b as sb
+
+        BLOCKED = {"webapp.structural_filters", "structure_evidence", "requests"}
+
+        class BlockAPI:
+            def find_spec(self, fullname, path=None, target=None):
+                if fullname in BLOCKED:
+                    raise AssertionError(f"import prohibido: {fullname}")
+                return None
+
+        sys.meta_path.insert(0, BlockAPI())
+        root = Path(sys.argv[1])
+
+        def batch(pdbs, target_db, workdir, threads=8, max_seqs=5):
+            return {"hits": {"P1": [{"pdb_id": "1abc"}]}, "error": ""}
+
+        fsl.batch_search = batch
+        sb._enzymm_local = lambda *a, **k: (False, "", 0, "")
+        sb._active_site_local = lambda *a, **k: (False, "", [])
+        rows = [{"protein_id": "p1", "path": "B", "uniprot": "P1"}]
+        sb.evaluate(rows, root / "out", "g", root / "data",
+                    foldseek_db=root / "db", external=False)
+        assert rows[0]["filter_status"] == "evaluated_local_no_external"
+        assert rows[0]["filter_f3_pocket"] == ""
+        assert rows[0]["filter_f4_alphafill"] == ""
+        assert "webapp.structural_filters" not in sys.modules
+        assert "structure_evidence" not in sys.modules
+        assert "requests" not in sys.modules
+        print("ok")
+    """)
+    proc = subprocess.run(
+        [sys.executable, "-c", script, str(tmp_path)],
+        cwd=root, capture_output=True, text=True, timeout=60,
+    )
+    assert proc.returncode == 0, proc.stderr
+    assert "ok" in proc.stdout
 
 
 def test_evaluate_limits_models_and_marks_overflow_not_evaluated(
@@ -210,7 +387,7 @@ def test_evaluate_limits_models_and_marks_overflow_not_evaluated(
     monkeypatch.setattr(sf, "run_filters", fake_filters)
 
     result = sb.evaluate(rows, tmp_path / "out", "g", tmp_path / "data",
-                         foldseek_db=db, max_models=2)
+                         foldseek_db=db, max_models=2, external=True)
 
     assert calls == ["P1", "P2"]
     assert result["n_evaluated"] == 2

@@ -40,6 +40,9 @@ completo.
 | `signal_peptide` | `yes/no/uncertain` (C); no SignalP |
 | `lipobox` | motivo [LVI][ASTM][AG]C (C) |
 | `context_hypothesis` | `membrane_like/secreted_like/soluble_like/unknown`; hipótesis |
+| `tmhmm_status` | `ok/not_installed/error/no_sequence/no_prediction`; opcional |
+| `filter_status` | B: `evaluated_local_no_external` / `not_evaluated_no_local_db` |
+| `filter_verdict` | B: `local_only_partial` cuando no se consultan F3/F4 |
 
 Reglas:
 

@@ -1773,6 +1773,8 @@ def render_result(res: dict) -> None:
                              if r.get("structural_status") == "afdb_model_available")
                 c_dom = sum(1 for r in rows if r.get("domain"))
                 c_ctx = sum(1 for r in rows if r.get("context_hypothesis"))
+                c_tmhmm = sum(1 for r in rows
+                              if r.get("tmhmm_status") == "ok")
                 b_filtered = sum(1 for r in rows
                                  if str(r.get("filter_status", "")).startswith("evaluated"))
                 st.caption(f"Con pista de nombre: **{hint_n}** proteínas. "
@@ -1780,7 +1782,8 @@ def render_result(res: dict) -> None:
                 st.caption(f"B con modelo AFDB local: **{b_afdb}**. "
                            f"B con filtros evaluados: **{b_filtered}**. "
                            f"C con dominio Pfam: **{c_dom}**. "
-                           f"C con contexto: **{c_ctx}**. "
+                           f"C con contexto: **{c_ctx}**; "
+                           f"C con TMHMM: **{c_tmhmm}**. "
                            "Modelo/dominio/contexto no confirman función ni complejo.")
                 dfp = pd.DataFrame(rows)
                 f1, f2 = st.columns(2)
