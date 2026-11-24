@@ -20,9 +20,9 @@ reproducir en un genoma nuevo?
 | oriC ORCA | 400 filas de estado | `webapp/oric.py` | ✅ nuevo |
 | DoriC | 306 genomas con verdad | lookup con `--accession` | 🟡 opcional |
 | Operones/promotores/regulación | 402 directorios + reglas en FASTA nuevo | `regulation_layer.py` | 🟡 reglas; sin TSS/TTS |
-| Móviles/defensa | 10 pilotos | módulo de resumen | 🟡 fuera de los 400 |
+| Móviles/defensa | 400/400 TSV tipados; 310/400 FASTA para CRISPR | módulo de resumen | 🟡 datos 400; no automático |
 | Membrana/transporte | 400 TSV `full/` + 10 GFF piloto | `webapp/membrane_layer.py` | ✅ automático si hmmscan + panel |
-| Taxonomía/ANI | 400 JSON `full/` | no automático | 🟡 datos 400; no pipeline nuevo |
+| Taxonomía/ANI | 400 JSON `full/` | `taxonomy_layer.py` | 🟡 normaliza local; no ANI/red |
 | TSS/TTS/horquillas | precalculado | no automático | ❌ |
 | Estructura/filtros | subconjunto | flags opcionales | 🟡 |
 | Targets/allosteria | precalculado | no automático | 🟡 |

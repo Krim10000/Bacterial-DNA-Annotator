@@ -1854,6 +1854,26 @@ def render_result(res: dict) -> None:
                         file_name=f"{res['genome']}_complexes.tsv",
                         mime="text/plain",
                     )
+                tax = res.get("taxonomy")
+                if tax:
+                    st.markdown("#### 🧭 Taxonomía local")
+                    if tax.get("status") != "ok":
+                        st.info(f"Taxonomía no disponible: {tax.get('reason','')}")
+                    else:
+                        trows = tax.get("rows") or []
+                        tdf = pd.DataFrame(trows)
+                        st.dataframe(tdf, width="stretch", hide_index=True)
+                        st.caption(
+                            "Normalización de un JSON local ya precalculado; "
+                            "no se valida especie por ANI ni red. Un rango "
+                            "ausente no es evidencia negativa."
+                        )
+                        st.download_button(
+                            "⬇️ Taxonomía (TSV)",
+                            tdf.to_csv(sep="\t", index=False),
+                            file_name=f"{res['genome']}.taxonomy.tsv",
+                            mime="text/plain",
+                        )
         else:
             st.info("Anotación funcional no ejecutada: falta DIAMOND o Swiss-Prot.")
         o = res.get("oric")

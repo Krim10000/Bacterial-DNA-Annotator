@@ -117,8 +117,8 @@ CPU medida; no cerrar brechas.
 
 ### Semanas 10–11 — Cobertura y producto
 
-- [ ] Taxonomía automática.
-- [ ] Móviles/defensa/AMR a los 400.
+- [ ] Taxonomía automática (normalizador local ya existe; falta ANI/red).
+- [ ] Móviles/defensa/AMR: 400 TSV tipados; faltan 90 FASTA para CRISPR.
 - [ ] BGC: decidir integrar antiSMASH o no.
 - [ ] Brechas: dirección, transporte, termodinámica.
 - [ ] SBML borrador (opcional).

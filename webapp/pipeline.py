@@ -25,6 +25,7 @@ from domain_layer import run as run_domains  # noqa: E402
 from structural_b import run as run_structural_b, evaluate as evaluate_structural_b  # noqa: E402
 from context_layer import run as run_context  # noqa: E402
 from remote_homology import run as run_remote_homology  # noqa: E402
+from taxonomy_layer import run as run_taxonomy  # noqa: E402
 from regulation_layer import DEFAULT_MAX_GAP, run as run_regulation  # noqa: E402
 import oric  # noqa: E402
 from esmfold_tools import close_gaps  # noqa: E402
@@ -86,6 +87,11 @@ def write_outputs(res: dict, outdir: Path, metabolic: dict | None) -> None:
                                if x.get("status") == "complex_suspected"),
             "rows": len(c.get("complexes") or []),
         }
+    if res.get("taxonomy"):
+        tax = res["taxonomy"]
+        summary["taxonomy"] = {"status": tax.get("status"),
+                               "n_rows": len(tax.get("rows") or []),
+                               "reason": tax.get("reason", "")}
     if res.get("remote_homology"):
         rh = res["remote_homology"]
         summary["remote_homology"] = {
@@ -245,6 +251,8 @@ def main() -> int:
     ap.add_argument("--no-metabolic", action="store_true")
     ap.add_argument("--structure-b-external", action="store_true",
                     help="Permitir P2Rank/AlphaFill/APIs en filtros B (por defecto solo local).")
+    ap.add_argument("--no-taxonomy", action="store_true",
+                    help="No normalizar taxonomía local precalculada.")
     ap.add_argument("--no-membrane", action="store_true",
                     help="No ejecutar membrana/transporte (hmmscan + Pfam).")
     ap.add_argument("--remote-homology", action="store_true",
@@ -288,6 +296,12 @@ def main() -> int:
             "min_region_len": 150, "min_aa": 60,
         }
         res = annotate(fasta.name, data, options)
+        if not args.no_taxonomy:
+            try:
+                res["taxonomy"] = run_taxonomy(res["genome"], args.data_root,
+                                               args.outdir)
+            except Exception as exc:  # noqa: BLE001
+                print(f"[aviso] taxonomía no normalizada: {exc}", file=sys.stderr)
         if res.get("features"):
             try:
                 res["regulation"] = run_regulation(

@@ -1054,5 +1054,7 @@
  "results/<genoma>_esmfold/modelo.pdb": "results/<genome>_esmfold/model.pdb",
  "Visor de coordenadas PDB. Puedes subir un PDB/mmCIF o indicar una ruta local. Una estructura experimental, AFDB o ESMFold no confirma función, sustrato, interfaz ni cierra brechas.": "PDB 坐标查看器。上传 PDB/mmCIF 或提供本地路径。实验结构、AFDB 或 ESMFold 结构都不能确认功能、底物或界面，也不能关闭缺口。",
  "🔀 Comparar genomas": "🔀 比较基因组",
- "Colorear por B-factor/RMSX": "按 B-factor/RMSX 着色"
+ "Colorear por B-factor/RMSX": "按 B-factor/RMSX 着色",
+ "⬇️ Taxonomía (TSV)": "⬇️ 分类学（TSV）",
+ "Normalización de un JSON local ya precalculado; no se valida especie por ANI ni red. Un rango ausente no es evidencia negativa.": "规范化本地预计算 JSON；不通过 ANI 或网络验证物种。缺少某等级不是阴性证据。"
 }

@@ -1,0 +1,4728 @@
+{
+  "totals": {
+    "gaps": 8655,
+    "genomes": 309,
+    "states_sum": 8655
+  },
+  "states": {
+    "gap_evidence_supported": 1022,
+    "gap_candidate": 1147,
+    "complex_suspected": 14,
+    "complex_incomplete": 0,
+    "not_evaluated": 7,
+    "not_closable_cpu": 6465
+  },
+  "state_definitions": {
+    "gap_evidence_supported": "hay evidencia directa (mapeo Rhea validado, homólogo fuerte o dominio confirmado) de un cierre candidato; NO es un cierre",
+    "gap_candidate": "hay evidencia parcial (dominio HMM, homólogo débil, revisión, multifunción same-EC o asociación débil a complejo); NO es un cierre",
+    "complex_suspected": "asociación a un complejo transferido fuerte (frac_mapped>=0.8); asociación, no cierre",
+    "complex_incomplete": "asociación a un complejo declarado incompleto (faltan subunidades o estequiometría); no puede cerrar la brecha",
+    "not_evaluated": "sin evidencia, sin complejo, sin transporte y sin bloqueador explícito: no hay hipótesis de cierre que evaluar",
+    "not_closable_cpu": "hay una capa evaluada que impide cerrar con CPU/offline: no es una brecha biosintética o requiere experimento/ΔG/base externa/GPU"
+  },
+  "evidence": {
+    "strong": 1022,
+    "weak": 1139,
+    "none": 6494,
+    "basis": {
+      "dominio_hmm": 535,
+      "dominio_confirmado": 43,
+      "mapping_rhea_validada": 257,
+      "homologo_fuerte": 980,
+      "multifuncion_misma_ec": 522,
+      "homologo_debil": 85,
+      "revision_soporte": 74
+    }
+  },
+  "signals": {
+    "has_direct_evidence": 2161,
+    "has_strong_evidence": 1022,
+    "has_weak_evidence": 1139,
+    "has_complex_association": 22,
+    "has_transport_signal": 907,
+    "transport_evaluated_no_homolog": 3555,
+    "has_direction_resolved": 439,
+    "has_direction_unresolved": 4379,
+    "has_multifunction_hypothesis": 522,
+    "without_positive_signal": 5830,
+    "without_any_layer": 0
+  },
+  "blockers": {
+    "first_reason": {
+      "direction_unresolved": 2574,
+      "catabolic": 2390,
+      "transport_reaction_only": 600,
+      "false_positive_direction": 603,
+      "entry_point": 246,
+      "novel_no_reference": 43,
+      "spontaneous": 9
+    },
+    "all_reasons": {
+      "direction_unresolved": 3173,
+      "catabolic": 2390,
+      "transport_reaction_only": 602,
+      "false_positive_direction": 603,
+      "entry_point": 248,
+      "transporter_homolog": 40,
+      "novel_no_reference": 45,
+      "spontaneous": 13,
+      "host_dependent": 16
+    },
+    "groups": {
+      "not_a_biosynthetic_gap": 3248,
+      "biosynthetic_gap_not_closable": 3217
+    }
+  },
+  "complexes": {
+    "bridge": {
+      "available": true,
+      "rhea_reactions_path": "data/metabolism/rhea_reactions.pkl",
+      "rhea2ec_path": "data/reactions/tsv/rhea2ec.tsv",
+      "reactions": 75208,
+      "ecs_with_products": 6161
+    },
+    "transfer": {
+      "files": 400,
+      "rows": 19085,
+      "rows_with_ecs": 12996,
+      "rows_with_products": 11361,
+      "strong": 8408,
+      "weak": 10677,
+      "incomplete": 1785,
+      "stoich_complete": 0,
+      "stoich_incomplete": 1785,
+      "stoich_unknown": 17300
+    },
+    "model": {
+      "files": 400,
+      "rows": 281090,
+      "rows_with_ecs": 0,
+      "rows_with_products": 0,
+      "candidate": 281090,
+      "with_missing": 0
+    },
+    "associations": {
+      "gaps_with_any": 22,
+      "gaps_with_strong": 14,
+      "gaps_with_incomplete": 2,
+      "gaps_with_strong_and_incomplete": 2,
+      "gaps_with_rhea_overlap": 2,
+      "association_count": 24
+    }
+  },
+  "closure": {
+    "confirmed": 0,
+    "closed": 0,
+    "associated_not_closed": 22,
+    "policy": "ninguna brecha se declara cerrada ni confirmada; asociación != cierre; un cierre exige experimento (actividad, complementación, transporte medido) o validación equivalente",
+    "confirmed_input_rows_ignored": 0
+  },
+  "association_list": [
+    {
+      "genome": "GCF_000179915.2_ASM17991v2",
+      "gap": "succinyl-CoA",
+      "chebi": "CHEBI:57292",
+      "complex_id": "CPX-1092",
+      "complex_name": "Succinyl-CoA synthetase",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "6.2.1.5"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_000265425.1_ASM26542v1",
+      "gap": "succinyl-CoA",
+      "chebi": "CHEBI:57292",
+      "complex_id": "CPX-1092",
+      "complex_name": "Succinyl-CoA synthetase",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "6.2.1.5"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_001027285.1_ASM102728v1",
+      "gap": "indole",
+      "chebi": "CHEBI:16881",
+      "complex_id": "CPX-3446",
+      "complex_name": "TrpAB tryptophan synthase complex",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "4.1.2.8",
+        "4.2.1.122"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_001676785.2_ASM167678v2",
+      "gap": "spermidine",
+      "chebi": "CHEBI:57834",
+      "complex_id": "CPX-4384",
+      "complex_name": "Putrescine ABC transporter complex",
+      "source": "transfer",
+      "strength": "weak",
+      "frac_mapped": 0.5,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "7.6.2.11"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "gap_candidate",
+      "reason_code": "complex_weak"
+    },
+    {
+      "genome": "GCF_002269385.1_ASM226938v1",
+      "gap": "indole",
+      "chebi": "CHEBI:16881",
+      "complex_id": "CPX-3446",
+      "complex_name": "TrpAB tryptophan synthase complex",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "4.1.2.8",
+        "4.2.1.122"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_003721155.3_ASM372115v4",
+      "gap": "spermidine",
+      "chebi": "CHEBI:57834",
+      "complex_id": "CPX-4384",
+      "complex_name": "Putrescine ABC transporter complex",
+      "source": "transfer",
+      "strength": "weak",
+      "frac_mapped": 0.5,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "7.6.2.11"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "gap_candidate",
+      "reason_code": "complex_weak"
+    },
+    {
+      "genome": "GCF_006352065.1_ASM635206v1",
+      "gap": "spermidine",
+      "chebi": "CHEBI:57834",
+      "complex_id": "CPX-4383",
+      "complex_name": "Spermidine ABC transporter complex",
+      "source": "transfer",
+      "strength": "weak",
+      "frac_mapped": 0.75,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "7.6.2.11"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "gap_candidate",
+      "reason_code": "complex_weak"
+    },
+    {
+      "genome": "GCF_009688965.1_ASM968896v1",
+      "gap": "daunorubicin",
+      "chebi": "CHEBI:64677",
+      "complex_id": "CPX-4443",
+      "complex_name": "Sodium/lithium ABC transporter complex",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "7.6.2.2"
+      ],
+      "rhea_overlap": true,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_014274685.1_ASM1427468v1",
+      "gap": "succinyl-CoA",
+      "chebi": "CHEBI:57292",
+      "complex_id": "CPX-1092",
+      "complex_name": "Succinyl-CoA synthetase",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "6.2.1.5"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_016446285.1_ASM1644628v1",
+      "gap": "daunorubicin",
+      "chebi": "CHEBI:64677",
+      "complex_id": "CPX-4443",
+      "complex_name": "Sodium/lithium ABC transporter complex",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "7.6.2.2"
+      ],
+      "rhea_overlap": true,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_022870745.1_ASM2287074v1",
+      "gap": "succinyl-CoA",
+      "chebi": "CHEBI:57292",
+      "complex_id": "CPX-1092",
+      "complex_name": "Succinyl-CoA synthetase",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "6.2.1.5"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_027594505.1_ASM2759450v1",
+      "gap": "indole",
+      "chebi": "CHEBI:16881",
+      "complex_id": "CPX-3446",
+      "complex_name": "TrpAB tryptophan synthase complex",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "4.1.2.8",
+        "4.2.1.122"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_030866825.1_ASM3086682v1",
+      "gap": "spermidine",
+      "chebi": "CHEBI:57834",
+      "complex_id": "CPX-4384",
+      "complex_name": "Putrescine ABC transporter complex",
+      "source": "transfer",
+      "strength": "weak",
+      "frac_mapped": 0.5,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "7.6.2.11"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "gap_candidate",
+      "reason_code": "complex_weak"
+    },
+    {
+      "genome": "GCF_032102965.1_ASM3210296v1",
+      "gap": "spermidine",
+      "chebi": "CHEBI:57834",
+      "complex_id": "CPX-4384",
+      "complex_name": "Putrescine ABC transporter complex",
+      "source": "transfer",
+      "strength": "weak",
+      "frac_mapped": 0.5,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "7.6.2.11"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "gap_candidate",
+      "reason_code": "complex_weak"
+    },
+    {
+      "genome": "GCF_033547035.1_ASM3354703v1",
+      "gap": "indole",
+      "chebi": "CHEBI:16881",
+      "complex_id": "CPX-3446",
+      "complex_name": "TrpAB tryptophan synthase complex",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "4.1.2.8",
+        "4.2.1.122"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_037081835.1_ASM3708183v1",
+      "gap": "succinyl-CoA",
+      "chebi": "CHEBI:57292",
+      "complex_id": "CPX-1092",
+      "complex_name": "Succinyl-CoA synthetase",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "6.2.1.5"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_037081835.1_ASM3708183v1",
+      "gap": "succinyl-CoA",
+      "chebi": "CHEBI:57292",
+      "complex_id": "CPX-3921",
+      "complex_name": "2-oxoglutarate dehydrogenase complex",
+      "source": "transfer",
+      "strength": "weak",
+      "frac_mapped": 0.667,
+      "incomplete": true,
+      "stoich_status": "incomplete",
+      "ecs": [
+        "1.2.1.104",
+        "1.2.1.105"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_045784305.1_DRML_24019",
+      "gap": "spermidine",
+      "chebi": "CHEBI:57834",
+      "complex_id": "CPX-4383",
+      "complex_name": "Spermidine ABC transporter complex",
+      "source": "transfer",
+      "strength": "weak",
+      "frac_mapped": 0.5,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "7.6.2.11"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "gap_candidate",
+      "reason_code": "complex_weak"
+    },
+    {
+      "genome": "GCF_054054625.1_ASM5405462v1",
+      "gap": "succinyl-CoA",
+      "chebi": "CHEBI:57292",
+      "complex_id": "CPX-1092",
+      "complex_name": "Succinyl-CoA synthetase",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "6.2.1.5"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_054054625.1_ASM5405462v1",
+      "gap": "succinyl-CoA",
+      "chebi": "CHEBI:57292",
+      "complex_id": "CPX-3921",
+      "complex_name": "2-oxoglutarate dehydrogenase complex",
+      "source": "transfer",
+      "strength": "weak",
+      "frac_mapped": 0.667,
+      "incomplete": true,
+      "stoich_status": "incomplete",
+      "ecs": [
+        "1.2.1.104",
+        "1.2.1.105"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_055396605.1_ASM5539660v1",
+      "gap": "spermidine",
+      "chebi": "CHEBI:57834",
+      "complex_id": "CPX-4383",
+      "complex_name": "Spermidine ABC transporter complex",
+      "source": "transfer",
+      "strength": "weak",
+      "frac_mapped": 0.5,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "7.6.2.11"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "gap_candidate",
+      "reason_code": "complex_weak"
+    },
+    {
+      "genome": "GCF_060026435.1_ASM6002643v1",
+      "gap": "indole",
+      "chebi": "CHEBI:16881",
+      "complex_id": "CPX-3446",
+      "complex_name": "TrpAB tryptophan synthase complex",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "4.1.2.8",
+        "4.2.1.122"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_060030825.1_ASM6003082v1",
+      "gap": "indole",
+      "chebi": "CHEBI:16881",
+      "complex_id": "CPX-3446",
+      "complex_name": "TrpAB tryptophan synthase complex",
+      "source": "transfer",
+      "strength": "strong",
+      "frac_mapped": 1.0,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "4.1.2.8",
+        "4.2.1.122"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "complex_suspected",
+      "reason_code": "complex_strong"
+    },
+    {
+      "genome": "GCF_900217235.1_DPRO_PRJEB22548_v1",
+      "gap": "spermidine",
+      "chebi": "CHEBI:57834",
+      "complex_id": "CPX-4383",
+      "complex_name": "Spermidine ABC transporter complex",
+      "source": "transfer",
+      "strength": "weak",
+      "frac_mapped": 0.75,
+      "incomplete": false,
+      "stoich_status": "unknown",
+      "ecs": [
+        "7.6.2.11"
+      ],
+      "rhea_overlap": false,
+      "evidence_class": "documentado_inferido",
+      "limitation": "RBH sin cobertura de alineamiento en los TSV actuales.",
+      "state": "gap_candidate",
+      "reason_code": "complex_weak"
+    }
+  ],
+  "not_evaluated_detail": [
+    {
+      "genome": "GCF_000455605.1_GPTSA100-9",
+      "gap": "propanoyl-CoA",
+      "chebi": "CHEBI:57392",
+      "status": "anomalous",
+      "role": "anabolic",
+      "origin": "enzymatic_missing",
+      "audit_status": "enzymatic_missing",
+      "transport_status": "no_transport",
+      "direction_status": "",
+      "review_status": "one_sided_not_transport"
+    },
+    {
+      "genome": "GCF_000695095.2_ASM69509v2",
+      "gap": "propanoyl-CoA",
+      "chebi": "CHEBI:57392",
+      "status": "anomalous",
+      "role": "anabolic",
+      "origin": "enzymatic_missing",
+      "audit_status": "enzymatic_missing",
+      "transport_status": "no_transport",
+      "direction_status": "",
+      "review_status": "one_sided_not_transport"
+    },
+    {
+      "genome": "GCF_003353065.1_ASM335306v1",
+      "gap": "propanoyl-CoA",
+      "chebi": "CHEBI:57392",
+      "status": "anomalous",
+      "role": "anabolic",
+      "origin": "enzymatic_missing",
+      "audit_status": "enzymatic_missing",
+      "transport_status": "no_transport",
+      "direction_status": "",
+      "review_status": "one_sided_not_transport"
+    },
+    {
+      "genome": "GCF_007750655.1_ASM775065v1",
+      "gap": "propanoyl-CoA",
+      "chebi": "CHEBI:57392",
+      "status": "anomalous",
+      "role": "anabolic",
+      "origin": "enzymatic_missing",
+      "audit_status": "enzymatic_missing",
+      "transport_status": "no_transport",
+      "direction_status": "",
+      "review_status": "one_sided_not_transport"
+    },
+    {
+      "genome": "GCF_030623445.1_ASM3062344v1",
+      "gap": "propanoyl-CoA",
+      "chebi": "CHEBI:57392",
+      "status": "anomalous",
+      "role": "anabolic",
+      "origin": "enzymatic_missing",
+      "audit_status": "enzymatic_missing",
+      "transport_status": "no_transport",
+      "direction_status": "",
+      "review_status": "one_sided_not_transport"
+    },
+    {
+      "genome": "GCF_055387105.1_ASM5538710v1",
+      "gap": "propanoyl-CoA",
+      "chebi": "CHEBI:57392",
+      "status": "anomalous",
+      "role": "anabolic",
+      "origin": "enzymatic_missing",
+      "audit_status": "enzymatic_missing",
+      "transport_status": "no_transport",
+      "direction_status": "",
+      "review_status": "one_sided_not_transport"
+    },
+    {
+      "genome": "GCF_907165195.1_Cryomorphaceae_CECT30217",
+      "gap": "propanoyl-CoA",
+      "chebi": "CHEBI:57392",
+      "status": "anomalous",
+      "role": "anabolic",
+      "origin": "enzymatic_missing",
+      "audit_status": "enzymatic_missing",
+      "transport_status": "no_transport",
+      "direction_status": "",
+      "review_status": "one_sided_not_transport"
+    }
+  ],
+  "per_genome": [
+    {
+      "genome": "GCF_000006985.1_ASM698v1",
+      "gaps": 9,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 7,
+        "gap_candidate": 1,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000007985.2_ASM798v2",
+      "gaps": 14,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 9,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_000010305.1_ASM1030v1",
+      "gaps": 39,
+      "with_evidence": 11,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 6,
+      "states": {
+        "not_closable_cpu": 28,
+        "gap_candidate": 10,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000010985.1_ASM1098v1",
+      "gaps": 6,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 4,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_000012485.1_ASM1248v1",
+      "gaps": 11,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 8,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000014025.1_ASM1402v1",
+      "gaps": 10,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 4,
+        "not_closable_cpu": 4,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_000014125.1_ASM1412v1",
+      "gaps": 12,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 4,
+        "gap_evidence_supported": 1,
+        "not_closable_cpu": 7
+      }
+    },
+    {
+      "genome": "GCF_000015045.1_ASM1504v1",
+      "gaps": 13,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "gap_evidence_supported": 4,
+        "gap_candidate": 3,
+        "not_closable_cpu": 6
+      }
+    },
+    {
+      "genome": "GCF_000015125.1_ASM1512v1",
+      "gaps": 12,
+      "with_evidence": 1,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 11,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_000017685.1_ASM1768v1",
+      "gaps": 25,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 21,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_000017805.1_ASM1780v1",
+      "gaps": 39,
+      "with_evidence": 17,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 4,
+      "states": {
+        "not_closable_cpu": 22,
+        "gap_evidence_supported": 9,
+        "gap_candidate": 8
+      }
+    },
+    {
+      "genome": "GCF_000017865.1_ASM1786v1",
+      "gaps": 13,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 8,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000018605.1_ASM1860v1",
+      "gaps": 10,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 6,
+        "gap_candidate": 1,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_000018865.1_ASM1886v1",
+      "gaps": 29,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 19,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_000019965.1_ASM1996v1",
+      "gaps": 23,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 16,
+        "gap_evidence_supported": 4,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_000020465.1_ASM2046v1",
+      "gaps": 13,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 4,
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 7
+      }
+    },
+    {
+      "genome": "GCF_000020505.1_ASM2050v1",
+      "gaps": 14,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 4,
+        "not_closable_cpu": 9,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000020525.1_ASM2052v1",
+      "gaps": 13,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 8,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_000020625.1_ASM2062v1",
+      "gaps": 14,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 3,
+        "not_closable_cpu": 10,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000020645.1_ASM2064v1",
+      "gaps": 6,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 4,
+        "gap_candidate": 1,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000020985.1_ASM2098v1",
+      "gaps": 14,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 10,
+        "gap_evidence_supported": 1,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_000021685.1_ASM2168v1",
+      "gaps": 4,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 2,
+        "gap_evidence_supported": 1,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_000021905.1_ASM2190v1",
+      "gaps": 43,
+      "with_evidence": 12,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 31,
+        "gap_evidence_supported": 6,
+        "gap_candidate": 6
+      }
+    },
+    {
+      "genome": "GCF_000021945.1_ASM2194v1",
+      "gaps": 26,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 18,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_000022145.1_ASM2214v1",
+      "gaps": 51,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 1,
+      "states": {
+        "gap_evidence_supported": 5,
+        "not_closable_cpu": 41,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_000022565.1_ASM2256v1",
+      "gaps": 30,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 27,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000023325.1_ASM2332v1",
+      "gaps": 12,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 7,
+        "gap_evidence_supported": 3,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_000024405.1_ASM2440v1",
+      "gaps": 9,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 5,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000024425.1_ASM2442v1",
+      "gaps": 34,
+      "with_evidence": 12,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 22,
+        "gap_evidence_supported": 7,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_000024845.1_ASM2484v1",
+      "gaps": 43,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "gap_evidence_supported": 6,
+        "not_closable_cpu": 35,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_000024985.1_ASM2498v1",
+      "gaps": 8,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 5,
+        "gap_candidate": 1,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_000025005.1_ASM2500v1",
+      "gaps": 28,
+      "with_evidence": 1,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 27,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_000025725.1_ASM2572v1",
+      "gaps": 12,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 10,
+        "gap_candidate": 1,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000025905.1_ASM2590v1",
+      "gaps": 21,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 15,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_000025945.1_ASM2594v1",
+      "gaps": 25,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 19,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_000091545.1_ASM9154v1",
+      "gaps": 15,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 10,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_000092425.1_ASM9242v1",
+      "gaps": 31,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 21,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_000092785.1_ASM9278v1",
+      "gaps": 10,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 2,
+        "not_closable_cpu": 4,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_000143725.1_ASM14372v1",
+      "gaps": 21,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 3,
+      "states": {
+        "gap_evidence_supported": 3,
+        "gap_candidate": 3,
+        "not_closable_cpu": 15
+      }
+    },
+    {
+      "genome": "GCF_000146065.2_ASM14606v1",
+      "gaps": 23,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "gap_evidence_supported": 2,
+        "gap_candidate": 2,
+        "not_closable_cpu": 19
+      }
+    },
+    {
+      "genome": "GCF_000146505.1_ASM14650v1",
+      "gaps": 29,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 3,
+      "states": {
+        "gap_evidence_supported": 1,
+        "gap_candidate": 5,
+        "not_closable_cpu": 23
+      }
+    },
+    {
+      "genome": "GCF_000147715.2_ASM14771v3",
+      "gaps": 17,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 7,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_000172155.1_ASM17215v1",
+      "gaps": 19,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 14,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000177635.2_ASM17763v2",
+      "gaps": 31,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 25,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_000179915.2_ASM17991v2",
+      "gaps": 35,
+      "with_evidence": 9,
+      "with_complex": 1,
+      "with_transport": 5,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 25,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 6,
+        "complex_suspected": 1
+      }
+    },
+    {
+      "genome": "GCF_000183405.1_ASM18340v1",
+      "gaps": 2,
+      "with_evidence": 1,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 1,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_000186245.1_ASM18624v1",
+      "gaps": 6,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 2,
+        "not_closable_cpu": 3,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000195335.1_ASM19533v1",
+      "gaps": 20,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 15,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_000195975.1_ASM19597v1",
+      "gaps": 18,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 11,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_000196115.1_ASM19611v1",
+      "gaps": 47,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 44,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000196175.1_ASM19617v1",
+      "gaps": 28,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 20,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_000199675.1_ASM19967v1",
+      "gaps": 30,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 22,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_000210915.2_ASM21091v2",
+      "gaps": 23,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 3,
+      "states": {
+        "gap_candidate": 3,
+        "not_closable_cpu": 15,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_000212675.2_ASM21267v2",
+      "gaps": 21,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 17,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000214155.1_ASM21415v1",
+      "gaps": 56,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 48,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_000218625.1_ASM21862v1",
+      "gaps": 5,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 3
+      }
+    },
+    {
+      "genome": "GCF_000219725.1_ASM21972v1",
+      "gaps": 21,
+      "with_evidence": 11,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 10,
+        "gap_candidate": 10,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000225345.1_ASM22534v1",
+      "gaps": 12,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 3,
+      "states": {
+        "gap_candidate": 3,
+        "not_closable_cpu": 6,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_000226295.1_ASM22629v1",
+      "gaps": 55,
+      "with_evidence": 13,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 42,
+        "gap_evidence_supported": 7,
+        "gap_candidate": 6
+      }
+    },
+    {
+      "genome": "GCF_000226315.1_ASM22631v1",
+      "gaps": 19,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 13,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000235405.2_ASM23540v3",
+      "gaps": 7,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 5,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_000237205.1_ASM23720v1",
+      "gaps": 5,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 2,
+        "not_closable_cpu": 3
+      }
+    },
+    {
+      "genome": "GCF_000252445.1_ASM25244v1",
+      "gaps": 35,
+      "with_evidence": 12,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 23,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 7
+      }
+    },
+    {
+      "genome": "GCF_000253035.1_ASM25303v1",
+      "gaps": 6,
+      "with_evidence": 1,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 5,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_000255135.1_ASM25513v1",
+      "gaps": 15,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 9,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000258405.1_ASM25840v1",
+      "gaps": 8,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 6,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_000265295.1_ASM26529v1",
+      "gaps": 13,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 3,
+      "states": {
+        "gap_candidate": 4,
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 7
+      }
+    },
+    {
+      "genome": "GCF_000265425.1_ASM26542v1",
+      "gaps": 40,
+      "with_evidence": 7,
+      "with_complex": 1,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 5,
+        "not_closable_cpu": 32,
+        "gap_evidence_supported": 2,
+        "complex_suspected": 1
+      }
+    },
+    {
+      "genome": "GCF_000279145.1_ASM27914v1",
+      "gaps": 5,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 2,
+        "gap_evidence_supported": 1,
+        "not_closable_cpu": 2
+      }
+    },
+    {
+      "genome": "GCF_000284115.1_ASM28411v1",
+      "gaps": 27,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 21,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_000284315.1_ASM28431v1",
+      "gaps": 15,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 3,
+      "states": {
+        "gap_candidate": 4,
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 9
+      }
+    },
+    {
+      "genome": "GCF_000309885.1_ASM30988v1",
+      "gaps": 25,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 15,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 8
+      }
+    },
+    {
+      "genome": "GCF_000317105.1_ASM31710v1",
+      "gaps": 15,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 12,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_000317575.1_ASM31757v1",
+      "gaps": 19,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 11,
+        "gap_evidence_supported": 4,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_000348725.1_ASM34872v1",
+      "gaps": 31,
+      "with_evidence": 12,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 3,
+      "states": {
+        "gap_candidate": 7,
+        "not_closable_cpu": 19,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_000455605.1_GPTSA100-9",
+      "gaps": 46,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 8,
+      "with_direction": 4,
+      "states": {
+        "gap_evidence_supported": 4,
+        "not_closable_cpu": 36,
+        "gap_candidate": 5,
+        "not_evaluated": 1
+      }
+    },
+    {
+      "genome": "GCF_000484535.1_ASM48453v1",
+      "gaps": 37,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 29,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_000487995.2_ASM48799v2",
+      "gaps": 8,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "gap_evidence_supported": 3,
+        "not_closable_cpu": 5
+      }
+    },
+    {
+      "genome": "GCF_000504085.1_ASM50408v1",
+      "gaps": 11,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 4,
+        "not_closable_cpu": 6,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000522985.1_ASM52298v1",
+      "gaps": 27,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 22,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_000695095.2_ASM69509v2",
+      "gaps": 28,
+      "with_evidence": 13,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 6,
+      "states": {
+        "not_closable_cpu": 14,
+        "gap_evidence_supported": 4,
+        "gap_candidate": 9,
+        "not_evaluated": 1
+      }
+    },
+    {
+      "genome": "GCF_000724625.1_ASM72462v1",
+      "gaps": 4,
+      "with_evidence": 1,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 3,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_000767275.3_ASM76727v4",
+      "gaps": 9,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "gap_candidate": 2,
+        "not_closable_cpu": 6,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_000800395.1_ASM80039v1",
+      "gaps": 29,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 19,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_000828675.1_ASM82867v1",
+      "gaps": 11,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "gap_candidate": 3,
+        "not_closable_cpu": 6,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_000829235.1_ASM82923v1",
+      "gaps": 10,
+      "with_evidence": 1,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 9,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_001017655.1_ASM101765v1",
+      "gaps": 6,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 2,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_001027025.1_ASM102702v1",
+      "gaps": 18,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 11,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_001027285.1_ASM102728v1",
+      "gaps": 47,
+      "with_evidence": 6,
+      "with_complex": 1,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 40,
+        "complex_suspected": 1,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_001273775.1_ASM127377v1",
+      "gaps": 15,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 12,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_001296145.1_ASM129614v1",
+      "gaps": 15,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 11,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_001458695.1_NiCh1",
+      "gaps": 13,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 7,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_001610955.1_ASM161095v1",
+      "gaps": 20,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 11,
+        "gap_evidence_supported": 6,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_001611795.1_ASM161179v1",
+      "gaps": 61,
+      "with_evidence": 15,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 46,
+        "gap_evidence_supported": 7,
+        "gap_candidate": 8
+      }
+    },
+    {
+      "genome": "GCF_001618865.1_ASM161886v1",
+      "gaps": 48,
+      "with_evidence": 12,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 36,
+        "gap_candidate": 6,
+        "gap_evidence_supported": 6
+      }
+    },
+    {
+      "genome": "GCF_001676785.2_ASM167678v2",
+      "gaps": 25,
+      "with_evidence": 7,
+      "with_complex": 1,
+      "with_transport": 4,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 17,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 6
+      }
+    },
+    {
+      "genome": "GCF_001701045.1_ASM170104v1",
+      "gaps": 16,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 10,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_001747405.1_ASM174740v1",
+      "gaps": 12,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 3,
+        "not_closable_cpu": 8,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_001747425.1_ASM174742v1",
+      "gaps": 45,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 39,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_001886435.1_ASM188643v1",
+      "gaps": 48,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 39,
+        "gap_evidence_supported": 4,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_001886815.1_ASM188681v1",
+      "gaps": 58,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 50,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_001889025.1_ASM188902v1",
+      "gaps": 50,
+      "with_evidence": 14,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 4,
+        "not_closable_cpu": 36,
+        "gap_evidence_supported": 10
+      }
+    },
+    {
+      "genome": "GCF_001953175.1_ASM195317v1",
+      "gaps": 20,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 3,
+        "not_closable_cpu": 16,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_002157165.1_ASM215716v1",
+      "gaps": 45,
+      "with_evidence": 11,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 34,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 9
+      }
+    },
+    {
+      "genome": "GCF_002269385.1_ASM226938v1",
+      "gaps": 35,
+      "with_evidence": 11,
+      "with_complex": 1,
+      "with_transport": 4,
+      "with_direction": 4,
+      "states": {
+        "not_closable_cpu": 23,
+        "complex_suspected": 1,
+        "gap_candidate": 8,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_002302565.1_ASM230256v1",
+      "gaps": 36,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 30,
+        "gap_evidence_supported": 3,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_002305895.1_ASM230589v1",
+      "gaps": 49,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 40,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_002310495.1_ASM231049v1",
+      "gaps": 22,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 18,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_002813575.1_ASM281357v1",
+      "gaps": 36,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 30,
+        "gap_evidence_supported": 6
+      }
+    },
+    {
+      "genome": "GCF_002872415.1_ASM287241v1",
+      "gaps": 27,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 18,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 6
+      }
+    },
+    {
+      "genome": "GCF_003019315.1_ASM301931v1",
+      "gaps": 14,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 9,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_003019655.1_ASM301965v1",
+      "gaps": 13,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 10,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_003019675.1_ASM301967v1",
+      "gaps": 14,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 11,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_003173015.1_ASM317301v1",
+      "gaps": 28,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 18,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_003258315.1_ASM325831v1",
+      "gaps": 28,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 22,
+        "gap_evidence_supported": 3,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_003325455.1_ASM332545v1",
+      "gaps": 51,
+      "with_evidence": 12,
+      "with_complex": 0,
+      "with_transport": 10,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 39,
+        "gap_candidate": 7,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_003330725.1_ASM333072v1",
+      "gaps": 38,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 31,
+        "gap_evidence_supported": 4,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_003353065.1_ASM335306v1",
+      "gaps": 84,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 76,
+        "gap_candidate": 4,
+        "not_evaluated": 1,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_003491405.1_ASM349140v1",
+      "gaps": 20,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 5,
+        "gap_evidence_supported": 3,
+        "not_closable_cpu": 12
+      }
+    },
+    {
+      "genome": "GCF_003544815.1_ASM354481v1",
+      "gaps": 11,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 7,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_003574315.2_ASM357431v2",
+      "gaps": 7,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 5,
+        "gap_evidence_supported": 1,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_003721155.3_ASM372115v4",
+      "gaps": 51,
+      "with_evidence": 11,
+      "with_complex": 1,
+      "with_transport": 6,
+      "with_direction": 0,
+      "states": {
+        "gap_evidence_supported": 6,
+        "not_closable_cpu": 39,
+        "gap_candidate": 6
+      }
+    },
+    {
+      "genome": "GCF_003815875.1_ASM381587v1",
+      "gaps": 33,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 4,
+      "states": {
+        "not_closable_cpu": 27,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_003966735.1_ASM396673v1",
+      "gaps": 16,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 13,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_003966975.1_ASM396697v1",
+      "gaps": 35,
+      "with_evidence": 11,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 4,
+      "states": {
+        "not_closable_cpu": 24,
+        "gap_candidate": 9,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_004087915.1_ASM408791v1",
+      "gaps": 8,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 5,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_004103715.1_ASM410371v1",
+      "gaps": 19,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 15,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_004214795.1_ASM421479v1",
+      "gaps": 16,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 3,
+      "states": {
+        "gap_candidate": 4,
+        "gap_evidence_supported": 3,
+        "not_closable_cpu": 9
+      }
+    },
+    {
+      "genome": "GCF_004376055.1_ASM437605v2",
+      "gaps": 12,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 7,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_004803815.1_ASM480381v1",
+      "gaps": 7,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "gap_candidate": 2,
+        "not_closable_cpu": 4,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_005144435.2_ASM514443v2",
+      "gaps": 47,
+      "with_evidence": 17,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 30,
+        "gap_evidence_supported": 13,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_006352065.1_ASM635206v1",
+      "gaps": 53,
+      "with_evidence": 11,
+      "with_complex": 1,
+      "with_transport": 6,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 41,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 7
+      }
+    },
+    {
+      "genome": "GCF_007475525.1_ASM747552v1",
+      "gaps": 15,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 10,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_007747655.1_ASM774765v1",
+      "gaps": 70,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 64,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_007750655.1_ASM775065v1",
+      "gaps": 38,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 28,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 5,
+        "not_evaluated": 1
+      }
+    },
+    {
+      "genome": "GCF_007904085.1_ASM790408v1",
+      "gaps": 24,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 19,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_007990365.1_ASM799036v1",
+      "gaps": 11,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 3,
+        "not_closable_cpu": 4,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_007990505.1_ASM799050v1",
+      "gaps": 12,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 3,
+      "states": {
+        "gap_evidence_supported": 3,
+        "not_closable_cpu": 5,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_007993755.1_ASM799375v1",
+      "gaps": 16,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 13,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_007993775.1_ASM799377v1",
+      "gaps": 25,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 19,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_008087625.1_ASM808762v1",
+      "gaps": 66,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 59,
+        "gap_candidate": 6,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_008087665.1_ASM808766v1",
+      "gaps": 76,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 70,
+        "gap_evidence_supported": 4,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_009002475.1_ASM900247v1",
+      "gaps": 56,
+      "with_evidence": 16,
+      "with_complex": 0,
+      "with_transport": 10,
+      "with_direction": 3,
+      "states": {
+        "gap_evidence_supported": 7,
+        "not_closable_cpu": 40,
+        "gap_candidate": 9
+      }
+    },
+    {
+      "genome": "GCF_009258225.1_ASM925822v1",
+      "gaps": 10,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 4,
+        "not_closable_cpu": 4,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_009688965.1_ASM968896v1",
+      "gaps": 37,
+      "with_evidence": 12,
+      "with_complex": 1,
+      "with_transport": 6,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 24,
+        "gap_evidence_supported": 6,
+        "gap_candidate": 6,
+        "complex_suspected": 1
+      }
+    },
+    {
+      "genome": "GCF_009689585.1_ASM968958v1",
+      "gaps": 32,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 27,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_009731575.1_ASM973157v1",
+      "gaps": 14,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 9,
+        "gap_evidence_supported": 3,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_009734425.1_ASM973442v1",
+      "gaps": 32,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 23,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_009905215.1_ASM990521v1",
+      "gaps": 1,
+      "with_evidence": 0,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 1
+      }
+    },
+    {
+      "genome": "GCF_010726765.1_ASM1072676v1",
+      "gaps": 51,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 44,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_011751885.2_ASM1175188v2",
+      "gaps": 67,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 57,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_013004105.1_ASM1300410v1",
+      "gaps": 47,
+      "with_evidence": 14,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 6,
+      "states": {
+        "gap_candidate": 10,
+        "gap_evidence_supported": 4,
+        "not_closable_cpu": 33
+      }
+    },
+    {
+      "genome": "GCF_013128195.2_ASM1312819v2",
+      "gaps": 84,
+      "with_evidence": 19,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 65,
+        "gap_candidate": 9,
+        "gap_evidence_supported": 10
+      }
+    },
+    {
+      "genome": "GCF_013340845.1_ASM1334084v1",
+      "gaps": 26,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 18,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_014274685.1_ASM1427468v1",
+      "gaps": 37,
+      "with_evidence": 10,
+      "with_complex": 1,
+      "with_transport": 5,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 26,
+        "gap_candidate": 6,
+        "gap_evidence_supported": 4,
+        "complex_suspected": 1
+      }
+    },
+    {
+      "genome": "GCF_014337215.1_ASM1433721v1",
+      "gaps": 25,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 15,
+        "gap_candidate": 8,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_014337255.1_ASM1433725v1",
+      "gaps": 11,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 4,
+        "not_closable_cpu": 6,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_014529625.1_ASM1452962v2",
+      "gaps": 36,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 4,
+      "states": {
+        "not_closable_cpu": 27,
+        "gap_candidate": 6,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_014672715.2_ASM1467271v2",
+      "gaps": 22,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 4,
+        "not_closable_cpu": 17,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_014701235.1_ASM1470123v1",
+      "gaps": 11,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 6,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_015277775.1_ASM1527777v1",
+      "gaps": 39,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 33,
+        "gap_evidence_supported": 3,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_015500095.1_ASM1550009v1",
+      "gaps": 34,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 26,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_015775515.1_ASM1577551v1",
+      "gaps": 7,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 5,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_016027375.1_ASM1602737v1",
+      "gaps": 14,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "gap_evidence_supported": 3,
+        "gap_candidate": 3,
+        "not_closable_cpu": 8
+      }
+    },
+    {
+      "genome": "GCF_016446285.1_ASM1644628v1",
+      "gaps": 20,
+      "with_evidence": 4,
+      "with_complex": 1,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 15,
+        "gap_evidence_supported": 1,
+        "gap_candidate": 3,
+        "complex_suspected": 1
+      }
+    },
+    {
+      "genome": "GCF_016724785.1_ASM1672478v1",
+      "gaps": 10,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 8,
+        "gap_candidate": 1,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_017498545.1_ASM1749854v1",
+      "gaps": 42,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "gap_evidence_supported": 3,
+        "not_closable_cpu": 35,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_017893965.1_ASM1789396v1",
+      "gaps": 17,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 9,
+        "gap_candidate": 7,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_018069705.1_ASM1806970v1",
+      "gaps": 14,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 2,
+        "gap_evidence_supported": 6,
+        "not_closable_cpu": 6
+      }
+    },
+    {
+      "genome": "GCF_018127985.1_ASM1812798v1",
+      "gaps": 25,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 3,
+      "states": {
+        "gap_candidate": 5,
+        "not_closable_cpu": 20
+      }
+    },
+    {
+      "genome": "GCF_018137965.1_ASM1813796v1",
+      "gaps": 18,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 1,
+      "states": {
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 14,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_018243235.1_ASM1824323v1",
+      "gaps": 47,
+      "with_evidence": 11,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 1,
+      "states": {
+        "gap_evidence_supported": 7,
+        "not_closable_cpu": 36,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_018292205.1_ASM1829220v1",
+      "gaps": 19,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 5,
+      "states": {
+        "not_closable_cpu": 10,
+        "gap_candidate": 7,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_018304765.1_ASM1830476v1",
+      "gaps": 53,
+      "with_evidence": 14,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 39,
+        "gap_evidence_supported": 8,
+        "gap_candidate": 6
+      }
+    },
+    {
+      "genome": "GCF_018398915.1_ASM1839891v1",
+      "gaps": 14,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 2,
+        "gap_evidence_supported": 5,
+        "not_closable_cpu": 7
+      }
+    },
+    {
+      "genome": "GCF_018771645.1_ASM1877164v1",
+      "gaps": 22,
+      "with_evidence": 12,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 10,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 8
+      }
+    },
+    {
+      "genome": "GCF_019048065.1_ASM1904806v1",
+      "gaps": 26,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 17,
+        "gap_evidence_supported": 7,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_019048105.1_ASM1904810v1",
+      "gaps": 32,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 23,
+        "gap_evidence_supported": 6,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_019063885.1_ASM1906388v1",
+      "gaps": 31,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 23,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_019552005.1_ASM1955200v1",
+      "gaps": 9,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 6,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_020091585.1_ASM2009158v1",
+      "gaps": 28,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 22,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_020616335.1_ASM2061633v1",
+      "gaps": 22,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "gap_evidence_supported": 3,
+        "gap_candidate": 3,
+        "not_closable_cpu": 16
+      }
+    },
+    {
+      "genome": "GCF_021117425.1_ASM2111742v1",
+      "gaps": 58,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 49,
+        "gap_evidence_supported": 4,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_021379005.1_ASM2137900v1",
+      "gaps": 20,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 14,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_022026155.1_ASM2202615v1",
+      "gaps": 13,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 6,
+        "not_closable_cpu": 7
+      }
+    },
+    {
+      "genome": "GCF_022376835.1_ASM2237683v1",
+      "gaps": 13,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 6,
+        "not_closable_cpu": 7
+      }
+    },
+    {
+      "genome": "GCF_022813675.1_ASM2281367v1",
+      "gaps": 11,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 9,
+        "gap_evidence_supported": 1,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_022814725.1_ASM2281472v1",
+      "gaps": 27,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 17,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_022846135.1_ASM2284613v1",
+      "gaps": 18,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 12,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_022869165.1_ASM2286916v1",
+      "gaps": 23,
+      "with_evidence": 11,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 12,
+        "gap_candidate": 7,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_022870745.1_ASM2287074v1",
+      "gaps": 28,
+      "with_evidence": 9,
+      "with_complex": 1,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 18,
+        "gap_candidate": 6,
+        "gap_evidence_supported": 3,
+        "complex_suspected": 1
+      }
+    },
+    {
+      "genome": "GCF_023169805.1_ASM2316980v1",
+      "gaps": 68,
+      "with_evidence": 13,
+      "with_complex": 0,
+      "with_transport": 9,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 55,
+        "gap_evidence_supported": 7,
+        "gap_candidate": 6
+      }
+    },
+    {
+      "genome": "GCF_023921165.1_ASM2392116v1",
+      "gaps": 32,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 4,
+      "states": {
+        "gap_candidate": 5,
+        "not_closable_cpu": 25,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_023935825.1_ASM2393582v1",
+      "gaps": 50,
+      "with_evidence": 20,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 30,
+        "gap_evidence_supported": 15,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_024205945.1_ASM2420594v1",
+      "gaps": 12,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "gap_candidate": 2,
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 8
+      }
+    },
+    {
+      "genome": "GCF_024584745.1_ASM2458474v1",
+      "gaps": 31,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 26,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_025148635.1_ASM2514863v1",
+      "gaps": 14,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 9,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_025558325.1_ASM2555832v1",
+      "gaps": 14,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 2,
+        "not_closable_cpu": 9,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_025725725.1_ASM2572572v1",
+      "gaps": 51,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 45,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_025997855.1_ASM2599785v1",
+      "gaps": 36,
+      "with_evidence": 12,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 24,
+        "gap_candidate": 7,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_025997995.1_ASM2599799v1",
+      "gaps": 25,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "gap_evidence_supported": 1,
+        "not_closable_cpu": 22,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_026240635.1_ASM2624063v1",
+      "gaps": 17,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 14,
+        "gap_candidate": 1,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_026965555.1_ASM2696555v1",
+      "gaps": 65,
+      "with_evidence": 14,
+      "with_complex": 0,
+      "with_transport": 9,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 51,
+        "gap_evidence_supported": 7,
+        "gap_candidate": 7
+      }
+    },
+    {
+      "genome": "GCF_027594505.1_ASM2759450v1",
+      "gaps": 36,
+      "with_evidence": 7,
+      "with_complex": 1,
+      "with_transport": 1,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 28,
+        "gap_candidate": 4,
+        "complex_suspected": 1,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_027625475.1_ASM2762547v1",
+      "gaps": 56,
+      "with_evidence": 17,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 39,
+        "gap_evidence_supported": 13,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_027923555.1_ASM2792355v1",
+      "gaps": 80,
+      "with_evidence": 14,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 66,
+        "gap_evidence_supported": 7,
+        "gap_candidate": 7
+      }
+    },
+    {
+      "genome": "GCF_028622095.1_ASM2862209v1",
+      "gaps": 38,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 30,
+        "gap_evidence_supported": 4,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_028728065.1_ASM2872806v1",
+      "gaps": 47,
+      "with_evidence": 12,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 7,
+      "states": {
+        "not_closable_cpu": 35,
+        "gap_candidate": 9,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_028885455.1_ASM2888545v1",
+      "gaps": 45,
+      "with_evidence": 17,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 28,
+        "gap_evidence_supported": 7,
+        "gap_candidate": 10
+      }
+    },
+    {
+      "genome": "GCF_029023725.1_ASM2902372v1",
+      "gaps": 21,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "gap_evidence_supported": 4,
+        "gap_candidate": 4,
+        "not_closable_cpu": 13
+      }
+    },
+    {
+      "genome": "GCF_029919255.1_ASM2991925v1",
+      "gaps": 12,
+      "with_evidence": 1,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 11,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_030169785.1_ASM3016978v1",
+      "gaps": 27,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 5,
+        "not_closable_cpu": 18,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_030295385.1_ASM3029538v1",
+      "gaps": 32,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 26,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_030389965.1_ASM3038996v1",
+      "gaps": 41,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 34,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_030444335.1_ASM3044433v1",
+      "gaps": 38,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 31,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_030503875.2_ASM3050387v2",
+      "gaps": 33,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 24,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 7
+      }
+    },
+    {
+      "genome": "GCF_030520105.1_ASM3052010v1",
+      "gaps": 18,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 3,
+        "not_closable_cpu": 12,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_030623445.1_ASM3062344v1",
+      "gaps": 39,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 6,
+        "not_closable_cpu": 29,
+        "gap_evidence_supported": 3,
+        "not_evaluated": 1
+      }
+    },
+    {
+      "genome": "GCF_030866825.1_ASM3086682v1",
+      "gaps": 46,
+      "with_evidence": 8,
+      "with_complex": 1,
+      "with_transport": 7,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 37,
+        "gap_candidate": 8,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_032050975.1_ASM3205097v1",
+      "gaps": 17,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 11,
+        "gap_evidence_supported": 3,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_032051675.1_ASM3205167v1",
+      "gaps": 13,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 8,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_032102965.1_ASM3210296v1",
+      "gaps": 45,
+      "with_evidence": 14,
+      "with_complex": 1,
+      "with_transport": 5,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 30,
+        "gap_candidate": 8,
+        "gap_evidence_supported": 7
+      }
+    },
+    {
+      "genome": "GCF_032698475.1_ASM3269847v1",
+      "gaps": 48,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 40,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_033547035.1_ASM3354703v1",
+      "gaps": 56,
+      "with_evidence": 6,
+      "with_complex": 1,
+      "with_transport": 7,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 49,
+        "gap_evidence_supported": 5,
+        "complex_suspected": 1,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_033878955.1_ASM3387895v1",
+      "gaps": 27,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 21,
+        "gap_evidence_supported": 4,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_034259205.1_ASM3425920v1",
+      "gaps": 28,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 20,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_034424215.1_ASM3442421v1",
+      "gaps": 22,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "gap_evidence_supported": 3,
+        "not_closable_cpu": 15,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_037076345.1_ASM3707634v1",
+      "gaps": 25,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 21,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_037076455.1_ASM3707645v1",
+      "gaps": 42,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 8,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 6,
+        "not_closable_cpu": 32,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_037081835.1_ASM3708183v1",
+      "gaps": 30,
+      "with_evidence": 12,
+      "with_complex": 1,
+      "with_transport": 4,
+      "with_direction": 5,
+      "states": {
+        "gap_candidate": 6,
+        "not_closable_cpu": 17,
+        "complex_suspected": 1,
+        "gap_evidence_supported": 6
+      }
+    },
+    {
+      "genome": "GCF_037157775.1_ASM3715777v1",
+      "gaps": 50,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 42,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_037477945.1_MHOCP",
+      "gaps": 14,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "gap_candidate": 3,
+        "not_closable_cpu": 10,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_038095605.1_ASM3809560v1",
+      "gaps": 30,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 23,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_038396615.1_ASM3839661v1",
+      "gaps": 1,
+      "with_evidence": 0,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 1
+      }
+    },
+    {
+      "genome": "GCF_038400315.1_ASM3840031v1",
+      "gaps": 44,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 38,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_038443385.1_ASM3844338v1",
+      "gaps": 32,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 26,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_038725785.1_ASM3872578v1",
+      "gaps": 23,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 16,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_039555295.1_ASM3955529v1",
+      "gaps": 13,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 8,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_039645985.1_ASM3964598v1",
+      "gaps": 12,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 7,
+        "gap_evidence_supported": 3,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_039994875.1_ASM3999487v1",
+      "gaps": 44,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 37,
+        "gap_evidence_supported": 3,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_040256395.1_GCC_DsonKR87_v1",
+      "gaps": 32,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 23,
+        "gap_candidate": 6,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_040564635.1_ASM4056463v1",
+      "gaps": 24,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 0,
+      "states": {
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 20,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_040833985.2_ASM4083398v1",
+      "gaps": 32,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 26,
+        "gap_evidence_supported": 4,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_041154365.1_ASM4115436v1",
+      "gaps": 58,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 50,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_041200005.1_ASM4120000v1",
+      "gaps": 15,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 5,
+      "states": {
+        "gap_candidate": 7,
+        "not_closable_cpu": 6,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_041505935.1_Fervidobacterium_thailandense_FC2004",
+      "gaps": 11,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 6,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_042847215.1_ASM4284721v1",
+      "gaps": 28,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 23,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_044336245.1_ASM4433624v1",
+      "gaps": 28,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 24,
+        "gap_evidence_supported": 3,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_044789115.1_ASM4478911v1",
+      "gaps": 21,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 16,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_045784255.1_ASM4578425v1",
+      "gaps": 31,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 22,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_045784305.1_DRML_24019",
+      "gaps": 32,
+      "with_evidence": 8,
+      "with_complex": 1,
+      "with_transport": 4,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 23,
+        "gap_evidence_supported": 4,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_045864955.1_ASM4586495v1",
+      "gaps": 1,
+      "with_evidence": 0,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 1
+      }
+    },
+    {
+      "genome": "GCF_046774955.1_ASM4677495v1",
+      "gaps": 43,
+      "with_evidence": 16,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 27,
+        "gap_candidate": 10,
+        "gap_evidence_supported": 6
+      }
+    },
+    {
+      "genome": "GCF_046845665.1_ASM4684566v1",
+      "gaps": 51,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "gap_evidence_supported": 7,
+        "not_closable_cpu": 42,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_046845755.1_ASM4684575v1",
+      "gaps": 51,
+      "with_evidence": 9,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 42,
+        "gap_evidence_supported": 6,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_048565275.1_ASM4856527v1",
+      "gaps": 37,
+      "with_evidence": 15,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 4,
+      "states": {
+        "not_closable_cpu": 22,
+        "gap_candidate": 7,
+        "gap_evidence_supported": 8
+      }
+    },
+    {
+      "genome": "GCF_049676565.1_Dip510",
+      "gaps": 5,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 3,
+      "states": {
+        "gap_candidate": 3,
+        "not_closable_cpu": 1,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_050039385.1_ASM5003938v1",
+      "gaps": 56,
+      "with_evidence": 11,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 3,
+      "states": {
+        "gap_candidate": 6,
+        "not_closable_cpu": 45,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_050267035.1_ASM5026703v1",
+      "gaps": 5,
+      "with_evidence": 0,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 5
+      }
+    },
+    {
+      "genome": "GCF_050500235.1_ASM5050023v1",
+      "gaps": 19,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "gap_evidence_supported": 3,
+        "not_closable_cpu": 11,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_050563455.1_ASM5056345v1",
+      "gaps": 36,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 0,
+      "states": {
+        "gap_evidence_supported": 3,
+        "not_closable_cpu": 31,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_050780155.1_QI0013",
+      "gaps": 24,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 4,
+        "not_closable_cpu": 17,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_051175385.1_ASM5117538v1",
+      "gaps": 74,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 69,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_052161605.1_ASM5216160v1",
+      "gaps": 32,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 27,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_054054625.1_ASM5405462v1",
+      "gaps": 30,
+      "with_evidence": 13,
+      "with_complex": 1,
+      "with_transport": 3,
+      "with_direction": 4,
+      "states": {
+        "gap_candidate": 6,
+        "not_closable_cpu": 16,
+        "gap_evidence_supported": 7,
+        "complex_suspected": 1
+      }
+    },
+    {
+      "genome": "GCF_054917915.1_ASM5491791v1",
+      "gaps": 78,
+      "with_evidence": 17,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 61,
+        "gap_evidence_supported": 13,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_055378975.1_ASM5537897v1",
+      "gaps": 19,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 14,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_055379415.1_ASM5537941v1",
+      "gaps": 32,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 29,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_055379825.1_ASM5537982v1",
+      "gaps": 20,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 8,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 13,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_055379935.1_ASM5537993v1",
+      "gaps": 17,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 0,
+      "states": {
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 13,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_055383505.1_ASM5538350v1",
+      "gaps": 6,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 4,
+      "states": {
+        "gap_candidate": 4,
+        "gap_evidence_supported": 1,
+        "not_closable_cpu": 1
+      }
+    },
+    {
+      "genome": "GCF_055384375.1_ASM5538437v1",
+      "gaps": 8,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 5,
+        "gap_evidence_supported": 1,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_055387075.1_ASM5538707v1",
+      "gaps": 16,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 6,
+        "not_closable_cpu": 8,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_055387105.1_ASM5538710v1",
+      "gaps": 59,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 51,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 2,
+        "not_evaluated": 1
+      }
+    },
+    {
+      "genome": "GCF_055387525.1_ASM5538752v1",
+      "gaps": 39,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 29,
+        "gap_candidate": 6,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_055388355.1_ASM5538835v1",
+      "gaps": 27,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 22,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_055390205.1_ASM5539020v1",
+      "gaps": 13,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 7,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_055390565.1_ASM5539056v1",
+      "gaps": 14,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 4,
+        "not_closable_cpu": 7,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_055390895.1_ASM5539089v1",
+      "gaps": 13,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 9,
+        "gap_evidence_supported": 3,
+        "gap_candidate": 1
+      }
+    },
+    {
+      "genome": "GCF_055391325.1_ASM5539132v1",
+      "gaps": 11,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "gap_evidence_supported": 3,
+        "gap_candidate": 4,
+        "not_closable_cpu": 4
+      }
+    },
+    {
+      "genome": "GCF_055396605.1_ASM5539660v1",
+      "gaps": 24,
+      "with_evidence": 10,
+      "with_complex": 1,
+      "with_transport": 5,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 13,
+        "gap_candidate": 7,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_055694045.1_ASM5569404v1",
+      "gaps": 12,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 8,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_055763695.1_ASM5576369v1",
+      "gaps": 69,
+      "with_evidence": 18,
+      "with_complex": 0,
+      "with_transport": 4,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 51,
+        "gap_evidence_supported": 12,
+        "gap_candidate": 6
+      }
+    },
+    {
+      "genome": "GCF_058362665.1_ASM5836266v1",
+      "gaps": 48,
+      "with_evidence": 14,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 3,
+      "states": {
+        "gap_evidence_supported": 8,
+        "not_closable_cpu": 34,
+        "gap_candidate": 6
+      }
+    },
+    {
+      "genome": "GCF_059632245.1_ASM5963224v1",
+      "gaps": 45,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 35,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_059696725.1_ASM5969672v1",
+      "gaps": 34,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 27,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 4
+      }
+    },
+    {
+      "genome": "GCF_059705355.1_ASM5970535v1",
+      "gaps": 10,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "gap_candidate": 3,
+        "gap_evidence_supported": 2,
+        "not_closable_cpu": 5
+      }
+    },
+    {
+      "genome": "GCF_059726255.1_ASM5972625v1",
+      "gaps": 44,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 37,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_059726345.1_ASM5972634v1",
+      "gaps": 35,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 28,
+        "gap_candidate": 5,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_060026435.1_ASM6002643v1",
+      "gaps": 52,
+      "with_evidence": 8,
+      "with_complex": 1,
+      "with_transport": 8,
+      "with_direction": 1,
+      "states": {
+        "gap_evidence_supported": 6,
+        "not_closable_cpu": 43,
+        "complex_suspected": 1,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_060027055.1_ASM6002705v1",
+      "gaps": 58,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 5,
+      "with_direction": 1,
+      "states": {
+        "gap_evidence_supported": 6,
+        "not_closable_cpu": 48,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_060030665.1_ASM6003066v1",
+      "gaps": 55,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 48,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_060030705.1_ASM6003070v1",
+      "gaps": 49,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 7,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 42,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 5
+      }
+    },
+    {
+      "genome": "GCF_060030825.1_ASM6003082v1",
+      "gaps": 54,
+      "with_evidence": 11,
+      "with_complex": 1,
+      "with_transport": 6,
+      "with_direction": 0,
+      "states": {
+        "gap_evidence_supported": 8,
+        "not_closable_cpu": 42,
+        "complex_suspected": 1,
+        "gap_candidate": 3
+      }
+    },
+    {
+      "genome": "GCF_060031025.1_ASM6003102v1",
+      "gaps": 68,
+      "with_evidence": 14,
+      "with_complex": 0,
+      "with_transport": 6,
+      "with_direction": 1,
+      "states": {
+        "gap_evidence_supported": 7,
+        "not_closable_cpu": 54,
+        "gap_candidate": 7
+      }
+    },
+    {
+      "genome": "GCF_060138195.1_ASM6013819v1",
+      "gaps": 55,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 10,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 45,
+        "gap_evidence_supported": 5,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_900169565.1_NSJP_Ch1",
+      "gaps": 19,
+      "with_evidence": 12,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 7,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 10
+      }
+    },
+    {
+      "genome": "GCF_900184705.1_CAMBI-1",
+      "gaps": 25,
+      "with_evidence": 10,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 15,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 7
+      }
+    },
+    {
+      "genome": "GCF_900217235.1_DPRO_PRJEB22548_v1",
+      "gaps": 27,
+      "with_evidence": 3,
+      "with_complex": 1,
+      "with_transport": 6,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 23,
+        "gap_candidate": 4
+      }
+    },
+    {
+      "genome": "GCF_901538265.1_ASM90153826v1",
+      "gaps": 89,
+      "with_evidence": 11,
+      "with_complex": 0,
+      "with_transport": 8,
+      "with_direction": 3,
+      "states": {
+        "not_closable_cpu": 78,
+        "gap_evidence_supported": 6,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_907165195.1_Cryomorphaceae_CECT30217",
+      "gaps": 40,
+      "with_evidence": 8,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 31,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 5,
+        "not_evaluated": 1
+      }
+    },
+    {
+      "genome": "GCF_946900835.1_NSPWAT",
+      "gaps": 29,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 22,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 5
+      }
+    },
+    {
+      "genome": "GCF_947241125.1_NsDNF",
+      "gaps": 10,
+      "with_evidence": 3,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 7,
+        "gap_candidate": 2,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_949774925.1_MFUM-new",
+      "gaps": 15,
+      "with_evidence": 6,
+      "with_complex": 0,
+      "with_transport": 0,
+      "with_direction": 0,
+      "states": {
+        "not_closable_cpu": 9,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_963264975.1_NZ_220527_assembly_043",
+      "gaps": 8,
+      "with_evidence": 2,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 6,
+        "gap_candidate": 2
+      }
+    },
+    {
+      "genome": "GCF_964642095.1_Ff3",
+      "gaps": 11,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 1,
+      "states": {
+        "gap_candidate": 3,
+        "not_closable_cpu": 6,
+        "gap_evidence_supported": 2
+      }
+    },
+    {
+      "genome": "GCF_965152565.1_NS_bockiana",
+      "gaps": 15,
+      "with_evidence": 7,
+      "with_complex": 0,
+      "with_transport": 2,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 8,
+        "gap_candidate": 4,
+        "gap_evidence_supported": 3
+      }
+    },
+    {
+      "genome": "GCF_976986435.1_NS_calida2",
+      "gaps": 15,
+      "with_evidence": 4,
+      "with_complex": 0,
+      "with_transport": 3,
+      "with_direction": 2,
+      "states": {
+        "not_closable_cpu": 11,
+        "gap_candidate": 3,
+        "gap_evidence_supported": 1
+      }
+    },
+    {
+      "genome": "GCF_978936825.1_DTS69",
+      "gaps": 9,
+      "with_evidence": 5,
+      "with_complex": 0,
+      "with_transport": 1,
+      "with_direction": 1,
+      "states": {
+        "not_closable_cpu": 4,
+        "gap_evidence_supported": 2,
+        "gap_candidate": 3
+      }
+    }
+  ],
+  "pct": {
+    "gap_evidence_supported": "11.8%",
+    "gap_candidate": "13.3%",
+    "complex_suspected": "0.2%",
+    "complex_incomplete": "0.0%",
+    "not_evaluated": "0.1%",
+    "not_closable_cpu": "74.7%"
+  },
+  "inputs": {
+    "data_root": "data",
+    "gap_interpretation": {
+      "path": "data/metabolism/gap_interpretation.tsv",
+      "rows": 8655,
+      "rows_without_chebi": 0,
+      "genomes": 309,
+      "duplicate_keys": 0
+    },
+    "bridge": {
+      "available": true,
+      "rhea_reactions_path": "data/metabolism/rhea_reactions.pkl",
+      "rhea2ec_path": "data/reactions/tsv/rhea2ec.tsv",
+      "reactions": 75208,
+      "ecs_with_products": 6161
+    }
+  },
+  "generated_at": "2026-11-24T13:21:04.112881+00:00"
+}
