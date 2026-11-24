@@ -11,6 +11,9 @@ Principios de diseño
   incrusta. Nada de plotly ni componentes externos.
 - **Un eje, varias pistas, una principal**: el usuario elige qué pista manda y
   las demás se atenúan, para no saturar.
+- **Dos carriles de genes**: ``+`` arriba y ``−`` abajo; cada gen lleva una
+  flecha en su sentido de lectura (5'→3') y la tabla de solapamientos avisa de
+  los CDS que comparten coordenadas sin descartar ninguno.
 - **Nada de decisiones automáticas**: aquí se muestra lo que otros pasos
   calcularon, con su clase y su confianza.
 - **Lo que se ve es lo que se lista**: la tabla «elementos en pantalla» y su
@@ -113,6 +116,51 @@ ALL_ELEMENTS_LEGEND = (
     "**«Todos los elementos en pantalla»** reúne en una sola tabla todo lo "
     "dibujado en la ventana actual y lo resalta en el dibujo. No añade "
     "elementos de fuera de la ventana ni del resto del genoma."
+)
+
+#: Los genes se dibujan en dos carriles: ``+`` arriba y ``−`` abajo. Cada gen
+#: lleva una flecha en su sentido de lectura (5'→3'), también en el carril ``−``.
+GENE_LANE_ORDER = ("+", "−")
+GENE_LANE_Y = {"+": 78.0, "−": 126.0}
+GENE_LANE_DIRECTION = {"+": "→", "−": "←"}
+GENE_LANE_READING = {"+": "left-to-right", "−": "right-to-left"}
+GENE_LANE_LABELS = {
+    "+": "GENES + · 5'→3' →",
+    "−": "GENES − · 5'→3' ←",
+}
+GENE_LANE_COLUMNS = (
+    "id", "etiqueta", "lane", "hebra", "start", "end", "y", "direccion",
+    "color", "locus_tag", "gene_id", "gene_name",
+)
+
+#: Título y aviso del expander de solapamientos entre CDS.
+OVERLAPS_TITLE = "Solapamientos en pantalla"
+OVERLAP_WARNING = (
+    "Aviso: **pyrodigal** (y el modo meta en general) puede conservar "
+    "**ambos** CDS solapados. Este navegador no elimina ninguno ni decide "
+    "cuál es correcto: solo muestra el solapamiento y sus datos. El marco "
+    "(`frame`/`phase`) solo se muestra si viene en la anotación; si no, se "
+    "marca `unknown` y no se infiere."
+)
+
+#: Un par de CDS comparte locus si coincide su identificador o si el solape
+#: cubre al menos esta fracción del CDS más corto (llamadas anidadas/duplicadas).
+LOCUS_SHARE_FRACTION = 0.8
+
+#: Columnas estables de la tabla de solapamientos (pura, sin Streamlit).
+OVERLAP_COLUMNS = (
+    "gen_a", "gen_b", "etiqueta_a", "etiqueta_b",
+    "inicio_a", "fin_a", "inicio_b", "fin_b",
+    "inicio", "fin", "bp_solape",
+    "hebra_a", "hebra_b", "hebras", "misma_hebra",
+    "marco_a", "marco_b", "mismo_marco", "relacion_marco",
+    "locus_compartido", "cobertura_corta",
+)
+
+#: Columnas de la vista legible que consume el expander de solapamientos.
+OVERLAP_VIEW_COLUMNS = (
+    "Par", "Gen A", "Gen B", "Solape", "bp", "Hebras", "Marco",
+    "Locus compartido",
 )
 
 ELEMENTS_ON_SCREEN_HELP = (
@@ -548,7 +596,7 @@ def svg(tables: dict, contig: str, start: int, end: int,
     tracks = tracks or {"genes", "operones", "promotores", "horquillas",
                         "transcripcion", "complejos"}
     span = max(1, end - start)
-    width, height = 1180, 420
+    width, height = 1180, 448
     pad_l, pad_r = 96, 12
     plot_w = width - pad_l - pad_r
     focus_kind, focus_id = _split_focus(focus)
@@ -590,9 +638,10 @@ def svg(tables: dict, contig: str, start: int, end: int,
                               & (complexes["end"] >= start)
                               & (complexes["start"] <= end)]
 
-    Y = {"ruler": 30, "genes": 92, "operones": 166, "promotores": 214,
-         "horquillas": 262, "transcripcion": 306, "complejos": 350,
-         "sospecha": 392}
+    Y = {"ruler": 28,
+         "genes_plus": GENE_LANE_Y["+"], "genes_minus": GENE_LANE_Y["−"],
+         "operones": 188, "promotores": 232, "horquillas": 278,
+         "transcripcion": 320, "complejos": 362, "sospecha": 404}
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="{height}" '
          f'viewBox="0 0 {width} {height}" font-family="sans-serif" '
          f'style="background:#fff;border-radius:8px">']
@@ -613,8 +662,8 @@ def svg(tables: dict, contig: str, start: int, end: int,
         o.append(f'<text x="{xx:.1f}" y="{Y["ruler"]-10}" font-size="11" fill="#8b90a0" '
                  f'text-anchor="{anchor}">{bp:,.0f}</text>')
 
-    # rótulos de banda
-    for key, label in (("genes", "GENES"), ("operones", "OPERONES"),
+    # rótulos de banda (los de genes van dentro de cada carril)
+    for key, label in (("operones", "OPERONES"),
                        ("promotores", "PROMOTORES"), ("horquillas", "HORQUILLAS"),
                        ("transcripcion", "TSS / TTS"),
                        ("complejos", "COMPLEJOS")):
@@ -622,54 +671,73 @@ def svg(tables: dict, contig: str, start: int, end: int,
         o.append(f'<text x="8" y="{Y[key]-6}" font-size="9.5" fill="#808495" '
                  f'font-weight="700" opacity="{1 if active else 0.25}">{label}</text>')
 
-    yg = Y["genes"]
-    # genes + etiquetas escalonadas
+    # genes en DOS carriles: + arriba, − abajo. La punta de cada gen apunta
+    # siempre en el sentido de lectura 5'→3' (derecha en +, izquierda en −).
     if "genes" in tracks:
-        labels: list[tuple[float, str]] = []
-        for _, g in genes.iterrows():
-            gx0, gx1 = x(g["start"]), x(g["end"])
-            w = max(3.0, gx1 - gx0)
-            rev = str(g.get("strand", "1")) in ("-1", "-")
-            color = GENE_REV if rev else GENE_FWD
-            name = g.get("gene_name") or g.get("locus_tag") or g.get("gene_id") or ""
-            gid = (g.get("locus_tag") or g.get("gene_id") or g.get("gene_name")
-                   or f"{int(g['start'])}-{int(g['end'])}")
-            tip_txt = (f"{name or gid} · {int(g['start']):,}–{int(g['end']):,} pb · "
-                       f"hebra {'−' if rev else '+'}")
-            o.append(hit_open("gene", gid) + f'<title>{_esc(tip_txt)}</title>')
-            # zona de clic algo mayor que el rectángulo visible
-            o.append(f'<rect x="{gx0-2:.1f}" y="{yg-16}" width="{max(6.0, w+4):.1f}" '
-                     f'height="32" fill="transparent"/>')
-            o.append(f'<rect x="{gx0:.1f}" y="{yg-11}" width="{w:.1f}" height="22" fill="{color}"/>')
-            if w > 10:
-                tip = min(8.0, w / 3)
-                if rev:
-                    o.append(f'<polygon points="{gx0:.1f},{yg-11} {gx0:.1f},{yg+11} '
-                             f'{gx0-tip:.1f},{yg}" fill="{color}"/>')
+        layout = gene_lane_layout(genes)
+        for lane in GENE_LANE_ORDER:
+            yg = GENE_LANE_Y[lane]
+            lane_rows = layout[layout["lane"] == lane]
+            o.append(f'<g data-role="gene-lane" data-lane="{lane}" '
+                     f'data-reading="{GENE_LANE_READING[lane]}" '
+                     f'data-direction="{GENE_LANE_DIRECTION[lane]}">')
+            # banda de fondo: separa visualmente los dos carriles
+            o.append(f'<rect data-role="lane-band" x="{pad_l}" y="{yg-16:.1f}" '
+                     f'width="{plot_w}" height="32" fill="#f7f9fc" rx="4"/>')
+            o.append(f'<text data-role="lane-label" x="8" y="{yg-14:.1f}" '
+                     f'font-size="9.5" fill="#808495" font-weight="700">'
+                     f'{_esc(GENE_LANE_LABELS[lane])}</text>')
+            labels: list[tuple[float, str]] = []
+            for _, g in lane_rows.iterrows():
+                gx0, gx1 = x(g["start"]), x(g["end"])
+                w = max(3.0, gx1 - gx0)
+                color = str(g["color"])
+                name = str(g["etiqueta"])
+                gid = str(g["id"])
+                hebra = str(g["hebra"])
+                rev = lane == "−"
+                hebra_txt = hebra if hebra in ("+", "−") else "desconocida"
+                tip_txt = (f"{name or gid} · {int(g['start']):,}–{int(g['end']):,} pb · "
+                           f"hebra {hebra_txt} · 5'→3' {GENE_LANE_DIRECTION[lane]}")
+                o.append(hit_open("gene", gid) + f'<title>{_esc(tip_txt)}</title>')
+                # zona de clic algo mayor que el rectángulo visible
+                o.append(f'<rect x="{gx0-2:.1f}" y="{yg-13:.1f}" '
+                         f'width="{max(6.0, w+4):.1f}" height="26" fill="transparent"/>')
+                o.append(f'<rect x="{gx0:.1f}" y="{yg-8:.1f}" width="{w:.1f}" '
+                         f'height="16" fill="{color}"/>')
+                if w > 10:
+                    tip = min(8.0, w / 3)
                 else:
-                    o.append(f'<polygon points="{gx1:.1f},{yg-11} {gx1:.1f},{yg+11} '
-                             f'{gx1+tip:.1f},{yg}" fill="{color}"/>')
-            gene_focus = (focus_kind in (None, "gene") and focus_id
-                          and focus_id in (str(g.get("locus_tag") or ""),
-                                           str(g.get("gene_id") or ""),
-                                           str(g.get("gene_name") or "")))
-            if gene_focus:
-                o.append(f'<rect x="{gx0-3:.1f}" y="{yg-15}" width="{w+6:.1f}" height="30" '
-                         f'fill="none" stroke="#ff4b4b" stroke-width="2"/>')
+                    # gen muy estrecho: una punta mínima igualmente marca 5'→3'
+                    tip = 2.5
+                if rev:
+                    o.append(f'<polygon points="{gx0:.1f},{yg-8:.1f} {gx0:.1f},{yg+8:.1f} '
+                             f'{gx0-tip:.1f},{yg:.1f}" fill="{color}"/>')
+                else:
+                    o.append(f'<polygon points="{gx1:.1f},{yg-8:.1f} {gx1:.1f},{yg+8:.1f} '
+                             f'{gx1+tip:.1f},{yg:.1f}" fill="{color}"/>')
+                gene_focus = (focus_kind in (None, "gene") and focus_id
+                              and focus_id in (str(g.get("locus_tag") or ""),
+                                               str(g.get("gene_id") or ""),
+                                               str(g.get("gene_name") or "")))
+                if gene_focus:
+                    o.append(f'<rect x="{gx0-3:.1f}" y="{yg-12:.1f}" width="{w+6:.1f}" '
+                             f'height="24" fill="none" stroke="#ff4b4b" stroke-width="2"/>')
+                o.append("</g>")
+                if w > 24 and name:
+                    labels.append((gx0 + w / 2, name))
+            # dos filas por carril para que las etiquetas no se pisen
+            labels.sort()
+            last_x, row = -999, 0
+            for lx, name in labels:
+                if lx - last_x < 52:
+                    row = 1 - row
+                else:
+                    row = 0
+                last_x = lx
+                o.append(f'<text x="{lx:.1f}" y="{yg+20+row*10:.1f}" font-size="9.5" '
+                         f'fill="#3b3f4a" text-anchor="middle">{_esc(name)[:16]}</text>')
             o.append("</g>")
-            if w > 24 and name:
-                labels.append((gx0 + w / 2, str(name)))
-        # dos filas para que no se pisen
-        labels.sort()
-        last_x, row = -999, 0
-        for lx, name in labels:
-            if lx - last_x < 52:
-                row = 1 - row
-            else:
-                row = 0
-            last_x = lx
-            o.append(f'<text x="{lx:.1f}" y="{yg+30+row*15}" font-size="10" fill="#3b3f4a" '
-                     f'text-anchor="middle">{_esc(name)[:16]}</text>')
 
     # operones
     if "operones" in tracks:
@@ -857,6 +925,337 @@ def _coords(row: dict | None) -> tuple[int, int] | None:
     if start is None or end is None:
         return None
     return start, end
+
+
+# ------------------------------------------- carriles de genes y solapamientos
+# Todo lo de esta sección es puro: recibe DataFrames y devuelve DataFrames o
+# cadenas. El SVG y los expanders solo consumen estos resultados.
+def _text(value) -> str:
+    """Texto limpio; convierte ``None``/``NaN``/``<NA>`` en cadena vacía."""
+    if value is None:
+        return ""
+    try:
+        if isinstance(value, float) and math.isnan(value):
+            return ""
+    except (TypeError, ValueError):
+        pass
+    text = str(value).strip()
+    return "" if text.lower() in {"nan", "none", "<na>"} else text
+
+
+def _text_value(row, key: str) -> str:
+    """``row[key]`` como texto, tolerando Series, dicts y columnas ausentes."""
+    try:
+        value = row.get(key)
+    except (AttributeError, TypeError, ValueError):
+        return ""
+    return _text(value)
+
+
+def normalize_strand(value) -> str:
+    """Normaliza la hebra a ``"+"``, ``"−"`` o ``""`` (dato ausente).
+
+    Acepta las convenciones de la anotación (``1``/``-1``) y variantes de texto.
+    No adivina: un valor que no reconoce queda como desconocido.
+    """
+    text = _text(value).lower().replace("−", "-")
+    if text in {"1", "+", "+1", "plus", "forward", "fwd", "directa"}:
+        return "+"
+    if text in {"-1", "-", "minus", "reverse", "rev", "reversa", "inversa"}:
+        return "−"
+    return ""
+
+
+def normalize_frame(value) -> str:
+    """Marco de lectura ``"0"``/``"1"``/``"2"`` o ``"unknown"``.
+
+    Solo se acepta un marco explícito (columna ``frame``/``phase``). No se
+    deduce de las coordenadas: si falta el dato, la respuesta es ``unknown``.
+    """
+    number = _as_int(value)
+    if number in (0, 1, 2):
+        return str(number)
+    return "unknown"
+
+
+def gene_frame(row) -> str:
+    """Marco declarado en la fila; ``unknown`` si ninguna columna lo trae."""
+    for key in ("frame", "phase", "reading_frame"):
+        text = _text_value(row, key)
+        if not text:
+            continue
+        frame = normalize_frame(text)
+        if frame != "unknown":
+            return frame
+    return "unknown"
+
+
+def _gene_ident(row) -> str:
+    ident = (_text_value(row, "locus_tag") or _text_value(row, "gene_id")
+             or _text_value(row, "gene_name"))
+    if ident:
+        return ident
+    start, end = _as_int(row.get("start")), _as_int(row.get("end"))
+    return f"{start}-{end}"
+
+
+def _gene_label(row, ident: str) -> str:
+    return (_text_value(row, "gene_name") or _text_value(row, "locus_tag")
+            or _text_value(row, "gene_id") or ident)
+
+
+def _window_genes(genes: pd.DataFrame, contig: str | None,
+                  start: int | None, end: int | None) -> pd.DataFrame:
+    """Filas de genes del contig que se solapan con la ventana."""
+    sub = genes
+    if contig is not None and "contig" in sub.columns:
+        sub = sub[sub["contig"].astype(str) == str(contig)]
+    if start is not None and end is not None:
+        s_num = pd.to_numeric(sub["start"], errors="coerce")
+        e_num = pd.to_numeric(sub["end"], errors="coerce")
+        sub = sub[(e_num >= int(start)) & (s_num <= int(end))]
+    return sub
+
+
+def gene_lane_layout(genes, contig: str | None = None,
+                     start: int | None = None,
+                     end: int | None = None) -> pd.DataFrame:
+    """Layout puro de los genes en dos carriles: ``+`` arriba, ``−`` abajo.
+
+    Devuelve una fila por gen con ``lane``, ``y`` (menor es más arriba),
+    ``direccion`` (``→``/``←``, sentido 5'→3') y los datos de identidad que
+    comparten el SVG y la tabla. Un gen sin hebra reconocible se coloca en el
+    carril ``+`` con ``hebra="?"`` y color neutro, sin inventar su orientación.
+    """
+    empty = pd.DataFrame({col: pd.Series(dtype="object")
+                          for col in GENE_LANE_COLUMNS})
+    if not isinstance(genes, pd.DataFrame) or genes.empty:
+        return empty
+    if "start" not in genes.columns or "end" not in genes.columns:
+        return empty
+    sub = _window_genes(genes, contig, start, end)
+    rows: list[dict] = []
+    for _, g in sub.iterrows():
+        s_int, e_int = _as_int(g.get("start")), _as_int(g.get("end"))
+        if s_int is None or e_int is None:
+            continue
+        hebra = normalize_strand(g.get("strand"))
+        lane = hebra if hebra in GENE_LANE_ORDER else "+"
+        ident = _gene_ident(g)
+        color = (GENE_REV if lane == "−"
+                 else (GENE_FWD if hebra == "+" else "#8b90a0"))
+        rows.append({
+            "id": ident,
+            "etiqueta": _gene_label(g, ident),
+            "lane": lane,
+            "hebra": hebra or "?",
+            "start": s_int,
+            "end": e_int,
+            "y": GENE_LANE_Y[lane],
+            "direccion": GENE_LANE_DIRECTION[lane],
+            "color": color,
+            "locus_tag": _text_value(g, "locus_tag"),
+            "gene_id": _text_value(g, "gene_id"),
+            "gene_name": _text_value(g, "gene_name"),
+        })
+    if not rows:
+        return empty
+    table = pd.DataFrame(rows, columns=list(GENE_LANE_COLUMNS))
+    order = {lane: i for i, lane in enumerate(GENE_LANE_ORDER)}
+    table["_orden"] = table["lane"].map(order).fillna(len(order))
+    table = table.sort_values(["_orden", "start", "end", "id"])
+    return table.drop(columns="_orden").reset_index(drop=True)
+
+
+def _locus_keys(row) -> set[str]:
+    keys: set[str] = set()
+    for col in ("locus_tag", "gene_id"):
+        value = _text_value(row, col)
+        if value:
+            keys.add(f"{col}:{value}")
+    return keys
+
+
+def cds_overlaps(genes, contig: str | None = None,
+                 start: int | None = None, end: int | None = None, *,
+                 min_bp: int = 1,
+                 locus_share_fraction: float = LOCUS_SHARE_FRACTION) -> pd.DataFrame:
+    """Pares de CDS que comparten coordenadas en la misma ventana/contig.
+
+    Reglas, sin inventar datos:
+
+    - solo compara genes del mismo ``contig`` cuyas coordenadas se intersectan
+      con la ventana pedida; el solape se mide sobre los CDS completos;
+    - ``coordenadas`` son inclusivas (1-based), como en la anotación de
+      pyrodigal: dos CDS que comparten un único pb sí se solapan;
+    - ``mismo_marco`` solo es ``True``/``False`` si **ambos** traen marco;
+      en caso contrario vale ``None`` y ``relacion_marco`` es ``unknown``;
+    - ``locus_compartido`` es ``True`` si comparten ``locus_tag``/``gene_id`` o
+      si el solape cubre ``locus_share_fraction`` del CDS más corto (llamadas
+      anidadas o duplicadas sobre el mismo locus).
+    """
+    empty = pd.DataFrame({col: pd.Series(dtype="object")
+                          for col in OVERLAP_COLUMNS})
+    if not isinstance(genes, pd.DataFrame) or genes.empty:
+        return empty
+    if "start" not in genes.columns or "end" not in genes.columns:
+        return empty
+    sub = _window_genes(genes, contig, start, end)
+    # Si la anotación distingue tipos, el solapamiento es entre CDS: tRNA/rRNA/
+    # ncRNA no cuentan. Un tipo vacío se conserva (no se inventa que no sea CDS).
+    if "gene_type" in sub.columns:
+        types = sub["gene_type"].astype(str).str.strip().str.lower()
+        non_cds = {"trna", "rrna", "ncrna", "tmrna", "rna", "pseudogene"}
+        sub = sub[~types.isin(non_cds)]
+    records: list[dict] = []
+    for _, g in sub.iterrows():
+        s_int, e_int = _as_int(g.get("start")), _as_int(g.get("end"))
+        if s_int is None or e_int is None or e_int < s_int:
+            continue
+        ident = _gene_ident(g)
+        records.append({
+            "id": ident,
+            "label": _gene_label(g, ident),
+            "start": s_int,
+            "end": e_int,
+            "strand": normalize_strand(g.get("strand")),
+            "frame": gene_frame(g),
+            "locus": _locus_keys(g),
+        })
+    if len(records) < 2:
+        return empty
+    records.sort(key=lambda r: (r["start"], r["end"], r["id"]))
+    rows: list[dict] = []
+    for i, a in enumerate(records):
+        for b in records[i + 1:]:
+            # ordenados por inicio: en cuanto b empieza después del final de a,
+            # ningún gen posterior puede solaparse con a.
+            if b["start"] > a["end"]:
+                break
+            ov_start, ov_end = max(a["start"], b["start"]), min(a["end"], b["end"])
+            if ov_end < ov_start:
+                continue
+            bp = ov_end - ov_start + 1
+            if bp < int(min_bp):
+                continue
+            len_a = a["end"] - a["start"] + 1
+            len_b = b["end"] - b["start"] + 1
+            short = max(1, min(len_a, len_b))
+            coverage = bp / short
+            same_locus = bool(a["locus"] & b["locus"])
+            locus_shared = bool(same_locus or coverage >= float(locus_share_fraction))
+
+            hebra_a, hebra_b = a["strand"] or "?", b["strand"] or "?"
+            if hebra_a != "?" and hebra_b != "?":
+                same_strand = hebra_a == hebra_b
+                hebras = (f"misma ({hebra_a}/{hebra_b})" if same_strand
+                          else f"opuestas ({hebra_a}/{hebra_b})")
+            else:
+                same_strand = None
+                hebras = "desconocida"
+
+            frame_a, frame_b = a["frame"], b["frame"]
+            if frame_a == "unknown" or frame_b == "unknown":
+                same_frame, frame_relation = None, "unknown"
+            else:
+                same_frame = frame_a == frame_b
+                frame_relation = "mismo" if same_frame else "distinto"
+
+            rows.append({
+                "gen_a": a["id"], "gen_b": b["id"],
+                "etiqueta_a": a["label"], "etiqueta_b": b["label"],
+                "inicio_a": a["start"], "fin_a": a["end"],
+                "inicio_b": b["start"], "fin_b": b["end"],
+                "inicio": ov_start, "fin": ov_end, "bp_solape": bp,
+                "hebra_a": hebra_a, "hebra_b": hebra_b,
+                "hebras": hebras, "misma_hebra": same_strand,
+                "marco_a": frame_a, "marco_b": frame_b,
+                "mismo_marco": same_frame, "relacion_marco": frame_relation,
+                "locus_compartido": locus_shared,
+                "cobertura_corta": round(coverage, 4),
+            })
+    if not rows:
+        return empty
+    table = pd.DataFrame(rows, columns=list(OVERLAP_COLUMNS))
+    table = table.sort_values(
+        ["inicio", "bp_solape", "gen_a", "gen_b"],
+        ascending=[True, False, True, True],
+    )
+    return table.reset_index(drop=True)
+
+
+def overlap_summary(overlaps: pd.DataFrame | None) -> str:
+    """Frase-resumen de los solapamientos, con los contadores que importan."""
+    if (overlaps is None or not isinstance(overlaps, pd.DataFrame)
+            or overlaps.empty or "bp_solape" not in overlaps.columns):
+        return "0 solapamientos entre CDS en pantalla."
+    total = len(overlaps)
+
+    def _true(value) -> bool:
+        return value is not None and bool(value)
+
+    def _count(column: str, predicate) -> int:
+        if column not in overlaps.columns:
+            return 0
+        return sum(1 for value in overlaps[column] if predicate(value))
+
+    same_strand = _count("misma_hebra", lambda v: v is not None and bool(v))
+    opposite = _count("misma_hebra",
+                      lambda v: v is not None and not bool(v))
+    unknown_strand = _count("misma_hebra", lambda v: v is None)
+    same_frame = _count("mismo_marco", lambda v: v is not None and bool(v))
+    diff_frame = _count("mismo_marco",
+                        lambda v: v is not None and not bool(v))
+    unknown_frame = _count("mismo_marco", lambda v: v is None)
+    shared_locus = _count("locus_compartido", _true)
+    noun = "solapamiento" if total == 1 else "solapamientos"
+    parts = [
+        f"{total} {noun} entre CDS en pantalla",
+        f"misma hebra: {same_strand}",
+        f"hebras opuestas: {opposite}",
+        f"mismo marco: {same_frame}",
+        f"distinto marco: {diff_frame}",
+        f"marco unknown: {unknown_frame}",
+        f"locus compartido: {shared_locus}",
+    ]
+    if unknown_strand:
+        parts.append(f"hebra desconocida: {unknown_strand}")
+    return " · ".join(parts) + "."
+
+
+def overlap_table_view(overlaps: pd.DataFrame | None) -> pd.DataFrame:
+    """Vista legible (columnas en español) de la tabla de solapamientos.
+
+    Es pura para poder probarla sin Streamlit. Muestra ``unknown`` cuando el
+    marco no está en los datos y no rellena ese hueco con una suposición.
+    """
+    empty = pd.DataFrame({col: pd.Series(dtype="object")
+                          for col in OVERLAP_VIEW_COLUMNS})
+    if (overlaps is None or not isinstance(overlaps, pd.DataFrame)
+            or overlaps.empty):
+        return empty
+    rows: list[dict] = []
+    for _, r in overlaps.iterrows():
+        frame_a = str(r.get("marco_a", "unknown"))
+        frame_b = str(r.get("marco_b", "unknown"))
+        relation = str(r.get("relacion_marco", "unknown"))
+        if relation == "unknown":
+            frame_txt = f"{frame_a} / {frame_b} · unknown"
+        else:
+            frame_txt = f"{frame_a} / {frame_b} · {relation} marco"
+        rows.append({
+            "Par": f"{r.get('gen_a', '')} ↔ {r.get('gen_b', '')}",
+            "Gen A": (f"{r.get('etiqueta_a', '')} "
+                      f"({int(r.get('inicio_a', 0)):,}–{int(r.get('fin_a', 0)):,})"),
+            "Gen B": (f"{r.get('etiqueta_b', '')} "
+                      f"({int(r.get('inicio_b', 0)):,}–{int(r.get('fin_b', 0)):,})"),
+            "Solape": f"{int(r.get('inicio', 0)):,}–{int(r.get('fin', 0)):,}",
+            "bp": int(r.get("bp_solape", 0)),
+            "Hebras": str(r.get("hebras", "desconocida")),
+            "Marco": frame_txt,
+            "Locus compartido": "sí" if bool(r.get("locus_compartido")) else "no",
+        })
+    return pd.DataFrame(rows, columns=list(OVERLAP_VIEW_COLUMNS))
 
 
 def element_span(kind: str, ident: str, tables: dict,
@@ -1921,6 +2320,7 @@ def render(data_root: Path, genome: str) -> None:
     start, end = int(start), int(start) + size
     wg = genes[(genes["contig"] == contig)
                & (genes["end"] >= start) & (genes["start"] <= end)].sort_values("start")
+    overlaps = cds_overlaps(genes, contig, start, end)
     susp = (suspects_window(data_root, genome, contig, start, end)
             if ver_sospecha else pd.DataFrame())
     screen_elements = all_elements_on_screen(
@@ -1946,6 +2346,11 @@ def render(data_root: Path, genome: str) -> None:
             tss=tss_df, tts=tts_df, focus=focus_key,
             highlight_all=highlight_all),
         key="genome_track", pos=start, contig=contig, window=size_label,
+    )
+    st.caption(
+        "🧬 **Carriles de genes:** **+** arriba (5'→3' →) y **−** abajo "
+        "(5'→3' ←). Cada gen es una flecha en su sentido de lectura; el clic, "
+        "el zoom y el resaltado funcionan igual en ambos carriles."
     )
 
     # Clic en el dibujo: se guarda la selección y se rerenderiza para que el
@@ -1991,6 +2396,32 @@ def render(data_root: Path, genome: str) -> None:
                        f"{pd.Series(gaps).median():.0f} pb · mínimo {min(gaps)} pb · "
                        f"máximo {max(gaps)} pb")
 
+    # --- solapamientos entre CDS de la ventana
+    st.markdown(f"### 🔀 {OVERLAPS_TITLE}")
+    with st.expander(f"🔀 {OVERLAPS_TITLE} ({len(overlaps)})",
+                     expanded=not overlaps.empty):
+        st.caption(
+            "Pares de CDS del **mismo contig** cuyas coordenadas se cruzan en "
+            "esta ventana. El solape se mide sobre los CDS completos, con "
+            "coordenadas inclusivas (1-based). El marco solo se muestra si "
+            "`frame`/`phase` viene en los datos; si no, aparece `unknown` y "
+            "**no se infiere**. «Locus compartido» = mismo "
+            "`locus_tag`/`gene_id` o solape ≥ "
+            f"{LOCUS_SHARE_FRACTION:.0%} del CDS más corto. En hebras opuestas "
+            "el marco se compara tal cual viene en los datos (cada CDS lo "
+            "numera en su propia hebra): es un indicio, no una alineación de "
+            "codones."
+        )
+        if overlaps.empty:
+            st.info("No hay CDS solapados en esta ventana.")
+        else:
+            st.dataframe(
+                overlap_table_view(overlaps),
+                width="stretch", hide_index=True,
+            )
+            st.caption(overlap_summary(overlaps))
+        st.warning(OVERLAP_WARNING)
+
     # --- vista circular complementaria
     c_len = contig_lengths(tables).get(str(contig))
     if c_len:
@@ -2011,6 +2442,9 @@ def render(data_root: Path, genome: str) -> None:
     # --- leyenda
     st.markdown(
         "**Leyenda** · "
+        f'<span style="color:{GENE_FWD}">▭</span> gen hebra + (5\'→3\' →) · '
+        f'<span style="color:{GENE_REV}">▭</span> gen hebra − (5\'→3\' ←) · '
+        '<span style="color:#8b90a0">▭</span> hebra desconocida · '
         '<span style="color:#b30000">●</span> horquilla clase A (fuerte) · '
         '<span style="color:#c58a00">●</span> clase B (intermedia) · '
         '<span style="color:#9aa0ad">●</span> clase C (débil) · '

@@ -1326,5 +1326,14 @@
  "A **gap** is a reaction the pathway needs but for which no candidate enzyme was found in the annotation (or it could not be assigned to a gene). It is not necessarily an error: annotation may be missing, the reaction may be spontaneous, or it may be handled by a transporter, a complex, or a pathway the organism lacks.": "**缺口**是通路需要、但在注释中找不到候选酶的某个反应（或无法分配到基因）。它不一定是错误：可能是注释缺失、自发反应、转运蛋白、复合体，或该生物根本没有这条通路。",
  "📥 Reportes de este módulo": "📥 本模块报告",
  "⬇️ ncRNA (TSV)": "⬇️ ncRNA（TSV）",
- "ncRNA por cmsearch contra un subconjunto Rfam local; es una hipótesis de familia, no una validación experimental.": "通过 cmsearch 对本地 Rfam 子集检测 ncRNA；这是家族假说，不是实验验证。"
+ "ncRNA por cmsearch contra un subconjunto Rfam local; es una hipótesis de familia, no una validación experimental.": "通过 cmsearch 对本地 Rfam 子集检测 ncRNA；这是家族假说，不是实验验证。",
+ "Sin colocación.": "没有放置结果。",
+ "Calcular vecino k-mer": "计算 k-mer 邻居",
+ "Comparando k-mers contra 400 genomas…": "正在与 400 个基因组比较 k-mer…",
+ "No hay CDS solapados en esta ventana.": "此窗口没有重叠的 CDS。",
+ "📍 Colocar este genoma nuevo en el árbol": "📍 将此新基因组放入树中",
+ "No hay secuencias del último FASTA anotado.": "最近注释的 FASTA 没有序列。",
+ "El genoma no tiene linaje local. Se puede calcular un vecino por k-mers contra los 400; es una aproximación CPU, no ANI ni identificación taxonómica.": "该基因组没有本地谱系。可计算其与 400 个基因组的 k-mer 邻居；这是 CPU 近似，不是 ANI，也不是分类学鉴定。",
+ "🧬 **Carriles de genes:** **+** arriba (5'→3' →) y **−** abajo (5'→3' ←). Cada gen es una flecha en su sentido de lectura; el clic, el zoom y el resaltado se mantienen.": "🧬 **基因轨道：** **+** 在上（5′→3′ →），**−** 在下（5′→3′ ←）。每个基因是指向其阅读方向的箭头；点击、缩放和高亮保持可用。",
+ "🧬 **Carriles de genes:** **+** arriba (5'→3' →) y **−** abajo (5'→3' ←). Cada gen es una flecha en su sentido de lectura; el clic, el zoom y el resaltado funcionan igual en ambos carriles.": "🧬 **基因轨道：** **+** 在上（5′→3′ →），**−** 在下（5′→3′ ←）。每个基因是指向其阅读方向的箭头；点击、缩放和高亮在两条轨道上同样有效。"
 }

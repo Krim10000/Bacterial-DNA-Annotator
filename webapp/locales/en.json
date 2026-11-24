@@ -1326,5 +1326,14 @@
  "Un **transportador** es una proteína de membrana que mueve un metabolito (sustrato) de un lado a otro de la membrana, sola o acoplada a iones o a ATP. Aquí se infiere por homología con transportadores curados y por la reacción Rhea exacta del metabolito; no se mide el flujo ni la actividad en laboratorio.": "A **transporter** is a membrane protein that moves a metabolite (substrate) across the membrane, either on its own or coupled to ions or ATP. Here it is inferred from homology to curated transporters and from the exact Rhea transport reaction of the metabolite; flux and activity are not measured.",
  "📥 Reportes de este módulo": "📥 Reports for this module",
  "⬇️ ncRNA (TSV)": "⬇️ ncRNA (TSV)",
- "ncRNA por cmsearch contra un subconjunto Rfam local; es una hipótesis de familia, no una validación experimental.": "ncRNA by cmsearch against a local Rfam subset; it is a family hypothesis, not experimental validation."
+ "ncRNA por cmsearch contra un subconjunto Rfam local; es una hipótesis de familia, no una validación experimental.": "ncRNA by cmsearch against a local Rfam subset; it is a family hypothesis, not experimental validation.",
+ "Sin colocación.": "No placement.",
+ "Calcular vecino k-mer": "Compute k-mer neighbor",
+ "Comparando k-mers contra 400 genomas…": "Comparing k-mers against 400 genomes…",
+ "No hay CDS solapados en esta ventana.": "No overlapping CDS in this window.",
+ "📍 Colocar este genoma nuevo en el árbol": "📍 Place this new genome in the tree",
+ "No hay secuencias del último FASTA anotado.": "No sequences from the last annotated FASTA.",
+ "El genoma no tiene linaje local. Se puede calcular un vecino por k-mers contra los 400; es una aproximación CPU, no ANI ni identificación taxonómica.": "The genome has no local lineage. A k-mer neighbor against the 400 can be computed; it is a CPU approximation, not ANI or taxonomic identification.",
+ "🧬 **Carriles de genes:** **+** arriba (5'→3' →) y **−** abajo (5'→3' ←). Cada gen es una flecha en su sentido de lectura; el clic, el zoom y el resaltado se mantienen.": "🧬 **Gene lanes:** **+** above (5′→3′ →) and **−** below (5′→3′ ←). Each gene is an arrow in its reading direction; click, zoom and highlighting are preserved.",
+ "🧬 **Carriles de genes:** **+** arriba (5'→3' →) y **−** abajo (5'→3' ←). Cada gen es una flecha en su sentido de lectura; el clic, el zoom y el resaltado funcionan igual en ambos carriles.": "🧬 **Gene lanes:** **+** above (5′→3′ →) and **−** below (5′→3′ ←). Each gene is an arrow in its reading direction; click, zoom and highlighting work the same in both lanes."
 }

@@ -35,6 +35,7 @@ from i18n import (  # noqa: E402
 from metabolism import build_network  # noqa: E402
 from requirements_ui import render_requirements, render_glossary  # noqa: E402
 from help_ui import render_help  # noqa: E402
+from pipeline_adapter import run_in_memory  # noqa: E402
 from downloads_ui import render_module_reports  # noqa: E402
 from active_sites import for_gap as active_sites_for_gap  # noqa: E402
 from hypotheses_ui import render_hypotheses  # noqa: E402
@@ -42,6 +43,7 @@ from precomputed_ui import render as render_precomputed  # noqa: E402
 import structure_viewer
 from compare_ui import render_compare
 import taxonomy_tree_ui
+import phylo_placement
 from esmfold_ui import (  # noqa: E402
     render_esmfold_closure,
     render_structure_evidence,
@@ -2491,8 +2493,40 @@ def main() -> None:
         credits.render()
         return
     if mode_key == "tree":
+        _new_genome = st.session_state.get("genoma_global") or None
+        _new_lineage = st.session_state.get("new_placement_lineage")
+        # Un genoma que no está en los 400 no tiene linaje local. Se puede
+        # colocar por k-mers (vecino más cercano); NO es ANI ni identificación.
+        _local_json = (DATA_ROOT / "taxonomy" / "full" / f"{_new_genome}.json"
+                       if _new_genome else None)
+        if _new_genome and not (_local_json and _local_json.exists()):
+            with st.expander("📍 Colocar este genoma nuevo en el árbol"):
+                st.caption(
+                    "El genoma no tiene linaje local. Se puede calcular un "
+                    "vecino por k-mers contra los 400; es una aproximación "
+                    "CPU, no ANI ni identificación taxonómica."
+                )
+                if st.button("Calcular vecino k-mer", key="tree_place_kmer"):
+                    _last = (st.session_state.get("results") or [None])[-1]
+                    _seqs = (_last or {}).get("sequences") or {}
+                    if not _seqs:
+                        st.warning("No hay secuencias del último FASTA anotado.")
+                    else:
+                        with st.spinner("Comparando k-mers contra 400 genomas…"):
+                            _pl = phylo_placement.placement(_seqs, DATA_ROOT)
+                        if _pl.get("status") == "ok":
+                            st.session_state["new_placement"] = _pl
+                            st.session_state["new_placement_lineage"] = _pl.get("lineage")
+                            _new_lineage = _pl.get("lineage")
+                            st.success(
+                                f"Vecino: {_pl['nearest'][0]['genome']} · "
+                                f"Jaccard {_pl['best_jaccard']:.3f}. "
+                                "No es ANI; confianza baja."
+                            )
+                        else:
+                            st.warning(_pl.get("reason", "Sin colocación."))
         taxonomy_tree_ui.render(
-            DATA_ROOT, new_genome=st.session_state.get("genoma_global") or None)
+            DATA_ROOT, new_genome=_new_genome, new_lineage=_new_lineage)
         return
     if mode_key == "reports":
         downloads_ui.render(PROJECT)
@@ -2639,80 +2673,35 @@ def main() -> None:
                 t0 = time.time()
                 status.write(f"🧬 {name}: leyendo y aplicando herramientas ({i}/{len(inputs)})…")
                 try:
-                    res = annotate(name, data, opts)
+                    adapter_options = {
+                        "cds": cds or ghost, "trna": trna, "rrna": rrna,
+                        "ghost": ghost, "deserts": deserts,
+                        "esm": esm, "esm_top": int(esm_top),
+                        "min_region_len": int(min_region_len),
+                        "min_aa": int(min_aa),
+                        "ncrna": True, "taxonomy": True, "functional": True,
+                        "domains": True, "context": True,
+                        "structural_b": True, "structural_b_filters": True,
+                        "complexes": True, "regulation": True,
+                        "membrane": True, "oric": True,
+                        "metabolic": bool(metabolic),
+                        "reference": ref_gcf.strip(),
+                    }
+                    res = run_in_memory(name, data, OUT_ROOT, DATA_ROOT,
+                                        adapter_options, threads=4)
                     res["elapsed"] = round(time.time() - t0, 1)
-                    if res.get("features"):
-                        status.write("📐 Operones y promotores por reglas…")
-                        try:
-                            res["regulation"] = run_regulation(
-                                res["features"], OUT_ROOT, res["genome"],
-                                sequences=res.get("sequences"))
-                        except Exception as exc:  # noqa: BLE001
-                            res["regulation_error"] = str(exc)
-                    if res.get("proteins"):
-                        status.write("🧾 Anotación funcional (DIAMOND/Swiss-Prot)…")
-                        try:
-                            res["functional"] = annotate_functional(
-                                res["proteins"], DATA_ROOT, OUT_ROOT, res["genome"],
-                                threads=4)
-                            comp = infer_complexes(
-                                res["features"],
-                                res["functional"].get("hits") or {},
-                                res["genome"])
-                            model = run_complex_model(
-                                res["features"],
-                                res["functional"].get("hits") or {},
-                                OUT_ROOT, res["genome"], DATA_ROOT)
-                            if model.get("ok"):
-                                comp["complexes"] += model["complexes"]
-                                comp["by_protein"].update(model["by_protein"])
-                                comp["n_candidate"] = model.get("n_candidate", 0)
-                            transfer = load_complex_transfer(
-                                DATA_ROOT, res["genome"], res["features"])
-                            if transfer.get("ok"):
-                                comp["complexes"] += transfer["complexes"]
-                                comp["by_protein"].update(transfer["by_protein"])
-                                comp["n_candidate"] = (comp.get("n_candidate", 0)
-                                                       + transfer.get("n_candidate", 0))
-                            enrich_complex_rows(
-                                res["functional"].get("rows") or [], comp)
-                            res["complexes"] = comp
-                        except Exception as exc:  # noqa: BLE001
-                            res["functional_error"] = str(exc)
-                    if res.get("sequences"):
-                        status.write("🧭 Predicción de origen (ORCA + GC skew)…")
-                        try:
-                            res["oric"] = oric_engine.run(res, DATA_ROOT)
-                        except Exception as exc:  # noqa: BLE001
-                            res["oric_error"] = str(exc)
-                    try:
-                        res["report_md"] = build_report(res)
-                    except Exception:
-                        pass
                     results.append(res)
                     status.write(
                         f"✅ {name}: {res['coverage']*100:.1f}% anotado · "
-                        f"{len(res['candidates'])} ORFs · {len(res.get('deserts', []))} desiertos"
+                        f"{len(res['candidates'])} ORFs · "
+                        f"{len(res.get('deserts', []))} desiertos · "
+                        f"capas={len(res.get('layer_status', {}))}"
                     )
-                    if metabolic and res.get("proteins"):
-                        status.write("🧪 Construyendo red metabólica…")
-                        try:
-                            res["metabolic"] = build_network(
-                                res["proteins"], DATA_ROOT,
-                                ref_gcf.strip() or None, threads=4,
-                                panel_hmm=DATA_ROOT / "db" / "pfam" / "panel_focus.hmm",
-                                transport_db=DATA_ROOT / "db" / "transport.dmnd",
-                                producer_db=DATA_ROOT / "db" / "producer_family.dmnd",
-                            )
-                            res["report_md"] = build_report(res)
-                            status.write(
-                                f"   red: {res['metabolic']['reactions']} reacciones · "
-                                f"{res['metabolic']['n_gaps']} brechas"
-                            )
-                        except Exception as exc:  # noqa: BLE001
-                            res["metabolic_error"] = str(exc)
-                    elif metabolic:
-                        res["metabolic_error"] = "Activa CDS para tener proteínas."
+                    if res.get("metabolic"):
+                        status.write(
+                            f"   red: {res['metabolic']['reactions']} reacciones · "
+                            f"{res['metabolic']['n_gaps']} brechas"
+                        )
                 except Exception as exc:  # noqa: BLE001
                     st.error(f"{name}: {exc}")
             if compare and len(results) >= 2:
