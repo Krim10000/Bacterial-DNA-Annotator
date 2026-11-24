@@ -1056,5 +1056,11 @@
  "🔀 Comparar genomas": "🔀 Compare genomes",
  "Colorear por B-factor/RMSX": "Color by B-factor/RMSX",
  "⬇️ Taxonomía (TSV)": "⬇️ Taxonomy (TSV)",
- "Normalización de un JSON local ya precalculado; no se valida especie por ANI ni red. Un rango ausente no es evidencia negativa.": "Normalizes a precomputed local JSON; species is not validated by ANI or network. A missing rank is not negative evidence."
+ "Normalización de un JSON local ya precalculado; no se valida especie por ANI ni red. Un rango ausente no es evidencia negativa.": "Normalizes a precomputed local JSON; species is not validated by ANI or network. A missing rank is not negative evidence.",
+ "❓ Glosario y límites": "❓ Glossary and limits",
+ "La GPU es opcional; el núcleo de anotación funciona en CPU.": "GPU is optional; the annotation core runs on CPU.",
+ "Sin detalle estructurado de Foldseek; se muestra el top si existe.": "No structured Foldseek detail; the top hit is shown if available.",
+ "No hay PDB asociado a esta hipótesis; no se inventa una estructura.": "No PDB is associated with this hypothesis; no structure is invented.",
+ "No hace falta para anotar, buscar brechas ni usar la GUI. Solo ESMFold local (opcional) la necesita.": "Not needed to annotate, find gaps or use the GUI. Only optional local ESMFold needs it.",
+ "Una estructura predicha o experimental no confirma la hipótesis; solo permite inspeccionar la geometría.": "A predicted or experimental structure does not confirm the hypothesis; it only allows inspecting geometry."
 }

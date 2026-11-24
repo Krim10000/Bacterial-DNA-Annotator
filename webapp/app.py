@@ -32,7 +32,7 @@ from i18n import (  # noqa: E402
     tr_tree,
 )
 from metabolism import build_network  # noqa: E402
-from requirements_ui import render_requirements  # noqa: E402
+from requirements_ui import render_requirements, render_glossary  # noqa: E402
 from active_sites import for_gap as active_sites_for_gap  # noqa: E402
 from hypotheses_ui import render_hypotheses  # noqa: E402
 from precomputed_ui import render as render_precomputed  # noqa: E402
@@ -2072,6 +2072,8 @@ def main() -> None:
             st.session_state["genoma_global"] = st.query_params["genoma"]
     except Exception:
         pass
+    with st.sidebar.expander(tr("❓ Glosario y límites")):
+        render_glossary()
     mode = st.sidebar.radio(
         T["mode_label"], [T["mode_annotate"], T["mode_pathways"],
                            T["mode_browser"], T["mode_reports"],

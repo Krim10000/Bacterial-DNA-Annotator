@@ -1056,5 +1056,11 @@
  "🔀 Comparar genomas": "🔀 比较基因组",
  "Colorear por B-factor/RMSX": "按 B-factor/RMSX 着色",
  "⬇️ Taxonomía (TSV)": "⬇️ 分类学（TSV）",
- "Normalización de un JSON local ya precalculado; no se valida especie por ANI ni red. Un rango ausente no es evidencia negativa.": "规范化本地预计算 JSON；不通过 ANI 或网络验证物种。缺少某等级不是阴性证据。"
+ "Normalización de un JSON local ya precalculado; no se valida especie por ANI ni red. Un rango ausente no es evidencia negativa.": "规范化本地预计算 JSON；不通过 ANI 或网络验证物种。缺少某等级不是阴性证据。",
+ "❓ Glosario y límites": "❓ 术语与限制",
+ "La GPU es opcional; el núcleo de anotación funciona en CPU.": "GPU 可选；注释核心在 CPU 上运行。",
+ "Sin detalle estructurado de Foldseek; se muestra el top si existe.": "没有结构化的 Foldseek 详情；如有最佳命中则显示。",
+ "No hay PDB asociado a esta hipótesis; no se inventa una estructura.": "该假设没有关联 PDB；不会虚构结构。",
+ "No hace falta para anotar, buscar brechas ni usar la GUI. Solo ESMFold local (opcional) la necesita.": "注释、查找缺口或使用界面都不需要它。只有可选的本地 ESMFold 需要 GPU。",
+ "Una estructura predicha o experimental no confirma la hipótesis; solo permite inspeccionar la geometría.": "预测或实验结构不能确认假设；只能检查几何形状。"
 }

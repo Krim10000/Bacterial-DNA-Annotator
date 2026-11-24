@@ -35,8 +35,6 @@ STEPS = [
     ("8. ESMFold (opcional)", "Predice la estructura 3D del ORF exacto.",
      "~1–2 min por proteína", "Sí (o API)",
      "GPU ≥16 GB, o Neurosnap (~0,04 créditos/proteína)"),
-    ("9. Entrenar el modelo de ADN", "Entrena el modelo de lenguaje de ADN.",
-     "Horas", "Sí", "GPU A10G o superior; no hace falta para anotar"),
 ]
 
 SYSTEM = [
@@ -46,7 +44,7 @@ SYSTEM = [
     ("Disco", "10 GB libres para la app; ~25 GB si descargas todas las bases."),
     ("CPU", "4 núcleos; 8 recomendado."),
     ("GPU", "No hace falta para anotar, buscar brechas ni usar la GUI. "
-            "Solo ESMFold local y el entrenamiento la necesitan."),
+            "Solo ESMFold local (opcional) la necesita."),
     ("Navegador", "Firefox o Chrome actualizados."),
     ("Red", "Solo para descargar bases de datos y herramientas la primera vez."),
 ]
@@ -81,6 +79,35 @@ GLOSSARY = [
 ]
 
 
+
+STATUS_GLOSSARY = [
+    ("A / B / C", "A: homología a función nombrada; B: homólogo no caracterizado/DUF; "
+     "C: sin hit Swiss-Prot. No son función confirmada ni ausencia de función."),
+    ("strong / moderate / weak / none", "Fuerza de la evidencia de homología. "
+     "strong no significa función confirmada; none no significa que no exista."),
+    ("complex_candidate", "Candidato de complejo por modelo/vecindad. No demuestra "
+     "interacción física ni estequiometría."),
+    ("complex_suspected", "Sospecha fuerte por ortología recíproca; nivel B. "
+     "No es confirmación experimental."),
+    ("complex_incomplete", "Se detectó parte de un complejo; falta al menos una "
+     "subunidad. No significa que el complejo no exista."),
+    ("not_evaluated / not_available", "No se evaluó o no hay dato. No es un "
+     "resultado negativo."),
+    ("gap / brecha", "Paso metabólico sin enzima detectada. No prueba ausencia: "
+     "puede ser transporte, gen no anotado, ruta alternativa o falso positivo."),
+    ("supported_hypothesis", "Varias fuentes computacionales coinciden. Sigue "
+     "siendo hipótesis; no cierra una brecha."),
+    ("afdb_model_available / filter_f1", "Hay modelo o filtro local, pero no "
+     "necesariamente se evaluó. Un campo vacío no es un resultado negativo."),
+]
+
+
+def render_glossary() -> None:
+    """Glosario corto y reutilizable, visible desde la barra lateral."""
+    import streamlit as st
+    for term, meaning in GLOSSARY + STATUS_GLOSSARY:
+        st.markdown(f"**{term}** — {tr(meaning)}")
+
 def gpu_status() -> dict:
     """Estado de GPU sin importar torch (evita 2 s de arranque)."""
     out = {"nvidia_smi": bool(shutil.which("nvidia-smi")), "gpu": None,
@@ -112,9 +139,8 @@ def render_requirements(expanded: bool = False) -> None:
     with st.expander(tr("⏱️ ¿Qué necesito y cuánto tarda?"), expanded=expanded):
         st.markdown(
             tr("**No necesitas GPU para usar el anotador.** La GPU solo se usa "
-               "para ESMFold local y para entrenar el modelo de ADN, que son "
-               "opcionales. Los tiempos son aproximados y dependen del tamaño "
-               "del genoma y de tu computador.")
+               "para ESMFold local, que es opcional. Los tiempos son aproximados "
+               "y dependen del tamaño del genoma y de tu computador.")
         )
         st.markdown("**" + tr("Requisitos del sistema") + "**")
         st.dataframe(
@@ -141,7 +167,7 @@ def render_requirements(expanded: bool = False) -> None:
         else:
             st.info("🖥️ " + g["note"])
         st.caption(
-            tr("Detalle técnico y etapas bloqueadas en docs/GPU_STATUS.md.")
+            tr("La GPU es opcional; el núcleo de anotación funciona en CPU.")
         )
 
         with st.expander(tr("📖 Glosario para principiantes")):

@@ -8,6 +8,7 @@ import pandas as pd
 import streamlit as st
 
 import credits
+import structure_viewer
 
 DECISIONS = ["pending", "reviewed_orientative", "reviewed_supported",
              "conflict", "rejected", "needs_validation"]
@@ -54,9 +55,20 @@ def render_hypotheses(res: dict) -> None:
     b.metric("Fuentes", row.get("n_sources", ""))
     c.metric("EC", row.get("ec", "") or "—")
 
+    ev_raw = row.get("evidence_json") or "{}"
+    try:
+        ev = json.loads(ev_raw) if isinstance(ev_raw, str) else dict(ev_raw)
+    except (TypeError, ValueError, json.JSONDecodeError):
+        ev = {}
     with st.expander("F1 · Foldseek", expanded=True):
-        st.write(f"Top: **{row.get('foldseek_top','') or '—'}**")
-        st.json(json.loads(row.get("evidence_json") or "{}").get("row", {}).get("foldseek_top", ""))
+        top = row.get("foldseek_top") or ev.get("row", {}).get("foldseek_top") or "—"
+        st.write(f"Top: **{top}**")
+        st.caption("`F1` es homología estructural; no es una función confirmada.")
+        detail = ev.get("row") if isinstance(ev, dict) else None
+        if isinstance(detail, dict) and detail:
+            st.json(detail)
+        else:
+            st.caption("Sin detalle estructurado de Foldseek; se muestra el top si existe.")
     with st.expander("F2 · EnzyMM / M-CSA"):
         st.write(f"Plantillas: `{row.get('template_mcsa','') or '—'}`")
         st.write(f"EC: `{row.get('ec','') or '—'}`")
@@ -86,7 +98,18 @@ def render_hypotheses(res: dict) -> None:
                            file_name=f"{res['genome']}_review_decisions.tsv",
                            mime="text/plain")
 
+    st.markdown("##### Estructura 3D del candidato")
+    st.caption(
+        "Una estructura predicha o experimental no confirma la hipótesis; "
+        "solo permite inspeccionar la geometría."
+    )
     pdb = Path(str(row.get("pdb", "")))
     if pdb.exists():
+        structure_viewer.render(
+            pdb, key=f"hyp_pdb_{res['genome']}_{key}",
+            caption=f"PDB: {pdb.name}",
+        )
         st.download_button("⬇️ PDB del candidato", pdb.read_bytes(),
                            file_name=pdb.name, mime="chemical/x-pdb")
+    else:
+        st.info("No hay PDB asociado a esta hipótesis; no se inventa una estructura.")
