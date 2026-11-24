@@ -1047,5 +1047,10 @@
  "Sin promotores putativos para este genoma.": "该基因组没有推定启动子。",
  "Regulación automática no ejecutada para este genoma.": "该基因组未运行自动调控分析。",
  "Cada fila declara `evidence=rule_based`, `confidence` (low/medium) y `limitation`. Ninguna etiqueta demuestra cotranscripción ni un TSS; no se usan RegulonDB/DBTBS ni red.": "每行都声明 `evidence=rule_based`、`confidence`（low/medium）和 `limitation`。任何标签都不能证明共转录或 TSS；不使用 RegulonDB/DBTBS，也不使用网络。",
- "Operones y promotores **putativos** construidos por reglas sobre las features de este FASTA. `evidence=rule_based`: son hipótesis, no evidencia experimental. Un operón se agrupa por mismo contig/hebra con hueco ≤ 300 pb; el promotor es una ventana fija de 50 pb upstream y una coincidencia de consenso -35 TTGACA / -10 TATAAT (espaciador 15-19).": "基于本 FASTA 的 features，按规则构建的**推定**操纵子与启动子。`evidence=rule_based`：它们是假说，不是实验证据。操纵子按同一 contig/链、缺口 ≤ 300 pb 分组；启动子是一段上游 50 pb 的固定窗口，以及与共有序列 -35 TTGACA / -10 TATAAT 的匹配（间隔 15-19）。"
+ "Operones y promotores **putativos** construidos por reglas sobre las features de este FASTA. `evidence=rule_based`: son hipótesis, no evidencia experimental. Un operón se agrupa por mismo contig/hebra con hueco ≤ 300 pb; el promotor es una ventana fija de 50 pb upstream y una coincidencia de consenso -35 TTGACA / -10 TATAAT (espaciador 15-19).": "基于本 FASTA 的 features，按规则构建的**推定**操纵子与启动子。`evidence=rule_based`：它们是假说，不是实验证据。操纵子按同一 contig/链、缺口 ≤ 300 pb 分组；启动子是一段上游 50 pb 的固定窗口，以及与共有序列 -35 TTGACA / -10 TATAAT 的匹配（间隔 15-19）。",
+ "Subir PDB/mmCIF": "上传 PDB/mmCIF",
+ "🧊 Estructura 3D": "🧊 3D 结构",
+ "Ruta local a PDB/mmCIF": "本地 PDB/mmCIF 路径",
+ "results/<genoma>_esmfold/modelo.pdb": "results/<genome>_esmfold/model.pdb",
+ "Visor de coordenadas PDB. Puedes subir un PDB/mmCIF o indicar una ruta local. Una estructura experimental, AFDB o ESMFold no confirma función, sustrato, interfaz ni cierra brechas.": "PDB 坐标查看器。上传 PDB/mmCIF 或提供本地路径。实验结构、AFDB 或 ESMFold 结构都不能确认功能、底物或界面，也不能关闭缺口。"
 }

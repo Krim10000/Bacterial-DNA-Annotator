@@ -7,6 +7,7 @@ import pandas as pd
 import streamlit as st
 
 import credits
+import structure_viewer
 
 from structure_evidence import evidence_for_rows
 from structural_annotation import scan_pdbs, summarize as summarize_enzymm
@@ -108,8 +109,14 @@ def render_esmfold_closure(gap: dict[str, Any], proteins: list[dict[str, Any]] |
             st.error(res["error"])
         else:
             st.success(f"Job {res['job_id']} · {res['status']} · pLDDT {res.get('plddt')} · pTM {res.get('ptm')}")
-            st.caption(f"PDB: {res.get('pdb','') or 'no descargado'}")
+            pdb_path = res.get("pdb", "")
+            st.caption(f"PDB: {pdb_path or 'no descargado'}")
             st.session_state["_last_esmfold"] = res
+            if pdb_path:
+                structure_viewer.render(
+                    pdb_path, key=f"{key_prefix}_esmfold_3d",
+                    caption="ESMFold: estructura predicha; no confirmación.",
+                )
 
 
 def render_structure_evidence(gap: dict, genome: str, pdb: str, uniprot: str = "",
@@ -132,6 +139,10 @@ def render_structure_evidence(gap: dict, genome: str, pdb: str, uniprot: str = "
         st.dataframe(df, use_container_width=True, hide_index=True)
         st.caption("`multi_source_support` no es cierre; `closure=no` siempre.")
         st.session_state["_last_structure_evidence"] = rows
+    structure_viewer.render(
+        pdb, key=f"{key_prefix}_evidence_3d",
+        caption=f"PDB: {pdb}",
+    )
 
 
 def render_structural_annotation(pdb: str, key_prefix: str = "") -> None:
@@ -175,3 +186,6 @@ def render_five_filters(pdb: str, genome: str = "", uniprot: str = "",
         st.caption("Un filtro que no pasa no elimina por sí solo; `no_template` no es ausencia.")
         st.caption(credits.line("foldseek", "enzymm", "p2rank", "alphafill", "mcsa", "afdb"))
         st.session_state["_last_five_filters"] = r
+        structure_viewer.render(
+            pdb, key=f"{key_prefix}_five_3d", caption=f"PDB: {pdb}",
+        )

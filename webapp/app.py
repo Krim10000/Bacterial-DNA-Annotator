@@ -36,6 +36,7 @@ from requirements_ui import render_requirements  # noqa: E402
 from active_sites import for_gap as active_sites_for_gap  # noqa: E402
 from hypotheses_ui import render_hypotheses  # noqa: E402
 from precomputed_ui import render as render_precomputed  # noqa: E402
+import structure_viewer
 from esmfold_ui import (  # noqa: E402
     render_esmfold_closure,
     render_structure_evidence,
@@ -1578,7 +1579,7 @@ def render_result(res: dict) -> None:
     tabs = st.tabs(["🔎 Genes fantasma", "🏜️ Desiertos", "🧪 Brechas",
                     "📥 Descargas", "🧾 Features", "🔬 Hipótesis estructural",
                     "🧬 Función y origen", "🧫 Membrana",
-                    "📐 Regulación (reglas)"])
+                    "📐 Regulación (reglas)", "🧊 Estructura 3D"])
 
     with tabs[0]:
         if res["candidates"]:
@@ -1967,6 +1968,32 @@ def render_result(res: dict) -> None:
                 )
             else:
                 st.info("Sin promotores putativos para este genoma.")
+
+    with tabs[9]:
+        st.caption(
+            "Visor de coordenadas PDB. Puedes subir un PDB/mmCIF o indicar una "
+            "ruta local. Una estructura experimental, AFDB o ESMFold no confirma "
+            "función, sustrato, interfaz ni cierra brechas."
+        )
+        up = st.file_uploader("Subir PDB/mmCIF", type=["pdb", "ent", "cif"],
+                              key=f"pdb_up_{res['genome']}")
+        if up is not None:
+            structure_viewer.render(
+                up.read().decode("utf-8", errors="replace"),
+                key=f"pdb_upload_{res['genome']}",
+                caption=f"Archivo subido: {up.name}",
+            )
+        else:
+            path_pdb = st.text_input(
+                "Ruta local a PDB/mmCIF",
+                key=f"pdb_path_{res['genome']}",
+                placeholder="results/<genoma>_esmfold/modelo.pdb",
+            )
+            if path_pdb:
+                structure_viewer.render(
+                    path_pdb, key=f"pdb_local_{res['genome']}",
+                    caption=f"Ruta: {path_pdb}",
+                )
 
 
 def main() -> None:

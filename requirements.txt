@@ -15,6 +15,8 @@ pyrodigal>=3.0
 
 # GUI
 streamlit>=1.30
+py3Dmol>=2.4
+stmol>=0.0.9
 
 # estructura de ARN (terminadores, horquillas, ΔG)
 ViennaRNA>=2.6
