@@ -671,10 +671,13 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
         # Respaldo local: AFDB cache por accesión UniProt, sin descargar nada.
         acc = _text(gene.get("uniprot") or gene.get("acc"))
         if acc and data_root:
-            candidate = (Path(data_root) / "metabolism" / "targets"
-                         / "afdb25k" / f"{acc.split('|')[-1]}.pdb")
-            if candidate.is_file():
-                pdb_raw = str(candidate)
+            acc_base = acc.split("|")[-1]
+            for folder in ("afdb25k", "esmfold_kaggle"):
+                candidate = (Path(data_root) / "metabolism" / "targets"
+                             / folder / f"{acc_base}.pdb")
+                if candidate.is_file():
+                    pdb_raw = str(candidate)
+                    break
     if not pdb_raw:
         st.info(_t(
             "No hay PDB local para este gen. El proyecto no descarga una "
