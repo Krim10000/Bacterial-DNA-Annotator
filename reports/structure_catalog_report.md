@@ -8,11 +8,11 @@ Este reporte no es evidencia experimental: los modelos son predicciones computac
 | métrica | valor |
 |---|---:|
 | Filas AFDB de entrada | 620 |
-| Filas ESMFold de entrada | 1565 |
-| Accesiones unificadas | 2184 |
+| Filas ESMFold de entrada | 1644 |
+| Accesiones unificadas | 2263 |
 |   · fuente AFDB | 620 |
-|   · fuente ESMFold | 1564 |
-|   · estado ok | 2042 |
+|   · fuente ESMFold | 1643 |
+|   · estado ok | 2121 |
 |   · estado missing | 0 |
 |   · estado error | 142 |
 |   · estado not_found | 0 |
