@@ -618,7 +618,8 @@ def test_dockerfile_exists_and_is_cpu_only():
     assert "micromamba create -y -n prokka" in text
     assert "micromamba create -y -n dfast" in text
     assert "COPY benchmarks/external/external_benchmark.py" in text
-    assert "ENTRYPOINT" not in text  # permite usar python /opt/... y --help
+    assert 'ENTRYPOINT ["python", "/opt/benchmark/external/external_benchmark.py"]' in text
+    assert 'CMD ["--help"]' in text
     for forbidden in ("wget ", "curl ", "git clone", "bakta_db download"):
         assert forbidden not in lower
 

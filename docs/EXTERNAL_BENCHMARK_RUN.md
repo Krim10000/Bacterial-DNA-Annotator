@@ -279,7 +279,6 @@ docker run --rm \
   -v "$PWD:/work" \
   -v "/ruta/host/bakta_db:/data/bakta_db:ro" \
   dna-token-bac/benchmark-external:cpu \
-  python /opt/benchmark/external/external_benchmark.py \
     --genome /work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna \
     --reference /work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3 \
     --tools all --run --bakta-db /data/bakta_db \
@@ -304,8 +303,7 @@ El servicio monta el repositorio en `/work` y `BAKTA_DB_DIR` en
 variable. Para comprobar la imagen sin ejecutar herramientas:
 
 ```bash
-docker run --rm dna-token-bac/benchmark-external:cpu \
-  python /opt/benchmark/external/external_benchmark.py --help
+docker run --rm dna-token-bac/benchmark-external:cpu --help
 docker run --rm dna-token-bac/benchmark-external:cpu \
   sh -lc 'which bakta; which prokka; which dfast'
 ```

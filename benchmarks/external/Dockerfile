@@ -67,4 +67,5 @@ VOLUME ["/data"]
 
 # Sin bases de datos incluidas. Montar /data/bakta_db y usar --bakta-db (o la
 # variable BAKTA_DB) cuando se ejecute Bakta. No se descarga nada en el build.
-CMD ["python", "/opt/benchmark/external/external_benchmark.py", "--help"]
+ENTRYPOINT ["python", "/opt/benchmark/external/external_benchmark.py"]
+CMD ["--help"]
