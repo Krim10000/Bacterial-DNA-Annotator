@@ -47,6 +47,11 @@ BSU_MAP = {"A": "sigma70", "B": "sigma38", "D": "sigma28",
            "I": "sigma32", "L": "sigma54"}
 PMID_SPLIT = re.compile(r"[;,]\s*")
 
+pytestmark = pytest.mark.skipif(
+    not GOLD.exists(),
+    reason="golden set de sigma no incluido en esta instalación",
+)
+
 
 # ---------------------------------------------------------------------------
 # Helpers
