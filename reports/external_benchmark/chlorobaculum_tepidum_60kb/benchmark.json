@@ -1,0 +1,1274 @@
+{
+  "schema": "external-benchmark-run/v1",
+  "generated_at": "2026-11-25T16:08:28Z",
+  "scope": "Comparación local de CDS/tRNA/rRNA de Bakta, Prokka y DFAST contra una referencia GFF3/GBFF. CPU, sin descargas de datos.",
+  "command": [
+    "/opt/conda/bin/python",
+    "/opt/benchmark/external/external_benchmark.py",
+    "--genome",
+    "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+    "--reference",
+    "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+    "--tools",
+    "all",
+    "--run",
+    "--threads",
+    "1",
+    "--timeout",
+    "1800",
+    "--save-gffs",
+    "/work/reports/external_benchmark/chlorobaculum_tepidum_60kb/evidence",
+    "--json",
+    "/work/reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.json",
+    "--md",
+    "/work/reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.md"
+  ],
+  "parameters": {
+    "genome": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+    "reference": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+    "reference_format": "gff3",
+    "tools": [
+      "bakta",
+      "prokka",
+      "dfast"
+    ],
+    "run": true,
+    "query_gffs": {},
+    "overlap_threshold": 0.5,
+    "exclude_pseudo": true,
+    "seqid_aliasing": true,
+    "timeout_seconds": 1800.0,
+    "threads": 1,
+    "bakta_db": null,
+    "probe_versions": true,
+    "max_differences": 100
+  },
+  "environment": {
+    "python": "3.11.18",
+    "python_executable": "/opt/conda/bin/python",
+    "platform": "Linux 6.8.0-149-generic x86_64",
+    "cpu_count": 8,
+    "tools": {
+      "bakta": {
+        "tool": "bakta",
+        "label": "Bakta",
+        "binary": "bakta",
+        "available": true,
+        "executable": true,
+        "path": "/usr/local/bin/bakta",
+        "reason": "",
+        "requires_database": true,
+        "version": null,
+        "version_detail": null
+      },
+      "prokka": {
+        "tool": "prokka",
+        "label": "Prokka",
+        "binary": "prokka",
+        "available": true,
+        "executable": true,
+        "path": "/usr/local/bin/prokka",
+        "reason": "",
+        "requires_database": false,
+        "version": "1.15.6",
+        "version_detail": {
+          "status": "ok",
+          "command": [
+            "/usr/local/bin/prokka",
+            "--version"
+          ],
+          "returncode": 0,
+          "text": "prokka 1.15.6",
+          "version": "1.15.6",
+          "runtime_seconds": 0.303,
+          "started_at": "2026-11-25T16:07:50Z",
+          "finished_at": "2026-11-25T16:07:50Z"
+        }
+      },
+      "dfast": {
+        "tool": "dfast",
+        "label": "DFAST",
+        "binary": "dfast",
+        "available": true,
+        "executable": true,
+        "path": "/usr/local/bin/dfast",
+        "reason": "",
+        "requires_database": false,
+        "version": "1.6.2",
+        "version_detail": {
+          "status": "ok",
+          "command": [
+            "/usr/local/bin/dfast",
+            "--version"
+          ],
+          "returncode": 0,
+          "text": "DFAST ver. 1.6.2",
+          "version": "1.6.2",
+          "runtime_seconds": 1.43,
+          "started_at": "2026-11-25T16:08:25Z",
+          "finished_at": "2026-11-25T16:08:27Z"
+        }
+      }
+    },
+    "bakta_db": {
+      "status": "not_found",
+      "available": false,
+      "path": null,
+      "source": null,
+      "exists": false,
+      "valid": false,
+      "version": null,
+      "version_source": null,
+      "markers_found": [],
+      "marker_files": {},
+      "entries": [],
+      "candidates": [
+        {
+          "source": "BAKTA_DB",
+          "path": "/data/bakta_db",
+          "exists": false
+        },
+        {
+          "source": "home",
+          "path": "/root/.bakta_db",
+          "exists": false
+        }
+      ],
+      "reason": "no se encontró Bakta DB; definir BAKTA_DB o pasar --bakta-db (el benchmark no la descarga)"
+    },
+    "available_tools": [
+      "bakta",
+      "prokka",
+      "dfast"
+    ],
+    "missing_tools": []
+  },
+  "inputs": {
+    "genome": {
+      "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+      "sha256": "2d2dc79ed637655d5c12b816b248b472090cd48f395526c7adedb572416e0949",
+      "contigs": 1,
+      "total_length": 60000,
+      "contig_ids": [
+        "NC_002932.3"
+      ],
+      "contig_ids_truncated": false,
+      "warnings": [],
+      "file": {
+        "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+        "absolute_path": "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+        "exists": true,
+        "is_file": true,
+        "is_dir": false,
+        "error": null,
+        "size_bytes": 60847,
+        "mtime_utc": "2026-11-25T12:45:22Z",
+        "sha256": "2d2dc79ed637655d5c12b816b248b472090cd48f395526c7adedb572416e0949"
+      }
+    },
+    "reference": {
+      "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+      "sha256": "73d0aeadcfc2e236eb30ae448f5788c45633806224a7f0450b8d19aa5caa4830",
+      "format": "gff3",
+      "features": 56,
+      "counts": {
+        "CDS": 55,
+        "tRNA": 1,
+        "rRNA": 0
+      },
+      "contigs": 1,
+      "contig_ids": [
+        "NC_002932.3"
+      ],
+      "contig_ids_truncated": false,
+      "excluded_pseudo": 0,
+      "skipped_lines": 0,
+      "sequence_regions": 1,
+      "warnings": [],
+      "file": {
+        "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+        "absolute_path": "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+        "exists": true,
+        "is_file": true,
+        "is_dir": false,
+        "error": null,
+        "size_bytes": 26014,
+        "mtime_utc": "2026-11-25T12:45:22Z",
+        "sha256": "73d0aeadcfc2e236eb30ae448f5788c45633806224a7f0450b8d19aa5caa4830"
+      }
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "genome_path",
+        "status": "ok",
+        "detail": "FASTA existe y es legible"
+      },
+      {
+        "name": "genome_sha256",
+        "status": "ok",
+        "detail": "SHA256 2d2dc79ed637655d5c12b816b248b472090cd48f395526c7adedb572416e0949"
+      },
+      {
+        "name": "reference_path",
+        "status": "ok",
+        "detail": "referencia gff3 con 56 features"
+      },
+      {
+        "name": "reference_sha256",
+        "status": "ok",
+        "detail": "SHA256 73d0aeadcfc2e236eb30ae448f5788c45633806224a7f0450b8d19aa5caa4830"
+      },
+      {
+        "name": "reference_features",
+        "status": "ok",
+        "detail": "CDS=55 tRNA=1 rRNA=0 pseudo_excluidos=0"
+      },
+      {
+        "name": "tool_bakta",
+        "status": "ok",
+        "detail": "binario ejecutable: /usr/local/bin/bakta"
+      },
+      {
+        "name": "tool_prokka",
+        "status": "ok",
+        "detail": "binario ejecutable: /usr/local/bin/prokka"
+      },
+      {
+        "name": "tool_dfast",
+        "status": "ok",
+        "detail": "binario ejecutable: /usr/local/bin/dfast"
+      },
+      {
+        "name": "bakta_db",
+        "status": "missing",
+        "detail": "estado=not_found; no se encontró Bakta DB; definir BAKTA_DB o pasar --bakta-db (el benchmark no la descarga)"
+      },
+      {
+        "name": "result_bakta",
+        "status": "missing",
+        "detail": "estado=not_available; Bakta DB no utilizable (no se encontró Bakta DB; definir BAKTA_DB o pasar --bakta-db (el benchmark no la descarga)); no se ejecuta Bakta y no se reportan métricas"
+      },
+      {
+        "name": "result_prokka",
+        "status": "ok",
+        "detail": "estado=ok; sin incidencias"
+      },
+      {
+        "name": "result_dfast",
+        "status": "failed",
+        "detail": "estado=failed; la ejecución externa terminó con returncode=1"
+      }
+    ],
+    "inputs": {
+      "genome": {
+        "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+        "absolute_path": "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+        "exists": true,
+        "is_file": true,
+        "is_dir": false,
+        "error": null,
+        "size_bytes": 60847,
+        "mtime_utc": "2026-11-25T12:45:22Z",
+        "sha256": "2d2dc79ed637655d5c12b816b248b472090cd48f395526c7adedb572416e0949"
+      },
+      "reference": {
+        "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+        "absolute_path": "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+        "exists": true,
+        "is_file": true,
+        "is_dir": false,
+        "error": null,
+        "size_bytes": 26014,
+        "mtime_utc": "2026-11-25T12:45:22Z",
+        "sha256": "73d0aeadcfc2e236eb30ae448f5788c45633806224a7f0450b8d19aa5caa4830"
+      }
+    },
+    "bakta_db": {
+      "status": "not_found",
+      "available": false,
+      "path": null,
+      "source": null,
+      "exists": false,
+      "valid": false,
+      "version": null,
+      "version_source": null,
+      "markers_found": [],
+      "marker_files": {},
+      "entries": [],
+      "candidates": [
+        {
+          "source": "BAKTA_DB",
+          "path": "/data/bakta_db",
+          "exists": false
+        },
+        {
+          "source": "home",
+          "path": "/root/.bakta_db",
+          "exists": false
+        }
+      ],
+      "reason": "no se encontró Bakta DB; definir BAKTA_DB o pasar --bakta-db (el benchmark no la descarga)"
+    },
+    "versions": {
+      "bakta": null,
+      "prokka": "1.15.6",
+      "dfast": "1.6.2"
+    },
+    "reports": {
+      "json": "reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.json",
+      "md": "reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.md"
+    },
+    "timing": {
+      "started_at": "2026-11-25T16:07:50Z",
+      "finished_at": "2026-11-25T16:08:28Z",
+      "total_seconds": 37.892
+    }
+  },
+  "results": {
+    "bakta": {
+      "tool": "bakta",
+      "label": "Bakta",
+      "binary": "bakta",
+      "available": true,
+      "binary_path": "/usr/local/bin/bakta",
+      "binary_executable": true,
+      "status": "not_available",
+      "reason": "Bakta DB no utilizable (no se encontró Bakta DB; definir BAKTA_DB o pasar --bakta-db (el benchmark no la descarga)); no se ejecuta Bakta y no se reportan métricas",
+      "source": null,
+      "version": null,
+      "execution": null,
+      "query_gff": null,
+      "bakta_db": {
+        "status": "not_found",
+        "available": false,
+        "path": null,
+        "source": null,
+        "exists": false,
+        "valid": false,
+        "version": null,
+        "version_source": null,
+        "markers_found": [],
+        "marker_files": {},
+        "entries": [],
+        "candidates": [
+          {
+            "source": "BAKTA_DB",
+            "path": "/data/bakta_db",
+            "exists": false
+          },
+          {
+            "source": "home",
+            "path": "/root/.bakta_db",
+            "exists": false
+          }
+        ],
+        "reason": "no se encontró Bakta DB; definir BAKTA_DB o pasar --bakta-db (el benchmark no la descarga)"
+      },
+      "comparison": null,
+      "timings": null
+    },
+    "prokka": {
+      "tool": "prokka",
+      "label": "Prokka",
+      "binary": "prokka",
+      "available": true,
+      "binary_path": "/usr/local/bin/prokka",
+      "binary_executable": true,
+      "status": "ok",
+      "reason": "",
+      "source": "executed",
+      "version": {
+        "status": "ok",
+        "command": [
+          "/usr/local/bin/prokka",
+          "--version"
+        ],
+        "returncode": 0,
+        "text": "prokka 1.15.6",
+        "version": "1.15.6",
+        "runtime_seconds": 0.303,
+        "started_at": "2026-11-25T16:07:50Z",
+        "finished_at": "2026-11-25T16:07:50Z"
+      },
+      "execution": {
+        "status": "ok",
+        "command": [
+          "/usr/local/bin/prokka",
+          "--outdir",
+          "/tmp/external_benchmark_prokka_ik8ng895/out",
+          "--prefix",
+          "benchmark",
+          "--cpus",
+          "1",
+          "--force",
+          "--quiet",
+          "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna"
+        ],
+        "returncode": 0,
+        "runtime_seconds": 35.168,
+        "started_at": "2026-11-25T16:07:50Z",
+        "finished_at": "2026-11-25T16:08:25Z",
+        "max_rss_kb": 125012,
+        "max_rss_mib": 122.08,
+        "max_rss_delta_kb": 98716,
+        "stdout_tail": "[tbl2asn-forever] Found Prokka input, correcting dates in .gbf|.sqn files.\n[tbl2asn-forever] Correcting dates in /tmp/external_benchmark_prokka_ik8ng895/out/benchmark.gbf\n[tbl2asn-forever] Correcting dates in /tmp/external_benchmark_prokka_ik8ng895/out/benchmark.sqn\n[tbl2asn-forever] Dates changed from 01-JAN-2019 to 25-NOV-2026\n",
+        "stderr_tail": "",
+        "timeout_seconds": 1800.0,
+        "rss_note": "ru_maxrss de RUSAGE_CHILDREN (KiB en Linux); es el máximo acumulado de hijos, no un perfil instantáneo.",
+        "annotation_candidates": [
+          "benchmark.gff",
+          "benchmark.gbk"
+        ],
+        "output": {
+          "path": "/tmp/external_benchmark_prokka_ik8ng895/out/benchmark.gff",
+          "absolute_path": "/tmp/external_benchmark_prokka_ik8ng895/out/benchmark.gff",
+          "exists": true,
+          "is_file": true,
+          "is_dir": false,
+          "error": null,
+          "size_bytes": 74659,
+          "mtime_utc": "2026-11-25T16:08:24Z",
+          "sha256": "bd7a273938250c0807b85058b9650fff81d9d578a17d14f30ad453e319c28e0e"
+        }
+      },
+      "query_gff": {
+        "path": "reports/external_benchmark/chlorobaculum_tepidum_60kb/evidence/prokka/benchmark.gff",
+        "sha256": "bd7a273938250c0807b85058b9650fff81d9d578a17d14f30ad453e319c28e0e",
+        "format": "gff3",
+        "features": 56,
+        "counts": {
+          "CDS": 55,
+          "tRNA": 1,
+          "rRNA": 0
+        },
+        "contigs": 1,
+        "contig_ids": [
+          "NC_002932.3"
+        ],
+        "contig_ids_truncated": false,
+        "excluded_pseudo": 0,
+        "skipped_lines": 0,
+        "sequence_regions": 1,
+        "warnings": [],
+        "file": {
+          "path": "/tmp/external_benchmark_prokka_ik8ng895/out/benchmark.gff",
+          "absolute_path": "/tmp/external_benchmark_prokka_ik8ng895/out/benchmark.gff",
+          "exists": true,
+          "is_file": true,
+          "is_dir": false,
+          "error": null,
+          "size_bytes": 74659,
+          "mtime_utc": "2026-11-25T16:08:24Z",
+          "sha256": "bd7a273938250c0807b85058b9650fff81d9d578a17d14f30ad453e319c28e0e"
+        }
+      },
+      "bakta_db": null,
+      "comparison": {
+        "status": "ok",
+        "reason": "",
+        "threshold": 0.5,
+        "reference_counts": {
+          "CDS": 55,
+          "tRNA": 1,
+          "rRNA": 0
+        },
+        "query_counts": {
+          "CDS": 55,
+          "tRNA": 1,
+          "rRNA": 0
+        },
+        "sequence_resolution": {
+          "enabled": true,
+          "reference_features_remapped": 0,
+          "query_features_remapped": 0,
+          "reference_unmapped_seqids": [],
+          "query_unmapped_seqids": [],
+          "reference_contigs": 1,
+          "query_contigs": 1,
+          "common_contigs": 1,
+          "common_contig_ids": [
+            "NC_002932.3"
+          ]
+        },
+        "categories": {
+          "CDS": {
+            "reference_n": 55,
+            "query_n": 55,
+            "tp": 53,
+            "fp": 2,
+            "fn": 2,
+            "precision": 0.9636,
+            "recall": 0.9636,
+            "f1": 0.9636,
+            "exact_matches": 45,
+            "boundary_shifted": 8,
+            "mean_reciprocal_overlap": 0.9847,
+            "mean_abs_start_delta": 1.9811,
+            "mean_abs_end_delta": 6.6226,
+            "attributes": {
+              "matched_pairs": 53,
+              "reference_coverage": {
+                "product": {
+                  "n": 55,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 29,
+                  "pct": 52.73
+                },
+                "locus_tag": {
+                  "n": 55,
+                  "pct": 100.0
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 55,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 42,
+                  "pct": 76.36
+                },
+                "locus_tag": {
+                  "n": 55,
+                  "pct": 100.0
+                }
+              },
+              "product": {
+                "both_present": 53,
+                "literal_matches": 15,
+                "literal_agreement": 0.283,
+                "token_jaccard_mean": 0.5199
+              },
+              "gene": {
+                "both_present": 28,
+                "literal_matches": 24,
+                "literal_agreement": 0.8571
+              },
+              "locus_tag": {
+                "both_present": 53,
+                "literal_matches": 0,
+                "literal_agreement": 0.0
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 55,
+                "with_product": 55,
+                "without_product": 0,
+                "hypothetical": 4,
+                "pct_hypothetical": 7.27
+              },
+              "query": {
+                "cds": 55,
+                "with_product": 55,
+                "without_product": 0,
+                "hypothetical": 9,
+                "pct_hypothetical": 16.36
+              }
+            }
+          },
+          "tRNA": {
+            "reference_n": 1,
+            "query_n": 1,
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "exact_matches": 0,
+            "boundary_shifted": 1,
+            "mean_reciprocal_overlap": 0.9865,
+            "mean_abs_start_delta": 1.0,
+            "mean_abs_end_delta": 0.0,
+            "attributes": {
+              "matched_pairs": 1,
+              "reference_coverage": {
+                "product": {
+                  "n": 1,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": 0.0
+                },
+                "locus_tag": {
+                  "n": 1,
+                  "pct": 100.0
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 1,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": 0.0
+                },
+                "locus_tag": {
+                  "n": 1,
+                  "pct": 100.0
+                }
+              },
+              "product": {
+                "both_present": 1,
+                "literal_matches": 0,
+                "literal_agreement": 0.0,
+                "token_jaccard_mean": 0.6667
+              },
+              "gene": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              },
+              "locus_tag": {
+                "both_present": 1,
+                "literal_matches": 0,
+                "literal_agreement": 0.0
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              },
+              "query": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              }
+            }
+          },
+          "rRNA": {
+            "reference_n": 0,
+            "query_n": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "exact_matches": 0,
+            "boundary_shifted": 0,
+            "mean_reciprocal_overlap": null,
+            "mean_abs_start_delta": null,
+            "mean_abs_end_delta": null,
+            "attributes": {
+              "matched_pairs": 0,
+              "reference_coverage": {
+                "product": {
+                  "n": 0,
+                  "pct": null
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": null
+                },
+                "locus_tag": {
+                  "n": 0,
+                  "pct": null
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 0,
+                  "pct": null
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": null
+                },
+                "locus_tag": {
+                  "n": 0,
+                  "pct": null
+                }
+              },
+              "product": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null,
+                "token_jaccard_mean": null
+              },
+              "gene": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              },
+              "locus_tag": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              },
+              "query": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              }
+            }
+          }
+        },
+        "aggregate": {
+          "reference_n": 56,
+          "query_n": 56,
+          "tp": 54,
+          "fp": 2,
+          "fn": 2,
+          "precision": 0.9643,
+          "recall": 0.9643,
+          "f1": 0.9643,
+          "exact_matches": 45,
+          "boundary_shifted": 9,
+          "mean_reciprocal_overlap": 0.9847,
+          "mean_abs_start_delta": 1.963,
+          "mean_abs_end_delta": 6.5,
+          "macro_f1": 0.9818,
+          "hypothetical_reference": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 4,
+            "pct_hypothetical": 7.27
+          },
+          "hypothetical_query": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 9,
+            "pct_hypothetical": 16.36
+          }
+        },
+        "attributes": {
+          "matched_pairs": 54,
+          "reference_coverage": {
+            "product": {
+              "n": 56,
+              "pct": 100.0
+            },
+            "gene": {
+              "n": 29,
+              "pct": 51.79
+            },
+            "locus_tag": {
+              "n": 56,
+              "pct": 100.0
+            }
+          },
+          "query_coverage": {
+            "product": {
+              "n": 56,
+              "pct": 100.0
+            },
+            "gene": {
+              "n": 42,
+              "pct": 75.0
+            },
+            "locus_tag": {
+              "n": 56,
+              "pct": 100.0
+            }
+          },
+          "product": {
+            "both_present": 54,
+            "literal_matches": 15,
+            "literal_agreement": 0.2778,
+            "token_jaccard_mean": 0.5226
+          },
+          "gene": {
+            "both_present": 28,
+            "literal_matches": 24,
+            "literal_agreement": 0.8571
+          },
+          "locus_tag": {
+            "both_present": 54,
+            "literal_matches": 0,
+            "literal_agreement": 0.0
+          }
+        },
+        "hypothetical": {
+          "reference": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 4,
+            "pct_hypothetical": 7.27
+          },
+          "query": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 9,
+            "pct_hypothetical": 16.36
+          }
+        },
+        "differences": {
+          "counts": {
+            "false_negatives": 2,
+            "false_positives": 2,
+            "strand_mismatches": 0,
+            "boundary_shifts": 9,
+            "exact_matches": 45
+          },
+          "false_negatives": [
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 3285,
+              "end": 3446,
+              "strand": "+",
+              "product": "50S ribosomal protein L34",
+              "gene": "rpmH",
+              "locus_tag": "AYT24_RS00015"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 3506,
+              "end": 3958,
+              "strand": "+",
+              "product": "ribonuclease P protein component",
+              "gene": "",
+              "locus_tag": "AYT24_RS00020"
+            }
+          ],
+          "false_positives": [
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 3635,
+              "end": 3814,
+              "strand": "-",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "BBCLDECB_00003"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 42305,
+              "end": 42838,
+              "strand": "+",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "BBCLDECB_00042"
+            }
+          ],
+          "strand_mismatches": [],
+          "boundary_shifts": [
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 4017,
+                "end": 4268,
+                "strand": "+",
+                "product": "membrane protein insertion efficiency factor YidD",
+                "gene": "yidD",
+                "locus_tag": "AYT24_RS00025"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 3951,
+                "end": 4268,
+                "strand": "+",
+                "product": "Putative membrane protein insertion efficiency factor",
+                "gene": "yidD",
+                "locus_tag": "BBCLDECB_00004"
+              },
+              "start_delta": -66,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.7925
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 7605,
+                "end": 9044,
+                "strand": "+",
+                "product": "23S rRNA (uracil(1939)-C(5))-methyltransferase RlmD",
+                "gene": "rlmD",
+                "locus_tag": "AYT24_RS00045"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 7593,
+                "end": 9044,
+                "strand": "+",
+                "product": "23S rRNA (uracil-C(5))-methyltransferase RlmCD",
+                "gene": "rlmCD",
+                "locus_tag": "BBCLDECB_00008"
+              },
+              "start_delta": -12,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.9917
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 11570,
+                "end": 12604,
+                "strand": "+",
+                "product": "tryptophan--tRNA ligase",
+                "gene": "trpS",
+                "locus_tag": "AYT24_RS00065"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 11597,
+                "end": 12604,
+                "strand": "+",
+                "product": "Tryptophan--tRNA ligase",
+                "gene": "trpS",
+                "locus_tag": "BBCLDECB_00011"
+              },
+              "start_delta": 27,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.9739
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 15001,
+                "end": 15588,
+                "strand": "-",
+                "product": "nicotinate (nicotinamide) nucleotide adenylyltransferase",
+                "gene": "nadD",
+                "locus_tag": "AYT24_RS00080"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 15001,
+                "end": 15423,
+                "strand": "-",
+                "product": "putative nicotinate-nucleotide adenylyltransferase",
+                "gene": "nadD",
+                "locus_tag": "BBCLDECB_00014"
+              },
+              "start_delta": 0,
+              "end_delta": -165,
+              "reciprocal_overlap": 0.7194
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 31609,
+                "end": 32775,
+                "strand": "-",
+                "product": "FtsW/RodA/SpoVE family cell cycle protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00175"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 31609,
+                "end": 32838,
+                "strand": "-",
+                "product": "Stage V sporulation protein E",
+                "gene": "spoVE",
+                "locus_tag": "BBCLDECB_00033"
+              },
+              "start_delta": 0,
+              "end_delta": 63,
+              "reciprocal_overlap": 0.9488
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 35348,
+                "end": 36772,
+                "strand": "-",
+                "product": "UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase",
+                "gene": "murF",
+                "locus_tag": "AYT24_RS00190"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 35348,
+                "end": 36757,
+                "strand": "-",
+                "product": "UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase",
+                "gene": "murF",
+                "locus_tag": "BBCLDECB_00036"
+              },
+              "start_delta": 0,
+              "end_delta": -15,
+              "reciprocal_overlap": 0.9895
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 40306,
+                "end": 40686,
+                "strand": "-",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00205"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 40306,
+                "end": 40773,
+                "strand": "-",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "BBCLDECB_00039"
+              },
+              "start_delta": 0,
+              "end_delta": 87,
+              "reciprocal_overlap": 0.8141
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 41754,
+                "end": 42221,
+                "strand": "-",
+                "product": "division/cell wall cluster transcriptional repressor MraZ",
+                "gene": "mraZ",
+                "locus_tag": "AYT24_RS00215"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 41754,
+                "end": 42242,
+                "strand": "-",
+                "product": "Transcriptional regulator MraZ",
+                "gene": "mraZ",
+                "locus_tag": "BBCLDECB_00041"
+              },
+              "start_delta": 0,
+              "end_delta": 21,
+              "reciprocal_overlap": 0.9571
+            },
+            {
+              "type": "tRNA",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "tRNA",
+                "start": 16805,
+                "end": 16877,
+                "strand": "-",
+                "product": "tRNA-Ala",
+                "gene": "",
+                "locus_tag": "AYT24_RS00090"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "tRNA",
+                "start": 16804,
+                "end": 16877,
+                "strand": "-",
+                "product": "tRNA-Ala(cgc)",
+                "gene": "",
+                "locus_tag": "BBCLDECB_00016"
+              },
+              "start_delta": -1,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.9865
+            }
+          ],
+          "truncated": false,
+          "max_items": 100
+        },
+        "warnings": [],
+        "limitations": [
+          "La referencia es el gold de esta comparación; sus criterios y errores se heredan.",
+          "El emparejamiento es 1:1 voraz por solapamiento recíproco y no un óptimo bipartito.",
+          "La coincidencia literal de 'product' no mide función; los nombres dependen de cada base.",
+          "No se comparan ncRNA, tmRNA, pseudogenes (si se excluyen), dominios ni rutas.",
+          "Una herramienta ausente no es un cero: queda como not_available sin métricas.",
+          "La Bakta DB se detecta localmente; no se descarga y su ausencia deja Bakta en not_available.",
+          "No se declara superioridad entre herramientas sin un gold independiente y ejecuciones pareadas.",
+          "Las ubicaciones compuestas de GenBank se comparan por su intervalo envolvente."
+        ]
+      },
+      "timings": {
+        "started_at": "2026-11-25T16:07:50Z",
+        "finished_at": "2026-11-25T16:08:25Z",
+        "total_seconds": 35.511
+      }
+    },
+    "dfast": {
+      "tool": "dfast",
+      "label": "DFAST",
+      "binary": "dfast",
+      "available": true,
+      "binary_path": "/usr/local/bin/dfast",
+      "binary_executable": true,
+      "status": "failed",
+      "reason": "la ejecución externa terminó con returncode=1",
+      "source": null,
+      "version": {
+        "status": "ok",
+        "command": [
+          "/usr/local/bin/dfast",
+          "--version"
+        ],
+        "returncode": 0,
+        "text": "DFAST ver. 1.6.2",
+        "version": "1.6.2",
+        "runtime_seconds": 1.43,
+        "started_at": "2026-11-25T16:08:25Z",
+        "finished_at": "2026-11-25T16:08:27Z"
+      },
+      "execution": {
+        "status": "failed",
+        "command": [
+          "/usr/local/bin/dfast",
+          "--genome",
+          "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+          "--out",
+          "/tmp/external_benchmark_dfast_ishrnj36/out",
+          "--cpu",
+          "1",
+          "--force"
+        ],
+        "returncode": 1,
+        "runtime_seconds": 0.921,
+        "started_at": "2026-11-25T16:08:27Z",
+        "finished_at": "2026-11-25T16:08:28Z",
+        "max_rss_kb": 125012,
+        "max_rss_mib": 122.08,
+        "max_rss_delta_kb": 0,
+        "stdout_tail": "2026/11/25 16:08:27 Running on Python 3.13.18 | packaged by conda-forge | (main, Oct 26 2026, 11:38:18) [GCC 15.3.0].\n2026/11/25 16:08:27 Loading a config file from /opt/conda/envs/dfast/opt/dfast-1.6.2/dfc/default_config.py\n2026/11/25 16:08:27 Working directory is set to an existing directory: '/tmp/external_benchmark_dfast_ishrnj36/out'.\n2026/11/25 16:08:27 DFAST pipeline started. (version 1.6.2)\n2026/11/25 16:08:27 Results will be generated into '/tmp/external_benchmark_dfast_ishrnj36/out'.\n2026/11/25 16:08:27 Loading a genomic fasta file from /work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna\n2026/11/25 16:08:27 Genome source information: organism=, strain=\n2026/11/25 16:08:27 The query genome is treated as a draft genome with 1 sequences.\n2026/11/25 16:08:27 Sequences are sorted by length (from longer to shorter).\n2026/11/25 16:08:27 Sequences shorter than 1000 will be eliminated.\n2026/11/25 16:08:27 Sequences will be renamed as sequence1, sequence2...\n2026/11/25 16:08:27 Locus_tag settings: locus_tag_prefix=LOCUS and step=10.\n2026/11/25 16:08:27 Locus_tags are assigned separately to each feature type. e.g. CDS: LOCUS_000xx, rRNA: LOCUS_r000xx, tRNA: LOCUS_t000xx, tmRNA: LOCUS_tm000xx.\n2026/11/25 16:08:27 Remove_Partial_Feature is enabled.\n2026/11/25 16:08:27 Remove_Overlapping_Feature is enabled. Priority: ['assembly_gap', 'CRISPR', ('tmRNA', 'tRNA', 'rRNA'), 'CDS']\n2026/11/25 16:08:27 Initializing structural annotation tools... \n2026/11/25 16:08:27 GAPannotator initialized. (Version 1.0)\n2026/11/25 16:08:27 Setting GAPannotator options. {'len_cutoff': 5, 'linkage_evidence': 'paired-ends', 'gap_type': 'within scaffold'}\n2026/11/25 16:08:27 Checking Aragorn version... \n2026/11/25 16:08:28 Aragorn initialized. (Version 1.2.41)\n2026/11/25 16:08:28 Setting Aragorn options. {'gcode': '-gcbact', 'cmd_options': '-l', 'transl_table': 11}\n2026/11/25 16:08:28 Checking nhmmer version... \n2026/11/25 16:08:28 nhmmer initialized. (Version 3.4)\n2026/11/25 16:08:28 Setting nhmmer options. {'model': 'rfam', 'kingdoms': ['bac', 'arc'], 'check_eukaryotic': True, 'db_dir': '/opt/conda/envs/dfast/opt/dfast-1.6.2/db/rrna'}\n2026/11/25 16:08:28 rRNA model file not found: /opt/conda/envs/dfast/opt/dfast-1.6.2/db/rrna/Rfam_15.1_bac.hmm. Run 'dfast_file_downloader.py --rrna rfam'.\n",
+        "stderr_tail": "",
+        "timeout_seconds": 1800.0,
+        "rss_note": "ru_maxrss de RUSAGE_CHILDREN (KiB en Linux); es el máximo acumulado de hijos, no un perfil instantáneo."
+      },
+      "query_gff": null,
+      "bakta_db": null,
+      "comparison": null,
+      "timings": {
+        "started_at": "2026-11-25T16:08:25Z",
+        "finished_at": "2026-11-25T16:08:28Z",
+        "total_seconds": 2.36
+      }
+    }
+  },
+  "not_available": [
+    "bakta"
+  ],
+  "warnings": [
+    "bakta: Bakta DB no utilizable (no se encontró Bakta DB; definir BAKTA_DB o pasar --bakta-db (el benchmark no la descarga)); no se ejecuta Bakta y no se reportan métricas",
+    "dfast: la ejecución externa terminó con returncode=1",
+    "Bakta DB: no se encontró Bakta DB; definir BAKTA_DB o pasar --bakta-db (el benchmark no la descarga)"
+  ],
+  "limitations": [
+    "La referencia es el gold de esta comparación; sus criterios y errores se heredan.",
+    "El emparejamiento es 1:1 voraz por solapamiento recíproco y no un óptimo bipartito.",
+    "La coincidencia literal de 'product' no mide función; los nombres dependen de cada base.",
+    "No se comparan ncRNA, tmRNA, pseudogenes (si se excluyen), dominios ni rutas.",
+    "Una herramienta ausente no es un cero: queda como not_available sin métricas.",
+    "La Bakta DB se detecta localmente; no se descarga y su ausencia deja Bakta en not_available.",
+    "No se declara superioridad entre herramientas sin un gold independiente y ejecuciones pareadas.",
+    "Las ubicaciones compuestas de GenBank se comparan por su intervalo envolvente."
+  ],
+  "reproduction": {
+    "command": [
+      "/opt/conda/bin/python",
+      "/opt/benchmark/external/external_benchmark.py",
+      "--genome",
+      "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+      "--reference",
+      "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+      "--tools",
+      "all",
+      "--run",
+      "--threads",
+      "1",
+      "--timeout",
+      "1800",
+      "--save-gffs",
+      "/work/reports/external_benchmark/chlorobaculum_tepidum_60kb/evidence",
+      "--json",
+      "/work/reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.json",
+      "--md",
+      "/work/reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.md"
+    ],
+    "run_command": [
+      "/opt/conda/bin/python",
+      "benchmarks/external/external_benchmark.py",
+      "--genome",
+      "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+      "--reference",
+      "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+      "--tools",
+      "bakta,prokka,dfast",
+      "--run",
+      "--threads",
+      "1",
+      "--json",
+      "reports/external_benchmark/benchmark.json",
+      "--md",
+      "reports/external_benchmark/benchmark.md"
+    ],
+    "notes": [
+      "Fijar las versiones de Bakta/Prokka/DFAST y registrar la digestión de la imagen.",
+      "Conservar SHA256 de FASTA, referencia y GFF/GBFF de cada herramienta.",
+      "Ejecutar con 1 CPU/hilo para comparar tiempos de forma consistente.",
+      "Una comparación válida necesita un gold independiente y ejecuciones pareadas.",
+      "La Bakta DB no se descarga: se detecta/valida una copia local."
+    ]
+  }
+}

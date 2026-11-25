@@ -23,7 +23,7 @@ if [ -z "$STAGE" ]; then
   echo "Uso: $0 <etapa>  (usa 'all' para la cadena completa)"
   echo "  datos:  catalog|filter|phylum|sample|download|corpus|step1"
   echo "  modelo: tokenizer|precompute|verify|step2"
-  echo "  opera:  tss|rules|rules_all|coverage|hairpins|suspects|closure [top]"
+  echo "  opera:  tss|rules|rules_all|coverage|hairpins|suspects|sigma|sigma_eval|sigma_features|closure [top]"
 echo "  red:    census (consulta GEO, requiere internet)"
   echo "  todo:   all"
   exit 1
@@ -57,6 +57,10 @@ case "$STAGE" in
   suspects)   "$PY" scripts/regulation/operon_suspects.py ;;
   rules_all)  JOBS="${JOBS:-4}" bash scripts/regulation/run_rules_all.sh ;;
   coverage)   "$PY" scripts/validation/coverage_map.py ;;
+  sigma)      "$PY" scripts/sigma/10_annotate_sigma.py --all --jobs "${SIGMA_JOBS:-4}"
+              "$PY" scripts/sigma/20_group_sigma.py --all --threads "${SIGMA_JOBS:-4}" ;;
+  sigma_eval) "$PY" scripts/sigma/50_eval_layers.py --gold-root data/sigma/gold --all ;;
+  sigma_features) "$PY" scripts/sigma/60_feature_combinations.py --all --min-support 10 --top 8 ;;
   census)     "$PY" scripts/validation/census_geo.py ;;
   hairpins)   "$PY" scripts/regulation/annotate_hairpins.py --k12 ;;
   components)
@@ -80,7 +84,7 @@ case "$STAGE" in
     echo "=== step2 ==="; bash "$0" step2 ;;
   *)
     echo "Uso: $0 [catalog|filter|phylum|sample|download|corpus|tokenizer|"
-    echo "          precompute|verify|rna|parse|closure [top]|components|pwms|"
+    echo "          precompute|verify|rna|parse|sigma|sigma_eval|sigma_features|closure [top]|components|pwms|"
     echo "          step1|step2|all]"
     exit 1 ;;
 esac

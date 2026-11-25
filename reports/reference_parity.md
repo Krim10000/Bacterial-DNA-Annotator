@@ -1,6 +1,6 @@
 # Paridad de anotación: sistema vs GFF de referencia
 
-**Generado:** `2026-11-25T15:53:30Z`  
+**Generado:** `2026-11-25T16:39:00Z`  
 **Manifiesto:** `/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/reference_genomes.json`  
 **Raíz de datos:** `/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc`
 
@@ -12,9 +12,9 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 
 ## Cobertura
 
-- Registros con status `annotated`/`available`: **9**
-- Evaluados (con `system_summary`): **7** (ok **0**, partial **7**, not_available **0**)
-- Omitidos: **35** (2 elegibles sin `system_summary`; 33 con otro status)
+- Registros con status `annotated`/`available`: **20**
+- Evaluados (con `system_summary`): **18** (ok **0**, partial **18**, not_available **0**)
+- Omitidos: **24** (2 elegibles sin `system_summary`; 22 con otro status)
 
 ### Omitidos con status elegible
 
@@ -34,6 +34,17 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 | `crescentus` | partial | 3738 | 3886 | -148 | 96.19 | 52 | 51 | +1 | 101.96 | 4 | 6 | -2 | 66.67 |
 | `synechocystis` | partial | 3780 | 3698 | +82 | 102.22 | 41 | 41 | 0 | 100.00 | 2 | 6 | -4 | 33.33 |
 | `saureus` | partial | 2675 | 2767 | -92 | 96.68 | 61 | 59 | +2 | 103.39 | 11 | 16 | -5 | 68.75 |
+| `spneumoniae` | partial | 2168 | 2117 | +51 | 102.41 | 59 | 58 | +1 | 101.72 | 8 | 12 | -4 | 66.67 |
+| `btheta` | partial | 4945 | 4801 | +144 | 103.00 | 71 | 70 | +1 | 101.43 | 10 | 15 | -5 | 66.67 |
+| `scoelicolor` | partial | 7738 | 7755 | -17 | 99.78 | 72 | 66 | +6 | 109.09 | 12 | 18 | -6 | 66.67 |
+| `mxanthus` | partial | 7325 | 7306 | +19 | 100.26 | 69 | 66 | +3 | 104.55 | 8 | 12 | -4 | 66.67 |
+| `vcholerae` | partial | 3666 | 3665 | +1 | 100.03 | 102 | 102 | 0 | 100.00 | 21 | 31 | -10 | 67.74 |
+| `cdifficile` | partial | 3700 | 3611 | +89 | 102.46 | 91 | 90 | +1 | 101.11 | 23 | 35 | -12 | 65.71 |
+| `llactis` | partial | 2602 | 2567 | +35 | 101.36 | 71 | 70 | +1 | 101.43 | 13 | 19 | -6 | 68.42 |
+| `lmonocytogenes` | partial | 2921 | 2867 | +54 | 101.88 | 67 | 67 | 0 | 100.00 | 12 | 18 | -6 | 66.67 |
+| `efaecalis` | partial | 2730 | 2690 | +40 | 101.49 | 53 | 51 | +2 | 103.92 | 8 | 12 | -4 | 66.67 |
+| `dradiodurans` | partial | 3150 | 3148 | +2 | 100.06 | 51 | 50 | +1 | 102.00 | 3 | 9 | -6 | 33.33 |
+| `tthermophilus` | partial | 2227 | 2228 | -1 | 99.96 | 49 | 48 | +1 | 102.08 | 4 | 6 | -2 | 66.67 |
 
 ## Estado y motivos
 
@@ -46,6 +57,17 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 | `crescentus` | partial | delta CDS=-148, tRNA=+1, rRNA=-2 |
 | `synechocystis` | partial | delta CDS=+82, rRNA=-4 |
 | `saureus` | partial | delta CDS=-92, tRNA=+2, rRNA=-5 |
+| `spneumoniae` | partial | delta CDS=+51, tRNA=+1, rRNA=-4 |
+| `btheta` | partial | delta CDS=+144, tRNA=+1, rRNA=-5 |
+| `scoelicolor` | partial | delta CDS=-17, tRNA=+6, rRNA=-6 |
+| `mxanthus` | partial | delta CDS=+19, tRNA=+3, rRNA=-4 |
+| `vcholerae` | partial | delta CDS=+1, rRNA=-10 |
+| `cdifficile` | partial | delta CDS=+89, tRNA=+1, rRNA=-12 |
+| `llactis` | partial | delta CDS=+35, tRNA=+1, rRNA=-6 |
+| `lmonocytogenes` | partial | delta CDS=+54, rRNA=-6 |
+| `efaecalis` | partial | delta CDS=+40, tRNA=+2, rRNA=-4 |
+| `dradiodurans` | partial | delta CDS=+2, tRNA=+1, rRNA=-6 |
+| `tthermophilus` | partial | delta CDS=-1, tRNA=+1, rRNA=-2 |
 
 ## Entradas y metadatos
 
@@ -58,14 +80,25 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 | `crescentus` | Caulobacter crescentus | NA1000 | annotated | `data/reference_genomes/crescentus/crescentus_genomic.gff.gz` | `results/crescentus/crescentus.summary.json` |
 | `synechocystis` | Synechocystis sp. | PCC 6803 | annotated | `data/reference_genomes/synechocystis/synechocystis_genomic.gff.gz` | `results/synechocystis/synechocystis.summary.json` |
 | `saureus` | Staphylococcus aureus | NCTC 8325 | annotated | `data/reference_genomes/saureus/saureus_genomic.gff.gz` | `results/saureus/saureus.summary.json` |
+| `spneumoniae` | Streptococcus pneumoniae | D39 | annotated | `data/reference_genomes/spneumoniae/spneumoniae_genomic.gff.gz` | `results/spneumoniae/spneumoniae.summary.json` |
+| `btheta` | Bacteroides thetaiotaomicron | VPI-5482 | annotated | `data/reference_genomes/btheta/btheta_genomic.gff.gz` | `results/btheta/btheta.summary.json` |
+| `scoelicolor` | Streptomyces coelicolor | A3(2) | annotated | `data/reference_genomes/scoelicolor/scoelicolor_genomic.gff.gz` | `results/scoelicolor/scoelicolor.summary.json` |
+| `mxanthus` | Myxococcus xanthus | DK1622 | annotated | `data/reference_genomes/mxanthus/mxanthus_genomic.gff.gz` | `results/mxanthus/mxanthus.summary.json` |
+| `vcholerae` | Vibrio cholerae | N16961 | annotated | `data/reference_genomes/vcholerae/vcholerae_genomic.gff.gz` | `results/vcholerae/vcholerae.summary.json` |
+| `cdifficile` | Clostridioides difficile | 630 | annotated | `data/reference_genomes/cdifficile/cdifficile_genomic.gff.gz` | `results/cdifficile/cdifficile.summary.json` |
+| `llactis` | Lactococcus lactis | IL1403 | annotated | `data/reference_genomes/llactis/llactis_genomic.gff.gz` | `results/llactis/llactis.summary.json` |
+| `lmonocytogenes` | Listeria monocytogenes | EGD-e | annotated | `data/reference_genomes/lmonocytogenes/lmonocytogenes_genomic.gff.gz` | `results/lmonocytogenes/lmonocytogenes.summary.json` |
+| `efaecalis` | Enterococcus faecalis | V583 | annotated | `data/reference_genomes/efaecalis/efaecalis_genomic.gff.gz` | `results/efaecalis/efaecalis.summary.json` |
+| `dradiodurans` | Deinococcus radiodurans | R1 | annotated | `data/reference_genomes/dradiodurans/dradiodurans_genomic.gff.gz` | `results/dradiodurans/dradiodurans.summary.json` |
+| `tthermophilus` | Thermus thermophilus | HB27 | annotated | `data/reference_genomes/tthermophilus/tthermophilus_genomic.gff.gz` | `results/tthermophilus/tthermophilus.summary.json` |
 
 ## Agregado (micro)
 
 | clase | sistema | referencia | delta | % sistema/referencia |
 |---|---:|---:|---:|---:|
-| CDS | 28442 | 28299 | +143 | 100.51 |
-| tRNA | 398 | 393 | +5 | 101.27 |
-| rRNA | 54 | 84 | -30 | 64.29 |
+| CDS | 71614 | 71054 | +560 | 100.79 |
+| tRNA | 1153 | 1131 | +22 | 101.95 |
+| rRNA | 176 | 271 | -95 | 64.94 |
 
 El agregado suma solo genomas con conteo de sistema y referencia disponibles para esa clase.
 

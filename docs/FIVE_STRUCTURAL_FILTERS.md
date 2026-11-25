@@ -106,3 +106,8 @@ Los 5 filtros alimentan:
 - decisiones `review_decisions.tsv`.
 
 Detalle: `docs/STRUCTURAL_HYPOTHESES_INTEGRATION.md`.
+
+
+## Estrategia de ejecución
+
+Ver `docs/FILTER_STRATEGY.md`: agrupar antes de calcular, filtros baratos antes de caros y control pLDDT/pTM.

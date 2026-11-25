@@ -1,0 +1,4 @@
+[tbl2asn-forever] Found Prokka input, correcting dates in .gbf|.sqn files.
+[tbl2asn-forever] Correcting dates in /tmp/external_benchmark_prokka_ik8ng895/out/benchmark.gbf
+[tbl2asn-forever] Correcting dates in /tmp/external_benchmark_prokka_ik8ng895/out/benchmark.sqn
+[tbl2asn-forever] Dates changed from 01-JAN-2019 to 25-NOV-2026

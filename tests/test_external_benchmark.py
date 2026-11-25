@@ -528,6 +528,9 @@ def test_build_command_is_cpu_single_thread(tmp_path: Path):
     dfast = ext.build_command("dfast", "/opt/dfast", genome, out)
     assert dfast[dfast.index("--cpu") + 1] == "1"
     assert "--genome" in dfast
+    # run_benchmark crea el outdir y DFAST aborta si existe sin --force.
+    assert "--force" in dfast
+    assert dfast[-1] == "--force"
 
 
 def test_find_output_annotation_prefers_gff(tmp_path: Path):
@@ -619,6 +622,8 @@ def test_dockerfile_exists_and_is_cpu_only():
     assert "micromamba create -y -n dfast" in text
     assert "COPY benchmarks/external/external_benchmark.py" in text
     assert 'ENTRYPOINT ["python", "/opt/benchmark/external/external_benchmark.py"]' in text
+    # El ENTRYPOINT usa `python` directo: /opt/conda/bin debe estar en PATH.
+    assert "PATH=/opt/conda/bin:$PATH" in text
     assert 'CMD ["--help"]' in text
     for forbidden in ("wget ", "curl ", "git clone", "bakta_db download"):
         assert forbidden not in lower

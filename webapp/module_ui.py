@@ -6,6 +6,7 @@ Añadir un módulo no requiere tocar `app.py`.
 """
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 from typing import Any
@@ -97,12 +98,46 @@ def _store(module: Module, results: dict[str, Any]) -> None:
     st.session_state[f"module_results_{module.id}"] = results
 
 
+def _render_preview(res) -> None:
+    """Muestra una tabla de evidencia si el módulo declara `preview`."""
+    path = res.outputs.get("preview")
+    if not path:
+        return
+    p = Path(path)
+    if not p.exists():
+        return
+    try:
+        preview = pd.read_csv(p, sep="\t", nrows=500)
+    except Exception:  # noqa: BLE001 - una vista previa no debe tumbar la app
+        return
+    if preview.empty:
+        return
+    st.markdown("#### " + tr("Vista previa"))
+    st.caption(tr(
+        "Cada fila conserva la evidencia, el paso del pipeline que la detectó "
+        "y la confianza. Descarga el TSV para ver todas las filas."))
+    st.dataframe(preview, hide_index=True, width="stretch")
+    key = next((c for c in ("operon_id", "genome", "tf_locus_tag", "gene_id")
+                if c in preview.columns), None)
+    if key:
+        selected = st.selectbox(
+            tr("Fila"), preview[key].astype(str).tolist(),
+            key=f"preview_{res.module}_{key}")
+        row = json.loads(
+            preview[preview[key].astype(str) == str(selected)]
+            .iloc[[0]].to_json(orient="records"))[0]
+        st.json(row, expanded=False)
+
+
 def _render_result(res) -> None:
     if res.ok:
         st.success(tr("Módulo ejecutado en {s} s.").format(s=res.elapsed))
         if res.metrics:
             st.json(res.metrics, expanded=False)
+        _render_preview(res)
         for name, path in res.outputs.items():
+            if name == "preview":
+                continue
             p = Path(path)
             if p.exists() and p.stat().st_size < 5_000_000:
                 st.download_button(f"⬇️ {name}", p.read_bytes(), file_name=p.name,

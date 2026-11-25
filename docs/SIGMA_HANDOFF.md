@@ -18,7 +18,9 @@
 | Tests | `tests/test_sigma_annotator.py` | Copiar |
 | Documentación | `docs/SIGMA_MODULE.md`, `docs/SIGMA_GROUPS.md`, `docs/SIGMA_AUDIT.md` | Copiar |
 | Preview GUI | `webapp/module_ui.py` | **Mergear**, no sobrescribir |
-| Atajo GUI | `webapp/app.py` (`_go_to_sigma` + botón en Más) | **Mergear**, no sobrescribir |
+| Pista navegador | `webapp/browser.py` (pista `sigma`) | **Mergear**, no sobrescribir |
+| Vista Sigma | `webapp/sigma_view.py` | Copiar |
+| Modo/atajo GUI | `webapp/app.py` (`sigma` + `_go_to_sigma`) | **Mergear**, no sobrescribir |
 | Etapa CLI | `run_pipeline.sh` (`sigma`) | **Mergear** |
 | Tabla de módulos | `docs/MODULES.md` | Añadir fila |
 | Traducciones | `webapp/locales/_source.json`, `en.json`, `zh.json` | Añadir claves nuevas |
@@ -97,8 +99,11 @@ No va en **“1 · Herramientas disponibles”**: esa lista es de binarios exter
 El anotador es un **módulo** y aparece en:
 
 ```text
-🧩 Módulos → Sigmas y promotores
+🧭 Explorar genoma → 🧪 Sigmas          # ver resultados
+🧩 Módulos → Sigmas y promotores        # ejecutar el módulo
 ```
+
+Enlace directo: `?modo=sigmas&genoma=ecoli_k12`.
 
 Además se agregó un atajo:
 
@@ -108,6 +113,10 @@ Más → 🧪 Anotador de sigmas
 
 ### 4.2 Qué debe mostrar
 
+- Pista **σ promotores** en el navegador (marca + banda, color por tipo,
+  opacidad por confianza).
+- Vista **🧭 Explorar genoma → 🧪 Sigmas** con métricas, filtros, tabla,
+  evidencia y descargas.
 - Tabla de `sigma_promoters.tsv`.
 - Selector de fila.
 - JSON completo de la fila (evidencia).
@@ -168,6 +177,21 @@ python scripts/sigma/20_group_sigma.py --all --threads 8
 python -m pytest tests/test_sigma_annotator.py tests/test_modules.py \
   tests/test_menu_nav.py tests/test_i18n.py -q
 ```
+
+### Benchmark y capas (2026-11-25)
+
+Evaluación fina: [`SIGMA_LAYERED_EVAL.md`](SIGMA_LAYERED_EVAL.md).
+
+| Métrica | K-12 | B. subtilis |
+|---|---:|---:|
+| Top-1 | 57,0 % | 44,8 % |
+| Mayoría trivial | 62,6 % | 87,6 % |
+| Top-3 cualquiera | 90,2 % | 85,5 % |
+| TSS multi-sigma | 124 | 0 |
+
+**No presentar el módulo como validado.** El top-1 no supera la mayoría
+trivial; la confianza ordena hipótesis pero no está calibrada. Ver
+`docs/SIGMA_BENCHMARK.md`.
 
 ### Valores de referencia del lote (2026-11-25)
 

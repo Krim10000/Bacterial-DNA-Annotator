@@ -36,8 +36,11 @@ Este módulo corrige eso:
 
 ### 2.1 GUI
 
-1. Abre **🧩 Módulos** (o usa el atajo **Más → 🧪 Anotador de sigmas**).
+1. Abre **🧩 Módulos** (o usa el atajo **Más → 🧪 Anotador de sigmas**)
+   para **ejecutar** el módulo.
 2. Elige **Sigmas y promotores**.
+3. Para **explorar** resultados ya calculados, usa
+   **🧭 Explorar genoma → 🧪 Sigmas**.
 3. Selecciona el genoma.
 4. Pulsa **▶️ Anotar sigmas**.
 5. La vista muestra una **tabla de evidencia**; selecciona una fila para ver el
@@ -286,16 +289,19 @@ comparar especies sin confundir genes, grupos y fragmentos. Ver
 
 ## 8.2 Validación K-12 y B. subtilis
 
+> Evaluación fina por capas: [`SIGMA_LAYERED_EVAL.md`](SIGMA_LAYERED_EVAL.md).
+> Combinaciones de features: [`SIGMA_FEATURE_COMBINATIONS.md`](SIGMA_FEATURE_COMBINATIONS.md).
+> Rutas metabólicas como prior: [`SIGMA_PATHWAY_PRIOR.md`](SIGMA_PATHWAY_PRIOR.md).
+
 Resultado real del benchmark TSS-level ([`SIGMA_BENCHMARK.md`](SIGMA_BENCHMARK.md)):
 
 | Métrica | K-12 | B. subtilis |
 |---|---:|---:|
-| TSS evaluables | 3.315 | 2.226 |
-| Top-1 | **52,22 %** | **49,55 %** |
-| Top-3 | 87,69 % | 87,60 % |
-| Mayoría trivial | 60,24 % (σ70) | 87,56 % (A→σ70) |
-| Macro-F1 | 0,433 | 0,204 |
-| `no_pwm` | 1 | 848 |
+| TSS evaluables | 3.189 | 2.226 |
+| Top-1 | **57,0 %** | **44,8 %** |
+| Top-3 cualquiera | 90,2 % | 85,5 % |
+| Mayoría trivial | 62,6 % (σ70) | 87,6 % (A→σ70) |
+| TSS multi-sigma | 124 | 0 |
 
 La confianza ordena algo mejor que el azar, pero no es una probabilidad
 calibrada:
@@ -308,9 +314,9 @@ calibrada:
 
 **Lectura honesta:** el top-1 no supera la mayoría trivial; el top-3 está
 inflado por σ70. El módulo sirve para **priorizar y explorar**, no para
-confirmar. La comparación por operón da 40,91 % de coincidencia exacta y
-expone la limitación de una fila por operón: 912 genes de K-12 tienen ≥2 TSS y
-503 tienen ≥2 sigma.
+confirmar. El gold ya trae 124 TSS de K-12 con **más de un sigma**, así que un
+top-1 único no puede acertarlos todos. La comparación por operón expone la
+limitación de una fila por operón.
 
 ---
 

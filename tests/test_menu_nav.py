@@ -31,6 +31,7 @@ def test_menu_covers_every_mode_once():
 def test_menu_group_for_each_mode():
     assert app.menu_group_for("annotate") == "anotar"
     assert app.menu_group_for("browser") == "explorar"
+    assert app.menu_group_for("sigma") == "explorar"
     assert app.menu_group_for("tree") == "explorar"
     assert app.menu_group_for("pathways") == "catalogo"
     assert app.menu_group_for("modules") == "catalogo"

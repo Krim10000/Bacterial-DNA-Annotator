@@ -129,6 +129,7 @@ Metabolismo consume las proteínas de Anotación).
 | `annotation` | Anotación de FASTA | 10 | sí |
 | `metabolism` | Red metabólica y brechas | 5 | sí (requiere datos) |
 | `regulation` | Regulación y operones | 4 | ✅ resumen por genoma |
+| `sigma` | Sigmas y promotores | 7 | ✅ anota un genoma; `--all` para los 400 |
 | `structure` | Estructura y filtros | 6 | ✅ resumen global |
 | `mobile` | Móviles y defensa | 4 | ✅ resumen por genoma |
 | `ghost` | Genes fantasma | 3 | ✅ ejecuta sobre FASTA |

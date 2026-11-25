@@ -57,7 +57,7 @@ def _run(ctx: RunContext, genome: str) -> ModuleResult:
         "La expresión es opcional; si no hay tabla, se declara `not_available`.",
         "sigma54 se escanea con geometría -24/-12, no -35/-10.",
         "La agrupación por ortólogo es global: `python scripts/sigma/20_group_sigma.py --all`.",
-        "Benchmark K-12: top-1 52,2 % (mayoría trivial 60,2 %); top-3 87,7 %. "
+        "Gold K-12: top-1 57,0 % (mayoría trivial 62,6 %); top-3 90,2 %. "
         "No es validación: usar como hipótesis priorizada.",
     ]
     return ModuleResult("sigma", True, outputs=outputs, metrics=metrics,

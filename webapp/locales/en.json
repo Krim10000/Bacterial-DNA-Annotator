@@ -1401,5 +1401,6 @@
  "PAE bajo entre dos regiones indica que su posición relativa es más fiable; PAE alto indica que pueden estar bien plegadas pero mal orientadas entre sí. No demuestra interacción.": "Low PAE between two regions means their relative position is more reliable; high PAE means they may be well folded but misoriented relative to each other. It does not prove interaction.",
  "Low PAE between two regions means their relative position is more reliable; high PAE means they may be well folded but misoriented relative to each other. It does not prove interaction.": "Low PAE between two regions means their relative position is more reliable; high PAE means they may be well folded but misoriented relative to each other. It does not prove interaction.",
  "Sigma: factores sigma y promotores sigma-dependientes.\n\nEl módulo no importa Streamlit. La GUI genérica lo descubre y ejecuta sobre el\ngenoma seleccionado; las salidas incluyen la evidencia por anotación.": "Sigma: sigma factors and sigma-dependent promoters.\n\nThe module does not import Streamlit. The generic GUI discovers it and runs it on the selected genome; outputs include annotation evidence.",
- "🧪 Sigmas": "🧪 Sigmas"
+ "🧪 Sigmas": "🧪 Sigmas",
+ "Navegador, sigmas y árbol de vida del genoma activo.": "Genome browser, sigma factors and tree of life for the active genome."
 }

@@ -1,0 +1,25 @@
+2026/11/25 16:08:27 Running on Python 3.13.18 | packaged by conda-forge | (main, Oct 26 2026, 11:38:18) [GCC 15.3.0].
+2026/11/25 16:08:27 Loading a config file from /opt/conda/envs/dfast/opt/dfast-1.6.2/dfc/default_config.py
+2026/11/25 16:08:27 Working directory is set to an existing directory: '/tmp/external_benchmark_dfast_ishrnj36/out'.
+2026/11/25 16:08:27 DFAST pipeline started. (version 1.6.2)
+2026/11/25 16:08:27 Results will be generated into '/tmp/external_benchmark_dfast_ishrnj36/out'.
+2026/11/25 16:08:27 Loading a genomic fasta file from /work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna
+2026/11/25 16:08:27 Genome source information: organism=, strain=
+2026/11/25 16:08:27 The query genome is treated as a draft genome with 1 sequences.
+2026/11/25 16:08:27 Sequences are sorted by length (from longer to shorter).
+2026/11/25 16:08:27 Sequences shorter than 1000 will be eliminated.
+2026/11/25 16:08:27 Sequences will be renamed as sequence1, sequence2...
+2026/11/25 16:08:27 Locus_tag settings: locus_tag_prefix=LOCUS and step=10.
+2026/11/25 16:08:27 Locus_tags are assigned separately to each feature type. e.g. CDS: LOCUS_000xx, rRNA: LOCUS_r000xx, tRNA: LOCUS_t000xx, tmRNA: LOCUS_tm000xx.
+2026/11/25 16:08:27 Remove_Partial_Feature is enabled.
+2026/11/25 16:08:27 Remove_Overlapping_Feature is enabled. Priority: ['assembly_gap', 'CRISPR', ('tmRNA', 'tRNA', 'rRNA'), 'CDS']
+2026/11/25 16:08:27 Initializing structural annotation tools... 
+2026/11/25 16:08:27 GAPannotator initialized. (Version 1.0)
+2026/11/25 16:08:27 Setting GAPannotator options. {'len_cutoff': 5, 'linkage_evidence': 'paired-ends', 'gap_type': 'within scaffold'}
+2026/11/25 16:08:27 Checking Aragorn version... 
+2026/11/25 16:08:28 Aragorn initialized. (Version 1.2.41)
+2026/11/25 16:08:28 Setting Aragorn options. {'gcode': '-gcbact', 'cmd_options': '-l', 'transl_table': 11}
+2026/11/25 16:08:28 Checking nhmmer version... 
+2026/11/25 16:08:28 nhmmer initialized. (Version 3.4)
+2026/11/25 16:08:28 Setting nhmmer options. {'model': 'rfam', 'kingdoms': ['bac', 'arc'], 'check_eukaryotic': True, 'db_dir': '/opt/conda/envs/dfast/opt/dfast-1.6.2/db/rrna'}
+2026/11/25 16:08:28 rRNA model file not found: /opt/conda/envs/dfast/opt/dfast-1.6.2/db/rrna/Rfam_15.1_bac.hmm. Run 'dfast_file_downloader.py --rrna rfam'.

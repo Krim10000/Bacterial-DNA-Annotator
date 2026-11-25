@@ -1,0 +1,37 @@
+digraph G {
+  rankdir=TB;
+  graph [fontname="Helvetica", bgcolor="white", nodesep=0.35, ranksep=0.55];
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10, margin=0.12];
+  edge [color="#555555", arrowsize=0.7];
+
+  A [label="1.337.745 proteínas\n400 genomas", fillcolor="#E8F0FE"];
+  B [label="Anotación base\n690.157 con función | 647.588 sin hit", fillcolor="#FFF4E5"];
+  C [label="54.031 uncharacterized/DUF\ncon accesión UniProt", fillcolor="#FFF4E5"];
+  O [label="647.588 sin hit\n446.927 clusters | 360.741 singletons\nCPU: UniRef/TrEMBL/Pfam/TM/contexto", fillcolor="#F3E8FD"];
+  D [label="25.058 clusters 50%\n3.931 accesiones únicas", fillcolor="#E6F4EA"];
+  E [label="Estructuras\n1.192 AFDB + 2.570 ESMFold\n+ 169 largas aparte", fillcolor="#E6F4EA"];
+  F [label="QC pLDDT/pTM\n587/2.570 cortas completadas\n(22,8%)", fillcolor="#E6F4EA"];
+  G [label="Filtros estructurales\nF1 Foldseek | F2 M-CSA\nF3 P2Rank | F4 AlphaFill | F5 propio\n+ propagación a clusters", fillcolor="#E6F4EA"];
+  H [label="Familias conservadas no caracterizadas\nsecuencia + estructura + dominio", fillcolor="#FDE7E9"];
+  I [label="Historia evolutiva\n400 especies: orthogroups\nárbol, presencia/ausencia\nganancia/pérdida, sintenía", fillcolor="#FDE7E9"];
+  J [label="Definición negativa\n'no evidencia para X'\nORF, dominio, estructura, conservación", fillcolor="#FDE7E9"];
+  K [label="Vecindad génica\noperón, coocurrencia\ngenes conocidos, ruta", fillcolor="#FDE7E9"];
+  L [label="Complejos\npares curados + AF-Multimer\nipTM/PAE", fillcolor="#FDE7E9"];
+  M [label="Catálogo de hipótesis\nfamilia + evidencia + límites", fillcolor="#E8F0FE"];
+  N [label="Revisión, validación\ny publicación", fillcolor="#E8F0FE"];
+
+  A -> B;
+  B -> C;
+  B -> O [style=dashed, label="otra vía"];
+  C -> D -> E -> F -> G -> H;
+  H -> I;
+  H -> J;
+  H -> K;
+  K -> L;
+  I -> M;
+  J -> M;
+  K -> M;
+  L -> M;
+  M -> N;
+  O -> M [style=dashed, label="solo representantes"];
+}

@@ -315,6 +315,12 @@ def render(data_root: Path, genome: str) -> None:
         f"{stats['unresolved']:,}. La confianza es del nivel `confidence`; "
         "`sospecha_fuerte` prioriza la hipótesis, **no** la confirma."
     )
+    st.caption(
+        "**Gold K-12 (2026-11-25):** top-1 57,0 % frente a una mayoría "
+        "trivial de 62,6 %; top-3 90,2 %. La confianza ordena las hipótesis, "
+        "pero **no es una probabilidad calibrada** ni una validación "
+        "experimental. Ver `docs/SIGMA_BENCHMARK.md`."
+    )
     m1, m2, m3, m4, m5 = st.columns(5)
     m1.metric("Anotaciones", f"{stats['total']:,}")
     m2.metric("Asignados", f"{stats['assigned']:,}")

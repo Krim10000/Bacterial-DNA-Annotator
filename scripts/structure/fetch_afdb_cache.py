@@ -656,6 +656,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--limit", type=int, default=0,
                         help="máximo de accesiones nuevas en este lote; 0 = todas")
     parser.add_argument("--pae", action="store_true", help="descargar PAE JSON")
+    parser.add_argument("--pae-only", action="store_true",
+                        help="solo PDB ya presentes a los que falta PAE")
     parser.add_argument("--compress", action="store_true",
                         help="guardar descargas nuevas como .pdb.gz/.json.gz")
     parser.add_argument("--workers", type=int, default=2)
@@ -673,6 +675,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--dry-run", action="store_true",
                         help="mostrar el plan sin red ni escrituras")
     args = parser.parse_args(argv)
+    if args.pae_only:
+        args.pae = True
 
     if args.limit < 0:
         parser.error("--limit debe ser >= 0")
@@ -699,15 +703,21 @@ def main(argv: list[str] | None = None) -> int:
         apply_dedup(catalog)
         write_catalog(args.catalog, catalog)
 
-    pending = [acc for acc in accs
-               if _missing(acc, args.targets, args.pae)
-               and not is_permanent(catalog.get(acc))]
+    if args.pae_only:
+        pending = [acc for acc in accs
+                   if cached_path(args.targets, acc, "pdb") is not None
+                   and cached_path(args.targets, acc, "pae") is None
+                   and not is_permanent(catalog.get(acc))]
+    else:
+        pending = [acc for acc in accs
+                   if _missing(acc, args.targets, args.pae)
+                   and not is_permanent(catalog.get(acc))]
     pending_total = len(pending)
     if args.limit:
         pending = pending[:args.limit]
 
     print(f"accesiones totales={len(accs)} pendientes={pending_total} "
-          f"lote={len(pending)} pae={args.pae} compress={args.compress} "
+          f"lote={len(pending)} pae={args.pae} pae_only={args.pae_only} "
           f"workers={args.workers} delay={args.delay}")
 
     if args.dry_run:

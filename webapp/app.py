@@ -1217,7 +1217,7 @@ MENU_GROUPS: tuple[dict, ...] = (
         "id": "explorar",
         "title": "Explorar genoma",
         "icon": "🧭",
-        "caption": "Navegador y árbol de vida del genoma activo.",
+        "caption": "Navegador, sigmas y árbol de vida del genoma activo.",
         "modes": ("browser", "sigma", "tree", "references"),
     },
     {
