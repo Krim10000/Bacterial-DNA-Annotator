@@ -25,14 +25,18 @@ Estado:
 Nivel 1: 12 organismos modelo.
 Nivel 2: 30 organismos descritos.
 
-Actualmente disponibles:
+Estado de la descarga (2026-11-25):
 
 ```text
-subtilis
-ecoli_k12 (anotación curada; resultados del sistema pueden faltar)
+42 genomas en el manifiesto
+39 descargados (FASTA + GFF)
+2 disponibles y anotados en la GUI: subtilis, ecoli_k12
+2 anotados por el sistema: mtb_h37rv, cglutamicum
+1 planificado: rsphaeroides (el ensamblado no publica FASTA/GFF)
 ```
 
-El resto está como `planned`.
+Los 38 restantes tienen FASTA/GFF descargados y están pendientes de ejecutar el
+pipeline. No se declaran como `available` hasta que exista `results/<id>/`.
 
 ## Comparación
 

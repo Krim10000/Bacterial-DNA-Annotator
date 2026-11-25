@@ -37,11 +37,13 @@
       "Mycobrowser",
       "TubercuList"
     ],
-    "status": "downloaded",
+    "status": "annotated",
     "genome_path": "data/reference_genomes/mtb_h37rv/mtb_h37rv_genomic.fna.gz",
     "note": "BSL-3.",
     "accession": "GCF_000195955.2",
-    "annotation_path": "data/reference_genomes/mtb_h37rv/mtb_h37rv_genomic.gff.gz"
+    "annotation_path": "data/reference_genomes/mtb_h37rv/mtb_h37rv_genomic.gff.gz",
+    "system_summary": "results/mtb_h37rv/mtb_h37rv.summary.json",
+    "system_result": "results/mtb_h37rv"
   },
   {
     "id": "cglutamicum",
@@ -52,11 +54,13 @@
       "CoryneRegNet",
       "BioCyc"
     ],
-    "status": "downloaded",
+    "status": "annotated",
     "genome_path": "data/reference_genomes/cglutamicum/cglutamicum_genomic.fna.gz",
     "note": "",
     "accession": "GCF_000011325.1",
-    "annotation_path": "data/reference_genomes/cglutamicum/cglutamicum_genomic.gff.gz"
+    "annotation_path": "data/reference_genomes/cglutamicum/cglutamicum_genomic.gff.gz",
+    "system_summary": "results/cglutamicum/cglutamicum.summary.json",
+    "system_result": "results/cglutamicum"
   },
   {
     "id": "pputida",
@@ -211,10 +215,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/cdifficile/cdifficile_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_018885085.1",
-    "annotation_path": "data/reference_genomes/cdifficile/cdifficile_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "llactis",
@@ -225,10 +227,8 @@
       "LAB resources"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/llactis/llactis_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_003176835.1",
-    "annotation_path": "data/reference_genomes/llactis/llactis_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "lmonocytogenes",
@@ -239,10 +239,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/lmonocytogenes/lmonocytogenes_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000196035.1",
-    "annotation_path": "data/reference_genomes/lmonocytogenes/lmonocytogenes_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "efaecalis",
@@ -253,10 +251,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/efaecalis/efaecalis_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000393015.1",
-    "annotation_path": "data/reference_genomes/efaecalis/efaecalis_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "dradiodurans",
@@ -267,10 +263,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/dradiodurans/dradiodurans_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_020546685.1",
-    "annotation_path": "data/reference_genomes/dradiodurans/dradiodurans_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "tthermophilus",
@@ -281,10 +275,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/tthermophilus/tthermophilus_genomic.fna.gz",
-    "note": "Ya hay una cepa en los 400.",
-    "accession": "GCF_000091545.1",
-    "annotation_path": "data/reference_genomes/tthermophilus/tthermophilus_genomic.gff.gz"
+    "genome_path": "",
+    "note": "Ya hay una cepa en los 400."
   },
   {
     "id": "hpylori",
@@ -295,10 +287,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/hpylori/hpylori_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_025998455.1",
-    "annotation_path": "data/reference_genomes/hpylori/hpylori_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "cjejuni",
@@ -309,10 +299,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/cjejuni/cjejuni_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000009085.1",
-    "annotation_path": "data/reference_genomes/cjejuni/cjejuni_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "nmeningitidis",
@@ -323,10 +311,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/nmeningitidis/nmeningitidis_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_022869645.1",
-    "annotation_path": "data/reference_genomes/nmeningitidis/nmeningitidis_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "hinfluenzae",
@@ -337,10 +323,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/hinfluenzae/hinfluenzae_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_020736045.1",
-    "annotation_path": "data/reference_genomes/hinfluenzae/hinfluenzae_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "ctrachomatis",
@@ -351,10 +335,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/ctrachomatis/ctrachomatis_genomic.fna.gz",
-    "note": "Ya hay una cepa en los 400.",
-    "accession": "GCF_000008725.1",
-    "annotation_path": "data/reference_genomes/ctrachomatis/ctrachomatis_genomic.gff.gz"
+    "genome_path": "",
+    "note": "Ya hay una cepa en los 400."
   },
   {
     "id": "tpallidum",
@@ -365,10 +347,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/tpallidum/tpallidum_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000410535.2",
-    "annotation_path": "data/reference_genomes/tpallidum/tpallidum_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "bburgdorferi",
@@ -379,10 +359,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/bburgdorferi/bburgdorferi_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000008685.2",
-    "annotation_path": "data/reference_genomes/bburgdorferi/bburgdorferi_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "mgenitalium",
@@ -393,10 +371,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/mgenitalium/mgenitalium_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000027325.1",
-    "annotation_path": "data/reference_genomes/mgenitalium/mgenitalium_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "abaumannii",
@@ -407,10 +383,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/abaumannii/abaumannii_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_009035845.1",
-    "annotation_path": "data/reference_genomes/abaumannii/abaumannii_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "kpneumoniae",
@@ -421,10 +395,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/kpneumoniae/kpneumoniae_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000240185.1",
-    "annotation_path": "data/reference_genomes/kpneumoniae/kpneumoniae_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "styphimurium",
@@ -435,10 +407,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/styphimurium/styphimurium_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000006945.2",
-    "annotation_path": "data/reference_genomes/styphimurium/styphimurium_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "afabrum",
@@ -449,10 +419,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/afabrum/afabrum_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000092025.1",
-    "annotation_path": "data/reference_genomes/afabrum/afabrum_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "smeliloti",
@@ -463,10 +431,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/smeliloti/smeliloti_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000006965.1",
-    "annotation_path": "data/reference_genomes/smeliloti/smeliloti_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "rsphaeroides",
@@ -476,11 +442,9 @@
     "resources": [
       "literature"
     ],
-    "status": "planned",
+    "status": "downloaded",
     "genome_path": "",
-    "note": "",
-    "accession": "GCF_000012905.1",
-    "ftp_path": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/012/905/GCF_000012905.1_ASM1290v1"
+    "note": ""
   },
   {
     "id": "mgryphiswaldense",
@@ -491,10 +455,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/mgryphiswaldense/mgryphiswaldense_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_002995515.1",
-    "annotation_path": "data/reference_genomes/mgryphiswaldense/mgryphiswaldense_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "soneidensis",
@@ -505,10 +467,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/soneidensis/soneidensis_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000146165.2",
-    "annotation_path": "data/reference_genomes/soneidensis/soneidensis_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "cnecator",
@@ -519,10 +479,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/cnecator/cnecator_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000219215.1",
-    "annotation_path": "data/reference_genomes/cnecator/cnecator_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "zmobilis",
@@ -533,10 +491,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/zmobilis/zmobilis_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000498655.1",
-    "annotation_path": "data/reference_genomes/zmobilis/zmobilis_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "tmaritima",
@@ -547,10 +503,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/tmaritima/tmaritima_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000230655.2",
-    "annotation_path": "data/reference_genomes/tmaritima/tmaritima_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "neuropea",
@@ -561,10 +515,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/neuropea/neuropea_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_054182965.1",
-    "annotation_path": "data/reference_genomes/neuropea/neuropea_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "dvulgaris",
@@ -575,10 +527,8 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/dvulgaris/dvulgaris_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_000195755.1",
-    "annotation_path": "data/reference_genomes/dvulgaris/dvulgaris_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   },
   {
     "id": "rpalustris",
@@ -589,9 +539,7 @@
       "literature"
     ],
     "status": "downloaded",
-    "genome_path": "data/reference_genomes/rpalustris/rpalustris_genomic.fna.gz",
-    "note": "",
-    "accession": "GCF_016584445.1",
-    "annotation_path": "data/reference_genomes/rpalustris/rpalustris_genomic.gff.gz"
+    "genome_path": "",
+    "note": ""
   }
 ]
