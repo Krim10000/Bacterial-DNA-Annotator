@@ -525,3 +525,12 @@ def test_suspects_use_strand_sections():
     assert "SOSPECHA" in out
     # no debe quedar sección sin hebra si no hay elementos sin hebra
     assert "SIN HEBRA DEFINIDA" not in out
+
+
+def test_clamp_view_start_never_past_contig():
+    from webapp.browser import clamp_view_start
+    assert clamp_view_start(0, 10_000, 10_000) == 0
+    assert clamp_view_start(5_000, 10_000, 10_000) == 0
+    assert clamp_view_start(5_000, 2_000, 10_000) == 5_000
+    assert clamp_view_start(9_500, 2_000, 10_000) == 8_000
+    assert clamp_view_start(50_000, 2_000, 10_000) == 8_000

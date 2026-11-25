@@ -1689,6 +1689,21 @@ def viewport_for_span(span_start: int, span_end: int, contig_len: int, *,
             "contains": lo <= start and hi >= end}
 
 
+def clamp_view_start(start: int, size: int, contig_len: int) -> int:
+    """Inicio máximo para que la ventana completa quepa en el contig.
+
+    Si el contig es menor que la ventana, devuelve 0: no se puede avanzar a
+    una zona sin datos solo porque el visor lo permita.
+    """
+    try:
+        start = int(start)
+        size = max(1, int(size))
+        contig_len = max(0, int(contig_len))
+    except (TypeError, ValueError, OverflowError):
+        return 0
+    return max(0, min(start, max(0, contig_len - size)))
+
+
 def selection_window(kind: str, ident: str, tables: dict, contig: str,
                      start: int, end: int, *,
                      contig_len: int | None = None,
@@ -2457,6 +2472,11 @@ def render(data_root: Path, genome: str) -> None:
             except (TypeError, ValueError):
                 p_start = None
             if p_start is not None:
+                _psize = WINDOW_SIZES.get(str(pending.get("size_label")),
+                                           WINDOW_SIZES.get(
+                                               st.session_state.get("br_size_sel"),
+                                               10_000))
+                p_start = clamp_view_start(p_start, _psize, max_pos)
                 st.session_state["br_start"] = p_start
                 st.session_state["br_pos"] = p_start
         if pending.get("size_label") in WINDOW_SIZES:
@@ -2472,7 +2492,9 @@ def render(data_root: Path, genome: str) -> None:
     if qp_token != st.session_state.get("br_qp_token"):
         try:
             if qp_pos is not None:
-                p_start = min(max(0, int(qp_pos)), max_pos)
+                _qsize = WINDOW_SIZES.get(qp_w, WINDOW_SIZES.get(
+                    st.session_state.get("br_size_sel"), 10_000))
+                p_start = clamp_view_start(int(qp_pos), _qsize, max_pos)
                 st.session_state["br_start"] = p_start
                 st.session_state["br_pos"] = p_start
             if qp_w in WINDOW_SIZES:
@@ -2541,27 +2563,41 @@ def render(data_root: Path, genome: str) -> None:
         st.session_state["br_contig_sel"] = st.session_state["br_contig"]
     if st.session_state.get("br_size_sel") not in WINDOW_SIZES:
         st.session_state["br_size_sel"] = "10 kb"
-    st.session_state.setdefault(
-        "br_pos", min(int(st.session_state.get("br_start", 0)), max_pos))
     c1, c2, c3, c4, c5 = st.columns([2, 2, 1.6, 1, 1])
     contig = c1.selectbox("Contig", contigs, key="br_contig_sel")
     st.session_state["br_contig"] = contig
     size_label = c2.selectbox("Ventana", list(WINDOW_SIZES), key="br_size_sel")
     size = WINDOW_SIZES[size_label]
-    start = c3.number_input("Posición (pb)", 0, max_pos, step=size, key="br_pos")
+    # La ventana completa debe caber: si el contig tiene 10 kb y la ventana
+    # 10 kb, max_start=0 y no se permite avanzar a una zona vacía.
+    max_start = max(0, max_pos - size)
+    if st.session_state.get("br_pos", 0) > max_start:
+        st.session_state["br_pos"] = max_start
+    if st.session_state.get("br_start", 0) > max_start:
+        st.session_state["br_start"] = max_start
+    start = c3.number_input("Posición (pb)", 0, max_start, step=size,
+                            key="br_pos")
+    start = clamp_view_start(start, size, max_pos)
     st.session_state["br_start"] = int(start)
-    if c4.button("◀", key="br_left"):
+    if c4.button("◀", key="br_left", disabled=int(start) <= 0):
         st.session_state["br_pending_view"] = {
             "contig": contig, "start": max(0, int(start) - size),
             "size_label": size_label,
         }
         st.rerun()
-    if c5.button("▶", key="br_right"):
+    if c5.button("▶", key="br_right", disabled=int(start) >= max_start):
         st.session_state["br_pending_view"] = {
-            "contig": contig, "start": max(0, int(start) + size),
+            "contig": contig,
+            "start": clamp_view_start(int(start) + size, size, max_pos),
             "size_label": size_label,
         }
         st.rerun()
+    if max_pos <= size:
+        st.caption(
+            f"El contig anotado mide ~{max_pos:,} pb y la ventana es "
+            f"{size:,} pb: la vista completa cabe y no hay desplazamiento "
+            "horizontal."
+        )
 
     # --- pistas visibles: casillas, para poder superponer sin que se pisen
     t1, t2, t3, t4, t5, t6, t7 = st.columns(7)

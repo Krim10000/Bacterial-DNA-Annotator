@@ -38,3 +38,7 @@ proteínas, función y metabolismo.
 - fase GFF real;
 - prioridad configurable;
 - alerta de locus duplicado.
+
+## Límite de ventana
+
+El navegador no permite que una ventana de 10 kb avance más allá de un contig de 10 kb: `max_start=0`, flechas desactivadas y posición acotada.
