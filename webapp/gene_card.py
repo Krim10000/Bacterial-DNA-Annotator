@@ -33,6 +33,14 @@ except ImportError:  # pragma: no cover - paquete webapp.*
     from webapp.i18n import get_language
 
 try:  # importación plana cuando la app corre desde webapp/
+    import pae_utils
+except Exception:  # pragma: no cover
+    try:
+        from webapp import pae_utils
+    except Exception:
+        pae_utils = None
+
+try:  # importación plana cuando la app corre desde webapp/
     import structure_viewer
 except Exception:  # pragma: no cover - depende del entorno
     try:
@@ -738,3 +746,44 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
                     "confirm function, substrate or interface.",
                 ),
             )
+
+    # PAE local de AFDB, si se descargó junto al PDB.
+    if pae_utils is not None:
+        acc = _text(gene.get("uniprot") or gene.get("acc"))
+        pae_path = None
+        if gene.get("pae"):
+            pae_path = Path(_text(gene.get("pae")))
+        elif acc and data_root:
+            pae_path = (Path(data_root) / "metabolism" / "targets"
+                        / "afdb25k" / f"{acc.split('|')[-1]}.pae.json")
+        info = pae_utils.summarize(pae_path) if pae_path else None
+        if info and info.get("ok"):
+            st.markdown("**PAE (Predicted Aligned Error)**")
+            st.caption(
+                _t(
+                    f"PAE medio {info['mean']:.1f} Å · máximo {info['max']:.1f} Å. "
+                    "Es error relativo del modelo, no distancia ni evidencia "
+                    "experimental.",
+                    f"Mean PAE {info['mean']:.1f} Å · maximum {info['max']:.1f} Å. "
+                    "It is relative model error, not a distance or experimental "
+                    "evidence.",
+                )
+            )
+            with st.expander(_t("¿Cómo interpretar el PAE?", "How to read PAE")):
+                st.markdown(_t(
+                    "PAE bajo entre dos regiones indica que su posición "
+                    "relativa es más fiable; PAE alto indica que pueden estar "
+                    "bien plegadas pero mal orientadas entre sí. No demuestra "
+                    "interacción.",
+                    "Low PAE between two regions means their relative position "
+                    "is more reliable; high PAE means they may be well folded "
+                    "but misoriented relative to each other. It does not prove "
+                    "interaction.",
+                ))
+        elif pae_path and Path(pae_path).exists() is False:
+            st.caption(_t(
+                "PAE no descargado para esta proteína; el PDB se puede usar "
+                "igual, pero sin confianza de posición relativa.",
+                "PAE not downloaded for this protein; the PDB can still be "
+                "used, but without relative-position confidence.",
+            ))
