@@ -17,6 +17,7 @@ python scripts/structure/fetch_afdb_cache.py --limit 25 --pae --workers 3
 - reanudable;
 - catálogo con estado, hash, tamaño y URL;
 - PAE opcional con `--pae`.
+- HTTP 404 se marca `not_found` y no se reintenta en cada lote; HTTP 429 sí.
 - Si AFDB responde HTTP 429, esperar y bajar `--workers`/subir `--delay`:
   ```bash
   python scripts/structure/fetch_afdb_cache.py --pae --workers 1 --delay 1.5

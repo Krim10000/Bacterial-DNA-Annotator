@@ -111,7 +111,10 @@ def fetch(acc: str, targets: Path, catalog: dict, timeout: int, retries: int,
                 wait = int(exc.headers.get("Retry-After") or 0) or min(120, 20 * attempt)
                 time.sleep(wait)
             elif exc.code == 404:
-                break
+                return {"accession": acc, "status": "not_found", "pdb": "",
+                        "pae": "", "sha256": "", "pdb_bytes": 0, "pae_bytes": 0,
+                        "pdb_url": "", "pae_url": "", "error": last,
+                        "updated": time.strftime("%Y-%m-%dT%H:%M:%S")}
             else:
                 time.sleep(min(20, attempt * 3))
         except Exception as exc:  # noqa: BLE001
@@ -140,9 +143,13 @@ def main() -> int:
     a.targets.mkdir(parents=True, exist_ok=True)
     cat = load_catalog(a.catalog)
     accs = accessions(a.data_root)
+    def _permanent(acc: str) -> bool:
+        row = cat.get(acc) or {}
+        return row.get("status") == "not_found" or "404" in str(row.get("error", ""))
     pending = [x for x in accs if not (
         (a.targets / f"{x}.pdb").exists()
-        and (not a.pae or (a.targets / f"{x}.pae.json").exists()))]
+        and (not a.pae or (a.targets / f"{x}.pae.json").exists()))
+        and not _permanent(x)]
     if a.limit:
         pending = pending[:a.limit]
     print(f"accesiones totales={len(accs)} pendientes={len(pending)} "
