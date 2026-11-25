@@ -688,3 +688,12 @@ def test_docs_exist_and_explain_usage_and_limits():
     # No debe afirmar resultados de herramientas que no se ejecutaron.
     for phrase in ("se ejecutó bakta", "se ejecutó prokka", "se ejecutó dfast"):
         assert phrase not in lower
+
+
+def test_single_contig_resolver_accepts_tool_renaming(tmp_path: Path):
+    fasta = tmp_path / "one.fna"
+    fasta.write_text(">NC_002932.3 description here\nACGTACGT\n", encoding="utf-8")
+    resolver = ext.build_seqid_resolver(ext.read_fasta(fasta))
+    assert resolver.resolve("contig_1") == "NC_002932.3"
+    assert resolver.resolve("sequence1") == "NC_002932.3"
+    assert resolver.has("sequence1")

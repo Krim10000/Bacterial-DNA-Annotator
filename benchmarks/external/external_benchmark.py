@@ -982,6 +982,7 @@ def _seqid_aliases(value: str) -> set[str]:
 class SeqidResolver:
     mapping: dict[str, str]
     ambiguous: list[str] = field(default_factory=list)
+    single: str | None = None
 
     def _lookup(self, seqid: str) -> str | None:
         for alias in sorted(_seqid_aliases(seqid), key=len, reverse=True):
@@ -991,7 +992,9 @@ class SeqidResolver:
             root = re.sub(r"\.\d+$", "", key)
             if root in self.mapping:
                 return self.mapping[root]
-        return None
+        # Bakta/DFAST renombran el contig (contig_1, sequence1). En un genoma
+        # de un solo contig no hay ambigüedad posible: se mapea al único.
+        return self.single
 
     def has(self, seqid: str) -> bool:
         return self._lookup(seqid) is not None
@@ -1032,7 +1035,8 @@ def build_seqid_resolver(genome: GenomeInfo) -> SeqidResolver:
                         ambiguous.append(alias)
                     continue
                 mapping[key] = canonical
-    return SeqidResolver(mapping=mapping, ambiguous=ambiguous)
+    single = str(genome.contigs[0]["id"]) if len(genome.contigs) == 1 else None
+    return SeqidResolver(mapping=mapping, ambiguous=ambiguous, single=single)
 
 
 # ---------------------------------------------------------------------------
@@ -1886,6 +1890,7 @@ def evaluate_tool(
     save_gffs: str | Path | None = None,
     max_differences: int = 100,
     extra_args: Sequence[str] = (),
+    genome_path: str | Path | None = None,
 ) -> dict[str, Any]:
     """Evalúa una herramienta: precalculada, no ejecutada o ejecutada.
 
@@ -2020,7 +2025,7 @@ def evaluate_tool(
         command = build_command(
             tool,
             str(detection["path"]),
-            genome.path,
+            genome_path or genome.path,
             outdir,
             prefix=prefix,
             threads=threads,
@@ -2229,6 +2234,14 @@ def run_benchmark(
     detection = detect_tools(which=which)
     bakta_db_info = detect_bakta_db(bakta_db, environ=environ)
     results: dict[str, Any] = {}
+    tool_genome = str(genome_path)
+    tmp_fasta = None
+    if tool_genome.lower().endswith(".gz"):
+        fd, tmp_fasta = tempfile.mkstemp(prefix="benchmark_genome_", suffix=".fna")
+        os.close(fd)
+        with gzip.open(genome_path, "rb") as src, open(tmp_fasta, "wb") as dst:
+            shutil.copyfileobj(src, dst)
+        tool_genome = tmp_fasta
     for name in selected:
         results[name] = evaluate_tool(
             name,
@@ -2249,6 +2262,7 @@ def run_benchmark(
             save_gffs=save_gffs,
             max_differences=max_differences,
             extra_args=(extra_args or {}).get(name, ()),
+            genome_path=tool_genome,
         )
 
     environment_tools: dict[str, Any] = {}
@@ -2266,6 +2280,11 @@ def run_benchmark(
             )
         environment_tools[name] = item
 
+    if tmp_fasta:
+        try:
+            os.unlink(tmp_fasta)
+        except OSError:
+            pass
     not_available = [
         name for name in selected if results[name]["status"] == "not_available"
     ]

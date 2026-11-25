@@ -1,6 +1,6 @@
 # Paridad de anotación: sistema vs GFF de referencia
 
-**Generado:** `2026-11-25T16:39:00Z`  
+**Generado:** `2026-11-25T19:46:56Z`  
 **Manifiesto:** `/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/reference_genomes.json`  
 **Raíz de datos:** `/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc`
 
@@ -12,9 +12,9 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 
 ## Cobertura
 
-- Registros con status `annotated`/`available`: **20**
-- Evaluados (con `system_summary`): **18** (ok **0**, partial **18**, not_available **0**)
-- Omitidos: **24** (2 elegibles sin `system_summary`; 22 con otro status)
+- Registros con status `annotated`/`available`: **41**
+- Evaluados (con `system_summary`): **39** (ok **0**, partial **39**, not_available **0**)
+- Omitidos: **3** (2 elegibles sin `system_summary`; 1 con otro status)
 
 ### Omitidos con status elegible
 
@@ -45,6 +45,27 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 | `efaecalis` | partial | 2730 | 2690 | +40 | 101.49 | 53 | 51 | +2 | 103.92 | 8 | 12 | -4 | 66.67 |
 | `dradiodurans` | partial | 3150 | 3148 | +2 | 100.06 | 51 | 50 | +1 | 102.00 | 3 | 9 | -6 | 33.33 |
 | `tthermophilus` | partial | 2227 | 2228 | -1 | 99.96 | 49 | 48 | +1 | 102.08 | 4 | 6 | -2 | 66.67 |
+| `hpylori` | partial | 1580 | 1584 | -4 | 99.75 | 37 | 36 | +1 | 102.78 | 2 | 6 | -4 | 33.33 |
+| `cjejuni` | partial | 1673 | 1572 | +101 | 106.42 | 45 | 43 | +2 | 104.65 | 3 | 9 | -6 | 33.33 |
+| `nmeningitidis` | partial | 2050 | 2142 | -92 | 95.70 | 61 | 59 | +2 | 103.39 | 8 | 12 | -4 | 66.67 |
+| `hinfluenzae` | partial | 1819 | 1806 | +13 | 100.72 | 61 | 59 | +2 | 103.39 | 13 | 19 | -6 | 68.42 |
+| `ctrachomatis` | partial | 899 | 887 | +12 | 101.35 | 37 | 37 | 0 | 100.00 | 4 | 6 | -2 | 66.67 |
+| `tpallidum` | partial | 982 | 987 | -5 | 99.49 | 45 | 45 | 0 | 100.00 | 4 | 6 | -2 | 66.67 |
+| `bburgdorferi` | partial | 1534 | 1528 | +6 | 100.39 | 32 | 32 | 0 | 100.00 | 3 | 5 | -2 | 60.00 |
+| `mgenitalium` | partial | 494 | 524 | -30 | 94.27 | 36 | 36 | 0 | 100.00 | 2 | 3 | -1 | 66.67 |
+| `abaumannii` | partial | 3801 | 3736 | +65 | 101.74 | 77 | 74 | +3 | 104.05 | 12 | 18 | -6 | 66.67 |
+| `kpneumoniae` | partial | 5532 | 5779 | -247 | 95.73 | 91 | 62 | +29 | 146.77 | 17 | 25 | -8 | 68.00 |
+| `styphimurium` | partial | 4619 | 4554 | +65 | 101.43 | 88 | 85 | +3 | 103.53 | 15 | 22 | -7 | 68.18 |
+| `afabrum` | partial | 5330 | 5267 | +63 | 101.20 | 55 | 53 | +2 | 103.77 | 8 | 12 | -4 | 66.67 |
+| `smeliloti` | partial | 6336 | 6287 | +49 | 100.78 | 56 | 55 | +1 | 101.82 | 6 | 9 | -3 | 66.67 |
+| `mgryphiswaldense` | partial | 3945 | 3916 | +29 | 100.74 | 53 | 50 | +3 | 106.00 | 4 | 6 | -2 | 66.67 |
+| `soneidensis` | partial | 4569 | 4491 | +78 | 101.74 | 106 | 104 | +2 | 101.92 | 19 | 28 | -9 | 67.86 |
+| `cnecator` | partial | 7907 | 7887 | +20 | 100.25 | 73 | 69 | +4 | 105.80 | 10 | 15 | -5 | 66.67 |
+| `zmobilis` | partial | 1859 | 1852 | +7 | 100.38 | 49 | 48 | +1 | 102.08 | 4 | 6 | -2 | 66.67 |
+| `tmaritima` | partial | 1854 | 1866 | -12 | 99.36 | 47 | 46 | +1 | 102.17 | 2 | 3 | -1 | 66.67 |
+| `neuropea` | partial | 2621 | 2631 | -10 | 99.62 | 42 | 41 | +1 | 102.44 | 2 | 3 | -1 | 66.67 |
+| `dvulgaris` | partial | 3299 | 3249 | +50 | 101.54 | 72 | 67 | +5 | 107.46 | 11 | 16 | -5 | 68.75 |
+| `rpalustris` | partial | 4947 | 4975 | -28 | 99.44 | 51 | 49 | +2 | 104.08 | 4 | 6 | -2 | 66.67 |
 
 ## Estado y motivos
 
@@ -68,6 +89,27 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 | `efaecalis` | partial | delta CDS=+40, tRNA=+2, rRNA=-4 |
 | `dradiodurans` | partial | delta CDS=+2, tRNA=+1, rRNA=-6 |
 | `tthermophilus` | partial | delta CDS=-1, tRNA=+1, rRNA=-2 |
+| `hpylori` | partial | delta CDS=-4, tRNA=+1, rRNA=-4 |
+| `cjejuni` | partial | delta CDS=+101, tRNA=+2, rRNA=-6 |
+| `nmeningitidis` | partial | delta CDS=-92, tRNA=+2, rRNA=-4 |
+| `hinfluenzae` | partial | delta CDS=+13, tRNA=+2, rRNA=-6 |
+| `ctrachomatis` | partial | delta CDS=+12, rRNA=-2 |
+| `tpallidum` | partial | delta CDS=-5, rRNA=-2 |
+| `bburgdorferi` | partial | delta CDS=+6, rRNA=-2 |
+| `mgenitalium` | partial | delta CDS=-30, rRNA=-1 |
+| `abaumannii` | partial | delta CDS=+65, tRNA=+3, rRNA=-6 |
+| `kpneumoniae` | partial | delta CDS=-247, tRNA=+29, rRNA=-8 |
+| `styphimurium` | partial | delta CDS=+65, tRNA=+3, rRNA=-7 |
+| `afabrum` | partial | delta CDS=+63, tRNA=+2, rRNA=-4 |
+| `smeliloti` | partial | delta CDS=+49, tRNA=+1, rRNA=-3 |
+| `mgryphiswaldense` | partial | delta CDS=+29, tRNA=+3, rRNA=-2 |
+| `soneidensis` | partial | delta CDS=+78, tRNA=+2, rRNA=-9 |
+| `cnecator` | partial | delta CDS=+20, tRNA=+4, rRNA=-5 |
+| `zmobilis` | partial | delta CDS=+7, tRNA=+1, rRNA=-2 |
+| `tmaritima` | partial | delta CDS=-12, tRNA=+1, rRNA=-1 |
+| `neuropea` | partial | delta CDS=-10, tRNA=+1, rRNA=-1 |
+| `dvulgaris` | partial | delta CDS=+50, tRNA=+5, rRNA=-5 |
+| `rpalustris` | partial | delta CDS=-28, tRNA=+2, rRNA=-2 |
 
 ## Entradas y metadatos
 
@@ -91,14 +133,35 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 | `efaecalis` | Enterococcus faecalis | V583 | annotated | `data/reference_genomes/efaecalis/efaecalis_genomic.gff.gz` | `results/efaecalis/efaecalis.summary.json` |
 | `dradiodurans` | Deinococcus radiodurans | R1 | annotated | `data/reference_genomes/dradiodurans/dradiodurans_genomic.gff.gz` | `results/dradiodurans/dradiodurans.summary.json` |
 | `tthermophilus` | Thermus thermophilus | HB27 | annotated | `data/reference_genomes/tthermophilus/tthermophilus_genomic.gff.gz` | `results/tthermophilus/tthermophilus.summary.json` |
+| `hpylori` | Helicobacter pylori | 26695 | annotated | `data/reference_genomes/hpylori/hpylori_genomic.gff.gz` | `results/hpylori/hpylori.summary.json` |
+| `cjejuni` | Campylobacter jejuni | NCTC 11168 | annotated | `data/reference_genomes/cjejuni/cjejuni_genomic.gff.gz` | `results/cjejuni/cjejuni.summary.json` |
+| `nmeningitidis` | Neisseria meningitidis | MC58 | annotated | `data/reference_genomes/nmeningitidis/nmeningitidis_genomic.gff.gz` | `results/nmeningitidis/nmeningitidis.summary.json` |
+| `hinfluenzae` | Haemophilus influenzae | Rd KW20 | annotated | `data/reference_genomes/hinfluenzae/hinfluenzae_genomic.gff.gz` | `results/hinfluenzae/hinfluenzae.summary.json` |
+| `ctrachomatis` | Chlamydia trachomatis | D/UW-3/CX | annotated | `data/reference_genomes/ctrachomatis/ctrachomatis_genomic.gff.gz` | `results/ctrachomatis/ctrachomatis.summary.json` |
+| `tpallidum` | Treponema pallidum | Nichols | annotated | `data/reference_genomes/tpallidum/tpallidum_genomic.gff.gz` | `results/tpallidum/tpallidum.summary.json` |
+| `bburgdorferi` | Borrelia burgdorferi | B31 | annotated | `data/reference_genomes/bburgdorferi/bburgdorferi_genomic.gff.gz` | `results/bburgdorferi/bburgdorferi.summary.json` |
+| `mgenitalium` | Mycoplasma genitalium | G37 | annotated | `data/reference_genomes/mgenitalium/mgenitalium_genomic.gff.gz` | `results/mgenitalium/mgenitalium.summary.json` |
+| `abaumannii` | Acinetobacter baumannii | ATCC 17978 | annotated | `data/reference_genomes/abaumannii/abaumannii_genomic.gff.gz` | `results/abaumannii/abaumannii.summary.json` |
+| `kpneumoniae` | Klebsiella pneumoniae | MGH 78578 | annotated | `data/reference_genomes/kpneumoniae/kpneumoniae_genomic.gff.gz` | `results/kpneumoniae/kpneumoniae.summary.json` |
+| `styphimurium` | Salmonella enterica | Typhimurium LT2 | annotated | `data/reference_genomes/styphimurium/styphimurium_genomic.gff.gz` | `results/styphimurium/styphimurium.summary.json` |
+| `afabrum` | Agrobacterium fabrum | C58 | annotated | `data/reference_genomes/afabrum/afabrum_genomic.gff.gz` | `results/afabrum/afabrum.summary.json` |
+| `smeliloti` | Sinorhizobium meliloti | 1021 | annotated | `data/reference_genomes/smeliloti/smeliloti_genomic.gff.gz` | `results/smeliloti/smeliloti.summary.json` |
+| `mgryphiswaldense` | Magnetospirillum gryphiswaldense | MSR-1 | annotated | `data/reference_genomes/mgryphiswaldense/mgryphiswaldense_genomic.gff.gz` | `results/mgryphiswaldense/mgryphiswaldense.summary.json` |
+| `soneidensis` | Shewanella oneidensis | MR-1 | annotated | `data/reference_genomes/soneidensis/soneidensis_genomic.gff.gz` | `results/soneidensis/soneidensis.summary.json` |
+| `cnecator` | Cupriavidus necator | H16 | annotated | `data/reference_genomes/cnecator/cnecator_genomic.gff.gz` | `results/cnecator/cnecator.summary.json` |
+| `zmobilis` | Zymomonas mobilis | ZM4 | annotated | `data/reference_genomes/zmobilis/zmobilis_genomic.gff.gz` | `results/zmobilis/zmobilis.summary.json` |
+| `tmaritima` | Thermotoga maritima | MSB8 | annotated | `data/reference_genomes/tmaritima/tmaritima_genomic.gff.gz` | `results/tmaritima/tmaritima.summary.json` |
+| `neuropea` | Nitrosomonas europaea | ATCC 19718 | annotated | `data/reference_genomes/neuropea/neuropea_genomic.gff.gz` | `results/neuropea/neuropea.summary.json` |
+| `dvulgaris` | Desulfovibrio vulgaris | Hildenborough | annotated | `data/reference_genomes/dvulgaris/dvulgaris_genomic.gff.gz` | `results/dvulgaris/dvulgaris.summary.json` |
+| `rpalustris` | Rhodopseudomonas palustris | CGA009 | annotated | `data/reference_genomes/rpalustris/rpalustris_genomic.gff.gz` | `results/rpalustris/rpalustris.summary.json` |
 
 ## Agregado (micro)
 
 | clase | sistema | referencia | delta | % sistema/referencia |
 |---|---:|---:|---:|---:|
-| CDS | 71614 | 71054 | +560 | 100.79 |
-| tRNA | 1153 | 1131 | +22 | 101.95 |
-| rRNA | 176 | 271 | -95 | 64.94 |
+| CDS | 139264 | 138574 | +690 | 100.50 |
+| tRNA | 2367 | 2281 | +86 | 103.77 |
+| rRNA | 329 | 506 | -177 | 65.02 |
 
 El agregado suma solo genomas con conteo de sistema y referencia disponibles para esa clase.
 

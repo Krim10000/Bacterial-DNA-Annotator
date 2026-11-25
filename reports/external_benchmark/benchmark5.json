@@ -1,0 +1,3234 @@
+{
+  "schema": "external-benchmark-run/v1",
+  "generated_at": "2026-11-25T18:47:51Z",
+  "scope": "Comparación local de CDS/tRNA/rRNA de Bakta, Prokka y DFAST contra una referencia GFF3/GBFF. CPU, sin descargas de datos.",
+  "command": [
+    "/opt/conda/bin/python",
+    "/opt/benchmark/external/external_benchmark.py",
+    "--genome",
+    "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+    "--reference",
+    "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+    "--tools",
+    "all",
+    "--run",
+    "--threads",
+    "1",
+    "--bakta-db",
+    "/data/bakta_db",
+    "--extra-arg",
+    "dfast=--dbroot",
+    "--extra-arg",
+    "dfast=/data/dfast_db",
+    "--save-gffs",
+    "/work/reports/external_benchmark/chlorobaculum_tepidum_60kb/evidence5",
+    "--json",
+    "/work/reports/external_benchmark/benchmark5.json",
+    "--md",
+    "/work/reports/external_benchmark/benchmark5.md"
+  ],
+  "parameters": {
+    "genome": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+    "reference": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+    "reference_format": "gff3",
+    "tools": [
+      "bakta",
+      "prokka",
+      "dfast"
+    ],
+    "run": true,
+    "query_gffs": {},
+    "overlap_threshold": 0.5,
+    "exclude_pseudo": true,
+    "seqid_aliasing": true,
+    "timeout_seconds": 3600.0,
+    "threads": 1,
+    "bakta_db": "/data/bakta_db",
+    "probe_versions": true,
+    "max_differences": 100
+  },
+  "environment": {
+    "python": "3.11.18",
+    "python_executable": "/opt/conda/bin/python",
+    "platform": "Linux 6.8.0-149-generic x86_64",
+    "cpu_count": 8,
+    "tools": {
+      "bakta": {
+        "tool": "bakta",
+        "label": "Bakta",
+        "binary": "bakta",
+        "available": true,
+        "executable": true,
+        "path": "/usr/local/bin/bakta",
+        "reason": "",
+        "requires_database": true,
+        "version": "1.12.2",
+        "version_detail": {
+          "status": "ok",
+          "command": [
+            "/usr/local/bin/bakta",
+            "--version"
+          ],
+          "returncode": 0,
+          "text": "bakta 1.12.2",
+          "version": "1.12.2",
+          "runtime_seconds": 4.894,
+          "started_at": "2026-11-25T18:43:43Z",
+          "finished_at": "2026-11-25T18:43:48Z"
+        }
+      },
+      "prokka": {
+        "tool": "prokka",
+        "label": "Prokka",
+        "binary": "prokka",
+        "available": true,
+        "executable": true,
+        "path": "/usr/local/bin/prokka",
+        "reason": "",
+        "requires_database": false,
+        "version": "1.15.6",
+        "version_detail": {
+          "status": "ok",
+          "command": [
+            "/usr/local/bin/prokka",
+            "--version"
+          ],
+          "returncode": 0,
+          "text": "prokka 1.15.6",
+          "version": "1.15.6",
+          "runtime_seconds": 0.61,
+          "started_at": "2026-11-25T18:45:53Z",
+          "finished_at": "2026-11-25T18:45:54Z"
+        }
+      },
+      "dfast": {
+        "tool": "dfast",
+        "label": "DFAST",
+        "binary": "dfast",
+        "available": true,
+        "executable": true,
+        "path": "/usr/local/bin/dfast",
+        "reason": "",
+        "requires_database": false,
+        "version": "1.6.2",
+        "version_detail": {
+          "status": "ok",
+          "command": [
+            "/usr/local/bin/dfast",
+            "--version"
+          ],
+          "returncode": 0,
+          "text": "DFAST ver. 1.6.2",
+          "version": "1.6.2",
+          "runtime_seconds": 1.265,
+          "started_at": "2026-11-25T18:46:39Z",
+          "finished_at": "2026-11-25T18:46:41Z"
+        }
+      }
+    },
+    "bakta_db": {
+      "status": "ok",
+      "available": true,
+      "path": "/data/bakta_db",
+      "source": "argument",
+      "exists": true,
+      "valid": true,
+      "version": "0",
+      "version_source": "version.json",
+      "markers_found": [
+        "bakta.db",
+        "version.json"
+      ],
+      "marker_files": {
+        "version.json": {
+          "path": "/data/bakta_db/version.json",
+          "absolute_path": "/data/bakta_db/version.json",
+          "exists": true,
+          "is_file": true,
+          "is_dir": false,
+          "error": null,
+          "size_bytes": 836,
+          "mtime_utc": "2025-02-25T14:49:43Z",
+          "sha256": "2922dbac15ff5c5564257727a44daf3e5e4e5dc5800961149a802a0ce53ba3aa"
+        }
+      },
+      "entries": [
+        "README.txt",
+        "amrfinderplus-db",
+        "antifam.h3f",
+        "antifam.h3i",
+        "antifam.h3m",
+        "antifam.h3p",
+        "bakta.db",
+        "expert-protein-sequences.dmnd",
+        "ncRNA-genes.i1f",
+        "ncRNA-genes.i1i",
+        "ncRNA-genes.i1m",
+        "ncRNA-genes.i1p",
+        "ncRNA-regions.i1f",
+        "ncRNA-regions.i1i",
+        "ncRNA-regions.i1m",
+        "ncRNA-regions.i1p",
+        "oric.fna",
+        "orit.fna",
+        "pfam.h3f",
+        "pfam.h3i",
+        "pfam.h3m",
+        "pfam.h3p",
+        "pscc.dmnd",
+        "rRNA.i1f",
+        "rRNA.i1i",
+        "rRNA.i1m",
+        "rRNA.i1p",
+        "rfam-go.tsv",
+        "sorf.dmnd",
+        "version.json"
+      ],
+      "candidates": [
+        {
+          "source": "argument",
+          "path": "/data/bakta_db",
+          "exists": true
+        },
+        {
+          "source": "home",
+          "path": "/root/.bakta_db",
+          "exists": false
+        }
+      ],
+      "reason": "",
+      "absolute_path": "/data/bakta_db"
+    },
+    "available_tools": [
+      "bakta",
+      "prokka",
+      "dfast"
+    ],
+    "missing_tools": []
+  },
+  "inputs": {
+    "genome": {
+      "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+      "sha256": "2d2dc79ed637655d5c12b816b248b472090cd48f395526c7adedb572416e0949",
+      "contigs": 1,
+      "total_length": 60000,
+      "contig_ids": [
+        "NC_002932.3"
+      ],
+      "contig_ids_truncated": false,
+      "warnings": [],
+      "file": {
+        "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+        "absolute_path": "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+        "exists": true,
+        "is_file": true,
+        "is_dir": false,
+        "error": null,
+        "size_bytes": 60847,
+        "mtime_utc": "2026-11-25T12:45:22Z",
+        "sha256": "2d2dc79ed637655d5c12b816b248b472090cd48f395526c7adedb572416e0949"
+      }
+    },
+    "reference": {
+      "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+      "sha256": "73d0aeadcfc2e236eb30ae448f5788c45633806224a7f0450b8d19aa5caa4830",
+      "format": "gff3",
+      "features": 56,
+      "counts": {
+        "CDS": 55,
+        "tRNA": 1,
+        "rRNA": 0
+      },
+      "contigs": 1,
+      "contig_ids": [
+        "NC_002932.3"
+      ],
+      "contig_ids_truncated": false,
+      "excluded_pseudo": 0,
+      "skipped_lines": 0,
+      "sequence_regions": 1,
+      "warnings": [],
+      "file": {
+        "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+        "absolute_path": "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+        "exists": true,
+        "is_file": true,
+        "is_dir": false,
+        "error": null,
+        "size_bytes": 26014,
+        "mtime_utc": "2026-11-25T12:45:22Z",
+        "sha256": "73d0aeadcfc2e236eb30ae448f5788c45633806224a7f0450b8d19aa5caa4830"
+      }
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "genome_path",
+        "status": "ok",
+        "detail": "FASTA existe y es legible"
+      },
+      {
+        "name": "genome_sha256",
+        "status": "ok",
+        "detail": "SHA256 2d2dc79ed637655d5c12b816b248b472090cd48f395526c7adedb572416e0949"
+      },
+      {
+        "name": "reference_path",
+        "status": "ok",
+        "detail": "referencia gff3 con 56 features"
+      },
+      {
+        "name": "reference_sha256",
+        "status": "ok",
+        "detail": "SHA256 73d0aeadcfc2e236eb30ae448f5788c45633806224a7f0450b8d19aa5caa4830"
+      },
+      {
+        "name": "reference_features",
+        "status": "ok",
+        "detail": "CDS=55 tRNA=1 rRNA=0 pseudo_excluidos=0"
+      },
+      {
+        "name": "tool_bakta",
+        "status": "ok",
+        "detail": "binario ejecutable: /usr/local/bin/bakta"
+      },
+      {
+        "name": "tool_prokka",
+        "status": "ok",
+        "detail": "binario ejecutable: /usr/local/bin/prokka"
+      },
+      {
+        "name": "tool_dfast",
+        "status": "ok",
+        "detail": "binario ejecutable: /usr/local/bin/dfast"
+      },
+      {
+        "name": "bakta_db",
+        "status": "ok",
+        "detail": "estado=ok; /data/bakta_db"
+      },
+      {
+        "name": "result_bakta",
+        "status": "ok",
+        "detail": "estado=ok; sin incidencias"
+      },
+      {
+        "name": "result_prokka",
+        "status": "ok",
+        "detail": "estado=ok; sin incidencias"
+      },
+      {
+        "name": "result_dfast",
+        "status": "ok",
+        "detail": "estado=ok; sin incidencias"
+      }
+    ],
+    "inputs": {
+      "genome": {
+        "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+        "absolute_path": "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+        "exists": true,
+        "is_file": true,
+        "is_dir": false,
+        "error": null,
+        "size_bytes": 60847,
+        "mtime_utc": "2026-11-25T12:45:22Z",
+        "sha256": "2d2dc79ed637655d5c12b816b248b472090cd48f395526c7adedb572416e0949"
+      },
+      "reference": {
+        "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+        "absolute_path": "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+        "exists": true,
+        "is_file": true,
+        "is_dir": false,
+        "error": null,
+        "size_bytes": 26014,
+        "mtime_utc": "2026-11-25T12:45:22Z",
+        "sha256": "73d0aeadcfc2e236eb30ae448f5788c45633806224a7f0450b8d19aa5caa4830"
+      }
+    },
+    "bakta_db": {
+      "status": "ok",
+      "available": true,
+      "path": "/data/bakta_db",
+      "source": "argument",
+      "exists": true,
+      "valid": true,
+      "version": "0",
+      "version_source": "version.json",
+      "markers_found": [
+        "bakta.db",
+        "version.json"
+      ],
+      "marker_files": {
+        "version.json": {
+          "path": "/data/bakta_db/version.json",
+          "absolute_path": "/data/bakta_db/version.json",
+          "exists": true,
+          "is_file": true,
+          "is_dir": false,
+          "error": null,
+          "size_bytes": 836,
+          "mtime_utc": "2025-02-25T14:49:43Z",
+          "sha256": "2922dbac15ff5c5564257727a44daf3e5e4e5dc5800961149a802a0ce53ba3aa"
+        }
+      },
+      "entries": [
+        "README.txt",
+        "amrfinderplus-db",
+        "antifam.h3f",
+        "antifam.h3i",
+        "antifam.h3m",
+        "antifam.h3p",
+        "bakta.db",
+        "expert-protein-sequences.dmnd",
+        "ncRNA-genes.i1f",
+        "ncRNA-genes.i1i",
+        "ncRNA-genes.i1m",
+        "ncRNA-genes.i1p",
+        "ncRNA-regions.i1f",
+        "ncRNA-regions.i1i",
+        "ncRNA-regions.i1m",
+        "ncRNA-regions.i1p",
+        "oric.fna",
+        "orit.fna",
+        "pfam.h3f",
+        "pfam.h3i",
+        "pfam.h3m",
+        "pfam.h3p",
+        "pscc.dmnd",
+        "rRNA.i1f",
+        "rRNA.i1i",
+        "rRNA.i1m",
+        "rRNA.i1p",
+        "rfam-go.tsv",
+        "sorf.dmnd",
+        "version.json"
+      ],
+      "candidates": [
+        {
+          "source": "argument",
+          "path": "/data/bakta_db",
+          "exists": true
+        },
+        {
+          "source": "home",
+          "path": "/root/.bakta_db",
+          "exists": false
+        }
+      ],
+      "reason": "",
+      "absolute_path": "/data/bakta_db"
+    },
+    "versions": {
+      "bakta": "1.12.2",
+      "prokka": "1.15.6",
+      "dfast": "1.6.2"
+    },
+    "reports": {
+      "json": "reports/external_benchmark/benchmark5.json",
+      "md": "reports/external_benchmark/benchmark5.md"
+    },
+    "timing": {
+      "started_at": "2026-11-25T18:43:43Z",
+      "finished_at": "2026-11-25T18:47:51Z",
+      "total_seconds": 247.797
+    }
+  },
+  "results": {
+    "bakta": {
+      "tool": "bakta",
+      "label": "Bakta",
+      "binary": "bakta",
+      "available": true,
+      "binary_path": "/usr/local/bin/bakta",
+      "binary_executable": true,
+      "status": "ok",
+      "reason": "",
+      "source": "executed",
+      "version": {
+        "status": "ok",
+        "command": [
+          "/usr/local/bin/bakta",
+          "--version"
+        ],
+        "returncode": 0,
+        "text": "bakta 1.12.2",
+        "version": "1.12.2",
+        "runtime_seconds": 4.894,
+        "started_at": "2026-11-25T18:43:43Z",
+        "finished_at": "2026-11-25T18:43:48Z"
+      },
+      "execution": {
+        "status": "ok",
+        "command": [
+          "/usr/local/bin/bakta",
+          "--output",
+          "/tmp/external_benchmark_bakta_v_sf3db5/out",
+          "--prefix",
+          "benchmark",
+          "--threads",
+          "1",
+          "--force",
+          "--skip-plot",
+          "--db",
+          "/data/bakta_db",
+          "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna"
+        ],
+        "returncode": 0,
+        "runtime_seconds": 125.621,
+        "started_at": "2026-11-25T18:43:48Z",
+        "finished_at": "2026-11-25T18:45:53Z",
+        "max_rss_kb": 2713100,
+        "max_rss_mib": 2649.51,
+        "max_rss_delta_kb": 2556856,
+        "stdout_tail": "Parse genome sequences...\n\timported: 1\n\tfiltered & revised: 1\n\tcontigs: 1\n\nStart annotation...\npredict tRNAs...\n\tfound: 1\npredict tmRNAs...\n\tfound: 0\npredict rRNAs...\n\tfound: 0\npredict ncRNAs...\n\tfound: 1\npredict ncRNA regions...\n\tfound: 0\npredict CRISPR arrays...\n\tfound: 0\npredict & annotate CDSs...\n\tpredicted: 56 \n\tdiscarded length: 0\n\tdiscarded spurious: 1\n\trevised translational exceptions: 0\n\tskip UPS/IPS detection with light db version\n\tfound PSCCs: 47\n\tlookup annotations...\n\tconduct expert systems...\n\t\tamrfinder: 0\n\t\tprotein sequences: 0\n\tcombine annotations and mark hypotheticals...\n\tskip pseudogene detection with light db version\n\tanalyze hypothetical proteins: 8\n\t\tdetected Pfam hits: 0 \n\t\tcalculated proteins statistics\n\trevise special cases...\ndetect & annotate sORF...\n\tdetected: 561\n\tdiscarded due to overlaps: 474\n\tdiscarded spurious: 0\n\tdetected IPSs: 0\n\tfound PSCCs: 0\n\tlookup annotations...\n\tfilter and combine annotations...\n\tfiltered sORFs: 0\ndetect gaps...\n\tfound: 0\ndetect oriCs/oriVs...\n\tfound: 1\ndetect oriTs...\n\tfound: 0\napply feature overlap filters...\nselect features and create locus tags...\n\tselected: 58\nimprove annotations...\n\trevised gene symbols: 0\n\nGenome statistics:\n\tGenome size: 60,000 bp\n\tContigs/replicons: 1\n\tGC: 58.5 %\n\tN50: 60,000\n\tN90: 60,000\n\tN ratio: 0.0 %\n\tcoding density: 89.8 %\n\nannotation summary:\n\ttRNAs: 1\n\ttmRNAs: 0\n\trRNAs: 0\n\tncRNAs: 1\n\tncRNA regions: 0\n\tCRISPR arrays: 0\n\tCDSs: 55\n\t\thypotheticals: 8\n\t\tpseudogenes: 0\n\tsORFs: 0\n\tgaps: 0\n\toriCs/oriVs: 1\n\toriTs: 0\n\nExport annotation results to: /tmp/external_benchmark_bakta_v_sf3db5/out\n\thuman readable TSV...\n\tGFF3...\n\tINSDC GenBank & EMBL...\n\tgenome sequences...\n\tfeature nucleotide sequences...\n\ttranslated CDS sequences...\n\tfeature inferences...\n\tskip generation of circular genome plot...\n\thypothetical TSV...\n\ttranslated hypothetical CDS sequences...\n\tmachine readable JSON...\n\tGenome and annotation summary...\n\nIf you use these results please cite Bakta: https://doi.org/10.1099/mgen.0.000685\nAnnotation successfully finished in 2:04 [mm:ss].\n",
+        "stderr_tail": "/opt/conda/envs/bakta/lib/python3.13/site-packages/bakta/features/cds.py:51: UserWarning: sequence should be at least 100000 characters (60000 found)\n  trainings_info = gene_finder.train(*seqs, translation_table=cfg.translation_table)\n",
+        "timeout_seconds": 3600.0,
+        "rss_note": "ru_maxrss de RUSAGE_CHILDREN (KiB en Linux); es el máximo acumulado de hijos, no un perfil instantáneo.",
+        "annotation_candidates": [
+          "benchmark.gff3",
+          "benchmark.gbff"
+        ],
+        "output": {
+          "path": "/tmp/external_benchmark_bakta_v_sf3db5/out/benchmark.gff3",
+          "absolute_path": "/tmp/external_benchmark_bakta_v_sf3db5/out/benchmark.gff3",
+          "exists": true,
+          "is_file": true,
+          "is_dir": false,
+          "error": null,
+          "size_bytes": 72556,
+          "mtime_utc": "2026-11-25T18:45:53Z",
+          "sha256": "7064fcebc80c0b2fe5b0449a8afdd1378a58ffdda867b9c77fd04f28e1fb5a33"
+        }
+      },
+      "query_gff": {
+        "path": "reports/external_benchmark/chlorobaculum_tepidum_60kb/evidence5/bakta/benchmark.gff3",
+        "sha256": "7064fcebc80c0b2fe5b0449a8afdd1378a58ffdda867b9c77fd04f28e1fb5a33",
+        "format": "gff3",
+        "features": 56,
+        "counts": {
+          "CDS": 55,
+          "tRNA": 1,
+          "rRNA": 0
+        },
+        "contigs": 1,
+        "contig_ids": [
+          "contig_1"
+        ],
+        "contig_ids_truncated": false,
+        "excluded_pseudo": 0,
+        "skipped_lines": 0,
+        "sequence_regions": 1,
+        "warnings": [],
+        "file": {
+          "path": "/tmp/external_benchmark_bakta_v_sf3db5/out/benchmark.gff3",
+          "absolute_path": "/tmp/external_benchmark_bakta_v_sf3db5/out/benchmark.gff3",
+          "exists": true,
+          "is_file": true,
+          "is_dir": false,
+          "error": null,
+          "size_bytes": 72556,
+          "mtime_utc": "2026-11-25T18:45:53Z",
+          "sha256": "7064fcebc80c0b2fe5b0449a8afdd1378a58ffdda867b9c77fd04f28e1fb5a33"
+        }
+      },
+      "bakta_db": {
+        "status": "ok",
+        "available": true,
+        "path": "/data/bakta_db",
+        "source": "argument",
+        "exists": true,
+        "valid": true,
+        "version": "0",
+        "version_source": "version.json",
+        "markers_found": [
+          "bakta.db",
+          "version.json"
+        ],
+        "marker_files": {
+          "version.json": {
+            "path": "/data/bakta_db/version.json",
+            "absolute_path": "/data/bakta_db/version.json",
+            "exists": true,
+            "is_file": true,
+            "is_dir": false,
+            "error": null,
+            "size_bytes": 836,
+            "mtime_utc": "2025-02-25T14:49:43Z",
+            "sha256": "2922dbac15ff5c5564257727a44daf3e5e4e5dc5800961149a802a0ce53ba3aa"
+          }
+        },
+        "entries": [
+          "README.txt",
+          "amrfinderplus-db",
+          "antifam.h3f",
+          "antifam.h3i",
+          "antifam.h3m",
+          "antifam.h3p",
+          "bakta.db",
+          "expert-protein-sequences.dmnd",
+          "ncRNA-genes.i1f",
+          "ncRNA-genes.i1i",
+          "ncRNA-genes.i1m",
+          "ncRNA-genes.i1p",
+          "ncRNA-regions.i1f",
+          "ncRNA-regions.i1i",
+          "ncRNA-regions.i1m",
+          "ncRNA-regions.i1p",
+          "oric.fna",
+          "orit.fna",
+          "pfam.h3f",
+          "pfam.h3i",
+          "pfam.h3m",
+          "pfam.h3p",
+          "pscc.dmnd",
+          "rRNA.i1f",
+          "rRNA.i1i",
+          "rRNA.i1m",
+          "rRNA.i1p",
+          "rfam-go.tsv",
+          "sorf.dmnd",
+          "version.json"
+        ],
+        "candidates": [
+          {
+            "source": "argument",
+            "path": "/data/bakta_db",
+            "exists": true
+          },
+          {
+            "source": "home",
+            "path": "/root/.bakta_db",
+            "exists": false
+          }
+        ],
+        "reason": "",
+        "absolute_path": "/data/bakta_db"
+      },
+      "comparison": {
+        "status": "ok",
+        "reason": "",
+        "threshold": 0.5,
+        "reference_counts": {
+          "CDS": 55,
+          "tRNA": 1,
+          "rRNA": 0
+        },
+        "query_counts": {
+          "CDS": 55,
+          "tRNA": 1,
+          "rRNA": 0
+        },
+        "sequence_resolution": {
+          "enabled": true,
+          "reference_features_remapped": 0,
+          "query_features_remapped": 56,
+          "reference_unmapped_seqids": [],
+          "query_unmapped_seqids": [],
+          "reference_contigs": 1,
+          "query_contigs": 1,
+          "common_contigs": 1,
+          "common_contig_ids": [
+            "NC_002932.3"
+          ]
+        },
+        "categories": {
+          "CDS": {
+            "reference_n": 55,
+            "query_n": 55,
+            "tp": 51,
+            "fp": 4,
+            "fn": 4,
+            "precision": 0.9273,
+            "recall": 0.9273,
+            "f1": 0.9273,
+            "exact_matches": 40,
+            "boundary_shifted": 11,
+            "mean_reciprocal_overlap": 0.9783,
+            "mean_abs_start_delta": 3.5882,
+            "mean_abs_end_delta": 12.8235,
+            "attributes": {
+              "matched_pairs": 51,
+              "reference_coverage": {
+                "product": {
+                  "n": 55,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 29,
+                  "pct": 52.73
+                },
+                "locus_tag": {
+                  "n": 55,
+                  "pct": 100.0
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 55,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 9,
+                  "pct": 16.36
+                },
+                "locus_tag": {
+                  "n": 55,
+                  "pct": 100.0
+                }
+              },
+              "product": {
+                "both_present": 51,
+                "literal_matches": 12,
+                "literal_agreement": 0.2353,
+                "token_jaccard_mean": 0.4633
+              },
+              "gene": {
+                "both_present": 6,
+                "literal_matches": 6,
+                "literal_agreement": 1.0
+              },
+              "locus_tag": {
+                "both_present": 51,
+                "literal_matches": 0,
+                "literal_agreement": 0.0
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 55,
+                "with_product": 55,
+                "without_product": 0,
+                "hypothetical": 4,
+                "pct_hypothetical": 7.27
+              },
+              "query": {
+                "cds": 55,
+                "with_product": 55,
+                "without_product": 0,
+                "hypothetical": 10,
+                "pct_hypothetical": 18.18
+              }
+            }
+          },
+          "tRNA": {
+            "reference_n": 1,
+            "query_n": 1,
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "exact_matches": 1,
+            "boundary_shifted": 0,
+            "mean_reciprocal_overlap": 1.0,
+            "mean_abs_start_delta": 0.0,
+            "mean_abs_end_delta": 0.0,
+            "attributes": {
+              "matched_pairs": 1,
+              "reference_coverage": {
+                "product": {
+                  "n": 1,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": 0.0
+                },
+                "locus_tag": {
+                  "n": 1,
+                  "pct": 100.0
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 1,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 1,
+                  "pct": 100.0
+                },
+                "locus_tag": {
+                  "n": 1,
+                  "pct": 100.0
+                }
+              },
+              "product": {
+                "both_present": 1,
+                "literal_matches": 0,
+                "literal_agreement": 0.0,
+                "token_jaccard_mean": 0.6667
+              },
+              "gene": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              },
+              "locus_tag": {
+                "both_present": 1,
+                "literal_matches": 0,
+                "literal_agreement": 0.0
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              },
+              "query": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              }
+            }
+          },
+          "rRNA": {
+            "reference_n": 0,
+            "query_n": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "exact_matches": 0,
+            "boundary_shifted": 0,
+            "mean_reciprocal_overlap": null,
+            "mean_abs_start_delta": null,
+            "mean_abs_end_delta": null,
+            "attributes": {
+              "matched_pairs": 0,
+              "reference_coverage": {
+                "product": {
+                  "n": 0,
+                  "pct": null
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": null
+                },
+                "locus_tag": {
+                  "n": 0,
+                  "pct": null
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 0,
+                  "pct": null
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": null
+                },
+                "locus_tag": {
+                  "n": 0,
+                  "pct": null
+                }
+              },
+              "product": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null,
+                "token_jaccard_mean": null
+              },
+              "gene": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              },
+              "locus_tag": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              },
+              "query": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              }
+            }
+          }
+        },
+        "aggregate": {
+          "reference_n": 56,
+          "query_n": 56,
+          "tp": 52,
+          "fp": 4,
+          "fn": 4,
+          "precision": 0.9286,
+          "recall": 0.9286,
+          "f1": 0.9286,
+          "exact_matches": 41,
+          "boundary_shifted": 11,
+          "mean_reciprocal_overlap": 0.9787,
+          "mean_abs_start_delta": 3.5192,
+          "mean_abs_end_delta": 12.5769,
+          "macro_f1": 0.9637,
+          "hypothetical_reference": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 4,
+            "pct_hypothetical": 7.27
+          },
+          "hypothetical_query": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 10,
+            "pct_hypothetical": 18.18
+          }
+        },
+        "attributes": {
+          "matched_pairs": 52,
+          "reference_coverage": {
+            "product": {
+              "n": 56,
+              "pct": 100.0
+            },
+            "gene": {
+              "n": 29,
+              "pct": 51.79
+            },
+            "locus_tag": {
+              "n": 56,
+              "pct": 100.0
+            }
+          },
+          "query_coverage": {
+            "product": {
+              "n": 56,
+              "pct": 100.0
+            },
+            "gene": {
+              "n": 10,
+              "pct": 17.86
+            },
+            "locus_tag": {
+              "n": 56,
+              "pct": 100.0
+            }
+          },
+          "product": {
+            "both_present": 52,
+            "literal_matches": 12,
+            "literal_agreement": 0.2308,
+            "token_jaccard_mean": 0.4672
+          },
+          "gene": {
+            "both_present": 6,
+            "literal_matches": 6,
+            "literal_agreement": 1.0
+          },
+          "locus_tag": {
+            "both_present": 52,
+            "literal_matches": 0,
+            "literal_agreement": 0.0
+          }
+        },
+        "hypothetical": {
+          "reference": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 4,
+            "pct_hypothetical": 7.27
+          },
+          "query": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 10,
+            "pct_hypothetical": 18.18
+          }
+        },
+        "differences": {
+          "counts": {
+            "false_negatives": 4,
+            "false_positives": 4,
+            "strand_mismatches": 2,
+            "boundary_shifts": 11,
+            "exact_matches": 41
+          },
+          "false_negatives": [
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 3506,
+              "end": 3958,
+              "strand": "+",
+              "product": "ribonuclease P protein component",
+              "gene": "",
+              "locus_tag": "AYT24_RS00020"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 15585,
+              "end": 16514,
+              "strand": "-",
+              "product": "outer membrane protein assembly factor BamD",
+              "gene": "",
+              "locus_tag": "AYT24_RS00085"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 17554,
+              "end": 18081,
+              "strand": "-",
+              "product": "F0F1 ATP synthase subunit B",
+              "gene": "",
+              "locus_tag": "AYT24_RS00100"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 59083,
+              "end": 59376,
+              "strand": "-",
+              "product": "FeoA family protein",
+              "gene": "",
+              "locus_tag": "AYT24_RS00285"
+            }
+          ],
+          "false_positives": [
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 3635,
+              "end": 3814,
+              "strand": "-",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "LPLEBC_004"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 17605,
+              "end": 17916,
+              "strand": "+",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "LPLEBC_019"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 42293,
+              "end": 42658,
+              "strand": "-",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "LPLEBC_043"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 59137,
+              "end": 59370,
+              "strand": "+",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "LPLEBC_056"
+            }
+          ],
+          "strand_mismatches": [
+            {
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 59083,
+                "end": 59376,
+                "strand": "-",
+                "product": "FeoA family protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00285"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 59137,
+                "end": 59370,
+                "strand": "+",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "LPLEBC_056"
+              },
+              "reciprocal_overlap": 0.7959
+            },
+            {
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 17554,
+                "end": 18081,
+                "strand": "-",
+                "product": "F0F1 ATP synthase subunit B",
+                "gene": "",
+                "locus_tag": "AYT24_RS00100"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 17605,
+                "end": 17916,
+                "strand": "+",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "LPLEBC_019"
+              },
+              "reciprocal_overlap": 0.5909
+            }
+          ],
+          "boundary_shifts": [
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 4017,
+                "end": 4268,
+                "strand": "+",
+                "product": "membrane protein insertion efficiency factor YidD",
+                "gene": "yidD",
+                "locus_tag": "AYT24_RS00025"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 3951,
+                "end": 4268,
+                "strand": "+",
+                "product": "Putative membrane protein insertion efficiency factor",
+                "gene": "",
+                "locus_tag": "LPLEBC_005"
+              },
+              "start_delta": -66,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.7925
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 7605,
+                "end": 9044,
+                "strand": "+",
+                "product": "23S rRNA (uracil(1939)-C(5))-methyltransferase RlmD",
+                "gene": "rlmD",
+                "locus_tag": "AYT24_RS00045"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 7593,
+                "end": 9044,
+                "strand": "+",
+                "product": "Uncharacterized RNA methyltransferase CT0009",
+                "gene": "",
+                "locus_tag": "LPLEBC_009"
+              },
+              "start_delta": -12,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.9917
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 11570,
+                "end": 12604,
+                "strand": "+",
+                "product": "tryptophan--tRNA ligase",
+                "gene": "trpS",
+                "locus_tag": "AYT24_RS00065"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 11597,
+                "end": 12604,
+                "strand": "+",
+                "product": "Tryptophan--tRNA ligase",
+                "gene": "",
+                "locus_tag": "LPLEBC_013"
+              },
+              "start_delta": 27,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.9739
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 15001,
+                "end": 15588,
+                "strand": "-",
+                "product": "nicotinate (nicotinamide) nucleotide adenylyltransferase",
+                "gene": "nadD",
+                "locus_tag": "AYT24_RS00080"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 15001,
+                "end": 15423,
+                "strand": "-",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "LPLEBC_016"
+              },
+              "start_delta": 0,
+              "end_delta": -165,
+              "reciprocal_overlap": 0.7194
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 16990,
+                "end": 17535,
+                "strand": "-",
+                "product": "F0F1 ATP synthase subunit delta",
+                "gene": "",
+                "locus_tag": "AYT24_RS00095"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 16990,
+                "end": 17496,
+                "strand": "-",
+                "product": "ATP synthase subunit delta",
+                "gene": "",
+                "locus_tag": "LPLEBC_018"
+              },
+              "start_delta": 0,
+              "end_delta": -39,
+              "reciprocal_overlap": 0.9286
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 20271,
+                "end": 21260,
+                "strand": "-",
+                "product": "UDP-glucose 4-epimerase GalE",
+                "gene": "galE",
+                "locus_tag": "AYT24_RS00125"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 20271,
+                "end": 21296,
+                "strand": "-",
+                "product": "UDP-glucose 4-epimerase",
+                "gene": "",
+                "locus_tag": "LPLEBC_024"
+              },
+              "start_delta": 0,
+              "end_delta": 36,
+              "reciprocal_overlap": 0.9649
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 31609,
+                "end": 32775,
+                "strand": "-",
+                "product": "FtsW/RodA/SpoVE family cell cycle protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00175"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 31609,
+                "end": 32838,
+                "strand": "-",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "LPLEBC_034"
+              },
+              "start_delta": 0,
+              "end_delta": 63,
+              "reciprocal_overlap": 0.9488
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 35348,
+                "end": 36772,
+                "strand": "-",
+                "product": "UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase",
+                "gene": "murF",
+                "locus_tag": "AYT24_RS00190"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 35348,
+                "end": 36757,
+                "strand": "-",
+                "product": "UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase",
+                "gene": "",
+                "locus_tag": "LPLEBC_037"
+              },
+              "start_delta": 0,
+              "end_delta": -15,
+              "reciprocal_overlap": 0.9895
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 40306,
+                "end": 40686,
+                "strand": "-",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00205"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 40306,
+                "end": 40773,
+                "strand": "-",
+                "product": "Cell division protein FtsL",
+                "gene": "ftsL",
+                "locus_tag": "LPLEBC_040"
+              },
+              "start_delta": 0,
+              "end_delta": 87,
+              "reciprocal_overlap": 0.8141
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 42801,
+                "end": 43667,
+                "strand": "+",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00225"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 42879,
+                "end": 43667,
+                "strand": "+",
+                "product": "Integral membrane protein",
+                "gene": "",
+                "locus_tag": "LPLEBC_044"
+              },
+              "start_delta": 78,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.91
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 52338,
+                "end": 54092,
+                "strand": "-",
+                "product": "N-acetylmuramoyl-L-alanine amidase family protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00270"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 52338,
+                "end": 53843,
+                "strand": "-",
+                "product": "N-acetylmuramoyl-L-alanine amidase",
+                "gene": "",
+                "locus_tag": "LPLEBC_053"
+              },
+              "start_delta": 0,
+              "end_delta": -249,
+              "reciprocal_overlap": 0.8581
+            }
+          ],
+          "truncated": false,
+          "max_items": 100
+        },
+        "warnings": [],
+        "limitations": [
+          "La referencia es el gold de esta comparación; sus criterios y errores se heredan.",
+          "El emparejamiento es 1:1 voraz por solapamiento recíproco y no un óptimo bipartito.",
+          "La coincidencia literal de 'product' no mide función; los nombres dependen de cada base.",
+          "No se comparan ncRNA, tmRNA, pseudogenes (si se excluyen), dominios ni rutas.",
+          "Una herramienta ausente no es un cero: queda como not_available sin métricas.",
+          "La Bakta DB se detecta localmente; no se descarga y su ausencia deja Bakta en not_available.",
+          "No se declara superioridad entre herramientas sin un gold independiente y ejecuciones pareadas.",
+          "Las ubicaciones compuestas de GenBank se comparan por su intervalo envolvente."
+        ]
+      },
+      "timings": {
+        "started_at": "2026-11-25T18:43:43Z",
+        "finished_at": "2026-11-25T18:45:53Z",
+        "total_seconds": 130.556
+      }
+    },
+    "prokka": {
+      "tool": "prokka",
+      "label": "Prokka",
+      "binary": "prokka",
+      "available": true,
+      "binary_path": "/usr/local/bin/prokka",
+      "binary_executable": true,
+      "status": "ok",
+      "reason": "",
+      "source": "executed",
+      "version": {
+        "status": "ok",
+        "command": [
+          "/usr/local/bin/prokka",
+          "--version"
+        ],
+        "returncode": 0,
+        "text": "prokka 1.15.6",
+        "version": "1.15.6",
+        "runtime_seconds": 0.61,
+        "started_at": "2026-11-25T18:45:53Z",
+        "finished_at": "2026-11-25T18:45:54Z"
+      },
+      "execution": {
+        "status": "ok",
+        "command": [
+          "/usr/local/bin/prokka",
+          "--outdir",
+          "/tmp/external_benchmark_prokka_2qu2cvpl/out",
+          "--prefix",
+          "benchmark",
+          "--cpus",
+          "1",
+          "--force",
+          "--quiet",
+          "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna"
+        ],
+        "returncode": 0,
+        "runtime_seconds": 45.454,
+        "started_at": "2026-11-25T18:45:54Z",
+        "finished_at": "2026-11-25T18:46:39Z",
+        "max_rss_kb": 2713100,
+        "max_rss_mib": 2649.51,
+        "max_rss_delta_kb": 0,
+        "stdout_tail": "[tbl2asn-forever] Found Prokka input, correcting dates in .gbf|.sqn files.\n[tbl2asn-forever] Correcting dates in /tmp/external_benchmark_prokka_2qu2cvpl/out/benchmark.gbf\n[tbl2asn-forever] Correcting dates in /tmp/external_benchmark_prokka_2qu2cvpl/out/benchmark.sqn\n[tbl2asn-forever] Dates changed from 01-JAN-2019 to 25-NOV-2026\n",
+        "stderr_tail": "",
+        "timeout_seconds": 3600.0,
+        "rss_note": "ru_maxrss de RUSAGE_CHILDREN (KiB en Linux); es el máximo acumulado de hijos, no un perfil instantáneo.",
+        "annotation_candidates": [
+          "benchmark.gff",
+          "benchmark.gbk"
+        ],
+        "output": {
+          "path": "/tmp/external_benchmark_prokka_2qu2cvpl/out/benchmark.gff",
+          "absolute_path": "/tmp/external_benchmark_prokka_2qu2cvpl/out/benchmark.gff",
+          "exists": true,
+          "is_file": true,
+          "is_dir": false,
+          "error": null,
+          "size_bytes": 74659,
+          "mtime_utc": "2026-11-25T18:46:38Z",
+          "sha256": "bd7a273938250c0807b85058b9650fff81d9d578a17d14f30ad453e319c28e0e"
+        }
+      },
+      "query_gff": {
+        "path": "reports/external_benchmark/chlorobaculum_tepidum_60kb/evidence5/prokka/benchmark.gff",
+        "sha256": "bd7a273938250c0807b85058b9650fff81d9d578a17d14f30ad453e319c28e0e",
+        "format": "gff3",
+        "features": 56,
+        "counts": {
+          "CDS": 55,
+          "tRNA": 1,
+          "rRNA": 0
+        },
+        "contigs": 1,
+        "contig_ids": [
+          "NC_002932.3"
+        ],
+        "contig_ids_truncated": false,
+        "excluded_pseudo": 0,
+        "skipped_lines": 0,
+        "sequence_regions": 1,
+        "warnings": [],
+        "file": {
+          "path": "/tmp/external_benchmark_prokka_2qu2cvpl/out/benchmark.gff",
+          "absolute_path": "/tmp/external_benchmark_prokka_2qu2cvpl/out/benchmark.gff",
+          "exists": true,
+          "is_file": true,
+          "is_dir": false,
+          "error": null,
+          "size_bytes": 74659,
+          "mtime_utc": "2026-11-25T18:46:38Z",
+          "sha256": "bd7a273938250c0807b85058b9650fff81d9d578a17d14f30ad453e319c28e0e"
+        }
+      },
+      "bakta_db": null,
+      "comparison": {
+        "status": "ok",
+        "reason": "",
+        "threshold": 0.5,
+        "reference_counts": {
+          "CDS": 55,
+          "tRNA": 1,
+          "rRNA": 0
+        },
+        "query_counts": {
+          "CDS": 55,
+          "tRNA": 1,
+          "rRNA": 0
+        },
+        "sequence_resolution": {
+          "enabled": true,
+          "reference_features_remapped": 0,
+          "query_features_remapped": 0,
+          "reference_unmapped_seqids": [],
+          "query_unmapped_seqids": [],
+          "reference_contigs": 1,
+          "query_contigs": 1,
+          "common_contigs": 1,
+          "common_contig_ids": [
+            "NC_002932.3"
+          ]
+        },
+        "categories": {
+          "CDS": {
+            "reference_n": 55,
+            "query_n": 55,
+            "tp": 53,
+            "fp": 2,
+            "fn": 2,
+            "precision": 0.9636,
+            "recall": 0.9636,
+            "f1": 0.9636,
+            "exact_matches": 45,
+            "boundary_shifted": 8,
+            "mean_reciprocal_overlap": 0.9847,
+            "mean_abs_start_delta": 1.9811,
+            "mean_abs_end_delta": 6.6226,
+            "attributes": {
+              "matched_pairs": 53,
+              "reference_coverage": {
+                "product": {
+                  "n": 55,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 29,
+                  "pct": 52.73
+                },
+                "locus_tag": {
+                  "n": 55,
+                  "pct": 100.0
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 55,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 42,
+                  "pct": 76.36
+                },
+                "locus_tag": {
+                  "n": 55,
+                  "pct": 100.0
+                }
+              },
+              "product": {
+                "both_present": 53,
+                "literal_matches": 15,
+                "literal_agreement": 0.283,
+                "token_jaccard_mean": 0.5199
+              },
+              "gene": {
+                "both_present": 28,
+                "literal_matches": 24,
+                "literal_agreement": 0.8571
+              },
+              "locus_tag": {
+                "both_present": 53,
+                "literal_matches": 0,
+                "literal_agreement": 0.0
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 55,
+                "with_product": 55,
+                "without_product": 0,
+                "hypothetical": 4,
+                "pct_hypothetical": 7.27
+              },
+              "query": {
+                "cds": 55,
+                "with_product": 55,
+                "without_product": 0,
+                "hypothetical": 9,
+                "pct_hypothetical": 16.36
+              }
+            }
+          },
+          "tRNA": {
+            "reference_n": 1,
+            "query_n": 1,
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "exact_matches": 0,
+            "boundary_shifted": 1,
+            "mean_reciprocal_overlap": 0.9865,
+            "mean_abs_start_delta": 1.0,
+            "mean_abs_end_delta": 0.0,
+            "attributes": {
+              "matched_pairs": 1,
+              "reference_coverage": {
+                "product": {
+                  "n": 1,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": 0.0
+                },
+                "locus_tag": {
+                  "n": 1,
+                  "pct": 100.0
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 1,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": 0.0
+                },
+                "locus_tag": {
+                  "n": 1,
+                  "pct": 100.0
+                }
+              },
+              "product": {
+                "both_present": 1,
+                "literal_matches": 0,
+                "literal_agreement": 0.0,
+                "token_jaccard_mean": 0.6667
+              },
+              "gene": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              },
+              "locus_tag": {
+                "both_present": 1,
+                "literal_matches": 0,
+                "literal_agreement": 0.0
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              },
+              "query": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              }
+            }
+          },
+          "rRNA": {
+            "reference_n": 0,
+            "query_n": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "exact_matches": 0,
+            "boundary_shifted": 0,
+            "mean_reciprocal_overlap": null,
+            "mean_abs_start_delta": null,
+            "mean_abs_end_delta": null,
+            "attributes": {
+              "matched_pairs": 0,
+              "reference_coverage": {
+                "product": {
+                  "n": 0,
+                  "pct": null
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": null
+                },
+                "locus_tag": {
+                  "n": 0,
+                  "pct": null
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 0,
+                  "pct": null
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": null
+                },
+                "locus_tag": {
+                  "n": 0,
+                  "pct": null
+                }
+              },
+              "product": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null,
+                "token_jaccard_mean": null
+              },
+              "gene": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              },
+              "locus_tag": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              },
+              "query": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              }
+            }
+          }
+        },
+        "aggregate": {
+          "reference_n": 56,
+          "query_n": 56,
+          "tp": 54,
+          "fp": 2,
+          "fn": 2,
+          "precision": 0.9643,
+          "recall": 0.9643,
+          "f1": 0.9643,
+          "exact_matches": 45,
+          "boundary_shifted": 9,
+          "mean_reciprocal_overlap": 0.9847,
+          "mean_abs_start_delta": 1.963,
+          "mean_abs_end_delta": 6.5,
+          "macro_f1": 0.9818,
+          "hypothetical_reference": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 4,
+            "pct_hypothetical": 7.27
+          },
+          "hypothetical_query": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 9,
+            "pct_hypothetical": 16.36
+          }
+        },
+        "attributes": {
+          "matched_pairs": 54,
+          "reference_coverage": {
+            "product": {
+              "n": 56,
+              "pct": 100.0
+            },
+            "gene": {
+              "n": 29,
+              "pct": 51.79
+            },
+            "locus_tag": {
+              "n": 56,
+              "pct": 100.0
+            }
+          },
+          "query_coverage": {
+            "product": {
+              "n": 56,
+              "pct": 100.0
+            },
+            "gene": {
+              "n": 42,
+              "pct": 75.0
+            },
+            "locus_tag": {
+              "n": 56,
+              "pct": 100.0
+            }
+          },
+          "product": {
+            "both_present": 54,
+            "literal_matches": 15,
+            "literal_agreement": 0.2778,
+            "token_jaccard_mean": 0.5226
+          },
+          "gene": {
+            "both_present": 28,
+            "literal_matches": 24,
+            "literal_agreement": 0.8571
+          },
+          "locus_tag": {
+            "both_present": 54,
+            "literal_matches": 0,
+            "literal_agreement": 0.0
+          }
+        },
+        "hypothetical": {
+          "reference": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 4,
+            "pct_hypothetical": 7.27
+          },
+          "query": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 9,
+            "pct_hypothetical": 16.36
+          }
+        },
+        "differences": {
+          "counts": {
+            "false_negatives": 2,
+            "false_positives": 2,
+            "strand_mismatches": 0,
+            "boundary_shifts": 9,
+            "exact_matches": 45
+          },
+          "false_negatives": [
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 3285,
+              "end": 3446,
+              "strand": "+",
+              "product": "50S ribosomal protein L34",
+              "gene": "rpmH",
+              "locus_tag": "AYT24_RS00015"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 3506,
+              "end": 3958,
+              "strand": "+",
+              "product": "ribonuclease P protein component",
+              "gene": "",
+              "locus_tag": "AYT24_RS00020"
+            }
+          ],
+          "false_positives": [
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 3635,
+              "end": 3814,
+              "strand": "-",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "BBCLDECB_00003"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 42305,
+              "end": 42838,
+              "strand": "+",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "BBCLDECB_00042"
+            }
+          ],
+          "strand_mismatches": [],
+          "boundary_shifts": [
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 4017,
+                "end": 4268,
+                "strand": "+",
+                "product": "membrane protein insertion efficiency factor YidD",
+                "gene": "yidD",
+                "locus_tag": "AYT24_RS00025"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 3951,
+                "end": 4268,
+                "strand": "+",
+                "product": "Putative membrane protein insertion efficiency factor",
+                "gene": "yidD",
+                "locus_tag": "BBCLDECB_00004"
+              },
+              "start_delta": -66,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.7925
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 7605,
+                "end": 9044,
+                "strand": "+",
+                "product": "23S rRNA (uracil(1939)-C(5))-methyltransferase RlmD",
+                "gene": "rlmD",
+                "locus_tag": "AYT24_RS00045"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 7593,
+                "end": 9044,
+                "strand": "+",
+                "product": "23S rRNA (uracil-C(5))-methyltransferase RlmCD",
+                "gene": "rlmCD",
+                "locus_tag": "BBCLDECB_00008"
+              },
+              "start_delta": -12,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.9917
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 11570,
+                "end": 12604,
+                "strand": "+",
+                "product": "tryptophan--tRNA ligase",
+                "gene": "trpS",
+                "locus_tag": "AYT24_RS00065"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 11597,
+                "end": 12604,
+                "strand": "+",
+                "product": "Tryptophan--tRNA ligase",
+                "gene": "trpS",
+                "locus_tag": "BBCLDECB_00011"
+              },
+              "start_delta": 27,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.9739
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 15001,
+                "end": 15588,
+                "strand": "-",
+                "product": "nicotinate (nicotinamide) nucleotide adenylyltransferase",
+                "gene": "nadD",
+                "locus_tag": "AYT24_RS00080"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 15001,
+                "end": 15423,
+                "strand": "-",
+                "product": "putative nicotinate-nucleotide adenylyltransferase",
+                "gene": "nadD",
+                "locus_tag": "BBCLDECB_00014"
+              },
+              "start_delta": 0,
+              "end_delta": -165,
+              "reciprocal_overlap": 0.7194
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 31609,
+                "end": 32775,
+                "strand": "-",
+                "product": "FtsW/RodA/SpoVE family cell cycle protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00175"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 31609,
+                "end": 32838,
+                "strand": "-",
+                "product": "Stage V sporulation protein E",
+                "gene": "spoVE",
+                "locus_tag": "BBCLDECB_00033"
+              },
+              "start_delta": 0,
+              "end_delta": 63,
+              "reciprocal_overlap": 0.9488
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 35348,
+                "end": 36772,
+                "strand": "-",
+                "product": "UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase",
+                "gene": "murF",
+                "locus_tag": "AYT24_RS00190"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 35348,
+                "end": 36757,
+                "strand": "-",
+                "product": "UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase",
+                "gene": "murF",
+                "locus_tag": "BBCLDECB_00036"
+              },
+              "start_delta": 0,
+              "end_delta": -15,
+              "reciprocal_overlap": 0.9895
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 40306,
+                "end": 40686,
+                "strand": "-",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00205"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 40306,
+                "end": 40773,
+                "strand": "-",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "BBCLDECB_00039"
+              },
+              "start_delta": 0,
+              "end_delta": 87,
+              "reciprocal_overlap": 0.8141
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 41754,
+                "end": 42221,
+                "strand": "-",
+                "product": "division/cell wall cluster transcriptional repressor MraZ",
+                "gene": "mraZ",
+                "locus_tag": "AYT24_RS00215"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 41754,
+                "end": 42242,
+                "strand": "-",
+                "product": "Transcriptional regulator MraZ",
+                "gene": "mraZ",
+                "locus_tag": "BBCLDECB_00041"
+              },
+              "start_delta": 0,
+              "end_delta": 21,
+              "reciprocal_overlap": 0.9571
+            },
+            {
+              "type": "tRNA",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "tRNA",
+                "start": 16805,
+                "end": 16877,
+                "strand": "-",
+                "product": "tRNA-Ala",
+                "gene": "",
+                "locus_tag": "AYT24_RS00090"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "tRNA",
+                "start": 16804,
+                "end": 16877,
+                "strand": "-",
+                "product": "tRNA-Ala(cgc)",
+                "gene": "",
+                "locus_tag": "BBCLDECB_00016"
+              },
+              "start_delta": -1,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.9865
+            }
+          ],
+          "truncated": false,
+          "max_items": 100
+        },
+        "warnings": [],
+        "limitations": [
+          "La referencia es el gold de esta comparación; sus criterios y errores se heredan.",
+          "El emparejamiento es 1:1 voraz por solapamiento recíproco y no un óptimo bipartito.",
+          "La coincidencia literal de 'product' no mide función; los nombres dependen de cada base.",
+          "No se comparan ncRNA, tmRNA, pseudogenes (si se excluyen), dominios ni rutas.",
+          "Una herramienta ausente no es un cero: queda como not_available sin métricas.",
+          "La Bakta DB se detecta localmente; no se descarga y su ausencia deja Bakta en not_available.",
+          "No se declara superioridad entre herramientas sin un gold independiente y ejecuciones pareadas.",
+          "Las ubicaciones compuestas de GenBank se comparan por su intervalo envolvente."
+        ]
+      },
+      "timings": {
+        "started_at": "2026-11-25T18:45:53Z",
+        "finished_at": "2026-11-25T18:46:39Z",
+        "total_seconds": 46.098
+      }
+    },
+    "dfast": {
+      "tool": "dfast",
+      "label": "DFAST",
+      "binary": "dfast",
+      "available": true,
+      "binary_path": "/usr/local/bin/dfast",
+      "binary_executable": true,
+      "status": "ok",
+      "reason": "",
+      "source": "executed",
+      "version": {
+        "status": "ok",
+        "command": [
+          "/usr/local/bin/dfast",
+          "--version"
+        ],
+        "returncode": 0,
+        "text": "DFAST ver. 1.6.2",
+        "version": "1.6.2",
+        "runtime_seconds": 1.265,
+        "started_at": "2026-11-25T18:46:39Z",
+        "finished_at": "2026-11-25T18:46:41Z"
+      },
+      "execution": {
+        "status": "ok",
+        "command": [
+          "/usr/local/bin/dfast",
+          "--genome",
+          "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+          "--out",
+          "/tmp/external_benchmark_dfast_z6e7xx31/out",
+          "--cpu",
+          "1",
+          "--force",
+          "--dbroot",
+          "/data/dfast_db"
+        ],
+        "returncode": 0,
+        "runtime_seconds": 69.816,
+        "started_at": "2026-11-25T18:46:41Z",
+        "finished_at": "2026-11-25T18:47:51Z",
+        "max_rss_kb": 2713100,
+        "max_rss_mib": 2649.51,
+        "max_rss_delta_kb": 0,
+        "stdout_tail": "/11/25 18:46:46 Setting CDDsearch options. {'skipAnnotatedFeatures': False, 'evalue_cutoff': 1e-06, 'database': '/data/dfast_db/cdd/Cog', 'rpsbproc_data': '/data/dfast_db/cdd/rpsbproc_data'}\n2026/11/25 18:46:46 Checking RPSblast version... \n2026/11/25 18:46:46 RPSblast initialized. (Version 2.17.0)\n2026/11/25 18:46:46 Setting RPSblast options. {'skipAnnotatedFeatures': False, 'evalue_cutoff': 1e-06, 'database': '/data/dfast_db/cdd/Cog', 'rpsbproc_data': '/data/dfast_db/cdd/rpsbproc_data'}\n2026/11/25 18:46:46 Checking rpsbproc version... \n2026/11/25 18:46:46 rpsbproc initialized. (Version 0.5.1)\n2026/11/25 18:46:46 Setting rpsbproc options. {'skipAnnotatedFeatures': False, 'evalue_cutoff': 1e-06, 'database': '/data/dfast_db/cdd/Cog', 'rpsbproc_data': '/data/dfast_db/cdd/rpsbproc_data'}\n2026/11/25 18:46:46 Start structural annotation process using 1 CPUs\n2026/11/25 18:46:48 0 assembly_gap features were detected by GAPannotator.\n2026/11/25 18:46:48 1 tRNA features were detected by Aragorn.\n2026/11/25 18:46:48 0 rRNA features were detected by nhmmer.\n2026/11/25 18:46:48 0 CRISPR (later will be replaced by repeat_region) features were detected by Diced.\n2026/11/25 18:46:48 57 CDS features were detected by Prodigal.\n2026/11/25 18:46:48 Adjusted locations of 0 rRNA features at contig ends or assembly gaps. 0 partial rRNA features are annotated as misc_feature.\n2026/11/25 18:46:48 Start executing functional annotation components.\n2026/11/25 18:46:48 DBsearch will be performed using 1 CPUs.\n2026/11/25 18:46:56 DBsearch done 1/1.\n2026/11/25 18:46:56 Last format DB will be performed using 1 CPUs.\n2026/11/25 18:46:56 Last format DB done 1/1.\n2026/11/25 18:46:56 Last alignment will be performed using 1 CPUs.\n2026/11/25 18:47:43 Last alignment done 1/1.\n2026/11/25 18:47:43 0 CDS features were marked as possible pseudo due to internal stop codons.\n2026/11/25 18:47:43 0 CDS features were marked as possible pseudo due to frameshift.\n2026/11/25 18:47:43 HMMscan will be performed using 1 CPUs.\n2026/11/25 18:47:45 HMMscan done 1/1.\n2026/11/25 18:47:45 Collecting HMMscan results.\n2026/11/25 18:47:45 2 CDSs were named by TIGR HMMs.\n2026/11/25 18:47:45 RPSblast will be performed using 1 CPUs.\n2026/11/25 18:47:48 RPSblast done 1/1.\n2026/11/25 18:47:48 rpsbproc will be performed using 1 CPUs.\n2026/11/25 18:47:49 rpsbproc done 1/1.\n2026/11/25 18:47:50 Start contig annotation process using 1 CPUs\n2026/11/25 18:47:50 Removed 1 features by specific overlap rules: Aragorn_1 tRNA sequence1:16804..16877(-) [overlapping CDS Prodigal_16 at 15585..16892(-) (JCVI: outer membrane protein assembly factor BamD)]\n2026/11/25 18:47:50 Removed 0 overlapping features.\n2026/11/25 18:47:50 Removed 1 partial features.\n2026/11/25 18:47:50 Assigning locus_tags to CDS, rRNA, tRNA, tmRNA\n2026/11/25 18:47:50 Setting output verbosity level to 3.\n2026/11/25 18:47:50 Writing a genome fasta file to /tmp/external_benchmark_dfast_z6e7xx31/out/genome.fna\n2026/11/25 18:47:50 Writing a CDS fasta file to /tmp/external_benchmark_dfast_z6e7xx31/out/cds.fna\n2026/11/25 18:47:50 Writing a protein fasta file to /tmp/external_benchmark_dfast_z6e7xx31/out/protein.faa\n2026/11/25 18:47:50 Writing an RNA fasta file to /tmp/external_benchmark_dfast_z6e7xx31/out/rna.fna\n2026/11/25 18:47:50 Writing a GFF file to /tmp/external_benchmark_dfast_z6e7xx31/out/genome.gff\n2026/11/25 18:47:50 Writing a GenBank format file to /tmp/external_benchmark_dfast_z6e7xx31/out/genome.gbk\n2026/11/25 18:47:50 Writing an EMBL format file to /tmp/external_benchmark_dfast_z6e7xx31/out/genome.embl\n2026/11/25 18:47:50 Writing a DDBJ annotation file to /tmp/external_benchmark_dfast_z6e7xx31/out/ddbj/mss.ann\n2026/11/25 18:47:50 Writing a DDBJ sequence file to /tmp/external_benchmark_dfast_z6e7xx31/out/ddbj/mss.fasta\n2026/11/25 18:47:50 [Experimental] DFAST Record JSON will not be generated. Please install dr_tools and use Python>=3.10.\n2026/11/25 18:47:50 DFAST pipeline completed!\n2026/11/25 18:47:50 Total running time: 0h1m8s\n",
+        "stderr_tail": "",
+        "timeout_seconds": 3600.0,
+        "rss_note": "ru_maxrss de RUSAGE_CHILDREN (KiB en Linux); es el máximo acumulado de hijos, no un perfil instantáneo.",
+        "annotation_candidates": [
+          "genome.gff",
+          "genome.gbk"
+        ],
+        "output": {
+          "path": "/tmp/external_benchmark_dfast_z6e7xx31/out/genome.gff",
+          "absolute_path": "/tmp/external_benchmark_dfast_z6e7xx31/out/genome.gff",
+          "exists": true,
+          "is_file": true,
+          "is_dir": false,
+          "error": null,
+          "size_bytes": 106958,
+          "mtime_utc": "2026-11-25T18:47:50Z",
+          "sha256": "a404f2421b2266c676e2273bbe1f8c9cc981d7e2f084928694fcc6ce9dfeb701"
+        }
+      },
+      "query_gff": {
+        "path": "reports/external_benchmark/chlorobaculum_tepidum_60kb/evidence5/dfast/genome.gff",
+        "sha256": "a404f2421b2266c676e2273bbe1f8c9cc981d7e2f084928694fcc6ce9dfeb701",
+        "format": "gff3",
+        "features": 56,
+        "counts": {
+          "CDS": 56,
+          "tRNA": 0,
+          "rRNA": 0
+        },
+        "contigs": 1,
+        "contig_ids": [
+          "sequence1"
+        ],
+        "contig_ids_truncated": false,
+        "excluded_pseudo": 0,
+        "skipped_lines": 0,
+        "sequence_regions": 0,
+        "warnings": [],
+        "file": {
+          "path": "/tmp/external_benchmark_dfast_z6e7xx31/out/genome.gff",
+          "absolute_path": "/tmp/external_benchmark_dfast_z6e7xx31/out/genome.gff",
+          "exists": true,
+          "is_file": true,
+          "is_dir": false,
+          "error": null,
+          "size_bytes": 106958,
+          "mtime_utc": "2026-11-25T18:47:50Z",
+          "sha256": "a404f2421b2266c676e2273bbe1f8c9cc981d7e2f084928694fcc6ce9dfeb701"
+        }
+      },
+      "bakta_db": null,
+      "comparison": {
+        "status": "ok",
+        "reason": "",
+        "threshold": 0.5,
+        "reference_counts": {
+          "CDS": 55,
+          "tRNA": 1,
+          "rRNA": 0
+        },
+        "query_counts": {
+          "CDS": 56,
+          "tRNA": 0,
+          "rRNA": 0
+        },
+        "sequence_resolution": {
+          "enabled": true,
+          "reference_features_remapped": 0,
+          "query_features_remapped": 56,
+          "reference_unmapped_seqids": [],
+          "query_unmapped_seqids": [],
+          "reference_contigs": 1,
+          "query_contigs": 1,
+          "common_contigs": 1,
+          "common_contig_ids": [
+            "NC_002932.3"
+          ]
+        },
+        "categories": {
+          "CDS": {
+            "reference_n": 55,
+            "query_n": 56,
+            "tp": 52,
+            "fp": 4,
+            "fn": 3,
+            "precision": 0.9286,
+            "recall": 0.9455,
+            "f1": 0.9369,
+            "exact_matches": 40,
+            "boundary_shifted": 12,
+            "mean_reciprocal_overlap": 0.9731,
+            "mean_abs_start_delta": 3.5192,
+            "mean_abs_end_delta": 19.8462,
+            "attributes": {
+              "matched_pairs": 52,
+              "reference_coverage": {
+                "product": {
+                  "n": 55,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 29,
+                  "pct": 52.73
+                },
+                "locus_tag": {
+                  "n": 55,
+                  "pct": 100.0
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 56,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 29,
+                  "pct": 51.79
+                },
+                "locus_tag": {
+                  "n": 56,
+                  "pct": 100.0
+                }
+              },
+              "product": {
+                "both_present": 52,
+                "literal_matches": 43,
+                "literal_agreement": 0.8269,
+                "token_jaccard_mean": 0.8714
+              },
+              "gene": {
+                "both_present": 28,
+                "literal_matches": 28,
+                "literal_agreement": 1.0
+              },
+              "locus_tag": {
+                "both_present": 52,
+                "literal_matches": 0,
+                "literal_agreement": 0.0
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 55,
+                "with_product": 55,
+                "without_product": 0,
+                "hypothetical": 4,
+                "pct_hypothetical": 7.27
+              },
+              "query": {
+                "cds": 56,
+                "with_product": 56,
+                "without_product": 0,
+                "hypothetical": 10,
+                "pct_hypothetical": 17.86
+              }
+            }
+          },
+          "tRNA": {
+            "reference_n": 1,
+            "query_n": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 1,
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0,
+            "exact_matches": 0,
+            "boundary_shifted": 0,
+            "mean_reciprocal_overlap": null,
+            "mean_abs_start_delta": null,
+            "mean_abs_end_delta": null,
+            "attributes": {
+              "matched_pairs": 0,
+              "reference_coverage": {
+                "product": {
+                  "n": 1,
+                  "pct": 100.0
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": 0.0
+                },
+                "locus_tag": {
+                  "n": 1,
+                  "pct": 100.0
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 0,
+                  "pct": null
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": null
+                },
+                "locus_tag": {
+                  "n": 0,
+                  "pct": null
+                }
+              },
+              "product": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null,
+                "token_jaccard_mean": null
+              },
+              "gene": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              },
+              "locus_tag": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              },
+              "query": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              }
+            }
+          },
+          "rRNA": {
+            "reference_n": 0,
+            "query_n": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "exact_matches": 0,
+            "boundary_shifted": 0,
+            "mean_reciprocal_overlap": null,
+            "mean_abs_start_delta": null,
+            "mean_abs_end_delta": null,
+            "attributes": {
+              "matched_pairs": 0,
+              "reference_coverage": {
+                "product": {
+                  "n": 0,
+                  "pct": null
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": null
+                },
+                "locus_tag": {
+                  "n": 0,
+                  "pct": null
+                }
+              },
+              "query_coverage": {
+                "product": {
+                  "n": 0,
+                  "pct": null
+                },
+                "gene": {
+                  "n": 0,
+                  "pct": null
+                },
+                "locus_tag": {
+                  "n": 0,
+                  "pct": null
+                }
+              },
+              "product": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null,
+                "token_jaccard_mean": null
+              },
+              "gene": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              },
+              "locus_tag": {
+                "both_present": 0,
+                "literal_matches": 0,
+                "literal_agreement": null
+              }
+            },
+            "hypothetical": {
+              "reference": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              },
+              "query": {
+                "cds": 0,
+                "with_product": 0,
+                "without_product": 0,
+                "hypothetical": 0,
+                "pct_hypothetical": null
+              }
+            }
+          }
+        },
+        "aggregate": {
+          "reference_n": 56,
+          "query_n": 56,
+          "tp": 52,
+          "fp": 4,
+          "fn": 4,
+          "precision": 0.9286,
+          "recall": 0.9286,
+          "f1": 0.9286,
+          "exact_matches": 40,
+          "boundary_shifted": 12,
+          "mean_reciprocal_overlap": 0.9731,
+          "mean_abs_start_delta": 3.5192,
+          "mean_abs_end_delta": 19.8462,
+          "macro_f1": 0.4684,
+          "hypothetical_reference": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 4,
+            "pct_hypothetical": 7.27
+          },
+          "hypothetical_query": {
+            "cds": 56,
+            "with_product": 56,
+            "without_product": 0,
+            "hypothetical": 10,
+            "pct_hypothetical": 17.86
+          }
+        },
+        "attributes": {
+          "matched_pairs": 52,
+          "reference_coverage": {
+            "product": {
+              "n": 56,
+              "pct": 100.0
+            },
+            "gene": {
+              "n": 29,
+              "pct": 51.79
+            },
+            "locus_tag": {
+              "n": 56,
+              "pct": 100.0
+            }
+          },
+          "query_coverage": {
+            "product": {
+              "n": 56,
+              "pct": 100.0
+            },
+            "gene": {
+              "n": 29,
+              "pct": 51.79
+            },
+            "locus_tag": {
+              "n": 56,
+              "pct": 100.0
+            }
+          },
+          "product": {
+            "both_present": 52,
+            "literal_matches": 43,
+            "literal_agreement": 0.8269,
+            "token_jaccard_mean": 0.8714
+          },
+          "gene": {
+            "both_present": 28,
+            "literal_matches": 28,
+            "literal_agreement": 1.0
+          },
+          "locus_tag": {
+            "both_present": 52,
+            "literal_matches": 0,
+            "literal_agreement": 0.0
+          }
+        },
+        "hypothetical": {
+          "reference": {
+            "cds": 55,
+            "with_product": 55,
+            "without_product": 0,
+            "hypothetical": 4,
+            "pct_hypothetical": 7.27
+          },
+          "query": {
+            "cds": 56,
+            "with_product": 56,
+            "without_product": 0,
+            "hypothetical": 10,
+            "pct_hypothetical": 17.86
+          }
+        },
+        "differences": {
+          "counts": {
+            "false_negatives": 4,
+            "false_positives": 4,
+            "strand_mismatches": 2,
+            "boundary_shifts": 12,
+            "exact_matches": 40
+          },
+          "false_negatives": [
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 3506,
+              "end": 3958,
+              "strand": "+",
+              "product": "ribonuclease P protein component",
+              "gene": "",
+              "locus_tag": "AYT24_RS00020"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 17554,
+              "end": 18081,
+              "strand": "-",
+              "product": "F0F1 ATP synthase subunit B",
+              "gene": "",
+              "locus_tag": "AYT24_RS00100"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 59083,
+              "end": 59376,
+              "strand": "-",
+              "product": "FeoA family protein",
+              "gene": "",
+              "locus_tag": "AYT24_RS00285"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "tRNA",
+              "start": 16805,
+              "end": 16877,
+              "strand": "-",
+              "product": "tRNA-Ala",
+              "gene": "",
+              "locus_tag": "AYT24_RS00090"
+            }
+          ],
+          "false_positives": [
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 3635,
+              "end": 3814,
+              "strand": "-",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "LOCUS_040"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 17605,
+              "end": 17916,
+              "strand": "+",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "LOCUS_180"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 42293,
+              "end": 42658,
+              "strand": "-",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "LOCUS_420"
+            },
+            {
+              "seqid": "NC_002932.3",
+              "type": "CDS",
+              "start": 59137,
+              "end": 59370,
+              "strand": "+",
+              "product": "hypothetical protein",
+              "gene": "",
+              "locus_tag": "LOCUS_550"
+            }
+          ],
+          "strand_mismatches": [
+            {
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 59083,
+                "end": 59376,
+                "strand": "-",
+                "product": "FeoA family protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00285"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 59137,
+                "end": 59370,
+                "strand": "+",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "LOCUS_550"
+              },
+              "reciprocal_overlap": 0.7959
+            },
+            {
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 17554,
+                "end": 18081,
+                "strand": "-",
+                "product": "F0F1 ATP synthase subunit B",
+                "gene": "",
+                "locus_tag": "AYT24_RS00100"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 17605,
+                "end": 17916,
+                "strand": "+",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "LOCUS_180"
+              },
+              "reciprocal_overlap": 0.5909
+            }
+          ],
+          "boundary_shifts": [
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 4017,
+                "end": 4268,
+                "strand": "+",
+                "product": "membrane protein insertion efficiency factor YidD",
+                "gene": "yidD",
+                "locus_tag": "AYT24_RS00025"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 3951,
+                "end": 4268,
+                "strand": "+",
+                "product": "membrane protein insertion efficiency factor YidD",
+                "gene": "yidD",
+                "locus_tag": "LOCUS_050"
+              },
+              "start_delta": -66,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.7925
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 7605,
+                "end": 9044,
+                "strand": "+",
+                "product": "23S rRNA (uracil(1939)-C(5))-methyltransferase RlmD",
+                "gene": "rlmD",
+                "locus_tag": "AYT24_RS00045"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 7593,
+                "end": 9044,
+                "strand": "+",
+                "product": "23S rRNA (uracil(1939)-C(5))-methyltransferase RlmD",
+                "gene": "rlmD",
+                "locus_tag": "LOCUS_090"
+              },
+              "start_delta": -12,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.9917
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 11570,
+                "end": 12604,
+                "strand": "+",
+                "product": "tryptophan--tRNA ligase",
+                "gene": "trpS",
+                "locus_tag": "AYT24_RS00065"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 11597,
+                "end": 12604,
+                "strand": "+",
+                "product": "tryptophan--tRNA ligase",
+                "gene": "trpS",
+                "locus_tag": "LOCUS_120"
+              },
+              "start_delta": 27,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.9739
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 15001,
+                "end": 15588,
+                "strand": "-",
+                "product": "nicotinate (nicotinamide) nucleotide adenylyltransferase",
+                "gene": "nadD",
+                "locus_tag": "AYT24_RS00080"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 15001,
+                "end": 15423,
+                "strand": "-",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "LOCUS_150"
+              },
+              "start_delta": 0,
+              "end_delta": -165,
+              "reciprocal_overlap": 0.7194
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 15585,
+                "end": 16514,
+                "strand": "-",
+                "product": "outer membrane protein assembly factor BamD",
+                "gene": "",
+                "locus_tag": "AYT24_RS00085"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 15585,
+                "end": 16892,
+                "strand": "-",
+                "product": "outer membrane protein assembly factor BamD",
+                "gene": "bamD",
+                "locus_tag": "LOCUS_160"
+              },
+              "start_delta": 0,
+              "end_delta": 378,
+              "reciprocal_overlap": 0.711
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 16990,
+                "end": 17535,
+                "strand": "-",
+                "product": "F0F1 ATP synthase subunit delta",
+                "gene": "",
+                "locus_tag": "AYT24_RS00095"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 16990,
+                "end": 17496,
+                "strand": "-",
+                "product": "F0F1 ATP synthase subunit delta",
+                "gene": "",
+                "locus_tag": "LOCUS_170"
+              },
+              "start_delta": 0,
+              "end_delta": -39,
+              "reciprocal_overlap": 0.9286
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 20271,
+                "end": 21260,
+                "strand": "-",
+                "product": "UDP-glucose 4-epimerase GalE",
+                "gene": "galE",
+                "locus_tag": "AYT24_RS00125"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 20271,
+                "end": 21296,
+                "strand": "-",
+                "product": "UDP-glucose 4-epimerase GalE",
+                "gene": "galE",
+                "locus_tag": "LOCUS_230"
+              },
+              "start_delta": 0,
+              "end_delta": 36,
+              "reciprocal_overlap": 0.9649
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 31609,
+                "end": 32775,
+                "strand": "-",
+                "product": "FtsW/RodA/SpoVE family cell cycle protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00175"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 31609,
+                "end": 32838,
+                "strand": "-",
+                "product": "putative peptidoglycan glycosyltransferase FtsW",
+                "gene": "",
+                "locus_tag": "LOCUS_330"
+              },
+              "start_delta": 0,
+              "end_delta": 63,
+              "reciprocal_overlap": 0.9488
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 35348,
+                "end": 36772,
+                "strand": "-",
+                "product": "UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase",
+                "gene": "murF",
+                "locus_tag": "AYT24_RS00190"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 35348,
+                "end": 36757,
+                "strand": "-",
+                "product": "UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase",
+                "gene": "murF",
+                "locus_tag": "LOCUS_360"
+              },
+              "start_delta": 0,
+              "end_delta": -15,
+              "reciprocal_overlap": 0.9895
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 40306,
+                "end": 40686,
+                "strand": "-",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00205"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 40306,
+                "end": 40773,
+                "strand": "-",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "LOCUS_390"
+              },
+              "start_delta": 0,
+              "end_delta": 87,
+              "reciprocal_overlap": 0.8141
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "+",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 42801,
+                "end": 43667,
+                "strand": "+",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00225"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 42879,
+                "end": 43667,
+                "strand": "+",
+                "product": "hypothetical protein",
+                "gene": "",
+                "locus_tag": "LOCUS_430"
+              },
+              "start_delta": 78,
+              "end_delta": 0,
+              "reciprocal_overlap": 0.91
+            },
+            {
+              "type": "CDS",
+              "seqid": "NC_002932.3",
+              "strand": "-",
+              "reference": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 52338,
+                "end": 54092,
+                "strand": "-",
+                "product": "N-acetylmuramoyl-L-alanine amidase family protein",
+                "gene": "",
+                "locus_tag": "AYT24_RS00270"
+              },
+              "query": {
+                "seqid": "NC_002932.3",
+                "type": "CDS",
+                "start": 52338,
+                "end": 53843,
+                "strand": "-",
+                "product": "N-acetylmuramoyl-L-alanine amidase",
+                "gene": "",
+                "locus_tag": "LOCUS_520"
+              },
+              "start_delta": 0,
+              "end_delta": -249,
+              "reciprocal_overlap": 0.8581
+            }
+          ],
+          "truncated": false,
+          "max_items": 100
+        },
+        "warnings": [],
+        "limitations": [
+          "La referencia es el gold de esta comparación; sus criterios y errores se heredan.",
+          "El emparejamiento es 1:1 voraz por solapamiento recíproco y no un óptimo bipartito.",
+          "La coincidencia literal de 'product' no mide función; los nombres dependen de cada base.",
+          "No se comparan ncRNA, tmRNA, pseudogenes (si se excluyen), dominios ni rutas.",
+          "Una herramienta ausente no es un cero: queda como not_available sin métricas.",
+          "La Bakta DB se detecta localmente; no se descarga y su ausencia deja Bakta en not_available.",
+          "No se declara superioridad entre herramientas sin un gold independiente y ejecuciones pareadas.",
+          "Las ubicaciones compuestas de GenBank se comparan por su intervalo envolvente."
+        ]
+      },
+      "timings": {
+        "started_at": "2026-11-25T18:46:39Z",
+        "finished_at": "2026-11-25T18:47:51Z",
+        "total_seconds": 71.108
+      }
+    }
+  },
+  "not_available": [],
+  "warnings": [],
+  "limitations": [
+    "La referencia es el gold de esta comparación; sus criterios y errores se heredan.",
+    "El emparejamiento es 1:1 voraz por solapamiento recíproco y no un óptimo bipartito.",
+    "La coincidencia literal de 'product' no mide función; los nombres dependen de cada base.",
+    "No se comparan ncRNA, tmRNA, pseudogenes (si se excluyen), dominios ni rutas.",
+    "Una herramienta ausente no es un cero: queda como not_available sin métricas.",
+    "La Bakta DB se detecta localmente; no se descarga y su ausencia deja Bakta en not_available.",
+    "No se declara superioridad entre herramientas sin un gold independiente y ejecuciones pareadas.",
+    "Las ubicaciones compuestas de GenBank se comparan por su intervalo envolvente."
+  ],
+  "reproduction": {
+    "command": [
+      "/opt/conda/bin/python",
+      "/opt/benchmark/external/external_benchmark.py",
+      "--genome",
+      "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+      "--reference",
+      "/work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+      "--tools",
+      "all",
+      "--run",
+      "--threads",
+      "1",
+      "--bakta-db",
+      "/data/bakta_db",
+      "--extra-arg",
+      "dfast=--dbroot",
+      "--extra-arg",
+      "dfast=/data/dfast_db",
+      "--save-gffs",
+      "/work/reports/external_benchmark/chlorobaculum_tepidum_60kb/evidence5",
+      "--json",
+      "/work/reports/external_benchmark/benchmark5.json",
+      "--md",
+      "/work/reports/external_benchmark/benchmark5.md"
+    ],
+    "run_command": [
+      "/opt/conda/bin/python",
+      "benchmarks/external/external_benchmark.py",
+      "--genome",
+      "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+      "--reference",
+      "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+      "--tools",
+      "bakta,prokka,dfast",
+      "--run",
+      "--threads",
+      "1",
+      "--json",
+      "reports/external_benchmark/benchmark.json",
+      "--md",
+      "reports/external_benchmark/benchmark.md",
+      "--bakta-db",
+      "/data/bakta_db"
+    ],
+    "notes": [
+      "Fijar las versiones de Bakta/Prokka/DFAST y registrar la digestión de la imagen.",
+      "Conservar SHA256 de FASTA, referencia y GFF/GBFF de cada herramienta.",
+      "Ejecutar con 1 CPU/hilo para comparar tiempos de forma consistente.",
+      "Una comparación válida necesita un gold independiente y ejecuciones pareadas.",
+      "La Bakta DB no se descarga: se detecta/valida una copia local."
+    ]
+  }
+}
