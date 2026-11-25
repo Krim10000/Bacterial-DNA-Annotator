@@ -1,0 +1,1 @@
+/usr/local/bin/prokka --outdir /tmp/external_benchmark_prokka_ik8ng895/out --prefix benchmark --cpus 1 --force --quiet /work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna

@@ -57,6 +57,11 @@ RUN set -eux; \
     printf '%s\n' '#!/bin/sh' "exec ${MAMBA_BIN} run -n dfast dfast \"\$@\"" > /usr/local/bin/dfast; \
     chmod 0755 /usr/local/bin/bakta /usr/local/bin/prokka /usr/local/bin/dfast
 
+# El ENTRYPOINT final invoca `python` directamente. Al sustituir el entrypoint de
+# mambaorg/micromamba ya no se ejecuta su script de activación, así que hay que
+# exponer el Python del entorno base en PATH.
+ENV PATH=/opt/conda/bin:$PATH
+
 # El runner también queda dentro de la imagen para poder ejecutar --help sin
 # montar el repositorio.
 COPY benchmarks/external/external_benchmark.py /opt/benchmark/external/external_benchmark.py

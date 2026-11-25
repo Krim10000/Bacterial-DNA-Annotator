@@ -1712,6 +1712,9 @@ def build_command(
         out_s,
         "--cpu",
         str(threads),
+        # run_benchmark crea el directorio de salida antes de invocar la
+        # herramienta; DFAST aborta si ya existe y no se pasa --force.
+        "--force",
         *extras,
     ]
 

@@ -1,0 +1,1 @@
+/usr/local/bin/dfast --genome /work/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna --out /tmp/external_benchmark_dfast_ishrnj36/out --cpu 1 --force
