@@ -66,3 +66,21 @@ global.
 - El F1 mezcla CDS/tRNA/rRNA.
 - La comparación es geométrica, no funcional.
 - Bakta usó DB `light`; `full` puede cambiar resultados.
+
+## Cuatro genomas
+
+| Genoma | Bakta F1 | Prokka F1 | DFAST F1 |
+|---|---:|---:|---:|
+| C. glutamicum | 0,9663 | 0,9663 | 0,9663 |
+| M. tuberculosis H37Rv | 0,9485 | 0,9462 | 0,9474 |
+| P. aeruginosa | 0,9848 | 0,9830 | 0,9840 |
+| P. putida | 0,9809 | 0,9799 | 0,9805 |
+| **Media** | **0,9701** | **0,9688** | **0,9696** |
+
+No hay ganador único. La diferencia entre las tres es ≤0,005 F1.
+
+Informe detallado:
+
+```text
+reports/external_benchmark/multi_v2/summary.md
+```
