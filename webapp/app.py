@@ -1160,9 +1160,16 @@ def render_reannotation() -> None:
 
 # genomas que la interfaz puede mostrar: los 400 del proyecto + K-12 curado
 DEMO_GENOME = (Path(__file__).resolve().parent / "demo" / "genes.tsv").exists()
+# Genomas de referencia curados que no forman parte de los 400 libres.
+REFERENCE_GENOMES = [
+    g for g in ("subtilis",)
+    if (DATA_ROOT / "regulation" / g / "genes.tsv").exists()
+    and (DATA_ROOT / "raw" / f"{g}_genomic.fna.gz").exists()
+]
 GENOME_CHOICES = (
     (["demo"] if DEMO_GENOME else [])
     + (["ecoli_k12"] if (DATA_ROOT / "regulation" / "ecoli_k12" / "genes.tsv").exists() else [])
+    + REFERENCE_GENOMES
     + list(PROJECT_GENOMES)
 )
 
