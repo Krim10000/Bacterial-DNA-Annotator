@@ -50,6 +50,7 @@ T["mode_reports"] = "📥 Reportes y descargas"
 T["mode_modules"] = "🧩 Módulos"
 T["mode_hypotheses"] = "🔬 Hipótesis estructurales"
 T["mode_credits"] = "🙏 Créditos y herramientas"
+T["mode_references"] = "🧬 Genomas de referencia"
 T["sidebar_tools"] = (
     "Herramientas detectadas en tu equipo. Si una aparece con ❌, la casilla que "
     "la usa queda desactivada."

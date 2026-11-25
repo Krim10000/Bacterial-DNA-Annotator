@@ -43,6 +43,7 @@ from precomputed_ui import render as render_precomputed  # noqa: E402
 import structure_viewer
 from compare_ui import render_compare
 import taxonomy_tree_ui
+import reference_genomes
 import phylo_placement
 from esmfold_ui import (  # noqa: E402
     render_esmfold_closure,
@@ -1199,6 +1200,7 @@ MODE_LABELS: dict[str, str] = {
     "reports": "mode_reports",
     "hypotheses": "mode_hypotheses",
     "credits": "mode_credits",
+    "references": "mode_references",
 }
 
 MENU_GROUPS: tuple[dict, ...] = (
@@ -1214,7 +1216,7 @@ MENU_GROUPS: tuple[dict, ...] = (
         "title": "Explorar genoma",
         "icon": "🧭",
         "caption": "Navegador y árbol de vida del genoma activo.",
-        "modes": ("browser", "tree"),
+        "modes": ("browser", "tree", "references"),
     },
     {
         "id": "catalogo",
@@ -1248,6 +1250,8 @@ MODE_QUERY_ALIASES: dict[str, str] = {
     "hipotesis": "hypotheses",
     "hipótesis": "hypotheses",
     "hypotheses": "hypotheses",
+    "referencias": "references",
+    "references": "references",
     "creditos": "credits",
     "créditos": "credits",
     "reportes": "reports",
@@ -1271,6 +1275,7 @@ MODE_QUERY_VALUES: dict[str, str] = {
     "reports": "reportes",
     "hypotheses": "hipotesis",
     "credits": "creditos",
+    "references": "referencias",
 }
 
 
@@ -2357,6 +2362,12 @@ def _go_to_mode(mode_key: str) -> None:
         st.session_state["_mode_from_url"] = previous
 
 
+def _go_to_sigma() -> None:
+    """Atajo: abre Módulos con el anotador de sigmas seleccionado."""
+    st.session_state["module_selected"] = "sigma"
+    _go_to_mode("modules")
+
+
 def _render_more_block() -> None:
     """Accesos rápidos de la parte superior: glosario, reportes y créditos."""
     with st.sidebar.popover("➕ " + tr("Más"),
@@ -2368,6 +2379,9 @@ def _render_more_block() -> None:
                   width="stretch", on_click=_go_to_mode, args=("reports",))
         st.button("🙏 " + tr("Créditos y herramientas"), key="more_credits",
                   width="stretch", on_click=_go_to_mode, args=("credits",))
+        st.divider()
+        st.button("🧪 " + tr("Anotador de sigmas"), key="more_sigma",
+                  width="stretch", on_click=_go_to_sigma)
 
 
 def _render_sidebar_menu() -> str:
@@ -2495,6 +2509,9 @@ def main() -> None:
     # Reportes / Créditos). ``mode_sel`` se mantiene sincronizado.
     mode_key = _render_sidebar_menu()
 
+    if mode_key == "references":
+        reference_genomes.render(DATA_ROOT, OUT_ROOT)
+        return
     if mode_key == "hypotheses":
         render_precomputed()
         return

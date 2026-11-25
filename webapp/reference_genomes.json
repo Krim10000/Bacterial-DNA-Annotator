@@ -1,0 +1,514 @@
+[
+  {
+    "id": "ecoli_k12",
+    "species": "Escherichia coli",
+    "strain": "K-12 MG1655",
+    "level": 1,
+    "resources": [
+      "EcoCyc",
+      "RegulonDB",
+      "ComplexPortal"
+    ],
+    "status": "available",
+    "genome_path": "data/regulation/ecoli_k12/genes.tsv",
+    "note": "Genoma curado; fuera de los 400."
+  },
+  {
+    "id": "subtilis",
+    "species": "Bacillus subtilis",
+    "strain": "168",
+    "level": 1,
+    "resources": [
+      "SubtiWiki",
+      "BSGatlas",
+      "DBTBS"
+    ],
+    "status": "available",
+    "genome_path": "data/raw/subtilis_genomic.fna.gz",
+    "note": "Pipeline completo ejecutado; referencia curada.",
+    "annotation_path": "data/annotations/subtilis.gff.gz"
+  },
+  {
+    "id": "mtb_h37rv",
+    "species": "Mycobacterium tuberculosis",
+    "strain": "H37Rv",
+    "level": 1,
+    "resources": [
+      "Mycobrowser",
+      "TubercuList"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": "BSL-3."
+  },
+  {
+    "id": "cglutamicum",
+    "species": "Corynebacterium glutamicum",
+    "strain": "ATCC 13032",
+    "level": 1,
+    "resources": [
+      "CoryneRegNet",
+      "BioCyc"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "pputida",
+    "species": "Pseudomonas putida",
+    "strain": "KT2440",
+    "level": 1,
+    "resources": [
+      "Pseudomonas Genome DB"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": "BSL-1."
+  },
+  {
+    "id": "paeruginosa",
+    "species": "Pseudomonas aeruginosa",
+    "strain": "PAO1",
+    "level": 1,
+    "resources": [
+      "Pseudomonas Genome DB"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": "BSL-2."
+  },
+  {
+    "id": "crescentus",
+    "species": "Caulobacter crescentus",
+    "strain": "NA1000",
+    "level": 1,
+    "resources": [
+      "CauloBrowser"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "synechocystis",
+    "species": "Synechocystis sp.",
+    "strain": "PCC 6803",
+    "level": 1,
+    "resources": [
+      "Cyanobase"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "saureus",
+    "species": "Staphylococcus aureus",
+    "strain": "NCTC 8325",
+    "level": 1,
+    "resources": [
+      "AureoWiki"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": "BSL-2."
+  },
+  {
+    "id": "spneumoniae",
+    "species": "Streptococcus pneumoniae",
+    "strain": "D39",
+    "level": 1,
+    "resources": [
+      "PneumoWiki"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": "BSL-2."
+  },
+  {
+    "id": "btheta",
+    "species": "Bacteroides thetaiotaomicron",
+    "strain": "VPI-5482",
+    "level": 1,
+    "resources": [
+      "BioCyc",
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "scoelicolor",
+    "species": "Streptomyces coelicolor",
+    "strain": "A3(2)",
+    "level": 1,
+    "resources": [
+      "StrepDB"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": "Metabolismo secundario."
+  },
+  {
+    "id": "mxanthus",
+    "species": "Myxococcus xanthus",
+    "strain": "DK1622",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "vcholerae",
+    "species": "Vibrio cholerae",
+    "strain": "N16961",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "cdifficile",
+    "species": "Clostridioides difficile",
+    "strain": "630",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "llactis",
+    "species": "Lactococcus lactis",
+    "strain": "IL1403",
+    "level": 2,
+    "resources": [
+      "LAB resources"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "lmonocytogenes",
+    "species": "Listeria monocytogenes",
+    "strain": "EGD-e",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "efaecalis",
+    "species": "Enterococcus faecalis",
+    "strain": "V583",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "dradiodurans",
+    "species": "Deinococcus radiodurans",
+    "strain": "R1",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "tthermophilus",
+    "species": "Thermus thermophilus",
+    "strain": "HB27",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": "Ya hay una cepa en los 400."
+  },
+  {
+    "id": "hpylori",
+    "species": "Helicobacter pylori",
+    "strain": "26695",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "cjejuni",
+    "species": "Campylobacter jejuni",
+    "strain": "NCTC 11168",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "nmeningitidis",
+    "species": "Neisseria meningitidis",
+    "strain": "MC58",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "hinfluenzae",
+    "species": "Haemophilus influenzae",
+    "strain": "Rd KW20",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "ctrachomatis",
+    "species": "Chlamydia trachomatis",
+    "strain": "D/UW-3/CX",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": "Ya hay una cepa en los 400."
+  },
+  {
+    "id": "tpallidum",
+    "species": "Treponema pallidum",
+    "strain": "Nichols",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "bburgdorferi",
+    "species": "Borrelia burgdorferi",
+    "strain": "B31",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "mgenitalium",
+    "species": "Mycoplasma genitalium",
+    "strain": "G37",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "abaumannii",
+    "species": "Acinetobacter baumannii",
+    "strain": "ATCC 17978",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "kpneumoniae",
+    "species": "Klebsiella pneumoniae",
+    "strain": "MGH 78578",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "styphimurium",
+    "species": "Salmonella enterica",
+    "strain": "Typhimurium LT2",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "afabrum",
+    "species": "Agrobacterium fabrum",
+    "strain": "C58",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "smeliloti",
+    "species": "Sinorhizobium meliloti",
+    "strain": "1021",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "rsphaeroides",
+    "species": "Rhodobacter sphaeroides",
+    "strain": "2.4.1",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "mgryphiswaldense",
+    "species": "Magnetospirillum gryphiswaldense",
+    "strain": "MSR-1",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "soneidensis",
+    "species": "Shewanella oneidensis",
+    "strain": "MR-1",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "cnecator",
+    "species": "Cupriavidus necator",
+    "strain": "H16",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "zmobilis",
+    "species": "Zymomonas mobilis",
+    "strain": "ZM4",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "tmaritima",
+    "species": "Thermotoga maritima",
+    "strain": "MSB8",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "neuropea",
+    "species": "Nitrosomonas europaea",
+    "strain": "ATCC 19718",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "dvulgaris",
+    "species": "Desulfovibrio vulgaris",
+    "strain": "Hildenborough",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  },
+  {
+    "id": "rpalustris",
+    "species": "Rhodopseudomonas palustris",
+    "strain": "CGA009",
+    "level": 2,
+    "resources": [
+      "literature"
+    ],
+    "status": "planned",
+    "genome_path": "",
+    "note": ""
+  }
+]

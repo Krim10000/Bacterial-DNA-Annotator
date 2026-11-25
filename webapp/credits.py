@@ -77,7 +77,8 @@ CREDITS: list[dict[str, str]] = [
         author="Benjamin Buchfink, Chao Xie, Daniel H. Huson",
         url="https://github.com/bbuchfink/diamond",
         cite="Buchfink B., Xie C., Huson D.H., Nature Methods 2015;12:59-60",
-        use="Anotación funcional contra Swiss-Prot y búsqueda de homólogos de enzimas.",
+        use="Anotación funcional contra Swiss-Prot, búsqueda de homólogos de "
+            "enzimas y agrupación all-vs-all de factores sigma por ortólogo.",
         license="GPL-3.0",
     ),
     dict(
@@ -86,7 +87,8 @@ CREDITS: list[dict[str, str]] = [
         author="Sean R. Eddy (HHMI / Harvard)",
         url="http://hmmer.org/",
         cite="Eddy S.R., PLoS Computational Biology 2011;7:e1002195",
-        use="Detección de dominios Pfam en cierres de brechas y factores sigma.",
+        use="Detección de dominios Pfam en cierres de brechas y en el inventario "
+            "de factores sigma (Sigma70_r2/r4, Sigma54, etc.).",
         license="BSD-3-Clause",
     ),
     dict(
@@ -169,8 +171,19 @@ CREDITS: list[dict[str, str]] = [
         author="Centro de Ciencias Genómicas, UNAM (Heladia Salgado y colaboradores)",
         url="https://regulondb.ccg.unam.mx/",
         cite="Salgado H. et al., Nucleic Acids Research 2024;52:D255-D264",
-        use="Verdad de referencia de operones, promotores y terminadores de K-12.",
+        use="Verdad de referencia de operones, promotores, TSS y terminadores de "
+            "K-12; PWMs de σ70/σ54/σ32/σ38/σ28/σ24 usadas por el módulo sigma.",
         license="Académica / no comercial; los datos NO se redistribuyen en el repositorio",
+    ),
+    dict(
+        group="data", name="NCBI RefSeq / GenBank",
+        what="Genomas, anotaciones y proteínas de referencia de las 400 especies.",
+        author="National Center for Biotechnology Information (NCBI)",
+        url="https://www.ncbi.nlm.nih.gov/",
+        cite="(datos; citar el assembly/accession usado y las políticas NCBI)",
+        use="Genomas y anotaciones de los 400; fallback GBFF para recuperar "
+            "secuencia y evidencia del módulo sigma.",
+        license="Datos públicos; respetar las políticas de uso de NCBI",
     ),
     dict(
         group="data", name="STRING",
@@ -214,7 +227,8 @@ CREDITS: list[dict[str, str]] = [
         author="Pfam Consortium (EMBL-EBI / Sanger)",
         url="https://www.ebi.ac.uk/interpro/",
         cite="Mistry J. et al., Nucleic Acids Research 2021;49:D412-D419",
-        use="Dominios proteicos para cierres de brechas y factores sigma.",
+        use="Dominios proteicos para cierres de brechas y para clasificar "
+            "factores sigma por familia.",
         license="Abierta (consultar InterPro)",
     ),
     dict(
@@ -252,7 +266,7 @@ CREDITS: list[dict[str, str]] = [
         author="Streamlit Inc. (hoy parte de Snowflake)",
         url="https://streamlit.io/",
         cite="(software; sin publicación)",
-        use="Toda la interfaz web.",
+        use="Toda la interfaz web, incluido el módulo de sigmas y promotores.",
         license="Apache-2.0",
     ),
     dict(
@@ -261,7 +275,7 @@ CREDITS: list[dict[str, str]] = [
         author="pandas Development Team",
         url="https://pandas.pydata.org/",
         cite="(software; sin publicación)",
-        use="Lectura y filtrado de todas las tablas.",
+        use="Lectura y filtrado de todas las tablas; tabla de evidencia del módulo sigma.",
         license="BSD-3-Clause",
     ),
     dict(
@@ -270,8 +284,18 @@ CREDITS: list[dict[str, str]] = [
         author="NumPy Developers",
         url="https://numpy.org/",
         cite="(software; sin publicación)",
-        use="Operaciones numéricas y arrays.",
+        use="Puntaje de PWMs, arrays de secuencia y fondo nulo del módulo sigma.",
         license="BSD-3-Clause",
+    ),
+    dict(
+        group="libs", name="Biopython",
+        what="Lee FASTA, GenBank y estructuras; permite recuperar secuencia desde GBFF.",
+        author="Biopython Contributors (Peter J. A. Cock y colaboradores)",
+        url="https://biopython.org/",
+        cite="Cock P.J.A. et al., Bioinformatics 2009;25:1422-1423",
+        use="Lectura de GBFF/GenBank y FASTA en el módulo sigma; fallback de "
+            "secuencia cuando genes_meta.json no trae seq_source.",
+        license="Biopython License (tipo BSD)",
     ),
     dict(
         group="libs", name="scikit-learn",
@@ -378,7 +402,7 @@ CREDITS: list[dict[str, str]] = [
 
 LICENSES_NOTE = [
     ("Uso libre", "Streamlit, pandas, NumPy, scikit-learn, NetworkX, SciPy, HMMER, "
-                  "Infernal, pyrodigal, DIAMOND, tRNAscan-SE, barrnap."),
+                  "Infernal, pyrodigal, DIAMOND, tRNAscan-SE, barrnap, Biopython."),
     ("Uso abierto con condiciones", "ViennaRNA, Rhea, ChEBI, STRING, UniProt, Pfam, "
                                     "Rfam, eQuilibrator."),
     ("Uso académico o no comercial", "RegulonDB, KEGG, DoriC, TECRDB y los pesos de "
@@ -481,6 +505,9 @@ SHORT: dict[str, str] = {
     "alphafill": "🗃️ *Ligandos/cofactores de **AlphaFill** (Hekkelman et al., 2023) — [alphafill.eu](https://alphafill.eu)*",
     "mcsa": "🗃️ *Plantillas de **M-CSA** (Ribeiro et al., 2018) — [ebi.ac.uk/thornton-srv/m-csa](https://www.ebi.ac.uk/thornton-srv/m-csa/)*",
     "afdb": "🗃️ *Estructuras de **AlphaFold DB** (Varadi et al., 2024) — [alphafold.ebi.ac.uk](https://alphafold.ebi.ac.uk/)*",
+    "biopython": "🧱 *Lectura de GBFF/GenBank con **Biopython** (Cock et al., 2009) — [biopython.org](https://biopython.org/)*",
+    "ncbi": "🗃️ *Genomas y anotaciones de **NCBI RefSeq/GenBank** — [ncbi.nlm.nih.gov](https://www.ncbi.nlm.nih.gov/)*",
+    "sigma": "🧪 *Factores sigma y promotores: **RegulonDB** (PWMs), **Pfam/HMMER**, **DIAMOND** y **NumPy***",
     "uniprot": "🗃️ *Proteínas de **UniProt/Swiss-Prot** (UniProt Consortium, 2023) — [uniprot.org](https://www.uniprot.org/)*",
     "equilibrator": "🗃️ *Energía estimada con **eQuilibrator** (Beber et al., 2022) y **TECRDB** (Goldberg et al., 2004)*",
     "esm": "🤖 *Puntuación con **ESM-2** (Lin et al., 2023) — [github.com/facebookresearch/esm](https://github.com/facebookresearch/esm)*",
