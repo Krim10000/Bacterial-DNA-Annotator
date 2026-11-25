@@ -36,11 +36,13 @@ except ImportError:  # pragma: no cover - paquete webapp.*
 
 try:  # importación plana cuando la app corre desde webapp/
     import pae_utils
+    import pae_view
 except Exception:  # pragma: no cover
     try:
         from webapp import pae_utils
     except Exception:
         pae_utils = None
+        pae_view = None
 
 try:  # importación plana cuando la app corre desde webapp/
     import structure_viewer
@@ -931,6 +933,24 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
                     "evidence.",
                 )
             )
+            if pae_view is not None and pae_path:
+                try:
+                    _pae = pae_utils.load_pae(pae_path)
+                    _matrix = _pae.get("matrix") or []
+                except Exception:  # noqa: BLE001
+                    _matrix = []
+                if _matrix:
+                    with st.expander(_t("Ver matriz PAE", "View PAE matrix")):
+                        st.markdown(
+                            pae_view.heatmap_svg(_matrix),
+                            unsafe_allow_html=True,
+                        )
+                        st.caption(_t(
+                            "Verde = menor error relativo; rojo = mayor. "
+                            "No es una distancia ni un mapa de contactos.",
+                            "Green = lower relative error; red = higher. "
+                            "It is not a distance or a contact map.",
+                        ))
             with st.expander(_t("¿Cómo interpretar el PAE?", "How to read PAE")):
                 st.markdown(_t(
                     "PAE bajo entre dos regiones indica que su posición "
