@@ -17,6 +17,11 @@ python scripts/structure/fetch_afdb_cache.py --limit 25 --pae --workers 3
 - reanudable;
 - catálogo con estado, hash, tamaño y URL;
 - PAE opcional con `--pae`.
+- Si AFDB responde HTTP 429, esperar y bajar `--workers`/subir `--delay`:
+  ```bash
+  python scripts/structure/fetch_afdb_cache.py --pae --workers 1 --delay 1.5
+  ```
+  429 no es un 404: se reintenta; el catálogo lo conserva como error temporal.
 
 ## Estrategia de espacio
 

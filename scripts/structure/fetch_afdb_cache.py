@@ -19,6 +19,7 @@ import hashlib
 import json
 import os
 import time
+import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -66,7 +67,7 @@ def write_catalog(path: Path, rows: dict[str, dict]) -> None:
 
 
 def fetch(acc: str, targets: Path, catalog: dict, timeout: int, retries: int,
-          want_pae: bool) -> dict:
+          want_pae: bool, delay: float = 0.0) -> dict:
     pdb = targets / f"{acc}.pdb"
     pae = targets / f"{acc}.pae.json"
     existing = catalog.get(acc, {})
@@ -76,6 +77,8 @@ def fetch(acc: str, targets: Path, catalog: dict, timeout: int, retries: int,
     last = ""
     for attempt in range(1, retries + 1):
         try:
+            if delay:
+                time.sleep(delay)
             meta = json.load(urllib.request.urlopen(
                 API.format(acc=acc), timeout=timeout))
             if not meta:
@@ -100,9 +103,20 @@ def fetch(acc: str, targets: Path, catalog: dict, timeout: int, retries: int,
                     "pae_bytes": pae.stat().st_size if pae.exists() else 0,
                     "pdb_url": pdb_url, "pae_url": pae_url, "error": "",
                     "updated": time.strftime("%Y-%m-%dT%H:%M:%S")}
+        except urllib.error.HTTPError as exc:
+            last = f"HTTPError: HTTP {exc.code}: {exc.reason}"
+            if exc.code == 429:
+                # AFDB limita por IP. Esperar más y reintentar; no tratarlo
+                # como un 404 permanente.
+                wait = int(exc.headers.get("Retry-After") or 0) or min(120, 20 * attempt)
+                time.sleep(wait)
+            elif exc.code == 404:
+                break
+            else:
+                time.sleep(min(20, attempt * 3))
         except Exception as exc:  # noqa: BLE001
             last = f"{type(exc).__name__}: {exc}"
-            time.sleep(min(8, attempt * 2))
+            time.sleep(min(20, attempt * 3))
     return {"accession": acc, "status": "error", "pdb": "", "pae": "",
             "sha256": "", "pdb_bytes": 0, "pae_bytes": 0, "pdb_url": "",
             "pae_url": "", "error": last, "updated": time.strftime("%Y-%m-%dT%H:%M:%S")}
@@ -117,7 +131,9 @@ def main() -> int:
                     default=ROOT / "data" / "metabolism" / "targets" / "afdb_catalog.tsv")
     ap.add_argument("--limit", type=int, default=0, help="0 = todas")
     ap.add_argument("--pae", action="store_true", help="descargar PAE JSON")
-    ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--workers", type=int, default=2)
+    ap.add_argument("--delay", type=float, default=0.0,
+                    help="segundos entre solicitudes por worker; usar >0 con 429")
     ap.add_argument("--timeout", type=int, default=25)
     ap.add_argument("--retries", type=int, default=2)
     a = ap.parse_args()
@@ -134,7 +150,7 @@ def main() -> int:
     done = 0
     with ThreadPoolExecutor(max_workers=max(1, a.workers)) as ex:
         futures = {ex.submit(fetch, acc, a.targets, cat, a.timeout,
-                             a.retries, a.pae): acc for acc in pending}
+                             a.retries, a.pae, a.delay): acc for acc in pending}
         for fut in as_completed(futures):
             row = fut.result()
             cat[row["accession"]] = row
