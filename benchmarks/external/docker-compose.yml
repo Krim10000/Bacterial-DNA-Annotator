@@ -1,0 +1,19 @@
+name: dna-token-bac-external-benchmark
+
+services:
+  benchmark:
+    build:
+      context: ../..
+      dockerfile: benchmarks/external/Dockerfile
+    image: dna-token-bac/benchmark-external:cpu
+    working_dir: /work
+    volumes:
+      # Repositorio: FASTA, referencia, salidas y reports.
+      - ../..:/work
+      # Base Bakta local fuera de la imagen; ajustar BAKTA_DB_DIR o no usar Bakta.
+      - ${BAKTA_DB_DIR:-./bakta_db}:/data/bakta_db:ro
+    environment:
+      BAKTA_DB: /data/bakta_db
+    # Por defecto solo muestra la ayuda. Los argumentos de `docker compose run`
+    # reemplazan este comando.
+    command: ["--help"]
