@@ -31,6 +31,7 @@ from __future__ import annotations
 
 from pathlib import Path
 import csv
+import json
 import math
 import re
 
@@ -59,6 +60,49 @@ TSS_C = "#177245"    # medido (sólido) o alto rendimiento (atenuado)
 TTS_C = "#8a5a22"
 OPERON = "#8e6cc9"
 
+#: Pista sigma: color por tipo de factor y estilo por confianza. La pista lee
+#: ``data/sigma/<genoma>/sigma_promoters.tsv`` (una fila por operón) y es
+#: opcional: si el archivo falta, el navegador sigue funcionando sin ella.
+SIGMA_COLORS = {
+    "sigma70": "#177245",
+    "sigma54": "#6a3d9a",
+    "sigma38": "#8a5a22",
+    "sigma32": "#b3261e",
+    "sigma28": "#b07a3a",
+    "sigma24": "#0f6f8c",
+    "sigmaE": "#7b1fa2",
+}
+SIGMA_DEFAULT_COLOR = "#5b6472"
+SIGMA_CONFIDENCE_ORDER = ("high", "medium", "low", "unknown")
+SIGMA_CONFIDENCE_LABELS = {
+    "high": "fuerte",
+    "medium": "media",
+    "low": "baja",
+    "unknown": "desconocida",
+}
+SIGMA_CONFIDENCE_OPACITY = {
+    "high": 1.0, "medium": 0.72, "low": 0.42, "unknown": 0.32,
+}
+SIGMA_CONFIDENCE_DASH = {
+    "high": "", "medium": "", "low": "3 2", "unknown": "2 3",
+}
+SIGMA_LANE_LABEL = "SIGMA · σ PROMOTOR"
+
+#: Esquema documentado de ``sigma_promoters.tsv``. El cargador rellena las
+#: columnas que falten y añade ``start``/``end`` resueltos para dibujar. La
+#: elección de coordenadas se explica en ``load_sigma_promoters``.
+SIGMA_PROMOTER_COLUMNS = (
+    "genome", "operon_id", "operon_label", "contig", "strand", "first_gene",
+    "first_gene_name", "sigma", "sigma_class", "sigma_arch", "spacer",
+    "score", "zscore", "pvalue", "score_margin", "dist_to_start",
+    "upstream_box", "downstream_box", "sigma_status", "confidence",
+    "confidence_label", "confidence_score", "status", "evidence",
+    "detected_by", "pipeline_step", "alternatives", "pathway_support",
+    "pathway_hits", "expression_support", "expression_detail",
+    "inventory_support", "inventory_detail", "location_support",
+    "provenance",
+)
+
 WINDOW_SIZES = {"5 kb": 5_000, "10 kb": 10_000, "25 kb": 25_000,
                 "50 kb": 50_000, "100 kb": 100_000}
 
@@ -76,6 +120,7 @@ ELEMENT_KIND_LABELS = {
     "complex": "Complejos",
     "suspect": "Sospechas",
     "oric": "OriC",
+    "sigma": "Anotaciones sigma",
 }
 
 ELEMENT_KIND_NAMES = {
@@ -88,6 +133,7 @@ ELEMENT_KIND_NAMES = {
     "complex": "Complejo",
     "suspect": "Sospecha",
     "oric": "OriC",
+    "sigma": "Promotor σ",
 }
 
 ELEMENT_KIND_SINGULAR = {
@@ -99,6 +145,7 @@ ELEMENT_KIND_SINGULAR = {
     "tts": "TTS",
     "complex": "complejo",
     "suspect": "sospecha",
+    "sigma": "anotación sigma",
 }
 
 #: Columnas de la tabla «elementos en pantalla». ``kind``/``id`` son la clave
@@ -107,9 +154,10 @@ ELEMENT_COLUMNS = ("tipo", "kind", "id", "etiqueta", "inicio", "fin", "detalle")
 
 ELEMENTS_ON_SCREEN_NOTE = (
     "La tabla lista **solo los elementos dibujados en la ventana actual** "
-    "(genes, operones, promotores, horquillas, TSS/TTS, complejos y sospechas). "
-    "No es el genoma completo: al mover la ventana cambia el conjunto. La "
-    "columna *tipo* indica la pista y el contador de arriba resume cuántos hay."
+    "(genes, operones, promotores, horquillas, TSS/TTS, complejos, sospechas y "
+    "anotaciones sigma). No es el genoma completo: al mover la ventana cambia "
+    "el conjunto. La columna *tipo* indica la pista y el contador de arriba "
+    "resume cuántos hay."
 )
 
 # --------------------------------------------------------------- ayuda in situ
@@ -172,8 +220,8 @@ OVERLAP_VIEW_COLUMNS = (
 ELEMENTS_ON_SCREEN_HELP = (
     "**Qué lista.** Cada fila es un elemento **dibujado en la ventana actual**, "
     "no el genoma completo: genes, operones, promotores, horquillas, TSS/TTS, "
-    "complejos y sospechas metabólicas. Al mover la ventana o cambiar de "
-    "contig, la tabla cambia.\n\n"
+    "complejos, sospechas metabólicas y anotaciones sigma. Al mover la ventana "
+    "o cambiar de contig, la tabla cambia.\n\n"
     "**Cómo leerla.** *tipo* es la pista; *etiqueta* es el nombre visible; "
     "*inicio* y *fin* son coordenadas en pb; *detalle* resume la evidencia. El "
     "contador y la tabla salen de la misma consulta a la ventana, por eso "
@@ -184,6 +232,26 @@ ELEMENTS_ON_SCREEN_HELP = (
     "**Límite.** Que un elemento esté en pantalla no significa que esté "
     "validado: es lo que el pipeline anotó para esa región, con su clase y su "
     "confianza."
+)
+
+SIGMA_HELP = (
+    "**Qué es.** La pista **sigma** muestra la anotación de promotores "
+    "dependientes de factor σ que produce el módulo `sigma`. Cada fila del "
+    "TSV corresponde a un **operón**: se dibuja una marca vertical en su "
+    "inicio y una banda tenue sobre el operón completo. El TSV no trae "
+    "coordenadas propias del promotor, así que la marca usa el `start` del "
+    "operón como posición aguas arriba; no es un TSS.\n\n"
+    "**Color y confianza.** El color identifica el tipo de σ (σ70, σ54, σ38, "
+    "σ32, σ28, σ24). La opacidad y el trazo codifican la confianza: **alta** "
+    "sólida y opaca, **media** atenuada y **baja** con línea discontinua. La "
+    "ficha de cada fila muestra `evidence`, `detected_by`, `alternatives` y "
+    "`provenance`.\n\n"
+    "**Qué puedes hacer.** Activa o desactiva «σ promotores»; haz clic en una "
+    "marca o en una fila de «elementos en pantalla» para abrir su ficha; usa "
+    "la vista **Sigma** para filtrar, buscar y descargar.\n\n"
+    "**Límite.** Es una **hipótesis priorizada**, no una confirmación "
+    "experimental: `sospecha_fuerte` no equivale a un promotor medido. Las "
+    "anotaciones se leen de `data/sigma/<genoma>/` y no se recalculan aquí."
 )
 
 HAIRPIN_HELP = (
@@ -242,6 +310,7 @@ HELP_TEXTS = {
     "hairpins": HAIRPIN_HELP,
     "circular": CIRCULAR_HELP,
     "operons": OPERON_HELP,
+    "sigma": SIGMA_HELP,
     "protein": (
         "La pestaña Proteínas traduce cada CDS con el código genético estándar. "
         "Es una traducción automática: no confirma el marco, el inicio ni la "
@@ -438,6 +507,11 @@ def load_tables(data_root: Path, genome: str) -> dict:
     for col in ("start", "end", "dG", "stem"):
         if col in df:
             df[col] = pd.to_numeric(df[col], errors="coerce")
+    # Pista sigma opcional: siempre presente como DataFrame (vacía si falta el
+    # TSV), para que la tabla, el SVG y la ficha compartan la misma fuente.
+    out["sigma"] = load_sigma_promoters(
+        Path(data_root), genome, operons=out.get("operons"),
+        genes=out.get("genes"))
     return out
 
 
@@ -449,6 +523,269 @@ TRANS_FILES = {
     "ecoli": {"tss": ("regulondb", "tss_k12_union.tsv"),
               "tts": ("regulondb", "TerminatorSet.tsv")},
 }
+
+
+# ------------------------------------------------------------------- sigma
+def sigma_promoters_path(data_root: Path, genome: str) -> Path:
+    """Ruta convenida del TSV de promotores sigma (puede no existir)."""
+    return _p(data_root, "sigma", str(genome), "sigma_promoters.tsv")
+
+
+def _empty_sigma() -> pd.DataFrame:
+    """Tabla sigma vacía con columnas estables (nunca lanza)."""
+    columns = tuple(SIGMA_PROMOTER_COLUMNS) + (
+        "start", "end", "confidence_tier", "sigma_color")
+    return pd.DataFrame({col: pd.Series(dtype="object") for col in columns})
+
+
+def _sigma_attrs(df: pd.DataFrame, *, path: Path | None = None,
+                 available: bool = False, warning: str = "") -> pd.DataFrame:
+    df.attrs["sigma_source"] = str(path) if path is not None else ""
+    df.attrs["sigma_available"] = bool(available)
+    df.attrs["sigma_warning"] = str(warning or "")
+    return df
+
+
+def sigma_confidence(row) -> str:
+    """Nivel de confianza de una fila sigma: high/medium/low/unknown.
+
+    Se lee ``confidence``; si falta, se deduce de ``confidence_label`` sin
+    inventar: cualquier valor no reconocido queda como ``unknown``.
+    """
+    value = _text(row.get("confidence") if hasattr(row, "get") else row).lower()
+    aliases = {
+        "high": "high", "fuerte": "high", "sospecha_fuerte": "high",
+        "media": "medium", "medium": "medium",
+        "sospecha_media": "medium", "moderate": "medium",
+        "low": "low", "baja": "low", "sospecha_baja": "low",
+        "sin_sospecha": "low", "none": "low",
+        "unknown": "unknown", "desconocida": "unknown", "": "unknown",
+    }
+    if value and value not in ("unknown", "desconocida") and value in aliases:
+        return aliases[value]
+    label = _text(row.get("confidence_label") if hasattr(row, "get") else "").lower()
+    return aliases.get(label, aliases.get(value, "unknown"))
+
+
+def sigma_color(value) -> str:
+    """Color de la pista según el tipo de sigma; gris si no se reconoce."""
+    key = _text(value).strip()
+    if key.startswith("σ"):
+        key = key[1:]
+    key = key.lower()
+    if key in SIGMA_COLORS:
+        return SIGMA_COLORS[key]
+    # ``sigma70`` a veces llega como ``70`` en tablas antiguas de promotores.
+    if not key.startswith("sigma") and f"sigma{key}" in SIGMA_COLORS:
+        return SIGMA_COLORS[f"sigma{key}"]
+    return SIGMA_DEFAULT_COLOR
+
+
+def sigma_short(value) -> str:
+    """Nombre corto para leyendas: ``sigma70`` → ``σ70``."""
+    raw = _text(value).strip()
+    if not raw:
+        return "σ?"
+    low = raw.lower()
+    if low.startswith("sigma"):
+        return "σ" + raw[5:]
+    if raw.startswith("σ"):
+        return raw
+    return "σ" + raw
+
+
+def _sigma_operon_id_parts(operon_id) -> dict | None:
+    """Parte ``genoma:contig:start:hebra``; tolera ``:`` dentro del contig."""
+    raw = _text(operon_id).strip()
+    if not raw:
+        return None
+    parts = raw.rsplit(":", 3)
+    if len(parts) != 4:
+        return None
+    _genome, contig, pos, strand = parts
+    pos = pos.strip()
+    if not pos.lstrip("-").isdigit() or strand not in ("+", "-", "−"):
+        return None
+    return {"contig": contig, "start": int(pos),
+            "strand": "−" if strand == "−" else strand}
+
+
+def _read_optional_sigma_table(path: Path) -> pd.DataFrame:
+    """Lee un TSV auxiliar (operones/genes) sin romper si falta o está raro."""
+    try:
+        if not Path(path).is_file():
+            return pd.DataFrame()
+        return pd.read_csv(path, sep="\t", dtype=str).fillna("")
+    except (OSError, ValueError, pd.errors.ParserError, pd.errors.EmptyDataError):
+        return pd.DataFrame()
+
+
+def _sigma_index(tables: pd.DataFrame | None) -> dict[str, dict]:
+    if not isinstance(tables, pd.DataFrame) or tables.empty:
+        return {}
+    if "operon_id" not in tables.columns:
+        return {}
+    return {str(r.get("operon_id")): r.to_dict() for _, r in tables.iterrows()}
+
+
+def _sigma_gene_index(genes: pd.DataFrame | None) -> dict[str, dict]:
+    if not isinstance(genes, pd.DataFrame) or genes.empty:
+        return {}
+    out: dict[str, dict] = {}
+    for _, g in genes.iterrows():
+        for key in ("gene_id", "locus_tag", "gene_name"):
+            val = _text(g.get(key)).strip()
+            if val:
+                out[val] = g.to_dict()
+    return out
+
+
+def _sigma_row_span(row, operons: dict[str, dict],
+                    genes: dict[str, dict]) -> tuple[str, str, int | None, int | None]:
+    """Coordenadas de una anotación sigma, en este orden de preferencia:
+
+    1. el operón completo en ``operons.tsv`` (mismo ``operon_id``);
+    2. el ``start`` codificado en ``operon_id`` (``genoma:contig:start:hebra``);
+    3. el primer gen del operón, si se puede identificar.
+
+    La marca del navegador se dibuja en el **start del operón** (posición
+    aguas arriba de la unidad transcripcional), porque
+    ``sigma_promoters.tsv`` no trae coordenadas propias del promotor. La banda
+    tenue cubre ``start``–``end`` del operón. No se inventa un TSS: es una
+    aproximación documentada.
+    """
+    op_id = _text(row.get("operon_id")).strip()
+    op = operons.get(op_id) if op_id else None
+    parsed = _sigma_operon_id_parts(op_id)
+    gene = None
+    first_gene = _text(row.get("first_gene")).strip()
+    if first_gene:
+        gene = genes.get(first_gene)
+
+    contig = _text(row.get("contig")).strip()
+    strand = _text(row.get("strand")).strip()
+    start: int | None = None
+    end: int | None = None
+    if op is not None:
+        contig = _text(op.get("contig")).strip() or contig
+        strand = _text(op.get("strand")).strip() or strand
+        start = _as_int(op.get("start"))
+        end = _as_int(op.get("end"))
+    if start is None and parsed is not None:
+        contig = contig or parsed["contig"]
+        strand = strand or parsed["strand"]
+        start = parsed["start"]
+    if start is None and gene is not None:
+        contig = contig or _text(gene.get("contig")).strip()
+        strand = strand or _text(gene.get("strand")).strip()
+        start = _as_int(gene.get("start"))
+        end = _as_int(gene.get("end"))
+    if end is None:
+        end = start
+    if start is not None and end is not None and end < start:
+        start, end = end, start
+    return contig, normalize_strand(strand), start, end
+
+
+def load_sigma_promoters(data_root: Path, genome: str, *,
+                         operons: pd.DataFrame | None = None,
+                         genes: pd.DataFrame | None = None) -> pd.DataFrame:
+    """Carga ``data/sigma/<genoma>/sigma_promoters.tsv`` de forma defensiva.
+
+    Devuelve una tabla vacía con columnas estables si el archivo no existe, no
+    se puede leer o no tiene filas. Añade ``start``/``end`` resueltos (operón,
+    fallback al ``operon_id``), ``confidence_tier`` y ``sigma_color``. Los
+    metadatos de la carga quedan en ``df.attrs`` (``sigma_available`` y
+    ``sigma_warning``) para que la UI pueda avisar sin romper.
+    """
+    path = sigma_promoters_path(data_root, genome)
+    try:
+        if not path.is_file():
+            return _sigma_attrs(
+                _empty_sigma(), path=path, available=False,
+                warning=(f"No hay anotaciones sigma para {genome}: falta "
+                         f"{path}. El navegador funciona sin esta pista; "
+                         "genera las salidas con el módulo «sigma»."))
+        raw = pd.read_csv(path, sep="\t", dtype=str).fillna("")
+    except (OSError, ValueError, pd.errors.ParserError,
+            pd.errors.EmptyDataError) as exc:
+        return _sigma_attrs(
+            _empty_sigma(), path=path, available=False,
+            warning=(f"No se pudo leer {path}: {exc}. La pista sigma queda "
+                     "vacía; el resto del navegador sigue disponible."))
+    if raw.empty:
+        return _sigma_attrs(
+            _empty_sigma(), path=path, available=False,
+            warning=(f"{path} existe pero no tiene filas; la pista sigma "
+                     "queda vacía."))
+
+    out = raw.copy()
+    for col in SIGMA_PROMOTER_COLUMNS:
+        if col not in out.columns:
+            out[col] = ""
+    out = out.fillna("")
+
+    if operons is None:
+        operons = _read_optional_sigma_table(
+            _p(data_root, "regulation", str(genome), "operons.tsv"))
+    if genes is None:
+        genes = _read_optional_sigma_table(
+            _p(data_root, "regulation", str(genome), "genes.tsv"))
+    op_map = _sigma_index(operons)
+    gene_map = _sigma_gene_index(genes)
+
+    starts, ends, contigs, strands = [], [], [], []
+    tiers, colors = [], []
+    for _, row in out.iterrows():
+        c, s, start, end = _sigma_row_span(row, op_map, gene_map)
+        starts.append(start if start is not None else "")
+        ends.append(end if end is not None else "")
+        contigs.append(c)
+        strands.append(s)
+        tiers.append(sigma_confidence(row))
+        colors.append(sigma_color(row.get("sigma") or row.get("sigma_type")))
+    out["start"] = starts
+    out["end"] = ends
+    out["contig"] = contigs
+    out["strand"] = strands
+    out["confidence_tier"] = tiers
+    out["sigma_color"] = colors
+    return _sigma_attrs(out.reset_index(drop=True), path=path, available=True)
+
+
+def format_sigma_json(value, *, max_chars: int = 0) -> str:
+    """Devuelve un JSON legible para ``alternatives``/``provenance``.
+
+    Acepta un string JSON, un dict o una lista. Si el texto no es JSON válido,
+    lo devuelve tal cual: la UI nunca oculta la evidencia por un formato raro.
+    """
+    text = value
+    if isinstance(value, (dict, list)):
+        try:
+            text = json.dumps(value, ensure_ascii=False, indent=2)
+        except (TypeError, ValueError):
+            text = str(value)
+    else:
+        raw = _text(value).strip()
+        if raw.startswith(("{", "[")):
+            try:
+                text = json.dumps(json.loads(raw), ensure_ascii=False, indent=2)
+            except (TypeError, ValueError):
+                text = raw
+        else:
+            text = raw
+    if max_chars and len(text) > max_chars:
+        return text[:max_chars] + "…"
+    return text
+
+
+def sigma_legend_html() -> str:
+    """Leyenda compacta de la pista sigma (colores y confianza)."""
+    marks = " · ".join(
+        f'<span style="color:{color}">│</span> {name}'
+        for name, color in SIGMA_COLORS.items())
+    return (marks + " · opacidad/trazo = confianza "
+            "(alta sólida, media atenuada, baja discontinua)")
 
 
 def load_oric(data_root: Path, genome: str) -> dict | None:
@@ -747,6 +1084,7 @@ def svg(tables: dict, contig: str, start: int, end: int,
         tracks: set[str] | None = None, focus: str = "",
         suspects: pd.DataFrame | None = None,
         tss: pd.DataFrame | None = None, tts: pd.DataFrame | None = None,
+        sigma: pd.DataFrame | None = None,
         *, highlight_all: bool = False, oric: dict | None = None) -> str:
     """Dibuja la ventana como SVG ancho.
 
@@ -757,22 +1095,31 @@ def svg(tables: dict, contig: str, start: int, end: int,
     ``focus`` acepta ``"tipo:id"`` (por ejemplo ``gene:b0001`` u
     ``operon:op1``) y añade la clase ``sel-hit`` al grupo correspondiente.
     ``highlight_all`` marca todos los elementos clicables con ``all-hit``.
+    ``sigma`` es la tabla de ``sigma_promoters.tsv`` ya cargada; si es ``None``
+    o está vacía, la pista no dibuja nada (no rompe el resto del SVG).
     """
     tracks = tracks or {"genes", "operones", "promotores", "horquillas",
                         "transcripcion", "complejos"}
+    if sigma is None and isinstance(tables, dict):
+        # ``load_tables`` ya deja ``tables["sigma"]``; aceptarlo evita que un
+        # llamador que solo pasa ``tables`` pierda la pista.
+        sigma = tables.get("sigma")
     span = max(1, end - start)
     width, height = 1180, 1000
     # Dos secciones: + arriba, − abajo; sin hebra al final.
+    # Bandas verticales. ``sigma`` se separa 28 px de ``complejos`` y de
+    # ``sospecha``: la banda de sigma mide 18 px, así que con menos espacio
+    # se solapaba con las bandas vecinas (sobre todo en la hebra −).
     Y = {
         "+": {"genes": 82, "operones": 132, "promotores": 166,
-              "horquillas": 200, "transcripcion": 234, "complejos": 272,
-              "sospecha": 310},
-        "−": {"genes": 370, "operones": 420, "promotores": 454,
-              "horquillas": 488, "transcripcion": 522, "complejos": 560,
-              "sospecha": 598},
-        "": {"genes": 0, "operones": 650, "promotores": 684,
-             "horquillas": 718, "transcripcion": 752,
-             "complejos": 816, "sospecha": 854},
+              "horquillas": 200, "transcripcion": 234, "complejos": 268,
+              "sigma": 296, "sospecha": 324},
+        "−": {"genes": 390, "operones": 440, "promotores": 474,
+              "horquillas": 508, "transcripcion": 542, "complejos": 576,
+              "sigma": 604, "sospecha": 632},
+        "": {"genes": 0, "operones": 700, "promotores": 734,
+             "horquillas": 768, "transcripcion": 802,
+             "complejos": 836, "sigma": 864, "sospecha": 892},
     }
     SECTION_LABELS = {"+": "HEBRA + · 5'→3' →",
                       "−": "HEBRA − · 5'→3' ←",
@@ -819,12 +1166,16 @@ def svg(tables: dict, contig: str, start: int, end: int,
         complexes = complexes[(complexes["contig"] == contig)
                               & (complexes["end"] >= start)
                               & (complexes["start"] <= end)]
+    # Pista sigma opcional: se filtra con la misma regla que el resto (contig y
+    # solapamiento con la ventana). Si falta ``start``/``end``, ``_window_slice``
+    # devuelve una tabla vacía en vez de romper.
+    sigmas = _window_slice(sigma, contig, start, end)
 
     def _has_rows(df, sec):
         return (df is not None and isinstance(df, pd.DataFrame) and not df.empty
                 and len(_strand_rows(df, sec)) > 0)
     _has_sin = any(_has_rows(x, "") for x in (
-        genes, operons, promoters, hairpins, complexes,
+        genes, operons, promoters, hairpins, complexes, sigmas,
         tss if tss is not None else pd.DataFrame(),
         tts if tts is not None else pd.DataFrame(),
         suspects if suspects is not None else pd.DataFrame(),
@@ -864,7 +1215,9 @@ def svg(tables: dict, contig: str, start: int, end: int,
         o.append(f'<text x="8" y="{header_y-1}" font-size="13.5" fill="#26303f" '
                  f'font-weight="800">{label}</text>')
         for key, txt in (("operones", "OPERONES"), ("promotores", "PROMOTORES"),
-                         ("horquillas", "HORQUILLAS"), ("transcripcion", "TSS / TTS")):
+                         ("horquillas", "HORQUILLAS"),
+                         ("transcripcion", "TSS / TTS"),
+                         ("sigma", SIGMA_LANE_LABEL)):
             active = key in tracks
             o.append(f'<text x="8" y="{Y[sec][key]-6}" font-size="9.5" '
                      f'fill="#808495" font-weight="700" '
@@ -1066,6 +1419,62 @@ def svg(tables: dict, contig: str, start: int, end: int,
                 if gx1 - gx0 > 70:
                     o.append(f'<text x="{gx0+5:.1f}" y="{y+3}" font-size="8.5" '
                              f'fill="{color}">{_esc(str(c.get("name", "")))[:32]}</text>')
+                o.append("</g>")
+
+    # sigma: una marca vertical en el inicio del operón + banda tenue sobre el
+    # operón. El color identifica el factor; la opacidad/trazo, la confianza.
+    if "sigma" in tracks and isinstance(sigmas, pd.DataFrame) and not sigmas.empty:
+        for sec in ("+", "−", ""):
+            if sec == "" and not _has_sin:
+                continue
+            y = Y[sec]["sigma"]
+            for _, s in _strand_rows(sigmas, sec).iterrows():
+                s0 = _as_int(s.get("start"))
+                e0 = _as_int(s.get("end"))
+                if s0 is None:
+                    continue
+                e0 = s0 if e0 is None else max(s0, e0)
+                gx0, gx1 = x(s0), x(e0)
+                sigma_name = _text(s.get("sigma") or s.get("sigma_type"))
+                color = sigma_color(sigma_name)
+                tier = sigma_confidence(s)
+                opacity = SIGMA_CONFIDENCE_OPACITY.get(tier, 0.32)
+                dash = SIGMA_CONFIDENCE_DASH.get(tier, "")
+                width = {"high": 2.6, "medium": 2.0, "low": 1.6}.get(tier, 1.2)
+                sid = _text(s.get("operon_id")).strip() or (
+                    f"sigma:{contig}:{s0}")
+                label = (_text(s.get("operon_label"))
+                         or _text(s.get("first_gene_name"))
+                         or _text(s.get("first_gene")) or sid)
+                conf_label = (_text(s.get("confidence_label"))
+                              or SIGMA_CONFIDENCE_LABELS.get(tier, "desconocida"))
+                tip = (f"{sigma_short(sigma_name) if sigma_name else 'σ?'} · "
+                       f"{_text(s.get('sigma_class')) or 'clase —'} · "
+                       f"operón {label} · {s0:,}–{e0:,} pb · "
+                       f"confianza {conf_label} ({tier}) · "
+                       f"estado {_text(s.get('sigma_status')) or '—'} · "
+                       f"hebra {sec or 'no determinada'}")
+                dash_attr = f' stroke-dasharray="{dash}"' if dash else ""
+                # banda del operón (muy tenue) + marca del promotor en su start
+                o.append(f'<g class="{hit_class("sigma", sid)}" data-kind="sigma" '
+                         f'data-id="{_esc_attr(sid)}" data-sigma="{_esc_attr(sigma_name)}" '
+                         f'data-confidence="{tier}">'
+                         + f'<title>{_esc(tip)}</title>')
+                if gx1 - gx0 > 2:
+                    o.append(f'<rect x="{gx0:.1f}" y="{y-9:.1f}" '
+                             f'width="{gx1-gx0:.1f}" height="18" rx="7" '
+                             f'fill="{color}" opacity="0.08" stroke="{color}" '
+                             f'stroke-width="1" stroke-opacity="0.28"{dash_attr}/>')
+                o.append(f'<line x1="{gx0:.1f}" y1="{y-10:.1f}" x2="{gx0:.1f}" '
+                         f'y2="{y+10:.1f}" stroke="{color}" stroke-width="{width}" '
+                         f'stroke-opacity="{opacity}"{dash_attr}/>')
+                o.append(f'<circle cx="{gx0:.1f}" cy="{y-12:.1f}" r="3.5" '
+                         f'fill="{color}" opacity="{opacity}"/>')
+                if gx1 - gx0 > 55:
+                    o.append(f'<text x="{gx0+4:.1f}" y="{y+3:.1f}" font-size="8.5" '
+                             f'fill="{color}" opacity="{opacity}">'
+                             f'{_esc(sigma_short(sigma_name))[:12]} · '
+                             f'{_esc(conf_label)[:18]}</text>')
                 o.append("</g>")
 
     # sospecha metabólica por hebra
@@ -1564,6 +1973,28 @@ def element_span(kind: str, ident: str, tables: dict,
                 "contig": str(p_contig), "start": start, "end": end,
                 "detail": detail}
 
+    if kind == "sigma":
+        sigmas = tables.get("sigma", pd.DataFrame())
+        row = _first_match(sigmas, ident, ("operon_id",), contig=contig)
+        coords = _coords(row)
+        if row is None or coords is None:
+            return None
+        start, end = coords
+        sid = row.get("operon_id") or f"sigma:{start}"
+        sigma_name = _text(row.get("sigma") or row.get("sigma_type"))
+        tier = sigma_confidence(row)
+        label = (_text(row.get("operon_label"))
+                 or _text(row.get("first_gene_name"))
+                 or _text(row.get("first_gene")) or str(sid))
+        detail = (f"{sigma_short(sigma_name)} · "
+                  f"{_text(row.get('sigma_class')) or 'clase —'} · "
+                  f"confianza {_text(row.get('confidence_label')) or tier} "
+                  f"({tier}) · estado {_text(row.get('sigma_status')) or '—'}")
+        return {"kind": kind, "id": str(sid),
+                "label": f"{sigma_short(sigma_name)} · {label}",
+                "contig": str(row.get("contig") or contig or ""),
+                "start": start, "end": end, "detail": detail}
+
     if kind == "hairpin":
         hairpins = _hairpin_strands(tables.get("hairpins", pd.DataFrame()),
                                  tables.get("genes", pd.DataFrame()))
@@ -1762,14 +2193,18 @@ def _window_slice(df: pd.DataFrame | None, contig: str,
 def all_elements_on_screen(tables: dict, contig: str, start: int, end: int,
                            *, tss: pd.DataFrame | None = None,
                            tts: pd.DataFrame | None = None,
-                           suspects: pd.DataFrame | None = None) -> pd.DataFrame:
+                           suspects: pd.DataFrame | None = None,
+                           sigma: pd.DataFrame | None = None) -> pd.DataFrame:
     """Tabla única de todo lo que se dibuja en la ventana actual.
 
     Devuelve columnas estables incluso sin datos: ``tipo`` (etiqueta humana),
     ``kind``/``id`` (identidad que comparten SVG y ficha), ``etiqueta``,
     ``inicio``, ``fin`` y ``detalle``. No incluye nada fuera de la ventana.
+    ``sigma`` es opcional: si falta o está vacía, no añade filas.
     """
     tables = tables or {}
+    if sigma is None and isinstance(tables, dict):
+        sigma = tables.get("sigma")
     rows: list[dict] = []
 
     def add(kind: str, ident, label, item_start, item_end, detail: str = "") -> None:
@@ -1834,6 +2269,27 @@ def all_elements_on_screen(tables: dict, contig: str, start: int, end: int,
             detail = (f"σ{p.get('sigma', '—')} · score {p.get('score', '—')} · "
                       f"−35 {p.get('box35', '—')} · −10 {p.get('box10', '—')}")
             add("promoter", pid, f"Promotor · {oid or pid}", s_int, e_int, detail)
+
+    sigma_rows = _window_slice(sigma, contig, start, end)
+    for _, r in sigma_rows.iterrows():
+        s_int, e_int = _as_int(r.get("start")), _as_int(r.get("end"))
+        if s_int is None or e_int is None:
+            continue
+        sid = (_text(r.get("operon_id")).strip()
+               or f"sigma:{s_int}")
+        sigma_name = _text(r.get("sigma") or r.get("sigma_type"))
+        tier = sigma_confidence(r)
+        label = (_text(r.get("operon_label"))
+                 or _text(r.get("first_gene_name"))
+                 or _text(r.get("first_gene")) or sid)
+        conf_label = (_text(r.get("confidence_label"))
+                      or SIGMA_CONFIDENCE_LABELS.get(tier, "desconocida"))
+        detail = (f"{sigma_short(sigma_name)} · "
+                  f"{_text(r.get('sigma_class')) or 'clase —'} · "
+                  f"confianza {conf_label} ({tier}) · "
+                  f"estado {_text(r.get('sigma_status')) or '—'}")
+        add("sigma", sid, f"{sigma_short(sigma_name)} · {label}",
+            s_int, e_int, detail)
 
     hairpins = _window_slice(tables.get("hairpins"), contig, start, end)
     for _, r in hairpins.iterrows():
@@ -2211,6 +2667,76 @@ def _promoter_detail(tables: dict, oid: str) -> None:
         s=p.get("spacer", "—"), d=p.get("dist_10_to_start", "—"), n=p.get("n_sites", "—")))
 
 
+def _sigma_detail(tables: dict, ident: str) -> None:
+    """Ficha de una anotación sigma: tipo, confianza y evidencia completa."""
+    df = tables.get("sigma", pd.DataFrame())
+    row = _first_match(df, ident, ("operon_id",)) if isinstance(df, pd.DataFrame) else None
+    if not row:
+        st.warning(tr("Esa anotación sigma ya no está en las tablas cargadas."))
+        return
+    sigma_name = _text(row.get("sigma") or row.get("sigma_type"))
+    tier = sigma_confidence(row)
+    label = (_text(row.get("operon_label"))
+             or _text(row.get("first_gene_name"))
+             or _text(row.get("first_gene")) or str(ident))
+    st.markdown(f"### 🧪 {sigma_short(sigma_name)} · {label}")
+    st.caption(
+        "Anotación de promotor dependiente de σ leída de "
+        "`data/sigma/<genoma>/sigma_promoters.tsv` (solo lectura). Es una "
+        "hipótesis priorizada, no una medición experimental."
+    )
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric(tr("Confianza"), f"{_text(row.get('confidence_label')) or tier} ({tier})")
+    c2.metric(tr("Score"), _text(row.get("score")) or "—")
+    c3.metric("p-valor", _text(row.get("pvalue")) or "—")
+    c4.metric(tr("Estado"), _text(row.get("sigma_status")) or "—")
+    st.markdown(
+        f"**Tipo:** {_text(row.get('sigma_class')) or '—'} · "
+        f"**Arquitectura:** {_text(row.get('sigma_arch')) or '—'} · "
+        f"**Espaciador:** {_text(row.get('spacer')) or '—'} pb · "
+        f"**Margen:** {_text(row.get('score_margin')) or '—'} · "
+        f"**z:** {_text(row.get('zscore')) or '—'}"
+    )
+    st.markdown(
+        f"**Cajas:** aguas arriba `{_text(row.get('upstream_box')) or '—'}` · "
+        f"aguas abajo `{_text(row.get('downstream_box')) or '—'}` · "
+        f"**dist. al inicio:** {_text(row.get('dist_to_start')) or '—'} pb"
+    )
+    _start_v = _as_int(row.get("start"))
+    _end_v = _as_int(row.get("end"))
+    st.markdown(
+        f"**Posición dibujada:** "
+        f"{_start_v if _start_v is not None else '—'}–"
+        f"{_end_v if _end_v is not None else '—'} pb "
+        "(start del operón; no es un TSS)."
+    )
+    st.markdown(f"**Evidencia**\n```\n{_text(row.get('evidence')) or '—'}\n```")
+    st.markdown(
+        f"**Detectado por:** `{_text(row.get('detected_by')) or '—'}` · "
+        f"**Paso:** `{_text(row.get('pipeline_step')) or '—'}` · "
+        f"**Estado:** {_text(row.get('status')) or '—'}"
+    )
+    supports = []
+    for key, label in (("pathway_support", "ruta"),
+                       ("expression_support", "expresión"),
+                       ("inventory_support", "inventario"),
+                       ("location_support", "localización")):
+        val = _text(row.get(key))
+        if val:
+            supports.append(f"{label}: {val}")
+    if supports:
+        st.markdown("**Soportes:** " + " · ".join(supports))
+    with st.expander(tr("Alternativas y procedencia (JSON)")):
+        st.markdown("**Alternativas**")
+        st.code(format_sigma_json(row.get("alternatives")) or "—", language="json")
+        st.markdown("**Procedencia (`provenance`)**")
+        st.code(format_sigma_json(row.get("provenance")) or "—", language="json")
+        for key in ("pathway_hits", "expression_detail", "inventory_detail"):
+            val = _text(row.get(key))
+            if val:
+                st.caption(f"{key}: {val}")
+
+
 def _hairpin_detail(tables: dict, hid: str) -> None:
     hp = tables["hairpins"]
     mask = hp.apply(lambda r: f"{r.get('contig')}:{int(r['start'])}-{int(r['end'])}" == hid, axis=1)         if not hp.empty else pd.Series(dtype=bool)
@@ -2388,6 +2914,8 @@ def _render_pick(data_root: Path, genome: str, tables: dict, pick: dict) -> None
             _operon_detail(tables, ident)
         elif kind == "promoter":
             _promoter_detail(tables, ident)
+        elif kind == "sigma":
+            _sigma_detail(tables, ident)
         elif kind == "hairpin":
             _hairpin_detail(tables, ident)
         elif kind in ("tss", "tts"):
@@ -2418,6 +2946,15 @@ def render(data_root: Path, genome: str) -> None:
     st.caption("🧾 " + ALL_ELEMENTS_LEGEND)
 
     tables = load_tables(data_root, genome)
+    # Pista sigma opcional (solo lectura). Si falta el TSV, la tabla queda
+    # vacía y se avisa sin interrumpir el resto del navegador.
+    sigma_df = tables.get("sigma")
+    if not isinstance(sigma_df, pd.DataFrame):
+        sigma_df = load_sigma_promoters(
+            data_root, genome, operons=tables.get("operons"),
+            genes=tables.get("genes"))
+    tables["sigma"] = sigma_df
+    _sigma_warning = str(sigma_df.attrs.get("sigma_warning") or "")
     if genome == "demo":
         st.info(tr("Demo incluida: 150 kb de *Chlorobaculum tepidum* anotados "
                    "desde cero. Los genes son predicciones ab initio y los "
@@ -2604,7 +3141,7 @@ def render(data_root: Path, genome: str) -> None:
         )
 
     # --- pistas visibles: casillas, para poder superponer sin que se pisen
-    t1, t2, t3, t4, t5, t6, t7 = st.columns(7)
+    t1, t2, t3, t4, t5, t6, t7, t8 = st.columns(8)
     tracks: set[str] = set()
     if t1.checkbox("Genes", True, key="br_t_genes"):
         tracks.add("genes")
@@ -2621,6 +3158,16 @@ def render(data_root: Path, genome: str) -> None:
         tracks.add("transcripcion")
     if t7.checkbox("Complejos", True, key="br_t_complex"):
         tracks.add("complejos")
+    ver_sigma = t8.checkbox(
+        "σ promotores", True, key="br_t_sigma",
+        help="Anotaciones de sigma del módulo `sigma`: color por tipo y "
+             "opacidad/trazo por confianza. Se leen de "
+             "`data/sigma/<genoma>/sigma_promoters.tsv`.")
+    if ver_sigma and isinstance(sigma_df, pd.DataFrame) and not sigma_df.empty:
+        tracks.add("sigma")
+    if ver_sigma and (not isinstance(sigma_df, pd.DataFrame)
+                      or sigma_df.empty) and _sigma_warning:
+        st.caption("σ promotores: " + _sigma_warning)
     t_or = st.checkbox("OriC", True, key="br_t_oric",
                        help="Marca la posición oriC precalculada; no la recalcula.")
     if t_or and _oric:
@@ -2643,6 +3190,7 @@ def render(data_root: Path, genome: str) -> None:
             if ver_sospecha else pd.DataFrame())
     screen_elements = all_elements_on_screen(
         tables, contig, start, end, tss=tss_df, tts=tts_df, suspects=susp,
+        sigma=(sigma_df if "sigma" in tracks else pd.DataFrame()),
     )
     counts = element_counts(screen_elements)
     if "br_all_elements" not in st.session_state:
@@ -2661,7 +3209,7 @@ def render(data_root: Path, genome: str) -> None:
 
     clicked = genome_track(
         svg(tables, contig, start, end, tracks=tracks, suspects=susp,
-            tss=tss_df, tts=tts_df, focus=focus_key,
+            tss=tss_df, tts=tts_df, sigma=sigma_df, focus=focus_key,
             highlight_all=highlight_all, oric=_oric),
         key="genome_track", pos=start, contig=contig, window=size_label,
     )
@@ -2775,6 +3323,15 @@ def render(data_root: Path, genome: str) -> None:
         '<span style="color:#c58a00">▭</span> complejo incompleto',
         unsafe_allow_html=True,
     )
+    if "sigma" in tracks:
+        st.markdown("**σ promotores:** " + sigma_legend_html(),
+                    unsafe_allow_html=True)
+        st.caption(
+            "La marca vertical se dibuja en el **start del operón** (posición "
+            "aguas arriba) y la banda tenue cubre el operón. El TSV sigma no "
+            "trae coordenadas propias del promotor: no es un TSS. La opacidad "
+            "y el trazo indican la confianza; el color, el tipo de σ."
+        )
     if highlight_all:
         st.caption("🟡 Resaltado suave: todos los elementos de la tabla "
                    "«Todos los elementos en pantalla».")

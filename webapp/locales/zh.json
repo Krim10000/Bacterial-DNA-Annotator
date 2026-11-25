@@ -1400,5 +1400,6 @@
  "Verdad de referencia de operones, promotores, TSS y terminadores de K-12; PWMs de σ70/σ54/σ32/σ38/σ28/σ24 usadas por el módulo sigma.": "K-12 操纵子、启动子、TSS 和终止子的参考真值；σ 模块使用的 σ70/σ54/σ32/σ38/σ28/σ24 PWM。",
  "PAE bajo entre dos regiones indica que su posición relativa es más fiable; PAE alto indica que pueden estar bien plegadas pero mal orientadas entre sí. No demuestra interacción.": "两个区域间 PAE 低表示相对位置更可靠；PAE 高表示可能各自折叠良好但相互取向不佳。不能证明相互作用。",
  "Low PAE between two regions means their relative position is more reliable; high PAE means they may be well folded but misoriented relative to each other. It does not prove interaction.": "两个区域间 PAE 低表示相对位置更可靠；PAE 高表示可能各自折叠良好但相互取向不佳。不能证明相互作用。",
- "Sigma: factores sigma y promotores sigma-dependientes.\n\nEl módulo no importa Streamlit. La GUI genérica lo descubre y ejecuta sobre el\ngenoma seleccionado; las salidas incluyen la evidencia por anotación.": "Sigma：σ 因子和 σ 依赖启动子。\n\n该模块不导入 Streamlit。通用 GUI 会发现并在所选基因组上运行；输出包含注释证据。"
+ "Sigma: factores sigma y promotores sigma-dependientes.\n\nEl módulo no importa Streamlit. La GUI genérica lo descubre y ejecuta sobre el\ngenoma seleccionado; las salidas incluyen la evidencia por anotación.": "Sigma：σ 因子和 σ 依赖启动子。\n\n该模块不导入 Streamlit。通用 GUI 会发现并在所选基因组上运行；输出包含注释证据。",
+ "🧪 Sigmas": "🧪 Sigma 因子"
 }

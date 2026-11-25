@@ -97,6 +97,7 @@ import credits  # noqa: E402
 import downloads_ui  # noqa: E402
 import module_ui  # noqa: E402
 import browser  # noqa: E402
+import sigma_view  # noqa: E402
 from pathways import (  # noqa: E402
     PATHWAYS,
     catalog,
@@ -1194,6 +1195,7 @@ TREE_MODE_LABEL = "🌳 Árbol de vida"
 MODE_LABELS: dict[str, str] = {
     "annotate": "mode_annotate",
     "browser": "mode_browser",
+    "sigma": "mode_sigma",
     "tree": "mode_tree",
     "pathways": "mode_pathways",
     "modules": "mode_modules",
@@ -1216,7 +1218,7 @@ MENU_GROUPS: tuple[dict, ...] = (
         "title": "Explorar genoma",
         "icon": "🧭",
         "caption": "Navegador y árbol de vida del genoma activo.",
-        "modes": ("browser", "tree", "references"),
+        "modes": ("browser", "sigma", "tree", "references"),
     },
     {
         "id": "catalogo",
@@ -1246,6 +1248,8 @@ MENU_GROUPS: tuple[dict, ...] = (
 MODE_QUERY_ALIASES: dict[str, str] = {
     "navegador": "browser",
     "browser": "browser",
+    "sigmas": "sigma",
+    "sigma": "sigma",
     "rutas": "pathways",
     "hipotesis": "hypotheses",
     "hipótesis": "hypotheses",
@@ -1269,6 +1273,7 @@ MODE_QUERY_ALIASES: dict[str, str] = {
 MODE_QUERY_VALUES: dict[str, str] = {
     "annotate": "anotar",
     "browser": "navegador",
+    "sigma": "sigmas",
     "tree": "arbol",
     "pathways": "rutas",
     "modules": "modulos",
@@ -2562,6 +2567,13 @@ def main() -> None:
         return
     if mode_key == "pathways":
         render_pathways()
+        return
+    if mode_key == "sigma":
+        elegido = st.session_state.get("genoma_global") or _global_genome()
+        if not elegido:
+            st.error("No hay genomas del proyecto anotados todavía.")
+            return
+        sigma_view.render(DATA_ROOT, elegido)
         return
     if mode_key == "browser":
         # Una sola especie activa: se elige arriba, no se duplica aquí.

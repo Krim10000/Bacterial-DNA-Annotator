@@ -46,6 +46,7 @@ T["mode_help"] = (
 T["mode_annotate"] = "🧬 Anotar FASTA"
 T["mode_pathways"] = "🧪 Rutas metabólicas"
 T["mode_browser"] = "🧬 Navegador de genoma"
+T["mode_sigma"] = "🧪 Sigmas"
 T["mode_reports"] = "📥 Reportes y descargas"
 T["mode_modules"] = "🧩 Módulos"
 T["mode_hypotheses"] = "🔬 Hipótesis estructurales"

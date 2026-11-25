@@ -284,6 +284,36 @@ comparar especies sin confundir genes, grupos y fragmentos. Ver
 
 ---
 
+## 8.2 Validación K-12 y B. subtilis
+
+Resultado real del benchmark TSS-level ([`SIGMA_BENCHMARK.md`](SIGMA_BENCHMARK.md)):
+
+| Métrica | K-12 | B. subtilis |
+|---|---:|---:|
+| TSS evaluables | 3.315 | 2.226 |
+| Top-1 | **52,22 %** | **49,55 %** |
+| Top-3 | 87,69 % | 87,60 % |
+| Mayoría trivial | 60,24 % (σ70) | 87,56 % (A→σ70) |
+| Macro-F1 | 0,433 | 0,204 |
+| `no_pwm` | 1 | 848 |
+
+La confianza ordena algo mejor que el azar, pero no es una probabilidad
+calibrada:
+
+| Confianza | Acierto K-12 |
+|---|---:|
+| `sospecha_media` | 65,83 % |
+| `sospecha_baja` | 51,25 % |
+| `sin_sospecha` | 36,15 % |
+
+**Lectura honesta:** el top-1 no supera la mayoría trivial; el top-3 está
+inflado por σ70. El módulo sirve para **priorizar y explorar**, no para
+confirmar. La comparación por operón da 40,91 % de coincidencia exacta y
+expone la limitación de una fila por operón: 912 genes de K-12 tienen ≥2 TSS y
+503 tienen ≥2 sigma.
+
+---
+
 ## 9. Límites
 
 1. **PWM no es verdad.** Un score alto indica parecido al motivo, no actividad.
