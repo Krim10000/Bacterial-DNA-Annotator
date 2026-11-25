@@ -16,6 +16,9 @@ def test_selftest():
 
 
 def test_pwm_library_has_architectures():
+    import pytest
+    if not (DATA / "regulondb" / "gt" / "promoter_pwms.tsv").exists():
+        pytest.skip("sin PWMs en esta instalación")
     pwms = S.load_pwm_library(DATA)
     assert "sigma70" in pwms and "sigma54" in pwms
     assert pwms["sigma54"]["arch"] == "-24/-12"
@@ -75,6 +78,9 @@ def test_module_run_has_preview_and_outputs(tmp_path: Path):
 
 
 def test_k12_schema_and_evidence(tmp_path: Path):
+    import pytest
+    if not (DATA / "regulondb" / "gt" / "promoter_pwms.tsv").exists():
+        pytest.skip("sin PWMs en esta instalación")
     res = S.annotate_genome(DATA, "ecoli_k12", tmp_path / "sigma",
                             window=120, null_windows=40, seed=3)
     assert res["promoters"].exists()
