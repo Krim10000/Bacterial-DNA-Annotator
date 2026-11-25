@@ -40,6 +40,10 @@ from streamlit.components.v1 import declare_component
 
 from i18n import tr
 import gene_card as _gene_card
+try:
+    import complex_pae_ui as _complex_pae_ui
+except Exception:
+    _complex_pae_ui = None
 
 # ---------------------------------------------------------------- constantes
 GENE_FWD = "#4a7ebb"
@@ -3083,6 +3087,13 @@ def render(data_root: Path, genome: str) -> None:
             cid = r.get("complex_id")
             if cid:
                 _ver("complex", str(cid), "br_go_cx")
+            if _complex_pae_ui is not None:
+                try:
+                    _complex_pae_ui.render_complex_pae(
+                        r.to_dict(), data_root,
+                        key_prefix=f"cx_pae_{genome}_{cid}")
+                except Exception as exc:  # noqa: BLE001
+                    st.caption(f"PAE del complejo no disponible: {exc}")
 
     with t_prot:
         help_expander("protein")

@@ -1,9 +1,17 @@
 # PAE de interfaz para complejos
 
-Estado: capa nueva `webapp/pae_complex.py`, construida sobre el lector local
-`webapp/pae_utils.py`. Pruebas en `tests/test_pae_complex.py`. No descarga
-archivos, no ejecuta AlphaFold, no modifica la GUI y no toca `app.py`,
-`browser.py` ni `gene_card.py`.
+Estado: dos capas nuevas, construidas sobre el lector local
+`webapp/pae_utils.py`.
+
+- `webapp/pae_complex.py`: cálculo de la interfaz por par de subunidades.
+  Pruebas en `tests/test_pae_complex.py`.
+- `webapp/complex_pae_ui.py`: bloque para la ficha de complejos en Streamlit,
+  con búsqueda local del PAE y tabla `A→B`/`B→A`. Pruebas en
+  `tests/test_complex_pae_ui.py`.
+
+Ninguna capa descarga archivos ni ejecuta AlphaFold. Este cambio **no edita**
+`app.py`, `browser.py` ni `gene_card.py`: la integración se documenta abajo con
+un snippet para la ficha existente.
 
 Este documento explica **cómo se calcula la interfaz de un complejo**, cómo se
 leen los estados y por qué el resultado **no demuestra interacción ni
@@ -291,6 +299,188 @@ interactúen ni que la interfaz tenga una estequiometría concreta.
   PAE sintético ni se reutiliza el de otro modelo. Tampoco se infiere un PAE
   desde ESMFold, PDB experimental, Foldseek o homología.
 
+## Ficha de complejos (`complex_pae_ui`)
+
+`webapp/complex_pae_ui.py` hace visible el PAE en la ficha de un complejo. No
+descarga archivos, no ejecuta AlphaFold y **no inventa un mapeo
+cadena-subunidad**. Si no hay PAE local o no hay mapeo declarado, muestra
+`not_available`; no rellena la tabla con pLDDT, ipTM ni estimaciones.
+
+### API
+
+```python
+from webapp.complex_pae_ui import (
+    CAVEAT,
+    complex_pae_view,
+    find_complex_pae,
+    render_complex_pae,
+    table_rows,
+)
+```
+
+| Función | Devuelve |
+|---|---|
+| `render_complex_pae(complex_row, data_root, key_prefix="")` | Dibuja el bloque en Streamlit y devuelve la vista. |
+| `complex_pae_view(complex_row, data_root)` | La misma vista sin tocar Streamlit (para pruebas u otras integraciones). |
+| `find_complex_pae(complex_row, data_root)` | Resuelve la ruta local del PAE: `status`, `path`, `reason`, `declared`, `candidates`. |
+| `table_rows(view)` | Filas listas para `st.dataframe`, con media/máximo `A→B` y `B→A`. |
+
+`complex_row` puede ser un `dict` o una fila de pandas (`Series`). Se leen
+`complex_id`/`id`, `subunits` y, si existe, `pae` (o
+`pae_path`/`pae_json`/`pae_file`). `data_root` es el directorio `data/` que ya
+usa la app. `key_prefix` namespacia la clave del dataframe cuando la ficha se
+dibuja más de una vez.
+
+La vista siempre tiene la misma forma:
+
+```python
+{
+    "status": "ok",              # ok | not_available | invalid
+    "ok": True,
+    "reason": "ok",
+    "complex_id": "ATP_SYNTHASE:...",
+    "subunits": ["atpa", "atpb"],
+    "pae_path": "/.../complejo.pae.json",  # None si no se encontró
+    "pae_found": True,
+    "pae_declared": False,
+    "declared_chains": ["A", "B"],  # si hay PAE pero falta el mapeo
+    "mapping": {"RpoA": ["A"], "RpoB": ["B"]},
+    "mapping_source": "complex_row",  # complex_row | sidecar | pae_json
+    "analysis": {...},           # salida de webapp.pae_complex.analyze_complex
+    "rows": [...],               # una fila por par de subunidades
+    "summary": {...},            # resumen del complejo
+    "limitation": "<texto de límites>",
+    "caveat": "<aviso breve que se muestra siempre>",
+}
+```
+
+### Búsqueda local del PAE
+
+Orden:
+
+1. **Ruta declarada** en la fila, por cualquiera de las claves `pae`,
+   `pae_path`, `pae_json` o `pae_file`. Acepta un string, una lista de
+   strings o un dict con `{"path": "...", "chain_subunits": {...}}`.
+   - Una ruta absoluta se usa tal cual.
+   - Una ruta relativa se prueba bajo `data_root`, bajo su padre (la raíz del
+     proyecto) y bajo el directorio actual.
+   - Una ruta remota (`http://`, `https://`, `ftp://`, `s3://`, `gs://`, etc.)
+     se rechaza con `not_available`: **no se descarga**.
+2. Si no hay ruta declarada (o no existe), se busca recursivamente en
+   `data_root/metabolism/targets` por archivos `*.pae.json`.
+   - Prioridad 1: el nombre del archivo coincide con `complex_id` o `id`
+     (también se prueba la variante con `:` reemplazado por `_`).
+   - Prioridad 2: el nombre contiene **todas** las subunidades declaradas, por
+     ejemplo `P37494__P59653.pae.json` para `subunits="P37494;P59653"`.
+   - Varios archivos con la misma prioridad: `invalid`, con los nombres en el
+     motivo. **No se elige uno al azar.**
+   - Un archivo que solo coincide con una subunidad no se usa para completar
+     un complejo de dos o más: no se rellena la evidencia que falta.
+
+La búsqueda automática no sale de `data_root` ni usa la red. Una ruta
+declarada, en cambio, se usa tal cual (o resuelta contra las raíces indicadas
+arriba), incluso si queda fuera de `data_root`. Si la ruta declarada no existe,
+se informa en `declared_missing` y se intenta la búsqueda local; el estado final
+sigue siendo explícito.
+
+### Mapeo cadena-subunidad
+
+El mapeo es **una declaración**, no una inferencia. Precedencia:
+
+1. `complex_row`:
+   - si `pae` es un dict, sus claves de mapeo;
+   - `chain_subunits`, `chain_to_subunit` o `pae_chain_subunits`
+     (`{cadena: subunidad}`);
+   - `subunit_chains`, `subunit_to_chains` o `pae_subunit_chains`
+     (`{subunidad: cadena | [cadenas]}`).
+   - si `subunits` es un objeto `{subunidad: cadena | [cadenas]}`, se usa
+     como mapeo explícito; sus claves son las etiquetas de subunidad.
+2. Un sidecar junto al PAE. Para `complejo.pae.json` se admiten
+   `complejo.chains.json`, `complejo.chain_subunits.json`,
+   `complejo.subunit_chains.json`, `complejo.map.json`,
+   `complejo.pae.json.chains.json` y `complejo.pae.json.map.json`. El
+   contenido usa las mismas claves:
+   ```json
+   {"chain_subunits": {"A": "RpoA", "B": "RpoB"}}
+   ```
+3. Claves de mapeo en el nivel superior del propio JSON del PAE (por ejemplo,
+   un PAE de AlphaFold 3 con metadatos añadidos por el pipeline).
+
+Si una fuente presente declara un mapeo mal formado, el estado es `invalid` y
+no se prueba la siguiente fuente. **No se deriva el mapeo del orden de las
+cadenas, del nombre de la subunidad ni de que un ID de cadena coincida con una
+etiqueta.** Un PAE que declara `A`/`B` y una fila que declara subunidades `A`/`B`
+sigue siendo `not_available` sin mapeo explícito.
+
+### Estados y mensajes
+
+| Estado | Cuándo | Qué dibuja |
+|---|---|---|
+| `ok` | PAE local, cadenas y mapeo explícito; todos los pares calculables. | Resumen, tabla y aviso. |
+| `not_available` | No hay PAE local; la ruta remota no se descarga; falta el mapeo; el PAE no declara cadenas. | `st.info` con el literal `not_available` y el motivo. |
+| `invalid` | Varios PAE candidatos; mapeo mal formado; PAE corrupto o no NxN; cadena desconocida. | `st.warning` con el literal `invalid`; tabla solo si hay algún valor calculable. |
+
+En `not_available`, `available` puede ser `True` (el archivo existe) pero el
+contenido no permite separar subunidades. En `invalid`, no se publica una media
+parcial como si fuera la interfaz completa.
+
+### Tabla
+
+Una fila por par de subunidades, con columnas:
+
+```text
+Par · Subunidad A · Cadenas A · Subunidad B · Cadenas B
+A→B media (Å) · A→B máx (Å) · B→A media (Å) · B→A máx (Å)
+Pares (residuos) · Estado · Motivo
+```
+
+Las medias son las de `pae_complex` (ponderadas por pares de residuos) y el
+máximo es el máximo del bloque direccional. El resumen del complejo muestra
+pares evaluados, media, máximo y número de pares de residuos. La tabla se
+construye con `table_rows(view)` y no depende de pandas.
+
+El bloque muestra siempre `CAVEAT`:
+
+> El PAE es error relativo del modelo (Å), no una distancia ni evidencia
+> experimental. Un PAE de interfaz bajo no demuestra interacción física ni
+> estequiometría; la asignación de cadenas a subunidades es una declaración y
+> no se infiere del PAE.
+
+### Cómo integrarlo en la ficha existente
+
+En `webapp/browser.py`, la ficha de complejo vive en la pestaña `t_cx`. Basta
+añadir el import (el archivo usa imports planos) y una llamada después de los
+metadatos actuales:
+
+```python
+from complex_pae_ui import render_complex_pae
+
+# ... dentro de `with t_cx:`, después de mostrar la ficha del complejo:
+render_complex_pae(
+    r.to_dict(),
+    data_root,
+    key_prefix=f"cx_{genome}_{r.get('complex_id', '')}",
+)
+```
+
+Si se importa como paquete, usar
+`from webapp.complex_pae_ui import render_complex_pae`. La función no modifica
+el estado de Streamlit salvo dibujar el bloque; devuelve la vista por si la
+ficha quiere mostrar o descargar algo adicional.
+
+Alternativa para pruebas o para otra vista:
+
+```python
+from webapp.complex_pae_ui import complex_pae_view, table_rows
+
+view = complex_pae_view(row, data_root)
+if view["status"] == "ok":
+    for row in table_rows(view):
+        print(row["Par"], row["A→B media (Å)"], row["B→A media (Å)"])
+else:
+    print(view["status"], view["reason"])
+```
+
 ## Ejemplo
 
 ```python
@@ -333,10 +523,10 @@ result = analyze_complex(
 ## Pruebas
 
 ```bash
-.venv/bin/python -m pytest tests/test_pae_complex.py -q
+.venv/bin/python -m pytest tests/test_complex_pae_ui.py tests/test_pae_complex.py -q
 ```
 
-Las pruebas usan matrices y JSON sintéticos, sin red ni GPU. Cubren:
+Las pruebas usan matrices, JSON y un Streamlit falso, sin red ni GPU. Cubren:
 
 - matrices asimétricas de 3 subunidades y medias/máximos por par;
 - varias cadenas por subunidad y agregación ponderada;
@@ -346,7 +536,23 @@ Las pruebas usan matrices y JSON sintéticos, sin red ni GPU. Cubren:
 - mapeos vacíos, de una subunidad, con cadenas repetidas o tipos inválidos;
 - cadenas desconocidas, índices solapados y rechazo de la resolución ordinal;
 - resultado conservador cuando falla un bloque de una dirección;
-- `interface_pair`, `subunits_from_chain_subunits` y el texto de límites.
+- `interface_pair`, `subunits_from_chain_subunits` y el texto de límites;
+- búsqueda del PAE por ID, por `:` reemplazado por `_` y por todas las
+  subunidades; un PAE de una sola subunidad no se acepta para un complejo;
+- ruta declarada absoluta/relativa, ruta ausente y ruta remota rechazada;
+- ambigüedad de candidatos como `invalid`, sin elegir al azar;
+- mapeo desde la fila (incluido `subunits` como objeto), desde un sidecar y
+  desde el JSON del PAE;
+- ausencia de mapeo como `not_available`, incluso si los IDs de cadena y de
+  subunidad coinciden;
+- tabla con media/máximo `A→B` y `B→A`, homómeros con dos cadenas por
+  subunidad y aviso de interacción/estequiometría;
+- render con Streamlit falso para `ok`, `not_available` e `invalid`, y
+  `key_prefix` en la clave del dataframe.
+
+`tests/test_complex_pae_ui.py` no necesita un runtime de Streamlit: sustituye
+`complex_pae_ui.st` por un objeto que registra llamadas y permite comprobar que
+no se dibuja una tabla cuando no hay valores.
 
 ## Relación con `docs/PAE.md`
 

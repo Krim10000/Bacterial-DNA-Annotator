@@ -20,6 +20,8 @@ confirma que el marco de lectura, el inicio ni el producto sean correctos.
 """
 from __future__ import annotations
 
+import csv
+import gzip
 import re
 from collections.abc import Mapping
 from pathlib import Path
@@ -374,8 +376,20 @@ def _complex_explanation(status: str) -> str:
     )
 
 
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+_STRUCTURE_CATALOG = "structure_catalog.tsv"
+_STRUCTURE_SUFFIXES = (
+    ".pdb", ".pdb.gz", ".cif", ".cif.gz", ".mmcif", ".mmcif.gz",
+)
+_UNIPROT_PREFIXES = {"sp", "tr", "gb", "ref", "emb", "dbj", "pdb"}
+
+
 def _resolve_pdb(value: Any, data_root: Path | str | None) -> Path | None:
-    """Resuelve un PDB local; devuelve ``None`` si no existe el archivo."""
+    """Resuelve un PDB/mmCIF local; ``None`` si no existe el archivo.
+
+    Acepta ``.pdb``, ``.pdb.gz``, ``.cif``, ``.cif.gz`` (y ``.mmcif``) sin
+    descomprimir aquí: el visor y la descarga se encargan del gzip.
+    """
     raw = _text(value)
     if not raw:
         return None
@@ -385,11 +399,157 @@ def _resolve_pdb(value: Any, data_root: Path | str | None) -> Path | None:
     roots: list[Path] = []
     if data_root:
         roots.append(Path(data_root))
-    roots.append(Path(__file__).resolve().parents[1])
+    roots.append(_REPO_ROOT)
     for root in roots:
         resolved = root / candidate
         if resolved.is_file():
             return resolved
+    return None
+
+
+def _structure_format(path: str | Path) -> str:
+    """Devuelve ``"cif"`` o ``"pdb"`` a partir del nombre del archivo."""
+    name = Path(path).name.lower()
+    if name.endswith((".cif", ".cif.gz", ".mmcif", ".mmcif.gz")):
+        return "cif"
+    return "pdb"
+
+
+def _is_gzip(path: str | Path) -> bool:
+    return Path(path).name.lower().endswith(".gz")
+
+
+def _read_structure_bytes(path: str | Path) -> bytes:
+    """Lee coordenadas descomprimiendo gzip de forma transparente."""
+    p = Path(path)
+    if _is_gzip(p):
+        with gzip.open(p, "rb") as fh:
+            return fh.read()
+    return p.read_bytes()
+
+
+def _accession(gene: Mapping[str, Any]) -> str:
+    """Accesión UniProt del gen, normalizando ``sp|ACC|NOMBRE``."""
+    for key in ("uniprot", "uniprot_acc", "uniprot_id", "acc", "accession"):
+        raw = _text(gene.get(key))
+        if not raw:
+            continue
+        parts = [part.strip() for part in raw.split("|") if part.strip()]
+        if not parts:
+            continue
+        if parts[0].lower() in _UNIPROT_PREFIXES and len(parts) > 1:
+            return parts[1].upper()
+        return parts[0].upper()
+    return ""
+
+
+def _catalog_files(data_root: Path | str | None) -> list[Path]:
+    """Catálogos unificados candidatos, en orden y sin repetir."""
+    roots = [Path(data_root)] if data_root else [_REPO_ROOT]
+    candidates: list[Path] = []
+    for root in roots:
+        candidates.extend((
+            root / "metabolism" / "targets" / _STRUCTURE_CATALOG,
+            root / _STRUCTURE_CATALOG,
+            root / "data" / "metabolism" / "targets" / _STRUCTURE_CATALOG,
+        ))
+    found: list[Path] = []
+    seen: set[Path] = set()
+    for candidate in candidates:
+        try:
+            key = candidate.resolve()
+        except OSError:
+            key = candidate
+        if key in seen:
+            continue
+        seen.add(key)
+        if candidate.is_file():
+            found.append(candidate)
+    return found
+
+
+def _resolve_catalog_path(raw: Any, catalog: Path,
+                          data_root: Path | str | None) -> Path | None:
+    """Resuelve la ruta de una fila del catálogo sin asumir una sola raíz."""
+    text = _text(raw)
+    if not text:
+        return None
+    candidate = Path(text).expanduser()
+    if candidate.is_absolute():
+        return candidate if candidate.is_file() else None
+    roots: list[Path] = [catalog.parent]
+    roots.extend(catalog.parents[1:4])
+    if data_root:
+        base = Path(data_root)
+        roots.extend((base, base.parent))
+    roots.append(_REPO_ROOT)
+    seen: set[Path] = set()
+    for root in roots:
+        resolved = root / candidate
+        try:
+            key = resolved.resolve()
+        except OSError:
+            key = resolved
+        if key in seen:
+            continue
+        seen.add(key)
+        if resolved.is_file():
+            return resolved
+    return None
+
+
+def _catalog_structure(accession: str,
+                       data_root: Path | str | None) -> Path | None:
+    """Busca la accesión en ``structure_catalog.tsv`` y resuelve su archivo.
+
+    Prefiere filas con estado ``ok`` y, dentro de ellas, la fuente AFDB. Una
+    fila con archivo existente se usa aunque su estado no sea ``ok``; una ruta
+    inexistente se ignora para que la ficha pueda caer a AFDB/ESMFold.
+    """
+    wanted = (accession or "").strip().upper()
+    if not wanted:
+        return None
+    for catalog in _catalog_files(data_root):
+        best_path: Path | None = None
+        best_rank: tuple[int, int] | None = None
+        try:
+            with catalog.open(
+                encoding="utf-8-sig", errors="replace", newline=""
+            ) as fh:
+                for row in csv.DictReader(fh, delimiter="\t"):
+                    if _text(row.get("accession")).upper() != wanted:
+                        continue
+                    path = _resolve_catalog_path(
+                        row.get("path") or row.get("pdb"), catalog, data_root)
+                    if path is None:
+                        continue
+                    status = _text(row.get("status")).lower()
+                    source = _text(row.get("source")).lower()
+                    rank = (
+                        0 if status in ("", "ok") else 1,
+                        0 if source == "afdb" else 1 if source == "esmfold" else 2,
+                    )
+                    if best_rank is None or rank < best_rank:
+                        best_rank, best_path = rank, path
+        except OSError:
+            continue
+        if best_path is not None:
+            return best_path
+    return None
+
+
+def _fallback_structure(accession: str,
+                        data_root: Path | str | None) -> Path | None:
+    """Caché local AFDB/ESMFold por accesión, sin descargar nada."""
+    wanted = (accession or "").strip().upper()
+    if not wanted or not data_root:
+        return None
+    targets = Path(data_root) / "metabolism" / "targets"
+    for folder in ("afdb25k", "esmfold_kaggle"):
+        for suffix in _STRUCTURE_SUFFIXES:
+            candidate = targets / folder / f"{wanted}{suffix}"
+            if candidate.is_file():
+                return candidate
     return None
 
 
@@ -666,43 +826,39 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
         ))
 
     # --------------------------------------------------------------- PDB
+    # Orden: (1) ``pdb`` declarado por el registro, (2) catálogo unificado por
+    # accesión, (3) caché local AFDB/ESMFold. Nunca se descarga ni se inventa.
     pdb_raw = _text(gene.get("pdb"))
-    if not pdb_raw:
-        # Respaldo local: AFDB cache por accesión UniProt, sin descargar nada.
-        acc = _text(gene.get("uniprot") or gene.get("acc"))
-        if acc and data_root:
-            acc_base = acc.split("|")[-1]
-            for folder in ("afdb25k", "esmfold_kaggle"):
-                candidate = (Path(data_root) / "metabolism" / "targets"
-                             / folder / f"{acc_base}.pdb")
-                if candidate.is_file():
-                    pdb_raw = str(candidate)
-                    break
-    if not pdb_raw:
-        st.info(_t(
-            "No hay PDB local para este gen. El proyecto no descarga una "
-            "estructura para cada proteína: usa AFDB/PDB si ya está en la "
-            "caché local o ESMFold explícitamente. No se genera ni inventa "
-            "una estructura.",
-            "No local PDB for this gene. The project does not download a "
-            "structure for every protein: it uses AFDB/PDB from the local "
-            "cache or explicit ESMFold. No structure is generated or invented.",
-        ))
-        return
-
-    pdb_path = _resolve_pdb(pdb_raw, data_root)
+    accession = _accession(gene)
+    pdb_path = _resolve_pdb(pdb_raw, data_root) if pdb_raw else None
     if pdb_path is None:
-        st.info(_t(
-            f"El registro declara `pdb={pdb_raw}`, pero el archivo no está "
-            "disponible; no se inventa una estructura.",
-            f"The record declares `pdb={pdb_raw}`, but the file is not "
-            "available; no structure is invented.",
-        ))
+        pdb_path = _catalog_structure(accession, data_root)
+    if pdb_path is None:
+        pdb_path = _fallback_structure(accession, data_root)
+    if pdb_path is None:
+        if pdb_raw:
+            st.info(_t(
+                f"El registro declara `pdb={pdb_raw}`, pero el archivo no está "
+                "disponible; no se inventa una estructura.",
+                f"The record declares `pdb={pdb_raw}`, but the file is not "
+                "available; no structure is invented.",
+            ))
+        else:
+            st.info(_t(
+                "No hay PDB local para este gen. El proyecto no descarga una "
+                "estructura para cada proteína: usa AFDB/PDB si ya está en la "
+                "caché local o ESMFold explícitamente. No se genera ni inventa "
+                "una estructura.",
+                "No local PDB for this gene. The project does not download a "
+                "structure for every protein: it uses AFDB/PDB from the local "
+                "cache or explicit ESMFold. No structure is generated or "
+                "invented.",
+            ))
         return
 
     try:
-        pdb_bytes = pdb_path.read_bytes()
-    except OSError as exc:
+        pdb_bytes = _read_structure_bytes(pdb_path)
+    except (OSError, EOFError) as exc:
         st.info(_t(
             f"No se pudo leer el PDB `{pdb_path.name}`: {exc}. No se inventa "
             "una estructura.",
@@ -711,12 +867,15 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
         ))
         return
 
-    is_cif = pdb_path.suffix.lower() in {".cif", ".mmcif"}
+    fmt = _structure_format(pdb_path)
+    download_name = pdb_path.name
+    if _is_gzip(pdb_path):
+        download_name = download_name[:-3]
     st.download_button(
         _t("⬇️ Descargar PDB", "⬇️ Download PDB"),
         data=pdb_bytes,
-        file_name=pdb_path.name,
-        mime="chemical/x-cif" if is_cif else "chemical/x-pdb",
+        file_name=download_name,
+        mime="chemical/x-cif" if fmt == "cif" else "chemical/x-pdb",
         key=_key(key_prefix, gene_id or name, "pdb_dl"),
     )
     if st.button(

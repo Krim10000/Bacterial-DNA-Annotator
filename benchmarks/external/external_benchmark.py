@@ -41,6 +41,25 @@ from typing import Any, Iterable, Mapping, Sequence
 from urllib.parse import unquote
 
 SCHEMA = "external-benchmark-run/v1"
+GOLD_SCHEMA = "external-benchmark-gold/v1"
+PROFILE_SCHEMA = "external-benchmark-profile/v1"
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+
+DEFAULT_REPORT_DIR = Path("reports") / "external_benchmark"
+DEFAULT_JSON = DEFAULT_REPORT_DIR / "benchmark.json"
+DEFAULT_MD = DEFAULT_REPORT_DIR / "benchmark.md"
+
+# Un directorio Bakta DB válido contiene al menos uno de estos marcadores.
+# No se recorre la base completa: solo se comprueban marcadores y se hashea
+# como mucho un JSON pequeño de versión.
+BAKTA_DB_MARKERS: tuple[str, ...] = (
+    "version.json",
+    "db_info.json",
+    "bakta.db",
+    "amrfinderplus",
+    "uniprot",
+)
 
 CATEGORIES: tuple[str, ...] = ("CDS", "tRNA", "rRNA")
 TOOLS: tuple[str, ...] = ("bakta", "prokka", "dfast")
@@ -100,6 +119,7 @@ LIMITATIONS = [
     "La coincidencia literal de 'product' no mide función; los nombres dependen de cada base.",
     "No se comparan ncRNA, tmRNA, pseudogenes (si se excluyen), dominios ni rutas.",
     "Una herramienta ausente no es un cero: queda como not_available sin métricas.",
+    "La Bakta DB se detecta localmente; no se descarga y su ausencia deja Bakta en not_available.",
     "No se declara superioridad entre herramientas sin un gold independiente y ejecuciones pareadas.",
     "Las ubicaciones compuestas de GenBank se comparan por su intervalo envolvente.",
 ]
@@ -146,6 +166,239 @@ def sha256_file(path: str | Path, chunk_size: int = 1024 * 1024) -> str:
         for chunk in iter(lambda: fh.read(chunk_size), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _utc_from_timestamp(timestamp: float | None) -> str | None:
+    if timestamp is None:
+        return None
+    return (
+        datetime.fromtimestamp(float(timestamp), tz=timezone.utc)
+        .replace(microsecond=0)
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
+
+
+def file_fingerprint(
+    path: str | Path | None,
+    *,
+    compute_sha256: bool = True,
+) -> dict[str, Any]:
+    """Valida una ruta y devuelve tamaño, fechas y SHA256 cuando sea posible.
+
+    No falla si la ruta no existe: devuelve ``exists=False`` con la razón para
+    que el informe pueda distinguir "ausente" de "vacío" o "ilegible".
+    """
+    if path is None:
+        return {
+            "path": None,
+            "exists": False,
+            "is_file": False,
+            "error": "ruta no especificada",
+        }
+    raw = Path(path).expanduser()
+    info: dict[str, Any] = {
+        "path": display_path(raw) or str(raw),
+        "absolute_path": str(raw.resolve()) if raw.exists() else str(raw),
+        "exists": raw.exists(),
+        "is_file": raw.is_file(),
+        "is_dir": raw.is_dir(),
+        "error": None,
+    }
+    if not raw.exists():
+        info["error"] = "la ruta no existe"
+        return info
+    try:
+        stat = raw.stat()
+        info.update(
+            size_bytes=int(stat.st_size),
+            mtime_utc=_utc_from_timestamp(stat.st_mtime),
+        )
+    except OSError as exc:
+        info["error"] = f"no se pudo leer el stat: {exc}"
+        return info
+    if raw.is_file() and compute_sha256:
+        try:
+            info["sha256"] = sha256_file(raw)
+        except OSError as exc:
+            info["error"] = f"no se pudo calcular SHA256: {exc}"
+    return info
+
+
+def parse_version_text(text: str | None) -> str | None:
+    """Extrae la primera versión con aspecto semántico de la salida de --version."""
+    if not text:
+        return None
+    match = re.search(
+        r"(?<![0-9A-Za-z])(v?\d+(?:\.\d+){1,3}(?:[-+][0-9A-Za-z.]+)?)",
+        str(text),
+    )
+    if not match:
+        return None
+    return match.group(1)
+
+
+def _bakta_db_version(markers: Mapping[str, Path]) -> tuple[str | None, str | None]:
+    """Lee la versión de version.json/db_info.json sin ejecutar Bakta."""
+    for name in ("version.json", "db_info.json"):
+        marker = markers.get(name)
+        if marker is None or not marker.is_file():
+            continue
+        try:
+            if marker.stat().st_size > 2 * 1024 * 1024:
+                continue
+            payload = json.loads(marker.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if isinstance(payload, Mapping):
+            for key in ("version", "db_version", "bakta_db_version", "minor"):
+                value = payload.get(key)
+                if isinstance(value, str) and value.strip():
+                    return value.strip(), name
+                if isinstance(value, (int, float)):
+                    return str(value), name
+            nested = payload.get("database")
+            if isinstance(nested, Mapping):
+                value = nested.get("version")
+                if isinstance(value, str) and value.strip():
+                    return value.strip(), name
+    return None, None
+
+
+def detect_bakta_db(
+    path: str | Path | None = None,
+    *,
+    environ: Mapping[str, str] | None = None,
+) -> dict[str, Any]:
+    """Detecta y valida una Bakta DB local sin descargarla ni ejecutar Bakta.
+
+    Orden: ``path`` explícito, variable ``BAKTA_DB``, ``~/.bakta_db`` y
+    ``/data/bakta_db``. Un directorio sin marcadores queda ``incomplete``; una
+    ruta inexistente queda ``not_found``. Ninguno de los dos se usa para
+    ejecutar Bakta ni produce métricas.
+    """
+    environ = os.environ if environ is None else environ
+    candidates: list[tuple[str, Path]] = []
+    if path is not None:
+        candidates.append(("argument", Path(path)))
+    env_value = environ.get("BAKTA_DB")
+    if env_value:
+        candidates.append(("BAKTA_DB", Path(env_value)))
+    candidates.extend(
+        [
+            ("home", Path.home() / ".bakta_db"),
+            ("system", Path("/data/bakta_db")),
+        ]
+    )
+
+    seen: set[str] = set()
+    candidate_rows: list[dict[str, Any]] = []
+    selected: tuple[str, Path] | None = None
+    for source, candidate in candidates:
+        expanded = candidate.expanduser()
+        key = str(expanded.absolute())
+        if key in seen:
+            continue
+        seen.add(key)
+        exists = expanded.exists()
+        candidate_rows.append(
+            {"source": source, "path": str(expanded), "exists": exists}
+        )
+        if selected is None and exists:
+            selected = (source, expanded)
+
+    base: dict[str, Any] = {
+        "status": "not_found",
+        "available": False,
+        "path": None,
+        "source": None,
+        "exists": False,
+        "valid": False,
+        "version": None,
+        "version_source": None,
+        "markers_found": [],
+        "marker_files": {},
+        "entries": [],
+        "candidates": candidate_rows,
+        "reason": (
+            "no se encontró Bakta DB; definir BAKTA_DB o pasar --bakta-db "
+            "(el benchmark no la descarga)"
+        ),
+    }
+
+    if selected is None:
+        if path is not None:
+            base["reason"] = (
+                f"la ruta Bakta DB indicada no existe: {Path(path).expanduser()} "
+                "(el benchmark no la descarga)"
+            )
+        return base
+
+    source, database = selected
+    resolved = database.resolve()
+    base.update(
+        path=display_path(resolved) or str(resolved),
+        absolute_path=str(resolved),
+        source=source,
+        exists=True,
+    )
+    if not database.is_dir():
+        base.update(
+            status="invalid",
+            reason=f"la ruta Bakta DB existe pero no es un directorio: {resolved}",
+        )
+        return base
+
+    # Algunas instalaciones anidan la base en <ruta>/db.
+    search_roots = [database]
+    nested = database / "db"
+    if nested.is_dir():
+        search_roots.append(nested)
+
+    markers: dict[str, Path] = {}
+    entries: list[str] = []
+    for root in search_roots:
+        try:
+            entries.extend(sorted(item.name for item in root.iterdir())[:60])
+        except OSError:
+            continue
+        for name in BAKTA_DB_MARKERS:
+            candidate = root / name
+            if candidate.exists() and name not in markers:
+                markers[name] = candidate
+
+    base.update(markers_found=sorted(markers), entries=entries[:120])
+    if not markers:
+        base.update(
+            status="incomplete",
+            reason=(
+                f"directorio Bakta DB sin marcadores conocidos ({resolved}); "
+                f"se buscó {', '.join(BAKTA_DB_MARKERS)}. No se usa para --run"
+            ),
+        )
+        return base
+
+    version, version_source = _bakta_db_version(markers)
+    marker_files: dict[str, Any] = {}
+    for name in ("version.json", "db_info.json"):
+        marker = markers.get(name)
+        if marker is None or not marker.is_file():
+            continue
+        # Solo JSON pequeños: hashear una base completa sería costoso e inútil.
+        marker_files[name] = file_fingerprint(
+            marker,
+            compute_sha256=marker.stat().st_size <= 2 * 1024 * 1024,
+        )
+    base.update(
+        status="ok",
+        available=True,
+        valid=True,
+        version=version,
+        version_source=version_source,
+        marker_files=marker_files,
+        reason="",
+    )
+    return base
 
 
 def open_text(path: str | Path):
@@ -1325,17 +1578,25 @@ def detect_tool(name: str, which=None) -> dict[str, Any]:
     which = which or shutil.which
     spec = TOOL_SPECS[name]
     path = which(spec["binary"])
+    executable = bool(path and os.path.isfile(path) and os.access(path, os.X_OK))
+    available = bool(path and executable)
+    if path and not executable:
+        reason = (
+            f"ruta encontrada para '{spec['binary']}' pero no es un archivo "
+            f"ejecutable: {path}"
+        )
+    elif not path:
+        reason = f"binario '{spec['binary']}' no encontrado en PATH (shutil.which)"
+    else:
+        reason = ""
     return {
         "tool": name,
         "label": spec["label"],
         "binary": spec["binary"],
-        "available": bool(path),
+        "available": available,
+        "executable": executable,
         "path": path,
-        "reason": (
-            ""
-            if path
-            else f"binario '{spec['binary']}' no encontrado en PATH (shutil.which)"
-        ),
+        "reason": reason,
         "requires_database": bool(spec["requires_database"]),
     }
 
@@ -1354,6 +1615,8 @@ def probe_version(
     if tool not in TOOL_SPECS:
         raise ValueError(f"herramienta desconocida: {tool}")
     command = [str(binary_path), *TOOL_SPECS[tool]["version_args"]]
+    started_at = utc_now()
+    start = time.perf_counter()
     try:
         proc = subprocess.run(
             command,
@@ -1362,6 +1625,7 @@ def probe_version(
             timeout=timeout,
             check=False,
         )
+        elapsed = time.perf_counter() - start
         text = "\n".join(
             part.strip() for part in (proc.stdout, proc.stderr) if part and part.strip()
         )
@@ -1370,13 +1634,22 @@ def probe_version(
             "command": command,
             "returncode": proc.returncode,
             "text": _tail(text, 500),
+            "version": parse_version_text(text),
+            "runtime_seconds": round(elapsed, 3),
+            "started_at": started_at,
+            "finished_at": utc_now(),
         }
     except (OSError, subprocess.TimeoutExpired) as exc:
+        elapsed = time.perf_counter() - start
         return {
             "status": "failed",
             "command": command,
             "returncode": None,
             "text": _tail(str(exc), 500),
+            "version": None,
+            "runtime_seconds": round(elapsed, 3),
+            "started_at": started_at,
+            "finished_at": utc_now(),
         }
 
 
@@ -1458,7 +1731,8 @@ def execute_command(
     timeout: float = 3600.0,
     cwd: str | Path | None = None,
 ) -> dict[str, Any]:
-    """Ejecuta un comando externo y mide pared y RSS máximo de hijos."""
+    """Ejecuta un comando externo y mide pared, timestamps y RSS máximo de hijos."""
+    started_at = utc_now()
     start = time.perf_counter()
     rss_before = _max_rss_kb()
     try:
@@ -1477,6 +1751,8 @@ def execute_command(
             "command": [str(item) for item in command],
             "returncode": completed.returncode,
             "runtime_seconds": round(elapsed, 3),
+            "started_at": started_at,
+            "finished_at": utc_now(),
             "max_rss_kb": rss_after,
             "max_rss_mib": round(rss_after / 1024.0, 2) if rss_after is not None else None,
             "max_rss_delta_kb": (
@@ -1499,6 +1775,8 @@ def execute_command(
             "command": [str(item) for item in command],
             "returncode": None,
             "runtime_seconds": round(elapsed, 3),
+            "started_at": started_at,
+            "finished_at": utc_now(),
             "max_rss_kb": _max_rss_kb(),
             "max_rss_mib": None,
             "max_rss_delta_kb": None,
@@ -1514,6 +1792,8 @@ def execute_command(
             "command": [str(item) for item in command],
             "returncode": None,
             "runtime_seconds": round(elapsed, 3),
+            "started_at": started_at,
+            "finished_at": utc_now(),
             "max_rss_kb": _max_rss_kb(),
             "max_rss_mib": None,
             "max_rss_delta_kb": None,
@@ -1571,6 +1851,18 @@ def _copy_evidence(tool: str, save_dir: Path, outdir: Path, run: Mapping[str, An
     )
 
 
+def _bakta_binary_is_canonical(path: str | Path | None) -> bool:
+    """True si el binario detectado es el ejecutable canónico ``bakta``.
+
+    Un envoltorio con otro nombre puede traer su propia DB/configuración; en ese
+    caso el runner no le impone ``--db`` y deja que la ejecución reporte el
+    fallo real. La detección normal vía PATH devuelve el binario ``bakta``.
+    """
+    if not path:
+        return False
+    return Path(str(path)).name in {"bakta", "bakta.exe", "bakta.bin"}
+
+
 def evaluate_tool(
     tool: str,
     *,
@@ -1584,6 +1876,7 @@ def evaluate_tool(
     timeout: float = 3600.0,
     threads: int = 1,
     bakta_db: str | Path | None = None,
+    bakta_db_info: Mapping[str, Any] | None = None,
     prefix: str = "benchmark",
     exclude_pseudo: bool = True,
     probe_versions: bool = True,
@@ -1591,7 +1884,15 @@ def evaluate_tool(
     max_differences: int = 100,
     extra_args: Sequence[str] = (),
 ) -> dict[str, Any]:
-    """Evalúa una herramienta: precalculada, no ejecutada o ejecutada."""
+    """Evalúa una herramienta: precalculada, no ejecutada o ejecutada.
+
+    Reglas de honestidad:
+
+    - Sin binario (o sin Bakta DB válida cuando se pide Bakta ``--run``), el
+      estado es ``not_available`` y no se ejecuta nada.
+    - Un fallo, timeout o salida ilegible deja ``failed``/``timeout`` y
+      ``comparison=None``; nunca se rellenan métricas con ceros.
+    """
     if tool not in TOOL_SPECS:
         raise ValueError(f"herramienta desconocida: {tool}")
     detection = detect_tool(tool, which=which)
@@ -1601,14 +1902,23 @@ def evaluate_tool(
         "binary": TOOL_SPECS[tool]["binary"],
         "available": detection["available"],
         "binary_path": detection["path"],
+        "binary_executable": detection.get("executable"),
         "status": "",
         "reason": "",
         "source": None,
         "version": None,
         "execution": None,
         "query_gff": None,
+        "bakta_db": None,
         "comparison": None,
+        "timings": None,
     }
+    if tool == "bakta":
+        result["bakta_db"] = dict(
+            bakta_db_info
+            if bakta_db_info is not None
+            else detect_bakta_db(bakta_db)
+        )
 
     # 1) Anotación precalculada: no requiere binario ni ejecución.
     if query_gff is not None:
@@ -1619,6 +1929,8 @@ def evaluate_tool(
                 reason=f"no existe la anotación precalculada: {query_path}",
             )
             return result
+        started_at = utc_now()
+        start = time.perf_counter()
         try:
             query_set = load_annotations(
                 query_path, exclude_pseudo=exclude_pseudo
@@ -1639,8 +1951,14 @@ def evaluate_tool(
             source="precomputed",
             query_gff={
                 **query_set.summary(sha256=sha256_file(query_path)),
+                "file": file_fingerprint(query_path),
             },
             comparison=comparison,
+            timings={
+                "started_at": started_at,
+                "finished_at": utc_now(),
+                "total_seconds": round(time.perf_counter() - start, 3),
+            },
         )
         return result
 
@@ -1649,14 +1967,37 @@ def evaluate_tool(
         result.update(status="not_available", reason=detection["reason"])
         return result
 
-    # 3) Binario disponible pero no se pidió ejecutar.
-    if not run:
+    # 3) Bakta canónico necesita una base local validada. Sin ella no se ejecuta.
+    if (
+        tool == "bakta"
+        and run
+        and _bakta_binary_is_canonical(detection["path"])
+        and not (result["bakta_db"] or {}).get("valid")
+    ):
+        database = result["bakta_db"] or {}
         result.update(
-            status="not_run",
-            reason="binario disponible, pero no se pidió --run",
+            status="not_available",
+            reason=(
+                f"Bakta DB no utilizable ({database.get('reason') or 'ausente'}); "
+                "no se ejecuta Bakta y no se reportan métricas"
+            ),
         )
         return result
 
+    # 4) Binario disponible pero no se pidió ejecutar.
+    if not run:
+        reason = "binario disponible, pero no se pidió --run"
+        if tool == "bakta" and not (result["bakta_db"] or {}).get("valid"):
+            database = result["bakta_db"] or {}
+            reason += (
+                f"; Bakta DB: {database.get('status', 'not_found')}"
+                f" ({database.get('reason') or 'ausente'})"
+            )
+        result.update(status="not_run", reason=reason)
+        return result
+
+    started_at = utc_now()
+    start = time.perf_counter()
     if probe_versions:
         result["version"] = probe_version(
             tool,
@@ -1668,6 +2009,11 @@ def evaluate_tool(
         tmpdir = Path(tmp)
         outdir = tmpdir / "out"
         outdir.mkdir(parents=True, exist_ok=True)
+        resolved_db = (
+            (result["bakta_db"] or {}).get("absolute_path")
+            if tool == "bakta"
+            else None
+        )
         command = build_command(
             tool,
             str(detection["path"]),
@@ -1675,7 +2021,7 @@ def evaluate_tool(
             outdir,
             prefix=prefix,
             threads=threads,
-            bakta_db=bakta_db,
+            bakta_db=resolved_db or bakta_db,
             extra_args=extra_args,
         )
         execution = execute_command(command, timeout=timeout, cwd=tmpdir)
@@ -1691,6 +2037,11 @@ def evaluate_tool(
                     if execution["status"] == "timeout"
                     else f"la ejecución externa terminó con returncode={execution.get('returncode')}"
                 ),
+                timings={
+                    "started_at": started_at,
+                    "finished_at": utc_now(),
+                    "total_seconds": round(time.perf_counter() - start, 3),
+                },
             )
             return result
 
@@ -1700,6 +2051,25 @@ def evaluate_tool(
             result.update(
                 status="failed",
                 reason="la herramienta terminó con código 0, pero no se encontró GFF/GBFF de salida",
+                timings={
+                    "started_at": started_at,
+                    "finished_at": utc_now(),
+                    "total_seconds": round(time.perf_counter() - start, 3),
+                },
+            )
+            return result
+
+        output_info = file_fingerprint(annotation_path)
+        execution["output"] = output_info
+        if not output_info.get("size_bytes"):
+            result.update(
+                status="failed",
+                reason="la anotación de salida está vacía",
+                timings={
+                    "started_at": started_at,
+                    "finished_at": utc_now(),
+                    "total_seconds": round(time.perf_counter() - start, 3),
+                },
             )
             return result
 
@@ -1708,7 +2078,15 @@ def evaluate_tool(
                 annotation_path, exclude_pseudo=exclude_pseudo
             )
         except (InputError, DependencyError) as exc:
-            result.update(status="failed", reason=f"no se pudo leer la salida: {exc}")
+            result.update(
+                status="failed",
+                reason=f"no se pudo leer la salida: {exc}",
+                timings={
+                    "started_at": started_at,
+                    "finished_at": utc_now(),
+                    "total_seconds": round(time.perf_counter() - start, 3),
+                },
+            )
             return result
 
         saved_path: str | None = None
@@ -1719,6 +2097,7 @@ def evaluate_tool(
         result["query_gff"] = {
             **query_set.summary(sha256=sha256_file(annotation_path)),
             "path": saved_path or f"<temporal>/{annotation_path.name}",
+            "file": output_info,
         }
         comparison = compare_annotations(
             reference,
@@ -1732,6 +2111,11 @@ def evaluate_tool(
             reason=comparison.get("reason", ""),
             source="executed",
             comparison=comparison,
+            timings={
+                "started_at": started_at,
+                "finished_at": utc_now(),
+                "total_seconds": round(time.perf_counter() - start, 3),
+            },
         )
         return result
 
@@ -1754,6 +2138,35 @@ def _normalize_tools(tools: Sequence[str] | str) -> tuple[str, ...]:
     return tuple(dict.fromkeys(selected))
 
 
+def _run_command_from_parameters(
+    genome_path: str | Path,
+    reference_path: str | Path,
+    tools: Sequence[str],
+    bakta_db_info: Mapping[str, Any],
+) -> list[str]:
+    """Comando ``--run`` reproducible con los valores efectivos del informe."""
+    command = [
+        sys.executable or "python3",
+        "benchmarks/external/external_benchmark.py",
+        "--genome",
+        display_path(genome_path) or str(genome_path),
+        "--reference",
+        display_path(reference_path) or str(reference_path),
+        "--tools",
+        ",".join(tools),
+        "--run",
+        "--threads",
+        "1",
+        "--json",
+        str(DEFAULT_JSON),
+        "--md",
+        str(DEFAULT_MD),
+    ]
+    if bakta_db_info.get("valid") and bakta_db_info.get("path"):
+        command.extend(["--bakta-db", str(bakta_db_info["path"])])
+    return command
+
+
 def run_benchmark(
     genome_path: str | Path,
     reference_path: str | Path,
@@ -1773,10 +2186,15 @@ def run_benchmark(
     save_gffs: str | Path | None = None,
     max_differences: int = 100,
     which=None,
+    environ: Mapping[str, str] | None = None,
     extra_args: Mapping[str, Sequence[str]] | None = None,
     command: Sequence[str] | None = None,
+    report_json: str | Path | None = None,
+    report_md: str | Path | None = None,
 ) -> dict[str, Any]:
     """Orquesta el benchmark completo y devuelve un dict serializable a JSON."""
+    started_at = utc_now()
+    start = time.perf_counter()
     selected = _normalize_tools(tools)
     query_gffs = dict(query_gffs or {})
     unknown = [name for name in query_gffs if name not in TOOLS]
@@ -1785,6 +2203,13 @@ def run_benchmark(
     for name, path in query_gffs.items():
         if not Path(path).is_file():
             raise InputError(f"query_gff de {name} no existe: {path}")
+
+    genome_file = file_fingerprint(genome_path)
+    if not genome_file.get("is_file"):
+        raise InputError(f"no existe el genoma FASTA: {genome_path}")
+    reference_file = file_fingerprint(reference_path)
+    if not reference_file.get("is_file"):
+        raise InputError(f"no existe la anotación de referencia: {reference_path}")
 
     genome = read_fasta(genome_path)
     reference = load_annotations(
@@ -1799,6 +2224,7 @@ def run_benchmark(
     resolver = build_seqid_resolver(genome) if seqid_aliasing else None
 
     detection = detect_tools(which=which)
+    bakta_db_info = detect_bakta_db(bakta_db, environ=environ)
     results: dict[str, Any] = {}
     for name in selected:
         results[name] = evaluate_tool(
@@ -1813,6 +2239,7 @@ def run_benchmark(
             timeout=timeout,
             threads=threads,
             bakta_db=bakta_db,
+            bakta_db_info=bakta_db_info,
             prefix=prefix,
             exclude_pseudo=exclude_pseudo,
             probe_versions=probe_versions,
@@ -1825,9 +2252,15 @@ def run_benchmark(
     for name in TOOLS:
         item = dict(detection[name])
         item["version"] = None
+        item["version_detail"] = None
         if name in results and results[name].get("version"):
             version = results[name]["version"]
-            item["version"] = version.get("text") if version.get("status") == "ok" else None
+            item["version_detail"] = version
+            item["version"] = (
+                version.get("version") or version.get("text")
+                if version.get("status") == "ok"
+                else None
+            )
         environment_tools[name] = item
 
     not_available = [
@@ -1844,8 +2277,72 @@ def run_benchmark(
             warnings.append(f"{name}: {result['reason']}")
         if result["status"] == "failed":
             warnings.append(f"{name}: {result['reason']}")
+        if result["status"] == "timeout":
+            warnings.append(f"{name}: {result['reason']}")
+    if "bakta" in selected and not bakta_db_info.get("valid"):
+        warnings.append(f"Bakta DB: {bakta_db_info.get('reason')}")
 
     reference_summary = reference.summary(sha256=sha256_file(reference_path))
+    genome_summary = genome.summary()
+    genome_summary["file"] = genome_file
+    reference_summary["file"] = reference_file
+
+    checks: list[dict[str, Any]] = []
+
+    def _check(name: str, status: str, detail: str) -> None:
+        checks.append({"name": name, "status": status, "detail": detail})
+
+    _check("genome_path", "ok", "FASTA existe y es legible")
+    _check(
+        "genome_sha256",
+        "ok" if genome_file.get("sha256") else "failed",
+        f"SHA256 {genome_file.get('sha256') or 'no calculado'}",
+    )
+    _check(
+        "reference_path",
+        "ok",
+        f"referencia {reference.format} con {len(reference.features)} features",
+    )
+    _check(
+        "reference_sha256",
+        "ok" if reference_file.get("sha256") else "failed",
+        f"SHA256 {reference_file.get('sha256') or 'no calculado'}",
+    )
+    _check(
+        "reference_features",
+        "ok" if reference.features else "failed",
+        f"CDS={reference.counts['CDS']} tRNA={reference.counts['tRNA']} "
+        f"rRNA={reference.counts['rRNA']} pseudo_excluidos={reference.excluded_pseudo}",
+    )
+    for name in selected:
+        info = environment_tools[name]
+        if info["available"]:
+            _check(f"tool_{name}", "ok", f"binario ejecutable: {info['path']}")
+        else:
+            _check(f"tool_{name}", "missing", info["reason"])
+    if "bakta" in selected:
+        _check(
+            "bakta_db",
+            "ok" if bakta_db_info.get("valid") else "missing",
+            f"estado={bakta_db_info.get('status')}; "
+            f"{bakta_db_info.get('reason') or bakta_db_info.get('path')}",
+        )
+    for name, result in results.items():
+        status = result["status"]
+        check_status = {
+            "ok": "ok",
+            "not_available": "missing",
+            "not_run": "pending",
+            "not_comparable": "warning",
+        }.get(status, "failed")
+        _check(
+            f"result_{name}",
+            check_status,
+            f"estado={status}; {result.get('reason') or 'sin incidencias'}",
+        )
+
+    finished_at = utc_now()
+    total_seconds = round(time.perf_counter() - start, 3)
     return {
         "schema": SCHEMA,
         "generated_at": utc_now(),
@@ -1868,15 +2365,17 @@ def run_benchmark(
             "seqid_aliasing": bool(seqid_aliasing),
             "timeout_seconds": timeout,
             "threads": threads,
-            "bakta_db": display_path(bakta_db),
+            "bakta_db": bakta_db_info.get("path") or display_path(bakta_db),
             "probe_versions": bool(probe_versions),
             "max_differences": max_differences,
         },
         "environment": {
             "python": platform.python_version(),
+            "python_executable": sys.executable,
             "platform": f"{platform.system()} {platform.release()} {platform.machine()}",
             "cpu_count": os.cpu_count(),
             "tools": environment_tools,
+            "bakta_db": bakta_db_info,
             "available_tools": [
                 name for name in TOOLS if environment_tools[name]["available"]
             ],
@@ -1885,8 +2384,31 @@ def run_benchmark(
             ],
         },
         "inputs": {
-            "genome": genome.summary(),
+            "genome": genome_summary,
             "reference": reference_summary,
+        },
+        "validation": {
+            "checks": checks,
+            "inputs": {
+                "genome": genome_file,
+                "reference": reference_file,
+            },
+            "bakta_db": bakta_db_info,
+            "versions": {
+                name: (environment_tools[name].get("version_detail") or {}).get(
+                    "version"
+                )
+                for name in TOOLS
+            },
+            "reports": {
+                "json": display_path(report_json) if report_json else None,
+                "md": display_path(report_md) if report_md else None,
+            },
+            "timing": {
+                "started_at": started_at,
+                "finished_at": finished_at,
+                "total_seconds": total_seconds,
+            },
         },
         "results": results,
         "not_available": not_available,
@@ -1894,11 +2416,15 @@ def run_benchmark(
         "limitations": list(LIMITATIONS),
         "reproduction": {
             "command": [str(item) for item in command] if command else None,
+            "run_command": _run_command_from_parameters(
+                genome_path, reference_path, selected, bakta_db_info
+            ),
             "notes": [
                 "Fijar las versiones de Bakta/Prokka/DFAST y registrar la digestión de la imagen.",
                 "Conservar SHA256 de FASTA, referencia y GFF/GBFF de cada herramienta.",
                 "Ejecutar con 1 CPU/hilo para comparar tiempos de forma consistente.",
                 "Una comparación válida necesita un gold independiente y ejecuciones pareadas.",
+                "La Bakta DB no se descarga: se detecta/valida una copia local.",
             ],
         },
     }
@@ -2182,7 +2708,8 @@ def render_markdown(data: Mapping[str, Any]) -> str:
         "",
         "## Entorno",
         "",
-        f"- Python: `{environment.get('python', '—')}`",
+        f"- Python: `{environment.get('python', '—')}` "
+        f"(`{environment.get('python_executable', '—')}`)",
         f"- Plataforma: `{environment.get('platform', '—')}`",
         f"- CPU lógicas: `{environment.get('cpu_count', '—')}`",
         f"- Umbral de solapamiento recíproco: **{_fmt(parameters.get('overlap_threshold'), 2)}**",
@@ -2191,6 +2718,23 @@ def render_markdown(data: Mapping[str, Any]) -> str:
         f"- Normalización de seqid: **{_fmt(parameters.get('seqid_aliasing'))}**",
         "",
     ]
+
+    bakta_db = environment.get("bakta_db") or {}
+    if bakta_db:
+        lines += [
+            "### Bakta DB",
+            "",
+            f"- Estado: `{bakta_db.get('status', '—')}` "
+            f"(válida: **{_fmt(bakta_db.get('valid'))}**).",
+            f"- Ruta: `{bakta_db.get('path') or '—'}` "
+            f"(origen: `{bakta_db.get('source') or '—'}`).",
+            f"- Versión: `{bakta_db.get('version') or '—'}` "
+            f"(fuente: `{bakta_db.get('version_source') or '—'}`).",
+            f"- Marcadores: `{', '.join(bakta_db.get('markers_found') or []) or '—'}`.",
+        ]
+        if bakta_db.get("reason"):
+            lines.append(f"- Razón: {bakta_db['reason']}.")
+        lines.append("")
 
     tool_rows = []
     for name, item in (environment.get("tools") or {}).items():
@@ -2223,7 +2767,33 @@ def render_markdown(data: Mapping[str, Any]) -> str:
         f"tRNA **{reference.get('counts', {}).get('tRNA', '—')}**, "
         f"rRNA **{reference.get('counts', {}).get('rRNA', '—')}**.",
         f"- CDS pseudo excluidos en referencia: **{reference.get('excluded_pseudo', 0)}**.",
+        f"- SHA256 FASTA: `{genome.get('sha256') or '—'}`.",
+        f"- SHA256 referencia: `{reference.get('sha256') or '—'}`.",
         "",
+    ]
+
+    validation = data.get("validation") or {}
+    timing = validation.get("timing") or {}
+    checks = validation.get("checks") or []
+    lines += [
+        "## Validación",
+        "",
+        f"- Inicio: `{timing.get('started_at', '—')}`; fin: "
+        f"`{timing.get('finished_at', '—')}`; total: "
+        f"**{_fmt(timing.get('total_seconds'), 2)} s**.",
+        f"- JSON declarado: `{(validation.get('reports') or {}).get('json') or '—'}`.",
+        f"- Markdown declarado: `{(validation.get('reports') or {}).get('md') or '—'}`.",
+        "",
+        _table(
+            ["check", "estado", "detalle"],
+            [
+                [item.get("name"), item.get("status"), item.get("detail")]
+                for item in checks
+            ],
+        ),
+        "",
+    ]
+    lines += [
         "## Resultados",
         "",
     ]
@@ -2260,6 +2830,14 @@ def render_markdown(data: Mapping[str, Any]) -> str:
             lines.append(f"- Fuente: `{result['source']}`.")
         if result.get("reason"):
             lines.append(f"- Razón: {result['reason']}.")
+        result_db = result.get("bakta_db") or {}
+        if result_db:
+            lines.append(
+                f"- Bakta DB: `{result_db.get('status', '—')}` "
+                f"(válida: **{_fmt(result_db.get('valid'))}**, "
+                f"ruta `{result_db.get('path') or '—'}`, "
+                f"versión `{result_db.get('version') or '—'}`)."
+            )
         if result.get("version"):
             version = result["version"]
             lines.append(
@@ -2271,8 +2849,17 @@ def render_markdown(data: Mapping[str, Any]) -> str:
             lines.append(
                 f"- Ejecución: **{_status_label(execution.get('status'))}**, "
                 f"{_fmt(execution.get('runtime_seconds'), 2)} s, "
-                f"RSS máx. {_fmt(execution.get('max_rss_mib'), 1)} MiB."
+                f"RSS máx. {_fmt(execution.get('max_rss_mib'), 1)} MiB "
+                f"(`{execution.get('started_at', '—')}` → "
+                f"`{execution.get('finished_at', '—')}`)."
             )
+            output = execution.get("output") or {}
+            if output:
+                lines.append(
+                    f"- Salida: `{output.get('path', '—')}` "
+                    f"({output.get('size_bytes', '—')} bytes, "
+                    f"SHA256 `{str(output.get('sha256') or '—')[:16]}…`)."
+                )
             if execution.get("command"):
                 lines.append(f"- Comando: `{' '.join(execution['command'])}`.")
             if execution.get("stderr_tail"):
@@ -2323,27 +2910,57 @@ def render_markdown(data: Mapping[str, Any]) -> str:
     for item in data.get("limitations") or []:
         lines.append(f"- {item}")
 
+    reproduction = data.get("reproduction") or {}
+    run_command = reproduction.get("run_command")
+    if not run_command:
+        run_command = [
+            "python",
+            "benchmarks/external/external_benchmark.py",
+            "--genome",
+            parameters.get("genome") or "<genoma.fna>",
+            "--reference",
+            parameters.get("reference") or "<referencia.gff3|gbff>",
+            "--tools",
+            ",".join(parameters.get("tools") or list(TOOLS)),
+            "--run",
+            "--threads",
+            "1",
+            "--json",
+            str(DEFAULT_JSON),
+            "--md",
+            str(DEFAULT_MD),
+        ]
     lines += [
         "",
         "## Reproducción",
         "",
+        "Comando exacto con `--run` (Bakta requiere una Bakta DB local; no se "
+        "descarga):",
+        "",
         "```bash",
-        "python benchmarks/external/external_benchmark.py \\",
-        f"  --genome {parameters.get('genome') or '<genoma.fna>'} \\",
-        f"  --reference {parameters.get('reference') or '<referencia.gff3|gbff>'} \\",
-        f"  --tools {','.join(parameters.get('tools') or list(TOOLS))} \\",
-        "  --overlap-threshold "
-        f"{_fmt(parameters.get('overlap_threshold'), 2)} \\",
-        "  --json reports/external_benchmark_run/benchmark.json \\",
-        "  --md reports/external_benchmark_run/benchmark.md",
+        " ".join(str(item) for item in run_command),
         "```",
         "",
-        "Añadir `--run` para ejecutar las herramientas instaladas. Para comparar "
-        "salidas producidas en otro host, usar `--query-gff TOOL=RUTA` sin "
-        "`--run`; el origen queda marcado como `precomputed`.",
+        "Para comparar salidas producidas en otro host, usar "
+        "`--query-gff TOOL=RUTA` sin `--run`; el origen queda como "
+        "`precomputed`.",
         "",
     ]
     return "\n".join(lines).rstrip() + "\n"
+
+
+def _atomic_write_text(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+    try:
+        temp.write_text(text, encoding="utf-8")
+        os.replace(temp, path)
+    finally:
+        if temp.exists():
+            try:
+                temp.unlink()
+            except OSError:
+                pass
 
 
 def write_reports(
@@ -2352,15 +2969,17 @@ def write_reports(
     json_path: str | Path,
     md_path: str | Path,
 ) -> tuple[Path, Path]:
+    """Escribe JSON y Markdown de forma atómica; valida que las rutas no sean dirs."""
     json_path = Path(json_path)
     md_path = Path(md_path)
-    json_path.parent.mkdir(parents=True, exist_ok=True)
-    md_path.parent.mkdir(parents=True, exist_ok=True)
-    json_path.write_text(
+    for path in (json_path, md_path):
+        if path.exists() and path.is_dir():
+            raise InputError(f"la ruta de informe es un directorio: {path}")
+    _atomic_write_text(
+        json_path,
         json.dumps(data, indent=2, ensure_ascii=False, sort_keys=False) + "\n",
-        encoding="utf-8",
     )
-    md_path.write_text(render_markdown(data), encoding="utf-8")
+    _atomic_write_text(md_path, render_markdown(data))
     return json_path, md_path
 
 
@@ -2482,13 +3101,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--json",
         type=Path,
-        default=Path("reports/external_benchmark_run/benchmark.json"),
+        default=DEFAULT_JSON,
         help="ruta del JSON",
     )
     parser.add_argument(
         "--md",
         type=Path,
-        default=Path("reports/external_benchmark_run/benchmark.md"),
+        default=DEFAULT_MD,
         help="ruta del Markdown",
     )
     parser.add_argument(
@@ -2530,8 +3149,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         extra_args[tool].append(argument)
 
     bakta_db = args.bakta_db
-    if bakta_db is None and os.environ.get("BAKTA_DB"):
-        bakta_db = Path(os.environ["BAKTA_DB"])
+    # Si no hay --bakta-db, detect_bakta_db consulta BAKTA_DB con su origen real.
 
     try:
         data = run_benchmark(
@@ -2553,15 +3171,23 @@ def main(argv: Sequence[str] | None = None) -> int:
             extra_args=extra_args,
             command=[
                 sys.executable,
-                "benchmarks/external/external_benchmark.py",
+                display_path(Path(__file__).resolve())
+                or "benchmarks/external/external_benchmark.py",
                 *raw_argv,
             ],
+            report_json=args.json,
+            report_md=args.md,
         )
     except BenchmarkError as exc:
         print(f"[external-benchmark] error: {exc}", file=sys.stderr)
         return 2
 
-    write_reports(data, json_path=args.json, md_path=args.md)
+    try:
+        write_reports(data, json_path=args.json, md_path=args.md)
+    except (BenchmarkError, OSError) as exc:
+        print(f"[external-benchmark] error al escribir informes: {exc}", file=sys.stderr)
+        return 2
+
     if not args.quiet:
         print(
             "[external-benchmark] herramientas disponibles: "
@@ -2570,6 +3196,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(
             "[external-benchmark] herramientas ausentes: "
             f"{data['not_available'] or 'ninguna'}"
+        )
+        database = data["environment"].get("bakta_db") or {}
+        print(
+            "[external-benchmark] Bakta DB: "
+            f"{database.get('status')} "
+            f"({database.get('path') or database.get('reason') or 'sin ruta'})"
         )
         for name, result in data["results"].items():
             comparison = result.get("comparison") or {}
@@ -2580,6 +3212,12 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
         print(f"[external-benchmark] escrito {args.json}")
         print(f"[external-benchmark] escrito {args.md}")
+        run_command = (data.get("reproduction") or {}).get("run_command")
+        if run_command and data["not_available"]:
+            print(
+                "[external-benchmark] comando exacto con --run: "
+                + " ".join(str(item) for item in run_command)
+            )
 
     if args.strict:
         bad = [
@@ -2598,6 +3236,11 @@ def main(argv: Sequence[str] | None = None) -> int:
 
 __all__ = [
     "SCHEMA",
+    "GOLD_SCHEMA",
+    "PROFILE_SCHEMA",
+    "DEFAULT_JSON",
+    "DEFAULT_MD",
+    "BAKTA_DB_MARKERS",
     "CATEGORIES",
     "TOOLS",
     "TOOL_SPECS",
@@ -2612,11 +3255,13 @@ __all__ = [
     "build_seqid_resolver",
     "compare_annotations",
     "compare_gffs",
+    "detect_bakta_db",
     "detect_format",
     "detect_tool",
     "detect_tools",
     "execute_command",
     "evaluate_tool",
+    "file_fingerprint",
     "find_output_annotation",
     "hypothetical_stats",
     "interval_overlap",
@@ -2626,6 +3271,7 @@ __all__ = [
     "match_features",
     "parse_genbank",
     "parse_gff",
+    "parse_version_text",
     "probe_version",
     "product_token_jaccard",
     "read_fasta",

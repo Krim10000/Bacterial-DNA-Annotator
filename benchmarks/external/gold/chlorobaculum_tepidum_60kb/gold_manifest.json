@@ -1,0 +1,143 @@
+{
+  "schema": "external-benchmark-gold/v1",
+  "profile_schema": "external-benchmark-profile/v1",
+  "name": "chlorobaculum_tepidum_60kb",
+  "generated_at": "2026-11-25T12:45:22Z",
+  "source": {
+    "annotation": {
+      "path": "data/annotations/GCF_000006985.1_ASM698v1.gff.gz",
+      "format": "gff3",
+      "file": {
+        "path": "data/annotations/GCF_000006985.1_ASM698v1.gff.gz",
+        "absolute_path": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/annotations/GCF_000006985.1_ASM698v1.gff.gz",
+        "exists": true,
+        "is_file": true,
+        "is_dir": false,
+        "error": null,
+        "size_bytes": 178030,
+        "mtime_utc": "2026-11-15T15:51:27Z",
+        "sha256": "07840cf47524bdff403dfc2246f56a4ebf11de116ed50101ad5fab185e9c93c3"
+      },
+      "features_total": 2044,
+      "excluded_pseudo": 47
+    },
+    "genome": {
+      "path": "data/raw/GCF_000006985.1_ASM698v1_genomic.fna.gz",
+      "sequence_source": "data/raw/GCF_000006985.1_ASM698v1_genomic.fna.gz",
+      "file": {
+        "path": "data/raw/GCF_000006985.1_ASM698v1_genomic.fna.gz",
+        "absolute_path": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/raw/GCF_000006985.1_ASM698v1_genomic.fna.gz",
+        "exists": true,
+        "is_file": true,
+        "is_dir": false,
+        "error": null,
+        "size_bytes": 636577,
+        "mtime_utc": "2026-11-14T21:53:38Z",
+        "sha256": "93ac0ad67dee8762a50bdf2a7a1875f39d5ca8bb8d8b451783aad5430c8f8cc5"
+      },
+      "sha256": "93ac0ad67dee8762a50bdf2a7a1875f39d5ca8bb8d8b451783aad5430c8f8cc5",
+      "contigs": 1
+    }
+  },
+  "selection": {
+    "seqid": "NC_002932.3",
+    "source_contig_length": 2154946,
+    "window_start": 1,
+    "window_end": 60000,
+    "window_bp": 60000,
+    "flank": 250,
+    "max_bp": 60000,
+    "contig_features_total": 2044,
+    "features_selected": 56,
+    "counts": {
+      "CDS": 55,
+      "tRNA": 1,
+      "rRNA": 0
+    },
+    "skipped": [],
+    "skipped_total": 0
+  },
+  "outputs": {
+    "genome": {
+      "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+      "absolute_path": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+      "exists": true,
+      "is_file": true,
+      "is_dir": false,
+      "error": null,
+      "size_bytes": 60847,
+      "mtime_utc": "2026-11-25T12:45:22Z",
+      "sha256": "2d2dc79ed637655d5c12b816b248b472090cd48f395526c7adedb572416e0949"
+    },
+    "reference": {
+      "path": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+      "absolute_path": "/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+      "exists": true,
+      "is_file": true,
+      "is_dir": false,
+      "error": null,
+      "size_bytes": 26014,
+      "mtime_utc": "2026-11-25T12:45:22Z",
+      "sha256": "73d0aeadcfc2e236eb30ae448f5788c45633806224a7f0450b8d19aa5caa4830"
+    },
+    "run_script": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/run_benchmark.sh",
+    "manifest": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/gold_manifest.json"
+  },
+  "counts": {
+    "CDS": 55,
+    "tRNA": 1,
+    "rRNA": 0
+  },
+  "warnings": [
+    "1 feature(s) GFF multi-segmento fusionados por ID; se comparan por su intervalo envolvente."
+  ],
+  "method": "Ventana de una anotación local reindexada a 1; features CDS/tRNA/rRNA completamente contenidos en la ventana. No se deriva de ninguna herramienta evaluada.",
+  "limitations": [
+    "El gold es una ventana extraída de una anotación de referencia local; hereda sus criterios y errores.",
+    "No es un gold curado a mano ni una verdad biológica independiente de toda base de datos.",
+    "Solo incluye CDS/tRNA/rRNA; no evalúa ncRNA, tmRNA, pseudogenes, dominios ni rutas.",
+    "Las coordenadas del gold están reindexadas a 1 dentro de la ventana; no coinciden con el ensamblado completo.",
+    "Una herramienta ausente no es un cero: el runner la deja not_available sin métricas."
+  ],
+  "run": {
+    "schema": "external-benchmark-profile/v1",
+    "tools": [
+      "bakta",
+      "prokka",
+      "dfast"
+    ],
+    "run": true,
+    "threads": 1,
+    "timeout_seconds": 3600.0,
+    "command": [
+      ".venv/bin/python",
+      "benchmarks/external/external_benchmark.py",
+      "--genome",
+      "benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna",
+      "--reference",
+      "benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3",
+      "--tools",
+      "all",
+      "--run",
+      "--threads",
+      "1",
+      "--timeout",
+      "3600.0",
+      "--save-gffs",
+      "reports/external_benchmark/chlorobaculum_tepidum_60kb/evidence",
+      "--json",
+      "reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.json",
+      "--md",
+      "reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.md"
+    ],
+    "shell": ".venv/bin/python benchmarks/external/external_benchmark.py --genome benchmarks/external/gold/chlorobaculum_tepidum_60kb/genome.fna --reference benchmarks/external/gold/chlorobaculum_tepidum_60kb/reference.gff3 --tools all --run --threads 1 --timeout 3600.0 --save-gffs reports/external_benchmark/chlorobaculum_tepidum_60kb/evidence --json reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.json --md reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.md",
+    "script": "benchmarks/external/gold/chlorobaculum_tepidum_60kb/run_benchmark.sh",
+    "working_directory": "raíz del repositorio",
+    "reports": {
+      "json": "reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.json",
+      "md": "reports/external_benchmark/chlorobaculum_tepidum_60kb/benchmark.md",
+      "evidence": "reports/external_benchmark/chlorobaculum_tepidum_60kb/evidence"
+    },
+    "bakta_db": "Bakta requiere una DB local; exportar BAKTA_DB o añadir --bakta-db. No se descarga."
+  }
+}

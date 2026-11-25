@@ -17,7 +17,10 @@ borrar ni mover los PDB originales. La ingesta de ZIP se reutiliza mediante
 |---|---|
 | `scripts/structure/ingest_kaggle_zips.py` | ingesta de ZIP ESMFold; expone `read_tsv_rows`/`write_tsv_rows` reutilizados por el unificador |
 | `scripts/structure/unify_structure_catalog.py` | construye catálogo unificado + reportes; `--dry-run`; sin red |
+| `webapp/gene_card.py` | resuelve el PDB declarado, el catálogo unificado y la caché AFDB/ESMFold, en ese orden |
+| `webapp/structure_viewer.py` | lee PDB/mmCIF plano o gzip y lo entrega a py3Dmol |
 | `tests/test_structure_catalog.py` | catálogos sintéticos y ZIP sintético |
+| `tests/test_compressed_structures.py` | PDB/mmCIF y catálogo sintéticos; gzip y orden de resolución |
 | `docs/STRUCTURE_CATALOG.md` | este documento |
 
 ## Entradas y salidas
@@ -40,6 +43,38 @@ reports/structure_catalog_report.md
 ```
 
 Ninguna salida se escribe con `--dry-run`.
+
+## Resolución en la ficha del gen y el visor
+
+La ficha (`webapp/gene_card.py`) no descarga estructuras. Para cada gen busca
+en este orden y se queda con el primer archivo que exista:
+
+1. `gene["pdb"]` declarado por el registro (absoluto, relativo a
+   `data_root` o relativo a la raíz del proyecto);
+2. la accesión en `structure_catalog.tsv`;
+3. la caché local AFDB/ESMFold:
+   `data/metabolism/targets/{afdb25k,esmfold_kaggle}/<accesión>.<ext>`.
+
+La accesión se normaliza (`sp|P12345|NOMBRE` → `P12345`) desde `uniprot`,
+`uniprot_acc`, `uniprot_id`, `acc` o `accession`. En el catálogo se prefiere
+una fila con `status=ok`; si su archivo no existe, la fila se ignora y la
+búsqueda continúa con la caché. Las rutas del catálogo se resuelven, en orden,
+desde el directorio del catálogo, sus directorios padres, `data_root`, el
+padre de `data_root` y la raíz del repositorio: así funcionan tanto rutas
+relativas al catálogo como las rutas tipo `data/metabolism/targets/...` que
+escribe el unificador.
+
+El catálogo se busca en `data_root/metabolism/targets/structure_catalog.tsv`,
+`data_root/structure_catalog.tsv` y
+`data_root/data/metabolism/targets/structure_catalog.tsv`; si no se pasa
+`data_root`, se usa la raíz del repositorio.
+
+Extensiones aceptadas: `.pdb`, `.pdb.gz`, `.cif`, `.cif.gz` (además de
+`.mmcif` y `.mmcif.gz`). `webapp/structure_viewer._read_pdb` descomprime gzip
+antes de entregar el texto a py3Dmol y detecta el formato por sufijo o por la
+cabecera `data_`. La descarga de la ficha se ofrece descomprimida, con el
+nombre sin `.gz` y MIME `chemical/x-pdb` o `chemical/x-cif`. Los PDB planos
+siguen funcionando sin cambios.
 
 ## Esquema del catálogo
 
@@ -184,10 +219,12 @@ fuente de verdad.
 ```bash
 .venv/bin/python -m pytest tests/test_structure_catalog.py -q
 .venv/bin/python -m pytest tests/test_structure_catalog.py tests/test_ingest_kaggle.py -q
+.venv/bin/python -m pytest tests/test_compressed_structures.py -q
+.venv/bin/python -m pytest tests/test_compressed_structures.py tests/test_gene_card.py -q
 ```
 
-Las pruebas usan `tmp_path`, catálogos sintéticos y un ZIP sintético. No
-tocan `data/metabolism/targets`.
+Las pruebas usan `tmp_path`, catálogos sintéticos, PDB/mmCIF sintéticos y un
+ZIP sintético. No tocan `data/metabolism/targets`.
 
 ## Límites
 
@@ -201,10 +238,18 @@ tocan `data/metabolism/targets`.
   las columnas clásicas (`pdb`, `sha256`, `pdb_bytes`, `updated`).
 - La deduplicación por hash detecta bytes idénticos, no la misma proteína
   predicha con coordenadas distintas ni duplicados por secuencia.
-- Solo se inspeccionan `*.pdb` en los directorios configurados; no hay mmCIF,
-  ensamblados biológicos, ligandos ni validación geométrica.
-- No se valida que el PDB sea biológicamente correcto ni que la accesión
-  corresponda a la secuencia modelada.
+- El **unificador** solo inspecciona `*.pdb` en los directorios configurados;
+  no indexa mmCIF, ensamblados biológicos, ligandos ni validación geométrica.
+  La **ficha y el visor** sí aceptan `.cif`/`.cif.gz` cuando el `pdb`
+  declarado o una fila del catálogo apunta a ellos.
+- La ficha usa la fila del catálogo como índice, no revalida su `sha256`,
+  `bytes` ni `status` contra el archivo: solo comprueba que exista. Un estado
+  `missing` con archivo presente se usa igual; un `ok` sin archivo se ignora.
+- La búsqueda es por accesión, no por secuencia: si la accesión del gen no
+  corresponde a la proteína modelada, la ficha mostrará la estructura
+  equivocada sin poder detectarlo.
+- La descompresión gzip no impone un límite de tamaño; un `.gz` corrupto se
+  trata como archivo sin coordenadas y el visor lo informa.
 - El reporte de huérfanos puede ser grande (1.192 filas en la corrida de
   referencia); el Markdown lo trunca, el TSV no.
 - El catálogo no reemplaza la evidencia experimental ni justifica por sí solo

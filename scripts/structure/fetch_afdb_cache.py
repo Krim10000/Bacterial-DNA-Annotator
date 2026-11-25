@@ -267,7 +267,8 @@ def is_permanent(row: Mapping[str, Any] | None) -> bool:
         return False
     if str(row.get("status", "")) == STATUS_PERMANENT:
         return True
-    return "HTTP 404" in str(row.get("error", ""))
+    err = str(row.get("error", ""))
+    return "404" in err and ("HTTP 404" in err or "HTTP Error 404" in err)
 
 
 def apply_dedup(rows: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:

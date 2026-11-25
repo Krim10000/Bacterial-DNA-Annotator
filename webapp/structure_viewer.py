@@ -5,6 +5,7 @@ una brecha; el visor muestra PDB ya generados o aportados por el usuario.
 """
 from __future__ import annotations
 
+import gzip
 from pathlib import Path
 from typing import Any
 
@@ -34,10 +35,34 @@ def available() -> tuple[bool, str]:
 
 
 def _read_pdb(pdb: str | Path) -> str:
+    """Lee coordenadas de un archivo local, descomprimiendo ``.gz``.
+
+    Acepta PDB/mmCIF planos o comprimidos con gzip. Si ``pdb`` no es un
+    archivo existente se devuelve tal cual: el llamador puede pasar el texto
+    de las coordenadas directamente.
+    """
     p = Path(pdb)
-    if p.is_file():
-        return p.read_text(encoding="utf-8", errors="replace")
-    return str(pdb)
+    if not p.is_file():
+        return str(pdb)
+    if p.suffix.lower() == ".gz":
+        try:
+            with gzip.open(p, "rt", encoding="utf-8", errors="replace") as fh:
+                return fh.read()
+        except (OSError, EOFError):
+            # Un .gz corrupto se lee como texto: el visor avisará que no hay
+            # coordenadas en vez de romper la ficha.
+            return p.read_text(encoding="utf-8", errors="replace")
+    return p.read_text(encoding="utf-8", errors="replace")
+
+
+def _structure_format(pdb: str | Path, text: str = "") -> str:
+    """Devuelve ``"cif"`` o ``"pdb"`` según el nombre o el contenido."""
+    name = str(pdb).lower()
+    if name.endswith((".cif", ".cif.gz", ".mmcif", ".mmcif.gz")):
+        return "cif"
+    if text.lstrip().startswith("data_"):
+        return "cif"
+    return "pdb"
 
 
 def render(pdb: str | Path, key: str = "pdb_viewer", height: int = 440,
@@ -51,8 +76,7 @@ def render(pdb: str | Path, key: str = "pdb_viewer", height: int = 440,
     if "ATOM" not in text and "HETATM" not in text:
         st.info(tr("El archivo no parece un PDB con coordenadas."))
         return
-    fmt = "cif" if (str(pdb).lower().endswith((".cif", ".mmcif"))
-                     or text.lstrip().startswith("data_")) else "pdb"
+    fmt = _structure_format(pdb, text)
     view = py3Dmol.view(width=760, height=height)
     view.addModel(text, fmt)
     if bfactor:
@@ -72,6 +96,7 @@ def render(pdb: str | Path, key: str = "pdb_viewer", height: int = 440,
         "brecha."
     ))
     st.download_button(
-        tr("⬇️ Descargar PDB"), text, file_name=f"{key}.pdb",
-        mime="chemical/x-pdb", key=f"{key}_pdb_dl",
+        tr("⬇️ Descargar PDB"), text, file_name=f"{key}.{fmt}",
+        mime="chemical/x-cif" if fmt == "cif" else "chemical/x-pdb",
+        key=f"{key}_pdb_dl",
     )

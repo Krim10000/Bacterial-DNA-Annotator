@@ -290,10 +290,10 @@ honesta de sensibilidad/especificidad; no es el alcance de esta capa CPU.
 ## 9 · Pruebas
 
 ```bash
-.venv/bin/python -m pytest tests/test_tss_layer.py -q
+.venv/bin/python -m pytest tests/test_tss_layer.py tests/test_tss_integration.py -q
 ```
 
-Cubren:
+`tests/test_tss_layer.py` cubre:
 
 - TSV combinado sintético: normalización de `strand`, `pos`, `source`, `class`,
   duplicados exactos y filas inválidas.
@@ -305,10 +305,141 @@ Cubren:
 - `summary` desde la carga y desde listas.
 - Tabla real de *B. subtilis* si está presente: 3.390 TSS y 3.009 TTS.
 
-## 10 · Integración
+`tests/test_tss_integration.py` comprueba la conexión real con
+`pipeline_adapter.run_in_memory`, sin red ni predicción:
 
-La capa no modifica `app.py`, `browser.py` ni `pipeline.py`. Para integrarla,
-el llamador puede hacer `loaded = tss_layer.load(genome, data_root)` y pasar
-`loaded["tss"]`/`loaded["tts"]` al navegador, o usar `attach` antes de mostrar
-un gen. Si `status` es `not_available`, la UI debe mostrar la ausencia de datos
-en lugar de una marca vacía o una posición aproximada.
+- *B. subtilis* real (`data/dbtbs/genome.fna`): carga la tabla BSGatlas
+  (3.390/3.009), escribe `subtilis.tss_tts.tsv` y expone
+  `layer_status["tss_tts"] == "available"`.
+- Subconjunto real de *B. subtilis* con CDS de pyrodigal: las features reciben
+  `tss_upstream`/`tts_downstream` dentro de la ventana y del mismo contig/hebra.
+- *E. coli* K-12 real (`data/terminators/ecoli_k12.fna`): carga las tablas
+  RegulonDB y deja el `contig` vacío de los TSS de la unión, sin inventarlo.
+- Genoma nuevo sintético: `not_available`, conteos 0, ninguna marca asignada a
+  las features, sin archivo de salida y sin heredar las tablas reales.
+- Tabla local parcial (solo TSS): `partial`, sin TTS inventados.
+- Fallo de `annotate`: `tss_tts` conserva forma y `status="error"` sin romper
+  las claves existentes.
+
+## 10 · Integración en el pipeline en memoria
+
+`webapp/pipeline_adapter.py` conecta esta capa justo después de `annotate`, de
+modo que el llamador (GUI o navegador) recibe las marcas sin volver a cargarlas:
+
+```python
+res = annotate(filename, data, annotate_options)
+loaded = tss_layer.load(res["genome"], data_root)      # solo tablas locales
+tss_layer.attach(res["features"], loaded["tss"], loaded["tts"])
+res["tss_tts"] = resumen_de_la_carga_y_del_enlace
+```
+
+La llamada no descarga, no consulta APIs y no predice posiciones. Tampoco
+transfiere coordenadas entre ensamblajes o especies: si `load` devuelve
+`not_available`, `attach` deja todas las marcas en `None` y no se escribe
+ningún artefacto de posiciones.
+
+### Claves que expone `run_in_memory`
+
+| clave | contenido |
+|---|---|
+| `res["tss_tts"]` | resumen de la carga y del enlace (ver abajo) |
+| `res["layer_status"]["tss_tts"]` | `available`, `partial`, `not_available` o `error` |
+| `res["outputs"]["tss_tts"]` | ruta a `<genoma>.tss_tts.tsv` **solo si** hay filas |
+| `res["features"][i]["tss_upstream"]` | registro TSS más cercano aguas arriba, o `None` |
+| `res["features"][i]["tts_downstream"]` | registro TTS más cercano aguas abajo, o `None` |
+| `res["features"][i]["tss_upstream_distance"]` | pb hasta ese TSS, o `None` |
+| `res["features"][i]["tts_downstream_distance"]` | pb hasta ese TTS, o `None` |
+| `res["features"][i]["n_tss_inside"]` | marcas TSS dentro de `[start, end]` |
+| `res["features"][i]["n_tts_inside"]` | marcas TTS dentro de `[start, end]` |
+
+Las claves existentes del adaptador (`ncrna`, `functional`, `complexes`,
+`outputs`, `layer_status`, ...) no cambian; `tss_tts` se añade como una capa
+más.
+
+### Forma de `res["tss_tts"]`
+
+Ejemplo con la tabla real de *B. subtilis*; los valores de `attach` dependen de
+las features anotadas en cada ejecución.
+
+```python
+{
+  "genome": "subtilis",
+  "data_root": ".../data",
+  "status": "available",          # available | partial | not_available | error
+  "ok": True,
+  "available": True,
+  "reason": "",
+  "n_tss": 3390,
+  "n_tts": 3009,
+  "n_total": 6399,
+  "n_tss_unique_positions": 3390,
+  "n_tts_unique_positions": 3009,
+  "n_duplicates": 0,
+  "n_rejected": 0,
+  "n_shared_positions": 0,
+  "by_strand": {"+": 3029, "-": 3370, ".": 0},
+  "tss_classes": {...}, "tts_classes": {...},
+  "tss_locations": {...}, "tts_locations": {...},
+  "tss_sources": {...}, "tts_sources": {...},
+  "mechanisms": {...}, "contigs": ["basu168"],
+  "pos_min": 157, "pos_max": 4215542,
+  "tss": [{"type": "TSS", "contig": "basu168", "pos": 157, ...}],
+  "tts": [{"type": "TTS", "contig": "basu168", "pos": 191, ...}],
+  "sources": [{"path": ".../subtilis_tss_tts.tsv", "format": "tsv",
+               "hint": "both", "source": "BSGatlas",
+               "n_tss": 3390, "n_tts": 3009, "n_rejected": 0, "notes": []}],
+  "searched": [".../data/dbtbs/*_tss_tts.tsv|json"],
+  "limitation": "TSS/TTS precalculados y normalizados, ...",
+  "limits": {
+    "attach_max_distance_bp": 600,
+    "predicts_positions": False,
+    "downloads": False,
+    "cross_genome_transfer": False,
+    "detail": "...",
+  },
+  "attach": {
+    "ok": True,
+    "max_distance": 600,
+    "n_features": 4242,
+    "n_with_tss_upstream": ...,
+    "n_with_tts_downstream": ...,
+    "n_with_tss_inside": ...,
+    "n_with_tts_inside": ...,
+    "error": "",
+  },
+}
+```
+
+Los conteos y los mapas vienen de `tss_layer.summary`; `attach` cuenta cuántas
+features recibieron cada tipo de marca. `res["tss_tts"]` incluye además
+`tss`/`tts` con los registros normalizados (las mismas filas del TSV); en un
+genoma sin tabla ambas listas quedan vacías. El registro individual de cada
+feature enlazada también está en `res["features"][i]`.
+
+### TSV de salida
+
+`outputs["tss_tts"]` apunta a `<genoma>.tss_tts.tsv`, con cabecera:
+
+```
+type	contig	pos	end	strand	source	class	location	mechanism	detail
+```
+
+Las filas son exactamente los registros canónicos que devolvió
+`tss_layer.load` (TSS primero, luego TTS; deduplicados), sin coordenadas
+nuevas. El archivo no se crea si no hay filas: un genoma nuevo no produce un
+TSV vacío. `end` puede estar vacío cuando la fuente no trae intervalo.
+
+
+### Límites de la integración
+
+- El nombre del genoma sale de `safe_name(filename)` y de sus alias
+  (`subtilis`, `bsu`, `ecoli_k12`, `mg1655`, ...). Un archivo llamado
+  `genome.fna` no identifica la especie y devuelve `not_available`: no se adivina
+  por el contenido.
+- `attach` exige el mismo `contig` y la misma hebra, con una ventana de 600 pb.
+  Los TSS de la unión K-12 no traen contig, así que no se enlazan con features
+  de `NC_000913.3`; es una limitación conservadora y visible, no un fallo.
+- El TSV de salida puede ser grande (miles de filas en genomas curados); se
+  escribe solo si la tabla local tiene posiciones.
+- `available`/`partial` describen la existencia de la tabla, no que el TSS sea
+  un promotor funcional ni que el TTS termine el transcrito del gen vecino.

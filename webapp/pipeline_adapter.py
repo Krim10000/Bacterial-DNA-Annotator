@@ -6,9 +6,10 @@ FASTA temporal: recibe ``(filename, data)``, escribe los mismos artefactos en
 
 La secuencia es:
 
-    annotate -> ncRNA -> taxonomía -> functional -> dominios C -> contexto C
-    -> B estructural -> complejos (firma/modelo/transferencia) -> regulación
-    -> membrana -> oriC -> metabolismo opcional -> report
+    annotate -> TSS/TTS precalculados -> ncRNA -> taxonomía -> functional
+    -> dominios C -> contexto C -> B estructural -> complejos
+    (firma/modelo/transferencia) -> regulación -> membrana -> oriC
+    -> metabolismo opcional -> report
 
 No reimplementa ningún algoritmo: delega en los módulos del proyecto. Una
 capa que no puede ejecutarse (falta un binario, una base de datos o un panel)
@@ -19,6 +20,11 @@ Los artefactos se escriben con ``write_outputs`` del CLI y con las funciones
 de escritura de cada capa. ``res["outputs"]`` mapea nombres cortos
 (``gff``, ``protein_paths``, ``complexes``, ``ncrna``, ``membrane``, ...) a
 las rutas realmente creadas.
+
+TSS/TTS se cargan de tablas locales ya calculadas (``webapp/tss_layer.py``):
+no se descargan, no se predicen y no se transfieren coordenadas entre genomas.
+Si no hay tabla para el genoma, ``res["tss_tts"]["status"]`` es
+``not_available`` y no se escribe ningún TSV de posiciones.
 """
 from __future__ import annotations
 
@@ -30,7 +36,7 @@ from pathlib import Path
 from typing import Any
 
 if __package__:  # importado como paquete: ``webapp.pipeline_adapter``
-    from . import oric
+    from . import oric, tss_layer
     from .annotator import annotate, build_gff, build_report, safe_name
     from .complex_model import run as run_complex_model
     from .complex_transfer import load as load_complex_transfer
@@ -50,6 +56,7 @@ if __package__:  # importado como paquete: ``webapp.pipeline_adapter``
     from .taxonomy_layer import run as run_taxonomy
 else:  # ejecución con ``webapp/`` en sys.path, como el CLI
     import oric
+    import tss_layer
     from annotator import annotate, build_gff, build_report, safe_name
     from complex_model import run as run_complex_model
     from complex_transfer import load as load_complex_transfer
@@ -146,6 +153,7 @@ _LAYER_SHAPES: dict[str, dict[str, Any]] = {
     "regulation": {
         "rows": [], "promoter_rows": [], "n_operons": 0, "n_promoters": 0,
     },
+    "tss_tts": {"n_tss": 0, "n_tts": 0, "n_total": 0, "sources": []},
     "membrane": {"rows": [], "n_rows": 0},
     "oric": {},
 }
@@ -168,6 +176,7 @@ _OUTPUT_NAMES = {
     "taxonomy": "{g}.taxonomy.tsv",
     "operons": "{g}.operons_auto.tsv",
     "promoters": "{g}.promoters_auto.tsv",
+    "tss_tts": "{g}.tss_tts.tsv",
     "domains": "{g}.domains.tsv",
     "context_c": "{g}.context_c.tsv",
     "structural_b_manifest": "{g}.structure_b_manifest.tsv",
@@ -397,6 +406,137 @@ def _collect_outputs(outdir: Path, genome: str) -> dict[str, str]:
     return outputs
 
 
+#: Columnas del TSV TSS/TTS que escribe el adaptador. Son las del registro
+#: canónico de ``tss_layer``; no se añade ninguna coordenada calculada.
+_TSS_TTS_COLUMNS = (
+    "type", "contig", "pos", "end", "strand", "source", "class",
+    "location", "mechanism", "detail",
+)
+
+
+def _tsv_cell(value: Any) -> str:
+    """Celda TSV en una línea (sin tabs ni saltos embebidos)."""
+    if value is None:
+        return ""
+    return " ".join(str(value).split())
+
+
+def _write_tss_tts(loaded: dict[str, Any], outdir: Path,
+                   genome: str) -> str:
+    """Escribe las marcas cargadas; sin posiciones no crea archivo.
+
+    Devuelve la ruta escrita o ``""``. Las filas son exactamente las que
+    devolvió ``tss_layer.load``: no se interpolan ni se aproximan posiciones.
+    """
+    rows = list(loaded.get("tss") or []) + list(loaded.get("tts") or [])
+    if not rows:
+        return ""
+    path = outdir / f"{genome}.tss_tts.tsv"
+    lines = ["\t".join(_TSS_TTS_COLUMNS)]
+    for record in rows:
+        lines.append("\t".join(
+            _tsv_cell(record.get(column)) for column in _TSS_TTS_COLUMNS))
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return str(path)
+
+
+def _tss_attach_payload(features: list[dict[str, Any]],
+                        error: str = "") -> dict[str, Any]:
+    """Conteos del enlace TSS/TTS a features, sin fabricar marcas."""
+    items = [feature for feature in features or []
+             if isinstance(feature, dict)]
+    return {
+        "ok": not error,
+        "max_distance": tss_layer.MAX_ATTACH_DISTANCE,
+        "n_features": len(items),
+        "n_with_tss_upstream": sum(
+            1 for feature in items
+            if isinstance(feature.get("tss_upstream"), dict)),
+        "n_with_tts_downstream": sum(
+            1 for feature in items
+            if isinstance(feature.get("tts_downstream"), dict)),
+        "n_with_tss_inside": sum(
+            1 for feature in items
+            if int(feature.get("n_tss_inside") or 0) > 0),
+        "n_with_tts_inside": sum(
+            1 for feature in items
+            if int(feature.get("n_tts_inside") or 0) > 0),
+        "error": error,
+    }
+
+
+def _tss_tts_payload(loaded: dict[str, Any], features: list[dict[str, Any]],
+                     attach_error: str = "") -> dict[str, Any]:
+    """Resume la carga TSS/TTS para ``res["tss_tts"]``.
+
+    ``loaded`` es el dict de ``tss_layer.load`` (o el registro de fallo que
+    devuelve ``_call``). Se conservan ``status``, conteos, ``sources``,
+    ``reason`` y los límites; un genoma sin tabla queda en ``not_available``
+    con listas vacías y sin coordenadas inventadas.
+    """
+    if isinstance(loaded.get("tss"), list) and isinstance(loaded.get("tts"), list):
+        payload = tss_layer.summary(loaded)
+        payload["available"] = (
+            payload.get("status") != tss_layer.STATUS_NOT_AVAILABLE)
+    else:
+        # La carga lanzó una excepción: no hay filas ni posiciones.
+        payload = {
+            "genome": str(loaded.get("genome") or ""),
+            "status": str(loaded.get("status") or "not_available"),
+            "available": False,
+            "reason": str(loaded.get("reason") or ""),
+            "n_tss": 0,
+            "n_tts": 0,
+            "n_total": 0,
+            "n_tss_unique_positions": 0,
+            "n_tts_unique_positions": 0,
+            "n_duplicates": 0,
+            "n_rejected": 0,
+            "n_shared_positions": 0,
+            "by_strand": {"+": 0, "-": 0, ".": 0},
+            "tss_classes": {},
+            "tts_classes": {},
+            "tss_locations": {},
+            "tts_locations": {},
+            "tss_sources": {},
+            "tts_sources": {},
+            "mechanisms": {},
+            "contigs": [],
+            "pos_min": None,
+            "pos_max": None,
+            "sources": list(loaded.get("sources") or []),
+            "limitation": tss_layer.LIMITATION,
+        }
+    payload["ok"] = payload.get("status") in {
+        tss_layer.STATUS_AVAILABLE, tss_layer.STATUS_PARTIAL,
+    }
+    payload["genome"] = str(payload.get("genome") or loaded.get("genome") or "")
+    payload["data_root"] = str(loaded.get("data_root") or "")
+    payload["searched"] = list(loaded.get("searched") or [])
+    payload["limitation"] = (
+        payload.get("limitation") or tss_layer.LIMITATION)
+    # Las listas normalizadas son las mismas filas que escribe el TSV; en un
+    # genoma sin tabla quedan vacías, nunca rellenadas con una aproximación.
+    payload["tss"] = list(loaded.get("tss") or [])
+    payload["tts"] = list(loaded.get("tts") or [])
+    payload["limits"] = {
+        "attach_max_distance_bp": tss_layer.MAX_ATTACH_DISTANCE,
+        "predicts_positions": False,
+        "downloads": False,
+        "cross_genome_transfer": False,
+        "detail": tss_layer.LIMITATION,
+    }
+    payload["attach"] = _tss_attach_payload(features, attach_error)
+    if attach_error:
+        reason = payload.get("reason") or "enlace TSS/TTS falló"
+        payload.update(
+            ok=False, status="error", available=False,
+            reason=f"{reason}; {attach_error}",
+            attach_error=attach_error,
+        )
+    return payload
+
+
 def run_in_memory(
     filename: str,
     data: bytes,
@@ -428,11 +568,15 @@ def run_in_memory(
     Returns
     -------
     dict
-        Resultado de ``annotate`` con ``ncrna``, ``taxonomy``, ``functional``,
-        ``domains``, ``context_c``, ``structural_b``, ``structural_b_filters``,
-        ``complexes``, ``regulation``, ``membrane``, ``oric``, ``metabolic``
-        (``None`` si no se pidió) y ``report_md``, además de ``outputs`` y
-        ``layer_status``. Cada capa expone ``ok``, ``status`` y ``reason``.
+        Resultado de ``annotate`` con ``tss_tts``, ``ncrna``, ``taxonomy``,
+        ``functional``, ``domains``, ``context_c``, ``structural_b``,
+        ``structural_b_filters``, ``complexes``, ``regulation``, ``membrane``,
+        ``oric``, ``metabolic`` (``None`` si no se pidió) y ``report_md``,
+        además de ``outputs`` y ``layer_status``. Cada capa expone ``ok``,
+        ``status`` y ``reason``. ``tss_tts`` es un resumen de la carga local
+        (``status``, conteos, ``sources``, ``reason``, ``limitation``,
+        ``limits`` y ``attach``); las filas se escriben en
+        ``<genoma>.tss_tts.tsv`` solo si existen.
     """
     started = time.perf_counter()
     outdir = Path(outdir)
@@ -466,6 +610,25 @@ def run_in_memory(
     res["data_root"] = str(data_root)
     res["options"] = dict(opts)
     res["degraded"] = degraded
+
+    # TSS/TTS precalculados: solo lectura local. No se descarga nada ni se
+    # predice una posición; un genoma sin tabla queda en ``not_available``.
+    tss_loaded = _call(tss_layer.load, res["genome"], data_root)
+    attach_error = ""
+    try:
+        tss_layer.attach(
+            res.get("features") or [],
+            tss_loaded.get("tss") or [],
+            tss_loaded.get("tts") or [],
+        )
+    except Exception as exc:  # noqa: BLE001 - el enlace no tumba el pipeline
+        attach_error = f"{type(exc).__name__}: {exc}"
+    res["tss_tts"] = _tss_tts_payload(
+        tss_loaded, res.get("features") or [], attach_error)
+    try:
+        _write_tss_tts(tss_loaded, outdir, res["genome"])
+    except OSError as exc:  # pragma: no cover - disco/permiso
+        res["tss_tts"]["write_error"] = f"{type(exc).__name__}: {exc}"
 
     # 1) ncRNA. ``run_ncrna`` muta ``features``; si encontró algo se rehace el
     #    GFF para que el archivo final incluya esos features (igual que CLI).
