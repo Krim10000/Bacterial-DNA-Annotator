@@ -6,6 +6,9 @@ una brecha; el visor muestra PDB ya generados o aportados por el usuario.
 from __future__ import annotations
 
 import gzip
+import html as _html
+import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -65,8 +68,41 @@ def _structure_format(pdb: str | Path, text: str = "") -> str:
     return "pdb"
 
 
+def _interactive_html(view: Any, height: int, sites: list[int] | None = None) -> str:
+    """Envuelve el HTML de py3Dmol con controles de zoom y pantalla completa."""
+    raw = view._make_html()
+    vid = f"viewer_{view.uniqueid}"
+    buttons = (
+        '<div style="display:flex;gap:8px;align-items:center;'
+        'font-family:system-ui,sans-serif;margin:0 0 6px 0">'
+        f'<button onclick="{vid}.zoom(1.2);{vid}.render();">🔍 +</button>'
+        f'<button onclick="{vid}.zoom(1/1.2);{vid}.render();">🔍 −</button>'
+        f'<button onclick="{vid}.zoomTo();{vid}.render();">Ajustar</button>'
+        f'<button onclick="document.documentElement.requestFullscreen()">⛶ Pantalla completa</button>'
+        '<span style="font-size:11px;color:#64748b">rueda del ratón / pellizco</span>'
+        '</div>'
+    )
+    if sites:
+        raw += (
+            f'<script>$3Dmolpromise.then(function(){{{vid}.addStyle('
+            f'{{resi:{json.dumps(sites)}}},'
+            f'{{stick:{{colorscheme:"magenta",radius:0.28}}}});'
+            f'{vid}.render();}});</script>'
+        )
+    # El contenedor ocupa el ancho disponible; el visor mantiene su tamaño
+    # interno para que la cámara no quede diminuta.
+    raw = re.sub(
+        r'style="position: relative; width: \d+px; height: \d+px;"',
+        f'style="position: relative; width:100%; height:{height}px;"',
+        raw, count=1,
+    )
+    return buttons + raw
+
+
 def render(pdb: str | Path, key: str = "pdb_viewer", height: int = 440,
-           caption: str = "", bfactor: bool = False) -> None:
+           caption: str = "", bfactor: bool = False,
+           interactive: bool = False, width: int = 1100,
+           sites: list[int] | None = None) -> None:
     """Dibuja un PDB con cartoon y heteroátomos en stick."""
     ok, why = available()
     if not ok:
@@ -77,7 +113,7 @@ def render(pdb: str | Path, key: str = "pdb_viewer", height: int = 440,
         st.info(tr("El archivo no parece un PDB con coordenadas."))
         return
     fmt = _structure_format(pdb, text)
-    view = py3Dmol.view(width=900, height=height)
+    view = py3Dmol.view(width=width, height=height)
     view.addModel(text, fmt)
     if bfactor:
         view.setStyle({"cartoon": {"colorscheme": {
@@ -87,7 +123,15 @@ def render(pdb: str | Path, key: str = "pdb_viewer", height: int = 440,
     view.addStyle({"hetflag": True}, {"stick": {"radius": 0.18}})
     view.setBackgroundColor("white")
     view.zoomTo()
-    stmol.showmol(view, height=height)
+    if interactive:
+        try:
+            import streamlit.components.v1 as components
+            components.html(_interactive_html(view, height, sites),
+                            height=height + 48, scrolling=False)
+        except Exception:
+            stmol.showmol(view, height=height, width=width)
+    else:
+        stmol.showmol(view, height=height, width=width)
     if caption:
         st.caption(caption)
     st.caption(tr(

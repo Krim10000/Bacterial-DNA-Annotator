@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import csv
 import gzip
+import csv
 import re
 from collections.abc import Mapping
 from pathlib import Path
@@ -384,6 +385,41 @@ _STRUCTURE_SUFFIXES = (
     ".pdb", ".pdb.gz", ".cif", ".cif.gz", ".mmcif", ".mmcif.gz",
 )
 _UNIPROT_PREFIXES = {"sp", "tr", "gb", "ref", "emb", "dbj", "pdb"}
+
+
+def active_site_residues(data_root: Path | str | None, acc: str) -> list[int]:
+    """Residuos de sitio activo/de unión declarados para una accesión.
+
+    Solo lee tablas locales; no infiere ni transfiere posiciones. Las
+    coordenadas son 1-based y pueden requerir revisión frente al PDB.
+    """
+    if not data_root or not acc:
+        return []
+    acc = acc.split("|")[-1]
+    root = Path(data_root)
+    files = [
+        root / "metabolism" / "targets" / "ACTIVE_SITES.tsv",
+        root / "metabolism" / "targets" / "ACTIVE_SITE_STRUCTURAL_MAP.tsv",
+    ]
+    out: set[int] = set()
+    for path in files:
+        if not path.exists():
+            continue
+        try:
+            with path.open(encoding="utf-8", errors="replace") as fh:
+                for row in csv.DictReader(fh, delimiter="\t"):
+                    if (row.get("acc") or "").strip().split("|")[-1] != acc:
+                        continue
+                    for key in ("start", "end"):
+                        try:
+                            pos = int(float((row.get(key) or "").strip()))
+                        except (TypeError, ValueError):
+                            continue
+                        if 1 <= pos <= 10000:
+                            out.add(pos)
+        except OSError:
+            continue
+    return sorted(out)
 
 
 def _resolve_pdb(value: Any, data_root: Path | str | None) -> Path | None:
@@ -891,10 +927,15 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
             "still be downloaded.",
         ))
     else:
+        _acc = _text(gene.get("uniprot") or gene.get("acc"))
+        _sites = active_site_residues(data_root, _acc)
         viewer(
             str(pdb_path),
             key=_key(key_prefix, gene_id or name, "viewer"),
             height=720,
+            interactive=True,
+            width=1100,
+            sites=_sites or None,
             caption=_t(
                 "Vista de coordenadas. Una estructura predicha no confirma "
                 "función, sustrato ni interfaz.",
@@ -902,6 +943,15 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
                 "confirm function, substrate or interface.",
             ),
         )
+        if _sites:
+            st.caption(_t(
+                "Residuos resaltados: sitios activos/de unión declarados en "
+                "tablas locales. Son anotaciones transferidas; no son "
+                "validación experimental.",
+                "Highlighted residues: active/binding sites declared in local "
+                "tables. They are transferred annotations, not experimental "
+                "validation.",
+            ))
         st.caption(_t(
             "Usa la rueda del ratón o el gesto de pellizco para hacer zoom; "
             "arrastra para girar.",

@@ -1418,5 +1418,7 @@
  "Anotación de promotor dependiente de σ leída de `data/sigma/<genoma>/sigma_promoters.tsv` (solo lectura). Es una hipótesis priorizada, no una medición experimental.": "从 `data/sigma/<genome>/sigma_promoters.tsv` 读取的 σ 依赖启动子注释（只读）。这是优先假说，不是实验测量。",
  "La marca vertical se dibuja en el **start del operón** (posición aguas arriba) y la banda tenue cubre el operón. El TSV sigma no trae coordenadas propias del promotor: no es un TSS. La opacidad y el trazo indican la confianza; el color, el tipo de σ.": "竖线绘制在**操纵子起点**（上游位置），淡色带覆盖操纵子。σ TSV 没有启动子坐标：它不是 TSS。透明度和线型表示置信度，颜色表示 σ 类型。",
  "Use the mouse wheel or pinch gesture to zoom; drag to rotate.": "使用鼠标滚轮或捏合手势缩放；拖动旋转。",
- "Usa la rueda del ratón o el gesto de pellizco para hacer zoom; arrastra para girar.": "使用鼠标滚轮或捏合手势缩放；拖动旋转。"
+ "Usa la rueda del ratón o el gesto de pellizco para hacer zoom; arrastra para girar.": "使用鼠标滚轮或捏合手势缩放；拖动旋转。",
+ "Residuos resaltados: sitios activos/de unión declarados en tablas locales. Son anotaciones transferidas; no son validación experimental.": "高亮残基：本地表中声明的活性/结合位点。它们是转移注释，不是实验验证。",
+ "Highlighted residues: active/binding sites declared in local tables. They are transferred annotations, not experimental validation.": "高亮残基：本地表中声明的活性/结合位点。它们是转移注释，不是实验验证。"
 }
