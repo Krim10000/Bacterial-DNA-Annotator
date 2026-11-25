@@ -880,36 +880,33 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
         mime="chemical/x-cif" if fmt == "cif" else "chemical/x-pdb",
         key=_key(key_prefix, gene_id or name, "pdb_dl"),
     )
-    if st.button(
-        _t("🧊 Ver estructura 3D", "🧊 View 3D structure"),
-        key=_key(key_prefix, gene_id or name, "pdb_view"),
-        help=_t(
-            "Dibuja las coordenadas del PDB con py3Dmol. No predice ni valida "
-            "la función.",
-            "Draws the PDB coordinates with py3Dmol. It does not predict or "
-            "validate function.",
-        ),
-    ):
-        viewer = (getattr(structure_viewer, "render", None)
-                  if structure_viewer is not None else None)
-        if viewer is None:
-            st.info(_t(
-                "Visor 3D no disponible en este entorno; el PDB se puede "
-                "descargar igualmente.",
-                "3D viewer not available in this environment; the PDB can "
-                "still be downloaded.",
-            ))
-        else:
-            viewer(
-                str(pdb_path),
-                key=_key(key_prefix, gene_id or name, "viewer"),
-                caption=_t(
-                    "Vista de coordenadas. Una estructura predicha no confirma "
-                    "función, sustrato ni interfaz.",
-                    "View of coordinates. A predicted structure does not "
-                    "confirm function, substrate or interface.",
-                ),
-            )
+    st.markdown(_t("**Estructura 3D**", "**3D structure**"))
+    viewer = (getattr(structure_viewer, "render", None)
+              if structure_viewer is not None else None)
+    if viewer is None:
+        st.info(_t(
+            "Visor 3D no disponible en este entorno; el PDB se puede "
+            "descargar igualmente.",
+            "3D viewer not available in this environment; the PDB can "
+            "still be downloaded.",
+        ))
+    else:
+        viewer(
+            str(pdb_path),
+            key=_key(key_prefix, gene_id or name, "viewer"),
+            height=720,
+            caption=_t(
+                "Vista de coordenadas. Una estructura predicha no confirma "
+                "función, sustrato ni interfaz.",
+                "View of coordinates. A predicted structure does not "
+                "confirm function, substrate or interface.",
+            ),
+        )
+        st.caption(_t(
+            "Usa la rueda del ratón o el gesto de pellizco para hacer zoom; "
+            "arrastra para girar.",
+            "Use the mouse wheel or pinch gesture to zoom; drag to rotate.",
+        ))
 
     # PAE local de AFDB, si se descargó junto al PDB.
     if pae_utils is not None:

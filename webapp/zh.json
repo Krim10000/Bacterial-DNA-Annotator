@@ -1416,5 +1416,7 @@
  "Gold K-12: top-1 57,0 % (mayoría trivial 62,6 %); top-3 90,2 %. No es validación: usar como hipótesis priorizada.": "K-12 金标准：top-1 57.0%（平凡多数 62.6%）；top-3 90.2%。不是验证：作为优先假说使用。",
  "Anotaciones de sigma del módulo `sigma`: color por tipo y opacidad/trazo por confianza. Se leen de `data/sigma/<genoma>/sigma_promoters.tsv`.": "σ 模块（`sigma`）注释：按类型着色，按置信度设置透明度和线型。读取自 `data/sigma/<genome>/sigma_promoters.tsv`。",
  "Anotación de promotor dependiente de σ leída de `data/sigma/<genoma>/sigma_promoters.tsv` (solo lectura). Es una hipótesis priorizada, no una medición experimental.": "从 `data/sigma/<genome>/sigma_promoters.tsv` 读取的 σ 依赖启动子注释（只读）。这是优先假说，不是实验测量。",
- "La marca vertical se dibuja en el **start del operón** (posición aguas arriba) y la banda tenue cubre el operón. El TSV sigma no trae coordenadas propias del promotor: no es un TSS. La opacidad y el trazo indican la confianza; el color, el tipo de σ.": "竖线绘制在**操纵子起点**（上游位置），淡色带覆盖操纵子。σ TSV 没有启动子坐标：它不是 TSS。透明度和线型表示置信度，颜色表示 σ 类型。"
+ "La marca vertical se dibuja en el **start del operón** (posición aguas arriba) y la banda tenue cubre el operón. El TSV sigma no trae coordenadas propias del promotor: no es un TSS. La opacidad y el trazo indican la confianza; el color, el tipo de σ.": "竖线绘制在**操纵子起点**（上游位置），淡色带覆盖操纵子。σ TSV 没有启动子坐标：它不是 TSS。透明度和线型表示置信度，颜色表示 σ 类型。",
+ "Use the mouse wheel or pinch gesture to zoom; drag to rotate.": "使用鼠标滚轮或捏合手势缩放；拖动旋转。",
+ "Usa la rueda del ratón o el gesto de pellizco para hacer zoom; arrastra para girar.": "使用鼠标滚轮或捏合手势缩放；拖动旋转。"
 }

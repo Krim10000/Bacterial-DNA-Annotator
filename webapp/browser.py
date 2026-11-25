@@ -2577,49 +2577,56 @@ def _row(df: pd.DataFrame, mask) -> dict | None:
     return sub.iloc[0].to_dict() if len(sub) else None
 
 
-def load_genome_sequences(data_root: Path, genome: str) -> dict[str, str]:
-    """Carga el FASTA local del genoma (raw, raw_excluded o demo)."""
+def _read_fasta_any(path: Path) -> dict[str, str]:
     import gzip
-    if genome == "demo":
-        demo = Path(__file__).resolve().parent / "samples" / "demo.fna"
-        if demo.exists():
-            out: dict[str, str] = {}
-            name, chunks = "", []
-            for line in demo.read_text(encoding="utf-8", errors="replace").splitlines():
+    out: dict[str, str] = {}
+    name, chunks = "", []
+    try:
+        opener = gzip.open if str(path).endswith(".gz") else open
+        with opener(path, "rt", errors="replace") as fh:
+            for line in fh:
+                line = line.strip()
                 if line.startswith(">"):
                     if name:
                         out[name] = "".join(chunks)
                     name = line[1:].split()[0]
                     chunks = []
-                else:
-                    chunks.append(line.strip())
-            if name:
-                out[name] = "".join(chunks)
-            return out
-    for sub in ("raw", "raw_excluded"):
-        path = Path(data_root) / sub / f"{genome}_genomic.fna.gz"
-        if not path.exists():
-            continue
-        out: dict[str, str] = {}
-        name, chunks = "", []
-        try:
-            with gzip.open(path, "rt", errors="replace") as fh:
-                for line in fh:
-                    line = line.strip()
-                    if line.startswith(">"):
-                        if name:
-                            out[name] = "".join(chunks)
-                        name = line[1:].split()[0]
-                        chunks = []
-                    else:
-                        chunks.append(line)
-                if name:
-                    out[name] = "".join(chunks)
-        except OSError:
-            return {}
-        return out
-    return {}
+                elif line:
+                    chunks.append(line)
+        if name:
+            out[name] = "".join(chunks)
+    except (OSError, EOFError):
+        return {}
+    return out
 
+
+def load_genome_sequences(data_root: Path, genome: str) -> dict[str, str]:
+    """Carga el FASTA local del genoma desde cualquiera de sus ubicaciones.
+
+    Cubre 400 libres, excluidos, referencias descargadas, K-12, subtilis y
+    demo. No descarga ni inventa secuencia.
+    """
+    data_root = Path(data_root)
+    if genome == "demo":
+        demo = Path(__file__).resolve().parent / "samples" / "demo.fna"
+        if demo.exists():
+            return _read_fasta_any(demo)
+    candidates = [
+        data_root / "raw" / f"{genome}_genomic.fna.gz",
+        data_root / "raw_excluded" / f"{genome}_genomic.fna.gz",
+        data_root / "reference_genomes" / genome / f"{genome}_genomic.fna.gz",
+        data_root / "reference_genomes" / genome / f"{genome}_genomic.fna",
+        data_root / "reference_genomes" / genome / "genome.fna",
+        data_root / "dbtbs" / "genome.fna" if genome == "subtilis" else Path(""),
+        data_root / "allostery" / "work" / f"{genome}.fna",
+        data_root / "terminators" / f"{genome}.fna",
+    ]
+    for path in candidates:
+        if path and path.exists():
+            out = _read_fasta_any(path)
+            if out:
+                return out
+    return {}
 
 def _gene_detail(tables: dict, gid: str, data_root: Path | None = None,
                  genome: str = "") -> None:

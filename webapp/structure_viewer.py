@@ -77,7 +77,7 @@ def render(pdb: str | Path, key: str = "pdb_viewer", height: int = 440,
         st.info(tr("El archivo no parece un PDB con coordenadas."))
         return
     fmt = _structure_format(pdb, text)
-    view = py3Dmol.view(width=760, height=height)
+    view = py3Dmol.view(width=900, height=height)
     view.addModel(text, fmt)
     if bfactor:
         view.setStyle({"cartoon": {"colorscheme": {
