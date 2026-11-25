@@ -300,6 +300,14 @@ def _key(prefix: str, gene_id: str, suffix: str) -> str:
     return f"{base or 'gene'}_{suffix}"
 
 
+def _is_rna(gene_type: str, product: str = "") -> bool:
+    """Verdadero para tRNA/rRNA/ncRNA/tmRNA; no para CDS."""
+    text = f"{gene_type} {product}".lower()
+    if "cds" in text and not any(k in text for k in ("trna", "rrna", "ncrna", "tmrna")):
+        return False
+    return any(k in text for k in ("trna", "rrna", "ncrna", "tmrna", "rna"))
+
+
 def _fasta(header: str, sequence: str, width: int = 60) -> str:
     lines = [f">{header}"]
     lines.extend(sequence[i:i + width] for i in range(0, len(sequence), width))
@@ -819,42 +827,67 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
         with st.expander(_t("Ver secuencia de ADN", "View DNA sequence")):
             st.code(dna, language=None)
 
-        protein = translate_dna(dna)
-        if protein:
-            protein_fasta = _fasta(f"{fasta_header} [translation]", protein)
+        if _is_rna(gene_type, product):
+            rna = dna.replace("T", "U")
             st.download_button(
-                _t("⬇️ Traducción a proteína (FASTA)",
-                   "⬇️ Protein translation (FASTA)"),
-                data=protein_fasta.encode("utf-8"),
-                file_name=f"{stem}.faa",
+                _t("⬇️ ARN del gen (FASTA)", "⬇️ Gene RNA (FASTA)"),
+                data=_fasta(f"{fasta_header} [RNA]", rna).encode("utf-8"),
+                file_name=f"{stem}.rna.fna",
                 mime="text/x-fasta",
-                key=_key(key_prefix, gene_id or name, "protein_dl"),
+                key=_key(key_prefix, gene_id or name, "rna_dl"),
             )
-            with st.expander(_t("Ver traducción", "View translation")):
-                st.code(protein, language=None)
-            st.caption(_t(
-                "Traducción con el código genético estándar (tabla 1). Es "
-                "automática y no está validada experimentalmente; no confirma "
-                "el marco de lectura, el inicio ni el producto.",
-                "Translation with the standard genetic code (table 1). It is "
-                "automatic and not experimentally validated; it does not "
-                "confirm the reading frame, start or product.",
+            with st.expander(_t("Ver secuencia de ARN", "View RNA sequence")):
+                st.code(rna, language=None)
+            st.info(_t(
+                "Este registro es ARN (tRNA/rRNA/ncRNA): no se traduce a "
+                "proteína. La secuencia se muestra en orientación 5′→3′.",
+                "This record is RNA (tRNA/rRNA/ncRNA): it is not translated "
+                "to protein. The sequence is shown 5′→3′.",
             ))
-            if len(dna) % 3:
+            st.caption(_t(
+                "No hay estructura 3D de ARN local para esta ficha; no se "
+                "genera ni se inventa un modelo.",
+                "There is no local 3D RNA structure for this card; no model is "
+                "generated or invented.",
+            ))
+            return
+        else:
+            protein = translate_dna(dna)
+            if protein:
+                protein_fasta = _fasta(f"{fasta_header} [translation]", protein)
+                st.download_button(
+                    _t("⬇️ Traducción a proteína (FASTA)",
+                       "⬇️ Protein translation (FASTA)"),
+                    data=protein_fasta.encode("utf-8"),
+                    file_name=f"{stem}.faa",
+                    mime="text/x-fasta",
+                    key=_key(key_prefix, gene_id or name, "protein_dl"),
+                )
+                with st.expander(_t("Ver traducción", "View translation")):
+                    st.code(protein, language=None)
                 st.caption(_t(
-                    f"Longitud de ADN no múltiplo de 3 ({len(dna):,} pb): el "
-                    "último codón incompleto se omitió en la traducción.",
-                    f"DNA length is not a multiple of 3 ({len(dna):,} bp): the "
-                    "incomplete last codon was omitted from the translation.",
+                    "Traducción con el código genético estándar (tabla 1). Es "
+                    "automática y no está validada experimentalmente; no confirma "
+                    "el marco de lectura, el inicio ni el producto.",
+                    "Translation with the standard genetic code (table 1). It is "
+                    "automatic and not experimentally validated; it does not "
+                    "confirm the reading frame, start or product.",
                 ))
-            if "*" in protein[:-1]:
-                st.caption(_t(
-                    "La traducción contiene un codón de parada interno; "
-                    "revisa el marco de lectura y las coordenadas antes de "
-                    "usarla.",
-                    "The translation contains an internal stop codon; check "
-                    "the reading frame and coordinates before using it.",
-                ))
+                if len(dna) % 3:
+                    st.caption(_t(
+                        f"Longitud de ADN no múltiplo de 3 ({len(dna):,} pb): el "
+                        "último codón incompleto se omitió en la traducción.",
+                        f"DNA length is not a multiple of 3 ({len(dna):,} bp): the "
+                        "incomplete last codon was omitted from the translation.",
+                    ))
+                if "*" in protein[:-1]:
+                    st.caption(_t(
+                        "La traducción contiene un codón de parada interno; "
+                        "revisa el marco de lectura y las coordenadas antes de "
+                        "usarla.",
+                        "The translation contains an internal stop codon; check "
+                        "the reading frame and coordinates before using it.",
+                    ))
     else:
         st.info(_t(
             f"Secuencia de ADN no disponible: {reason}. No se genera "

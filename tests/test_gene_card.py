@@ -223,3 +223,9 @@ def test_render_does_not_invent_missing_confidence_or_abcs(run_card):
     assert "A/B/C no declarado" in text
     assert "Confianza/estado no declarados" in text
     assert "high" not in text.lower()
+
+
+def test_rna_type_is_not_translated():
+    assert gene_card._is_rna("tRNA")
+    assert gene_card._is_rna("CDS", "tRNA-Ala")
+    assert not gene_card._is_rna("CDS", "DNA polymerase")

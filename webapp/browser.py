@@ -803,9 +803,23 @@ def load_oric(data_root: Path, genome: str) -> dict | None:
         pos = chosen.get("pos")
         if pos is None:
             continue
+        doric = data.get("doric_truth") or data.get("doric") or {}
+        region = None
+        if isinstance(doric, dict):
+            regions = doric.get("orics") or []
+            if regions and isinstance(regions[0], dict):
+                region = regions[0]
+        if isinstance(region, dict) and region.get("start") and region.get("end"):
+            start, end = int(region["start"]), int(region["end"])
+            span_source = "DoriC"
+        else:
+            start = end = int(pos)
+            span_source = "ORCA (punto)"
         return {
-            "genome": genome, "pos": int(pos), "length": data.get("L"),
-            "confidence": chosen.get("conf"), "source": data.get("source", ""),
+            "genome": genome, "pos": int(pos), "start": start, "end": end,
+            "length": data.get("L"), "confidence": chosen.get("conf"),
+            "source": data.get("source", ""), "span_source": span_source,
+            "replicon": data.get("replicon") or "",
             "doric": data.get("doric"),
         }
     return None
@@ -1229,18 +1243,27 @@ def svg(tables: dict, contig: str, start: int, end: int,
             o.append(f'<text x="8" y="{Y[sec]["sospecha"]-6}" font-size="9.5" '
                      f'fill="#c58a00" font-weight="700">SOSPECHA</text>')
 
-    # origen de replicación precalculado (marcador vertical, no predicción nueva)
-    if "oric" in tracks and oric and start <= int(oric["pos"]) <= end:
-        gx = x(int(oric["pos"]))
-        o.append(hit_open("oric", int(oric["pos"]))
-                 + f'<title>oriC · {int(oric["pos"]):,} pb · '
-                 f'conf {oric.get("confidence", "—")}</title>')
-        o.append(f'<line x1="{gx:.1f}" y1="{Y["ruler"]}" x2="{gx:.1f}" '
-                 f'y2="{height-10}" stroke="#d81b60" stroke-width="2" '
-                 f'stroke-dasharray="5 4" opacity="0.8"/>')
-        o.append(f'<text x="{gx+4:.1f}" y="{Y["ruler"]-5}" font-size="10" '
-                 f'fill="#d81b60" font-weight="700">ORIC</text>')
-        o.append("</g>")
+    # origen de replicación precalculado: región si existe, punto si no.
+    if "oric" in tracks and oric:
+        _os, _oe = int(oric.get("start", oric["pos"])), int(oric.get("end", oric["pos"]))
+        _pos = int(oric["pos"])
+        if _oe >= start and _os <= end:
+            _x0, _x1 = x(max(start, _os)), x(min(end, _oe))
+            o.append(hit_open("oric", _pos)
+                     + f'<title>oriC · {_os:,}–{_oe:,} pb · '
+                     f'conf {oric.get("confidence", "—")} · '
+                     f'{oric.get("span_source", "")}</title>')
+            if _x1 > _x0:
+                o.append(f'<rect x="{_x0:.1f}" y="{Y["ruler"]-2}" '
+                         f'width="{max(1.0, _x1-_x0):.1f}" height="{height-8-Y["ruler"]}" '
+                         f'fill="#d81b60" opacity="0.12"/>')
+            _gx = x(_pos)
+            o.append(f'<line x1="{_gx:.1f}" y1="{Y["ruler"]}" x2="{_gx:.1f}" '
+                     f'y2="{height-10}" stroke="#d81b60" stroke-width="2" '
+                     f'stroke-dasharray="5 4" opacity="0.8"/>')
+            o.append(f'<text x="{_x0+2:.1f}" y="{Y["ruler"]-5}" font-size="10" '
+                     f'fill="#d81b60" font-weight="700">ORIC</text>')
+            o.append("</g>")
 
     # genes en DOS carriles: + arriba, − abajo. La punta de cada gen apunta
     # siempre en el sentido de lectura 5'→3' (derecha en +, izquierda en −).
@@ -2744,7 +2767,7 @@ def _sigma_detail(tables: dict, ident: str) -> None:
                 st.caption(f"{key}: {val}")
 
 
-def _hairpin_detail(tables: dict, hid: str) -> None:
+def _hairpin_detail(tables: dict, hid: str, data_root: Path, genome: str) -> None:
     hp = tables["hairpins"]
     mask = hp.apply(lambda r: f"{r.get('contig')}:{int(r['start'])}-{int(r['end'])}" == hid, axis=1)         if not hp.empty else pd.Series(dtype=bool)
     h = _row(hp, mask)
@@ -2758,6 +2781,26 @@ def _hairpin_detail(tables: dict, hid: str) -> None:
     c3.metric("GC", f"{h.get('gc', '—')}")
     st.markdown(f"**{tr('Bucle')}:** {h.get('loop', '—')} · **poli-U:** {h.get('polyU', '—')}")
     st.markdown(f"**{tr('Genes vecinos')}:** {h.get('left_gene') or '—'} ← → {h.get('right_gene') or '—'}")
+    start, end = int(float(h.get("start"))), int(float(h.get("end")))
+    st.markdown(
+        f"- **{tr('Región')}:** `{h.get('contig', '—')}:{start:,}–{end:,}`"
+        f"\n- **{tr('Hebra')}:** `{h.get('strand', '—')}`"
+        f"\n- **{tr('Confianza')}:** `{h.get('confidence') or h.get('class', '—')}`"
+    )
+    seqs = load_genome_sequences(data_root, genome)
+    seq = _region_sequence(seqs, str(h.get("contig") or ""), start, end,
+                           str(h.get("strand") or "+"))
+    if seq:
+        st.caption(tr(
+            "Secuencia de ARN en orientación 5′→3′ (T se muestra como U). "
+            "El plegamiento no se dibuja: no hay estructura 3D de ARN local."
+        ))
+        with st.expander(tr("Ver secuencia de ARN")):
+            st.code(seq.replace("T", "U"), language=None)
+    else:
+        st.caption(tr(
+            "Secuencia de ARN no disponible para esta horquilla; no se inventa."
+        ))
     st.caption(HAIRPIN_MEANING.get(str(h.get("class")), ""))
 
 
@@ -2769,6 +2812,64 @@ def _tx_detail(tables: dict, kind: str, pos: str) -> None:
         k=label,
         w=tr("inicio de la transcripción (donde empieza el ARN)")
         if kind == "tss" else tr("fin de la transcripción (donde termina el ARN)")))
+
+
+def _region_sequence(seqs: dict[str, str], contig: str, start: int,
+                     end: int, strand: str = "+") -> str:
+    """Extrae una región 1-based; devuelve "" si no hay secuencia."""
+    if not seqs:
+        return ""
+    seq = seqs.get(contig)
+    if seq is None and len(seqs) == 1:
+        seq = next(iter(seqs.values()))
+    if not seq or start < 1 or end < start or end > len(seq):
+        return ""
+    out = seq[start - 1:end]
+    if str(strand) == "-":
+        out = out.translate(str.maketrans("ACGTacgt", "TGCAtgca"))[::-1]
+    return out.upper()
+
+
+def _oric_detail(data_root: Path, genome: str, oric: dict | None) -> None:
+    """Ficha de oriC: punto ORCA y región DoriC si existe, sin inventar."""
+    if not oric:
+        st.info(tr("OriC no disponible para este genoma."))
+        return
+    st.markdown("### 🧭 Origen de replicación")
+    start, end = int(oric["start"]), int(oric["end"])
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Inicio", f"{start:,} pb")
+    c2.metric("Fin", f"{end:,} pb")
+    c3.metric(tr("Longitud"), f"{max(0, end - start + 1):,} pb")
+    st.markdown(
+        f"- **{tr('Punto ORCA')}:** `{int(oric['pos']):,}` pb"
+        f"\n- **{tr('Región mostrada')}:** `{start:,}–{end:,}` "
+        f"({oric.get('span_source', '—')})"
+        f"\n- **{tr('Confianza')}:** `{oric.get('confidence', '—')}`"
+        f"\n- **{tr('Fuente')}:** `{oric.get('source', '—')}`"
+    )
+    if int(oric["pos"]) < start or int(oric["pos"]) > end:
+        st.caption(tr(
+            "El punto ORCA cae fuera de la región DoriC; se muestran ambos "
+            "sin forzar coincidencia."
+        ))
+    seqs = load_genome_sequences(data_root, genome)
+    seq = _region_sequence(seqs, str(oric.get("replicon") or ""), start, end)
+    if seq:
+        st.caption(tr(
+            "Secuencia de la región en orientación 5′→3′ del contig. OriC no "
+            "tiene una hebra codificante: la dirección no define un transcrito."
+        ))
+        with st.expander(tr("Ver secuencia de la región")):
+            st.code(seq.replace("T", "U"), language=None)
+    else:
+        st.caption(tr(
+            "Secuencia no disponible para esta región; no se inventa."
+        ))
+    st.caption(tr(
+        "La región DoriC es una referencia curada; el punto ORCA es una "
+        "predicción. No son la misma evidencia."
+    ))
 
 
 def _suspect_detail(data_root: Path, genome: str, sid: str) -> None:
@@ -2924,15 +3025,13 @@ def _render_pick(data_root: Path, genome: str, tables: dict, pick: dict) -> None
         elif kind == "sigma":
             _sigma_detail(tables, ident)
         elif kind == "hairpin":
-            _hairpin_detail(tables, ident)
+            _hairpin_detail(tables, ident, data_root, genome)
         elif kind in ("tss", "tts"):
             _tx_detail(tables, kind, ident)
         elif kind == "complex":
             _complex_detail(tables, ident)
         elif kind == "oric":
-            st.markdown("### 🧭 Origen de replicación")
-            st.caption("Marcador precalculado; no se recalcula en el navegador. "
-                       "Confianza y fuente están en la pista.")
+            _oric_detail(data_root, genome, load_oric(data_root, genome))
         elif kind == "suspect":
             _suspect_detail(data_root, genome, ident)
         else:
