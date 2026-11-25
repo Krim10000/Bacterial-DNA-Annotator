@@ -63,6 +63,7 @@ DEFAULT_WINDOW_UP = 80
 DEFAULT_WINDOW_DOWN = 20
 DEFAULT_DECOYS = 200
 DEFAULT_SEED = 17
+PWMS_PATH = None
 DEFAULT_Z = 2.0
 DEFAULT_P = 0.05
 
@@ -399,7 +400,7 @@ def evaluate(rows: list[dict[str, Any]], data_root: Path, genome: str,
     seqs = load_sequence(data_root, genome)
     if not seqs:
         seqs = _fallback_sequence(data_root, genome)
-    pwms = load_pwm_library(data_root)
+    pwms = load_pwm_library(data_root, PWMS_PATH)
     if not seqs:
         raise ValueError(f"sin secuencia para {genome}")
     scored = []
@@ -721,6 +722,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--genome", help="ID de genoma (ecoli_k12, subtilis, GCF...).")
     ap.add_argument("--source", choices=["auto", "k12", "subtilis", "gold"],
                     default="auto")
+    ap.add_argument("--pwm", type=Path, default=None,
+                    help="PWM específica; por defecto la de K-12")
     ap.add_argument("--gold-root", type=Path, default=ROOT / "data" / "sigma" / "gold")
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--include-partial", action="store_true",

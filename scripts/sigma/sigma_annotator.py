@@ -256,9 +256,9 @@ def upstream_seq(seq: str, start: int, end: int, strand: int, n: int) -> str:
 # --------------------------------------------------------------------------
 # PWMs
 # --------------------------------------------------------------------------
-def load_pwm_library(data_root: Path) -> dict[str, dict[str, Any]]:
-    """Carga `promoter_pwms.tsv` y devuelve sigma -> {up, down, ...}."""
-    path = data_root / "regulondb" / "gt" / "promoter_pwms.tsv"
+def load_pwm_library(data_root: Path, pwm_path: Path | str | None = None) -> dict[str, dict[str, Any]]:
+    """Carga una biblioteca de PWMs; acepta una o dos cajas por sigma."""
+    path = Path(pwm_path) if pwm_path else (data_root / "regulondb" / "gt" / "promoter_pwms.tsv")
     rows = _read_tsv(path)
     out: dict[str, dict[str, Any]] = {}
     for row in rows:
@@ -290,7 +290,7 @@ def load_pwm_library(data_root: Path) -> dict[str, dict[str, Any]]:
         if sigma == "sigma54":
             rec["arch"] = "-24/-12"
     return {k: v for k, v in out.items()
-            if "up" in v and "down" in v}
+            if "up" in v or "down" in v}
 
 
 def _encode(seq: str) -> np.ndarray:
@@ -345,8 +345,40 @@ def _best_geometry(up_scores: np.ndarray, down_scores: np.ndarray,
 
 
 def score_sigma(seq: str, rec: dict[str, Any], window_len: int) -> dict[str, Any] | None:
-    """Mejor arquitectura de un sigma en una ventana."""
-    up, down = rec["up"], rec["down"]
+    """Mejor arquitectura de un sigma; soporta una caja única."""
+    up, down = rec.get("up"), rec.get("down")
+    if up is None and down is not None:
+        scores = _pwm_scores(seq, down["pwm"])
+        if len(scores) == 0:
+            return None
+        j = int(np.argmax(scores))
+        return {
+            "score": float(scores[j]), "spacer": None,
+            "up_pos": None, "down_pos": j,
+            "dist_to_start": window_len - (j + down["width"]),
+            "up_box": "", "down_box": seq[j:j + down["width"]],
+            "sigma": rec["sigma"], "class": rec["class"],
+            "arch": "single-box", "upstream_box": "",
+            "downstream_box": seq[j:j + down["width"]],
+            "upstream_pwm": "", "downstream_pwm": down["consensus"],
+        }
+    if down is None and up is not None:
+        scores = _pwm_scores(seq, up["pwm"])
+        if len(scores) == 0:
+            return None
+        j = int(np.argmax(scores))
+        return {
+            "score": float(scores[j]), "spacer": None,
+            "up_pos": j, "down_pos": None,
+            "dist_to_start": window_len - (j + up["width"]),
+            "up_box": seq[j:j + up["width"]], "down_box": "",
+            "sigma": rec["sigma"], "class": rec["class"],
+            "arch": "single-box", "upstream_box": seq[j:j + up["width"]],
+            "downstream_box": "", "upstream_pwm": up["consensus"],
+            "downstream_pwm": "",
+        }
+    if up is None or down is None:
+        return None
     up_scores = _pwm_scores(seq, up["pwm"])
     down_scores = _pwm_scores(seq, down["pwm"])
     if len(up_scores) == 0 or len(down_scores) == 0:
@@ -655,6 +687,7 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
                     min_z: float = DEFAULT_MIN_Z,
                     min_margin: float = DEFAULT_MIN_MARGIN,
                     use_expression: bool = True,
+                    pwm_path: Path | str | None = None,
                     overwrite: bool = True) -> dict[str, Any]:
     """Anota sigma para un genoma y devuelve rutas + métricas."""
     base = data_root / "regulation" / genome
@@ -669,7 +702,7 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
     op_genes = _op_genes(data_root, genome)
     inventory = _inventory(data_root, genome, genes_by_id)
     seqs = load_sequence(data_root, genome)
-    pwms = load_pwm_library(data_root)
+    pwms = load_pwm_library(data_root, pwm_path)
     expression = load_expression(data_root, genome) if use_expression else {}
     if not operons:
         raise ValueError(f"sin operones para {genome}")

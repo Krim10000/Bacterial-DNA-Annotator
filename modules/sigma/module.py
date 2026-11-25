@@ -41,6 +41,13 @@ def _run(ctx: RunContext, genome: str) -> ModuleResult:
             min_z=float(ctx.config.get("min_z", 2.0)),
             min_margin=float(ctx.config.get("min_margin", 1.0)),
             use_expression=bool(ctx.config.get("use_expression", True)),
+            pwm_path=(ctx.config.get("pwm_file")
+                      or ((ctx.data_root / "dbtbs" /
+                           "promoter_pwms_subtilis_all.tsv")
+                          if genome == "subtilis" and
+                          (ctx.data_root / "dbtbs" /
+                           "promoter_pwms_subtilis_all.tsv").exists()
+                          else None)),
         )
     except Exception as exc:  # noqa: BLE001
         return ModuleResult("sigma", False, error=str(exc))
@@ -99,6 +106,8 @@ MODULE = Module(
                min=0.0, max=10.0, step=0.5, advanced=True),
         Option("use_expression", "Usar expresión si existe", "bool", True,
                help="Busca data/expression/<genoma>.tsv; si no existe, no falla."),
+        Option("pwm_file", "PWM específica (opcional)", "text", "",
+               help="Ruta a promoter_pwms_*.tsv; vacío usa la PWM de K-12."),
     ),
     docs="docs/SIGMA_MODULE.md",
     input_kind="genome",
