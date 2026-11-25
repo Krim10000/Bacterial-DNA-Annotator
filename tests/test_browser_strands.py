@@ -506,3 +506,22 @@ def test_hairpin_strand_from_downstream_gene():
     assert out.iloc[0]["strand"] == "+"
     assert out.iloc[1]["strand"] == "−"
     assert out.iloc[2]["strand"] == ""
+
+
+def test_suspects_use_strand_sections():
+    import pandas as pd
+    from webapp.browser import svg
+    genes = pd.DataFrame([
+        {"id": "g1", "locus_tag": "g1", "gene_name": "a", "product": "p",
+         "contig": "c", "start": 100, "end": 200, "strand": "+",
+         "gene_type": "CDS"},
+    ])
+    susp = pd.DataFrame([
+        {"contig": "c", "start": 150, "end": 250, "strand": "+", "n_genes": 2},
+        {"contig": "c", "start": 300, "end": 350, "strand": "-", "n_genes": 2},
+    ])
+    out = svg({"genes": genes}, "c", 0, 500,
+              tracks={"genes", "sospecha"}, suspects=susp)
+    assert "SOSPECHA" in out
+    # no debe quedar sección sin hebra si no hay elementos sin hebra
+    assert "SIN HEBRA DEFINIDA" not in out

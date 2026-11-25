@@ -757,20 +757,22 @@ def svg(tables: dict, contig: str, start: int, end: int,
     tracks = tracks or {"genes", "operones", "promotores", "horquillas",
                         "transcripcion", "complejos"}
     span = max(1, end - start)
-    width, height = 1180, 960
+    width, height = 1180, 1000
     # Dos secciones: + arriba, − abajo; sin hebra al final.
     Y = {
         "+": {"genes": 82, "operones": 132, "promotores": 166,
-              "horquillas": 200, "transcripcion": 234, "complejos": 272},
+              "horquillas": 200, "transcripcion": 234, "complejos": 272,
+              "sospecha": 310},
         "−": {"genes": 370, "operones": 420, "promotores": 454,
-              "horquillas": 488, "transcripcion": 522, "complejos": 560},
-        "": {"genes": 0, "operones": 620, "promotores": 654,
-             "horquillas": 688, "transcripcion": 722,
-             "complejos": 786},
+              "horquillas": 488, "transcripcion": 522, "complejos": 560,
+              "sospecha": 598},
+        "": {"genes": 0, "operones": 650, "promotores": 684,
+             "horquillas": 718, "transcripcion": 752,
+             "complejos": 816, "sospecha": 854},
     }
     SECTION_LABELS = {"+": "HEBRA + · 5'→3' →",
                       "−": "HEBRA − · 5'→3' ←",
-                      "": "INTERGÉNICA / SIN HEBRA DEFINIDA"}
+                      "": "SIN HEBRA DEFINIDA"}
     pad_l, pad_r = 96, 12
     plot_w = width - pad_l - pad_r
     focus_kind, focus_id = _split_focus(focus)
@@ -814,8 +816,16 @@ def svg(tables: dict, contig: str, start: int, end: int,
                               & (complexes["end"] >= start)
                               & (complexes["start"] <= end)]
 
+    def _has_rows(df, sec):
+        return (df is not None and isinstance(df, pd.DataFrame) and not df.empty
+                and len(_strand_rows(df, sec)) > 0)
+    _has_sin = any(_has_rows(x, "") for x in (
+        genes, operons, promoters, hairpins, complexes,
+        tss if tss is not None else pd.DataFrame(),
+        tts if tts is not None else pd.DataFrame(),
+        suspects if suspects is not None else pd.DataFrame(),
+    ))
     Y["ruler"] = 28
-    Y["sospecha"] = 835
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="{height}" '
          f'viewBox="0 0 {width} {height}" font-family="sans-serif" '
          f'style="background:#fff;border-radius:8px">']
@@ -838,8 +848,9 @@ def svg(tables: dict, contig: str, start: int, end: int,
 
     # Títulos de sección y rótulos de banda por hebra.
     for sec, label in SECTION_LABELS.items():
-        # La sección intergénica se rotula siempre: contiene horquillas
-        # intergénicas, complejos sin hebra única, TSS/TTS sin dato o sospechas.
+        if sec == "" and not _has_sin:
+            continue
+        # Solo se rotula "sin hebra" si de verdad hay elementos sin hebra.
         if sec:
             header_y = Y[sec]["genes"] - 38
         else:
@@ -857,6 +868,9 @@ def svg(tables: dict, contig: str, start: int, end: int,
         if "complejos" in tracks and sec in Y:
             o.append(f'<text x="8" y="{Y[sec]["complejos"]-6}" font-size="9.5" '
                      f'fill="#808495" font-weight="700">COMPLEJOS</text>')
+        if "sospecha" in tracks and sec in Y:
+            o.append(f'<text x="8" y="{Y[sec]["sospecha"]-6}" font-size="9.5" '
+                     f'fill="#c58a00" font-weight="700">SOSPECHA</text>')
 
     # origen de replicación precalculado (marcador vertical, no predicción nueva)
     if "oric" in tracks and oric and start <= int(oric["pos"]) <= end:
@@ -1050,21 +1064,24 @@ def svg(tables: dict, contig: str, start: int, end: int,
                              f'fill="{color}">{_esc(str(c.get("name", "")))[:32]}</text>')
                 o.append("</g>")
 
-    # sospecha por cadena metabólica, como banda propia
-    if suspects is not None and not suspects.empty:
-        o.append(f'<text x="8" y="{Y["sospecha"]-6}" font-size="9.5" fill="#c58a00" '
-                 f'font-weight="700">SOSPECHA</text>')
-        for si, (_, s) in enumerate(suspects.iterrows()):
-            gx0, gx1 = x(s["start"]), x(s["end"])
-            sid = f"{int(s['start'])}-{int(s['end'])}"
-            o.append(hit_open("suspect", sid)
-                     + f'<title>Sospecha metabólica · {_esc(str(s.get("n_genes")))} genes</title>')
-            o.append(f'<rect x="{gx0:.1f}" y="{Y["sospecha"]-8}" width="{max(6, gx1-gx0):.1f}" '
-                     f'height="16" rx="8" fill="#ffe9c7" stroke="#c58a00" stroke-width="1.6"/>')
-            if gx1 - gx0 > 60:
-                o.append(f'<text x="{gx0+5:.1f}" y="{Y["sospecha"]+3}" font-size="8.5" '
-                         f'fill="#9a5b00">{_esc(str(s.get("n_genes")))} genes · cadena</text>')
-            o.append("</g>")
+    # sospecha metabólica por hebra
+    if suspects is not None and not suspects.empty and "sospecha" in tracks:
+        for sec in ("+", "−", ""):
+            if sec == "" and not _has_sin:
+                continue
+            y = Y[sec]["sospecha"]
+            for _, s in _strand_rows(suspects, sec).iterrows():
+                gx0, gx1 = x(s["start"]), x(s["end"])
+                sid = f"{int(s['start'])}-{int(s['end'])}"
+                o.append(hit_open("suspect", sid)
+                         + f'<title>Sospecha metabólica · {_esc(str(s.get("n_genes")))} '
+                         f'genes · hebra {sec or "no determinada"}</title>')
+                o.append(f'<rect x="{gx0:.1f}" y="{y-8}" width="{max(6, gx1-gx0):.1f}" '
+                         f'height="16" rx="8" fill="#ffe9c7" stroke="#c58a00" stroke-width="1.6"/>')
+                if gx1 - gx0 > 60:
+                    o.append(f'<text x="{gx0+5:.1f}" y="{y+3}" font-size="8.5" '
+                             f'fill="#9a5b00">{_esc(str(s.get("n_genes")))} genes · cadena</text>')
+                o.append("</g>")
 
     o.append("</svg>")
     return "".join(o)
@@ -2558,6 +2575,8 @@ def render(data_root: Path, genome: str) -> None:
     if t4.checkbox("Horquillas", True, key="br_t_hp"):
         tracks.add("horquillas")
     ver_sospecha = t5.checkbox("Sospecha metabólica", True, key="br_t_susp")
+    if ver_sospecha:
+        tracks.add("sospecha")
     if t6.checkbox("TSS / TTS", True, key="br_t_tx"):
         tracks.add("transcripcion")
     if t7.checkbox("Complejos", True, key="br_t_complex"):
