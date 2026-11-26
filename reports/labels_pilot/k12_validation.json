@@ -1,0 +1,68 @@
+{
+ "n_operons": 2544,
+ "by_sigma": {
+  "sigma32": {
+   "expected_label": "heat_shock",
+   "n_targets": 94,
+   "n_mapped_operons": 46,
+   "n_labeled": 9,
+   "recall": 0.1957,
+   "background_fraction": 0.0228,
+   "odds_ratio": 12.157,
+   "pvalue": 1e-06,
+   "fdr": 2e-06
+  },
+  "sigma28": {
+   "expected_label": "flagellum",
+   "n_targets": 29,
+   "n_mapped_operons": 14,
+   "n_labeled": 5,
+   "recall": 0.3571,
+   "background_fraction": 0.0086,
+   "odds_ratio": 82.124,
+   "pvalue": 0.0,
+   "fdr": 0.0
+  },
+  "sigma54": {
+   "expected_label": "nitrogen",
+   "n_targets": 54,
+   "n_mapped_operons": 30,
+   "n_labeled": 4,
+   "recall": 0.1333,
+   "background_fraction": 0.0228,
+   "odds_ratio": 7.009,
+   "pvalue": 0.004285,
+   "fdr": 0.005356
+  },
+  "sigma38": {
+   "expected_label": "stationary",
+   "n_targets": 201,
+   "n_mapped_operons": 116,
+   "n_labeled": 10,
+   "recall": 0.0862,
+   "background_fraction": 0.0086,
+   "odds_ratio": 18.994,
+   "pvalue": 0.0,
+   "fdr": 0.0
+  },
+  "sigma24": {
+   "expected_label": "envelope",
+   "n_targets": 82,
+   "n_mapped_operons": 37,
+   "n_labeled": 5,
+   "recall": 0.1351,
+   "background_fraction": 0.07,
+   "odds_ratio": 2.108,
+   "pvalue": 0.112153,
+   "fdr": 0.112153
+  }
+ },
+ "labels": [
+  "envelope",
+  "flagellum",
+  "heat_shock",
+  "nitrogen",
+  "sporulation",
+  "stationary"
+ ]
+}

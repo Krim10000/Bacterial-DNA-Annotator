@@ -1,0 +1,60 @@
+{
+ "ecoli_k12": {
+  "n_operons": 2544,
+  "labels": {
+   "envelope": {
+    "n": 178,
+    "fraction": 0.07
+   },
+   "flagellum": {
+    "n": 22,
+    "fraction": 0.0086
+   },
+   "heat_shock": {
+    "n": 58,
+    "fraction": 0.0228
+   },
+   "nitrogen": {
+    "n": 58,
+    "fraction": 0.0228
+   },
+   "sporulation": {
+    "n": 250,
+    "fraction": 0.0983
+   },
+   "stationary": {
+    "n": 22,
+    "fraction": 0.0086
+   }
+  }
+ },
+ "subtilis": {
+  "n_operons": 1334,
+  "labels": {
+   "envelope": {
+    "n": 24,
+    "fraction": 0.018
+   },
+   "flagellum": {
+    "n": 17,
+    "fraction": 0.0127
+   },
+   "heat_shock": {
+    "n": 13,
+    "fraction": 0.0097
+   },
+   "nitrogen": {
+    "n": 43,
+    "fraction": 0.0322
+   },
+   "sporulation": {
+    "n": 295,
+    "fraction": 0.2211
+   },
+   "stationary": {
+    "n": 11,
+    "fraction": 0.0082
+   }
+  }
+ }
+}

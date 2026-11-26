@@ -233,4 +233,16 @@ sigma = label
 
 ## Estado
 
-Diseño documentado. Implementación pendiente.
+Prototipo implementado:
+
+```text
+webapp/labels.py
+scripts/labels/01_build_labels.py
+scripts/labels/02_validate_k12.py
+tests/test_labels.py
+```
+
+Resultados: `docs/LABELS_PILOT.md`.
+
+Todavía usa un léxico, no GO/KEGG completo. La validación K-12 muestra señal
+para heat shock, flagelo, nitrógeno y stationary; envelope es débil.
