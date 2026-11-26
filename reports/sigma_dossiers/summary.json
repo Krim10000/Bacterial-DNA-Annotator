@@ -1,0 +1,10 @@
+{
+ "n_genomes": 402,
+ "n_factors": 6001,
+ "n_known": 2141,
+ "n_lineage_or_partial": 94,
+ "n_unknown_family": 3766,
+ "n_promoters": 788933,
+ "n_promoters_with_pathway": 29427,
+ "genomes_without_factors": 0
+}
