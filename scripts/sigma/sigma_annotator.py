@@ -685,7 +685,9 @@ def factor_quality(row: dict[str, str]) -> tuple[str, str, bool]:
 
 def select_best(ranked: list[dict[str, Any]], *,
                 policy: str = "argmax", delta: float = 1.0,
-                fallback: str = "sigma70") -> tuple[dict[str, Any], float]:
+                fallback: str = "sigma70",
+                external: dict[str, float] | None = None,
+                kmer_threshold: float = 2.0) -> tuple[dict[str, Any], float]:
     """Selecciona top-1 con política explícita y calcula margen.
 
     ``two_stage`` solo cambia el top-1 si una alternativa supera al fallback
@@ -693,8 +695,17 @@ def select_best(ranked: list[dict[str, Any]], *,
     """
     if not ranked:
         raise ValueError("ranked vacío")
-    if policy not in {"argmax", "two_stage"}:
+    if policy not in {"argmax", "two_stage", "hybrid"}:
         raise ValueError(f"policy desconocida: {policy}")
+    if policy == "hybrid" and external:
+        top = max(external, key=lambda s: float(external.get(s, 0) or 0))
+        if float(external.get(top, 0) or 0) >= float(kmer_threshold):
+            hit = next((h for h in ranked if h.get("sigma") == top), None)
+            if hit is not None:
+                best = hit
+                second = next((h for h in ranked if h is not best), None)
+                margin = round(float(best.get("z", 0)) - float(second.get("z", 0)), 3) if second else 99.0
+                return best, margin
     if policy == "argmax":
         best = ranked[0]
     else:
@@ -721,6 +732,8 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
                     policy: str = "argmax",
                     delta: float = 1.0,
                     fallback: str = "sigma70",
+                    kmer_model: Path | str | None = None,
+                    kmer_threshold: float = 0.6,
                     overwrite: bool = True) -> dict[str, Any]:
     """Anota sigma para un genoma y devuelve rutas + métricas."""
     base = data_root / "regulation" / genome
@@ -745,6 +758,13 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
     sequence_available = bool(seqs)
     null = build_null(seqs, pwms, window, null_windows, seed) if seqs else {}
 
+    kmer = None
+    if kmer_model:
+        try:
+            from webapp.sigma_kmer import load_model
+            kmer = load_model(kmer_model)
+        except Exception:
+            kmer = None
     promoter_rows: list[dict[str, Any]] = []
     sigma_counts: Counter[str] = Counter()
     conf_counts: Counter[str] = Counter()
@@ -806,8 +826,10 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
         ranked = sorted(hits.values(),
                         key=lambda h: (h["z"], h["pvalue"], h["score"]),
                         reverse=True)
+        external = kmer.probabilities(w) if kmer is not None else None
         best, margin = select_best(ranked, policy=policy, delta=delta,
-                                   fallback=fallback)
+                                   fallback=fallback, external=external,
+                                   kmer_threshold=kmer_threshold)
 
         op_gene_ids = op_genes.get(oid, [])
         op_gene_rows = [genes_by_id[g] for g in op_gene_ids if g in genes_by_id]
@@ -973,6 +995,8 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
         "policy": policy,
         "policy_delta": float(delta),
         "policy_fallback": fallback,
+        "kmer_model": str(kmer_model or ""),
+        "kmer_threshold": float(kmer_threshold) if kmer_model else None,
         "version": VERSION,
         "sha256": _sha256([out / "sigma_promoters.tsv", out / "sigma_factors.tsv"]),
     }

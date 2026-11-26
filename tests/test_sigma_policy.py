@@ -41,3 +41,21 @@ def test_select_best_rejects_unknown_policy():
     from scripts.sigma.sigma_annotator import select_best
     with pytest.raises(ValueError):
         select_best([{"sigma": "sigma70", "z": 1}], policy="magic")
+
+
+def test_select_best_hybrid_uses_kmer_when_confident():
+    from scripts.sigma.sigma_annotator import select_best
+    ranked = [{"sigma": "sigma70", "z": 2.0}, {"sigma": "sigma38", "z": 2.2}]
+    best, _ = select_best(ranked, policy="hybrid", delta=1.0,
+                          external={"sigma38": 0.9, "sigma70": 0.1},
+                          kmer_threshold=0.6)
+    assert best["sigma"] == "sigma38"
+
+
+def test_select_best_hybrid_falls_back_when_not_confident():
+    from scripts.sigma.sigma_annotator import select_best
+    ranked = [{"sigma": "sigma70", "z": 2.0}, {"sigma": "sigma38", "z": 2.2}]
+    best, _ = select_best(ranked, policy="hybrid", delta=1.0,
+                          external={"sigma38": 0.2, "sigma70": 0.7},
+                          kmer_threshold=0.6)
+    assert best["sigma"] == "sigma70"

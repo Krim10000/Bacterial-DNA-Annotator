@@ -30,6 +30,12 @@ def _run(ctx: RunContext, genome: str) -> ModuleResult:
 
     if not genome:
         return ModuleResult("sigma", False, error="Selecciona un genoma.")
+    _kmer = (ctx.config.get("kmer_model") or
+             (Path("webapp/sigma_models/subtilis_kmer.json")
+              if genome == "subtilis" and
+              Path("webapp/sigma_models/subtilis_kmer.json").exists()
+              else ""))
+    _policy = str(ctx.config.get("policy") or ("hybrid" if _kmer else "argmax"))
     try:
         res = annotate_genome(
             ctx.data_root, genome,
@@ -41,8 +47,10 @@ def _run(ctx: RunContext, genome: str) -> ModuleResult:
             min_z=float(ctx.config.get("min_z", 2.0)),
             min_margin=float(ctx.config.get("min_margin", 1.0)),
             use_expression=bool(ctx.config.get("use_expression", True)),
-            policy=str(ctx.config.get("policy") or "argmax"),
+            policy=_policy,
             delta=float(ctx.config.get("policy_delta") or 1.0),
+            kmer_model=(_kmer or None),
+            kmer_threshold=float(ctx.config.get("kmer_threshold") or 0.6),
             pwm_path=(ctx.config.get("pwm_file")
                       or ((ctx.data_root / "dbtbs" /
                            "promoter_pwms_subtilis_all.tsv")
@@ -114,6 +122,10 @@ MODULE = Module(
                help="argmax o two_stage; two_stage exige margen sobre sigma70."),
         Option("policy_delta", "Margen two-stage", "float", 1.0,
                help="Diferencia mínima de z para elegir una alternativa."),
+        Option("kmer_model", "Calibrador k-mer (opcional)", "text", "",
+               help="JSON de sigma_kmer; para B. subtilis se usa el incluido."),
+        Option("kmer_threshold", "Umbral k-mer", "float", 0.6,
+               help="Probabilidad mínima para que el k-mer decida."),
     ),
     docs="docs/SIGMA_MODULE.md",
     input_kind="genome",
