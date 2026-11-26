@@ -60,7 +60,7 @@ SIGMA_PATTERNS = [
     (r"\bsigk\b", "sigmaK"),
     (r"sigma[- ]?factor", "sigma_unresolved"),
 ]
-_PFAM_SIGMA = ["PF00140", "PF04542", "PF04539", "PF04545", "PF04997"]
+_PFAM_SIGMA = ["PF00140", "PF04542", "PF04539", "PF04545"]  # PF04997 es Rpb1, no sigma
 PANEL_REG = C.DATA / "db" / "pfam" / "panel_regulation.hmm"
 SIGMA_DOMAINS = {"Sigma70_r1_2", "Sigma70_r2", "Sigma70_r3", "Sigma70_r4",
                  "Sigma54_1", "Sigma54_C"}

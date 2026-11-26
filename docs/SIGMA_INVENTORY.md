@@ -53,3 +53,17 @@ No se fuerza que ambas especies tengan los mismos.
 - `sigKC`, `sigO`, etc. se conservan con su nombre nativo.
 - `family` no es una llamada funcional.
 - La detección por dominios y la ortología quedan como siguiente capa.
+
+## Corrección de dominio
+
+`PF04997` **no es un dominio sigma**: corresponde a `RNA_pol_Rpb1_1`.
+El panel antiguo lo incluía por error. El código ya no lo usa como evidencia
+sigma; los cuatro dominios válidos del panel son PF00140, PF04542, PF04539 y
+PF04545.
+
+## Conteos
+
+Los conteos de este inventario son **candidatos por anotación**, no el número
+final de sigma validados. La literatura da, por ejemplo, 17–18 sigma en
+*B. subtilis*; nuestro inventario por nombre puede sobrecontar. La detección
+por dominios/ortología es la que debe fijar el número final.
