@@ -1519,5 +1519,10 @@
  "No se infiere BP desde CC, EC, Rhea ni ruta.": "不从 CC、EC、Rhea 或通路推断 BP。",
  "Solo MF→BP con enlace part_of de go.obo (GO_REF:0000108).": "仅使用 go.obo 中 part_of 链接的 MF→BP（GO_REF:0000108）。",
  "BP por propagación oficial MF→BP; sin inferir desde CC o rutas.": "通过官方 MF→BP 传播的 BP；不从 CC 或通路推断。",
- "BP por MF→BP oficial (GO_REF:0000108); se leen de data/labels/go_bp/<genoma>/gene_bp.tsv.": "通过官方 MF→BP（GO_REF:0000108）的 BP；读取自 data/labels/go_bp/<genome>/gene_bp.tsv。"
+ "BP por MF→BP oficial (GO_REF:0000108); se leen de data/labels/go_bp/<genoma>/gene_bp.tsv.": "通过官方 MF→BP（GO_REF:0000108）的 BP；读取自 data/labels/go_bp/<genome>/gene_bp.tsv。",
+ "Fuente GO:": "GO 来源：",
+ "GO source:": "GO 来源：",
+ "GO es una anotación computacional o curada; no prueba la función.": "GO 是计算或人工注释；不能证明功能。",
+ "GO is a computational or curated annotation; it does not prove function.": "GO 是计算或人工注释；不能证明功能。",
+ "Ruta regulador: F2 M-CSA y F3 P2Rank no deben interpretarse como evidencia de enzima. Usar la rama de regulador.": "调控蛋白路线：F2 M-CSA 和 F3 P2Rank 不应解释为酶证据。使用调控蛋白分支。"
 }

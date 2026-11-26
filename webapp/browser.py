@@ -2762,6 +2762,28 @@ def load_genome_sequences(data_root: Path, genome: str) -> dict[str, str]:
                 return out
     return {}
 
+def _go_for_gene(tables: dict, g: dict) -> dict:
+    gid = str(g.get("gene_id") or g.get("locus_tag") or g.get("id") or "")
+    out = {"go_mf": [], "go_cc": [], "go_bp": [], "go_sources": []}
+    mf = tables.get("go_mf_cc", pd.DataFrame())
+    if isinstance(mf, pd.DataFrame) and not mf.empty:
+        row = mf[mf["gene_id"].astype(str) == gid]
+        if not row.empty:
+            r = row.iloc[0]
+            out["go_mf"] = [x for x in str(r.get("mf") or "").split("; ") if x]
+            out["go_cc"] = [x for x in str(r.get("cc") or "").split("; ") if x]
+            out["go_sources"] += [x for x in str(r.get("sources") or "").split("; ") if x]
+    bp = tables.get("go_bp", pd.DataFrame())
+    if isinstance(bp, pd.DataFrame) and not bp.empty:
+        row = bp[bp["gene_id"].astype(str) == gid]
+        if not row.empty:
+            r = row.iloc[0]
+            out["go_bp"] = [x for x in str(r.get("bp") or "").split("; ") if x]
+            out["go_sources"] += [x for x in str(r.get("sources") or "").split("; ") if x]
+    out["go_sources"] = sorted(set(out["go_sources"]))
+    return out
+
+
 def _gene_detail(tables: dict, gid: str, data_root: Path | None = None,
                  genome: str = "") -> None:
     g = _row(tables["genes"], _match_any(
@@ -2769,6 +2791,8 @@ def _gene_detail(tables: dict, gid: str, data_root: Path | None = None,
     if not g:
         st.warning(tr("Ese gen ya no está en la ventana actual."))
         return
+    g = dict(g)
+    g.update(_go_for_gene(tables, g))
     data_root = Path(data_root) if data_root is not None else Path("data")
     seqs = load_genome_sequences(data_root, genome) if genome else {}
     _gene_card.render_gene_card(

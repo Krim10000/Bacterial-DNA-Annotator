@@ -1519,5 +1519,10 @@
  "No se infiere BP desde CC, EC, Rhea ni ruta.": "BP is not inferred from CC, EC, Rhea or pathway.",
  "Solo MF→BP con enlace part_of de go.obo (GO_REF:0000108).": "Only MF→BP with a part_of link from go.obo (GO_REF:0000108).",
  "BP por propagación oficial MF→BP; sin inferir desde CC o rutas.": "BP by official MF→BP propagation; not inferred from CC or pathways.",
- "BP por MF→BP oficial (GO_REF:0000108); se leen de data/labels/go_bp/<genoma>/gene_bp.tsv.": "BP by official MF→BP (GO_REF:0000108); read from data/labels/go_bp/<genome>/gene_bp.tsv."
+ "BP por MF→BP oficial (GO_REF:0000108); se leen de data/labels/go_bp/<genoma>/gene_bp.tsv.": "BP by official MF→BP (GO_REF:0000108); read from data/labels/go_bp/<genome>/gene_bp.tsv.",
+ "Fuente GO:": "GO source:",
+ "GO source:": "GO source:",
+ "GO es una anotación computacional o curada; no prueba la función.": "GO is a computational or curated annotation; it does not prove function.",
+ "GO is a computational or curated annotation; it does not prove function.": "GO is a computational or curated annotation; it does not prove function.",
+ "Ruta regulador: F2 M-CSA y F3 P2Rank no deben interpretarse como evidencia de enzima. Usar la rama de regulador.": "Regulator route: F2 M-CSA and F3 P2Rank must not be interpreted as enzyme evidence. Use the regulator branch."
 }

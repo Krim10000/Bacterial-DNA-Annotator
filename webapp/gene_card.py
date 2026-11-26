@@ -739,6 +739,26 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
     ]
     st.markdown("\n".join(identity))
 
+    # ------------------------------------------------ GO MF/CC/BP
+    go_mf = gene.get("go_mf") or []
+    go_cc = gene.get("go_cc") or []
+    go_bp = gene.get("go_bp") or []
+    if go_mf or go_cc or go_bp:
+        st.markdown(f"**{_t('GO MF / CC / BP', 'GO MF / CC / BP')}**")
+        if go_mf:
+            st.markdown(f"- **MF:** " + "; ".join(str(x) for x in go_mf[:8]))
+        if go_cc:
+            st.markdown(f"- **CC:** " + "; ".join(str(x) for x in go_cc[:8]))
+        if go_bp:
+            st.markdown(f"- **BP:** " + "; ".join(str(x) for x in go_bp[:8]))
+        src = gene.get("go_sources") or []
+        if src:
+            st.caption(_t("Fuente GO: ", "GO source: ") + ", ".join(str(x) for x in src[:6]))
+        st.caption(_t(
+            "GO es una anotación computacional o curada; no prueba la función.",
+            "GO is a computational or curated annotation; it does not prove function.",
+        ))
+
     # ------------------------------------------------ A/B/C + confianza
     st.markdown(f"**{_t('A/B/C y confianza', 'A/B/C and confidence')}**")
     abc = _abc_path(gene)
