@@ -233,7 +233,24 @@ sigma = label
 
 ## Estado
 
-Prototipo implementado:
+Módulo formal implementado:
+
+```text
+modules/labels/module.py
+id = labels
+order = 32
+```
+
+Salida real del pipeline:
+
+```text
+<out_root>/labels/<genoma>/
+  gene_labels.tsv
+  operon_labels.tsv
+  label_summary.json
+```
+
+Prototipo y análisis:
 
 ```text
 webapp/labels.py
