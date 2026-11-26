@@ -458,6 +458,37 @@ def load_go_mf_cc(data_root: Path, genome: str) -> pd.DataFrame:
     return pd.DataFrame()
 
 
+def load_go_bp(data_root: Path, genome: str) -> pd.DataFrame:
+    """Carga BP por gen (una fila por gen, términos agregados)."""
+    for root in (_p(data_root, "labels", "go_bp", genome),
+                 _p(data_root.parent, "results", "go_bp", genome)):
+        path = root / "gene_bp.tsv"
+        if not path.exists(): continue
+        try: raw = pd.read_csv(path, sep="\t", dtype=str).fillna("")
+        except Exception: return pd.DataFrame()
+        if raw.empty: return raw
+        rows = []
+        for gid, grp in raw.groupby("gene_id"):
+            bps = sorted({r["bp_go_name"] for _, r in grp.iterrows() if r.get("bp_go_name")})
+            rows.append({"gene_id": gid, "bp": "; ".join(bps), "n_bp": len(bps),
+                         "sources": "; ".join(sorted({str(r.get("source","")) for _,r in grp.iterrows()}))})
+        return pd.DataFrame(rows)
+    return pd.DataFrame()
+
+
+def load_ncrna_go(data_root: Path, genome: str) -> pd.DataFrame:
+    """Carga GO de rRNA/tRNA/ncRNA (una fila por feature/término)."""
+    for root in (_p(data_root, "labels", "ncrna_go", genome),
+                 _p(data_root.parent, "results", "ncrna_go", genome)):
+        path = root / "ncrna_go.tsv"
+        if path.exists():
+            try:
+                return pd.read_csv(path, sep="\t", dtype=str).fillna("")
+            except Exception:
+                return pd.DataFrame()
+    return pd.DataFrame()
+
+
 def load_tables(data_root: Path, genome: str) -> dict:
     """Carga las pistas de un genoma. Las que falten se devuelven vacías.
 
@@ -473,6 +504,8 @@ def load_tables(data_root: Path, genome: str) -> dict:
         out[name] = (pd.read_csv(path, sep="\t", dtype=str).fillna("")
                      if path.exists() else pd.DataFrame())
     out["go_mf_cc"] = load_go_mf_cc(data_root, genome)
+    out["ncrna_go"] = load_ncrna_go(data_root, genome)
+    out["go_bp"] = load_go_bp(data_root, genome)
     hp = _p(data_root, "operon_finder", f"{genome}_hairpins.tsv")
     if not hp.exists() and genome == "demo":
         hp = DEMO_DIR / "hairpins.tsv"
@@ -1140,13 +1173,13 @@ def svg(tables: dict, contig: str, start: int, end: int,
     # ``sospecha``: la banda de sigma mide 18 px, así que con menos espacio
     # se solapaba con las bandas vecinas (sobre todo en la hebra −).
     Y = {
-        "+": {"genes": 82, "go_mf_cc": 112, "operones": 132, "promotores": 166,
+        "+": {"genes": 82, "go_mf_cc": 108, "go_bp": 118, "ncrna_go": 128, "operones": 136, "promotores": 166,
               "horquillas": 200, "transcripcion": 234, "complejos": 268,
               "sigma": 296, "sospecha": 324},
-        "−": {"genes": 390, "go_mf_cc": 420, "operones": 440, "promotores": 474,
+        "−": {"genes": 390, "go_mf_cc": 416, "go_bp": 426, "ncrna_go": 436, "operones": 444, "promotores": 474,
               "horquillas": 508, "transcripcion": 542, "complejos": 576,
               "sigma": 604, "sospecha": 632},
-        "": {"genes": 0, "go_mf_cc": 680, "operones": 700, "promotores": 734,
+        "": {"genes": 0, "go_mf_cc": 676, "go_bp": 686, "ncrna_go": 696, "operones": 704, "promotores": 734,
              "horquillas": 768, "transcripcion": 802,
              "complejos": 836, "sigma": 864, "sospecha": 892},
     }
@@ -1243,7 +1276,7 @@ def svg(tables: dict, contig: str, start: int, end: int,
                  f'fill="{"#e3efff" if sec == "+" else "#fff1d6" if sec == "−" else "#eceef2"}"/>')
         o.append(f'<text x="8" y="{header_y-1}" font-size="13.5" fill="#26303f" '
                  f'font-weight="800">{label}</text>')
-        for key, txt in (("go_mf_cc", "GO MF/CC"), ("operones", "OPERONES"), ("promotores", "PROMOTORES"),
+        for key, txt in (("go_mf_cc", "GO MF/CC"), ("go_bp", "GO BP"), ("ncrna_go", "GO ARN"), ("operones", "OPERONES"), ("promotores", "PROMOTORES"),
                          ("horquillas", "HORQUILLAS"),
                          ("transcripcion", "TSS / TTS"),
                          ("sigma", SIGMA_LANE_LABEL)):
@@ -1355,6 +1388,22 @@ def svg(tables: dict, contig: str, start: int, end: int,
                          f'fill="#3b3f4a" text-anchor="middle">{_esc(name)[:16]}</text>')
             o.append("</g>")
 
+    # GO BP: propagación oficial MF→BP.
+    if "go_bp" in tracks:
+        bp = tables.get("go_bp", pd.DataFrame())
+        if isinstance(bp, pd.DataFrame) and not bp.empty:
+            bmap = {str(r["gene_id"]): r for _, r in bp.iterrows()}
+            for sec in ("+", "−", ""):
+                y = Y[sec]["go_bp"]
+                for _, g in _strand_rows(genes, sec).iterrows():
+                    rec = bmap.get(str(g.get("id") or g.get("gene_id") or ""))
+                    if rec is None: continue
+                    gx0, gx1 = x(g["start"]), x(g["end"])
+                    o.append(hit_open("gene", g.get("id") or g.get("gene_id"))
+                             + f'<title>{_esc(str(g.get("etiqueta") or ""))} · GO BP: {int(rec.get("n_bp") or 0)} · {_esc(str(rec.get("sources") or "")[:100])}</title>')
+                    o.append(f'<line x1="{gx0:.1f}" y1="{y}" x2="{gx1:.1f}" y2="{y}" stroke="#1f8a70" stroke-width="3" opacity="0.8"/>')
+                    o.append("</g>")
+
     # GO MF/CC: una línea por gen anotado, con su fuente en el tooltip.
     if "go_mf_cc" in tracks:
         go = tables.get("go_mf_cc", pd.DataFrame())
@@ -1376,6 +1425,24 @@ def svg(tables: dict, contig: str, start: int, end: int,
                     if n:
                         o.append(f'<text x="{gx0:.1f}" y="{y-4}" font-size="8" fill="{color}">{n}</text>')
                     o.append("</g>")
+
+    # GO de ARN: rRNA/tRNA/ncRNA por coordenadas (no depende de proteína).
+    if "ncrna_go" in tracks:
+        rna = tables.get("ncrna_go", pd.DataFrame())
+        if isinstance(rna, pd.DataFrame) and not rna.empty:
+            for _, rec in rna.iterrows():
+                try:
+                    a, b = int(rec["start"]), int(rec["end"])
+                except Exception:
+                    continue
+                if b < start or a > end: continue
+                y = Y.get(str(rec.get("strand") or ""), Y[""])["ncrna_go"]
+                gx0, gx1 = x(a), x(b)
+                color = {"rRNA": "#8e44ad", "tRNA": "#d35400", "tmRNA": "#16a085"}.get(str(rec.get("type")), "#6c7a89")
+                o.append(hit_open("ncrna", rec.get("feature_id"))
+                         + f'<title>{_esc(str(rec.get("type")))} {_esc(str(rec.get("family")))} · {_esc(str(rec.get("go_name")))} · {_esc(str(rec.get("source")))}</title>')
+                o.append(f'<line x1="{gx0:.1f}" y1="{y}" x2="{gx1:.1f}" y2="{y}" stroke="{color}" stroke-width="4" opacity="0.9"/>')
+                o.append("</g>")
 
     # operones por hebra
     if "operones" in tracks:
@@ -3333,7 +3400,7 @@ def render(data_root: Path, genome: str) -> None:
         )
 
     # --- pistas visibles: casillas, para poder superponer sin que se pisen
-    t1, t2, t3, t4, t5, t6, t7, t8, t9 = st.columns(9)
+    t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11 = st.columns(11)
     tracks: set[str] = set()
     if t1.checkbox("Genes", True, key="br_t_genes"):
         tracks.add("genes")
@@ -3357,6 +3424,10 @@ def render(data_root: Path, genome: str) -> None:
              "`data/sigma/<genoma>/sigma_promoters.tsv`.")
     if t9.checkbox("GO MF/CC", True, key="br_t_go", help="Función molecular y componente celular por accesión UniProt; se leen de data/labels/go_mf_cc/<genoma>/gene_go.tsv."):
         tracks.add("go_mf_cc")
+    if t10.checkbox("GO ARN", True, key="br_t_ncrna", help="rRNA/tRNA/ncRNA desde Infernal/GFF; se leen de data/labels/ncrna_go/<genoma>/ncrna_go.tsv."):
+        tracks.add("ncrna_go")
+    if t11.checkbox("GO BP", True, key="br_t_bp", help="BP por MF→BP oficial (GO_REF:0000108); se leen de data/labels/go_bp/<genoma>/gene_bp.tsv."):
+        tracks.add("go_bp")
     if ver_sigma and isinstance(sigma_df, pd.DataFrame) and not sigma_df.empty:
         tracks.add("sigma")
     if ver_sigma and (not isinstance(sigma_df, pd.DataFrame)
