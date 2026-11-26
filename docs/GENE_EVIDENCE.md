@@ -73,3 +73,22 @@ python scripts/labels/21_build_gene_evidence.py \
 - añadir dominios/ortología;
 - validar duplicados;
 - publicar `gene_evidence.tsv` completo.
+
+## Cobertura completa
+
+```text
+442 genomas
+1.522.305 genes
+3.502.471 filas
+1.241.855 filas no_data
+280.450 genes con evidencia
+```
+
+El archivo completo es:
+
+```text
+data/labels/gene_evidence.tsv
+```
+
+La ausencia de una fila de término ya no es ambigua: hay una fila `no_data`
+por cada gen sin evidencia.

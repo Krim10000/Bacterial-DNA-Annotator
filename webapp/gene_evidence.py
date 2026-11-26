@@ -2,6 +2,7 @@
 from __future__ import annotations
 import csv, json
 from collections import defaultdict
+from functools import lru_cache
 from pathlib import Path
 
 
@@ -11,6 +12,7 @@ def read_tsv(p: Path):
         return list(csv.DictReader(fh,delimiter="\t"))
 
 
+@lru_cache(maxsize=4)
 def _protein_map(data_root: Path):
     out={}
     for r in read_tsv(data_root/"labels/go_indirect/proteins_map.tsv"):

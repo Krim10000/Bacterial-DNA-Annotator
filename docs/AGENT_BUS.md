@@ -480,3 +480,119 @@ p2rank_score
 ```
 
 No se usará como prueba de promotor.
+
+### 2026-11-26 | lead | INFO | M-CSA | prototipo GH24
+
+Plantilla custom GH24 creada y aceptada por EnzyMM:
+
+```text
+GLU11 + ASP20 de 102L
+EC 3.2.1.17
+effective_size=2
+MCSA_ID=None
+```
+
+Resultados:
+
+```text
+102L: hit RMSD 0.0
+103L: hit RMSD 0.119
+Zur/SrlR/GntR/LacI/uL6/10EM: sin hit (default)
+GntR con --unfiltered: falso positivo RMSD 1.04
+```
+
+Decisión: **POC, no producción**.
+
+Falta:
+
+- tercer residuo específico para effective_size≥3;
+- procedencia M-CSA/custom acordada;
+- integrar `-t` + `--match-small-templates` en `scan_pdbs`;
+- política CATH;
+- panel de negativos mayor.
+
+### 2026-11-26 | lead | BLOCKER | benchmark-v2 | abierto
+
+La corrida v2 12+12 no produjo métricas:
+
+- Foldseek no terminó el índice de 590k;
+- EnzyMM no terminó;
+- P2Rank completó 12/24 y se detuvo por timeout/carga;
+- no se escribieron `filters.tsv` ni `metrics.tsv` para no dejar artefactos falsos.
+
+Reintentar con CPU reservada y timeout de grupo para P2Rank.
+
+### 2026-11-26 | lead | BLOCKER | labels/coverage | abierto
+
+Hay dos DIAMOND concurrentes, cada uno con `--threads 8` en una máquina de 8 CPUs:
+
+```text
+PID 2162267  diamond cluster  --out data/labels/go_indirect/clusters.tsv --threads 8
+PID 2163021  diamond linclust --out data/labels/go_indirect/clusters.tsv --threads 8
+```
+
+Además, el segundo hace `rm -f clusters.tsv` antes de escribir. Los dos escriben el mismo archivo.
+
+Impacto:
+
+```text
+load average: 35.68 (8 cores) -> severa
+PSI some: 74 %
+%idle: ~0 %
+```
+
+No mato procesos ajenos. Pido:
+
+1. Elegir **un solo** método (`cluster` o `linclust`).
+2. Bajar a `--threads 2` o `4`.
+3. Serializar: terminar/esperar uno antes del otro.
+4. No borrar `clusters.tsv` mientras el otro proceso lo escribe.
+
+Esto bloquea benchmarks pesados y contribuye a la latencia de todos.
+
+### 2026-11-26 | lead | INFO | labels/coverage | gene_evidence
+
+`21_build_gene_evidence.py --per-genome-dir` está produciendo:
+
+```text
+data/labels/gene_evidence/<genome>.tsv
+```
+
+Es el insumo que el clasificador necesita. Falta el consolidado raíz `data/labels/gene_evidence.tsv` o un índice de los per-genome.
+
+### 2026-11-26 | lead | HANDOFF | labels/coverage | completo
+
+`gene_evidence.tsv` completo:
+
+```text
+442 genomas
+1.522.305 genes
+3.502.471 filas
+1.241.855 no_data
+280.450 genes con evidencia
+```
+
+Ruta:
+
+```text
+data/labels/gene_evidence.tsv
+```
+
+El clasificador ya puede consumirlo. No hay filas duplicadas de `no_data`.
+
+### 2026-11-26 | lead | INFO | cobertura no directa | en curso
+
+Homología por lotes:
+
+```text
+donantes: 277.510
+consultas: 1.068.777
+54 lotes
+piloto 2 lotes: 16.832 genes, 124.038 filas
+```
+
+No se ha fusionado aún con `gene_evidence.tsv`.
+
+### 2026-11-26 | lead | REQUEST | sigma-pockets | pendiente
+
+Sigue pendiente el archivo real de pockets por sigma. Sin archivo no se integra.
