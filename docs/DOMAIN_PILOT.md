@@ -45,3 +45,31 @@ No justifica lanzar 476.000 sin estratificar.
 dominio Pfam ≠ función confirmada
 IEA / confianza media-baja
 ```
+
+## Piloto estratificado
+
+Se construyó una muestra de 20 `no_data` por genoma:
+
+```text
+query.faa: 2,6 MB
+hmmscan --cut_ga contra Pfam
+```
+
+El `hmmscan` no terminó y fue detenido antes de producir el TSV.
+
+```text
+no se reporta cobertura por filo
+no se escala
+```
+
+Causa probable: 8.800 secuencias contra Pfam completo en un proceso que
+agotó el tiempo/memoria disponible.
+
+Siguiente intento:
+
+```text
+5.000 secuencias
+--cpu 2
+Pfam-A
+medir tiempo y memoria antes de escalar
+```

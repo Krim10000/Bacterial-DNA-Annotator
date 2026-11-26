@@ -954,3 +954,8 @@ Piloto Pfam:
 
 Muestra no estratificada; no se escala todavía.
 Ver `docs/DOMAIN_PILOT.md`.
+
+### 2026-11-26 | lead | INFO | dominios | piloto estratificado incompleto
+
+`hmmscan --cut_ga` sobre 20 no_data/genoma no terminó; no hay TSV ni cobertura.
+No se escala. Ver `docs/DOMAIN_PILOT.md`.
