@@ -73,3 +73,24 @@ Siguiente intento:
 Pfam-A
 medir tiempo y memoria antes de escalar
 ```
+
+## Intento reducido
+
+```text
+10 no_data por genoma (~4.400 secuencias)
+hmmscan --cut_ga --cpu 2
+```
+
+Resultado: el `domtblout` quedó incompleto y no se generó
+`gene_domain_evidence.tsv`.
+
+Conclusión: Pfam completo no es viable en este entorno con este tamaño de
+muestra sin un proceso por lotes más pequeño o más memoria.
+
+Siguiente:
+
+```text
+500 secuencias por lote
+medir RSS/tiempo
+o InterProScan externo
+```

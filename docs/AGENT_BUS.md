@@ -959,3 +959,77 @@ Ver `docs/DOMAIN_PILOT.md`.
 
 `hmmscan --cut_ga` sobre 20 no_data/genoma no terminó; no hay TSV ni cobertura.
 No se escala. Ver `docs/DOMAIN_PILOT.md`.
+
+### 2026-11-26 | lead | BLOCKER | dominios | recurso
+
+`hmmscan` contra Pfam completo no termina en este entorno:
+- 8.800 secuencias: interrumpido.
+- 4.400 secuencias: interrumpido.
+No hay TSV de dominios. No se escala.
+
+### 2026-11-26 | lead | HANDOFF | protein-classifier | gene_evidence consumido
+
+Implementado:
+
+```text
+webapp/gene_evidence_classifier.py
+scripts/labels/23_classify_proteins.py
+tests/test_gene_evidence_classifier.py
+```
+
+Pruebas: **21 passed**.
+
+Corrida pequeña:
+
+```text
+ecoli_k12: 4.533 proteínas
+elapsed 75 s
+maxrss 44 MB
+0 claves duplicadas
+```
+
+Distribución:
+
+```text
+enzyme_like 1615 | unknown 1373 | transporter 1040
+other_regulator 310 | ribosomal 145 | structural_accessory 39
+sigma_regulator 11
+coverage: full 2922 | partial 769 | no_data 842
+```
+
+No se duplicó GO; no se usó gold de sigma; no se emiten probabilidades.
+
+### 2026-11-26 | lead | INFO | benchmark-v3 | listo
+
+Benchmark v3:
+
+```text
+30 positivos + 30 negativos
+60 UniProt únicos
+0 rutas faltantes
+6/6 bins empatados
+estado: pilot
+```
+
+Positivos:
+
+```text
+13 PDB experimentales
+17 AF2
+25 curated_enzyme
+5 curated_enzyme_low_confidence
+```
+
+Negativos:
+
+```text
+30 AF2 curados
+8 TF/regulador
+18 transportador/canal/receptor
+2 sigma
+1 ribosomal
+1 estructural
+```
+
+Monitor v3 activo: espera CPU y luego corre F1/F2/F3.
+No calibrar hasta revisar métricas.
