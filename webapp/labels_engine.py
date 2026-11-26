@@ -88,7 +88,12 @@ def _operon_rows(data_root: Path, genome: str):
 
 
 def _gaf_for(data_root: Path, genome: str):
-    return data_root/"labels"/"external"/"goa"/GAF.get(genome,"")
+    if genome in GAF:
+        return data_root/"labels"/"external"/"goa"/GAF[genome]
+    for r in read_tsv(data_root/"labels"/"external"/"goa"/"goa_map.tsv"):
+        if r.get("genome")==genome and r.get("status")=="ok":
+            return data_root/"labels"/"external"/"goa"/"by_code"/r.get("goa_file","")
+    return data_root/"labels"/"external"/"goa"/""
 
 
 def _kegg_code(data_root: Path, genome: str):
