@@ -855,6 +855,15 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
                     st.markdown(_t("**Estructura secundaria predicha**",
                                    "**Predicted secondary structure**"))
                     st.code(_pred.dot_bracket, language=None)
+                    _svg = rna_structure.arc_svg(rna, _pred.dot_bracket)
+                    if _svg:
+                        st.markdown(_svg, unsafe_allow_html=True)
+                        st.caption(_t(
+                            "Diagrama 2D de arcos: cada arco une un par. No es "
+                            "una estructura 3D.",
+                            "2D arc diagram: each arc joins a pair. It is not a "
+                            "3D structure.",
+                        ))
                     _extra = (f"MFE {_pred.energy_kcal_mol:.1f} kcal/mol"
                               if _pred.energy_kcal_mol is not None
                               else f"{_pred.score} pares")

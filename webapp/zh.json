@@ -1441,5 +1441,14 @@
  "La región DoriC es una referencia curada; el punto ORCA es una predicción. No son la misma evidencia.": "DoriC 区域是人工整理参考；ORCA 点是预测。二者不是同一证据。",
  "Este registro es ARN (tRNA/rRNA/ncRNA): no se traduce a proteína. La secuencia se muestra en orientación 5′→3′.": "该记录是 RNA（tRNA/rRNA/ncRNA）：不翻译为蛋白质。序列按 5′→3′ 显示。",
  "Secuencia de ARN en orientación 5′→3′ (T se muestra como U). El plegamiento no se dibuja: no hay estructura 3D de ARN local.": "RNA 序列按 5′→3′ 方向（T 显示为 U）。不绘制折叠：没有本地 RNA 3D 结构。",
- "Secuencia de la región en orientación 5′→3′ del contig. OriC no tiene una hebra codificante: la dirección no define un transcrito.": "区域序列按 contig 5′→3′ 方向。OriC 没有编码链：方向不定义转录本。"
+ "Secuencia de la región en orientación 5′→3′ del contig. OriC no tiene una hebra codificante: la dirección no define un transcrito.": "区域序列按 contig 5′→3′ 方向。OriC 没有编码链：方向不定义转录本。",
+ "🕳️ Pockets (P2Rank)": "🕳️ 口袋（P2Rank）",
+ "🧪 Sigma y promotores": "🧪 σ 与启动子",
+ "Estructura secundaria predicha": "预测二级结构",
+ "Estructura secundaria no disponible; no se inventan pares.": "二级结构不可用；不会编造碱基对。",
+ "Estructura secundaria no disponible para esta secuencia; no se inventan pares.": "该序列的二级结构不可用；不会编造碱基对。",
+ "Secondary structure not available for this sequence; no base pairs are invented.": "该序列的二级结构不可用；不会编造碱基对。",
+ "Predicción MFE ({src}; {extra}). No demuestra el plegamiento in vivo ni la función.": "MFE 预测（{src}；{extra}）。不能证明体内折叠或功能。",
+ "Diagrama 2D de arcos: cada arco une un par. No es una estructura 3D.": "2D 弧线图：每条弧线连接一个配对。它不是 3D 结构。",
+ "2D arc diagram: each arc joins a pair. It is not a 3D structure.": "2D 弧线图：每条弧线连接一个配对。它不是 3D 结构。"
 }

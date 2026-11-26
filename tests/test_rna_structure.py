@@ -246,3 +246,17 @@ def test_as_dict_is_json_serializable_and_has_expected_keys():
         "reason",
     }
     assert payload["pairs"] == [[0, 11], [1, 10], [2, 9], [3, 8]]
+
+
+def test_arc_svg_is_valid_and_draws_pairs():
+    from webapp.rna_structure import arc_svg
+    svg = arc_svg("GGGGAAAACCCC", "((((....))))")
+    assert svg.startswith("<svg") and svg.endswith("</svg>")
+    assert svg.count("<path") == 4
+    import xml.etree.ElementTree as ET
+    ET.fromstring(svg)
+
+
+def test_arc_svg_rejects_too_long():
+    from webapp.rna_structure import arc_svg
+    assert arc_svg("A" * 200, "." * 200, max_nt=50) == ""

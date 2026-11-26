@@ -397,5 +397,47 @@ __all__ = [
     "dot_bracket_from_pairs",
     "normalize_sequence",
     "pairs_from_dot_bracket",
+    "arc_svg",
     "predict_structure",
 ]
+
+
+def arc_svg(sequence: str, dot_bracket: str, *, width: int = 900,
+            height: int = 190, max_nt: int = 160) -> str:
+    """Diagrama 2D de arcos a partir de un dot-bracket.
+
+    No es una estructura 3D ni un layout físico: coloca las bases en una fila
+    y dibuja un arco por par. Devuelve ``""`` si la estructura no es válida o
+    es demasiado larga para que el dibujo sea legible.
+    """
+    seq = normalize_sequence(sequence)
+    pairs = pairs_from_dot_bracket(dot_bracket, seq)
+    n = len(seq)
+    if n == 0 or n > max_nt:
+        return ""
+    margin_x, base_y = 30, height - 42
+    step = (width - 2 * margin_x) / max(1, n - 1)
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" '
+           f'height="{height}" viewBox="0 0 {width} {height}" '
+           'font-family="ui-monospace,monospace">']
+    # Bases en una fila.
+    for i, base in enumerate(seq):
+        x = margin_x + i * step
+        out.append(f'<text x="{x:.1f}" y="{base_y}" font-size="9" '
+                   f'text-anchor="middle" fill="#334155">{base}</text>')
+    # Arcos; los pares largos se elevan más.
+    for i, j in pairs:
+        x1 = margin_x + i * step
+        x2 = margin_x + j * step
+        span = max(1, j - i)
+        lift = min(120.0, 14.0 + span * 2.2)
+        mid = (x1 + x2) / 2
+        y = base_y - 8
+        color = "#2563eb" if span <= 12 else "#7c3aed"
+        out.append(f'<path d="M {x1:.1f} {y:.1f} Q {mid:.1f} '
+                   f'{y-lift:.1f} {x2:.1f} {y:.1f}" fill="none" '
+                   f'stroke="{color}" stroke-width="1.5" opacity="0.75"/>')
+    out.append(f'<text x="{margin_x}" y="18" font-size="11" fill="#475569">'
+               f'{n} nt · {len(pairs)} pares · 5′→3′</text>')
+    out.append("</svg>")
+    return "".join(out)

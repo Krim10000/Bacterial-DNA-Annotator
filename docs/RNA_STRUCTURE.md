@@ -224,3 +224,13 @@ Cubren:
 - fallo de `RNA.fold`;
 - secuencia vacía, bases ambiguas, longitudes y parámetros inválidos;
 - validación de dot-bracket y pseudoknots.
+
+## Diagrama 2D de arcos
+
+`arc_svg(sequence, dot_bracket)` dibuja las bases en una fila y un arco por
+par. Es una representación 2D de la estructura secundaria, no un layout 3D.
+
+- longitud máxima: 160 nt;
+- pares largos se elevan más;
+- si la estructura no es válida o es demasiado larga, devuelve `""`;
+- la GUI lo muestra junto al dot-bracket.

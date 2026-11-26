@@ -2814,6 +2814,13 @@ def _hairpin_detail(tables: dict, hid: str, data_root: Path, genome: str) -> Non
             if pred is not None and pred.source != "not_available" and pred.dot_bracket:
                 st.markdown(f"**{tr('Estructura secundaria predicha')}**")
                 st.code(pred.dot_bracket, language=None)
+                svg = rna_structure.arc_svg(rna, pred.dot_bracket)
+                if svg:
+                    st.markdown(svg, unsafe_allow_html=True)
+                    st.caption(tr(
+                        "Diagrama 2D de arcos: cada arco une un par. No es una "
+                        "estructura 3D."
+                    ))
                 extra = (f"MFE {pred.energy_kcal_mol:.1f} kcal/mol"
                          if pred.energy_kcal_mol is not None
                          else f"{pred.score} pares")
