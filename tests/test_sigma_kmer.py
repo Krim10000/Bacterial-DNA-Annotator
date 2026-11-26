@@ -20,3 +20,14 @@ def test_kmer_model_rejects_bad_schema():
     import pytest
     with pytest.raises(ValueError):
         KmerModel.from_dict({"schema": "otro"})
+
+
+def test_bundled_subtilis_model_is_usable():
+    import pytest
+    path = Path("webapp/sigma_models/subtilis_kmer.json")
+    if not path.exists():
+        pytest.skip("sin modelo incluido")
+    model = load_model(path)
+    probs = model.probabilities("TATAAT" + "A" * 30)
+    assert set(probs) == set(model.labels)
+    assert all(0.0 <= v <= 1.0 for v in probs.values())
