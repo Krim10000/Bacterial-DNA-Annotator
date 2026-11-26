@@ -229,3 +229,15 @@ def test_rna_type_is_not_translated():
     assert gene_card._is_rna("tRNA")
     assert gene_card._is_rna("CDS", "tRNA-Ala")
     assert not gene_card._is_rna("CDS", "DNA polymerase")
+
+
+def test_rna_card_shows_rna_not_protein(run_card):
+    gene = _gene(gene_type="tRNA", product="tRNA-Ala",
+                 gene_name="alaT", gene_id="rna1", pdb="")
+    fake, _ = run_card(gene, sequences={"c1": "GGGGAAAACCCC"})
+    names = [d["file_name"] for d in fake.downloads]
+    assert any(name.endswith(".rna.fna") for name in names)
+    assert not any(name.endswith(".faa") for name in names)
+    text = _all_text(fake)
+    assert "no se traduce a proteína" in text
+    assert "No hay estructura 3D de ARN local" in text

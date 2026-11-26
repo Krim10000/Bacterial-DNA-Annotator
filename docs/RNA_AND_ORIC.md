@@ -48,3 +48,14 @@ La ficha muestra:
   transcrito.
 
 Si solo hay un punto, se declara `ORCA (punto)` y no se inventa un intervalo.
+
+## Estructura secundaria integrada
+
+La ficha de ARN y la ficha de horquilla llaman a `webapp/rna_structure.py`:
+
+- ViennaRNA `RNA.fold` si está disponible;
+- Nussinov como respaldo;
+- `not_available` si no hay backend.
+
+Se muestra el dot-bracket y, si existe, la energía MFE. La interfaz declara que
+es una predicción, no una estructura 3D ni una validación experimental.

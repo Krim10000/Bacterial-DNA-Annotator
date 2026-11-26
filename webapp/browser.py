@@ -36,6 +36,14 @@ import math
 import re
 
 import pandas as pd
+
+try:  # estructura secundaria de ARN (opcional)
+    import rna_structure
+except Exception:  # pragma: no cover
+    try:
+        from webapp import rna_structure
+    except Exception:
+        rna_structure = None
 import streamlit as st
 from streamlit.components.v1 import declare_component
 
@@ -2795,8 +2803,28 @@ def _hairpin_detail(tables: dict, hid: str, data_root: Path, genome: str) -> Non
             "Secuencia de ARN en orientación 5′→3′ (T se muestra como U). "
             "El plegamiento no se dibuja: no hay estructura 3D de ARN local."
         ))
+        rna = seq.replace("T", "U")
         with st.expander(tr("Ver secuencia de ARN")):
-            st.code(seq.replace("T", "U"), language=None)
+            st.code(rna, language=None)
+        if rna_structure is not None:
+            try:
+                pred = rna_structure.predict_structure(rna)
+            except Exception:
+                pred = None
+            if pred is not None and pred.source != "not_available" and pred.dot_bracket:
+                st.markdown(f"**{tr('Estructura secundaria predicha')}**")
+                st.code(pred.dot_bracket, language=None)
+                extra = (f"MFE {pred.energy_kcal_mol:.1f} kcal/mol"
+                         if pred.energy_kcal_mol is not None
+                         else f"{pred.score} pares")
+                st.caption(tr(
+                    "Predicción MFE ({src}; {extra}). No demuestra el "
+                    "plegamiento in vivo ni la función."
+                ).format(src=pred.source, extra=extra))
+            else:
+                st.caption(tr(
+                    "Estructura secundaria no disponible; no se inventan pares."
+                ))
     else:
         st.caption(tr(
             "Secuencia de ARN no disponible para esta horquilla; no se inventa."

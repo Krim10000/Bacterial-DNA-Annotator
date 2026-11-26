@@ -53,6 +53,14 @@ except Exception:  # pragma: no cover - depende del entorno
     except Exception:
         structure_viewer = None
 
+try:  # estructura secundaria de ARN (opcional)
+    import rna_structure
+except Exception:  # pragma: no cover
+    try:
+        from webapp import rna_structure
+    except Exception:
+        rna_structure = None
+
 
 # --------------------------------------------------------------------------
 # Texto bilingüe
@@ -838,6 +846,31 @@ def render_gene_card(gene: dict, genome: str, data_root: Path,
             )
             with st.expander(_t("Ver secuencia de ARN", "View RNA sequence")):
                 st.code(rna, language=None)
+            if rna_structure is not None:
+                try:
+                    _pred = rna_structure.predict_structure(rna)
+                except Exception:
+                    _pred = None
+                if _pred is not None and _pred.source != "not_available" and _pred.dot_bracket:
+                    st.markdown(_t("**Estructura secundaria predicha**",
+                                   "**Predicted secondary structure**"))
+                    st.code(_pred.dot_bracket, language=None)
+                    _extra = (f"MFE {_pred.energy_kcal_mol:.1f} kcal/mol"
+                              if _pred.energy_kcal_mol is not None
+                              else f"{_pred.score} pares")
+                    st.caption(_t(
+                        f"Predicción MFE ({_pred.source}; {_extra}). No es una "
+                        "estructura 3D ni una validación experimental.",
+                        f"MFE prediction ({_pred.source}; {_extra}). It is not "
+                        "a 3D structure or experimental validation.",
+                    ))
+                else:
+                    st.caption(_t(
+                        "Estructura secundaria no disponible para esta "
+                        "secuencia; no se inventan pares.",
+                        "Secondary structure not available for this sequence; "
+                        "no base pairs are invented.",
+                    ))
             st.info(_t(
                 "Este registro es ARN (tRNA/rRNA/ncRNA): no se traduce a "
                 "proteína. La secuencia se muestra en orientación 5′→3′.",
