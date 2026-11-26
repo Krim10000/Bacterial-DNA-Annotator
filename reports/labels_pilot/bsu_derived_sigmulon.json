@@ -1,0 +1,14 @@
+{
+ "n_tss": 2226,
+ "n_mapped": 2167,
+ "n_unmapped": 59,
+ "by_sigma": {
+  "sigma28": 68,
+  "sigma32": 11,
+  "sigma38": 177,
+  "sigma54": 11,
+  "sigma70": 1900
+ },
+ "n_operons": 1560,
+ "status": "derived_not_independent"
+}

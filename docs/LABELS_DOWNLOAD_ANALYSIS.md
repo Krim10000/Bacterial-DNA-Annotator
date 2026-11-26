@@ -171,3 +171,16 @@ No inventa rutas.
 
 `go-basic.obo`, `data-version: releases/2026-07-26`, GO Consortium,
 CC BY 4.0. Ver `docs/LABELS_CITATIONS.md`.
+
+## B. subtilis: sigmulón derivado
+
+Al no existir `NetworkSigmaTU` para B. subtilis, se construyó:
+
+```text
+TSS gold + operones BSGatlas
+→ 2.167/2.226 TSS mapeados
+→ 1.560 operones
+→ derived_bsu_sigmulon, no independiente
+```
+
+Ver `docs/LABELS_BSU_SIGMULON.md`.
