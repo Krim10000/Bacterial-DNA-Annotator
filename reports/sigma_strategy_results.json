@@ -1,0 +1,25 @@
+{
+  "schema": "sigma-strategy-results/v1",
+  "protocol": "GroupKFold 5; grupos 10-100 kb; sin gold de otra especie",
+  "ecoli_k12": {
+    "majority": {"top1": 0.6127, "macro_f1": 0.1284},
+    "argmax_z": {"top1": 0.5667, "macro_f1": 0.4645},
+    "two_stage_delta_1": {"top1": 0.6669, "macro_f1": 0.4781},
+    "hierarchical_logit_100kb": {"top1": 0.6972, "macro_f1": 0.5107, "balanced_acc": 0.5252},
+    "best": "hierarchical_logit_100kb"
+  },
+  "subtilis": {
+    "majority": {"top1": 0.8756, "macro_f1": 0.1867},
+    "pwm_own_argmax": {"top1": 0.2965, "macro_f1": 0.1536},
+    "two_stage_delta_2": {"top1": 0.8585, "macro_f1": 0.2549},
+    "kmer_4_40_5": {"top1": 0.8423, "macro_f1": 0.4741},
+    "hybrid_kmer_two_stage_t06": {"top1": 0.9003, "macro_f1": 0.5184, "balanced_acc": 0.4602},
+    "best": "hybrid_kmer_two_stage_t06"
+  },
+  "limits": [
+    "K-12: PWMs y gold de RegulonDB; no hay validación independiente.",
+    "B. subtilis: k-mer y two-stage entrenados con el gold DBTBS/BSGatlas.",
+    "El híbrido B. subtilis usa una probabilidad k-mer OOF; no es un clasificador multi-especie.",
+    "No hay negativos reales ni gold de especie held-out."
+  ]
+}

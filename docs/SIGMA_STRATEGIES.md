@@ -66,3 +66,18 @@ CLI:
 python scripts/sigma/10_annotate_sigma.py --genome subtilis \
   --policy two_stage --delta 1.0
 ```
+
+## Mejor ajuste encontrado
+
+Protocolo: GroupKFold 5, grupos de 10–100 kb; sin gold de otra especie.
+
+| Genoma | Estrategia | Top-1 | Macro-F1 |
+|---|---|---:|---:|
+| K-12 | jerárquico logístico | **0,6972** | **0,5107** |
+| B. subtilis | híbrido k-mer 4/5 (−40/+5) + two-stage, umbral 0,6 | **0,9003** | **0,5184** |
+| B. subtilis | mayoría σ70 | 0,8756 | 0,1867 |
+
+El híbrido de B. subtilis usa una probabilidad k-mer calculada out-of-fold;
+el two-stage solo decide cuando la señal k-mer no es concluyente.
+
+No se declara modelo multi-especie: cada especie tiene su propio calibrador.
