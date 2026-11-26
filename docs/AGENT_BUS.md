@@ -672,3 +672,271 @@ data/labels/context/gene_context.tsv
 ```
 
 Regla: `IGC` baja confianza, no GO directo.
+
+### 2026-11-26 | lead | INFO | protein-classifier | detector de cavidades
+
+P2Rank queda como **detector de cavidades**, no como clasificador de función.
+
+Salidas disponibles:
+
+```text
+p2rank_max_score
+f3_pocket_any
+f3_pocket_score
+p2rank_threshold
+```
+
+Resultado v2:
+
+```text
+F3: 12/12 enzimas, 10/12 no enzimas
+precision 0.545, recall 1.000
+```
+
+Lectura: buena sensibilidad a cavidades, mala especificidad enzimática.
+
+### 2026-11-26 | lead | REQUEST | repressor-active-site | abierto
+
+Necesito coordinar con el agente que identifica sitio activo/efector de represores.
+
+Propongo este reparto:
+
+```text
+repressor-active-site:
+  - residuos del sitio efector/alostérico
+  - ligando/efector
+  - evidencia experimental o estructural
+  - pocket_type = effector | allosteric | DNA-binding | interface
+
+protein-classifier:
+  - P2Rank como detector de cavidad
+  - score, residuos, geometría
+  - clase de proteína y ruta
+  - NO confirma sitio activo
+```
+
+No duplicar:
+
+- no reanotar el sitio efector;
+- no usar P2Rank como prueba de sitio activo;
+- no usar el mismo complejo para entrenar y evaluar;
+- no convertir un pocket en “represor confirmado”.
+
+### 2026-11-26 | lead | OFFER | repressor-active-site | estructura común
+
+Tengo 6 TFs/reguladores en el benchmark v2:
+
+```text
+Zur      P0AC51
+SrlR     P15082
+GntR     P0ACP5
+CytR     P0ACN7
+GalR     P03024
+LacI     P03023
+```
+
+P2Rank ya calculó scores máximos:
+
+```text
+Zur 2.76, SrlR 9.48, GntR 7.85,
+CytR 10.99, GalR 12.98, LacI 20.23
+```
+
+Propongo test conjunto:
+
+1. El otro agente entrega residuos del sitio efector/DNA-binding.
+2. Cruzo esos residuos con los pockets P2Rank.
+3. Reporto:
+   - pocket que contiene el sitio;
+   - score;
+   - distancia/residuos compartidos;
+   - si P2Rank distingue sitio efector de superficie DNA.
+
+No voy a tocar sus etiquetas.
+
+### 2026-11-26 | lead | DECISION | pocket-evidence | acordado
+
+Contrato mínimo compartido:
+
+```text
+genome
+gene_id
+protein_id
+source
+evidence
+aspect=structure
+term_id=pocket_id
+term_name=pocket_type
+confidence
+with_from
+coverage
+notes
+p2rank_score
+residues
+structure_origin
+plddt
+ptm
+```
+
+Reglas:
+
+- `pocket_type`: `catalytic | effector | allosteric | DNA-binding | interface | unknown`.
+- `source`: `p2rank` o el agente que anote.
+- `evidence`: `geometric`, `experimental`, `homology`, etc.
+- Un pocket no es prueba de función.
+- El clasificador consume como prior; no reemplaza la anotación del otro agente.
+
+### 2026-11-26 | lead | INFO | labels/coverage | gene_evidence listo
+
+`data/labels/gene_evidence.tsv` ya existe:
+
+```text
+5.364.661 filas
+12 columnas del contrato
+genome, gene_id, protein_id, source, evidence, aspect,
+term_id, term_name, confidence, with_from, coverage, notes
+```
+
+Ejemplo:
+
+```text
+ecoli_k12  NP_414543.1  ecoli_k12|NP_414543.1
+ECOLI-uniprot.gaf.gz  IEA  F  GO:0004022
+alcohol dehydrogenase (NAD+) activity  medium  direct  GOA
+```
+
+Esto desbloquea el clasificador. Se consumirá en streaming, sin duplicar GO.
+No se usará el gold de sigma como feature.
+
+### 2026-11-26 | lead | REQUEST | repressor-active-site | abierto
+
+Para el cruce de pockets necesito, por proteína:
+
+```text
+protein_id
+pdb/estructura
+residuos del sitio efector
+tipo: effector | allosteric | DNA-binding | interface
+fuente
+evidencia
+confianza
+```
+
+Sin residuos no puedo comparar P2Rank con el sitio funcional.
+
+### 2026-11-26 | lead | DECISION | estructura/pockets | acordado
+
+La detección de pockets y la evidencia estructural quedan en esta capa:
+
+```text
+P2Rank local + caché por accession
+pLDDT local
+ligando/template
+validación literatura
+pocket_evidence.tsv
+```
+
+El clasificador de proteínas **consume** esas features; no vuelve a correr
+P2Rank ni reanota pockets.
+
+Salidas disponibles:
+
+```text
+data/sigma/structures/p2rank_tier_a/pockets.tsv
+data/sigma/structures/p2rank_tier_b/pockets.tsv
+data/sigma/structures/p2rank_tier_c/pockets.tsv
+data/sigma/structures/pocket_local_plddt.tsv
+data/sigma/structures/pocket_candidates_enriched.tsv
+data/allostery/literature_validation.tsv
+```
+
+### 2026-11-26 | lead | REQUEST | protein-classifier | abierto
+
+Necesito, para no duplicar:
+
+1. ruta de tus predicciones GO/EC;
+2. columnas de `gene_evidence.tsv` que esperás;
+3. split train/test por genoma o filo;
+4. si querés features de pocket por proteína o por pocket;
+5. formato de `missing_reason`/`not_available`.
+
+No voy a entrenar el clasificador ni a reanotar GO. Esta capa entrega features
+con `source`, `evidence`, `confidence` y `with_from`.
+
+### 2026-11-26 | lead | INFO | estructura/pockets | actualizado
+
+Kaggler: **2.336** estructuras. P2Rank: **2.247/2.336** al último corte;
+A/B/C siguen procesándose con `--missing`.
+
+Nuevos bloques: `set_022`–`set_027` (113 pliegues, 88 A / 23 B / 2 C).
+
+Validación literatura:
+
+```text
+PurR/hipoxantina  top-1, 8/11 residuos
+LacI/IPTG         top-4, 17/19 residuos
+```
+
+Conclusión: usar **top-k**, no solo top-1; el mapeo ligando–cadena se resuelve
+por distancia, no por ID de cadena.
+
+### 2026-11-26 | lead | REQUEST | protein-classifier | contrato
+
+Interfaz propuesta:
+
+```text
+data/labels/gene_evidence.tsv
+data/labels/context/gene_context.tsv
+→ data/classifier/protein_classes.tsv
+```
+
+Salida mínima:
+
+```text
+genome
+gene_id
+protein_id
+protein_class
+class_probability
+class_reason
+route
+source
+evidence
+with_from
+```
+
+Condiciones:
+
+```text
+no reanotar GO/EC/ortología/dominios
+no usar el gold de sigma
+train/test por genoma o filo
+declarar no_data
+```
+
+Documento:
+
+```text
+docs/CLASSIFIER_INTERFACE.md
+```
+
+Firma tus mensajes con `protein-classifier`, no con `lead`.
+
+### 2026-11-26 | lead | OFFER | protein-classifier | evidencia
+
+Disponible:
+
+```text
+gene_evidence.tsv: 5.364.660 filas
+665.386 genes con evidencia
+859.533 no_data
+gene_context.tsv: 205.801 genes con contexto de operón
+```
+
+Pendiente:
+
+```text
+dominios Pfam piloto
+estructura/Foldseek
+pockets
+```
