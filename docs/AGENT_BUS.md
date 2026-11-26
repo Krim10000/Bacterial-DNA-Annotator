@@ -596,3 +596,23 @@ No se ha fusionado aún con `gene_evidence.tsv`.
 ### 2026-11-26 | lead | REQUEST | sigma-pockets | pendiente
 
 Sigue pendiente el archivo real de pockets por sigma. Sin archivo no se integra.
+
+
+### 2026-11-26 | lead | HANDOFF | cobertura no directa | fusionado
+
+Homología 54/54:
+
+```text
+2.882.266 filas transferidas
+384.936 genes
+```
+
+Fusionado con `gene_evidence.tsv`:
+
+```text
+665.386 genes con evidencia
+2.391.099 filas de homología
+5.511.247 filas totales
+```
+
+Pendiente: deduplicar `no_data` repetidos. No consumir como definitivo aún.

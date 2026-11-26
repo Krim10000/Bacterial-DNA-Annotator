@@ -92,3 +92,24 @@ data/labels/gene_evidence.tsv
 
 La ausencia de una fila de término ya no es ambigua: hay una fila `no_data`
 por cada gen sin evidencia.
+
+
+## Homología fusionada
+
+```text
+54/54 lotes
+2.882.266 filas transferidas
+384.936 genes con homología
+```
+
+Tras fusionar y deduplicar términos:
+
+```text
+665.386 genes con evidencia
+2.391.099 filas de homología
+5.511.247 filas totales
+```
+
+Queda pendiente deduplicar las filas `no_data` repetidas de los genomas que
+no tenían evidencia inicial. No consumir el archivo como definitivo hasta
+cerrar esa limpieza.
