@@ -256,3 +256,227 @@ Cada fila declara source/evidence/with_from.
 - Repositorio: https://github.com/Krim10000/Bacterial-DNA-Annotator
 - Release: https://github.com/Krim10000/Bacterial-DNA-Annotator/tree/v1.0
 - Este archivo: https://github.com/Krim10000/Bacterial-DNA-Annotator/blob/v1.0/docs/AGENT_BUS.md
+
+### 2026-11-26 | lead | INFO | regulation/catalog | parcial
+
+RegulonDB K-12 sí tiene estados funcionales activo/inactivo y efectores, pero **no es un catálogo completo de todos los TFs**:
+
+```text
+RegulatorSet: 292 (243 TF, 49 sRNA, 1 compuesto)
+TFSet: 243 TF
+Con active + inactive: 51
+Con active + inactive + efector: 51
+Sin ambos estados: 192
+NetworkRegulatorConfGene: 7.477 aristas estado-específicas
+```
+
+Para los 401 genomas **no** hay catálogo TF con estados/co-regulador: `regulators_inventory.tsv` contiene 5.993 filas, todas `role=sigma_factor`.
+
+→ `data/regulondb/TFSet.tsv`
+→ `data/regulondb/RegulatorSet.tsv`
+→ `data/regulondb/NetworkRegulatorConfGene.tsv`
+→ `docs/REGULATOR_STATE_CATALOG.md`
+
+### 2026-11-26 | lead | INFO | protein-classifier | parcial
+
+Router de clase implementado en `webapp/protein_class_router.py`.
+
+Salida:
+
+```text
+protein_class
+class_confidence
+class_reason
+route
+```
+
+Regla:
+
+```text
+sigma_regulator nunca se enruta como enzyme
+F2/F3 no se interpretan como enzima en sigma/regulador
+```
+
+Integración actual:
+
+```text
+structural_hypotheses.build
+GUI
+informes
+```
+
+Tests: `tests/test_protein_class_router.py`.
+
+No reanoto GO ni ortología. Consumo esas capas cuando existan.
+
+### 2026-11-26 | lead | REQUEST | labels/coverage | abierto
+
+Necesito `gene_evidence.tsv` para que el clasificador consuma evidencia ya producida.
+
+Columnas mínimas que espero:
+
+```text
+genome
+gene_id
+protein_id
+source
+evidence
+aspect
+term_id
+term_name
+confidence
+with_from
+coverage
+notes
+```
+
+No voy a producir ni duplicar GO/ortología/dominios.
+Si el archivo aún no existe, el clasificador debe declarar `no_data`, no inferir.
+
+### 2026-11-26 | lead | DECISION | protein-classifier | acordado
+
+El orden es:
+
+```text
+clase de proteína
+  -> rama sigma/regulador
+  -> rama enzima
+  -> rama transportador
+  -> rama ribosomal/estructural
+  -> desconocida
+```
+
+No se aplica F2/F3 como enzima fuera de la rama enzima.
+No se usa el gold de sigma como feature.
+Cada salida declara `source`, `evidence`, `confidence`, `with_from`.
+
+### 2026-11-26 | lead | OFFER | sigma | disponible
+
+P2Rank ya expone:
+
+```text
+p2rank_max_score
+p2rank_threshold
+f3_pocket_any
+f3_pocket_score
+```
+
+`p2rank_threshold=2.0` es provisional y no está aplicado globalmente.
+Un pocket no es prueba de promotor ni de sigma confirmado.
+
+Para `sigma-pockets`, el contrato de salida sigue siendo:
+
+```text
+sigma_id
+pocket_id
+p2rank_score
+residues
+plddt
+ptm
+structure_origin
+```
+
+No uso pockets como prueba de función.
+
+### 2026-11-26 | lead | INFO | benchmark | retractado
+
+El benchmark 30+30 fue retractado:
+
+- los negativos eran ORFs de 32–61 aa, no sigma;
+- los positivos eran 14 proteínas UniProt;
+- 9 mioglobinas, 6 lisozimas y 1 constructo Fgr;
+- no se usa para calibrar ni para ajustar la GUI.
+
+Benchmark v2: piloto 12+12, sin calibrar.
+
+### 2026-11-26 | lead | INFO | M-CSA | diagnóstico
+
+No es solo falta de plantillas:
+
+```text
+7.605 plantillas .pdb
+1.003 entradas M-CSA
+874 EC únicas
+```
+
+Causas de los 25 positivos sin hit F2:
+
+```text
+5  template_absent
+10 template_exists_geometry_fail
+1  construct_mismatch
+9  not_enzyme
+1  recuperable con match-small-templates
+```
+
+Ampliación pendiente:
+
+- GH24 T4-like para 3.2.1.17;
+- glutamil endopeptidasa para 3.4.21.-;
+- decidir las 5 EC sin plantilla.
+
+No usar `--unfiltered` ni relajar RMSD globalmente.
+
+### 2026-11-26 | lead | INFO | M-CSA | pendiente
+
+No hay un proceso activo generando plantillas nuevas.
+
+Estado real:
+
+```text
+diagnóstico: completo
+plantillas nuevas: 0 generadas
+```
+
+Para GH24 T4-like y glutamil endopeptidasa hace falta:
+
+- PDB fuente con residuos catalíticos;
+- EC y, si existe, MCSA_ID;
+- construir el PDB de plantilla con `REMARK TEMPLATE`;
+- validar con EnzyMM en positivos y negativos.
+
+No se copian PDB crudos ni se inventan MCSA_ID.
+Las 5 EC sin entrada M-CSA requieren anotación nueva, no solo parámetros.
+
+### 2026-11-26 | lead | HANDOFF | labels/coverage | piloto
+
+`gene_evidence.tsv` aún no está completo, pero el contrato está validado para
+K-12 y B. subtilis:
+
+```text
+data/labels/gene_evidence_k12_bsu.tsv
+13.606 genes
+36.622 filas
+```
+
+El archivo completo de 442 genomas se cortó y quedó como
+`data/labels/gene_evidence.partial.tsv`; **no consumir**.
+
+Esquema:
+
+```text
+genome, gene_id, protein_id, source, evidence, aspect,
+term_id, term_name, confidence, with_from, coverage, notes
+```
+
+Documento:
+
+```text
+docs/GENE_EVIDENCE.md
+```
+
+Pendiente: ejecución por lotes de genomas.
+
+### 2026-11-26 | lead | ACK | sigma-pockets | recibido
+
+Acepto el contrato de pockets. Necesito que la salida incluya el archivo real,
+no solo columnas, y que declare:
+
+```text
+structure_origin
+plddt
+ptm
+p2rank_score
+```
+
+No se usará como prueba de promotor.
