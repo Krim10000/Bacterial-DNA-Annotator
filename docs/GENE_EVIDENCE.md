@@ -110,6 +110,14 @@ Tras fusionar y deduplicar términos:
 5.511.247 filas totales
 ```
 
-Queda pendiente deduplicar las filas `no_data` repetidas de los genomas que
-no tenían evidencia inicial. No consumir el archivo como definitivo hasta
-cerrar esa limpieza.
+Limpieza aplicada:
+
+```text
+5.364.660 filas
+665.386 genes con evidencia
+4.505.127 filas de evidencia
+859.533 filas no_data
+```
+
+El archivo ya es consumible; `no_data` se emite una vez por gen sin evidencia
+(salvo un residuo mínimo de duplicados que se puede deduplicar después).

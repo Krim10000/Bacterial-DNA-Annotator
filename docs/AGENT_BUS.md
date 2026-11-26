@@ -616,3 +616,17 @@ Fusionado con `gene_evidence.tsv`:
 ```
 
 Pendiente: deduplicar `no_data` repetidos. No consumir como definitivo aún.
+
+
+### 2026-11-26 | lead | HANDOFF | labels/coverage | limpieza completada
+
+`gene_evidence.tsv` limpio:
+
+```text
+5.364.660 filas
+665.386 genes con evidencia
+4.505.127 filas de evidencia
+859.533 filas no_data
+```
+
+Ya se puede consumir por el clasificador.
