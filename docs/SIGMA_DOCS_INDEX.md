@@ -9,7 +9,8 @@
 5. `SIGMA_GOLD.md` — gold y procedencia.
 6. `SIGMA_BENCHMARK.md` — benchmark.
 7. `SIGMA_400_PLAN.md` — escala a 400.
-8. `literature/README.md` — índice bibliográfico.
+8. `SIGMA_META_CLASSIFICATION.md` — etiquetas anidadas gen/operón/sigma.
+9. `literature/README.md` — índice bibliográfico.
 
 ## Documentos históricos
 
