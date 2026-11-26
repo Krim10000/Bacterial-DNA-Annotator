@@ -177,7 +177,9 @@ def build(data_root: Path, genome: str, out_dir: Path, *,
              "n_operons_with_label":sum(1 for x in op_rows if x["labels"]),
              "label_counts":dict(Counter(l for x in gene_labels.values() for l in x)),
              "sources":{"lexicon":use_lexicon,"go":use_go,"kegg":use_kegg,
-                        "allow_iea":allow_iea,"kegg_code":_kegg_code(data_root,genome)}}
+                        "allow_iea":allow_iea,
+                        "kegg_code":_kegg_code(data_root,genome),
+                        "kegg_status":("ok" if _kegg_code(data_root,genome) else "no_data")}}
     (out_dir/"label_summary.json").write_text(json.dumps(summary,indent=1),encoding="utf-8")
     return {"out_dir":str(out_dir),"summary":summary,
             "gene_labels":str(out_dir/"gene_labels.tsv"),

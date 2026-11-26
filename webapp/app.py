@@ -98,6 +98,8 @@ import downloads_ui  # noqa: E402
 import module_ui  # noqa: E402
 import browser  # noqa: E402
 import sigma_view  # noqa: E402
+import labels_view  # noqa: E402
+import pockets_view  # noqa: E402
 from pathways import (  # noqa: E402
     PATHWAYS,
     catalog,
@@ -1196,6 +1198,7 @@ MODE_LABELS: dict[str, str] = {
     "annotate": "mode_annotate",
     "browser": "mode_browser",
     "sigma": "mode_sigma",
+    "labels": "mode_labels",
     "tree": "mode_tree",
     "pathways": "mode_pathways",
     "modules": "mode_modules",
@@ -1217,8 +1220,8 @@ MENU_GROUPS: tuple[dict, ...] = (
         "id": "explorar",
         "title": "Explorar genoma",
         "icon": "🧭",
-        "caption": "Navegador, sigmas y árbol de vida del genoma activo.",
-        "modes": ("browser", "sigma", "tree", "references"),
+        "caption": "Navegador, sigmas, pockets y árbol de vida del genoma activo.",
+        "modes": ("browser", "sigma", "labels", "tree", "references"),
     },
     {
         "id": "catalogo",
@@ -1250,6 +1253,8 @@ MODE_QUERY_ALIASES: dict[str, str] = {
     "browser": "browser",
     "sigmas": "sigma",
     "sigma": "sigma",
+    "etiquetas": "labels",
+    "labels": "labels",
     "rutas": "pathways",
     "hipotesis": "hypotheses",
     "hipótesis": "hypotheses",
@@ -1274,6 +1279,7 @@ MODE_QUERY_VALUES: dict[str, str] = {
     "annotate": "anotar",
     "browser": "navegador",
     "sigma": "sigmas",
+    "labels": "etiquetas",
     "tree": "arbol",
     "pathways": "rutas",
     "modules": "modulos",
@@ -2573,7 +2579,21 @@ def main() -> None:
         if not elegido:
             st.error("No hay genomas del proyecto anotados todavía.")
             return
-        sigma_view.render(DATA_ROOT, elegido)
+        tabs_sigma = st.tabs([
+            "🧪 Sigma y promotores",
+            "🕳️ Pockets (P2Rank)",
+        ])
+        with tabs_sigma[0]:
+            sigma_view.render(DATA_ROOT, elegido)
+        with tabs_sigma[1]:
+            pockets_view.render(DATA_ROOT, elegido)
+        return
+    if mode_key == "labels":
+        elegido = st.session_state.get("genoma_global") or _global_genome()
+        if not elegido:
+            st.error("No hay genomas del proyecto anotados todavía.")
+            return
+        labels_view.render(DATA_ROOT, elegido)
         return
     if mode_key == "browser":
         # Una sola especie activa: se elige arriba, no se duplica aquí.

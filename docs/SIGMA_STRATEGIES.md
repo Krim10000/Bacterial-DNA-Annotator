@@ -81,3 +81,16 @@ El híbrido de B. subtilis usa una probabilidad k-mer calculada out-of-fold;
 el two-stage solo decide cuando la señal k-mer no es concluyente.
 
 No se declara modelo multi-especie: cada especie tiene su propio calibrador.
+
+
+## Etiquetas como prior
+
+`label_bonus=0` por defecto. Con bonus 0,5:
+
+```text
+top-1:    0,3694 → 0,3627
+macro-F1: 0,3067 → 0,3175
+```
+
+No mejora top-1; el macro sube ~0,011. El cuello sigue siendo el promotor,
+no la etiqueta.

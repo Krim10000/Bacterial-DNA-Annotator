@@ -63,6 +63,14 @@ SIGMA_SPACER = {
     "sigma28": (15, 19),
     "sigma24": (14, 18),
 }
+SIGMA_LABEL = {
+    "sigma32": "heat_shock",
+    "sigma28": "flagellum",
+    "sigma54": "nitrogen",
+    "sigma38": "stationary",
+    "sigma24": "envelope",
+}
+
 SIGMA_ARCH = {
     "sigma70": "-35/-10",
     "sigma54": "-24/-12",
@@ -101,7 +109,7 @@ OUTPUT_PROMOTER_COLS = [
     "confidence_label", "confidence_score", "status", "evidence", "detected_by",
     "pipeline_step", "alternatives", "pathway_support", "pathway_hits",
     "expression_support", "expression_detail", "inventory_support",
-    "inventory_detail", "location_support", "provenance",
+    "inventory_detail", "location_support", "label_support", "provenance",
 ]
 OUTPUT_SUMMARY_KEYS = [
     "genome", "n_operons", "n_scanned", "n_assigned", "n_ambiguous",
@@ -734,6 +742,8 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
                     fallback: str = "sigma70",
                     kmer_model: Path | str | None = None,
                     kmer_threshold: float = 0.6,
+                    labels_path: Path | str | None = None,
+                    label_bonus: float = 0.0,
                     overwrite: bool = True) -> dict[str, Any]:
     """Anota sigma para un genoma y devuelve rutas + métricas."""
     base = data_root / "regulation" / genome
@@ -765,6 +775,12 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
             kmer = load_model(kmer_model)
         except Exception:
             kmer = None
+    operon_labels: dict[str, set[str]] = {}
+    if labels_path and Path(labels_path).exists():
+        for row in _read_tsv(Path(labels_path)):
+            oid = (row.get("operon_id") or "").strip()
+            if oid:
+                operon_labels[oid] = {x for x in (row.get("labels") or "").split(";") if x}
     promoter_rows: list[dict[str, Any]] = []
     sigma_counts: Counter[str] = Counter()
     conf_counts: Counter[str] = Counter()
@@ -868,6 +884,7 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
             f"spacer={best['spacer']} ({best['arch']}); "
             f"margen={margin}; inventario={inv_detail}; "
             f"contexto={'sí' if p_support else 'no'}; "
+            f"labels={'sí' if best.get('label_support') else 'no'}; "
             f"expresión={e_status}"
         )
         alternatives = [
@@ -882,6 +899,7 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
             "sigma": best["sigma"], "sigma_class": best["class"],
             "sigma_arch": best["arch"], "spacer": best["spacer"],
             "score": round(best["score"], 3), "zscore": best["z"],
+            "label_support": "yes" if best.get("label_support") else "",
             "pvalue": best["pvalue"], "score_margin": margin,
             "dist_to_start": best["dist_to_start"],
             "upstream_box": best.get("upstream_box", ""),
@@ -997,6 +1015,8 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
         "policy_fallback": fallback,
         "kmer_model": str(kmer_model or ""),
         "kmer_threshold": float(kmer_threshold) if kmer_model else None,
+        "labels_path": str(labels_path or ""),
+        "label_bonus": float(label_bonus),
         "version": VERSION,
         "sha256": _sha256([out / "sigma_promoters.tsv", out / "sigma_factors.tsv"]),
     }

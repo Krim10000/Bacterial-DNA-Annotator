@@ -51,6 +51,8 @@ def _run(ctx: RunContext, genome: str) -> ModuleResult:
             delta=float(ctx.config.get("policy_delta") or 1.0),
             kmer_model=(_kmer or None),
             kmer_threshold=float(ctx.config.get("kmer_threshold") or 0.6),
+            labels_path=(ctx.out_root / "labels" / genome / "operon_labels.tsv"),
+            label_bonus=float(ctx.config.get("label_bonus") or 0.0),
             pwm_path=(ctx.config.get("pwm_file")
                       or ((ctx.data_root / "dbtbs" /
                            "promoter_pwms_subtilis_all.tsv")
@@ -126,6 +128,8 @@ MODULE = Module(
                help="JSON de sigma_kmer; para B. subtilis se usa el incluido."),
         Option("kmer_threshold", "Umbral k-mer", "float", 0.6,
                help="Probabilidad mínima para que el k-mer decida."),
+        Option("label_bonus", "Bonus por etiqueta contextual", "float", 0.0,
+               help="Suma a z si el operón tiene la etiqueta esperada; 0 lo desactiva."),
     ),
     docs="docs/SIGMA_MODULE.md",
     input_kind="genome",

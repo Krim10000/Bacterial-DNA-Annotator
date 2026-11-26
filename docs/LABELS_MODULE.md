@@ -266,3 +266,30 @@ en `scripts/labels/03_cross_catalogs.py` y `04_pathway_labels.py`. La validació
 K-12 muestra señal para heat shock, flagelo, nitrógeno y stationary; envelope
 es débil. Pathway cubre sigma38/sigma24, pero no sigma28 porque los genes
 flagelares no tienen EC.
+
+## Estado de integración
+
+```text
+modules/labels/module.py   registrado, order 32
+GUI                        pestaña "Etiquetas"
+sigma                      acepta labels_path y label_bonus
+```
+
+El bonus por defecto es `0.0`: no altera resultados históricos.
+
+Medición: el top-1 no mejora; macro-F1 +0,0108 como máximo con bonus 0,5.
+No se presenta como mejora validada.
+
+## no_data
+
+Si el genoma no tiene código KEGG:
+
+```text
+kegg_status = no_data
+```
+
+Si no hay sigmulón B. subtilis:
+
+```text
+bsu_sigmulon = not_available
+```

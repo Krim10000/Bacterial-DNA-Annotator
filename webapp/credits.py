@@ -204,6 +204,19 @@ CREDITS: list[dict[str, str]] = [
         license="Académica; no se redistribuye en el repositorio",
     ),
     dict(
+        group="data", name="Gene Ontology (GO)",
+        what="Ontología jerárquica de funciones, procesos y componentes celulares.",
+        author="Gene Ontology Consortium",
+        url="https://geneontology.org/",
+        cite="Ashburner M. et al., Nature Genetics 2000;25:25-29; "
+             "The Gene Ontology Consortium, Nucleic Acids Research "
+             "2021;49:D325-D334. Ontología local: go-basic.obo, "
+             "data-version releases/2026-07-26.",
+        use="Etiquetas de proceso y propagación jerárquica para genes/operones "
+            "y como prior contextual de sigma.",
+        license="CC BY 4.0",
+    ),
+    dict(
         group="data", name="KEGG",
         what="Enciclopedia de rutas metabólicas con nombre y mapa.",
         author="Minoru Kanehisa y Susumu Goto (Universidad de Kioto)",
@@ -404,7 +417,7 @@ LICENSES_NOTE = [
     ("Uso libre", "Streamlit, pandas, NumPy, scikit-learn, NetworkX, SciPy, HMMER, "
                   "Infernal, pyrodigal, DIAMOND, tRNAscan-SE, barrnap, Biopython."),
     ("Uso abierto con condiciones", "ViennaRNA, Rhea, ChEBI, STRING, UniProt, Pfam, "
-                                    "Rfam, eQuilibrator."),
+                                    "Rfam, eQuilibrator, Gene Ontology (CC BY 4.0)."),
     ("Uso académico o no comercial", "RegulonDB, KEGG, DoriC, TECRDB y los pesos de "
                                      "ESMFold."),
     ("No se redistribuye en el repositorio", "RegulonDB, Pfam, STRING, DoriC y "

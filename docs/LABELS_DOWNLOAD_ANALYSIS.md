@@ -121,3 +121,53 @@ IEA añade principalmente:
 - esporulación en B. subtilis.
 
 Por eso `labels` tiene `allow_iea` como opción explícita y no lo activa por defecto.
+
+## Efecto de las etiquetas como prior en sigma
+
+Evaluación sobre 686 operones de K-12 con diana en `NetworkSigmaTU` y
+predicciones de `sigma_promoters.tsv`.
+
+| Bonus | Top-1 | Macro-F1 |
+|---:|---:|---:|
+| 0,00 | 0,3694 | 0,3067 |
+| 0,25 | 0,3694 | 0,3154 |
+| 0,50 | 0,3627 | 0,3175 |
+| 1,00 | 0,3461 | 0,3115 |
+| 2,00 | 0,3394 | 0,3039 |
+
+Lectura:
+
+- El top-1 **no mejora**.
+- El macro-F1 sube como máximo **+0,0108** (0,3067 → 0,3175) con bonus 0,5.
+- El prior favorece algunas alternativas, pero el bottleneck sigue siendo la señal de promotor.
+- No se activa por defecto (`label_bonus=0`).
+
+## B. subtilis: sigmulón
+
+No hay un `NetworkSigmaTU` equivalente local.
+
+```text
+bsu_sigmulon = not_available
+```
+
+Por eso B. subtilis queda descriptivo, no validado.
+
+## Genomas sin KEGG
+
+```text
+339 con código KEGG
+103 sin match
+```
+
+El módulo declara:
+
+```text
+kegg_status = no_data
+```
+
+No inventa rutas.
+
+## GO OBO: cita
+
+`go-basic.obo`, `data-version: releases/2026-07-26`, GO Consortium,
+CC BY 4.0. Ver `docs/LABELS_CITATIONS.md`.
