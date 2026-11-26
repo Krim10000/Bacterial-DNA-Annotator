@@ -630,3 +630,45 @@ Pendiente: deduplicar `no_data` repetidos. No consumir como definitivo aún.
 ```
 
 Ya se puede consumir por el clasificador.
+
+### 2026-11-26 | lead | HANDOFF | protein-classifier | benchmark v2
+
+Benchmark v2 12+12 ejecutado completo (F1/F2/F3).
+
+```text
+F1 precision 0.333 recall 0.500
+F2 precision 1.000 recall 0.417
+F3 precision 0.545 recall 1.000
+>=2 precision 0.444 recall 0.667
+```
+
+Hallazgo:
+
+- F3 marca 12/12 enzimas y 10/12 no enzimas;
+- los scores se solapan;
+- umbral 2 no separa; umbral 5 da 0.611/0.917;
+- F2 es preciso pero incompleto;
+- F1 es ruidoso;
+- no es calibración (n=24, PDB vs AF2, sin F4/F5).
+
+Decisión: no usar F3 como enzima en sigma/regulador/transportador.
+Ver `docs/BENCHMARK_V2_RESULTS.md`.
+
+### 2026-11-26 | lead | INFO | contexto no_data | evaluado
+
+```text
+no_data: 859.533
+con contexto de operón: 205.801
+  internal: 83.793
+  edge: 122.008
+sin operones: 152.719
+operón sin vecino anotado: 476.531
+```
+
+Archivo:
+
+```text
+data/labels/context/gene_context.tsv
+```
+
+Regla: `IGC` baja confianza, no GO directo.
