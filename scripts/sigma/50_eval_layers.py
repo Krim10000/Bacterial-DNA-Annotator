@@ -119,11 +119,10 @@ def map_sigma(raw: str, source: str = "auto") -> tuple[str, str]:
     if not s or s in {"?", "NA", "na", "unlabeled", "none", "-"}:
         return "", "unlabeled"
     up = s.upper()
-    if source == "subtilis" or up in BSU_MAP:
-        mapped = BSU_MAP.get(up)
-        if mapped:
-            return mapped, "ok"
-        return "", "no_pwm"
+    if source == "subtilis" and up in BSU_MAP:
+        return BSU_MAP[up], "ok"
+    if source != "subtilis" and up in BSU_MAP:
+        return BSU_MAP[up], "ok"
     for cand in (s, s.lower(), s.replace("σ", "sigma")):
         low = cand.lower()
         if low in SIGMA_ORDER:

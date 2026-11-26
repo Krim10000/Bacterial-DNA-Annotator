@@ -29,3 +29,11 @@ def test_bsu_pwm_has_species_matrices():
     lib = load_pwm_library(Path("data"), path)
     assert {"sigma70", "sigma38", "sigma28", "sigma32", "sigma54"} <= set(lib)
     assert all("up" not in rec for rec in lib.values())
+
+
+def test_subtilis_source_accepts_canonical_and_native_labels():
+    import importlib
+    E = importlib.import_module("scripts.sigma.50_eval_layers")
+    assert E.map_sigma("sigma70", "subtilis") == ("sigma70", "ok")
+    assert E.map_sigma("A", "subtilis") == ("sigma70", "ok")
+    assert E.map_sigma("Z", "subtilis") == ("", "no_pwm")
