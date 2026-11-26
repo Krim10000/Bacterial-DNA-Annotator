@@ -309,7 +309,10 @@ def predict_cds(contigs: dict[str, str], mode: str = "single") -> dict:
 def predict_rrna(fasta_path: Path, kingdom: str = "bac") -> list[str]:
     cmd = [
         "barrnap", "--kingdom", kingdom,
-        "--threads", "2", "--quiet", str(fasta_path),
+        "--threads", "2", "--quiet",
+        # El E-value por defecto (1e-6) descarta copias de 5S que sí pasan el
+        # corte GA de Rfam; con 10 el propio modelo decide qué es un hit.
+        "--evalue", "10", str(fasta_path),
     ]
     try:
         out = subprocess.run(
@@ -404,7 +407,7 @@ def predict_rrna_infernal(fasta_path: Path, cm_path: Path) -> list[str]:
     ]
     try:
         subprocess.run(
-            cmd, capture_output=True, text=True, timeout=600,
+            cmd, capture_output=True, text=True, timeout=3600,
             check=True, stdin=subprocess.DEVNULL,
         )
     except subprocess.CalledProcessError as e:
@@ -467,12 +470,13 @@ def _run_rrna(args, fasta_path: Path) -> list[str]:
 
     cm_path = args.rfam_cm
     if cm_path is None:
-        project_root = Path(__file__).resolve().parent.parent
+        # parents[2] = raíz del proyecto (scripts/annotation/<archivo>.py).
+        project_root = Path(__file__).resolve().parents[2]
         cm_path = project_root / "data" / "rfam_models" / "bac_rRNA.cm"
     cm_path = Path(cm_path)
-    index_ok = Path(str(cm_path) + ".i1m").exists()
+    # cmsearch contra un CM no necesita los índices .i1*; solo cmscan los usa.
     can_infernal = (
-        cm_path.exists() and index_ok and shutil.which("cmsearch") is not None
+        cm_path.exists() and shutil.which("cmsearch") is not None
     )
 
     if args.rna_tool == "infernal" and not can_infernal:

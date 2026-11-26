@@ -1,0 +1,48 @@
+=== held-out benchmark start 2026-11-26T00:34:42Z
+image_id=sha256:2fdb291dc37749aebde733a5dc32e9ca4d4460b3456dcc6dbb4b1d7732d6307b
+=== saureus start 2026-11-26T00:34:42Z
+[external-benchmark] herramientas disponibles: ['bakta', 'prokka', 'dfast']
+[external-benchmark] herramientas ausentes: ninguna
+[external-benchmark] Bakta DB: ok (/data/bakta_db)
+[external-benchmark] bakta: ok F1=0.9507 fuente=executed
+[external-benchmark] prokka: ok F1=0.951 fuente=executed
+[external-benchmark] dfast: ok F1=0.951 fuente=executed
+[external-benchmark] escrito /work/reports/external_benchmark/heldout/saureus.json
+[external-benchmark] escrito /work/reports/external_benchmark/heldout/saureus.md
+=== saureus exit=0 2026-11-26T01:06:29Z
+=== btheta start 2026-11-26T01:06:29Z
+[external-benchmark] herramientas disponibles: ['bakta', 'prokka', 'dfast']
+[external-benchmark] herramientas ausentes: ninguna
+[external-benchmark] Bakta DB: ok (/data/bakta_db)
+[external-benchmark] bakta: not_comparable F1=None fuente=executed
+[external-benchmark] prokka: ok F1=0.9639 fuente=executed
+[external-benchmark] dfast: not_comparable F1=None fuente=executed
+[external-benchmark] escrito /work/reports/external_benchmark/heldout/btheta.json
+[external-benchmark] escrito /work/reports/external_benchmark/heldout/btheta.md
+=== btheta exit=0 2026-11-26T02:03:10Z
+=== cjejuni start 2026-11-26T02:03:10Z
+[external-benchmark] herramientas disponibles: ['bakta', 'prokka', 'dfast']
+[external-benchmark] herramientas ausentes: ninguna
+[external-benchmark] Bakta DB: ok (/data/bakta_db)
+[external-benchmark] bakta: ok F1=0.9646 fuente=executed
+[external-benchmark] prokka: ok F1=0.9649 fuente=executed
+[external-benchmark] dfast: ok F1=0.9649 fuente=executed
+[external-benchmark] escrito /work/reports/external_benchmark/heldout/cjejuni.json
+[external-benchmark] escrito /work/reports/external_benchmark/heldout/cjejuni.md
+=== cjejuni exit=0 2026-11-26T02:22:32Z
+=== held-out benchmark end 2026-11-26T02:22:32Z
+
+=== spneumoniae (log separado, encadenado tras cjejuni)
+=== waiting for cjejuni container d7da7626f5c5
+0
+=== cjejuni container exited rc=0 2026-11-26T02:22:32Z
+=== spneumoniae start 2026-11-26T02:22:32Z
+[external-benchmark] herramientas disponibles: ['bakta', 'prokka', 'dfast']
+[external-benchmark] herramientas ausentes: ninguna
+[external-benchmark] Bakta DB: ok (/data/bakta_db)
+[external-benchmark] bakta: ok F1=0.9207 fuente=executed
+[external-benchmark] prokka: ok F1=0.9207 fuente=executed
+[external-benchmark] dfast: ok F1=0.9207 fuente=executed
+[external-benchmark] escrito /work/reports/external_benchmark/heldout/spneumoniae.json
+[external-benchmark] escrito /work/reports/external_benchmark/heldout/spneumoniae.md
+=== spneumoniae exit=0 2026-11-26T02:43:57Z

@@ -154,7 +154,23 @@ def run_trna(contigs: dict[str, str]) -> list[dict]:
 
 
 def run_rrna(contigs: dict[str, str]) -> list[dict]:
-    feats: list[dict] = []
+    """Llama rRNA con Infernal/Rfam local y respaldo barrnap.
+
+    ``barrnap`` 0.9 puede venir sin el modelo 23S en su base de datos y con un
+    E-value por defecto (1e-6) que descarta copias de 5S. Por eso se prefiere
+    ``cmsearch`` con los modelos Rfam del proyecto y, si no está disponible, se
+    usa ``barrnap --evalue 10``. En ambos casos las coordenadas salen del
+    modelo, no de la referencia.
+
+    Se usa la estrategia ``recall`` (5S con CM completo; 16S/23S localizados
+    con HMM) para no penalizar la latencia de la GUI. Para bordes exactos en
+    los tres tipos, ``scripts/reference/reannotate_rrna.py --strategy exact``.
+    """
+    try:
+        from .rrna_calling import call_rrna_fasta, default_cm_path
+    except ImportError:  # pragma: no cover - import como módulo suelto
+        from rrna_calling import call_rrna_fasta, default_cm_path
+
     with tempfile.TemporaryDirectory() as td:
         fa = Path(td) / "in.fna"
         with open(fa, "w") as fh:
@@ -162,23 +178,14 @@ def run_rrna(contigs: dict[str, str]) -> list[dict]:
                 fh.write(f">{name}\n")
                 for i in range(0, len(seq), 70):
                     fh.write(seq[i:i + 70] + "\n")
-        res = subprocess.run(
-            ["barrnap", "--kingdom", "bac", "--threads", "1", str(fa)],
-            check=True, capture_output=True, text=True, timeout=1800,
+        result = call_rrna_fasta(
+            fa,
+            cm_path=default_cm_path(_ROOT),
+            cpu=2,
+            timeout=1800,
+            strategy="recall",
         )
-        for line in res.stdout.splitlines():
-            if line.startswith("#") or not line.strip():
-                continue
-            p = line.split("\t")
-            if len(p) < 9 or p[2] != "rRNA":
-                continue
-            m = re.search(r"product=([^;]+)", p[8])
-            feats.append({
-                "contig": p[0], "type": "rRNA", "start": int(p[3]), "end": int(p[4]),
-                "strand": p[6], "phase": 0, "id": f"rrna_{len(feats)+1}",
-                "product": m.group(1) if m else "rRNA",
-            })
-    return feats
+    return result["features"]
 
 
 def run_ghost(contigs: dict[str, str], features: list[dict],

@@ -84,3 +84,19 @@ Informe detallado:
 ```text
 reports/external_benchmark/multi_v2/summary.md
 ```
+
+## Held-out (3 genomas)
+
+Genomas no usados en tuning: *S. aureus*, *C. jejuni*, *S. pneumoniae*.
+
+| Herramienta | TP | FP | FN | F1 micro | Exactos | Tiempo total |
+|---|---:|---:|---:|---:|---:|---:|
+| Bakta | 6.164 | 419 | 303 | 0,9447 | 91,9 % | 1.964,7 s |
+| Prokka | 6.164 | 416 | 303 | **0,9449** | 91,3 % | 1.451,7 s |
+| DFAST | 6.163 | 415 | 304 | **0,9449** | 90,9 % | 852,0 s |
+
+Diferencia entre las tres: **0,02 puntos porcentuales**. No se declara ganador.
+
+`btheta` quedó fuera del agregado porque Bakta/DFAST renombran contigs en genomas multi-contig. Prokka dio F1 0,9639.
+
+Informe: `reports/external_benchmark/heldout/summary.md`.

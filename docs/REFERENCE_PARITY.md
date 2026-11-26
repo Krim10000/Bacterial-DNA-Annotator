@@ -107,35 +107,81 @@ ni el manifiesto.
 
 ## Resultados actuales
 
-Instantánea del **2026-11-25** (para cifras vigentes, ver
-`reports/reference_parity.md`). En ese momento había 42 registros en el
-manifiesto: 7 evaluados, 2 omitidos con status elegible pero sin
-`system_summary` (`ecoli_k12`, `subtilis`) y 33 con otros status.
+Instantánea del **2026-11-25** (cifras vigentes en
+`reports/reference_parity.md`). El manifiesto tiene 42 registros: 40 evaluados
+(todos `annotated`/`available` con `system_summary`) y 2 omitidos por no
+declarar `system_summary` (`ecoli_k12`, `subtilis`).
 
-| genoma | estado | CDS sis | CDS ref | Δ CDS | % CDS | tRNA sis | tRNA ref | Δ tRNA | % tRNA | rRNA sis | rRNA ref | Δ rRNA | % rRNA |
-|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| `mtb_h37rv` | partial | 3986 | 3906 | +80 | 102.05 | 45 | 45 | 0 | 100.00 | 2 | 3 | -1 | 66.67 |
-| `cglutamicum` | partial | 3041 | 2999 | +42 | 101.40 | 60 | 59 | +1 | 101.69 | 12 | 18 | -6 | 66.67 |
-| `pputida` | partial | 5507 | 5471 | +36 | 100.66 | 75 | 75 | 0 | 100.00 | 15 | 22 | -7 | 68.18 |
-| `paeruginosa` | partial | 5715 | 5572 | +143 | 102.57 | 64 | 63 | +1 | 101.59 | 8 | 13 | -5 | 61.54 |
-| `crescentus` | partial | 3738 | 3886 | -148 | 96.19 | 52 | 51 | +1 | 101.96 | 4 | 6 | -2 | 66.67 |
-| `synechocystis` | partial | 3780 | 3698 | +82 | 102.22 | 41 | 41 | 0 | 100.00 | 2 | 6 | -4 | 33.33 |
-| `saureus` | partial | 2675 | 2767 | -92 | 96.68 | 61 | 59 | +2 | 103.39 | 11 | 16 | -5 | 68.75 |
-
-Agregado micro de esos 7 genomas:
+Agregado micro de los 40 genomas:
 
 | clase | sistema | referencia | delta | % sistema/referencia |
 |---|---:|---:|---:|---:|
-| CDS | 28442 | 28299 | +143 | 100.51 |
-| tRNA | 398 | 393 | +5 | 101.27 |
-| rRNA | 54 | 84 | -30 | 64.29 |
+| CDS | 143681 | 142980 | +701 | 100.49 |
+| tRNA | 2423 | 2334 | +89 | 103.81 |
+| rRNA | 514 | 515 | -1 | 99.81 |
 
-Lectura rápida: los conteos de CDS y tRNA están cerca de la referencia en
-términos agregados; rRNA queda sistemáticamente por debajo. Este informe no
-atribuye esa brecha a una causa concreta, pero es compatible con que el pipeline
-no llame todas las copias o tipos de rRNA (por ejemplo 23S/5S). Confirmarlo
-requiere analizar las coordenadas y el caller de rRNA, fuera del alcance de esta
-versión.
+El rRNA pasa de **335/515 (65.05 %)** antes de la corrección a **514/515
+(99.81 %)** después. El único delta restante es `paeruginosa` (12/13: falta una
+copia de 5S que el modelo Rfam local no recupera; no se imputa). Los deltas de
+CDS y tRNA son los de la anotación general y quedan fuera de esta corrección.
+
+## Diagnóstico de la brecha rRNA (P0)
+
+Antes de la corrección, el agregado de coordenadas daba rRNA con precisión
+1.000, recall 0.6514, F1 0.7889 y **0 pares con bordes exactos**. La brecha no
+venía del emparejamiento ni de las coordenadas:
+
+- el parser GFF ya es 1-based inclusivo y normaliza la hebra negativa;
+- los `seqid` y las hebras coincidían (precisión 1.000, sin FP);
+- no había features fusionados: 16S/23S/5S son filas separadas en la
+  referencia y en el sistema.
+
+La causa era la **llamada**: el pipeline usaba solo `barrnap` 0.9.
+
+1. **Falta el modelo 23S en la base de barrnap.** En esta máquina
+   `/usr/share/barrnap/db/bac.hmm` contiene solo `16S_rRNA` (RF00177) y
+   `5S_rRNA` (RF00001): no contiene `LSU_rRNA_bacteria`/RF02541. Por eso el
+   sistema escribía **0 copias de 23S** en todos los genomas.
+2. **El E-value por defecto descarta copias de 5S.** `barrnap` usa `-E 1e-6`;
+   hay copias de 5S con E=0.023 (p. ej. *H. pylori*) que quedan fuera.
+3. La referencia RefSeq/NCBI anota los tres tipos con Infernal/Rfam. El repo ya
+   incluye `data/rfam_models/bac_rRNA.cm` con exactamente RF00177 (16S),
+   RF02541 (23S) y RF00001 (5S).
+
+Evidencia por genoma (conteo 16S/23S/5S):
+
+| genoma | antes | después (recall) | referencia |
+|---|---|---|---|
+| `cglutamicum` | 6/0/6 = 12 | 6/6/6 = 18 | 6/6/6 = 18 |
+| `hpylori` | 2/0/0 = 2 | 2/2/2 = 6 | 2/2/2 = 6 |
+| `synechocystis` | 2/0/0 = 2 | 2/2/2 = 6 | 2/2/2 = 6 |
+| `dradiodurans` | 3/0/0 = 3 | 3/3/3 = 9 | 3/3/3 = 9 |
+| `subtilis` | 10/0/10 = 20 | 10/10/10 = 30 | 10/10/10 = 30 |
+
+La corrección está en `webapp/rrna_calling.py` (parsers, deduplicación y
+subconjuntos de modelos), `webapp/annotator.py` (`run_rrna` prefiere
+`cmsearch` y cae a `barrnap --evalue 10`) y
+`scripts/annotation/00_annotate_single.py` (preferencia Infernal y raíz de
+datos correcta). La reanotación del panel se hace con
+`scripts/reference/reannotate_rrna.py`, que **no usa el GFF de referencia como
+entrada**: llama rRNA sobre el FASTA y solo reescribe las filas `rRNA` del GFF
+del sistema y `features.rRNA` del resumen.
+
+Estrategias de `rrna_calling`:
+
+- `exact`: CM completo para 16S/23S/5S; reproduce los bordes de Infernal/Rfam.
+- `recall`: CM completo para 5S y HMM para 16S/23S. Es la usada para el panel
+  completo: recupera todas las copias y usa bordes de CM en 5S (la mayoría de
+  los 167 pares exactos del agregado).
+- `balanced`: CM completo para 16S/5S y HMM para 23S.
+- `fast`: HMM para los tres (solo localización).
+
+Validación en modo `exact`: `cglutamicum` (18/18), `hpylori` (6/6),
+`tpallidum` (6/6), `bburgdorferi` (5/5) y `mgenitalium` (3/3) coinciden
+**base a base** con la referencia. `ctrachomatis` coincide en conteo pero no en
+bordes (el 23S de la referencia difiere hasta 68 pb del alineamiento local), lo
+que se reporta como límite del modelo/versión de Rfam, no como un fallo de
+emparejamiento.
 
 ## Límites
 
@@ -143,8 +189,11 @@ versión.
   secuencia.
 - **El gold no es verdad absoluta**: hereda criterios y posibles errores de la
   anotación RefSeq/NCBI usada como referencia.
-- **rRNA**: las diferencias pueden deberse a tipos no detectados (23S/5S),
-  copias parciales o diferencias de criterio; no se diagnostican aquí.
+- **rRNA**: la brecha de 23S/5S se diagnosticó y corrigió (ver arriba); el
+  panel quedó en 514/515. Queda una copia de 5S de `paeruginosa` sin llamar y
+  no se imputa.
+- **`subtilis`**: su GFF se reanotó, pero el manifiesto no declara
+  `system_summary`; por eso queda fuera de conteos y sí entra en coordenadas.
 - **ncRNA y otros tipos** quedan fuera, aunque estén en el GFF.
 - **Cobertura del panel**: solo se comparan genomas ya anotados y con
   `system_summary`; los demás no se estiman ni se imputan.
@@ -161,7 +210,9 @@ versión.
 
 Los tests usan manifiesto, resumen y GFF sintéticos; cubren paridad exacta,
 deltas, porcentajes, CDS multiparte, gzip, ausencia de resumen/GFF, resumen
-ilegible, GFF sin clases objetivo y filtrado del manifiesto.
+ilegible, GFF sin clases objetivo y filtrado del manifiesto. La llamada de rRNA
+y la reescritura del GFF tienen tests propios en
+`tests/test_rrna_calling.py`.
 
 ---
 
@@ -277,42 +328,34 @@ ni el manifiesto.
 
 ### Resultados actuales
 
-Instantánea del **2026-11-25** (para cifras vigentes, ver
-`reports/reference_coordinate_parity.md`). Con el manifiesto de ese momento:
-25 registros elegibles, **24 comparables** (`ok` 0, `partial` 24), 1
-`not_available` (`ecoli_k12`, sin GFF del sistema ni `annotation_path`) y 17
-omitidos por status. Todos los genomas comparables tienen al menos un FP, un FN
-o una deriva de bordes superior a 5 pb; por eso ningún genoma alcanza `ok`.
-El panel se sigue anotando en paralelo, así que estas cifras son una instantánea
-y cambian al regenerar el informe.
+Instantánea del **2026-11-25** (cifras vigentes en
+`reports/reference_coordinate_parity.md`). El panel tiene 42 registros
+elegibles; 41 comparables (incluye `subtilis`, cuyo GFF no tiene
+`system_summary`) y 1 `not_available` (`ecoli_k12`, sin GFF del sistema).
 
-Agregado micro de los 24 genomas comparables (suma de TP/FP/FN):
+Antes/después de reanotar solo rRNA, con los mismos GFF de referencia y el
+mismo emparejamiento 1:1:
 
-| clase | TP | FP | FN | precisión | recall | F1 | exactos | % exactos | Δinicio medio | Δfin medio |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| CDS | 81213 | 2664 | 2164 | 0.9682 | 0.9740 | 0.9711 | 70649 | 86.99 % | +0.30 | -0.56 |
-| tRNA | 1451 | 29 | 0 | 0.9804 | 1.0000 | 0.9901 | 1314 | 90.56 % | +0.07 | +0.04 |
-| rRNA | 226 | 0 | 127 | 1.0000 | 0.6402 | 0.7806 | 0 | 0.00 % | +3.07 | -3.12 |
-| ALL | 82890 | 2693 | 2291 | 0.9685 | 0.9731 | 0.9708 | 71963 | 86.82 % | +0.30 | -0.56 |
+| clase | TP | FP | FN | precisión | recall | F1 | exactos | % exactos |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| rRNA antes | 355 | 0 | 190 | 1.0000 | 0.6514 | 0.7889 | 0 | 0.00 % |
+| rRNA después | 544 | 0 | 1 | 1.0000 | 0.9982 | 0.9991 | 167 | 30.70 % |
 
-Lectura rápida:
+El único FN restante es una copia de 5S de `paeruginosa` (13 en la referencia,
+12 en el sistema). No hay FP: la reanotación no añadió features fuera de la
+referencia. Los 167 pares exactos corresponden sobre todo a 5S (CM completo);
+16S y 23S se localizaron con HMM en la estrategia `recall`, así que sus bordes
+quedan a pocos pb (Δinicio medio +1.01 pb, Δfin medio -1.59 pb).
 
-- **CDS**: precisión 96.8 %, recall 97.4 %, F1 0.971; 87.0 % de los pares
-  tiene bordes exactos y la mediana de deriva es 0 pb. Los FP/FN son
-  compatibles con diferencias de calling de inicio/fin o de genes presentes en
-  una sola anotación, no con un corrimiento global.
-- **tRNA**: F1 0.990 y recall 1.000; el sistema no deja tRNAs de la referencia
-  sin pareja. Hay 29 FP (tRNAs extra o duplicados respecto del gold).
-- **rRNA**: precisión 1.000 pero recall 0.640; el sistema llama un subconjunto
-  de las copias/tipos de rRNA de la referencia. Además, **ningún** par de rRNA
-  tiene ambos bordes exactos: la mediana de Δinicio es +3 pb y la de Δfin
-  -3 pb, compatible con un recorte sistemático de bordes. Esta es la principal
-  fuente de estados `partial` y coincide con la brecha de conteos de rRNA del
-  informe anterior.
-- La deriva máxima reportada por genoma puede ser grande (cientos o miles de
-  pb) en CDS largos con inicio/fin alternativos que igualmente superan el 50 %
-  de solape recíproco. El informe la muestra explícitamente; un TP no implica
-  bordes exactos.
+Genomas con paridad rRNA 100 % exacta tras aplicar `--strategy exact`:
+`cglutamicum`, `hpylori`, `tpallidum`, `bburgdorferi` y `mgenitalium` (deriva 0
+pb). `ctrachomatis` tiene los 6 rRNA emparejados pero bordes distintos en
+16S/23S/5S (deriva máxima 68 pb), por diferencias entre la referencia y el
+modelo Rfam local.
+
+CDS y tRNA no cambian en esta corrección (se listan en el informe para
+contexto): CDS F1 0.9695, tRNA F1 0.9819. El agregado `ALL` pasa de F1 0.9691 a
+0.9698; el cambio es pequeño porque rRNA es una fracción minoritaria del total.
 
 ### Límites (coordenadas)
 
@@ -336,6 +379,38 @@ Lectura rápida:
   referencia quedan como `not_available`; no se estiman ni se imputan.
 - **Sin causalidad ni uso para entrenamiento**: un FP/FN no indica por sí solo
   un error del sistema ni de la referencia.
+- **rRNA con `recall`**: 5S usa CM completo (bordes exactos en la mayoría de
+  las copias) y 16S/23S usan HMM (localización aproximada). Para bordes exactos en los tres tipos hay que
+  usar `--strategy exact`, más lento. La reanotación se aplicó en modo `recall`
+  al panel completo y en modo `exact` a seis genomas de validación.
+- **Una copia de 5S sin llamar**: `paeruginosa` queda con 12/13; no se imputa
+  ni se copia de la referencia.
+- **`ctrachomatis`**: conteo correcto pero bordes distintos (hasta 68 pb); se
+  atribuye a diferencias de versión/criterio del modelo Rfam, no al
+  emparejamiento.
+
+### Reanotación aplicada
+
+```bash
+# panel completo (recall; 5S con CM, 16S/23S localizados con HMM)
+.venv/bin/python scripts/reference/reannotate_rrna.py \
+  --strategy recall --apply --jobs 3 --cpu 2
+# validación con CM completo
+.venv/bin/python scripts/reference/reannotate_rrna.py \
+  --only cglutamicum --only hpylori --strategy exact --apply
+.venv/bin/python scripts/reference/reannotate_rrna.py \
+  --only bburgdorferi --only mgenitalium --only ctrachomatis \
+  --only tpallidum --strategy exact --apply
+```
+
+La reanotación **solo** reescribe filas `rRNA` del GFF del sistema y
+`features.rRNA` del resumen; no toca CDS/tRNA ni `data/reference_genomes/`.
+Los informes antes/después quedan en `reports/rrna_reannotation.*`,
+`reports/reference_parity_before.*` y
+`reports/reference_coordinate_parity_before.*`. Los `*_before.*` se generaron
+sobre una reconstrucción **solo-barrnap** de los GFF del sistema en una carpeta
+temporal de trabajo, porque la reanotación se aplicó in situ; sus conteos
+coinciden con la columna `antes` de `reports/rrna_reannotation.tsv`.
 
 ### Pruebas (coordenadas)
 
@@ -349,4 +424,6 @@ recíproco, TP/FP/FN y tasas, hebras/contigs distintos, CDS multiparte,
 coordenadas invertidas en hebra negativa, gzip, ausencia de GFF, manifiesto sin
 `annotation_path`, referencia sin clases objetivo, GFF vacío, `##FASTA` y
 líneas inválidas, filtrado de status, agregado micro, escritura de TSV/Markdown
-y no modificación de las entradas.
+y no modificación de las entradas. La llamada de rRNA (parsers `cmsearch`/
+`barrnap`, deduplicación, subconjuntos de modelos y reescritura selectiva del
+GFF) se prueba en `tests/test_rrna_calling.py`.

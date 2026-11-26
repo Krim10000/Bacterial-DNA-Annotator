@@ -1,6 +1,6 @@
 # Paridad de anotación: sistema vs GFF de referencia
 
-**Generado:** `2026-11-25T19:46:56Z`  
+**Generado:** `2026-11-26T02:06:46Z`  
 **Manifiesto:** `/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc/data/reference_genomes.json`  
 **Raíz de datos:** `/home/camilo/Documentos/GitHub/DNA_TOKEN_BAC/dna_poc`
 
@@ -12,9 +12,9 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 
 ## Cobertura
 
-- Registros con status `annotated`/`available`: **41**
-- Evaluados (con `system_summary`): **39** (ok **0**, partial **39**, not_available **0**)
-- Omitidos: **3** (2 elegibles sin `system_summary`; 1 con otro status)
+- Registros con status `annotated`/`available`: **42**
+- Evaluados (con `system_summary`): **40** (ok **0**, partial **40**, not_available **0**)
+- Omitidos: **2** (2 elegibles sin `system_summary`; 0 con otro status)
 
 ### Omitidos con status elegible
 
@@ -27,89 +27,91 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 
 | genoma | estado | CDS sis | CDS ref | Δ CDS | % CDS | tRNA sis | tRNA ref | Δ tRNA | % tRNA | rRNA sis | rRNA ref | Δ rRNA | % rRNA |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| `mtb_h37rv` | partial | 3986 | 3906 | +80 | 102.05 | 45 | 45 | 0 | 100.00 | 2 | 3 | -1 | 66.67 |
-| `cglutamicum` | partial | 3041 | 2999 | +42 | 101.40 | 60 | 59 | +1 | 101.69 | 12 | 18 | -6 | 66.67 |
-| `pputida` | partial | 5507 | 5471 | +36 | 100.66 | 75 | 75 | 0 | 100.00 | 15 | 22 | -7 | 68.18 |
-| `paeruginosa` | partial | 5715 | 5572 | +143 | 102.57 | 64 | 63 | +1 | 101.59 | 8 | 13 | -5 | 61.54 |
-| `crescentus` | partial | 3738 | 3886 | -148 | 96.19 | 52 | 51 | +1 | 101.96 | 4 | 6 | -2 | 66.67 |
-| `synechocystis` | partial | 3780 | 3698 | +82 | 102.22 | 41 | 41 | 0 | 100.00 | 2 | 6 | -4 | 33.33 |
-| `saureus` | partial | 2675 | 2767 | -92 | 96.68 | 61 | 59 | +2 | 103.39 | 11 | 16 | -5 | 68.75 |
-| `spneumoniae` | partial | 2168 | 2117 | +51 | 102.41 | 59 | 58 | +1 | 101.72 | 8 | 12 | -4 | 66.67 |
-| `btheta` | partial | 4945 | 4801 | +144 | 103.00 | 71 | 70 | +1 | 101.43 | 10 | 15 | -5 | 66.67 |
-| `scoelicolor` | partial | 7738 | 7755 | -17 | 99.78 | 72 | 66 | +6 | 109.09 | 12 | 18 | -6 | 66.67 |
-| `mxanthus` | partial | 7325 | 7306 | +19 | 100.26 | 69 | 66 | +3 | 104.55 | 8 | 12 | -4 | 66.67 |
-| `vcholerae` | partial | 3666 | 3665 | +1 | 100.03 | 102 | 102 | 0 | 100.00 | 21 | 31 | -10 | 67.74 |
-| `cdifficile` | partial | 3700 | 3611 | +89 | 102.46 | 91 | 90 | +1 | 101.11 | 23 | 35 | -12 | 65.71 |
-| `llactis` | partial | 2602 | 2567 | +35 | 101.36 | 71 | 70 | +1 | 101.43 | 13 | 19 | -6 | 68.42 |
-| `lmonocytogenes` | partial | 2921 | 2867 | +54 | 101.88 | 67 | 67 | 0 | 100.00 | 12 | 18 | -6 | 66.67 |
-| `efaecalis` | partial | 2730 | 2690 | +40 | 101.49 | 53 | 51 | +2 | 103.92 | 8 | 12 | -4 | 66.67 |
-| `dradiodurans` | partial | 3150 | 3148 | +2 | 100.06 | 51 | 50 | +1 | 102.00 | 3 | 9 | -6 | 33.33 |
-| `tthermophilus` | partial | 2227 | 2228 | -1 | 99.96 | 49 | 48 | +1 | 102.08 | 4 | 6 | -2 | 66.67 |
-| `hpylori` | partial | 1580 | 1584 | -4 | 99.75 | 37 | 36 | +1 | 102.78 | 2 | 6 | -4 | 33.33 |
-| `cjejuni` | partial | 1673 | 1572 | +101 | 106.42 | 45 | 43 | +2 | 104.65 | 3 | 9 | -6 | 33.33 |
-| `nmeningitidis` | partial | 2050 | 2142 | -92 | 95.70 | 61 | 59 | +2 | 103.39 | 8 | 12 | -4 | 66.67 |
-| `hinfluenzae` | partial | 1819 | 1806 | +13 | 100.72 | 61 | 59 | +2 | 103.39 | 13 | 19 | -6 | 68.42 |
-| `ctrachomatis` | partial | 899 | 887 | +12 | 101.35 | 37 | 37 | 0 | 100.00 | 4 | 6 | -2 | 66.67 |
-| `tpallidum` | partial | 982 | 987 | -5 | 99.49 | 45 | 45 | 0 | 100.00 | 4 | 6 | -2 | 66.67 |
-| `bburgdorferi` | partial | 1534 | 1528 | +6 | 100.39 | 32 | 32 | 0 | 100.00 | 3 | 5 | -2 | 60.00 |
-| `mgenitalium` | partial | 494 | 524 | -30 | 94.27 | 36 | 36 | 0 | 100.00 | 2 | 3 | -1 | 66.67 |
-| `abaumannii` | partial | 3801 | 3736 | +65 | 101.74 | 77 | 74 | +3 | 104.05 | 12 | 18 | -6 | 66.67 |
-| `kpneumoniae` | partial | 5532 | 5779 | -247 | 95.73 | 91 | 62 | +29 | 146.77 | 17 | 25 | -8 | 68.00 |
-| `styphimurium` | partial | 4619 | 4554 | +65 | 101.43 | 88 | 85 | +3 | 103.53 | 15 | 22 | -7 | 68.18 |
-| `afabrum` | partial | 5330 | 5267 | +63 | 101.20 | 55 | 53 | +2 | 103.77 | 8 | 12 | -4 | 66.67 |
-| `smeliloti` | partial | 6336 | 6287 | +49 | 100.78 | 56 | 55 | +1 | 101.82 | 6 | 9 | -3 | 66.67 |
-| `mgryphiswaldense` | partial | 3945 | 3916 | +29 | 100.74 | 53 | 50 | +3 | 106.00 | 4 | 6 | -2 | 66.67 |
-| `soneidensis` | partial | 4569 | 4491 | +78 | 101.74 | 106 | 104 | +2 | 101.92 | 19 | 28 | -9 | 67.86 |
-| `cnecator` | partial | 7907 | 7887 | +20 | 100.25 | 73 | 69 | +4 | 105.80 | 10 | 15 | -5 | 66.67 |
-| `zmobilis` | partial | 1859 | 1852 | +7 | 100.38 | 49 | 48 | +1 | 102.08 | 4 | 6 | -2 | 66.67 |
-| `tmaritima` | partial | 1854 | 1866 | -12 | 99.36 | 47 | 46 | +1 | 102.17 | 2 | 3 | -1 | 66.67 |
-| `neuropea` | partial | 2621 | 2631 | -10 | 99.62 | 42 | 41 | +1 | 102.44 | 2 | 3 | -1 | 66.67 |
-| `dvulgaris` | partial | 3299 | 3249 | +50 | 101.54 | 72 | 67 | +5 | 107.46 | 11 | 16 | -5 | 68.75 |
-| `rpalustris` | partial | 4947 | 4975 | -28 | 99.44 | 51 | 49 | +2 | 104.08 | 4 | 6 | -2 | 66.67 |
+| `mtb_h37rv` | partial | 3986 | 3906 | +80 | 102.05 | 45 | 45 | 0 | 100.00 | 3 | 3 | 0 | 100.00 |
+| `cglutamicum` | partial | 3041 | 2999 | +42 | 101.40 | 60 | 59 | +1 | 101.69 | 18 | 18 | 0 | 100.00 |
+| `pputida` | partial | 5507 | 5471 | +36 | 100.66 | 75 | 75 | 0 | 100.00 | 22 | 22 | 0 | 100.00 |
+| `paeruginosa` | partial | 5715 | 5572 | +143 | 102.57 | 64 | 63 | +1 | 101.59 | 12 | 13 | -1 | 92.31 |
+| `crescentus` | partial | 3738 | 3886 | -148 | 96.19 | 52 | 51 | +1 | 101.96 | 6 | 6 | 0 | 100.00 |
+| `synechocystis` | partial | 3780 | 3698 | +82 | 102.22 | 41 | 41 | 0 | 100.00 | 6 | 6 | 0 | 100.00 |
+| `saureus` | partial | 2675 | 2767 | -92 | 96.68 | 61 | 59 | +2 | 103.39 | 16 | 16 | 0 | 100.00 |
+| `spneumoniae` | partial | 2168 | 2117 | +51 | 102.41 | 59 | 58 | +1 | 101.72 | 12 | 12 | 0 | 100.00 |
+| `btheta` | partial | 4945 | 4801 | +144 | 103.00 | 71 | 70 | +1 | 101.43 | 15 | 15 | 0 | 100.00 |
+| `scoelicolor` | partial | 7738 | 7755 | -17 | 99.78 | 72 | 66 | +6 | 109.09 | 18 | 18 | 0 | 100.00 |
+| `mxanthus` | partial | 7325 | 7306 | +19 | 100.26 | 69 | 66 | +3 | 104.55 | 12 | 12 | 0 | 100.00 |
+| `vcholerae` | partial | 3666 | 3665 | +1 | 100.03 | 102 | 102 | 0 | 100.00 | 31 | 31 | 0 | 100.00 |
+| `cdifficile` | partial | 3700 | 3611 | +89 | 102.46 | 91 | 90 | +1 | 101.11 | 35 | 35 | 0 | 100.00 |
+| `llactis` | partial | 2602 | 2567 | +35 | 101.36 | 71 | 70 | +1 | 101.43 | 19 | 19 | 0 | 100.00 |
+| `lmonocytogenes` | partial | 2921 | 2867 | +54 | 101.88 | 67 | 67 | 0 | 100.00 | 18 | 18 | 0 | 100.00 |
+| `efaecalis` | partial | 2730 | 2690 | +40 | 101.49 | 53 | 51 | +2 | 103.92 | 12 | 12 | 0 | 100.00 |
+| `dradiodurans` | partial | 3150 | 3148 | +2 | 100.06 | 51 | 50 | +1 | 102.00 | 9 | 9 | 0 | 100.00 |
+| `tthermophilus` | partial | 2227 | 2228 | -1 | 99.96 | 49 | 48 | +1 | 102.08 | 6 | 6 | 0 | 100.00 |
+| `hpylori` | partial | 1580 | 1584 | -4 | 99.75 | 37 | 36 | +1 | 102.78 | 6 | 6 | 0 | 100.00 |
+| `cjejuni` | partial | 1673 | 1572 | +101 | 106.42 | 45 | 43 | +2 | 104.65 | 9 | 9 | 0 | 100.00 |
+| `nmeningitidis` | partial | 2050 | 2142 | -92 | 95.70 | 61 | 59 | +2 | 103.39 | 12 | 12 | 0 | 100.00 |
+| `hinfluenzae` | partial | 1819 | 1806 | +13 | 100.72 | 61 | 59 | +2 | 103.39 | 19 | 19 | 0 | 100.00 |
+| `ctrachomatis` | partial | 899 | 887 | +12 | 101.35 | 37 | 37 | 0 | 100.00 | 6 | 6 | 0 | 100.00 |
+| `tpallidum` | partial | 982 | 987 | -5 | 99.49 | 45 | 45 | 0 | 100.00 | 6 | 6 | 0 | 100.00 |
+| `bburgdorferi` | partial | 1534 | 1528 | +6 | 100.39 | 32 | 32 | 0 | 100.00 | 5 | 5 | 0 | 100.00 |
+| `mgenitalium` | partial | 494 | 524 | -30 | 94.27 | 36 | 36 | 0 | 100.00 | 3 | 3 | 0 | 100.00 |
+| `abaumannii` | partial | 3801 | 3736 | +65 | 101.74 | 77 | 74 | +3 | 104.05 | 18 | 18 | 0 | 100.00 |
+| `kpneumoniae` | partial | 5532 | 5779 | -247 | 95.73 | 91 | 62 | +29 | 146.77 | 25 | 25 | 0 | 100.00 |
+| `styphimurium` | partial | 4619 | 4554 | +65 | 101.43 | 88 | 85 | +3 | 103.53 | 22 | 22 | 0 | 100.00 |
+| `afabrum` | partial | 5330 | 5267 | +63 | 101.20 | 55 | 53 | +2 | 103.77 | 12 | 12 | 0 | 100.00 |
+| `smeliloti` | partial | 6336 | 6287 | +49 | 100.78 | 56 | 55 | +1 | 101.82 | 9 | 9 | 0 | 100.00 |
+| `rsphaeroides` | partial | 4417 | 4406 | +11 | 100.25 | 56 | 53 | +3 | 105.66 | 9 | 9 | 0 | 100.00 |
+| `mgryphiswaldense` | partial | 3945 | 3916 | +29 | 100.74 | 53 | 50 | +3 | 106.00 | 6 | 6 | 0 | 100.00 |
+| `soneidensis` | partial | 4569 | 4491 | +78 | 101.74 | 106 | 104 | +2 | 101.92 | 28 | 28 | 0 | 100.00 |
+| `cnecator` | partial | 7907 | 7887 | +20 | 100.25 | 73 | 69 | +4 | 105.80 | 15 | 15 | 0 | 100.00 |
+| `zmobilis` | partial | 1859 | 1852 | +7 | 100.38 | 49 | 48 | +1 | 102.08 | 6 | 6 | 0 | 100.00 |
+| `tmaritima` | partial | 1854 | 1866 | -12 | 99.36 | 47 | 46 | +1 | 102.17 | 3 | 3 | 0 | 100.00 |
+| `neuropea` | partial | 2621 | 2631 | -10 | 99.62 | 42 | 41 | +1 | 102.44 | 3 | 3 | 0 | 100.00 |
+| `dvulgaris` | partial | 3299 | 3249 | +50 | 101.54 | 72 | 67 | +5 | 107.46 | 16 | 16 | 0 | 100.00 |
+| `rpalustris` | partial | 4947 | 4975 | -28 | 99.44 | 51 | 49 | +2 | 104.08 | 6 | 6 | 0 | 100.00 |
 
 ## Estado y motivos
 
 | genoma | estado | motivo |
 |---|---|---|
-| `mtb_h37rv` | partial | delta CDS=+80, rRNA=-1 |
-| `cglutamicum` | partial | delta CDS=+42, tRNA=+1, rRNA=-6 |
-| `pputida` | partial | delta CDS=+36, rRNA=-7 |
-| `paeruginosa` | partial | delta CDS=+143, tRNA=+1, rRNA=-5 |
-| `crescentus` | partial | delta CDS=-148, tRNA=+1, rRNA=-2 |
-| `synechocystis` | partial | delta CDS=+82, rRNA=-4 |
-| `saureus` | partial | delta CDS=-92, tRNA=+2, rRNA=-5 |
-| `spneumoniae` | partial | delta CDS=+51, tRNA=+1, rRNA=-4 |
-| `btheta` | partial | delta CDS=+144, tRNA=+1, rRNA=-5 |
-| `scoelicolor` | partial | delta CDS=-17, tRNA=+6, rRNA=-6 |
-| `mxanthus` | partial | delta CDS=+19, tRNA=+3, rRNA=-4 |
-| `vcholerae` | partial | delta CDS=+1, rRNA=-10 |
-| `cdifficile` | partial | delta CDS=+89, tRNA=+1, rRNA=-12 |
-| `llactis` | partial | delta CDS=+35, tRNA=+1, rRNA=-6 |
-| `lmonocytogenes` | partial | delta CDS=+54, rRNA=-6 |
-| `efaecalis` | partial | delta CDS=+40, tRNA=+2, rRNA=-4 |
-| `dradiodurans` | partial | delta CDS=+2, tRNA=+1, rRNA=-6 |
-| `tthermophilus` | partial | delta CDS=-1, tRNA=+1, rRNA=-2 |
-| `hpylori` | partial | delta CDS=-4, tRNA=+1, rRNA=-4 |
-| `cjejuni` | partial | delta CDS=+101, tRNA=+2, rRNA=-6 |
-| `nmeningitidis` | partial | delta CDS=-92, tRNA=+2, rRNA=-4 |
-| `hinfluenzae` | partial | delta CDS=+13, tRNA=+2, rRNA=-6 |
-| `ctrachomatis` | partial | delta CDS=+12, rRNA=-2 |
-| `tpallidum` | partial | delta CDS=-5, rRNA=-2 |
-| `bburgdorferi` | partial | delta CDS=+6, rRNA=-2 |
-| `mgenitalium` | partial | delta CDS=-30, rRNA=-1 |
-| `abaumannii` | partial | delta CDS=+65, tRNA=+3, rRNA=-6 |
-| `kpneumoniae` | partial | delta CDS=-247, tRNA=+29, rRNA=-8 |
-| `styphimurium` | partial | delta CDS=+65, tRNA=+3, rRNA=-7 |
-| `afabrum` | partial | delta CDS=+63, tRNA=+2, rRNA=-4 |
-| `smeliloti` | partial | delta CDS=+49, tRNA=+1, rRNA=-3 |
-| `mgryphiswaldense` | partial | delta CDS=+29, tRNA=+3, rRNA=-2 |
-| `soneidensis` | partial | delta CDS=+78, tRNA=+2, rRNA=-9 |
-| `cnecator` | partial | delta CDS=+20, tRNA=+4, rRNA=-5 |
-| `zmobilis` | partial | delta CDS=+7, tRNA=+1, rRNA=-2 |
-| `tmaritima` | partial | delta CDS=-12, tRNA=+1, rRNA=-1 |
-| `neuropea` | partial | delta CDS=-10, tRNA=+1, rRNA=-1 |
-| `dvulgaris` | partial | delta CDS=+50, tRNA=+5, rRNA=-5 |
-| `rpalustris` | partial | delta CDS=-28, tRNA=+2, rRNA=-2 |
+| `mtb_h37rv` | partial | delta CDS=+80 |
+| `cglutamicum` | partial | delta CDS=+42, tRNA=+1 |
+| `pputida` | partial | delta CDS=+36 |
+| `paeruginosa` | partial | delta CDS=+143, tRNA=+1, rRNA=-1 |
+| `crescentus` | partial | delta CDS=-148, tRNA=+1 |
+| `synechocystis` | partial | delta CDS=+82 |
+| `saureus` | partial | delta CDS=-92, tRNA=+2 |
+| `spneumoniae` | partial | delta CDS=+51, tRNA=+1 |
+| `btheta` | partial | delta CDS=+144, tRNA=+1 |
+| `scoelicolor` | partial | delta CDS=-17, tRNA=+6 |
+| `mxanthus` | partial | delta CDS=+19, tRNA=+3 |
+| `vcholerae` | partial | delta CDS=+1 |
+| `cdifficile` | partial | delta CDS=+89, tRNA=+1 |
+| `llactis` | partial | delta CDS=+35, tRNA=+1 |
+| `lmonocytogenes` | partial | delta CDS=+54 |
+| `efaecalis` | partial | delta CDS=+40, tRNA=+2 |
+| `dradiodurans` | partial | delta CDS=+2, tRNA=+1 |
+| `tthermophilus` | partial | delta CDS=-1, tRNA=+1 |
+| `hpylori` | partial | delta CDS=-4, tRNA=+1 |
+| `cjejuni` | partial | delta CDS=+101, tRNA=+2 |
+| `nmeningitidis` | partial | delta CDS=-92, tRNA=+2 |
+| `hinfluenzae` | partial | delta CDS=+13, tRNA=+2 |
+| `ctrachomatis` | partial | delta CDS=+12 |
+| `tpallidum` | partial | delta CDS=-5 |
+| `bburgdorferi` | partial | delta CDS=+6 |
+| `mgenitalium` | partial | delta CDS=-30 |
+| `abaumannii` | partial | delta CDS=+65, tRNA=+3 |
+| `kpneumoniae` | partial | delta CDS=-247, tRNA=+29 |
+| `styphimurium` | partial | delta CDS=+65, tRNA=+3 |
+| `afabrum` | partial | delta CDS=+63, tRNA=+2 |
+| `smeliloti` | partial | delta CDS=+49, tRNA=+1 |
+| `rsphaeroides` | partial | delta CDS=+11, tRNA=+3 |
+| `mgryphiswaldense` | partial | delta CDS=+29, tRNA=+3 |
+| `soneidensis` | partial | delta CDS=+78, tRNA=+2 |
+| `cnecator` | partial | delta CDS=+20, tRNA=+4 |
+| `zmobilis` | partial | delta CDS=+7, tRNA=+1 |
+| `tmaritima` | partial | delta CDS=-12, tRNA=+1 |
+| `neuropea` | partial | delta CDS=-10, tRNA=+1 |
+| `dvulgaris` | partial | delta CDS=+50, tRNA=+5 |
+| `rpalustris` | partial | delta CDS=-28, tRNA=+2 |
 
 ## Entradas y metadatos
 
@@ -146,6 +148,7 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 | `styphimurium` | Salmonella enterica | Typhimurium LT2 | annotated | `data/reference_genomes/styphimurium/styphimurium_genomic.gff.gz` | `results/styphimurium/styphimurium.summary.json` |
 | `afabrum` | Agrobacterium fabrum | C58 | annotated | `data/reference_genomes/afabrum/afabrum_genomic.gff.gz` | `results/afabrum/afabrum.summary.json` |
 | `smeliloti` | Sinorhizobium meliloti | 1021 | annotated | `data/reference_genomes/smeliloti/smeliloti_genomic.gff.gz` | `results/smeliloti/smeliloti.summary.json` |
+| `rsphaeroides` | Rhodobacter sphaeroides | 2.4.1 | annotated | `data/reference_genomes/rsphaeroides/rsphaeroides_genomic.gff.gz` | `results/rsphaeroides/rsphaeroides.summary.json` |
 | `mgryphiswaldense` | Magnetospirillum gryphiswaldense | MSR-1 | annotated | `data/reference_genomes/mgryphiswaldense/mgryphiswaldense_genomic.gff.gz` | `results/mgryphiswaldense/mgryphiswaldense.summary.json` |
 | `soneidensis` | Shewanella oneidensis | MR-1 | annotated | `data/reference_genomes/soneidensis/soneidensis_genomic.gff.gz` | `results/soneidensis/soneidensis.summary.json` |
 | `cnecator` | Cupriavidus necator | H16 | annotated | `data/reference_genomes/cnecator/cnecator_genomic.gff.gz` | `results/cnecator/cnecator.summary.json` |
@@ -159,9 +162,9 @@ Esta versión **no evalúa función, productos, coordenadas ni identidad de secu
 
 | clase | sistema | referencia | delta | % sistema/referencia |
 |---|---:|---:|---:|---:|
-| CDS | 139264 | 138574 | +690 | 100.50 |
-| tRNA | 2367 | 2281 | +86 | 103.77 |
-| rRNA | 329 | 506 | -177 | 65.02 |
+| CDS | 143681 | 142980 | +701 | 100.49 |
+| tRNA | 2423 | 2334 | +89 | 103.81 |
+| rRNA | 514 | 515 | -1 | 99.81 |
 
 El agregado suma solo genomas con conteo de sistema y referencia disponibles para esa clase.
 

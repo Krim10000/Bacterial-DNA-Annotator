@@ -1,0 +1,586 @@
+{
+  "schema": "external-benchmark-heldout-aggregate/v1",
+  "generated_at": "2026-11-26T02:44:44Z",
+  "scope": "Resumen agregado de un benchmark held-out por genoma para Bakta, Prokka y DFAST contra anotaciones de referencia locales.",
+  "verdict": {
+    "winner_declared": false,
+    "label": "no_winner_small_differences",
+    "text": "Sin ganador: la dispersión de F1 micro es 0.02 puntos porcentuales (≤ 1 pp). Las diferencias no permiten declarar superioridad.",
+    "f1_spread": 0.000218,
+    "f1_spread_percentage_points": 0.0218,
+    "small_difference_threshold": 0.01
+  },
+  "selection": {
+    "genomes": [
+      "cjejuni",
+      "saureus",
+      "spneumoniae"
+    ],
+    "excluded_from_aggregate": [
+      "btheta"
+    ],
+    "tuning_genomes": [
+      "cglutamicum",
+      "mtb_h37rv",
+      "paeruginosa",
+      "pputida"
+    ],
+    "tuning_overlap": [],
+    "heldout_note": "Selección fijada antes de ejecutar; no incluye los genomas de tuning ni el gold de 60 kb."
+  },
+  "parameters": {
+    "threads": [
+      4
+    ],
+    "timeout_seconds": [
+      5400.0
+    ],
+    "overlap_threshold": [
+      0.5
+    ],
+    "tools_selected": [
+      "bakta",
+      "dfast",
+      "prokka"
+    ]
+  },
+  "provenance": {
+    "input_dir": "reports/external_benchmark/heldout",
+    "input_files": [
+      {
+        "path": "reports/external_benchmark/heldout/cjejuni.json",
+        "sha256": "8a8bdb14458cb4001c394d2614dafe0bbb23d55d4ae39963aa9aecebfa8d8f1c",
+        "size_bytes": 448482
+      },
+      {
+        "path": "reports/external_benchmark/heldout/saureus.json",
+        "sha256": "74203565cd407d4f1c0446965021df8f64334166a152f7c5c495e5472a10225a",
+        "size_bytes": 501497
+      },
+      {
+        "path": "reports/external_benchmark/heldout/spneumoniae.json",
+        "sha256": "f3fa4843f6449587738a719d68860dccb812af90270b230909600a5c143ef27b",
+        "size_bytes": 502054
+      },
+      {
+        "path": "reports/external_benchmark/heldout/btheta.json",
+        "sha256": "08d911c308dfb15ba239ac6f2d775c28d11dcebab790b4dce66a1ba33811bfcf",
+        "size_bytes": 197346
+      }
+    ],
+    "run_log": "reports/external_benchmark/heldout/run.log",
+    "image_id": "sha256:2fdb291dc37749aebde733a5dc32e9ca4d4460b3456dcc6dbb4b1d7732d6307b",
+    "tool_versions": {
+      "bakta": "1.12.2",
+      "prokka": "1.15.6",
+      "dfast": "1.6.2"
+    },
+    "commands": {
+      "cjejuni": [
+        "/usr/local/bin/bakta --output /tmp/external_benchmark_bakta_kxs2xxf1/out --prefix benchmark --threads 4 --force --skip-plot --db /data/bakta_db /tmp/benchmark_genome_0c5cy8jf.fna",
+        "/usr/local/bin/prokka --outdir /tmp/external_benchmark_prokka_3_stn7jf/out --prefix benchmark --cpus 4 --force --quiet /tmp/benchmark_genome_0c5cy8jf.fna",
+        "/usr/local/bin/dfast --genome /tmp/benchmark_genome_0c5cy8jf.fna --out /tmp/external_benchmark_dfast_ukzj4b4t/out --cpu 4 --force --dbroot /data/dfast_db"
+      ],
+      "saureus": [
+        "/usr/local/bin/bakta --output /tmp/external_benchmark_bakta_103880wb/out --prefix benchmark --threads 4 --force --skip-plot --db /data/bakta_db /tmp/benchmark_genome_o09cjdbt.fna",
+        "/usr/local/bin/prokka --outdir /tmp/external_benchmark_prokka_vg2a8vuq/out --prefix benchmark --cpus 4 --force --quiet /tmp/benchmark_genome_o09cjdbt.fna",
+        "/usr/local/bin/dfast --genome /tmp/benchmark_genome_o09cjdbt.fna --out /tmp/external_benchmark_dfast_e9igq4wx/out --cpu 4 --force --dbroot /data/dfast_db"
+      ],
+      "spneumoniae": [
+        "/usr/local/bin/bakta --output /tmp/external_benchmark_bakta_6p7zn2r7/out --prefix benchmark --threads 4 --force --skip-plot --db /data/bakta_db /tmp/benchmark_genome_otq2w3ys.fna",
+        "/usr/local/bin/prokka --outdir /tmp/external_benchmark_prokka_2ou8quep/out --prefix benchmark --cpus 4 --force --quiet /tmp/benchmark_genome_otq2w3ys.fna",
+        "/usr/local/bin/dfast --genome /tmp/benchmark_genome_otq2w3ys.fna --out /tmp/external_benchmark_dfast_azkc9rt9/out --cpu 4 --force --dbroot /data/dfast_db"
+      ]
+    }
+  },
+  "genomes": [
+    {
+      "id": "cjejuni",
+      "species": "Campylobacter jejuni",
+      "accession": "GCF_000009085.1",
+      "assembly_name": "ASM908v1",
+      "assembly_status": null,
+      "fasta": "data/reference_genomes/cjejuni/cjejuni_genomic.fna.gz",
+      "fasta_sha256": "1a0c7e733310de29a6c715cf5e6825727f9ba3c9718b504cd5f5af03591599d9",
+      "total_length": 1641481,
+      "reference": "data/reference_genomes/cjejuni/cjejuni_genomic.gff.gz",
+      "reference_sha256": "592fae15135b0ca61d29b40c06f21fcc0f16bb1e37dbb85da78ecb6760b8a7e1",
+      "reference_counts": {
+        "CDS": 1572,
+        "tRNA": 43,
+        "rRNA": 9
+      },
+      "tools": {
+        "bakta": "ok",
+        "prokka": "ok",
+        "dfast": "ok"
+      },
+      "status": "Complete Genome"
+    },
+    {
+      "id": "saureus",
+      "species": "Staphylococcus aureus",
+      "accession": "GCF_000013425.1",
+      "assembly_name": "ASM1342v1",
+      "assembly_status": null,
+      "fasta": "data/reference_genomes/saureus/saureus_genomic.fna.gz",
+      "fasta_sha256": "f30fbb37ecacc1c6baca951ada10065a39a29e019c81f664a5d1fca3d8818adb",
+      "total_length": 2821361,
+      "reference": "data/reference_genomes/saureus/saureus_genomic.gff.gz",
+      "reference_sha256": "b39f4aaab06bcdfecd9080e8605039fc76e18f8f0ecb3043cba02c38b69f1571",
+      "reference_counts": {
+        "CDS": 2767,
+        "tRNA": 59,
+        "rRNA": 16
+      },
+      "tools": {
+        "bakta": "ok",
+        "prokka": "ok",
+        "dfast": "ok"
+      },
+      "status": "Complete Genome"
+    },
+    {
+      "id": "spneumoniae",
+      "species": "Streptococcus pneumoniae",
+      "accession": "GCF_001457635.1",
+      "assembly_name": "NCTC7465",
+      "assembly_status": null,
+      "fasta": "data/reference_genomes/spneumoniae/spneumoniae_genomic.fna.gz",
+      "fasta_sha256": "e5e580af13c7a8ff81e795fe656615ddc0495982e6afc6c7284a7df8c08a67c6",
+      "total_length": 2110968,
+      "reference": "data/reference_genomes/spneumoniae/spneumoniae_genomic.gff.gz",
+      "reference_sha256": "5724f05787121edc09f41212753e002d930258c4a35b76f0cf1843204ba607ae",
+      "reference_counts": {
+        "CDS": 1931,
+        "tRNA": 58,
+        "rRNA": 12
+      },
+      "tools": {
+        "bakta": "ok",
+        "prokka": "ok",
+        "dfast": "ok"
+      },
+      "status": "Complete Genome"
+    }
+  ],
+  "excluded_genomes": [
+    {
+      "genome": "btheta",
+      "json": "reports/external_benchmark/heldout/btheta.json",
+      "sha256": "08d911c308dfb15ba239ac6f2d775c28d11dcebab790b4dce66a1ba33811bfcf",
+      "reason": "Genoma multi-contig: Bakta renombró los contigs a contig_1/contig_2 y DFAST a sequence1/sequence2; el runner no empareja seqids genéricos con más de un contig, por lo que ambos quedaron not_comparable. Se conserva como limitación y no entra en el agregado.",
+      "tools": {
+        "bakta": {
+          "status": "not_comparable",
+          "reason": "No hay contigs en común entre referencia y herramienta tras normalizar seqid.",
+          "f1": null,
+          "tp": null,
+          "fp": null,
+          "fn": null
+        },
+        "prokka": {
+          "status": "ok",
+          "reason": null,
+          "f1": 0.9639,
+          "tp": 4725,
+          "fp": 284,
+          "fn": 70
+        },
+        "dfast": {
+          "status": "not_comparable",
+          "reason": "No hay contigs en común entre referencia y herramienta tras normalizar seqid.",
+          "f1": null,
+          "tp": null,
+          "fp": null,
+          "fn": null
+        }
+      }
+    }
+  ],
+  "tools": {
+    "bakta": {
+      "genomes_total": 3,
+      "genomes_ok": 3,
+      "tp": 6164,
+      "fp": 419,
+      "fn": 303,
+      "precision": 0.936351,
+      "recall": 0.953147,
+      "f1": 0.944674,
+      "mean_genome_f1": 0.945333,
+      "min_genome_f1": 0.9207,
+      "max_genome_f1": 0.9646,
+      "mean_genome_precision": 0.9335,
+      "mean_genome_recall": 0.958833,
+      "exact_matches": 5663,
+      "exact_match_rate": 0.918722,
+      "boundary_shifted": 501,
+      "boundary_shift_rate": 0.081278,
+      "total_runtime_seconds": 1964.673,
+      "mean_runtime_seconds": 654.891,
+      "max_runtime_seconds": 862.046,
+      "per_genome": [
+        {
+          "genome": "cjejuni",
+          "status": "ok",
+          "reason": null,
+          "source": "executed",
+          "tp": 1608,
+          "fp": 102,
+          "fn": 16,
+          "precision": 0.9404,
+          "recall": 0.9901,
+          "f1": 0.9646,
+          "exact_matches": 1488,
+          "boundary_shifted": 120,
+          "exact_match_rate": 0.925373,
+          "boundary_shift_rate": 0.074627,
+          "runtime_seconds": 545.763,
+          "version": "1.12.2"
+        },
+        {
+          "genome": "saureus",
+          "status": "ok",
+          "reason": null,
+          "source": "executed",
+          "tp": 2640,
+          "fp": 72,
+          "fn": 202,
+          "precision": 0.9735,
+          "recall": 0.9289,
+          "f1": 0.9507,
+          "exact_matches": 2341,
+          "boundary_shifted": 299,
+          "exact_match_rate": 0.886742,
+          "boundary_shift_rate": 0.113258,
+          "runtime_seconds": 862.046,
+          "version": "1.12.2"
+        },
+        {
+          "genome": "spneumoniae",
+          "status": "ok",
+          "reason": null,
+          "source": "executed",
+          "tp": 1916,
+          "fp": 245,
+          "fn": 85,
+          "precision": 0.8866,
+          "recall": 0.9575,
+          "f1": 0.9207,
+          "exact_matches": 1834,
+          "boundary_shifted": 82,
+          "exact_match_rate": 0.957203,
+          "boundary_shift_rate": 0.042797,
+          "runtime_seconds": 556.864,
+          "version": "1.12.2"
+        }
+      ],
+      "categories": {
+        "CDS": {
+          "genomes_with_category": 3,
+          "reference_n": 6270,
+          "query_n": 6383,
+          "tp": 5967,
+          "fp": 416,
+          "fn": 303,
+          "precision": 0.934827,
+          "recall": 0.951675,
+          "f1": 0.943176,
+          "exact_matches": 5483,
+          "boundary_shifted": 484
+        },
+        "tRNA": {
+          "genomes_with_category": 3,
+          "reference_n": 160,
+          "query_n": 163,
+          "tp": 160,
+          "fp": 3,
+          "fn": 0,
+          "precision": 0.981595,
+          "recall": 1.0,
+          "f1": 0.990712,
+          "exact_matches": 157,
+          "boundary_shifted": 3
+        },
+        "rRNA": {
+          "genomes_with_category": 3,
+          "reference_n": 37,
+          "query_n": 37,
+          "tp": 37,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "exact_matches": 23,
+          "boundary_shifted": 14
+        }
+      },
+      "label": "Bakta",
+      "version": "1.12.2"
+    },
+    "prokka": {
+      "genomes_total": 3,
+      "genomes_ok": 3,
+      "tp": 6164,
+      "fp": 416,
+      "fn": 303,
+      "precision": 0.936778,
+      "recall": 0.953147,
+      "f1": 0.944892,
+      "mean_genome_f1": 0.945533,
+      "min_genome_f1": 0.9207,
+      "max_genome_f1": 0.9649,
+      "mean_genome_precision": 0.933833,
+      "mean_genome_recall": 0.958967,
+      "exact_matches": 5625,
+      "exact_match_rate": 0.912557,
+      "boundary_shifted": 539,
+      "boundary_shift_rate": 0.087443,
+      "total_runtime_seconds": 1451.729,
+      "mean_runtime_seconds": 483.909667,
+      "max_runtime_seconds": 655.99,
+      "per_genome": [
+        {
+          "genome": "cjejuni",
+          "status": "ok",
+          "reason": null,
+          "source": "executed",
+          "tp": 1609,
+          "fp": 102,
+          "fn": 15,
+          "precision": 0.9404,
+          "recall": 0.9908,
+          "f1": 0.9649,
+          "exact_matches": 1487,
+          "boundary_shifted": 122,
+          "exact_match_rate": 0.924177,
+          "boundary_shift_rate": 0.075823,
+          "runtime_seconds": 375.6,
+          "version": "1.15.6"
+        },
+        {
+          "genome": "saureus",
+          "status": "ok",
+          "reason": null,
+          "source": "executed",
+          "tp": 2639,
+          "fp": 69,
+          "fn": 203,
+          "precision": 0.9745,
+          "recall": 0.9286,
+          "f1": 0.951,
+          "exact_matches": 2327,
+          "boundary_shifted": 312,
+          "exact_match_rate": 0.881773,
+          "boundary_shift_rate": 0.118227,
+          "runtime_seconds": 655.99,
+          "version": "1.15.6"
+        },
+        {
+          "genome": "spneumoniae",
+          "status": "ok",
+          "reason": null,
+          "source": "executed",
+          "tp": 1916,
+          "fp": 245,
+          "fn": 85,
+          "precision": 0.8866,
+          "recall": 0.9575,
+          "f1": 0.9207,
+          "exact_matches": 1811,
+          "boundary_shifted": 105,
+          "exact_match_rate": 0.945198,
+          "boundary_shift_rate": 0.054802,
+          "runtime_seconds": 420.139,
+          "version": "1.15.6"
+        }
+      ],
+      "categories": {
+        "CDS": {
+          "genomes_with_category": 3,
+          "reference_n": 6270,
+          "query_n": 6379,
+          "tp": 5967,
+          "fp": 412,
+          "fn": 303,
+          "precision": 0.935413,
+          "recall": 0.951675,
+          "f1": 0.943474,
+          "exact_matches": 5482,
+          "boundary_shifted": 485
+        },
+        "tRNA": {
+          "genomes_with_category": 3,
+          "reference_n": 160,
+          "query_n": 164,
+          "tp": 160,
+          "fp": 4,
+          "fn": 0,
+          "precision": 0.97561,
+          "recall": 1.0,
+          "f1": 0.987654,
+          "exact_matches": 120,
+          "boundary_shifted": 40
+        },
+        "rRNA": {
+          "genomes_with_category": 3,
+          "reference_n": 37,
+          "query_n": 37,
+          "tp": 37,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "exact_matches": 23,
+          "boundary_shifted": 14
+        }
+      },
+      "label": "Prokka",
+      "version": "1.15.6"
+    },
+    "dfast": {
+      "genomes_total": 3,
+      "genomes_ok": 3,
+      "tp": 6163,
+      "fp": 415,
+      "fn": 304,
+      "precision": 0.936911,
+      "recall": 0.952992,
+      "f1": 0.944883,
+      "mean_genome_f1": 0.945533,
+      "min_genome_f1": 0.9207,
+      "max_genome_f1": 0.9649,
+      "mean_genome_precision": 0.934,
+      "mean_genome_recall": 0.958733,
+      "exact_matches": 5603,
+      "exact_match_rate": 0.909135,
+      "boundary_shifted": 560,
+      "boundary_shift_rate": 0.090865,
+      "total_runtime_seconds": 851.973,
+      "mean_runtime_seconds": 283.991,
+      "max_runtime_seconds": 348.46,
+      "per_genome": [
+        {
+          "genome": "cjejuni",
+          "status": "ok",
+          "reason": null,
+          "source": "executed",
+          "tp": 1608,
+          "fp": 101,
+          "fn": 16,
+          "precision": 0.9409,
+          "recall": 0.9901,
+          "f1": 0.9649,
+          "exact_matches": 1488,
+          "boundary_shifted": 120,
+          "exact_match_rate": 0.925373,
+          "boundary_shift_rate": 0.074627,
+          "runtime_seconds": 219.912,
+          "version": "1.6.2"
+        },
+        {
+          "genome": "saureus",
+          "status": "ok",
+          "reason": null,
+          "source": "executed",
+          "tp": 2639,
+          "fp": 69,
+          "fn": 203,
+          "precision": 0.9745,
+          "recall": 0.9286,
+          "f1": 0.951,
+          "exact_matches": 2316,
+          "boundary_shifted": 323,
+          "exact_match_rate": 0.877605,
+          "boundary_shift_rate": 0.122395,
+          "runtime_seconds": 348.46,
+          "version": "1.6.2"
+        },
+        {
+          "genome": "spneumoniae",
+          "status": "ok",
+          "reason": null,
+          "source": "executed",
+          "tp": 1916,
+          "fp": 245,
+          "fn": 85,
+          "precision": 0.8866,
+          "recall": 0.9575,
+          "f1": 0.9207,
+          "exact_matches": 1799,
+          "boundary_shifted": 117,
+          "exact_match_rate": 0.938935,
+          "boundary_shift_rate": 0.061065,
+          "runtime_seconds": 283.601,
+          "version": "1.6.2"
+        }
+      ],
+      "categories": {
+        "CDS": {
+          "genomes_with_category": 3,
+          "reference_n": 6270,
+          "query_n": 6377,
+          "tp": 5966,
+          "fp": 411,
+          "fn": 304,
+          "precision": 0.93555,
+          "recall": 0.951515,
+          "f1": 0.943465,
+          "exact_matches": 5483,
+          "boundary_shifted": 483
+        },
+        "tRNA": {
+          "genomes_with_category": 3,
+          "reference_n": 160,
+          "query_n": 164,
+          "tp": 160,
+          "fp": 4,
+          "fn": 0,
+          "precision": 0.97561,
+          "recall": 1.0,
+          "f1": 0.987654,
+          "exact_matches": 120,
+          "boundary_shifted": 40
+        },
+        "rRNA": {
+          "genomes_with_category": 3,
+          "reference_n": 37,
+          "query_n": 37,
+          "tp": 37,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "exact_matches": 0,
+          "boundary_shifted": 37
+        }
+      },
+      "label": "DFAST",
+      "version": "1.6.2"
+    }
+  },
+  "incomplete_tools": {},
+  "warnings": [
+    "cjejuni: 7 feature(s) GFF multi-segmento fusionados por ID; se comparan por su intervalo envolvente.",
+    "spneumoniae: 2 feature(s) GFF multi-segmento fusionados por ID; se comparan por su intervalo envolvente."
+  ],
+  "limitations": [
+    "La referencia es el gold de esta comparación; sus criterios y errores se heredan.",
+    "El emparejamiento es 1:1 voraz por solapamiento recíproco y no un óptimo bipartito.",
+    "La coincidencia literal de 'product' no mide función; los nombres dependen de cada base.",
+    "No se comparan ncRNA, tmRNA, pseudogenes (si se excluyen), dominios ni rutas.",
+    "Una herramienta ausente no es un cero: queda como not_available sin métricas.",
+    "La Bakta DB se detecta localmente; no se descarga y su ausencia deja Bakta en not_available.",
+    "No se declara superioridad entre herramientas sin un gold independiente y ejecuciones pareadas.",
+    "Las ubicaciones compuestas de GenBank se comparan por su intervalo envolvente.",
+    "El emparejamiento es 1:1 voraz por solapamiento recíproco al umbral indicado; no es un óptimo bipartito y otro umbral cambiaría TP/FP/FN.",
+    "La coincidencia de 'product' no mide función; los nombres dependen de cada base.",
+    "Los tiempos son de una sola ejecución secuencial por genoma en el mismo host; no hay réplicas ni intervalo de confianza.",
+    "El F1 agregado es micro (TP/FP/FN sumados); el F1 medio es la media aritmética por genoma.",
+    "El resumen no declara superioridad entre herramientas."
+  ]
+}
