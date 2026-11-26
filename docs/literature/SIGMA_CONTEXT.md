@@ -4,7 +4,7 @@
 > Ruta: `docs/literature/SIGMA_CONTEXT.md`
 > Fecha de corte y verificación: **2026-11-26**
 > Autor: subagente `lit-sigma-context` (revisión bibliográfica; **no modifica código**)
-> Estado: **v1.0** — cada referencia de la tabla final fue resuelta contra Crossref,
+> Estado: **v1.0** — cada referencia de la sección final fue resuelta contra Crossref,
 > PubMed/PMC o la página del editor. No se incluye ninguna referencia no verificada.
 > Ver Anexo A.
 >
@@ -14,11 +14,18 @@
 > independiente del gold, de que la cobertura sea suficiente y de que la ganancia
 > sobreviva a una ablación con procedencia controlada.
 
+**Documentos relacionados:** [`SIGMA_BIOLOGY.md`](SIGMA_BIOLOGY.md) (familias,
+ortología y colisiones de nombres), [`SIGMA_DATABASES.md`](SIGMA_DATABASES.md)
+(bases de datos), [`SIGMA_PREDICTION.md`](SIGMA_PREDICTION.md) (predicción de
+promotores), [`GENERALIZATION.md`](GENERALIZATION.md) (transferencia entre
+especies) y [`docs/SIGMA_CONTEXT.md`](../SIGMA_CONTEXT.md) (implementación y
+números internos).
+
 ---
 
 ## Convenciones
 
-- `[Rxx]`: identificador de la referencia en la tabla de §13. Cada identificador
+- `[Rxx]`: identificador de la referencia en la lista de §13. Cada identificador
   tiene PMID, DOI o URL verificado; la tabla indica cuál se comprobó.
 - `[PMID:<número>]`: artículo indexado en PubMed; el PMID fue resuelto y el
   título comparado con la fuente.
@@ -42,6 +49,26 @@ La estrategia de búsqueda y sus límites están en el Anexo B.
 
 ---
 
+## Contenido
+
+0. Resumen ejecutivo
+1. Qué significa «contexto» y qué no
+2. Fuentes de contexto: bases de datos
+3. Canales de evidencia contextual (incluye la tabla maestra)
+4. Contexto funcional por sigma
+5. Predicción de regulones y sitios de unión
+6. Causal vs correlacional
+7. De contexto a log-odds calibrado
+8. Ablación
+9. Circularidad
+10. Cuándo el contexto ayuda y cuándo es sesgo de anotación
+11. Límites
+12. Recomendaciones
+13. Referencias verificadas
+Anexos A–D: verificación, búsqueda, matriz de afirmaciones, glosario
+
+---
+
 ## 0. Resumen ejecutivo
 
 1. **Las bases de datos curan literatura, no realizan experimentos.** RegulonDB,
@@ -59,15 +86,16 @@ La estrategia de búsqueda y sus límites están en el Anexo B.
    con sigma como un promotor distinto. [R02] [R07] [R26]
 4. **El contexto predice mejor el módulo funcional/condición que la identidad del
    sigma.** «Flagelo», «nitrógeno», «heat shock», «stationary» y «envelope» son
-   módulos; el mapa módulo→sigma es específico de especie y está reconfigurado
-   por duplicación, pérdida y sustitución de sigmas. [R09] [R10] [R14] [R20] [R25]
+   módulos; el mapa módulo→sigma es específico de especie y puede estar
+   reconfigurado entre linajes (parte conservada y parte variable; distribución
+   dependiente del filo). [R09] [R10] [R14] [R20] [R25]
 5. **La asociación por culpa («guilt by association») funciona por encima del azar
    pero está confundida por multifuncionalidad y por densidad de anotación.** Los
    controles de Gillis y Pavlidis muestran que gran parte de la señal se explica
    por cuántas funciones ya tiene el gen, no por la asociación específica.
    [R35] [R36] [R37]
-6. **La cobertura del contexto es limitada y sesgada.** Huynen *et al.* reportan
-   ~37 % de genes con conservación de orden, ~6 % con fusión, ~8 % con
+6. **La cobertura del contexto es limitada y sesgada.** Huynen *et al.* reportan,
+   en su benchmark de *M. genitalium*, ~37 % de genes con conservación de orden, ~6 % con fusión, ~8 % con
    co-ocurrencia en operones y ~11 % con perfiles filogenéticos; la combinación
    llega a ~50 %, con solapamiento. La predicción de operones tiene sensibilidad
    de 30–50 % en *E. coli*. [R38] [R41]
@@ -277,9 +305,9 @@ comparativas no son evidencia experimental. [R06] Es un buen ejemplo de contexto
   evitarlo porque «regulón» ya está ocupado por el TF.
 
 Un error frecuente es usar la pertenencia a un regulón de TF como si fuera
-pertenencia a un sigmulón. Un gen puede estar en el regulón de CRP y ser
-transcrito por σ70 o σ38 según la condición; la pertenencia a CRP no resuelve el
-sigma. [R23]
+pertenencia a un sigmulón. La pertenencia a un regulón de TF no resuelve el
+sigma: hay solapamiento extenso entre regulones globales y la selectividad
+σS/σ70 puede depender de otros reguladores. [R23]
 
 ### 2.9 Lo que las bases no son
 
@@ -292,6 +320,24 @@ sigma. [R23]
   [R03] [R05] [R06]
 - No son completas: la anotación de regulación está sesgada hacia genes y
   condiciones bien estudiados. [R50] [R51]
+
+
+### 2.10 ¿Quién tiene un objeto «sigmulón»?
+
+| Base | ¿Objeto sigmulón? | Qué ofrece realmente | Cómo usarlo en este problema |
+|---|---|---|---|
+| RegulonDB v12 | **Sí**, datamart de sigmulón | Genes/operones asociados a un sigma, con evidencia y confianza | Feature de altísimo riesgo circular si el gold es RegulonDB; usar solo si es independiente |
+| EcoCyc | No verificado como objeto separado; sí promotor por sigma | Promotores específicos de sigma, regulones de TF y vista regulatoria | Usar el promotor por sigma como anotación, no como «regulón» |
+| SubtiWiki | No verificado como objeto separado; sí regulones e interacciones de sigma | Regulones, red de regulación y sigma en el navegador | Contexto de red/módulo; no es un sigmulón curado |
+| PRODORIC | No verificado como sigmulón curado; sí sigma factors y sitios | TFBS, promotores, sigma factors, evidencia experimental por sitio | Contexto de sitio/promotor y evidencia física; no asignación directa |
+| DBTBS | No verificado como objeto separado | Promotores, TF, operones y conservación upstream | Promotores/operones curados; el sigma viene de la anotación del promotor |
+| RegPrecise 3.0 | No; regulones de TF | Regulones reconstruidos por genómica comparativa | Contexto comparado; no es un sigmulón |
+
+**Lectura:** solo RegulonDB ofrece un objeto sigmulón explícito entre las bases
+revisadas. En las demás, «regulón» suele significar regulón de TF, y la sigma
+aparece como anotación del promotor o como interacción de red. Usar «regulón»
+como sinónimo de «sigmulón» es una fuente de circularidad y de error semántico.
+[R01] [R02] [R03] [R04] [R05] [R06]
 
 ---
 
@@ -321,7 +367,7 @@ líder son proxies de si el TSS es el promotor primario o un TSS interno.
 - Brouwer *et al.* advierten que las estimaciones de performance no son
   comparables entre métodos y que queda margen de mejora. [R43]
 - La conservación de orden de genes cubre ~37 % de los genes en el benchmark de
-  Huynen *et al.*; la combinación con otras señales llega a ~50 %. [R38]
+  *M. genitalium* de Huynen *et al.*; la combinación con otras señales llega a ~50 %. [R38]
 
 **Lectura para sigma.** Es un canal **correlacional y de granularidad gruesa**.
 Sirve para elevar el prior de un módulo; no para decidir el sigma de un TSS
@@ -380,8 +426,8 @@ identidad de sigma. Un módulo conservado puede cambiar de sigma en un linaje.
 - Kensche *et al.* revisan el método y advierten que solo los pares de mayor
   score son de alta confianza y que hay que corregir el sesgo filogenético y
   combinar con otras evidencias. [R33]
-- Huynen *et al.* comparan fusión, orden de genes y perfiles: la conservación de
-  orden tiene la mayor cobertura (~37 %), y las interacciones son más fuertes
+- Huynen *et al.* comparan fusión, orden de genes y perfiles en *M. genitalium*:
+  la conservación de orden tiene la mayor cobertura (~37 %), y las interacciones son más fuertes
   cuanto más estricto es el requisito de vecindad, con menos falsos positivos.
   [R38]
 - La fusión de genes es otra señal de acoplamiento funcional: dos proteínas que
@@ -518,14 +564,14 @@ dinámica pueden hacer que un TSS no se use aunque el sigma esté activo.
 | F09 | `module_conservation` | Conservación del módulo funcional | Genómica comparada | [R14] [R20] | Media | Correlacional | Media | Medio |
 | F10 | `coexpression` | Correlación de expresión con targets conocidos | RNA-seq compendio | [R32] [R26] | Media | Correlacional | Media (si el compendio es independiente) | Alto si comparte condición |
 | F11 | `condition_metadata` | Heat shock, stationary, nitrógeno, envelope | Metadatos experimentales | [R17] [R21] [R24] | Fuerte | Casi causal (activa el sigma) | Alta | Bajo-medio |
-| F12 | `functional_annotation` | EC/GO/KEGG/UniProt keywords | Anotación automática/curada | [R50] [R51] | Media | Correlacional | Media | Alto |
-| F13 | `domain_architecture` | Dominios Pfam del producto | Pfam/InterPro | [R50] | Débil | Correlacional | Alta | Bajo |
+| F12 | `functional_annotation` | EC/GO/KEGG/UniProt keywords | Anotación automática/curada | [R20] [R23] [R50] | Media | Correlacional | Media | Alto |
+| F13 | `domain_architecture` | Dominios Pfam del producto | Pfam/InterPro | — (anotación estructural) | Débil | Correlacional | Alta | Bajo |
 | F14 | `promoter_architecture` | −24/−12, −35/−10, extended −10, espaciador, UP | Secuencia | [R19] [R14] [R21] | Fuerte | Causal-mecanística (reconocimiento) | Alta | Bajo (si no se deriva del gold) |
 | F15 | `motif_conservation` | Motivo conservado upstream de ortólogos | Alineamiento + PWM | [R14] [R19] | Media-fuerte | Causal-mecanística (sitio) | Media | Medio |
 | F16 | `sigma_gene_inventory` | Qué sigmas codifica el genoma | HMM/Pfam + nombre | [R12] [R13] | Fuerte (límite) | Causal (qué es posible) | Alta | Bajo |
 | F17 | `expression_tss` | Uso de TSS/promotor medido | TSS-seq/RNA-seq | [R26] | Fuerte | Observacional | Alta (si es independiente) | Bajo-medio |
-| F18 | `chip_binding` | Unión física del sigma o TF | ChIP-seq/ChIP-exo | [R16] [R14] | Muy fuerte | Causal-mecanística | Alta (si es independiente) | Bajo-medio |
-| F19 | `perturbation` | Knockout/depleción de sigma cambia el TSS | Mutante/CRISPRi | [R23] [R21] | Muy fuerte | Causal (intervención) | Alta | Bajo |
+| F18 | `chip_binding` | Unión física del sigma o TF | ChIP-seq/ChIP-exo | [R16] | Muy fuerte | Causal-mecanística | Alta (si es independiente) | Bajo-medio |
+| F19 | `perturbation` | Knockout/depleción de sigma cambia el TSS | Mutante/CRISPRi | [R23] | Muy fuerte | Causal (intervención) | Alta | Bajo |
 | F20 | `gold_derived` | Cualquier feature tomada del gold | Gold | — | — | **Tautológica** | **Nula** | **Prohibido en evaluación** |
 
 ### 3.9 Matriz de madurez
@@ -540,6 +586,32 @@ dinámica pueden hacer que un TSS no se use aunque el sigma esté activo.
 | Filogenia (F08/F09) | Media-baja | Medio | Media | Conservación de módulo; corregir filogenia |
 | Regulón (F06/F07) | Media | Bajo | Baja | **Solo si es independiente del gold** |
 | ChIP/perturbación (F18/F19) | Baja | Alto | Alta | Validación causal de un subconjunto |
+
+
+### 3.10 *Guilt by association*: qué es y por qué no basta
+
+**Definición.** *Guilt by association* (GBA) asigna una propiedad a un gen a
+partir de sus vecinos o partners que ya tienen esa propiedad: si muchos genes
+flagelares interactúan con X, se infiere que X es flagelar. En este problema, la
+versión débil es: «si el módulo del gen es flagelar, su TSS es candidato σ28».
+
+**Evidencia a favor.** La integración probabilística de evidencias funcionales
+puede predecir función y co-regulación por encima del azar [R34]; la co-expresión
+agrupa genes de función similar [R32]; la conservación de clusters y la vecindad
+predicen acoplamiento funcional [R29] [R38]; STRING integra estas señales y las
+transfiere por ortología [R39] [R40].
+
+**Crítica.** Gillis y Pavlidis muestran que gran parte de la señal de GBA se
+explica por **multifuncionalidad**: los genes muy anotados tienen más funciones y
+más vecinos, y por eso aciertan más. [R35] Además, la información funcional de
+las redes está concentrada en pocas interacciones y la performance de validación
+cruzada no se generaliza necesariamente a genes nuevos. [R36] [R37]
+
+**Consecuencia para sigma.** GBA es un **generador de priors**, no una prueba.
+Sirve para priorizar candidatos y para construir features; no para asignar sigma
+sin evidencia independiente. El control obligatorio es comparar contra un baseline
+de «densidad de anotación» o «multifuncionalidad»: si el contexto no supera ese
+baseline, la señal es GBA genérica, no biología de sigma. [R35] [R37]
 
 ---
 
@@ -576,8 +648,7 @@ remodelar RNAP; sin activador, el motivo no basta. [R18]
 
 Pero σ54 no es solo nitrógeno: análisis comparativos la implican en motilidad,
 virulencia, biofilm, LPS, flagelos y envelope, con una distribución dependiente
-del filo. [R20] En *B. subtilis*, la regulación de nitrógeno también involucra
-GlnR/TnrA y no se reduce a σ54.
+del filo. [R20]
 
 **Consecuencia:** «nitrógeno → σ54» es una pista de módulo, no una regla de
 asignación. El regulón σ54 es más amplio y heterogéneo que el módulo nitrógeno.
@@ -591,8 +662,9 @@ validados como transcritos por σ32, muestran que el regulón codifica numerosos
 reguladores globales, que σ70 inicia desde el 12 % de los promotores σ32 y que
 una fracción importante del regulón reside en la membrana. [R21]
 
-**Consecuencia:** «heat shock → σ32» es específico de *E. coli* y proteobacterias;
-en *B. subtilis* la respuesta general de estrés está gobernada por σB. [R25] No
+**Consecuencia:** «heat shock → σ32» es específico de *E. coli*; no asumir que el
+mismo factor gobierna la respuesta en otras especies. En *B. subtilis* la
+respuesta general de estrés está gobernada por σB. [R25] No
 transferir la regla entre especies sin verificar el inventario de sigmas y la
 literatura de la especie.
 
@@ -633,11 +705,15 @@ envelope a σE de *B. subtilis*.
 | Módulo | Sigma canónica en *E. coli* | Equivalente funcional en *B. subtilis* | Fuerza | Excepciones y límites | Evidencia |
 |---|---|---|---|---|---|
 | Flagelo tardío | σ28 (FliA) | SigD (σD) | Alta para clase III | Genes tempranos σ70; sitios intragenéticos; otras bacterias usan σ54 | [R15] [R16] [R20] |
-| Nitrógeno | σ54 (RpoN) | SigL (σL) + GlnR/TnrA | Alta para Ntr | σ54 también motilidad, virulencia, biofilm, envelope | [R17] [R18] [R19] [R20] |
+| Nitrógeno | σ54 (RpoN) | SigL (σL; ortólogo de σ54) | Alta para Ntr | σ54 también motilidad, virulencia, biofilm, envelope | [R17] [R18] [R19] [R20] |
 | Heat shock | σ32 (RpoH) | σB (estrés general) y otras | Alta en *E. coli* | Especie-específico; σ32 no es universal | [R21] [R22] [R25] |
 | Stationary | σ38 (RpoS) | σB (SigB) | Media | Solapamiento con σ70; no todos los genes de stationary | [R23] [R24] [R25] |
 | Envelope/ECF | σE/σ24 y otras ECF | σW/σX/σV/σY/σZ; σE es esporulación | Media | ECF diversas; colisión de nombres | [R12] [R13] [R14] [R27] [R28] |
 | Esporulación | — | σH → σF/σE → σG/σK | Alta en *B. subtilis* | Cascada de desarrollo; no hay equivalente en *E. coli* | [R27] [R28] |
+
+La columna de *B. subtilis* es orientativa y se apoya en la revisión de sigma de
+*B. subtilis* [R74]; no se usa para asignar sigma en este documento. La
+ortología funcional se discute en [`SIGMA_BIOLOGY.md`](SIGMA_BIOLOGY.md).
 
 ### 4.7 Por qué la asociación no es una regla
 
@@ -712,8 +788,8 @@ independiente; es un consenso de evidencias. [R14] [R21] [R23] [R26]
 |---|---|---|---|---|---|
 | MEME/FIMO | Descubre motivos y escanea secuencias | Sitios conocidos o genoma | Descubrimiento + scanning | Motivo ≠ sigma; umbral arbitrario | [R45] [R46] |
 | SigmoID | Identifica promotores, TFBS y terminadores; visualiza contexto; ayuda a corregir anotación | Genoma + bases | Caso de *Pectobacterium*: >900 sitios, ~40 % del cromosoma | Usa RegPrecise/RegulonDB; circularidad si se evalúa con ellas | [R47] |
-| iPromoter-2L | Predice promotor y tipo (σ24/σ28/σ32/σ38/σ54/σ70) | Secuencia | Validación cruzada | Solo secuencia; no contexto; clases desbalanceadas | [R48] |
-| ProPr54 | Predice promotores y regulón σ54 con CNN/RNN híbrida | Secuencia | Reportada por los autores | Entrenado en promotores σ54 conocidos; validación independiente limitada | [R49] |
+| iPromoter-2L | Predice promotor y tipo (σ24/σ28/σ32/σ38/σ54/σ70) | Secuencia | Evaluación interna del artículo | Solo secuencia; no contexto | [R48] |
+| ProPr54 | Predice promotores y regulón σ54 con CNN/RNN híbrida | Secuencia | Reportada por los autores | Validación independiente limitada | [R49] |
 
 ### 5.5 Qué mide cada evaluación
 
@@ -798,8 +874,9 @@ puede **predecir** sin **explicar**.
 ### 6.4 Jerarquía de evidencia para sigma
 
 1. **Unión física y transcripción dependiente de sigma** en el mismo promotor:
-   EMSA, footprinting, ChIP-seq/ChIP-exo, transcripción in vitro, mutagénesis del
-   motivo, complementación. Es el estándar causal.
+   EMSA/footprinting/ChIP-seq/ChIP-exo para la unión; transcripción in vitro,
+   mutagénesis del motivo y complementación para la dependencia funcional. Es el
+   estándar causal.
 2. **Perturbación**: knockout/depleción de sigma con cambio de TSS/actividad.
 3. **Genética del promotor**: mutación del sitio que abole la actividad y
    revierte con la secuencia canónica.
@@ -885,6 +962,13 @@ donde:
   la evidencia y reproduce el baseline.
 - `λ_e` se estima en un *inner loop* de entrenamiento, nunca en test.
 
+En la implementación del proyecto, la forma es
+`score_final = z_PWM + escala × Σ peso_e × LLR_e`; `escala` es un `λ` global
+elegido por fold y `peso_e` es el peso declarado por evidencia. En la notación de
+arriba, `λ_e = escala × peso_e`. Importante: `z_PWM` **no** es un
+log-likelihood; el score combinado es un ranking hasta que se calibre.
+[`docs/SIGMA_CONTEXT.md`](../SIGMA_CONTEXT.md) §1.
+
 Si los LLR son likelihood ratios y `b_s` es un prior, `score` es log-odds
 posterior. Si los LLR se estiman con las mismas etiquetas que se evalúan, `score`
 es un **score discriminativo**; llamarlo «posterior» es incorrecto.
@@ -907,20 +991,21 @@ Consecuencia: la suma sobrecuenta la evidencia. Hay cuatro salidas:
    los coeficientes conjuntamente.
 4. **Modelo jerárquico** con efectos por especie/sigma y *partial pooling*.
 
-La opción 1 es la más barata y la que menos sobreajusta con 2.000–3.000 sitios.
+En este proyecto, con 2.000–3.000 sitios, la opción 1 es la más barata y la que
+menos sobreajusta.
 La opción 2 es útil cuando hay una hipótesis mecanística clara. Las opciones 3–4
 requieren más datos o más supuestos. [R64]
 
 ### 7.5 Prior, score y evidencia
 
-Hay tres objetos que no deben confundirse:
+Hay cuatro objetos que no deben confundirse:
 
 | Objeto | Definición | Ejemplo | ¿Es una probabilidad? |
 |---|---|---|---|
 | Prior `π_s` | Frecuencia esperada de `s` antes de ver la feature | Censo de sigmas del genoma; prevalencia de la condición | No; es una distribución |
-| LLR `LLR_e(s,v)` | Cuánto cambia la odds de `s` al ver `v` | `P(flagelar|σ28)/P(flagelar)` | No; es un ratio |
-| Score `score(s|x)` | Suma de prior y LLR ponderados | `logit π_s + Σ λ_e LLR_e` | No, hasta calibrar |
-| Posterior `p(s|x)` | Probabilidad calibrada bajo el modelo | `softmax(score/T)` | Sí, si está calibrado |
+| LLR `LLR_e(s,v)` | Cuánto cambia la odds de `s` al ver `v` | `P(flagelar∣σ28)/P(flagelar)` | No; es un ratio |
+| Score `score(s∣x)` | Suma de prior y LLR ponderados | `logit π_s + Σ λ_e LLR_e` | No, hasta calibrar |
+| Posterior `p(s∣x)` | Probabilidad calibrada bajo el modelo | `softmax(score/T)` | Sí, si está calibrado |
 
 Un prior **no** se estima con el gold de evaluación. Si se estima con el gold,
 es una frecuencia de entrenamiento, no un prior. Un LLR estimado con el gold es
@@ -1213,7 +1298,7 @@ común (la anotación). [R53] [R54] [R55]
 | *Same-source ablation* | Quitar todas las features de la fuente del gold y re-evaluar | Si la ganancia desaparece, era procedencia |
 | Permutación de etiquetas | Barajar sigma dentro de estrato; re-entrenar | Si hay ganancia, hay fuga |
 | Control negativo | Feature aleatoria / longitud / número de anotaciones | Si hay ganancia, es sesgo |
-| Cross-species | Entrenar K-12, testear *B. subtilis* (y viceversa) | Si la ganancia desaparece, es específica de anotación |
+| Cross-species | Entrenar K-12, testear *B. subtilis* (y viceversa) | Si la ganancia desaparece, no generaliza (anotación o biología específica) |
 | Temporal | Base antigua → base nueva | Si la ganancia desaparece, era novedad de curaduría |
 | *Annotation-blind holdout* | Evaluar solo en TSS con evidencia experimental independiente | Reduce C3/C4/C5 |
 | Concentración | Ver si la ganancia se concentra en genes muy anotados | Detecta multifuncionalidad [R35] |
@@ -1228,7 +1313,7 @@ común (la anotación). [R53] [R54] [R55]
    anotación o del linaje.
 4. **Permutación / controles negativos**: descarta fugas gruesas y sesgos de
    modelo.
-5. **Documentación**: si no se puede mitigar, se declara y se baja la claims.
+5. **Documentación**: si no se puede mitigar, se declara y se baja la afirmación.
 
 ### 9.5 Ejemplo interno
 
@@ -1290,14 +1375,15 @@ para anotar, no para afirmar que el contexto captura biología.
 - **La ganancia desaparece** en otra especie o en una versión temporal distinta.
 - **La feature es la etiqueta disfrazada**: sigmulón, regulón, «está en la base».
 - **El modelo aprende la prevalencia** de la base, no la biología: predice σ70
-  para casi todo porque es la clase mayoritaria.
+  para la mayoría porque es la clase mayoritaria.
 - **Solo mejora ECE**, no top-1: puede ser calibración, no señal.
 
 ### 10.3 Tabla de decisión
 
 | Condición | Interpretación | Acción |
 |---|---|---|
-| Fuente independiente + cobertura > 50 % + sobrevive provenance | Contexto útil | Prior con peso calibrado |
+| Fuente independiente + cobertura ≥ 50 % + sobrevive provenance | Contexto útil | Prior con peso calibrado |
+| Fuente independiente + cobertura 20–50 % | Señal parcial | Peso reducido; ablación obligatoria |
 | Fuente independiente + cobertura < 20 % | Poca evidencia | Peso 0 o abstención |
 | Misma fuente que el gold | Circular | No usar en evaluación; solo anotar |
 | Ganancia solo en calibración | Útil para confianza | Modo confianza, no top-1 |
@@ -1333,6 +1419,29 @@ No son leyes; son política de proyecto para evitar afirmaciones fuertes:
 5. **Documentar** la fuente y la fecha; si no es independiente, llamarlo
    «frecuencia de entrenamiento», no «prior».
 
+
+### 10.6 Evaluación de un prior contextual
+
+Un prior no se evalúa solo por el top-1. Cinco comprobaciones, en orden:
+
+1. **Cobertura y distribución**: ¿en qué fracción de TSS está definido? ¿La
+   ausencia es informativa? Si la cobertura es baja, el prior no puede ser la
+   base de una asignación.
+2. **Coherencia externa**: ¿el prior coincide con literatura experimental
+   independiente de la especie? Si solo coincide con la base que lo originó, no
+   es un prior, es una copia.
+3. **Calibración**: ¿las probabilidades predichas coinciden con las frecuencias
+   observadas en un conjunto de calibración? Reportar reliability, ECE, Brier y
+   log loss.
+4. **Sensibilidad**: ¿cuánto cambia la decisión si se perturba el prior (p. ej.,
+   ±20 % en la prevalencia, o dejar una feature fuera)? Un prior frágil no debe
+   usarse para decisiones fuertes.
+5. **Valor incremental**: ¿mejora el top-1/log loss sobre el baseline en el mismo
+   subconjunto, y sobrevive a *provenance holdout*? Si no, el prior no aporta.
+
+Un prior que no pasa 1–5 puede seguir siendo útil como *ranking* exploratorio,
+pero no como probabilidad ni como base de una afirmación biológica.
+
 ---
 
 ## 11. Límites
@@ -1355,9 +1464,10 @@ No son leyes; son política de proyecto para evitar afirmaciones fuertes:
 6. **Un TSS puede tener varios promotores/sigmas**; la asignación es
    multietiqueta y dependiente de condición. [R02] [R07] [R21] [R23]
 7. **El módulo→sigma no es universal**: σE de *E. coli* ≠ σE de *B. subtilis*;
-   σ32/σ38 no tienen el mismo papel en todas las especies. [R25] [R27]
+   σ32/σ38 no tienen el mismo papel en todas las especies. [R25] [R74]
 8. **Los regulones se reconfiguran**: la parte conservada y la variable pueden
-   diferir entre genomas relacionados. [R14] [R20]
+   diferir entre genomas relacionados. [R14] [R20] La transferencia de priors
+   entre especies se trata en [`GENERALIZATION.md`](GENERALIZATION.md).
 9. **Hay TSS intragenéricos y antisentido** que el contexto de operón no
    captura. [R16] [R26]
 10. **La condición es poblacional**: un sigma activo no garantiza que ese TSS se
@@ -1370,7 +1480,7 @@ No son leyes; son política de proyecto para evitar afirmaciones fuertes:
 12. **La anotación funcional tiene errores** (5–63 % en superfamilias
     enzimáticas). [R50] [R52]
 13. **La filogenia no son réplicas independientes**; los tests de conservación
-    pueden ser anti-conservadores. [R63]
+    pueden ser anti-conservadores. [R68]
 14. **La co-expresión está confundida** por crecimiento, condición y estructura
     de operón. [R32] [R26]
 15. **Los LLR son inestables con pocos positivos**; σ raras tienen IC enormes.
@@ -1378,6 +1488,9 @@ No son leyes; son política de proyecto para evitar afirmaciones fuertes:
     recalibración. [R61] [R63]
 
 ### 11.4 Vacíos de la literatura
+
+Los siguientes son vacíos que esta revisión no encontró cubiertos; no son una
+prueba de inexistencia.
 
 - No hay un benchmark sistemático de features de contexto para asignación de
   sigma entre especies.
@@ -1434,9 +1547,10 @@ Feature | Fuente | Versión | Granularidad | Cobertura | Independencia
 Ejemplo de veredicto:
 
 ```text
-operon_position | BSGatlas/DBTBS | 2024 | TSS/operón | 100 %
-  | Baja (comparte gold) | σ70/σ38 | +8,18 pp [..]
-  | +0,02 | −0,01 | +0,00 | −0,05 | No usar para evaluar; solo anotar
+operon_position | BSGatlas/DBTBS | [versión] | TSS/operón | 100 %
+  | Baja (comparte gold) | σ70/σ38 | +8,18 pp [IC]
+  | [Δ log loss] | [Δ ECE] | [Δ provenance] | [Δ cross-species]
+  | No usar para evaluar; solo anotar
 ```
 
 ### 12.5 Guía de lenguaje
@@ -1468,7 +1582,7 @@ operon_position | BSGatlas/DBTBS | 2024 | TSS/operón | 100 %
 
 ### 12.7 Frase final
 
-**El contexto genómico es una herramienta de priorización, no un prueba de
+**El contexto genómico es una herramienta de priorización, no una prueba de
 sigma.** Ayuda cuando es independiente, cubre, es proximal y sobrevive a la
 ablación; sesga cuando comparte procedencia con el gold, codifica densidad de
 anotación o se ajusta en test. En los datos del proyecto, K-12 no muestra señal
@@ -1638,6 +1752,11 @@ DOI: [10.1146/annurev.genet.30.1.297](https://doi.org/10.1146/annurev.genet.30.1
 **R28** — Errington J (2003). Regulation of endospore formation in *Bacillus
 subtilis*. *Nature Reviews Microbiology* 1(2):117–126. PMID: 15035041.
 DOI: [10.1038/nrmicro750](https://doi.org/10.1038/nrmicro750).
+
+**R74** — Haldenwang WG (1995). The sigma factors of *Bacillus subtilis*.
+*Microbiological Reviews* 59(1):1–30. PMID: 7708009.
+DOI: [10.1128/mr.59.1.1-30.1995](https://doi.org/10.1128/mr.59.1.1-30.1995).
+Verificación: Crossref + PubMed.
 
 ### C. Métodos de contexto genómico
 
@@ -1907,6 +2026,7 @@ Verificación: Crossref (libro, sin PMID).
 | R02 (EcoCyc) | Abstract de PubMed truncado | Las afirmaciones se limitan al texto completo de PMC |
 | R12 (Helmann) | Crossref no devuelve autores del capítulo | Se usa PMID 12073657 y el título; autor verificado en PubMed |
 | R54, R61–R64, R66–R68 | Sin PMID (ACM, JASA, ICML, Machine Learning, Annals, Am Nat) | DOI verificado en Crossref; se declara «sin PMID» |
+| R74 (Haldenwang) | Referencia añadida para la columna de *B. subtilis* | Crossref + PubMed (PMID 7708009) |
 
 ### A.3 Referencias no usadas o descartadas
 
@@ -1977,14 +2097,14 @@ Verificación: Crossref (libro, sin PMID).
 | 20 | σE de *B. subtilis* es de esporulación, no ECF | [R27] [R28] | Revisión |
 | 21 | La multifuncionalidad confunde GBA | [R35] | Estudio metodológico |
 | 22 | GBA es la excepción, no la regla | [R36] | Estudio metodológico |
-| 23 | El contexto genómico cubre ~37–50 % de genes | [R38] | Benchmark |
+| 23 | En *M. genitalium*, el contexto cubre ~37–50 % de genes | [R38] | Benchmark |
 | 24 | La predicción de operones tiene sensibilidad 30–50 % | [R41] | Estudio primario |
 | 25 | La accuracy de operones depende de información previa | [R42] | Estudio primario |
 | 26 | La misanotación en bases públicas es 5–63 % | [R50] | Estudio primario |
 | 27 | Los errores de anotación percolan | [R52] | Modelado |
 | 28 | El leakage tiene 8 tipos y afecta 294 papers | [R53] | Revisión |
 | 29 | ChIP-seq puede tener motivos no objetivo | [R58] | Estudio primario |
-| 30 | Naive Bayes puede ser óptimo para clasificar pero no para calibrar | [R64] | Teoría |
+| 30 | Naive Bayes es óptimo bajo 0-1 loss incluso con dependencia | [R64] | Teoría |
 | 31 | La corrección de prevalencia es necesaria en eventos raros | [R61] | Método |
 | 32 | Los proper scoring rules son la referencia | [R62] | Método |
 | 33 | La calibración se ajusta en datos separados | [R63] [R71] | Método |

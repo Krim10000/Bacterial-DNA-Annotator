@@ -10,7 +10,7 @@ Cada documento verifica DOI/PMID/URL; las afirmaciones sin verificación se marc
 | `SIGMA_DATABASES.md` | terminado | 696 | 15 bases | TSS/sigma curados, licencias |
 | `GENERALIZATION.md` | terminado | 1129 | 57 | LOSO/LOCO, transferencia, negativos |
 | `ALT_SIGMA.md` | terminado | 1016 | 48 | Arquitecturas y motivos alternativos |
-| `SIGMA_CONTEXT.md` | en curso | 2036 | — | Contexto/regulón |
+| `SIGMA_CONTEXT.md` | terminado | 2150 | 74 | Contexto/regulón |
 | `SIGMA_STRUCTURE.md` | en curso | — | — | Estructura, dominios, bolsillos |
 
 ## Síntesis
@@ -29,6 +29,12 @@ Cada documento verifica DOI/PMID/URL; las afirmaciones sin verificación se marc
 10. Las 400 no tienen gold sigma-TSS; no se puede reportar accuracy.
 11. El top-1 premia el prior; macro-F1/cobertura son necesarios.
 12. La generalización requiere LOSO/LOCO y negativos.
+13. El contexto prioriza, no prueba. Predice mejor el módulo/condición que la identidad del sigma.
+14. GBA está confundido por multifuncionalidad y densidad de anotación.
+15. La cobertura de contexto es limitada: ~37–50 % de genes en el benchmark de *M. genitalium*; operones con sensibilidad 30–50 % en *E. coli*.
+16. RegulonDB y EcoCyc no son independientes: comparten curación y códigos ECO.
+17. La circularidad tiene al menos 10 formas; hace falta provenance holdout.
+18. En nuestros datos, K-12 no gana (escala 0); B. subtilis sube +13,70 pp, pero gold y tablas comparten BSGatlas/DBTBS.
 
 ### Lo que no se puede afirmar
 
@@ -56,10 +62,9 @@ inventario por especie
 
 ## Bibliografía adicional
 
-Basta de búsqueda amplia por ahora. Faltan dos revisiones en curso:
+Basta de búsqueda amplia por ahora. Falta una revisión en curso:
 
 ```text
-SIGMA_CONTEXT.md
 SIGMA_STRUCTURE.md
 ```
 
