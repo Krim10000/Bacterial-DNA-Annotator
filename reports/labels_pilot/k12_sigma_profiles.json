@@ -1,0 +1,364 @@
+{
+ "sigma24": {
+  "n_targets": 37,
+  "process_labels": [
+   [
+    "envelope",
+    8
+   ],
+   [
+    "sporulation",
+    4
+   ],
+   [
+    "heat_shock",
+    2
+   ],
+   [
+    "nitrogen",
+    1
+   ]
+  ],
+  "pathways": [
+   [
+    "Metabolic pathways",
+    3
+   ],
+   [
+    "Glycerophospholipid metabolism",
+    2
+   ],
+   [
+    "Biosynthesis of secondary metabolites",
+    2
+   ],
+   [
+    "Lipopolysaccharide biosynthesis",
+    2
+   ],
+   [
+    "Cationic antimicrobial peptide (CAMP) resistance",
+    2
+   ],
+   [
+    "Flagellar assembly",
+    1
+   ],
+   [
+    "Nitrogen metabolism",
+    1
+   ],
+   [
+    "Homologous recombination",
+    1
+   ]
+  ]
+ },
+ "sigma28": {
+  "n_targets": 14,
+  "process_labels": [
+   [
+    "flagellum",
+    6
+   ],
+   [
+    "envelope",
+    3
+   ],
+   [
+    "sporulation",
+    2
+   ],
+   [
+    "nitrogen",
+    1
+   ],
+   [
+    "heat_shock",
+    1
+   ]
+  ],
+  "pathways": [
+   [
+    "Two-component system",
+    3
+   ],
+   [
+    "Bacterial chemotaxis",
+    3
+   ],
+   [
+    "Flagellar assembly",
+    2
+   ],
+   [
+    "ABC transporters",
+    2
+   ],
+   [
+    "beta-Lactam resistance",
+    1
+   ],
+   [
+    "Quorum sensing",
+    1
+   ],
+   [
+    "Porphyrin metabolism",
+    1
+   ],
+   [
+    "Metabolic pathways",
+    1
+   ]
+  ]
+ },
+ "sigma32": {
+  "n_targets": 46,
+  "process_labels": [
+   [
+    "heat_shock",
+    12
+   ],
+   [
+    "nitrogen",
+    5
+   ],
+   [
+    "envelope",
+    2
+   ],
+   [
+    "sporulation",
+    1
+   ],
+   [
+    "stationary",
+    1
+   ]
+  ],
+  "pathways": [
+   [
+    "Metabolic pathways",
+    10
+   ],
+   [
+    "Biosynthesis of secondary metabolites",
+    3
+   ],
+   [
+    "Microbial metabolism in diverse environments",
+    3
+   ],
+   [
+    "Biosynthesis of amino acids",
+    3
+   ],
+   [
+    "Integrated stress response (ISR) signaling pathway",
+    3
+   ],
+   [
+    "Cysteine and methionine metabolism",
+    2
+   ],
+   [
+    "RNA degradation",
+    2
+   ],
+   [
+    "Aminoacyl-tRNA biosynthesis",
+    2
+   ]
+  ]
+ },
+ "sigma38": {
+  "n_targets": 116,
+  "process_labels": [
+   [
+    "envelope",
+    15
+   ],
+   [
+    "stationary",
+    13
+   ],
+   [
+    "nitrogen",
+    11
+   ],
+   [
+    "sporulation",
+    9
+   ],
+   [
+    "heat_shock",
+    4
+   ],
+   [
+    "flagellum",
+    2
+   ]
+  ],
+  "pathways": [
+   [
+    "Metabolic pathways",
+    37
+   ],
+   [
+    "Biosynthesis of secondary metabolites",
+    29
+   ],
+   [
+    "Microbial metabolism in diverse environments",
+    23
+   ],
+   [
+    "Carbon metabolism",
+    15
+   ],
+   [
+    "Glycolysis / Gluconeogenesis",
+    13
+   ],
+   [
+    "Biosynthesis of amino acids",
+    12
+   ],
+   [
+    "Two-component system",
+    9
+   ],
+   [
+    "Biofilm formation",
+    7
+   ]
+  ]
+ },
+ "sigma54": {
+  "n_targets": 30,
+  "process_labels": [
+   [
+    "nitrogen",
+    8
+   ],
+   [
+    "sporulation",
+    7
+   ],
+   [
+    "envelope",
+    6
+   ],
+   [
+    "flagellum",
+    2
+   ],
+   [
+    "heat_shock",
+    1
+   ],
+   [
+    "stationary",
+    1
+   ]
+  ],
+  "pathways": [
+   [
+    "Metabolic pathways",
+    8
+   ],
+   [
+    "Two-component system",
+    6
+   ],
+   [
+    "Microbial metabolism in diverse environments",
+    5
+   ],
+   [
+    "Quorum sensing",
+    2
+   ],
+   [
+    "Arginine and proline metabolism",
+    2
+   ],
+   [
+    "Purine metabolism",
+    2
+   ],
+   [
+    "ABC transporters",
+    2
+   ],
+   [
+    "Lysine degradation",
+    2
+   ]
+  ]
+ },
+ "sigma70": {
+  "n_targets": 533,
+  "process_labels": [
+   [
+    "envelope",
+    60
+   ],
+   [
+    "nitrogen",
+    59
+   ],
+   [
+    "sporulation",
+    35
+   ],
+   [
+    "heat_shock",
+    23
+   ],
+   [
+    "stationary",
+    21
+   ],
+   [
+    "flagellum",
+    8
+   ]
+  ],
+  "pathways": [
+   [
+    "Metabolic pathways",
+    196
+   ],
+   [
+    "Biosynthesis of secondary metabolites",
+    103
+   ],
+   [
+    "Microbial metabolism in diverse environments",
+    72
+   ],
+   [
+    "Biosynthesis of amino acids",
+    42
+   ],
+   [
+    "Two-component system",
+    37
+   ],
+   [
+    "Carbon metabolism",
+    36
+   ],
+   [
+    "Biosynthesis of cofactors",
+    31
+   ],
+   [
+    "Purine metabolism",
+    22
+   ]
+  ]
+ }
+}

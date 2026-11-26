@@ -1,0 +1,31 @@
+{
+ "ecoli_k12": {
+  "n_genes": 4534,
+  "n_gaf_ids": 4095,
+  "n_gene_labels": 570,
+  "n_operons": 2544,
+  "n_operons_with_label": 440,
+  "label_counts": {
+   "nitrogen": 193,
+   "envelope": 231,
+   "heat_shock": 44,
+   "stationary": 25,
+   "flagellum": 43
+  }
+ },
+ "subtilis": {
+  "n_genes": 4134,
+  "n_gaf_ids": 2348,
+  "n_gene_labels": 372,
+  "n_operons": 1334,
+  "n_operons_with_label": 244,
+  "label_counts": {
+   "nitrogen": 137,
+   "sporulation": 37,
+   "heat_shock": 11,
+   "envelope": 83,
+   "flagellum": 16,
+   "stationary": 2
+  }
+ }
+}

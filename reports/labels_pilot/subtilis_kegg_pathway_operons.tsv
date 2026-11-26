@@ -1,0 +1,1335 @@
+operon_id	label	pathways
+subtilis:op:00001	operon_rule_based	bsu02020;bsu03030;bsu03430;bsu03440
+subtilis:op:00002	operon_rule_based	
+subtilis:op:00003	operon_rule_based	
+subtilis:op:00004	operon_rule_based	bsu00230;bsu00550;bsu00750;bsu01100;bsu01110;bsu01232;bsu01240
+subtilis:op:00005	operon_rule_based	bsu00970
+subtilis:op:00006	operon_rule_based	
+subtilis:op:00007	operon_rule_based	bsu03030;bsu03430;bsu03440
+subtilis:op:00008	operon_rule_based	
+subtilis:op:00009	operon_rule_based	bsu00240;bsu01100;bsu01232;bsu03030;bsu03430;bsu03440
+subtilis:op:00010	operon_rule_based	bsu00030;bsu00230;bsu00450;bsu00520;bsu00541;bsu00900;bsu00970;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230;bsu01250;bsu03010;bsu03420
+subtilis:op:00011	operon_rule_based	bsu00230;bsu00270;bsu00770;bsu00790;bsu00920;bsu00970;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230;bsu01232;bsu01240;bsu01320
+subtilis:op:00012	operon_rule_based	
+subtilis:op:00013	operon_rule_based	
+subtilis:op:00014	operon_rule_based	
+subtilis:op:00015	operon_rule_based	
+subtilis:op:00016	operon_rule_based	bsu00900;bsu00970;bsu01100;bsu01110;bsu01240
+subtilis:op:00017	operon_rule_based	bsu00230;bsu00270;bsu00543;bsu00730;bsu00920;bsu00970;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230;bsu01232;bsu01240;bsu02024;bsu03010;bsu03020;bsu03060;bsu03070
+subtilis:op:00018	operon_rule_based	bsu02010;bsu03010;bsu03020
+subtilis:op:00019	operon_rule_based	bsu01503
+subtilis:op:00020	operon_rule_based	
+subtilis:op:00021	operon_rule_based	
+subtilis:op:00022	operon_rule_based	
+subtilis:op:00023	operon_rule_based	
+subtilis:op:00024	operon_rule_based	
+subtilis:op:00025	operon_rule_based	
+subtilis:op:00026	operon_rule_based	
+subtilis:op:00027	operon_rule_based	bsu00520;bsu01100;bsu01250
+subtilis:op:00028	operon_rule_based	bsu00250;bsu00520;bsu01100;bsu01250
+subtilis:op:00029	operon_rule_based	
+subtilis:op:00030	operon_rule_based	
+subtilis:op:00031	operon_rule_based	bsu00250;bsu00520;bsu01100;bsu01250
+subtilis:op:00032	operon_rule_based	
+subtilis:op:00033	operon_rule_based	
+subtilis:op:00034	operon_rule_based	
+subtilis:op:00035	operon_rule_based	
+subtilis:op:00036	operon_rule_based	
+subtilis:op:00037	operon_rule_based	
+subtilis:op:00038	operon_rule_based	bsu00230;bsu00260;bsu00564;bsu01100;bsu01110;bsu02024
+subtilis:op:00039	operon_rule_based	
+subtilis:op:00040	operon_rule_based	bsu00053;bsu01100;bsu02020
+subtilis:op:00041	operon_rule_based	
+subtilis:op:00042	operon_rule_based	bsu00790;bsu01100;bsu01240;bsu02020;bsu03060;bsu03070
+subtilis:op:00043	operon_rule_based	
+subtilis:op:00044	operon_rule_based	bsu00250;bsu00460;bsu00561;bsu01100;bsu01110
+subtilis:op:00045	operon_rule_based	
+subtilis:op:00046	operon_rule_based	bsu02010;bsu02020
+subtilis:op:00047	operon_rule_based	
+subtilis:op:00048	operon_rule_based	bsu00030;bsu00052;bsu00500;bsu01100;bsu01120;bsu01200;bsu02010
+subtilis:op:00049	operon_rule_based	
+subtilis:op:00050	operon_rule_based	bsu02010
+subtilis:op:00051	operon_rule_based	bsu00010;bsu00270;bsu00500;bsu00620;bsu00640;bsu01100;bsu01110;bsu01120
+subtilis:op:00052	operon_rule_based	
+subtilis:op:00053	operon_rule_based	bsu00760;bsu01100;bsu01240
+subtilis:op:00054	operon_rule_based	bsu00400;bsu01100;bsu01110;bsu01230
+subtilis:op:00055	operon_rule_based	bsu00250;bsu00311;bsu00330;bsu01100;bsu01110
+subtilis:op:00056	operon_rule_based	
+subtilis:op:00057	operon_rule_based	bsu00790;bsu00910;bsu01100;bsu01240
+subtilis:op:00058	operon_rule_based	
+subtilis:op:00059	operon_rule_based	bsu00010;bsu00500;bsu00966;bsu01110
+subtilis:op:00060	operon_rule_based	
+subtilis:op:00061	operon_rule_based	bsu01054;bsu02024
+subtilis:op:00062	operon_rule_based	
+subtilis:op:00063	operon_rule_based	bsu00130;bsu00627;bsu00740;bsu00900;bsu01100;bsu01110;bsu01120;bsu01220;bsu01240
+subtilis:op:00064	operon_rule_based	
+subtilis:op:00065	operon_rule_based	
+subtilis:op:00066	operon_rule_based	bsu02024
+subtilis:op:00067	operon_rule_based	
+subtilis:op:00068	operon_rule_based	
+subtilis:op:00069	operon_rule_based	bsu00030;bsu00250;bsu00280;bsu00310;bsu00350;bsu00410;bsu00640;bsu00650;bsu00760;bsu01100;bsu01120;bsu01200
+subtilis:op:00070	operon_rule_based	bsu00051;bsu01100;bsu02060
+subtilis:op:00071	operon_rule_based	
+subtilis:op:00072	operon_rule_based	bsu00480;bsu00740;bsu01100;bsu01110;bsu01240
+subtilis:op:00073	operon_rule_based	
+subtilis:op:00074	operon_rule_based	bsu00040
+subtilis:op:00075	operon_rule_based	
+subtilis:op:00076	operon_rule_based	bsu03440
+subtilis:op:00077	operon_rule_based	bsu00620;bsu01100
+subtilis:op:00078	operon_rule_based	
+subtilis:op:00079	operon_rule_based	bsu02020
+subtilis:op:00080	operon_rule_based	
+subtilis:op:00081	operon_rule_based	
+subtilis:op:00082	operon_rule_based	bsu03018
+subtilis:op:00083	operon_rule_based	bsu00074;bsu00470;bsu00770;bsu01100;bsu01110;bsu01502
+subtilis:op:00084	operon_rule_based	
+subtilis:op:00085	operon_rule_based	
+subtilis:op:00086	operon_rule_based	
+subtilis:op:00087	operon_rule_based	
+subtilis:op:00088	operon_rule_based	
+subtilis:op:00089	operon_rule_based	
+subtilis:op:00090	operon_rule_based	
+subtilis:op:00091	operon_rule_based	
+subtilis:op:00092	operon_rule_based	
+subtilis:op:00093	operon_rule_based	
+subtilis:op:00094	operon_rule_based	
+subtilis:op:00095	operon_rule_based	
+subtilis:op:00096	operon_rule_based	
+subtilis:op:00097	operon_rule_based	
+subtilis:op:00098	operon_rule_based	
+subtilis:op:00099	operon_rule_based	
+subtilis:op:00100	operon_rule_based	
+subtilis:op:00101	operon_rule_based	
+subtilis:op:00102	operon_rule_based	bsu02020
+subtilis:op:00103	operon_rule_based	
+subtilis:op:00104	operon_rule_based	
+subtilis:op:00105	operon_rule_based	
+subtilis:op:00106	operon_rule_based	
+subtilis:op:00107	operon_rule_based	
+subtilis:op:00108	operon_rule_based	
+subtilis:op:00109	operon_rule_based	
+subtilis:op:00110	operon_rule_based	
+subtilis:op:00111	operon_rule_based	bsu00010;bsu00051;bsu00500;bsu00520;bsu00966;bsu01100;bsu01110;bsu01240;bsu01250;bsu02024;bsu02060
+subtilis:op:00112	operon_rule_based	
+subtilis:op:00113	operon_rule_based	
+subtilis:op:00114	operon_rule_based	bsu00730;bsu01100;bsu01240
+subtilis:op:00115	operon_rule_based	bsu00790;bsu01100;bsu01240;bsu03060;bsu03070;bsu04122
+subtilis:op:00116	operon_rule_based	bsu03018;bsu04156
+subtilis:op:00117	operon_rule_based	
+subtilis:op:00118	operon_rule_based	bsu00270;bsu01100
+subtilis:op:00119	operon_rule_based	
+subtilis:op:00120	operon_rule_based	
+subtilis:op:00121	operon_rule_based	
+subtilis:op:00122	operon_rule_based	
+subtilis:op:00123	operon_rule_based	
+subtilis:op:00124	operon_rule_based	bsu00040;bsu00051;bsu00500;bsu00520;bsu01100;bsu01110;bsu01250
+subtilis:op:00125	operon_rule_based	
+subtilis:op:00126	operon_rule_based	
+subtilis:op:00127	operon_rule_based	
+subtilis:op:00128	operon_rule_based	
+subtilis:op:00129	operon_rule_based	
+subtilis:op:00130	operon_rule_based	bsu00220;bsu00230;bsu00250;bsu00470;bsu00670;bsu01100;bsu01110;bsu01232;bsu01240
+subtilis:op:00131	operon_rule_based	
+subtilis:op:00132	operon_rule_based	bsu00230;bsu01100;bsu01232
+subtilis:op:00133	operon_rule_based	bsu00564;bsu01110;bsu03030;bsu03410;bsu03420;bsu03430;bsu03440
+subtilis:op:00134	operon_rule_based	bsu00970;bsu01100
+subtilis:op:00135	operon_rule_based	
+subtilis:op:00136	operon_rule_based	bsu00561;bsu00564;bsu01100;bsu01110
+subtilis:op:00137	operon_rule_based	
+subtilis:op:00138	operon_rule_based	bsu00040;bsu00052;bsu00511;bsu00600;bsu01100;bsu01120;bsu02010;bsu02020;bsu02024
+subtilis:op:00139	operon_rule_based	
+subtilis:op:00140	operon_rule_based	
+subtilis:op:00141	operon_rule_based	bsu00071;bsu00380;bsu00627;bsu01120
+subtilis:op:00142	operon_rule_based	bsu00500;bsu00520;bsu00541;bsu01100;bsu01250
+subtilis:op:00143	operon_rule_based	bsu00627;bsu01100;bsu01120
+subtilis:op:00144	operon_rule_based	
+subtilis:op:00145	operon_rule_based	
+subtilis:op:00146	operon_rule_based	bsu00040;bsu00220;bsu00330;bsu01100;bsu01110;bsu01120;bsu02020;bsu02024
+subtilis:op:00147	operon_rule_based	
+subtilis:op:00148	operon_rule_based	bsu00520;bsu02060
+subtilis:op:00149	operon_rule_based	
+subtilis:op:00150	operon_rule_based	bsu00500;bsu01100;bsu02060
+subtilis:op:00151	operon_rule_based	
+subtilis:op:00152	operon_rule_based	bsu02020
+subtilis:op:00153	operon_rule_based	
+subtilis:op:00154	operon_rule_based	
+subtilis:op:00155	operon_rule_based	bsu03410
+subtilis:op:00156	operon_rule_based	
+subtilis:op:00157	operon_rule_based	bsu00010;bsu00020;bsu00260;bsu00280;bsu00310;bsu00380;bsu00620;bsu00630;bsu00640;bsu00670;bsu00785;bsu01100;bsu01110;bsu01120;bsu01200;bsu01210;bsu01240
+subtilis:op:00158	operon_rule_based	bsu00361;bsu00362;bsu00500;bsu00622;bsu01100;bsu01120;bsu01220;bsu02010;bsu02060
+subtilis:op:00159	operon_rule_based	bsu00561;bsu01100;bsu01110
+subtilis:op:00160	operon_rule_based	
+subtilis:op:00161	operon_rule_based	bsu01503;bsu02020
+subtilis:op:00162	operon_rule_based	
+subtilis:op:00163	operon_rule_based	bsu03440
+subtilis:op:00164	operon_rule_based	bsu00552
+subtilis:op:00165	operon_rule_based	bsu03410
+subtilis:op:00166	operon_rule_based	bsu00061;bsu01100;bsu01212
+subtilis:op:00167	operon_rule_based	
+subtilis:op:00168	operon_rule_based	
+subtilis:op:00169	operon_rule_based	
+subtilis:op:00170	operon_rule_based	
+subtilis:op:00171	operon_rule_based	
+subtilis:op:00172	operon_rule_based	
+subtilis:op:00173	operon_rule_based	
+subtilis:op:00174	operon_rule_based	bsu00730;bsu01100;bsu01240
+subtilis:op:00175	operon_rule_based	
+subtilis:op:00176	operon_rule_based	bsu00920;bsu01100;bsu01120;bsu02010;bsu03010
+subtilis:op:00177	operon_rule_based	
+subtilis:op:00178	operon_rule_based	bsu00130;bsu01100;bsu01110;bsu01240
+subtilis:op:00179	operon_rule_based	bsu02010
+subtilis:op:00180	operon_rule_based	
+subtilis:op:00181	operon_rule_based	
+subtilis:op:00182	operon_rule_based	
+subtilis:op:00183	operon_rule_based	
+subtilis:op:00184	operon_rule_based	bsu00010;bsu00030;bsu00052;bsu00230;bsu00500;bsu00520;bsu00521;bsu00561;bsu01100;bsu01110;bsu01120;bsu01250
+subtilis:op:00185	operon_rule_based	
+subtilis:op:00186	operon_rule_based	
+subtilis:op:00187	operon_rule_based	
+subtilis:op:00188	operon_rule_based	bsu00020;bsu00630;bsu01100;bsu01110;bsu01120;bsu01200;bsu01210;bsu01230
+subtilis:op:00189	operon_rule_based	
+subtilis:op:00190	operon_rule_based	bsu00561;bsu00564;bsu01100;bsu01110
+subtilis:op:00191	operon_rule_based	bsu00220;bsu00250;bsu00270;bsu00330;bsu00350;bsu00360;bsu00400;bsu00401;bsu01100;bsu01110;bsu01210;bsu01230
+subtilis:op:00192	operon_rule_based	
+subtilis:op:00193	operon_rule_based	bsu00760;bsu01100
+subtilis:op:00194	operon_rule_based	bsu00310;bsu00330;bsu00360;bsu00470;bsu01100;bsu01120
+subtilis:op:00195	operon_rule_based	bsu02010
+subtilis:op:00196	operon_rule_based	
+subtilis:op:00197	operon_rule_based	bsu00860;bsu01100;bsu01110;bsu01240
+subtilis:op:00198	operon_rule_based	
+subtilis:op:00199	operon_rule_based	
+subtilis:op:00200	operon_rule_based	
+subtilis:op:00201	operon_rule_based	
+subtilis:op:00202	operon_rule_based	bsu00550;bsu00860;bsu01100;bsu01110;bsu01240;bsu01501
+subtilis:op:00203	operon_rule_based	
+subtilis:op:00204	operon_rule_based	
+subtilis:op:00205	operon_rule_based	bsu00061;bsu00071;bsu00785;bsu01100;bsu01212;bsu01240;bsu02024;bsu04146
+subtilis:op:00206	operon_rule_based	
+subtilis:op:00207	operon_rule_based	bsu00640;bsu01100;bsu01120
+subtilis:op:00208	operon_rule_based	
+subtilis:op:00209	operon_rule_based	bsu02024
+subtilis:op:00210	operon_rule_based	
+subtilis:op:00211	operon_rule_based	bsu03060
+subtilis:op:00212	operon_rule_based	
+subtilis:op:00213	operon_rule_based	
+subtilis:op:00214	operon_rule_based	bsu03440
+subtilis:op:00215	operon_rule_based	bsu00620;bsu01100
+subtilis:op:00216	operon_rule_based	bsu00250;bsu01100;bsu01110;bsu01230
+subtilis:op:00217	operon_rule_based	
+subtilis:op:00218	operon_rule_based	bsu00562;bsu01100;bsu01120
+subtilis:op:00219	operon_rule_based	
+subtilis:op:00220	operon_rule_based	
+subtilis:op:00221	operon_rule_based	bsu00680;bsu01100;bsu01120;bsu01240
+subtilis:op:00222	operon_rule_based	
+subtilis:op:00223	operon_rule_based	bsu02024
+subtilis:op:00224	operon_rule_based	
+subtilis:op:00225	operon_rule_based	bsu00220;bsu00240;bsu00250;bsu00300;bsu01100;bsu01110;bsu01120;bsu01210;bsu01230;bsu01240
+subtilis:op:00226	operon_rule_based	
+subtilis:op:00227	operon_rule_based	bsu00061;bsu00780;bsu01100;bsu01212;bsu01240;bsu02024
+subtilis:op:00228	operon_rule_based	bsu01501;bsu02010;bsu02024
+subtilis:op:00229	operon_rule_based	
+subtilis:op:00230	operon_rule_based	bsu00230;bsu00760;bsu01100;bsu01240
+subtilis:op:00231	operon_rule_based	bsu00061;bsu00730;bsu00780;bsu01100;bsu01110;bsu01212;bsu01240;bsu04122
+subtilis:op:00232	operon_rule_based	
+subtilis:op:00233	operon_rule_based	
+subtilis:op:00234	operon_rule_based	bsu00270;bsu00450;bsu01100;bsu01110;bsu01230
+subtilis:op:00235	operon_rule_based	
+subtilis:op:00236	operon_rule_based	
+subtilis:op:00237	operon_rule_based	bsu00051;bsu00520;bsu01100;bsu01110;bsu01240;bsu01250;bsu02060
+subtilis:op:00238	operon_rule_based	
+subtilis:op:00239	operon_rule_based	
+subtilis:op:00240	operon_rule_based	
+subtilis:op:00241	operon_rule_based	bsu00630;bsu00680;bsu01100;bsu01120;bsu01200
+subtilis:op:00242	operon_rule_based	
+subtilis:op:00243	operon_rule_based	bsu00860;bsu01100;bsu01110;bsu01120;bsu01240
+subtilis:op:00244	operon_rule_based	
+subtilis:op:00245	operon_rule_based	bsu00040;bsu00190;bsu01100;bsu01120
+subtilis:op:00246	operon_rule_based	bsu02024
+subtilis:op:00247	operon_rule_based	
+subtilis:op:00248	operon_rule_based	
+subtilis:op:00249	operon_rule_based	
+subtilis:op:00250	operon_rule_based	
+subtilis:op:00251	operon_rule_based	
+subtilis:op:00252	operon_rule_based	bsu00330;bsu00470;bsu01100;bsu01110;bsu01230;bsu02010;bsu02024
+subtilis:op:00253	operon_rule_based	
+subtilis:op:00254	operon_rule_based	bsu00630;bsu00670;bsu01100
+subtilis:op:00255	operon_rule_based	bsu00330;bsu00332;bsu01100;bsu01110;bsu01230
+subtilis:op:00256	operon_rule_based	
+subtilis:op:00257	operon_rule_based	
+subtilis:op:00258	operon_rule_based	bsu02020
+subtilis:op:00259	operon_rule_based	
+subtilis:op:00260	operon_rule_based	
+subtilis:op:00261	operon_rule_based	
+subtilis:op:00262	operon_rule_based	
+subtilis:op:00263	operon_rule_based	
+subtilis:op:00264	operon_rule_based	
+subtilis:op:00265	operon_rule_based	bsu02020
+subtilis:op:00266	operon_rule_based	bsu00270;bsu01100
+subtilis:op:00267	operon_rule_based	
+subtilis:op:00268	operon_rule_based	
+subtilis:op:00269	operon_rule_based	
+subtilis:op:00270	operon_rule_based	bsu00790;bsu01100
+subtilis:op:00271	operon_rule_based	
+subtilis:op:00272	operon_rule_based	
+subtilis:op:00273	operon_rule_based	
+subtilis:op:00274	operon_rule_based	
+subtilis:op:00275	operon_rule_based	bsu00010;bsu00520;bsu01100;bsu02060
+subtilis:op:00276	operon_rule_based	bsu02020;bsu02030
+subtilis:op:00277	operon_rule_based	bsu00550;bsu01100;bsu02020
+subtilis:op:00278	operon_rule_based	bsu02020;bsu02030
+subtilis:op:00279	operon_rule_based	
+subtilis:op:00280	operon_rule_based	bsu00300;bsu01100;bsu01110;bsu01230
+subtilis:op:00281	operon_rule_based	
+subtilis:op:00282	operon_rule_based	
+subtilis:op:00283	operon_rule_based	bsu00051;bsu00790;bsu01100;bsu01120;bsu01240;bsu02010;bsu02060;bsu03060;bsu04122
+subtilis:op:00284	operon_rule_based	bsu00770;bsu01100;bsu01110;bsu01240
+subtilis:op:00285	operon_rule_based	bsu00230;bsu01100;bsu01232;bsu02020
+subtilis:op:00286	operon_rule_based	
+subtilis:op:00287	operon_rule_based	
+subtilis:op:00288	operon_rule_based	bsu00010;bsu00020;bsu00260;bsu00280;bsu00310;bsu00380;bsu00620;bsu00630;bsu00640;bsu00670;bsu00785;bsu01100;bsu01110;bsu01120;bsu01200;bsu01210;bsu01240
+subtilis:op:00289	operon_rule_based	
+subtilis:op:00290	operon_rule_based	bsu00521;bsu00562;bsu01100;bsu01110
+subtilis:op:00291	operon_rule_based	
+subtilis:op:00292	operon_rule_based	
+subtilis:op:00293	operon_rule_based	
+subtilis:op:00294	operon_rule_based	bsu00020;bsu00220;bsu00250;bsu00470;bsu00550;bsu00620;bsu00720;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230;bsu02020
+subtilis:op:00295	operon_rule_based	bsu00190;bsu00860;bsu01100;bsu01110;bsu01240
+subtilis:op:00296	operon_rule_based	
+subtilis:op:00297	operon_rule_based	bsu00770;bsu01100;bsu01240
+subtilis:op:00298	operon_rule_based	
+subtilis:op:00299	operon_rule_based	bsu03010
+subtilis:op:00300	operon_rule_based	bsu00300;bsu00470;bsu00520;bsu00550;bsu00770;bsu01100;bsu01110;bsu01240;bsu01250;bsu01502
+subtilis:op:00301	operon_rule_based	bsu00230;bsu00270;bsu00730;bsu01100;bsu01232
+subtilis:op:00302	operon_rule_based	bsu00220;bsu00230;bsu00240;bsu00250;bsu00261;bsu00450;bsu00860;bsu00920;bsu00970;bsu01100;bsu01110;bsu01120;bsu01232;bsu01240;bsu01320;bsu03060
+subtilis:op:00303	operon_rule_based	bsu00030;bsu00040;bsu00230;bsu00710;bsu00730;bsu00770;bsu00970;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230;bsu01232;bsu01240;bsu03020;bsu03440
+subtilis:op:00304	operon_rule_based	bsu00061;bsu00074;bsu00260;bsu00270;bsu00561;bsu00780;bsu00998;bsu01100;bsu01110;bsu01200;bsu01212;bsu01230;bsu01240;bsu02024;bsu03060;bsu03070;bsu03440
+subtilis:op:00305	operon_rule_based	bsu00020;bsu00640;bsu00660;bsu00720;bsu01100;bsu01110;bsu01120;bsu01200;bsu02024;bsu03010;bsu03030;bsu03060;bsu03070
+subtilis:op:00306	operon_rule_based	bsu00240;bsu00550;bsu00900;bsu00970;bsu01100;bsu01110;bsu01232;bsu01240;bsu02020;bsu02030;bsu02040;bsu03010
+subtilis:op:00307	operon_rule_based	bsu00061;bsu00230;bsu00240;bsu00260;bsu00261;bsu00270;bsu00300;bsu00564;bsu00780;bsu01100;bsu01110;bsu01120;bsu01210;bsu01212;bsu01230;bsu01240;bsu03010;bsu03018;bsu03430;bsu03440
+subtilis:op:00308	operon_rule_based	
+subtilis:op:00309	operon_rule_based	
+subtilis:op:00310	operon_rule_based	
+subtilis:op:00311	operon_rule_based	
+subtilis:op:00312	operon_rule_based	bsu00230;bsu00240;bsu01100;bsu01110;bsu01232;bsu02024;bsu03018
+subtilis:op:00313	operon_rule_based	bsu00220;bsu00250;bsu00630;bsu00910;bsu01100;bsu01110;bsu01120;bsu01230;bsu02020
+subtilis:op:00314	operon_rule_based	
+subtilis:op:00315	operon_rule_based	
+subtilis:op:00316	operon_rule_based	
+subtilis:op:00317	operon_rule_based	bsu00520;bsu01100
+subtilis:op:00318	operon_rule_based	bsu00040;bsu00051;bsu01100
+subtilis:op:00319	operon_rule_based	
+subtilis:op:00320	operon_rule_based	bsu00240;bsu01100;bsu01232
+subtilis:op:00321	operon_rule_based	bsu00240;bsu00670;bsu01100;bsu01232;bsu04981
+subtilis:op:00322	operon_rule_based	
+subtilis:op:00323	operon_rule_based	
+subtilis:op:00324	operon_rule_based	
+subtilis:op:00325	operon_rule_based	bsu00030;bsu00710;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230
+subtilis:op:00326	operon_rule_based	bsu02020;bsu02030
+subtilis:op:00327	operon_rule_based	bsu00020;bsu00630;bsu00640;bsu00720;bsu01100;bsu01110;bsu01120;bsu01200;bsu01210;bsu01230
+subtilis:op:00328	operon_rule_based	
+subtilis:op:00329	operon_rule_based	
+subtilis:op:00330	operon_rule_based	
+subtilis:op:00331	operon_rule_based	bsu00500;bsu01100;bsu02020
+subtilis:op:00332	operon_rule_based	bsu00040;bsu00052;bsu00500;bsu00520;bsu00541;bsu01100;bsu01110;bsu01120;bsu01240;bsu01250
+subtilis:op:00333	operon_rule_based	
+subtilis:op:00334	operon_rule_based	bsu00430;bsu00460;bsu00480;bsu01100
+subtilis:op:00335	operon_rule_based	
+subtilis:op:00336	operon_rule_based	
+subtilis:op:00337	operon_rule_based	
+subtilis:op:00338	operon_rule_based	
+subtilis:op:00339	operon_rule_based	
+subtilis:op:00340	operon_rule_based	bsu00350;bsu01100;bsu01120;bsu01220
+subtilis:op:00341	operon_rule_based	
+subtilis:op:00342	operon_rule_based	
+subtilis:op:00343	operon_rule_based	
+subtilis:op:00344	operon_rule_based	
+subtilis:op:00345	operon_rule_based	bsu00311;bsu01110;bsu01501
+subtilis:op:00346	operon_rule_based	
+subtilis:op:00347	operon_rule_based	
+subtilis:op:00348	operon_rule_based	
+subtilis:op:00349	operon_rule_based	
+subtilis:op:00350	operon_rule_based	
+subtilis:op:00351	operon_rule_based	bsu02024
+subtilis:op:00352	operon_rule_based	
+subtilis:op:00353	operon_rule_based	bsu00250;bsu00270;bsu00280;bsu00350;bsu00360;bsu00380;bsu00400;bsu01100;bsu01110
+subtilis:op:00354	operon_rule_based	
+subtilis:op:00355	operon_rule_based	
+subtilis:op:00356	operon_rule_based	
+subtilis:op:00357	operon_rule_based	bsu02020
+subtilis:op:00358	operon_rule_based	
+subtilis:op:00359	operon_rule_based	
+subtilis:op:00360	operon_rule_based	bsu00010;bsu00053;bsu00071;bsu00280;bsu00310;bsu00330;bsu00340;bsu00380;bsu00410;bsu00561;bsu00620;bsu00625;bsu00770;bsu01100;bsu01110;bsu01120;bsu01240;bsu04146
+subtilis:op:00361	operon_rule_based	
+subtilis:op:00362	operon_rule_based	
+subtilis:op:00363	operon_rule_based	
+subtilis:op:00364	operon_rule_based	
+subtilis:op:00365	operon_rule_based	
+subtilis:op:00366	operon_rule_based	
+subtilis:op:00367	operon_rule_based	
+subtilis:op:00368	operon_rule_based	
+subtilis:op:00369	operon_rule_based	
+subtilis:op:00370	operon_rule_based	
+subtilis:op:00371	operon_rule_based	
+subtilis:op:00372	operon_rule_based	
+subtilis:op:00373	operon_rule_based	
+subtilis:op:00374	operon_rule_based	
+subtilis:op:00375	operon_rule_based	
+subtilis:op:00376	operon_rule_based	
+subtilis:op:00377	operon_rule_based	
+subtilis:op:00378	operon_rule_based	
+subtilis:op:00379	operon_rule_based	
+subtilis:op:00380	operon_rule_based	
+subtilis:op:00381	operon_rule_based	
+subtilis:op:00382	operon_rule_based	
+subtilis:op:00383	operon_rule_based	
+subtilis:op:00384	operon_rule_based	
+subtilis:op:00385	operon_rule_based	
+subtilis:op:00386	operon_rule_based	
+subtilis:op:00387	operon_rule_based	
+subtilis:op:00388	operon_rule_based	
+subtilis:op:00389	operon_rule_based	
+subtilis:op:00390	operon_rule_based	
+subtilis:op:00391	operon_rule_based	
+subtilis:op:00392	operon_rule_based	bsu00270;bsu00552;bsu00561;bsu00920;bsu01100;bsu01110;bsu01120;bsu01230
+subtilis:op:00393	operon_rule_based	
+subtilis:op:00394	operon_rule_based	bsu03030
+subtilis:op:00395	operon_rule_based	bsu00040;bsu01100;bsu01120
+subtilis:op:00396	operon_rule_based	
+subtilis:op:00397	operon_rule_based	
+subtilis:op:00398	operon_rule_based	
+subtilis:op:00399	operon_rule_based	bsu00550;bsu01100;bsu01501;bsu03440
+subtilis:op:00400	operon_rule_based	
+subtilis:op:00401	operon_rule_based	
+subtilis:op:00402	operon_rule_based	
+subtilis:op:00403	operon_rule_based	bsu00260;bsu00270;bsu00680;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230
+subtilis:op:00404	operon_rule_based	
+subtilis:op:00405	operon_rule_based	
+subtilis:op:00406	operon_rule_based	
+subtilis:op:00407	operon_rule_based	
+subtilis:op:00408	operon_rule_based	
+subtilis:op:00409	operon_rule_based	
+subtilis:op:00410	operon_rule_based	
+subtilis:op:00411	operon_rule_based	
+subtilis:op:00412	operon_rule_based	bsu00330;bsu01100;bsu01110;bsu01230
+subtilis:op:00413	operon_rule_based	
+subtilis:op:00414	operon_rule_based	bsu00030;bsu00480;bsu01100;bsu01110;bsu01120;bsu01200
+subtilis:op:00415	operon_rule_based	bsu02024;bsu03060;bsu03070
+subtilis:op:00416	operon_rule_based	
+subtilis:op:00417	operon_rule_based	
+subtilis:op:00418	operon_rule_based	
+subtilis:op:00419	operon_rule_based	
+subtilis:op:00420	operon_rule_based	
+subtilis:op:00421	operon_rule_based	
+subtilis:op:00422	operon_rule_based	
+subtilis:op:00423	operon_rule_based	
+subtilis:op:00424	operon_rule_based	
+subtilis:op:00425	operon_rule_based	
+subtilis:op:00426	operon_rule_based	
+subtilis:op:00427	operon_rule_based	
+subtilis:op:00428	operon_rule_based	
+subtilis:op:00429	operon_rule_based	
+subtilis:op:00430	operon_rule_based	bsu00900;bsu01100;bsu01110
+subtilis:op:00431	operon_rule_based	
+subtilis:op:00432	operon_rule_based	bsu03010
+subtilis:op:00433	operon_rule_based	
+subtilis:op:00434	operon_rule_based	
+subtilis:op:00435	operon_rule_based	
+subtilis:op:00436	operon_rule_based	
+subtilis:op:00437	operon_rule_based	
+subtilis:op:00438	operon_rule_based	
+subtilis:op:00439	operon_rule_based	
+subtilis:op:00440	operon_rule_based	
+subtilis:op:00441	operon_rule_based	
+subtilis:op:00442	operon_rule_based	
+subtilis:op:00443	operon_rule_based	
+subtilis:op:00444	operon_rule_based	
+subtilis:op:00445	operon_rule_based	
+subtilis:op:00446	operon_rule_based	bsu00330;bsu01100
+subtilis:op:00447	operon_rule_based	
+subtilis:op:00448	operon_rule_based	
+subtilis:op:00449	operon_rule_based	bsu00910;bsu01100
+subtilis:op:00450	operon_rule_based	bsu00470;bsu01100
+subtilis:op:00451	operon_rule_based	
+subtilis:op:00452	operon_rule_based	
+subtilis:op:00453	operon_rule_based	
+subtilis:op:00454	operon_rule_based	
+subtilis:op:00455	operon_rule_based	bsu00010;bsu00071;bsu00350;bsu00620;bsu00625;bsu00626;bsu00680;bsu01100;bsu01110;bsu01120;bsu01200;bsu01220
+subtilis:op:00456	operon_rule_based	bsu00010;bsu00561;bsu00620;bsu01100;bsu01110;bsu01120
+subtilis:op:00457	operon_rule_based	
+subtilis:op:00458	operon_rule_based	
+subtilis:op:00459	operon_rule_based	
+subtilis:op:00460	operon_rule_based	
+subtilis:op:00461	operon_rule_based	bsu02010
+subtilis:op:00462	operon_rule_based	
+subtilis:op:00463	operon_rule_based	bsu01503
+subtilis:op:00464	operon_rule_based	
+subtilis:op:00465	operon_rule_based	
+subtilis:op:00466	operon_rule_based	
+subtilis:op:00467	operon_rule_based	bsu00730;bsu01100;bsu01240;bsu04122
+subtilis:op:00468	operon_rule_based	
+subtilis:op:00469	operon_rule_based	
+subtilis:op:00470	operon_rule_based	
+subtilis:op:00471	operon_rule_based	
+subtilis:op:00472	operon_rule_based	bsu03030
+subtilis:op:00473	operon_rule_based	bsu00630;bsu01100;bsu01110;bsu01120
+subtilis:op:00474	operon_rule_based	
+subtilis:op:00475	operon_rule_based	
+subtilis:op:00476	operon_rule_based	bsu00260;bsu00680;bsu01100;bsu01110;bsu01200;bsu01230
+subtilis:op:00477	operon_rule_based	bsu00620;bsu00640;bsu01100
+subtilis:op:00478	operon_rule_based	
+subtilis:op:00479	operon_rule_based	
+subtilis:op:00480	operon_rule_based	
+subtilis:op:00481	operon_rule_based	
+subtilis:op:00482	operon_rule_based	bsu00760;bsu01100;bsu01240
+subtilis:op:00483	operon_rule_based	
+subtilis:op:00484	operon_rule_based	bsu00340;bsu01100;bsu01110;bsu01230
+subtilis:op:00485	operon_rule_based	bsu00270;bsu01100
+subtilis:op:00486	operon_rule_based	bsu03010
+subtilis:op:00487	operon_rule_based	
+subtilis:op:00488	operon_rule_based	
+subtilis:op:00489	operon_rule_based	
+subtilis:op:00490	operon_rule_based	
+subtilis:op:00491	operon_rule_based	
+subtilis:op:00492	operon_rule_based	bsu00270;bsu00920;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230;bsu01320
+subtilis:op:00493	operon_rule_based	
+subtilis:op:00494	operon_rule_based	
+subtilis:op:00495	operon_rule_based	
+subtilis:op:00496	operon_rule_based	
+subtilis:op:00497	operon_rule_based	bsu00052;bsu00561;bsu00600;bsu01100;bsu02010
+subtilis:op:00498	operon_rule_based	
+subtilis:op:00499	operon_rule_based	
+subtilis:op:00500	operon_rule_based	
+subtilis:op:00501	operon_rule_based	bsu00910;bsu01100
+subtilis:op:00502	operon_rule_based	bsu00010;bsu00020;bsu00620;bsu00710;bsu01100;bsu01110;bsu01120;bsu01200
+subtilis:op:00503	operon_rule_based	
+subtilis:op:00504	operon_rule_based	
+subtilis:op:00505	operon_rule_based	bsu00190;bsu01100;bsu02020
+subtilis:op:00506	operon_rule_based	
+subtilis:op:00507	operon_rule_based	bsu00040;bsu00053;bsu00520;bsu00541;bsu01100;bsu01120;bsu01240;bsu01250
+subtilis:op:00508	operon_rule_based	
+subtilis:op:00509	operon_rule_based	
+subtilis:op:00510	operon_rule_based	
+subtilis:op:00511	operon_rule_based	
+subtilis:op:00512	operon_rule_based	
+subtilis:op:00513	operon_rule_based	bsu00270;bsu00430;bsu01100
+subtilis:op:00514	operon_rule_based	bsu00562;bsu01100;bsu01120
+subtilis:op:00515	operon_rule_based	
+subtilis:op:00516	operon_rule_based	
+subtilis:op:00517	operon_rule_based	
+subtilis:op:00518	operon_rule_based	
+subtilis:op:00519	operon_rule_based	bsu00270;bsu00450;bsu01100;bsu01110;bsu01230;bsu02020
+subtilis:op:00520	operon_rule_based	bsu00550;bsu01100
+subtilis:op:00521	operon_rule_based	bsu02020
+subtilis:op:00522	operon_rule_based	bsu02010;bsu02020
+subtilis:op:00523	operon_rule_based	
+subtilis:op:00524	operon_rule_based	
+subtilis:op:00525	operon_rule_based	
+subtilis:op:00526	operon_rule_based	bsu00250;bsu00430;bsu01100
+subtilis:op:00527	operon_rule_based	bsu02010
+subtilis:op:00528	operon_rule_based	
+subtilis:op:00529	operon_rule_based	
+subtilis:op:00530	operon_rule_based	bsu00230;bsu01100;bsu01232
+subtilis:op:00531	operon_rule_based	
+subtilis:op:00532	operon_rule_based	
+subtilis:op:00533	operon_rule_based	
+subtilis:op:00534	operon_rule_based	
+subtilis:op:00535	operon_rule_based	
+subtilis:op:00536	operon_rule_based	bsu00230;bsu01100;bsu01120;bsu02020
+subtilis:op:00537	operon_rule_based	
+subtilis:op:00538	operon_rule_based	
+subtilis:op:00539	operon_rule_based	
+subtilis:op:00540	operon_rule_based	
+subtilis:op:00541	operon_rule_based	
+subtilis:op:00542	operon_rule_based	
+subtilis:op:00543	operon_rule_based	
+subtilis:op:00544	operon_rule_based	bsu02020
+subtilis:op:00545	operon_rule_based	
+subtilis:op:00546	operon_rule_based	
+subtilis:op:00547	operon_rule_based	
+subtilis:op:00548	operon_rule_based	bsu00630;bsu01100
+subtilis:op:00549	operon_rule_based	
+subtilis:op:00550	operon_rule_based	bsu00552;bsu00561;bsu01100
+subtilis:op:00551	operon_rule_based	bsu02010
+subtilis:op:00552	operon_rule_based	
+subtilis:op:00553	operon_rule_based	
+subtilis:op:00554	operon_rule_based	
+subtilis:op:00555	operon_rule_based	bsu02020;bsu02030
+subtilis:op:00556	operon_rule_based	
+subtilis:op:00557	operon_rule_based	
+subtilis:op:00558	operon_rule_based	
+subtilis:op:00559	operon_rule_based	
+subtilis:op:00560	operon_rule_based	
+subtilis:op:00561	operon_rule_based	
+subtilis:op:00562	operon_rule_based	
+subtilis:op:00563	operon_rule_based	
+subtilis:op:00564	operon_rule_based	
+subtilis:op:00565	operon_rule_based	
+subtilis:op:00566	operon_rule_based	
+subtilis:op:00567	operon_rule_based	bsu00500;bsu01100;bsu02020
+subtilis:op:00568	operon_rule_based	
+subtilis:op:00569	operon_rule_based	
+subtilis:op:00570	operon_rule_based	
+subtilis:op:00571	operon_rule_based	
+subtilis:op:00572	operon_rule_based	
+subtilis:op:00573	operon_rule_based	bsu00040;bsu01100;bsu01120
+subtilis:op:00574	operon_rule_based	bsu00520;bsu01100
+subtilis:op:00575	operon_rule_based	
+subtilis:op:00576	operon_rule_based	
+subtilis:op:00577	operon_rule_based	
+subtilis:op:00578	operon_rule_based	bsu00946
+subtilis:op:00579	operon_rule_based	bsu00552
+subtilis:op:00580	operon_rule_based	bsu00552
+subtilis:op:00581	operon_rule_based	bsu00040;bsu00052;bsu00500;bsu00520;bsu00541;bsu01100;bsu01110;bsu01120;bsu01240;bsu01250
+subtilis:op:00582	operon_rule_based	
+subtilis:op:00583	operon_rule_based	bsu00552
+subtilis:op:00584	operon_rule_based	
+subtilis:op:00585	operon_rule_based	bsu00552;bsu00740;bsu01100;bsu01110;bsu01240
+subtilis:op:00586	operon_rule_based	bsu00030;bsu01100;bsu02010;bsu02030
+subtilis:op:00587	operon_rule_based	
+subtilis:op:00588	operon_rule_based	
+subtilis:op:00589	operon_rule_based	
+subtilis:op:00590	operon_rule_based	
+subtilis:op:00591	operon_rule_based	
+subtilis:op:00592	operon_rule_based	
+subtilis:op:00593	operon_rule_based	
+subtilis:op:00594	operon_rule_based	
+subtilis:op:00595	operon_rule_based	
+subtilis:op:00596	operon_rule_based	bsu00550;bsu00552;bsu02020
+subtilis:op:00597	operon_rule_based	
+subtilis:op:00598	operon_rule_based	
+subtilis:op:00599	operon_rule_based	
+subtilis:op:00600	operon_rule_based	
+subtilis:op:00601	operon_rule_based	
+subtilis:op:00602	operon_rule_based	
+subtilis:op:00603	operon_rule_based	
+subtilis:op:00604	operon_rule_based	bsu00564;bsu01100
+subtilis:op:00605	operon_rule_based	
+subtilis:op:00606	operon_rule_based	
+subtilis:op:00607	operon_rule_based	bsu02024
+subtilis:op:00608	operon_rule_based	bsu00550;bsu01100
+subtilis:op:00609	operon_rule_based	bsu00362;bsu00622;bsu01100;bsu01120;bsu01220
+subtilis:op:00610	operon_rule_based	
+subtilis:op:00611	operon_rule_based	bsu00860;bsu00998;bsu01100;bsu01110;bsu01240
+subtilis:op:00612	operon_rule_based	
+subtilis:op:00613	operon_rule_based	bsu00010;bsu00053;bsu00071;bsu00280;bsu00310;bsu00330;bsu00340;bsu00380;bsu00410;bsu00561;bsu00620;bsu00625;bsu00770;bsu01100;bsu01110;bsu01120;bsu01240
+subtilis:op:00614	operon_rule_based	bsu00750;bsu01100;bsu01240
+subtilis:op:00615	operon_rule_based	
+subtilis:op:00616	operon_rule_based	
+subtilis:op:00617	operon_rule_based	
+subtilis:op:00618	operon_rule_based	
+subtilis:op:00619	operon_rule_based	
+subtilis:op:00620	operon_rule_based	
+subtilis:op:00621	operon_rule_based	
+subtilis:op:00622	operon_rule_based	bsu00620;bsu01100
+subtilis:op:00623	operon_rule_based	
+subtilis:op:00624	operon_rule_based	bsu00500;bsu02060
+subtilis:op:00625	operon_rule_based	
+subtilis:op:00626	operon_rule_based	bsu00270;bsu00280;bsu00290;bsu00470;bsu00552;bsu00770;bsu00966;bsu01100;bsu01110;bsu01210;bsu01230;bsu01240;bsu01503;bsu02020
+subtilis:op:00627	operon_rule_based	bsu00380;bsu00630;bsu01100;bsu01110;bsu01200;bsu04146
+subtilis:op:00628	operon_rule_based	
+subtilis:op:00629	operon_rule_based	bsu02020
+subtilis:op:00630	operon_rule_based	bsu00010;bsu00053;bsu00071;bsu00280;bsu00310;bsu00330;bsu00340;bsu00380;bsu00410;bsu00561;bsu00620;bsu00625;bsu00770;bsu01100;bsu01110;bsu01120;bsu01240
+subtilis:op:00631	operon_rule_based	
+subtilis:op:00632	operon_rule_based	
+subtilis:op:00633	operon_rule_based	
+subtilis:op:00634	operon_rule_based	
+subtilis:op:00635	operon_rule_based	
+subtilis:op:00636	operon_rule_based	
+subtilis:op:00637	operon_rule_based	bsu00340;bsu01100
+subtilis:op:00638	operon_rule_based	
+subtilis:op:00639	operon_rule_based	
+subtilis:op:00640	operon_rule_based	
+subtilis:op:00641	operon_rule_based	
+subtilis:op:00642	operon_rule_based	bsu00010;bsu00053;bsu00071;bsu00280;bsu00310;bsu00330;bsu00340;bsu00380;bsu00410;bsu00561;bsu00620;bsu00625;bsu00770;bsu01100;bsu01110;bsu01120;bsu01240
+subtilis:op:00643	operon_rule_based	bsu00250;bsu01100;bsu01110;bsu01230
+subtilis:op:00644	operon_rule_based	
+subtilis:op:00645	operon_rule_based	
+subtilis:op:00646	operon_rule_based	
+subtilis:op:00647	operon_rule_based	bsu00030;bsu00480;bsu01100;bsu01110;bsu01120;bsu01200
+subtilis:op:00648	operon_rule_based	
+subtilis:op:00649	operon_rule_based	
+subtilis:op:00650	operon_rule_based	
+subtilis:op:00651	operon_rule_based	
+subtilis:op:00652	operon_rule_based	bsu02024
+subtilis:op:00653	operon_rule_based	
+subtilis:op:00654	operon_rule_based	
+subtilis:op:00655	operon_rule_based	
+subtilis:op:00656	operon_rule_based	
+subtilis:op:00657	operon_rule_based	bsu00190
+subtilis:op:00658	operon_rule_based	
+subtilis:op:00659	operon_rule_based	
+subtilis:op:00660	operon_rule_based	
+subtilis:op:00661	operon_rule_based	
+subtilis:op:00662	operon_rule_based	
+subtilis:op:00663	operon_rule_based	
+subtilis:op:00664	operon_rule_based	
+subtilis:op:00665	operon_rule_based	
+subtilis:op:00666	operon_rule_based	
+subtilis:op:00667	operon_rule_based	
+subtilis:op:00668	operon_rule_based	
+subtilis:op:00669	operon_rule_based	bsu00230;bsu00240;bsu01100;bsu01232
+subtilis:op:00670	operon_rule_based	
+subtilis:op:00671	operon_rule_based	
+subtilis:op:00672	operon_rule_based	
+subtilis:op:00673	operon_rule_based	
+subtilis:op:00674	operon_rule_based	
+subtilis:op:00675	operon_rule_based	bsu00500;bsu00520;bsu00550;bsu01100;bsu01501;bsu02060
+subtilis:op:00676	operon_rule_based	bsu03410
+subtilis:op:00677	operon_rule_based	
+subtilis:op:00678	operon_rule_based	bsu01501
+subtilis:op:00679	operon_rule_based	
+subtilis:op:00680	operon_rule_based	bsu00564
+subtilis:op:00681	operon_rule_based	
+subtilis:op:00682	operon_rule_based	bsu00520;bsu01100;bsu02060
+subtilis:op:00683	operon_rule_based	bsu00220;bsu00250;bsu00270;bsu00470;bsu00670;bsu01100;bsu01110;bsu02020;bsu04981
+subtilis:op:00684	operon_rule_based	
+subtilis:op:00685	operon_rule_based	
+subtilis:op:00686	operon_rule_based	
+subtilis:op:00687	operon_rule_based	
+subtilis:op:00688	operon_rule_based	bsu02020
+subtilis:op:00689	operon_rule_based	
+subtilis:op:00690	operon_rule_based	
+subtilis:op:00691	operon_rule_based	
+subtilis:op:00692	operon_rule_based	
+subtilis:op:00693	operon_rule_based	
+subtilis:op:00694	operon_rule_based	
+subtilis:op:00695	operon_rule_based	
+subtilis:op:00696	operon_rule_based	
+subtilis:op:00697	operon_rule_based	
+subtilis:op:00698	operon_rule_based	
+subtilis:op:00699	operon_rule_based	bsu00910;bsu01100;bsu01120;bsu01310
+subtilis:op:00700	operon_rule_based	bsu02010;bsu02040
+subtilis:op:00701	operon_rule_based	bsu00030;bsu00680;bsu01100;bsu01120;bsu01200;bsu01230;bsu02020;bsu02030
+subtilis:op:00702	operon_rule_based	
+subtilis:op:00703	operon_rule_based	
+subtilis:op:00704	operon_rule_based	bsu02010;bsu02040
+subtilis:op:00705	operon_rule_based	
+subtilis:op:00706	operon_rule_based	
+subtilis:op:00707	operon_rule_based	
+subtilis:op:00708	operon_rule_based	bsu00260;bsu00261;bsu00270;bsu00300;bsu01100;bsu01110;bsu01120;bsu01210;bsu01230
+subtilis:op:00709	operon_rule_based	
+subtilis:op:00710	operon_rule_based	
+subtilis:op:00711	operon_rule_based	
+subtilis:op:00712	operon_rule_based	
+subtilis:op:00713	operon_rule_based	
+subtilis:op:00714	operon_rule_based	
+subtilis:op:00715	operon_rule_based	
+subtilis:op:00716	operon_rule_based	
+subtilis:op:00717	operon_rule_based	
+subtilis:op:00718	operon_rule_based	bsu02020
+subtilis:op:00719	operon_rule_based	
+subtilis:op:00720	operon_rule_based	
+subtilis:op:00721	operon_rule_based	
+subtilis:op:00722	operon_rule_based	
+subtilis:op:00723	operon_rule_based	
+subtilis:op:00724	operon_rule_based	
+subtilis:op:00725	operon_rule_based	
+subtilis:op:00726	operon_rule_based	
+subtilis:op:00727	operon_rule_based	
+subtilis:op:00728	operon_rule_based	
+subtilis:op:00729	operon_rule_based	
+subtilis:op:00730	operon_rule_based	
+subtilis:op:00731	operon_rule_based	
+subtilis:op:00732	operon_rule_based	
+subtilis:op:00733	operon_rule_based	
+subtilis:op:00734	operon_rule_based	
+subtilis:op:00735	operon_rule_based	
+subtilis:op:00736	operon_rule_based	
+subtilis:op:00737	operon_rule_based	
+subtilis:op:00738	operon_rule_based	
+subtilis:op:00739	operon_rule_based	bsu04141
+subtilis:op:00740	operon_rule_based	bsu02010
+subtilis:op:00741	operon_rule_based	
+subtilis:op:00742	operon_rule_based	
+subtilis:op:00743	operon_rule_based	
+subtilis:op:00744	operon_rule_based	bsu00730;bsu00790;bsu01100;bsu01240;bsu02020
+subtilis:op:00745	operon_rule_based	
+subtilis:op:00746	operon_rule_based	
+subtilis:op:00747	operon_rule_based	
+subtilis:op:00748	operon_rule_based	
+subtilis:op:00749	operon_rule_based	
+subtilis:op:00750	operon_rule_based	
+subtilis:op:00751	operon_rule_based	
+subtilis:op:00752	operon_rule_based	
+subtilis:op:00753	operon_rule_based	
+subtilis:op:00754	operon_rule_based	bsu00650;bsu01110
+subtilis:op:00755	operon_rule_based	
+subtilis:op:00756	operon_rule_based	
+subtilis:op:00757	operon_rule_based	
+subtilis:op:00758	operon_rule_based	
+subtilis:op:00759	operon_rule_based	
+subtilis:op:00760	operon_rule_based	
+subtilis:op:00761	operon_rule_based	
+subtilis:op:00762	operon_rule_based	
+subtilis:op:00763	operon_rule_based	bsu00860;bsu01110
+subtilis:op:00764	operon_rule_based	
+subtilis:op:00765	operon_rule_based	
+subtilis:op:00766	operon_rule_based	bsu00361;bsu00625;bsu01100;bsu01120
+subtilis:op:00767	operon_rule_based	
+subtilis:op:00768	operon_rule_based	
+subtilis:op:00769	operon_rule_based	
+subtilis:op:00770	operon_rule_based	bsu02010
+subtilis:op:00771	operon_rule_based	bsu00620;bsu00627;bsu01100;bsu01120
+subtilis:op:00772	operon_rule_based	
+subtilis:op:00773	operon_rule_based	bsu00552;bsu00561;bsu01100
+subtilis:op:00774	operon_rule_based	
+subtilis:op:00775	operon_rule_based	bsu00230;bsu00240;bsu00760;bsu01100;bsu01110;bsu01232
+subtilis:op:00776	operon_rule_based	
+subtilis:op:00777	operon_rule_based	
+subtilis:op:00778	operon_rule_based	
+subtilis:op:00779	operon_rule_based	
+subtilis:op:00780	operon_rule_based	
+subtilis:op:00781	operon_rule_based	
+subtilis:op:00782	operon_rule_based	
+subtilis:op:00783	operon_rule_based	
+subtilis:op:00784	operon_rule_based	
+subtilis:op:00785	operon_rule_based	
+subtilis:op:00786	operon_rule_based	
+subtilis:op:00787	operon_rule_based	
+subtilis:op:00788	operon_rule_based	
+subtilis:op:00789	operon_rule_based	bsu00860;bsu01100;bsu01110;bsu01120;bsu01240
+subtilis:op:00790	operon_rule_based	
+subtilis:op:00791	operon_rule_based	
+subtilis:op:00792	operon_rule_based	
+subtilis:op:00793	operon_rule_based	bsu00380;bsu00630;bsu01100;bsu01110;bsu01200;bsu04146
+subtilis:op:00794	operon_rule_based	
+subtilis:op:00795	operon_rule_based	
+subtilis:op:00796	operon_rule_based	
+subtilis:op:00797	operon_rule_based	
+subtilis:op:00798	operon_rule_based	
+subtilis:op:00799	operon_rule_based	
+subtilis:op:00800	operon_rule_based	
+subtilis:op:00801	operon_rule_based	
+subtilis:op:00802	operon_rule_based	
+subtilis:op:00803	operon_rule_based	
+subtilis:op:00804	operon_rule_based	
+subtilis:op:00805	operon_rule_based	
+subtilis:op:00806	operon_rule_based	
+subtilis:op:00807	operon_rule_based	bsu00564
+subtilis:op:00808	operon_rule_based	
+subtilis:op:00809	operon_rule_based	
+subtilis:op:00810	operon_rule_based	
+subtilis:op:00811	operon_rule_based	
+subtilis:op:00812	operon_rule_based	
+subtilis:op:00813	operon_rule_based	
+subtilis:op:00814	operon_rule_based	
+subtilis:op:00815	operon_rule_based	
+subtilis:op:00816	operon_rule_based	
+subtilis:op:00817	operon_rule_based	bsu00260;bsu00270;bsu00680;bsu00750;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230;bsu01240
+subtilis:op:00818	operon_rule_based	
+subtilis:op:00819	operon_rule_based	bsu00061;bsu01100;bsu01212
+subtilis:op:00820	operon_rule_based	
+subtilis:op:00821	operon_rule_based	
+subtilis:op:00822	operon_rule_based	
+subtilis:op:00823	operon_rule_based	bsu00071;bsu00280;bsu00310;bsu00362;bsu00380;bsu00620;bsu00630;bsu00650;bsu00720;bsu00900;bsu01100;bsu01110;bsu01120;bsu01200;bsu01212;bsu02010;bsu02020
+subtilis:op:00824	operon_rule_based	
+subtilis:op:00825	operon_rule_based	
+subtilis:op:00826	operon_rule_based	
+subtilis:op:00827	operon_rule_based	bsu00998;bsu01100;bsu01110
+subtilis:op:00828	operon_rule_based	
+subtilis:op:00829	operon_rule_based	
+subtilis:op:00830	operon_rule_based	
+subtilis:op:00831	operon_rule_based	
+subtilis:op:00832	operon_rule_based	
+subtilis:op:00833	operon_rule_based	
+subtilis:op:00834	operon_rule_based	
+subtilis:op:00835	operon_rule_based	
+subtilis:op:00836	operon_rule_based	
+subtilis:op:00837	operon_rule_based	bsu00230;bsu00261;bsu00450;bsu00920;bsu01100;bsu01110;bsu01120;bsu01320
+subtilis:op:00838	operon_rule_based	bsu00270;bsu00450;bsu00670;bsu01100;bsu01110;bsu01120;bsu01230
+subtilis:op:00839	operon_rule_based	
+subtilis:op:00840	operon_rule_based	
+subtilis:op:00841	operon_rule_based	
+subtilis:op:00842	operon_rule_based	bsu00740;bsu01100;bsu01110;bsu01240
+subtilis:op:00843	operon_rule_based	
+subtilis:op:00844	operon_rule_based	
+subtilis:op:00845	operon_rule_based	bsu00970
+subtilis:op:00846	operon_rule_based	
+subtilis:op:00847	operon_rule_based	
+subtilis:op:00848	operon_rule_based	
+subtilis:op:00849	operon_rule_based	
+subtilis:op:00850	operon_rule_based	bsu03420;bsu03430;bsu03440
+subtilis:op:00851	operon_rule_based	
+subtilis:op:00852	operon_rule_based	
+subtilis:op:00853	operon_rule_based	
+subtilis:op:00854	operon_rule_based	
+subtilis:op:00855	operon_rule_based	
+subtilis:op:00856	operon_rule_based	
+subtilis:op:00857	operon_rule_based	
+subtilis:op:00858	operon_rule_based	
+subtilis:op:00859	operon_rule_based	
+subtilis:op:00860	operon_rule_based	
+subtilis:op:00861	operon_rule_based	
+subtilis:op:00862	operon_rule_based	
+subtilis:op:00863	operon_rule_based	
+subtilis:op:00864	operon_rule_based	
+subtilis:op:00865	operon_rule_based	
+subtilis:op:00866	operon_rule_based	
+subtilis:op:00867	operon_rule_based	
+subtilis:op:00868	operon_rule_based	
+subtilis:op:00869	operon_rule_based	bsu00030;bsu01100;bsu01110;bsu01120;bsu01200
+subtilis:op:00870	operon_rule_based	
+subtilis:op:00871	operon_rule_based	
+subtilis:op:00872	operon_rule_based	bsu00230;bsu00270;bsu00450;bsu01100;bsu01110;bsu01230;bsu01232
+subtilis:op:00873	operon_rule_based	
+subtilis:op:00874	operon_rule_based	bsu02010
+subtilis:op:00875	operon_rule_based	
+subtilis:op:00876	operon_rule_based	
+subtilis:op:00877	operon_rule_based	
+subtilis:op:00878	operon_rule_based	bsu03450
+subtilis:op:00879	operon_rule_based	
+subtilis:op:00880	operon_rule_based	
+subtilis:op:00881	operon_rule_based	bsu00270;bsu01100
+subtilis:op:00882	operon_rule_based	bsu00250;bsu01100
+subtilis:op:00883	operon_rule_based	
+subtilis:op:00884	operon_rule_based	
+subtilis:op:00885	operon_rule_based	bsu02020;bsu02030;bsu02040
+subtilis:op:00886	operon_rule_based	
+subtilis:op:00887	operon_rule_based	
+subtilis:op:00888	operon_rule_based	
+subtilis:op:00889	operon_rule_based	
+subtilis:op:00890	operon_rule_based	
+subtilis:op:00891	operon_rule_based	
+subtilis:op:00892	operon_rule_based	bsu00300;bsu01100;bsu01110;bsu01230
+subtilis:op:00893	operon_rule_based	
+subtilis:op:00894	operon_rule_based	
+subtilis:op:00895	operon_rule_based	
+subtilis:op:00896	operon_rule_based	
+subtilis:op:00897	operon_rule_based	bsu03018
+subtilis:op:00898	operon_rule_based	
+subtilis:op:00899	operon_rule_based	
+subtilis:op:00900	operon_rule_based	bsu00330;bsu01100;bsu01110
+subtilis:op:00901	operon_rule_based	
+subtilis:op:00902	operon_rule_based	
+subtilis:op:00903	operon_rule_based	
+subtilis:op:00904	operon_rule_based	
+subtilis:op:00905	operon_rule_based	
+subtilis:op:00906	operon_rule_based	
+subtilis:op:00907	operon_rule_based	bsu00190;bsu00860;bsu01100;bsu01110;bsu01240;bsu02020
+subtilis:op:00908	operon_rule_based	
+subtilis:op:00909	operon_rule_based	
+subtilis:op:00910	operon_rule_based	
+subtilis:op:00911	operon_rule_based	
+subtilis:op:00912	operon_rule_based	
+subtilis:op:00913	operon_rule_based	bsu03010
+subtilis:op:00914	operon_rule_based	
+subtilis:op:00915	operon_rule_based	
+subtilis:op:00916	operon_rule_based	
+subtilis:op:00917	operon_rule_based	
+subtilis:op:00918	operon_rule_based	bsu01503
+subtilis:op:00919	operon_rule_based	
+subtilis:op:00920	operon_rule_based	
+subtilis:op:00921	operon_rule_based	bsu00470;bsu01100;bsu01502
+subtilis:op:00922	operon_rule_based	
+subtilis:op:00923	operon_rule_based	
+subtilis:op:00924	operon_rule_based	bsu03060;bsu03070
+subtilis:op:00925	operon_rule_based	
+subtilis:op:00926	operon_rule_based	
+subtilis:op:00927	operon_rule_based	
+subtilis:op:00928	operon_rule_based	
+subtilis:op:00929	operon_rule_based	
+subtilis:op:00930	operon_rule_based	bsu00561;bsu00564;bsu01100;bsu01110
+subtilis:op:00931	operon_rule_based	
+subtilis:op:00932	operon_rule_based	bsu00520;bsu01100
+subtilis:op:00933	operon_rule_based	bsu00061;bsu00280;bsu00620;bsu00640;bsu00650;bsu00720;bsu00907;bsu01100;bsu01110;bsu01120;bsu01200;bsu01212;bsu04146
+subtilis:op:00934	operon_rule_based	bsu01054
+subtilis:op:00935	operon_rule_based	bsu00010;bsu00052;bsu00550;bsu01100;bsu01110;bsu01120
+subtilis:op:00936	operon_rule_based	
+subtilis:op:00937	operon_rule_based	
+subtilis:op:00938	operon_rule_based	
+subtilis:op:00939	operon_rule_based	bsu00250;bsu00910;bsu01100;bsu01110;bsu01120;bsu01230
+subtilis:op:00940	operon_rule_based	bsu00330;bsu00332;bsu01100;bsu01110;bsu01230
+subtilis:op:00941	operon_rule_based	
+subtilis:op:00942	operon_rule_based	
+subtilis:op:00943	operon_rule_based	bsu02020;bsu02030
+subtilis:op:00944	operon_rule_based	
+subtilis:op:00945	operon_rule_based	
+subtilis:op:00946	operon_rule_based	
+subtilis:op:00947	operon_rule_based	
+subtilis:op:00948	operon_rule_based	
+subtilis:op:00949	operon_rule_based	
+subtilis:op:00950	operon_rule_based	
+subtilis:op:00951	operon_rule_based	
+subtilis:op:00952	operon_rule_based	
+subtilis:op:00953	operon_rule_based	
+subtilis:op:00954	operon_rule_based	
+subtilis:op:00955	operon_rule_based	
+subtilis:op:00956	operon_rule_based	
+subtilis:op:00957	operon_rule_based	
+subtilis:op:00958	operon_rule_based	
+subtilis:op:00959	operon_rule_based	
+subtilis:op:00960	operon_rule_based	
+subtilis:op:00961	operon_rule_based	
+subtilis:op:00962	operon_rule_based	bsu03018;bsu03440
+subtilis:op:00963	operon_rule_based	bsu04141
+subtilis:op:00964	operon_rule_based	
+subtilis:op:00965	operon_rule_based	
+subtilis:op:00966	operon_rule_based	
+subtilis:op:00967	operon_rule_based	bsu00020;bsu00310;bsu00380;bsu00785;bsu01100;bsu01110;bsu01120;bsu01200;bsu01210;bsu04146
+subtilis:op:00968	operon_rule_based	
+subtilis:op:00969	operon_rule_based	
+subtilis:op:00970	operon_rule_based	
+subtilis:op:00971	operon_rule_based	
+subtilis:op:00972	operon_rule_based	
+subtilis:op:00973	operon_rule_based	
+subtilis:op:00974	operon_rule_based	bsu00230;bsu00550;bsu00760;bsu01100;bsu01110;bsu01232;bsu01502;bsu02020
+subtilis:op:00975	operon_rule_based	bsu00310;bsu00627;bsu00650;bsu01100;bsu01120;bsu02020
+subtilis:op:00976	operon_rule_based	
+subtilis:op:00977	operon_rule_based	bsu00562;bsu01100
+subtilis:op:00978	operon_rule_based	
+subtilis:op:00979	operon_rule_based	
+subtilis:op:00980	operon_rule_based	
+subtilis:op:00981	operon_rule_based	bsu00240;bsu01100;bsu01232
+subtilis:op:00982	operon_rule_based	
+subtilis:op:00983	operon_rule_based	bsu00270;bsu01100;bsu03030;bsu03410;bsu03430;bsu03440
+subtilis:op:00984	operon_rule_based	
+subtilis:op:00985	operon_rule_based	
+subtilis:op:00986	operon_rule_based	
+subtilis:op:00987	operon_rule_based	
+subtilis:op:00988	operon_rule_based	
+subtilis:op:00989	operon_rule_based	
+subtilis:op:00990	operon_rule_based	
+subtilis:op:00991	operon_rule_based	
+subtilis:op:00992	operon_rule_based	
+subtilis:op:00993	operon_rule_based	
+subtilis:op:00994	operon_rule_based	
+subtilis:op:00995	operon_rule_based	
+subtilis:op:00996	operon_rule_based	
+subtilis:op:00997	operon_rule_based	
+subtilis:op:00998	operon_rule_based	
+subtilis:op:00999	operon_rule_based	bsu02010;bsu02024
+subtilis:op:01000	operon_rule_based	
+subtilis:op:01001	operon_rule_based	
+subtilis:op:01002	operon_rule_based	
+subtilis:op:01003	operon_rule_based	
+subtilis:op:01004	operon_rule_based	
+subtilis:op:01005	operon_rule_based	bsu00260;bsu00290;bsu01100;bsu01110;bsu01200;bsu01230
+subtilis:op:01006	operon_rule_based	bsu00240;bsu00290;bsu00480;bsu00670;bsu00770;bsu00790;bsu01100;bsu01110;bsu01210;bsu01230;bsu01232;bsu01240;bsu04981
+subtilis:op:01007	operon_rule_based	
+subtilis:op:01008	operon_rule_based	bsu03030
+subtilis:op:01009	operon_rule_based	
+subtilis:op:01010	operon_rule_based	bsu00230;bsu01100;bsu01110;bsu01232
+subtilis:op:01011	operon_rule_based	bsu00030;bsu00630;bsu01100;bsu01120;bsu01200
+subtilis:op:01012	operon_rule_based	
+subtilis:op:01013	operon_rule_based	
+subtilis:op:01014	operon_rule_based	
+subtilis:op:01015	operon_rule_based	
+subtilis:op:01016	operon_rule_based	
+subtilis:op:01017	operon_rule_based	
+subtilis:op:01018	operon_rule_based	
+subtilis:op:01019	operon_rule_based	bsu00220;bsu00250;bsu00261;bsu00270;bsu00300;bsu00330;bsu00350;bsu00360;bsu00400;bsu00401;bsu00410;bsu00640;bsu00770;bsu00780;bsu01100;bsu01110;bsu01120;bsu01210;bsu01230;bsu01240;bsu03410;bsu03440
+subtilis:op:01020	operon_rule_based	bsu00190;bsu01100
+subtilis:op:01021	operon_rule_based	bsu00130;bsu00260;bsu00340;bsu00350;bsu00360;bsu00400;bsu00401;bsu00790;bsu00900;bsu01100;bsu01110;bsu01230;bsu01240;bsu02024;bsu04900
+subtilis:op:01022	operon_rule_based	
+subtilis:op:01023	operon_rule_based	bsu00220;bsu00240;bsu00250;bsu00430;bsu00564;bsu00900;bsu00910;bsu01100;bsu01110;bsu01120;bsu01232;bsu03010;bsu03018;bsu03440
+subtilis:op:01024	operon_rule_based	
+subtilis:op:01025	operon_rule_based	bsu00400;bsu00550;bsu01100;bsu01110;bsu01230;bsu02020
+subtilis:op:01026	operon_rule_based	bsu00740;bsu00790;bsu01100;bsu01110;bsu01240;bsu02024
+subtilis:op:01027	operon_rule_based	bsu03060
+subtilis:op:01028	operon_rule_based	
+subtilis:op:01029	operon_rule_based	
+subtilis:op:01030	operon_rule_based	bsu00030;bsu00230;bsu00250;bsu00460;bsu00550;bsu00620;bsu00760;bsu01100;bsu01110;bsu01200;bsu01232;bsu02020
+subtilis:op:01031	operon_rule_based	bsu00230;bsu00740;bsu01100
+subtilis:op:01032	operon_rule_based	
+subtilis:op:01033	operon_rule_based	
+subtilis:op:01034	operon_rule_based	bsu00260;bsu00470;bsu00770;bsu01100;bsu01240
+subtilis:op:01035	operon_rule_based	
+subtilis:op:01036	operon_rule_based	
+subtilis:op:01037	operon_rule_based	bsu00030;bsu00480;bsu01100;bsu01110;bsu01120;bsu01200
+subtilis:op:01038	operon_rule_based	bsu00280;bsu00630;bsu00640;bsu00720;bsu01100;bsu01120;bsu01200;bsu01503;bsu02010
+subtilis:op:01039	operon_rule_based	bsu00010;bsu00020;bsu00260;bsu00280;bsu00290;bsu00310;bsu00380;bsu00620;bsu00630;bsu00640;bsu00650;bsu00670;bsu00785;bsu01100;bsu01110;bsu01120;bsu01200;bsu01210;bsu01240
+subtilis:op:01040	operon_rule_based	bsu00020;bsu00071;bsu00280;bsu00310;bsu00360;bsu00362;bsu00380;bsu00564;bsu00620;bsu00630;bsu00640;bsu00650;bsu00720;bsu00900;bsu01100;bsu01110;bsu01120;bsu01200;bsu01210;bsu01212;bsu01230;bsu02020
+subtilis:op:01041	operon_rule_based	
+subtilis:op:01042	operon_rule_based	bsu00061;bsu00400;bsu00620;bsu00640;bsu00670;bsu00720;bsu00730;bsu00900;bsu01100;bsu01110;bsu01120;bsu01200;bsu01212;bsu01230;bsu01240;bsu02020;bsu02024;bsu03430;bsu03440
+subtilis:op:01043	operon_rule_based	bsu00785;bsu01100;bsu01240
+subtilis:op:01044	operon_rule_based	bsu00260;bsu00630;bsu00670;bsu00785;bsu01100;bsu01110;bsu01200
+subtilis:op:01045	operon_rule_based	bsu03060
+subtilis:op:01046	operon_rule_based	
+subtilis:op:01047	operon_rule_based	
+subtilis:op:01048	operon_rule_based	
+subtilis:op:01049	operon_rule_based	bsu00620;bsu01100
+subtilis:op:01050	operon_rule_based	bsu00010;bsu00052;bsu00500;bsu00520;bsu00521;bsu00552;bsu00561;bsu00670;bsu01100;bsu01110;bsu01120;bsu01200;bsu01250;bsu03010;bsu04981
+subtilis:op:01051	operon_rule_based	bsu00550;bsu01100;bsu02010;bsu02020;bsu04146
+subtilis:op:01052	operon_rule_based	
+subtilis:op:01053	operon_rule_based	
+subtilis:op:01054	operon_rule_based	
+subtilis:op:01055	operon_rule_based	bsu03410
+subtilis:op:01056	operon_rule_based	
+subtilis:op:01057	operon_rule_based	bsu00240;bsu00550;bsu00970;bsu01100;bsu01232;bsu02040;bsu03010;bsu03030;bsu03440
+subtilis:op:01058	operon_rule_based	bsu00860;bsu01100;bsu01110;bsu01240;bsu03018;bsu04156
+subtilis:op:01059	operon_rule_based	bsu03030;bsu03430;bsu03440
+subtilis:op:01060	operon_rule_based	bsu00240;bsu01100;bsu01232
+subtilis:op:01061	operon_rule_based	bsu00230;bsu00400;bsu00760;bsu00999;bsu01100;bsu01110;bsu01230;bsu01240
+subtilis:op:01062	operon_rule_based	
+subtilis:op:01063	operon_rule_based	bsu00030;bsu00480;bsu01100;bsu01110;bsu01120;bsu01200
+subtilis:op:01064	operon_rule_based	
+subtilis:op:01065	operon_rule_based	
+subtilis:op:01066	operon_rule_based	
+subtilis:op:01067	operon_rule_based	
+subtilis:op:01068	operon_rule_based	
+subtilis:op:01069	operon_rule_based	
+subtilis:op:01070	operon_rule_based	
+subtilis:op:01071	operon_rule_based	
+subtilis:op:01072	operon_rule_based	
+subtilis:op:01073	operon_rule_based	
+subtilis:op:01074	operon_rule_based	bsu04122
+subtilis:op:01075	operon_rule_based	
+subtilis:op:01076	operon_rule_based	
+subtilis:op:01077	operon_rule_based	
+subtilis:op:01078	operon_rule_based	
+subtilis:op:01079	operon_rule_based	
+subtilis:op:01080	operon_rule_based	
+subtilis:op:01081	operon_rule_based	
+subtilis:op:01082	operon_rule_based	
+subtilis:op:01083	operon_rule_based	
+subtilis:op:01084	operon_rule_based	bsu02010
+subtilis:op:01085	operon_rule_based	
+subtilis:op:01086	operon_rule_based	bsu00520;bsu01100
+subtilis:op:01087	operon_rule_based	
+subtilis:op:01088	operon_rule_based	
+subtilis:op:01089	operon_rule_based	
+subtilis:op:01090	operon_rule_based	bsu00051;bsu02060
+subtilis:op:01091	operon_rule_based	
+subtilis:op:01092	operon_rule_based	bsu00071;bsu00380;bsu00627;bsu01120
+subtilis:op:01093	operon_rule_based	
+subtilis:op:01094	operon_rule_based	bsu00260;bsu00270;bsu00670;bsu00920;bsu01100;bsu01110;bsu01230
+subtilis:op:01095	operon_rule_based	bsu00240;bsu00970;bsu01100;bsu01232
+subtilis:op:01096	operon_rule_based	
+subtilis:op:01097	operon_rule_based	bsu00730;bsu01100;bsu01240;bsu03440;bsu04122
+subtilis:op:01098	operon_rule_based	
+subtilis:op:01099	operon_rule_based	bsu00970
+subtilis:op:01100	operon_rule_based	
+subtilis:op:01101	operon_rule_based	bsu00230;bsu01100;bsu01232;bsu02024;bsu03060;bsu03070;bsu03410;bsu03430;bsu03440
+subtilis:op:01102	operon_rule_based	
+subtilis:op:01103	operon_rule_based	bsu00521;bsu00562;bsu01100;bsu01110;bsu01120;bsu03440
+subtilis:op:01104	operon_rule_based	
+subtilis:op:01105	operon_rule_based	bsu00250;bsu00760;bsu01100;bsu01240
+subtilis:op:01106	operon_rule_based	bsu00400;bsu01100;bsu01110;bsu01230;bsu02020;bsu02024
+subtilis:op:01107	operon_rule_based	bsu00240;bsu01100;bsu01232;bsu03010
+subtilis:op:01108	operon_rule_based	bsu00790;bsu00970;bsu01100;bsu01240
+subtilis:op:01109	operon_rule_based	bsu00860;bsu01100;bsu01110;bsu01120;bsu01240
+subtilis:op:01110	operon_rule_based	bsu00290;bsu00620;bsu00650;bsu00660;bsu00770;bsu00966;bsu01100;bsu01110;bsu01210;bsu01230
+subtilis:op:01111	operon_rule_based	bsu00020;bsu00190;bsu00470;bsu00650;bsu00720;bsu01100;bsu01110;bsu01120;bsu01200
+subtilis:op:01112	operon_rule_based	bsu00260;bsu00261;bsu00270;bsu00300;bsu01100;bsu01110;bsu01120;bsu01210;bsu01230
+subtilis:op:01113	operon_rule_based	bsu03420
+subtilis:op:01114	operon_rule_based	bsu00061;bsu00071;bsu00362;bsu00520;bsu01100;bsu01120;bsu01212;bsu02024;bsu03430;bsu04146
+subtilis:op:01115	operon_rule_based	bsu00970
+subtilis:op:01116	operon_rule_based	
+subtilis:op:01117	operon_rule_based	bsu00040;bsu00052;bsu00053;bsu00520;bsu00564;bsu01100;bsu01110;bsu01120;bsu02010
+subtilis:op:01118	operon_rule_based	bsu03010
+subtilis:op:01119	operon_rule_based	bsu02020
+subtilis:op:01120	operon_rule_based	bsu00970
+subtilis:op:01121	operon_rule_based	bsu00010;bsu00270;bsu00330;bsu00710;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230;bsu03440
+subtilis:op:01122	operon_rule_based	bsu00020;bsu00270;bsu00480;bsu00620;bsu00630;bsu00640;bsu00680;bsu00710;bsu00720;bsu00770;bsu01100;bsu01110;bsu01120;bsu01200;bsu01210;bsu01230;bsu01240;bsu02020;bsu03030;bsu03410;bsu03420;bsu03440;bsu04146
+subtilis:op:01123	operon_rule_based	
+subtilis:op:01124	operon_rule_based	bsu00010;bsu00030;bsu00051;bsu00052;bsu00061;bsu00620;bsu00640;bsu00680;bsu00720;bsu01100;bsu01110;bsu01120;bsu01200;bsu01212;bsu01230;bsu03018
+subtilis:op:01125	operon_rule_based	bsu00620;bsu01200;bsu02020;bsu03030;bsu03430;bsu03440
+subtilis:op:01126	operon_rule_based	bsu00920;bsu01100;bsu01120
+subtilis:op:01127	operon_rule_based	bsu00740;bsu01100;bsu01110;bsu01240;bsu02010
+subtilis:op:01128	operon_rule_based	bsu00061;bsu00220;bsu00250;bsu00780;bsu00790;bsu01100;bsu01110;bsu01212;bsu01230;bsu01240;bsu04122
+subtilis:op:01129	operon_rule_based	bsu00010;bsu00620;bsu00630;bsu00640;bsu00680;bsu00720;bsu00730;bsu01100;bsu01110;bsu01120;bsu01200;bsu01240;bsu04122
+subtilis:op:01130	operon_rule_based	
+subtilis:op:01131	operon_rule_based	
+subtilis:op:01132	operon_rule_based	
+subtilis:op:01133	operon_rule_based	bsu00970
+subtilis:op:01134	operon_rule_based	bsu00010;bsu00620;bsu00630;bsu00640;bsu00680;bsu00720;bsu01100;bsu01110;bsu01120;bsu01200
+subtilis:op:01135	operon_rule_based	bsu00400;bsu00550;bsu01100;bsu01110;bsu01230;bsu02020;bsu02030;bsu02040
+subtilis:op:01136	operon_rule_based	
+subtilis:op:01137	operon_rule_based	bsu00620;bsu01200;bsu02020
+subtilis:op:01138	operon_rule_based	bsu00500;bsu01100;bsu01110
+subtilis:op:01139	operon_rule_based	bsu00300;bsu01100;bsu01120;bsu01230
+subtilis:op:01140	operon_rule_based	
+subtilis:op:01141	operon_rule_based	
+subtilis:op:01142	operon_rule_based	
+subtilis:op:01143	operon_rule_based	bsu00780;bsu01100;bsu01240
+subtilis:op:01144	operon_rule_based	bsu00970
+subtilis:op:01145	operon_rule_based	
+subtilis:op:01146	operon_rule_based	
+subtilis:op:01147	operon_rule_based	bsu02010;bsu02020
+subtilis:op:01148	operon_rule_based	bsu00564
+subtilis:op:01149	operon_rule_based	bsu00250;bsu00270;bsu00670;bsu00999;bsu01100;bsu01110;bsu01230;bsu01240
+subtilis:op:01150	operon_rule_based	
+subtilis:op:01151	operon_rule_based	bsu00270;bsu01100;bsu01230;bsu02024
+subtilis:op:01152	operon_rule_based	bsu00910;bsu01100;bsu03010
+subtilis:op:01153	operon_rule_based	bsu00130;bsu01053;bsu01100;bsu01110;bsu01240;bsu02010
+subtilis:op:01154	operon_rule_based	bsu00040;bsu00052;bsu00500;bsu00520;bsu00541;bsu01100;bsu01110;bsu01120;bsu01240;bsu01250
+subtilis:op:01155	operon_rule_based	
+subtilis:op:01156	operon_rule_based	bsu00500;bsu00520;bsu01100;bsu01110;bsu01250
+subtilis:op:01157	operon_rule_based	
+subtilis:op:01158	operon_rule_based	
+subtilis:op:01159	operon_rule_based	
+subtilis:op:01160	operon_rule_based	bsu00260;bsu00670;bsu01100
+subtilis:op:01161	operon_rule_based	
+subtilis:op:01162	operon_rule_based	bsu00550;bsu00552
+subtilis:op:01163	operon_rule_based	bsu00040;bsu00051;bsu01100;bsu01120;bsu02020;bsu02030
+subtilis:op:01164	operon_rule_based	bsu00052;bsu00500;bsu01100;bsu01110
+subtilis:op:01165	operon_rule_based	bsu00010;bsu00030;bsu00500;bsu00520;bsu01100;bsu01110;bsu01120;bsu01200;bsu01250
+subtilis:op:01166	operon_rule_based	
+subtilis:op:01167	operon_rule_based	
+subtilis:op:01168	operon_rule_based	
+subtilis:op:01169	operon_rule_based	
+subtilis:op:01170	operon_rule_based	
+subtilis:op:01171	operon_rule_based	bsu00130;bsu01100;bsu01110;bsu01240;bsu02020;bsu02024
+subtilis:op:01172	operon_rule_based	bsu00760;bsu01100;bsu01240
+subtilis:op:01173	operon_rule_based	
+subtilis:op:01174	operon_rule_based	bsu00130;bsu00261;bsu01053;bsu01100;bsu01110
+subtilis:op:01175	operon_rule_based	bsu00480;bsu01100
+subtilis:op:01176	operon_rule_based	
+subtilis:op:01177	operon_rule_based	bsu00190;bsu01100
+subtilis:op:01178	operon_rule_based	
+subtilis:op:01179	operon_rule_based	
+subtilis:op:01180	operon_rule_based	bsu00300;bsu00470;bsu01100;bsu01110;bsu01120;bsu01230
+subtilis:op:01181	operon_rule_based	
+subtilis:op:01182	operon_rule_based	bsu00260;bsu00270;bsu00300;bsu01100;bsu01110;bsu01120;bsu01230
+subtilis:op:01183	operon_rule_based	
+subtilis:op:01184	operon_rule_based	bsu00785;bsu01100;bsu01240
+subtilis:op:01185	operon_rule_based	bsu00230;bsu01100;bsu01120
+subtilis:op:01186	operon_rule_based	bsu00230;bsu01100;bsu01120;bsu01232
+subtilis:op:01187	operon_rule_based	bsu02010
+subtilis:op:01188	operon_rule_based	bsu02010
+subtilis:op:01189	operon_rule_based	bsu00450;bsu01100
+subtilis:op:01190	operon_rule_based	bsu00071;bsu00260;bsu00280;bsu00362;bsu00592;bsu00630;bsu00650;bsu00670;bsu00785;bsu00907;bsu00984;bsu01100;bsu01110;bsu01120;bsu01200;bsu01212;bsu02010
+subtilis:op:01191	operon_rule_based	bsu00330;bsu01100;bsu01110
+subtilis:op:01192	operon_rule_based	
+subtilis:op:01193	operon_rule_based	
+subtilis:op:01194	operon_rule_based	bsu01503;bsu02020
+subtilis:op:01195	operon_rule_based	bsu00020;bsu00620;bsu00720;bsu01100;bsu01110;bsu01120;bsu01200
+subtilis:op:01196	operon_rule_based	bsu00860;bsu01100;bsu01240;bsu02020
+subtilis:op:01197	operon_rule_based	
+subtilis:op:01198	operon_rule_based	
+subtilis:op:01199	operon_rule_based	
+subtilis:op:01200	operon_rule_based	
+subtilis:op:01201	operon_rule_based	
+subtilis:op:01202	operon_rule_based	bsu00620;bsu00640;bsu01100
+subtilis:op:01203	operon_rule_based	bsu00920;bsu01100;bsu01120;bsu01320;bsu03420;bsu03430;bsu03440
+subtilis:op:01204	operon_rule_based	
+subtilis:op:01205	operon_rule_based	bsu02024;bsu03018;bsu03060;bsu03070
+subtilis:op:01206	operon_rule_based	
+subtilis:op:01207	operon_rule_based	bsu02010
+subtilis:op:01208	operon_rule_based	bsu02010
+subtilis:op:01209	operon_rule_based	
+subtilis:op:01210	operon_rule_based	
+subtilis:op:01211	operon_rule_based	bsu00010;bsu00051;bsu00260;bsu00562;bsu00680;bsu00710;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230;bsu03018
+subtilis:op:01212	operon_rule_based	bsu00010;bsu00710;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230
+subtilis:op:01213	operon_rule_based	
+subtilis:op:01214	operon_rule_based	
+subtilis:op:01215	operon_rule_based	bsu02020
+subtilis:op:01216	operon_rule_based	bsu02010
+subtilis:op:01217	operon_rule_based	bsu02020;bsu02040
+subtilis:op:01218	operon_rule_based	
+subtilis:op:01219	operon_rule_based	bsu00260;bsu00270;bsu00310;bsu00470;bsu01100;bsu01120
+subtilis:op:01220	operon_rule_based	
+subtilis:op:01221	operon_rule_based	bsu00052;bsu00500;bsu01100;bsu02010
+subtilis:op:01222	operon_rule_based	
+subtilis:op:01223	operon_rule_based	
+subtilis:op:01224	operon_rule_based	
+subtilis:op:01225	operon_rule_based	bsu00450
+subtilis:op:01226	operon_rule_based	bsu00340;bsu01100;bsu01110;bsu01230;bsu01501;bsu02010
+subtilis:op:01227	operon_rule_based	bsu00190;bsu00564;bsu01110
+subtilis:op:01228	operon_rule_based	
+subtilis:op:01229	operon_rule_based	
+subtilis:op:01230	operon_rule_based	
+subtilis:op:01231	operon_rule_based	bsu03420
+subtilis:op:01232	operon_rule_based	
+subtilis:op:01233	operon_rule_based	bsu02010;bsu02020;bsu02024;bsu02040;bsu03060;bsu03070
+subtilis:op:01234	operon_rule_based	bsu00040;bsu00053;bsu00520;bsu00541;bsu00542;bsu00543;bsu00552;bsu01100;bsu01120;bsu01240;bsu01250;bsu01503
+subtilis:op:01235	operon_rule_based	bsu00520;bsu00541;bsu01100;bsu01250;bsu02020
+subtilis:op:01236	operon_rule_based	
+subtilis:op:01237	operon_rule_based	bsu00552;bsu00564;bsu02010
+subtilis:op:01238	operon_rule_based	bsu00051;bsu00511;bsu00520;bsu01100;bsu01110;bsu01240;bsu01250
+subtilis:op:01239	operon_rule_based	
+subtilis:op:01240	operon_rule_based	
+subtilis:op:01241	operon_rule_based	bsu00650;bsu00660;bsu01110;bsu01210
+subtilis:op:01242	operon_rule_based	
+subtilis:op:01243	operon_rule_based	bsu00430;bsu00460;bsu00480;bsu01100
+subtilis:op:01244	operon_rule_based	
+subtilis:op:01245	operon_rule_based	
+subtilis:op:01246	operon_rule_based	bsu00040;bsu00053;bsu00520;bsu00541;bsu01100;bsu01120;bsu01240;bsu01250
+subtilis:op:01247	operon_rule_based	bsu03030;bsu03430;bsu03440
+subtilis:op:01248	operon_rule_based	
+subtilis:op:01249	operon_rule_based	
+subtilis:op:01250	operon_rule_based	bsu02040
+subtilis:op:01251	operon_rule_based	
+subtilis:op:01252	operon_rule_based	
+subtilis:op:01253	operon_rule_based	
+subtilis:op:01254	operon_rule_based	
+subtilis:op:01255	operon_rule_based	bsu00220;bsu00230;bsu01100;bsu01120
+subtilis:op:01256	operon_rule_based	bsu00790;bsu01100;bsu01240;bsu02024;bsu04122
+subtilis:op:01257	operon_rule_based	
+subtilis:op:01258	operon_rule_based	bsu00520;bsu00550;bsu01100;bsu01250
+subtilis:op:01259	operon_rule_based	bsu00190;bsu01100
+subtilis:op:01260	operon_rule_based	bsu00030;bsu00051;bsu00240;bsu00260;bsu00460;bsu00630;bsu00670;bsu00680;bsu00710;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230;bsu01232;bsu01240;bsu04981
+subtilis:op:01261	operon_rule_based	
+subtilis:op:01262	operon_rule_based	bsu00240;bsu01100;bsu01232;bsu03010;bsu03018
+subtilis:op:01263	operon_rule_based	bsu00010;bsu00030;bsu00051;bsu00520;bsu00550;bsu00680;bsu00710;bsu01100;bsu01110;bsu01120;bsu01200;bsu01250
+subtilis:op:01264	operon_rule_based	bsu00010;bsu00030;bsu00051;bsu00680;bsu00710;bsu01100;bsu01110;bsu01120;bsu01200;bsu01230;bsu02020;bsu02024
+subtilis:op:01265	operon_rule_based	bsu00071;bsu00240;bsu00280;bsu00410;bsu00640;bsu00650;bsu01100;bsu01110;bsu01120;bsu01200;bsu01212;bsu01232;bsu01240;bsu03020
+subtilis:op:01266	operon_rule_based	bsu00564;bsu01100
+subtilis:op:01267	operon_rule_based	bsu00910;bsu01100;bsu01120;bsu01310;bsu02020
+subtilis:op:01268	operon_rule_based	bsu00970
+subtilis:op:01269	operon_rule_based	
+subtilis:op:01270	operon_rule_based	bsu00270;bsu00330;bsu00480;bsu01100;bsu01110
+subtilis:op:01271	operon_rule_based	
+subtilis:op:01272	operon_rule_based	bsu00970
+subtilis:op:01273	operon_rule_based	
+subtilis:op:01274	operon_rule_based	bsu00430;bsu00620;bsu00640;bsu00680;bsu00720;bsu00785;bsu01100;bsu01120;bsu01200;bsu01240
+subtilis:op:01275	operon_rule_based	bsu00220;bsu00250;bsu00330;bsu00430;bsu00910;bsu00998;bsu01100;bsu01110;bsu01120
+subtilis:op:01276	operon_rule_based	bsu00520;bsu00521;bsu00523;bsu00525;bsu00541;bsu01100;bsu01110;bsu01250
+subtilis:op:01277	operon_rule_based	
+subtilis:op:01278	operon_rule_based	bsu03410
+subtilis:op:01279	operon_rule_based	bsu00052;bsu00500;bsu01100;bsu01110;bsu02060
+subtilis:op:01280	operon_rule_based	
+subtilis:op:01281	operon_rule_based	bsu00550;bsu00740;bsu01100
+subtilis:op:01282	operon_rule_based	bsu00190;bsu01100
+subtilis:op:01283	operon_rule_based	bsu00052;bsu00520;bsu01100;bsu01250
+subtilis:op:01284	operon_rule_based	bsu00730;bsu00740;bsu01100;bsu01240
+subtilis:op:01285	operon_rule_based	
+subtilis:op:01286	operon_rule_based	bsu00500;bsu02060
+subtilis:op:01287	operon_rule_based	
+subtilis:op:01288	operon_rule_based	bsu00130;bsu00230;bsu01100;bsu01110;bsu01240
+subtilis:op:01289	operon_rule_based	bsu00010;bsu00500;bsu02060;bsu03410
+subtilis:op:01290	operon_rule_based	
+subtilis:op:01291	operon_rule_based	bsu00190;bsu01100;bsu02010;bsu02020
+subtilis:op:01292	operon_rule_based	bsu02010
+subtilis:op:01293	operon_rule_based	
+subtilis:op:01294	operon_rule_based	bsu00052;bsu00520;bsu01100;bsu01250
+subtilis:op:01295	operon_rule_based	bsu00280;bsu00650;bsu01100
+subtilis:op:01296	operon_rule_based	bsu00380;bsu00630;bsu01100;bsu01110;bsu01200;bsu04146
+subtilis:op:01297	operon_rule_based	
+subtilis:op:01298	operon_rule_based	bsu03018
+subtilis:op:01299	operon_rule_based	
+subtilis:op:01300	operon_rule_based	bsu00966;bsu01110;bsu02060
+subtilis:op:01301	operon_rule_based	
+subtilis:op:01302	operon_rule_based	
+subtilis:op:01303	operon_rule_based	bsu00030;bsu00240;bsu00311;bsu01100;bsu01110;bsu01232;bsu02010
+subtilis:op:01304	operon_rule_based	
+subtilis:op:01305	operon_rule_based	bsu00280;bsu00410;bsu00521;bsu00562;bsu00640;bsu01100;bsu01110;bsu01120;bsu01200;bsu02020
+subtilis:op:01306	operon_rule_based	bsu04141;bsu04156;bsu04900
+subtilis:op:01307	operon_rule_based	
+subtilis:op:01308	operon_rule_based	
+subtilis:op:01309	operon_rule_based	
+subtilis:op:01310	operon_rule_based	
+subtilis:op:01311	operon_rule_based	
+subtilis:op:01312	operon_rule_based	bsu00260;bsu00561;bsu00630;bsu01100;bsu01110;bsu01120
+subtilis:op:01313	operon_rule_based	bsu00010;bsu00500;bsu00966;bsu01110
+subtilis:op:01314	operon_rule_based	bsu02010
+subtilis:op:01315	operon_rule_based	
+subtilis:op:01316	operon_rule_based	
+subtilis:op:01317	operon_rule_based	bsu00220;bsu00330;bsu01100;bsu01110;bsu01230
+subtilis:op:01318	operon_rule_based	bsu02020
+subtilis:op:01319	operon_rule_based	bsu00230;bsu00250;bsu01100;bsu01232;bsu01240;bsu03030;bsu03440
+subtilis:op:01320	operon_rule_based	
+subtilis:op:01321	operon_rule_based	bsu03010
+subtilis:op:01322	operon_rule_based	
+subtilis:op:01323	operon_rule_based	
+subtilis:op:01324	operon_rule_based	
+subtilis:op:01325	operon_rule_based	
+subtilis:op:01326	operon_rule_based	
+subtilis:op:01327	operon_rule_based	
+subtilis:op:01328	operon_rule_based	
+subtilis:op:01329	operon_rule_based	
+subtilis:op:01330	operon_rule_based	
+subtilis:op:01331	operon_rule_based	bsu00620;bsu01100;bsu03010;bsu03030;bsu03410;bsu03430;bsu03440
+subtilis:op:01332	operon_rule_based	
+subtilis:op:01333	operon_rule_based	
+subtilis:op:01334	operon_rule_based	bsu03010

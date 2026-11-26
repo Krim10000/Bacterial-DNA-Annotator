@@ -1,0 +1,12 @@
+{
+ "ecoli_k12": {
+  "n_operons": 2544,
+  "n_with_pathway": 935,
+  "n_pathways": 140
+ },
+ "subtilis": {
+  "n_operons": 1334,
+  "n_with_pathway": 471,
+  "n_pathways": 129
+ }
+}
