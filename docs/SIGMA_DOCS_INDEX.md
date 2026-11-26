@@ -10,7 +10,8 @@
 6. `SIGMA_BENCHMARK.md` — benchmark.
 7. `SIGMA_400_PLAN.md` — escala a 400.
 8. `SIGMA_META_CLASSIFICATION.md` — etiquetas anidadas gen/operón/sigma.
-9. `literature/README.md` — índice bibliográfico.
+9. `LABELS_MODULE.md` — módulo de etiquetas y su contrato.
+10. `literature/README.md` — índice bibliográfico.
 
 ## Documentos históricos
 
