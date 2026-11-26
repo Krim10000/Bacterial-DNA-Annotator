@@ -1450,5 +1450,6 @@
  "Secondary structure not available for this sequence; no base pairs are invented.": "该序列的二级结构不可用；不会编造碱基对。",
  "Predicción MFE ({src}; {extra}). No demuestra el plegamiento in vivo ni la función.": "MFE 预测（{src}；{extra}）。不能证明体内折叠或功能。",
  "Diagrama 2D de arcos: cada arco une un par. No es una estructura 3D.": "2D 弧线图：每条弧线连接一个配对。它不是 3D 结构。",
- "2D arc diagram: each arc joins a pair. It is not a 3D structure.": "2D 弧线图：每条弧线连接一个配对。它不是 3D 结构。"
+ "2D arc diagram: each arc joins a pair. It is not a 3D structure.": "2D 弧线图：每条弧线连接一个配对。它不是 3D 结构。",
+ "La región cruza el origen; se muestra como segmentos.": "该区域跨越复制起点；按片段显示。"
 }

@@ -797,41 +797,20 @@ def sigma_legend_html() -> str:
 
 
 def load_oric(data_root: Path, genome: str) -> dict | None:
-    """Carga la posición oriC precalculada, si existe; no la recalcula."""
-    import json
-    for folder in ("orca_predictions_fix", "orca_predictions"):
-        path = Path(data_root) / folder / f"{genome}.json"
-        if not path.exists():
-            continue
-        try:
-            data = json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, ValueError):
-            continue
-        chosen = data.get("chosen") or {}
-        pos = chosen.get("pos")
-        if pos is None:
-            continue
-        doric = data.get("doric_truth") or data.get("doric") or {}
-        region = None
-        if isinstance(doric, dict):
-            regions = doric.get("orics") or []
-            if regions and isinstance(regions[0], dict):
-                region = regions[0]
-        if isinstance(region, dict) and region.get("start") and region.get("end"):
-            start, end = int(region["start"]), int(region["end"])
-            span_source = "DoriC"
-        else:
-            start = end = int(pos)
-            span_source = "ORCA (punto)"
-        return {
-            "genome": genome, "pos": int(pos), "start": start, "end": end,
-            "length": data.get("L"), "confidence": chosen.get("conf"),
-            "source": data.get("source", ""), "span_source": span_source,
-            "replicon": data.get("replicon") or "",
-            "doric": data.get("doric"),
-        }
-    return None
+    """Carga oriC desde el índice de regiones; no recalcula nada.
 
+    El índice normaliza DoriC/ORCA, conserva regiones circulares y distingue
+    punto de intervalo. Si no existe, ``oric_regions`` mantiene el respaldo
+    histórico.
+    """
+    try:
+        try:
+            import oric_regions
+        except ImportError:
+            from webapp import oric_regions
+        return oric_regions.load_region(Path(data_root), genome)
+    except Exception:
+        return None
 
 def load_transcription(data_root: Path, genome: str) -> tuple[pd.DataFrame, pd.DataFrame]:
     """TSS y TTS del genoma, con su procedencia (medido vs inferido).
@@ -1255,16 +1234,23 @@ def svg(tables: dict, contig: str, start: int, end: int,
     if "oric" in tracks and oric:
         _os, _oe = int(oric.get("start", oric["pos"])), int(oric.get("end", oric["pos"]))
         _pos = int(oric["pos"])
-        if _oe >= start and _os <= end:
-            _x0, _x1 = x(max(start, _os)), x(min(end, _oe))
+        _region = oric.get("region") or {}
+        _segments = _region.get("segments") or [[_os, _oe]]
+        _visible = []
+        for _a, _b in _segments:
+            if _b >= start and _a <= end:
+                _visible.append((max(start, int(_a)), min(end, int(_b))))
+        if _visible:
             o.append(hit_open("oric", _pos)
                      + f'<title>oriC · {_os:,}–{_oe:,} pb · '
                      f'conf {oric.get("confidence", "—")} · '
                      f'{oric.get("span_source", "")}</title>')
-            if _x1 > _x0:
-                o.append(f'<rect x="{_x0:.1f}" y="{Y["ruler"]-2}" '
-                         f'width="{max(1.0, _x1-_x0):.1f}" height="{height-8-Y["ruler"]}" '
-                         f'fill="#d81b60" opacity="0.12"/>')
+            for _a, _b in _visible:
+                _x0, _x1 = x(_a), x(_b)
+                if _x1 > _x0:
+                    o.append(f'<rect x="{_x0:.1f}" y="{Y["ruler"]-2}" '
+                             f'width="{max(1.0, _x1-_x0):.1f}" height="{height-8-Y["ruler"]}" '
+                             f'fill="#d81b60" opacity="0.12"/>')
             _gx = x(_pos)
             o.append(f'<line x1="{_gx:.1f}" y1="{Y["ruler"]}" x2="{_gx:.1f}" '
                      f'y2="{height-10}" stroke="#d81b60" stroke-width="2" '
@@ -2872,10 +2858,15 @@ def _oric_detail(data_root: Path, genome: str, oric: dict | None) -> None:
         return
     st.markdown("### 🧭 Origen de replicación")
     start, end = int(oric["start"]), int(oric["end"])
+    region = oric.get("region") or {}
+    span_len = int(region.get("length") or max(0, end - start + 1))
+    wrap = bool(region.get("wrap")) or start > end
     c1, c2, c3 = st.columns(3)
     c1.metric("Inicio", f"{start:,} pb")
     c2.metric("Fin", f"{end:,} pb")
-    c3.metric(tr("Longitud"), f"{max(0, end - start + 1):,} pb")
+    c3.metric(tr("Longitud"), f"{span_len:,} pb")
+    if wrap:
+        st.caption(tr("La región cruza el origen; se muestra como segmentos."))
     st.markdown(
         f"- **{tr('Punto ORCA')}:** `{int(oric['pos']):,}` pb"
         f"\n- **{tr('Región mostrada')}:** `{start:,}–{end:,}` "
@@ -2889,7 +2880,17 @@ def _oric_detail(data_root: Path, genome: str, oric: dict | None) -> None:
             "sin forzar coincidencia."
         ))
     seqs = load_genome_sequences(data_root, genome)
-    seq = _region_sequence(seqs, str(oric.get("replicon") or ""), start, end)
+    try:
+        try:
+            import oric_regions
+        except ImportError:
+            from webapp import oric_regions
+        seq = oric_regions.extract_region_sequence(
+            seqs, str(oric.get("replicon") or ""), start, end,
+            length=oric.get("length"))
+    except Exception:
+        seq = _region_sequence(seqs, str(oric.get("replicon") or ""),
+                               start, end)
     if seq:
         st.caption(tr(
             "Secuencia de la región en orientación 5′→3′ del contig. OriC no "

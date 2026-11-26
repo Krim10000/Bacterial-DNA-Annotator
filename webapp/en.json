@@ -1450,5 +1450,6 @@
  "Secondary structure not available for this sequence; no base pairs are invented.": "Secondary structure not available for this sequence; no base pairs are invented.",
  "Predicción MFE ({src}; {extra}). No demuestra el plegamiento in vivo ni la función.": "MFE prediction ({src}; {extra}). It does not prove in vivo folding or function.",
  "Diagrama 2D de arcos: cada arco une un par. No es una estructura 3D.": "2D arc diagram: each arc joins a pair. It is not a 3D structure.",
- "2D arc diagram: each arc joins a pair. It is not a 3D structure.": "2D arc diagram: each arc joins a pair. It is not a 3D structure."
+ "2D arc diagram: each arc joins a pair. It is not a 3D structure.": "2D arc diagram: each arc joins a pair. It is not a 3D structure.",
+ "La región cruza el origen; se muestra como segmentos.": "The region crosses the origin; it is shown as segments."
 }

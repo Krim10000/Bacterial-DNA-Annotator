@@ -827,6 +827,7 @@
  "Estructuras de homólogos para precribado estructural.",
  "Excluye coincidencias parciales; reduce la cobertura.",
  "Homólogos holo con ligandos/cofactores para Foldseek.",
+ "La región cruza el origen; se muestra como segmentos.",
  "Los datos y las decisiones científicas son del autor.",
  "Marca la posición oriC precalculada; no la recalcula.",
  "Puntuaciones de asociación funcional entre proteínas.",

@@ -40,7 +40,9 @@ Estados:
 
 - 400 genomas con estado: **271 validated**, **77 consensus**,
   **10 lineage_specific**, **42 anomalous**.
-- 306 genomas tienen verdad DoriC.
+- 306 genomas con `doric_truth` en la predicción; 321 tienen región
+  DoriC en la release (15 sin predicción ORCA). Ver
+  [`RNA_AND_ORIC.md`](RNA_AND_ORIC.md) para la auditoría de intervalos.
 - De los 67 de baja confianza con DoriC, **63 quedaron a ≤50 kb** (mediana 0).
 - De las 95 predicciones de baja confianza, **94/95 resueltas** al combinar
   ORCA, dnaA, GC skew y cajas; queda **1 en revisión**.
