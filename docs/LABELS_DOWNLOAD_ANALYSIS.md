@@ -96,3 +96,28 @@ El mapeo TSS→operón y la mezcla BSGatlas/DBTBS limitan la interpretación.
 3. Añadir sigmulón B. subtilis.
 4. Evaluar prior contextual sobre sigma.
 5. Aplicar a 339 genomas KEGG y 103 con fallback.
+
+## GO con y sin IEA
+
+Comparación de GAF:
+
+| Genoma | Genes sin IEA | Genes con IEA | Nuevos genes |
+|---|---:|---:|---:|
+| K-12 | 4.095 | 4.482 | 163 |
+| B. subtilis | 2.348 | 3.439 | 212 |
+
+Etiquetas que aparecen solo al incluir IEA:
+
+| Genoma | nitrogen | envelope | stationary | heat_shock | flagellum | sporulation |
+|---|---:|---:|---:|---:|---:|---:|
+| K-12 | 35 | 74 | 44 | 9 | 3 | 0 |
+| B. subtilis | 102 | 55 | 2 | 8 | 5 | 54 |
+
+IEA añade principalmente:
+
+- metabolismo de nitrógeno;
+- envoltura;
+- stationary;
+- esporulación en B. subtilis.
+
+Por eso `labels` tiene `allow_iea` como opción explícita y no lo activa por defecto.

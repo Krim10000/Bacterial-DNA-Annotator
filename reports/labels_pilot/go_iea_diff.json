@@ -1,0 +1,59 @@
+{
+ "ecoli_k12": {
+  "gaf_without_iea": 4095,
+  "gaf_with_iea": 4482,
+  "genes_with_new_label": 163,
+  "new_labels": {
+   "envelope": 74,
+   "nitrogen": 35,
+   "heat_shock": 9,
+   "flagellum": 3,
+   "stationary": 44
+  },
+  "label_genes_without": {
+   "heat_shock": 119,
+   "flagellum": 113,
+   "nitrogen": 480,
+   "stationary": 56,
+   "envelope": 472,
+   "sporulation": 0
+  },
+  "label_genes_with": {
+   "heat_shock": 128,
+   "flagellum": 116,
+   "nitrogen": 515,
+   "stationary": 100,
+   "envelope": 546,
+   "sporulation": 0
+  }
+ },
+ "subtilis": {
+  "gaf_without_iea": 2348,
+  "gaf_with_iea": 3439,
+  "genes_with_new_label": 212,
+  "new_labels": {
+   "nitrogen": 102,
+   "envelope": 55,
+   "sporulation": 54,
+   "heat_shock": 8,
+   "flagellum": 5,
+   "stationary": 2
+  },
+  "label_genes_without": {
+   "heat_shock": 13,
+   "flagellum": 51,
+   "nitrogen": 189,
+   "stationary": 2,
+   "envelope": 100,
+   "sporulation": 47
+  },
+  "label_genes_with": {
+   "heat_shock": 21,
+   "flagellum": 56,
+   "nitrogen": 291,
+   "stationary": 4,
+   "envelope": 155,
+   "sporulation": 101
+  }
+ }
+}
