@@ -940,3 +940,17 @@ dominios Pfam piloto
 estructura/Foldseek
 pockets
 ```
+
+### 2026-11-26 | lead | INFO | dominios | piloto
+
+Piloto Pfam:
+
+```text
+10.000 no_data
+262 con dominio
+212 significativos
+133 con GO por dominio (1,3 %)
+```
+
+Muestra no estratificada; no se escala todavía.
+Ver `docs/DOMAIN_PILOT.md`.
