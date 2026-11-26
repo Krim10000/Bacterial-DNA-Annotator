@@ -1,0 +1,159 @@
+{
+ "targets": {
+  "sigma24": {
+   "n_targets_mapped": 37,
+   "top": [
+    {
+     "pathway": "Lipopolysaccharide biosynthesis",
+     "n_target": 2,
+     "odds": 14.269,
+     "pvalue": 0.012396
+    },
+    {
+     "pathway": "Glycerophospholipid metabolism",
+     "n_target": 2,
+     "odds": 8.37,
+     "pvalue": 0.030133
+    }
+   ]
+  },
+  "sigma28": {
+   "n_targets_mapped": 14,
+   "top": []
+  },
+  "sigma32": {
+   "n_targets_mapped": 46,
+   "top": [
+    {
+     "pathway": "Aminoacyl-tRNA biosynthesis",
+     "n_target": 2,
+     "odds": 5.361,
+     "pvalue": 0.063628
+    },
+    {
+     "pathway": "Pyruvate metabolism",
+     "n_target": 2,
+     "odds": 3.395,
+     "pvalue": 0.130781
+    }
+   ]
+  },
+  "sigma38": {
+   "n_targets_mapped": 116,
+   "top": [
+    {
+     "pathway": "Glycolysis / Gluconeogenesis",
+     "n_target": 9,
+     "odds": 12.68,
+     "pvalue": 1e-06
+    },
+    {
+     "pathway": "Starch and sucrose metabolism",
+     "n_target": 5,
+     "odds": 13.626,
+     "pvalue": 0.000174
+    },
+    {
+     "pathway": "Methane metabolism",
+     "n_target": 5,
+     "odds": 6.791,
+     "pvalue": 0.002045
+    },
+    {
+     "pathway": "Carbon fixation by Calvin cycle",
+     "n_target": 4,
+     "odds": 5.065,
+     "pvalue": 0.013451
+    },
+    {
+     "pathway": "Pentose phosphate pathway",
+     "n_target": 4,
+     "odds": 4.094,
+     "pvalue": 0.024715
+    },
+    {
+     "pathway": "Fructose and mannose metabolism",
+     "n_target": 4,
+     "odds": 3.906,
+     "pvalue": 0.028207
+    },
+    {
+     "pathway": "Pyruvate metabolism",
+     "n_target": 4,
+     "odds": 2.762,
+     "pvalue": 0.072359
+    },
+    {
+     "pathway": "Arginine and proline metabolism",
+     "n_target": 3,
+     "odds": 6.419,
+     "pvalue": 0.018899
+    }
+   ]
+  },
+  "sigma54": {
+   "n_targets_mapped": 30,
+   "top": [
+    {
+     "pathway": "Purine metabolism",
+     "n_target": 2,
+     "odds": 3.52,
+     "pvalue": 0.124106
+    }
+   ]
+  },
+  "sigma70": {
+   "n_targets_mapped": 533,
+   "top": [
+    {
+     "pathway": "Purine metabolism",
+     "n_target": 18,
+     "odds": 2.032,
+     "pvalue": 0.014876
+    },
+    {
+     "pathway": "Nucleotide metabolism",
+     "n_target": 17,
+     "odds": 1.975,
+     "pvalue": 0.021276
+    },
+    {
+     "pathway": "Pyruvate metabolism",
+     "n_target": 16,
+     "odds": 3.245,
+     "pvalue": 0.000824
+    },
+    {
+     "pathway": "Pyrimidine metabolism",
+     "n_target": 14,
+     "odds": 2.828,
+     "pvalue": 0.004099
+    },
+    {
+     "pathway": "One carbon pool by folate",
+     "n_target": 13,
+     "odds": 10.03,
+     "pvalue": 4e-06
+    },
+    {
+     "pathway": "Glycolysis / Gluconeogenesis",
+     "n_target": 13,
+     "odds": 4.165,
+     "pvalue": 0.000555
+    },
+    {
+     "pathway": "Alanine, aspartate and glutamate metabolism",
+     "n_target": 12,
+     "odds": 3.285,
+     "pvalue": 0.003366
+    },
+    {
+     "pathway": "Glycine, serine and threonine metabolism",
+     "n_target": 11,
+     "odds": 4.688,
+     "pvalue": 0.000812
+    }
+   ]
+  }
+ }
+}

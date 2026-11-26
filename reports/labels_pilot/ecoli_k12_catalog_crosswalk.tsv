@@ -1,0 +1,1456 @@
+id	name	product	ec	ecs	rhea	go	kegg_reaction	pathways	n_go	n_pathways
+NP_414543.1	thrA	fused aspartate kinase/homoserine dehydrogenase 1	1.1.1.3	1.1.1.3	15757;15761	GO:0004022;GO:0004412		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis	2	3
+NP_414544.1	thrB	homoserine kinase	2.7.1.39	2.7.1.39	13985	GO:0004413		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism	1	2
+NP_414545.1	thrC	threonine synthase	4.2.3.1	4.2.3.1	10840	GO:0004795		Glycine, serine and threonine metabolism	1	1
+NP_414549.1	talB	transaldolase B	2.2.1.2	2.2.1.2	17053	GO:0004801			1	0
+NP_414550.1	mog	molybdopterin adenylyltransferase	2.7.7.75	2.7.7.75	31331	GO:0061598			1	0
+NP_414555.1	dnaK	chaperone protein DnaK	3.6.4.10	3.6.4.10	13065	GO:0016887			1	0
+NP_414566.1	ribF	bifunctional riboflavin kinase/FMN adenylyltransferase	2.7.1.26	2.7.1.26	14357	GO:0008531		Riboflavin metabolism	1	1
+NP_414567.1	ileS	isoleucine--tRNA ligase	6.1.1.5	6.1.1.5	11060	GO:0004822		Aminoacyl-tRNA biosynthesis	1	1
+NP_414568.1	lspA	lipoprotein signal peptidase	3.4.23.36	3.4.23.36					0	0
+NP_414569.1	fkpB	peptidyl-prolyl cis-trans isomerase FkpB	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+NP_414570.1	ispH	4-hydroxy-3-methylbut-2-enyl diphosphate reductase	1.17.7.4	1.17.7.4	24488;24825	GO:0051745		Terpenoid backbone biosynthesis	1	1
+NP_414571.1	rihC	ribonucleoside hydrolase RihC	3.2.2.1	3.2.2.1	23344	GO:0008477			1	0
+NP_414572.1	dapB	4-hydroxy-tetrahydrodipicolinate reductase	1.17.1.8	1.17.1.8	35323;35331	GO:0008839		Lysine biosynthesis;Monobactam biosynthesis	1	2
+NP_414573.1	carA	carbamoyl-phosphate synthetase small subunit	6.3.5.5	6.3.5.5	18633	GO:0004088		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Pyrimidine metabolism	1	3
+NP_414574.1	carB	carbamoyl-phosphate synthetase large subunit	6.3.5.5	6.3.5.5	18633	GO:0004088		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Pyrimidine metabolism	1	3
+NP_414578.2	caiD	crotonobetainyl-CoA hydratase	4.2.1.149	4.2.1.149	28338	GO:0140427			1	0
+NP_414579.4	caiC	carnitine--CoA ligase	6.2.1.48	6.2.1.48	28514;30079;55960	GO:0051109			1	0
+NP_414580.1	caiB	gamma-butyrobetainyl-CoA:carnitine CoA transferase	2.8.3.21	2.8.3.21	28418;28526	GO:0008735			1	0
+NP_414581.1	caiA	crotonobetainyl-CoA reductase	1.3.8.13	1.3.8.13	51584				0	0
+NP_414590.1	folA	dihydrofolate reductase	1.5.1.3	1.5.1.3	15009	GO:0004146		Folate biosynthesis;One carbon pool by folate	1	2
+NP_414591.1	apaH	diadenosine tetraphosphatase	3.6.1.40	3.6.1.40	13073	GO:0008894		Purine metabolism	1	1
+NP_414593.1	rsmA	16S rRNA (A(1518)/A(1519))-N(6)-dimethyltransferase	2.1.1.182	2.1.1.182	19609	GO:0052908			1	0
+NP_414594.1	pdxA	4-hydroxythreonine-4-phosphate dehydrogenase	1.1.1.262	1.1.1.262	32275	GO:0050570			1	0
+NP_414595.1	surA	chaperone SurA	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+NP_414596.1	lptD	lipopolysaccharide assembly protein LptD	7.5.2.5	7.5.2.5					0	0
+NP_414600.1	rluA	23S rRNA pseudouridine(746) and tRNA pseudouridine(32) synthase	5.4.99.28	5.4.99.28	42544	GO:0160151			1	0
+NP_414602.1	polB	DNA polymerase II	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+NP_414603.1	araD	L-ribulose-5-phosphate 4-epimerase AraD	5.1.3.4	5.1.3.4	22368	GO:0008742		Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions	1	2
+NP_414604.1	araA	L-arabinose isomerase	5.3.1.4	5.3.1.4	14821	GO:0008733		Pentose and glucuronate interconversions	1	1
+NP_414605.1	araB	ribulokinase	2.7.1.16	2.7.1.16	17601;22072	GO:0008741;GO:0019150		Pentose and glucuronate interconversions	2	1
+NP_414608.1	thiQ	thiamine ABC transporter ATP binding subunit	7.6.2.15	7.6.2.15	29811	GO:0048502			1	0
+NP_414609.1	thiP	thiamine ABC transporter membrane subunit	7.6.2.15	7.6.2.15	29811	GO:0048502			1	0
+NP_414610.1	thiB	thiamine ABC transporter periplasmic binding protein	7.6.2.15	7.6.2.15	29811	GO:0048502			1	0
+NP_414613.1	leuD	3-isopropylmalate dehydratase subunit LeuD	4.2.1.33	4.2.1.33	32287	GO:0003861			1	0
+NP_414614.1	leuC	3-isopropylmalate dehydratase subunit LeuC	4.2.1.33	4.2.1.33	32287	GO:0003861			1	0
+NP_414615.4	leuB	3-isopropylmalate dehydrogenase	1.1.1.85	1.1.1.85	32271	GO:0003862			1	0
+NP_414616.1	leuA	2-isopropylmalate synthase	2.3.3.13	2.3.3.13	21524	GO:0003852		Pyruvate metabolism;Valine, leucine and isoleucine biosynthesis	1	2
+YP_025294.2	ilvI	acetolactate synthase/acetohydroxybutanoate synthase, catalytic subunit	2.2.1.6	2.2.1.6	25249;27654	GO:0003984		Butanoate metabolism;C5-Branched dibasic acid metabolism;Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis	1	4
+NP_414620.1	ilvH	acetolactate synthase/acetohydroxybutanoate synthase, regulatory subunit	2.2.1.6	2.2.1.6	25249;27654	GO:0003984		Butanoate metabolism;C5-Branched dibasic acid metabolism;Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis	1	4
+NP_414624.1	rsmH	16S rRNA m(4)C1402 methyltransferase	2.1.1.199	2.1.1.199	42928	GO:0071424			1	0
+NP_414627.1	murE	UDP-N-acetylmuramoyl-L-alanyl-D-glutamate--2, 6-diaminopimelate ligase	6.3.2.13	6.3.2.13	23676	GO:0008765		Lysine biosynthesis;Peptidoglycan biosynthesis	1	2
+NP_414628.1	murF	UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D- alanine ligase	6.3.2.10	6.3.2.10	16085;28374	GO:0008766;GO:0047480		Lysine biosynthesis;Peptidoglycan biosynthesis	2	2
+NP_414629.1	mraY	phospho-N-acetylmuramoyl-pentapeptide- transferase	2.7.8.13	2.7.8.13	21920;28386	GO:0008963;GO:0051992		Peptidoglycan biosynthesis	2	1
+NP_414630.1	murD	UDP-N-acetylmuramoyl-L-alanine--D-glutamate ligase	6.3.2.9	6.3.2.9	16429	GO:0008764		D-Amino acid metabolism;Peptidoglycan biosynthesis	1	2
+NP_414632.1	murG	N-acetylglucosaminyl transferase	2.4.1.227	2.4.1.227	23192;31227	GO:0050511;GO:0051991		Peptidoglycan biosynthesis	2	1
+NP_414633.1	murC	UDP-N-acetylmuramate--L-alanine ligase	6.3.2.8	6.3.2.8	23372	GO:0008763		Peptidoglycan biosynthesis	1	1
+NP_414634.1	ddlB	D-alanine--D-alanine ligase B	6.3.2.4	6.3.2.4	11224	GO:0008716		D-Amino acid metabolism;Peptidoglycan biosynthesis	1	2
+NP_414638.1	lpxC	UDP-3-O-acyl-N-acetylglucosamine deacetylase	3.5.1.108	3.5.1.108	25209;67816	GO:0103117		Lipopolysaccharide biosynthesis	1	1
+NP_414641.1	mutT	8-oxo-dGTP diphosphatase	3.6.1.55	3.6.1.55	31575	GO:0035539			1	0
+NP_414645.1	coaE	dephospho-CoA kinase	2.7.1.24	2.7.1.24	18245	GO:0004140		Pantothenate and CoA biosynthesis	1	1
+NP_414646.1	guaC	GMP reductase	1.7.1.7	1.7.1.7	17185	GO:0003920		Nucleotide metabolism;Purine metabolism	1	2
+NP_414651.1	nadC	quinolinate phosphoribosyltransferase (decarboxylating)	2.4.2.19	2.4.2.19	12733	GO:0004514		Nicotinate and nicotinamide metabolism	1	1
+NP_414652.1	ampD	1,6-anhydro-N-acetylmuramoyl-L-alanine amidase	3.5.1.28	3.5.1.28					0	0
+NP_414656.1	aceE	pyruvate dehydrogenase E1 component	1.2.1.104	1.2.1.104	28042				0	0
+NP_414657.1	aceF	pyruvate dehydrogenase E2 subunit	1.2.1.104	1.2.1.104	28042				0	0
+NP_414658.1	lpd	lipoamide dehydrogenase	1.2.1.104	1.2.1.104	28042				0	0
+NP_414660.1	acnB	AcnB	4.2.1.99	4.2.1.99	17941	GO:0047456		Propanoate metabolism	1	1
+NP_414662.1	speD	S-adenosylmethionine decarboxylase proenzyme	4.1.1.50	4.1.1.50	15981	GO:0004014		Arginine and proline metabolism;Cysteine and methionine metabolism	1	2
+NP_414663.1	speE	spermidine synthase	2.5.1.16	2.5.1.16	12721	GO:0004766		Arginine and proline metabolism;Cysteine and methionine metabolism;Glutathione metabolism	1	3
+NP_414665.1	cueO	multicopper oxidase CueO	1.10.3.2	1.10.3.2	11276	GO:0052716			1	0
+NP_414666.1	gcd	quinoprotein glucose dehydrogenase	1.1.5.2	1.1.5.2	22152	GO:0008876		Pentose phosphate pathway	1	1
+NP_414667.4	hpt	hypoxanthine phosphoribosyltransferase	2.4.2.8	2.4.2.8	17973;25424	GO:0004422;GO:0052657		Nucleotide metabolism;Purine metabolism	2	2
+NP_414668.1	can	carbonic anhydrase 2	4.2.1.1	4.2.1.1	10748	GO:0004089			1	0
+NP_414673.1	panD	aspartate 1-decarboxylase proenzyme	4.1.1.11	4.1.1.11	19497	GO:0004068		Pantothenate and CoA biosynthesis;beta-Alanine metabolism	1	2
+NP_414675.1	panC	pantothenate synthetase	6.3.2.1	6.3.2.1	10912	GO:0004592		Pantothenate and CoA biosynthesis;beta-Alanine metabolism	1	2
+NP_414676.1	panB	3-methyl-2-oxobutanoate hydroxymethyltransferase	2.1.2.11	2.1.2.11	11824	GO:0003864		Pantothenate and CoA biosynthesis	1	1
+NP_414684.1	folK	2-amino-4-hydroxy-6- hydroxymethyldihydropteridine diphosphokinase	2.7.6.3	2.7.6.3	11412	GO:0003848		Folate biosynthesis	1	1
+NP_414685.4	pcnB	poly(A) polymerase I	2.7.7.19	2.7.7.19	11332	GO:1990817			1	0
+NP_414689.4	thpR	RNA 2',3'-cyclic phosphodiesterase	3.1.4.58	3.1.4.58	11828	GO:0008664			1	0
+NP_414693.1	fhuC	Fe(3(+)) hydroxamate ABC transporter ATP binding subunit	7.2.2.16	7.2.2.16					0	0
+NP_414694.1	fhuD	Fe(3(+)) hydroxamate ABC transporter periplasmic binding protein	7.2.2.16	7.2.2.16					0	0
+NP_414695.1	fhuB	Fe(3(+)) hydroxamate ABC transporter membrane subunit	7.2.2.16	7.2.2.16					0	0
+NP_414696.1	hemL	glutamate-1-semialdehyde 2,1-aminomutase	5.4.3.8	5.4.3.8	14265	GO:0042286		Porphyrin metabolism	1	1
+NP_414700.1	btuF	vitamin B12 ABC transporter periplasmic binding protein	7.6.2.8	7.6.2.8	17873	GO:0015420			1	0
+NP_414701.1	mtn	5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase	3.2.2.9	3.2.2.9	13617;17805;29859	GO:0008782;GO:0008930		Cysteine and methionine metabolism	2	1
+NP_414702.1	dgt	dGTP triphosphohydrolase	3.1.5.1	3.1.5.1	15193	GO:0008832		Nucleotide metabolism;Purine metabolism	1	2
+NP_414703.1	degP	periplasmic serine endoprotease DegP	3.4.21.107	3.4.21.107					0	0
+NP_414708.1	dapD	tetrahydrodipicolinate succinylase	2.3.1.117	2.3.1.117	17325	GO:0008666		Lysine biosynthesis	1	1
+NP_414710.1	map	methionine aminopeptidase	3.4.11.18	3.4.11.18					0	0
+NP_414713.1	pyrH	UMP kinase	2.7.4.22	2.7.4.22	24400	GO:0033862		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_414715.1	dxr	1-deoxy-D-xylulose 5-phosphate reductoisomerase	1.1.1.267	1.1.1.267	13717	GO:0030604		Terpenoid backbone biosynthesis	1	1
+NP_414716.1	ispU	ditrans,polycis-undecaprenyl-diphosphate synthase [(2E,6E)-farnesyl-diphosphate specific]	2.5.1.31	2.5.1.31	27551	GO:0008834		Peptidoglycan biosynthesis;Terpenoid backbone biosynthesis	1	2
+NP_414717.2	cdsA	CDP-diglyceride synthetase	2.7.7.41	2.7.7.41	16229	GO:0004605		Glycerophospholipid metabolism	1	1
+NP_414721.1	lpxD	UDP-3-O-(3-hydroxymyristoyl)glucosamine N-acyltransferase	2.3.1.191	2.3.1.191	17817;53836	GO:0103118		Lipopolysaccharide biosynthesis	1	1
+NP_414722.1	fabZ	3-hydroxy-acyl-[acyl-carrier-protein] dehydratase	4.2.1.59	4.2.1.59	13097	GO:0019171		Fatty acid biosynthesis	1	1
+NP_414723.1	lpxA	acyl-[acyl-carrier-protein]--UDP-N- acetylglucosamine O-acyltransferase	2.3.1.129	2.3.1.129	13925;67812	GO:0008780		Lipopolysaccharide biosynthesis	1	1
+NP_414724.1	lpxB	lipid A disaccharide synthase	2.4.1.182	2.4.1.182	22668;67828	GO:0008915		Lipopolysaccharide biosynthesis	1	1
+NP_414725.1	rnhB	RNase HII	3.1.26.4	3.1.26.4					0	0
+NP_414726.1	dnaE	DNA polymerase III subunit alpha	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+NP_414727.1	accA	acetyl-CoA carboxyltransferase subunit alpha	2.1.3.15	2.1.3.15	54728				0	0
+NP_414728.1	ldcC	lysine decarboxylase 2	4.1.1.18	4.1.1.18	22352	GO:0008923		Biosynthesis of various siderophores;Lysine degradation;Tropane, piperidine and pyridine alkaloid biosynthesis	1	3
+NP_414730.1	tilS	tRNA(Ile)-lysidine synthetase	6.3.4.19	6.3.4.19	43744	GO:0032267			1	0
+NP_414733.1	arfB	peptidyl-tRNA hydrolase, ribosome rescue factor	3.1.1.29	3.1.1.29	54448	GO:0004045			1	0
+NP_414736.1	proS	proline--tRNA ligase	6.1.1.15	6.1.1.15	14305	GO:0004827		Aminoacyl-tRNA biosynthesis	1	1
+NP_414739.1	metQ	L-methionine/D-methionine ABC transporter membrane anchored binding protein	7.4.2.11	7.4.2.11	29767;29779	GO:0033232			1	0
+NP_414740.1	metI	L-methionine/D-methionine ABC transporter membrane subunit	7.4.2.11	7.4.2.11	29767;29779	GO:0033232			1	0
+NP_414741.1	metN	L-methionine/D-methionine ABC transporter ATP binding subunit	7.4.2.11	7.4.2.11	29767;29779	GO:0033232			1	0
+NP_414742.1	gmhB	D-glycero-beta-D-manno-heptose-1,7-bisphosphate 7-phosphatase	3.1.3.82	3.1.3.82	28518	GO:0034200		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+NP_414743.1	dkgB	methylglyoxal reductase DkgB	1.1.1.21	1.1.1.21	12785;12789;25225;25229;37963;37967	GO:0004022;GO:0004032;GO:0032867		Galactose metabolism;Pentose and glucuronate interconversions	3	2
+NP_414748.1	gloB	hydroxyacylglutathione hydrolase GloB	3.1.2.6	3.1.2.6	21864;25245	GO:0004416		Pyruvate metabolism	1	1
+NP_414750.1	rnhA	ribonuclease HI	3.1.26.4	3.1.26.4					0	0
+NP_414754.1	yafV	2-oxoglutaramate amidase	3.5.1.111	3.5.1.111	32963	GO:0106008		Alanine, aspartate and glutamate metabolism	1	1
+NP_414756.2	fadE	acyl-CoA dehydrogenase	1.3.8.7	1.3.8.7	14477	GO:0070991			1	0
+NP_414757.1	gmhA	D-sedoheptulose 7-phosphate isomerase	5.3.1.28	5.3.1.28	27489	GO:0008968			1	0
+NP_414766.1	dinB	DNA polymerase IV	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+NP_414772.1	pepD	peptidase D	3.4.13.18	3.4.13.18					0	0
+NP_414773.1	gpt	xanthine-guanine phsophoribosyltransferase	2.4.2.22	2.4.2.22	10800	GO:0000310		Nucleotide metabolism;Purine metabolism	1	2
+NP_414777.1	proB	glutamate 5-kinase	2.7.2.11	2.7.2.11	14877	GO:0004349		Arginine and proline metabolism;Carbapenem biosynthesis	1	2
+NP_414778.1	proA	glutamate-5-semialdehyde dehydrogenase	1.2.1.41	1.2.1.41	19541	GO:0004350		Arginine and proline metabolism;Carbapenem biosynthesis	1	2
+NP_414795.1	mmuM	homocysteine S-methyltransferase	2.1.1.10	2.1.1.10	21820;26337	GO:0008898;GO:0061627		Cysteine and methionine metabolism;One carbon pool by folate	2	2
+NP_414802.2	yagE	2-dehydro-3-deoxygluconate aldolase	4.1.2.28	4.1.2.28	20609	GO:0047440		Pentose and glucuronate interconversions	1	1
+NP_414803.1	yagF	D-xylonate dehydratase	4.2.1.82	4.2.1.82	19157	GO:0050401		Pentose and glucuronate interconversions	1	1
+NP_414807.1	argF	ornithine carbamoyltransferase ArgF	2.1.3.3	2.1.3.3	19513	GO:0004585		Arginine biosynthesis	1	1
+NP_414818.1	paoC	aldehyde dehydrogenase, molybdenum cofactor-binding subunit	1.2.99.6	1.2.99.6	56856				0	0
+NP_414819.1	paoB	aldehyde dehydrogenase, FAD-binding Fe-S subunit	1.2.99.6	1.2.99.6	56856				0	0
+NP_414820.1	paoA	aldehyde dehydrogenase, Fe-S subunit	1.2.99.6	1.2.99.6	56856				0	0
+NP_414845.1	betA	choline dehydrogenase	1.1.99.1	1.1.99.1	17433	GO:0008812		Glycine, serine and threonine metabolism;One carbon pool by folate	1	2
+NP_414846.1	betB	betaine aldehyde dehydrogenase	1.2.1.8	1.2.1.8	15305	GO:0008802		Glycine, serine and threonine metabolism;One carbon pool by folate	1	2
+NP_414849.1	pdeL	DNA-binding transcriptional regulator/c-di-GMP phosphodiesterase PdeL	3.1.4.52	3.1.4.52	24902	GO:0071111			1	0
+NP_414859.1	yahK	aldehyde reductase, NADPH-dependent	1.1.1.2	1.1.1.2	15937;19257	GO:0004090;GO:0008106			2	0
+NP_414865.1	prpB	2-methylisocitrate lyase	4.1.3.30	4.1.3.30	16809	GO:0046421		Propanoate metabolism	1	1
+NP_414867.1	prpC	2-methylcitrate synthase	2.3.3.5	2.3.3.5	23780	GO:0050440		Propanoate metabolism	1	1
+NP_414868.1	prpD	2-methylcitrate dehydratase	4.2.1.79	4.2.1.79	17725	GO:0047547		Propanoate metabolism	1	1
+NP_414869.1	prpE	propionyl-CoA synthetase	6.2.1.17	6.2.1.17	20373	GO:0050218			1	0
+NP_414871.1	codA	cytosine/isoguanine deaminase	3.5.4.1	3.5.4.1	20605	GO:0004131		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_414873.1	cynT	carbonic anhydrase 1	4.2.1.1	4.2.1.1	10748	GO:0004089			1	0
+NP_414876.1	lacA	galactoside O-acetyltransferase	2.3.1.18	2.3.1.18	15713	GO:0008870			1	0
+NP_414878.1	lacZ	beta-galactosidase	3.2.1.108	3.2.1.108	10076	GO:0000016			1	0
+NP_414881.1	mhpA	3-(3-hydroxyphenyl)propanoate hydroxylase	1.14.13.127	1.14.13.127	24785;27846	GO:0008688		Phenylalanine metabolism	1	1
+NP_414882.1	mhpB	3-carboxyethylcatechol 2,3-dioxygenase	1.13.11.16	1.13.11.16	23840;25054	GO:0047070		Phenylalanine metabolism	1	1
+NP_414883.5	mhpC	2-hydroxy-6-ketonona-2,4-dienedioate hydrolase	3.7.1.14	3.7.1.14	34187;34191	GO:0018771;GO:0052823		Phenylalanine metabolism	2	1
+NP_414884.2	mhpD	2-hydroxypentadienoate hydratase	4.2.1.80	4.2.1.80	22580	GO:0008684		Benzoate degradation;Dioxin degradation;Phenylalanine metabolism;Xylene degradation	1	4
+NP_414885.1	mhpF	acetaldehyde dehydrogenase (acetylating) MhpF	1.2.1.10	1.2.1.10	23288	GO:0008774		Benzoate degradation;Dioxin degradation;Phenylalanine metabolism;Pyruvate metabolism;Xylene degradation	1	5
+NP_414886.1	mhpE	4-hydroxy-2-oxovalerate aldolase	4.1.3.39	4.1.3.39	22624	GO:0008701		Benzoate degradation;Dioxin degradation;Phenylalanine metabolism;Xylene degradation	1	4
+NP_414889.1	frmB	S-formylglutathione hydrolase FrmB	3.1.2.12	3.1.2.12	14961	GO:0018738		Methane metabolism	1	1
+NP_414890.1	frmA	S-(hydroxymethyl)glutathione dehydrogenase	1.1.1.284	1.1.1.284	19981;19985	GO:0106321;GO:0106322		Methane metabolism	2	1
+NP_414899.2	tauA	taurine ABC transporter periplasmic binding protein	7.6.2.7	7.6.2.7	14613	GO:0015411			1	0
+NP_414900.1	tauB	taurine ABC transporter ATP binding subunit	7.6.2.7	7.6.2.7	14613	GO:0015411			1	0
+NP_414901.1	tauC	taurine ABC transporter membrane subunit	7.6.2.7	7.6.2.7	14613	GO:0015411			1	0
+NP_414902.1	tauD	taurine dioxygenase	1.14.11.17	1.14.11.17	15909	GO:0000908		Sulfur metabolism;Taurine and hypotaurine metabolism	1	2
+NP_414903.4	hemB	porphobilinogen synthase	4.2.1.24	4.2.1.24	24064	GO:0004655		Porphyrin metabolism	1	1
+NP_414915.1	ddlA	D-alanine--D-alanine ligase A	6.3.2.4	6.3.2.4	11224	GO:0008716		D-Amino acid metabolism;Peptidoglycan biosynthesis	1	2
+NP_414917.2	phoA	alkaline phosphatase	3.1.3.1	3.1.3.1	15017				0	0
+NP_414919.1	dgcC	diguanylate cyclase DgcC	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+NP_414920.1	proC	pyrroline-5-carboxylate reductase	1.5.1.2	1.5.1.2	14105;14109	GO:0004735		Arginine and proline metabolism	1	1
+NP_414922.1	aroL	shikimate kinase 2	2.7.1.71	2.7.1.71	13121	GO:0004765		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_414925.1	ppnP	nucleoside phosphorylase PpnP	2.4.2.15	2.4.2.15	13233	GO:0047975		Nucleotide metabolism;Purine metabolism	1	2
+NP_414928.2	mak	fructokinase	2.7.1.4	2.7.1.4	16125	GO:0008865		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Fructose and mannose metabolism;Starch and sucrose metabolism	1	4
+NP_414934.1	phoR	sensor histidine kinase PhoR	2.7.13.3	2.7.13.3					0	0
+NP_414937.2	malZ	maltodextrin glucosidase	3.2.1.20	3.2.1.20					0	0
+NP_414938.1	acpH	acyl carrier protein phosphodiesterase	3.1.4.14	3.1.4.14	20537	GO:0008770		Pantothenate and CoA biosynthesis	1	1
+NP_414939.1	queA	tRNA preQ1(34) S-adenosylmethionine ribosyltransferase-isomerase	2.4.99.17	2.4.99.17	32155	GO:0051075			1	0
+NP_414940.1	tgt	tRNA-guanine transglycosylase	2.4.2.29	2.4.2.29	24104				0	0
+NP_414948.1	ribD	fused diaminohydroxyphosphoribosylaminopyrimidine deaminase/5-amino-6-(5-phosphoribosylamino)uracil reductase	1.1.1.193	1.1.1.193	17845	GO:0008703		Riboflavin metabolism	1	1
+NP_414949.1	ribE	6,7-dimethyl-8-ribityllumazine synthase	2.5.1.78	2.5.1.78	26152	GO:0000906		Riboflavin metabolism	1	1
+NP_414951.1	thiL	thiamine monophosphate kinase	2.7.4.16	2.7.4.16	15913	GO:0009030		Thiamine metabolism	1	1
+NP_414952.1	pgpA	phosphatidylglycerophosphatase A	3.1.3.27	3.1.3.27	33751			Glycerophospholipid metabolism	0	1
+NP_414954.1	dxs	1-deoxy-D-xylulose-5-phosphate synthase	2.2.1.7	2.2.1.7	12605	GO:0008661		Terpenoid backbone biosynthesis;Thiamine metabolism	1	2
+NP_414955.1	ispA	geranyl diphosphate/farnesyl diphosphate synthase	2.5.1.1	2.5.1.1	22408	GO:0004161		Biosynthesis of various other secondary metabolites;Terpenoid backbone biosynthesis	1	2
+NP_414956.1	xseB	exodeoxyribonuclease VII subunit XseB	3.1.11.6	3.1.11.6					0	0
+NP_414957.1	thiI	tRNA uridine 4-sulfurtransferase	2.8.1.4	2.8.1.4	24176	GO:0140741			1	0
+NP_414959.1	panE	2-dehydropantoate 2-reductase	1.1.1.169	1.1.1.169	16233	GO:0008677		Pantothenate and CoA biosynthesis	1	1
+NP_414962.1	cyoE	heme O synthase	2.5.1.141	2.5.1.141	28070	GO:0008495		Porphyrin metabolism	1	1
+NP_414963.1	cyoD	cytochrome bo3 subunit 4	7.1.1.3	7.1.1.3	30251	GO:0009486			1	0
+NP_414964.1	cyoC	cytochrome bo3 subunit 3	7.1.1.3	7.1.1.3	30251	GO:0009486			1	0
+NP_414965.1	cyoB	cytochrome bo3 subunit 1	7.1.1.3	7.1.1.3	30251	GO:0009486			1	0
+NP_414966.1	cyoA	cytochrome bo3 subunit 2	7.1.1.3	7.1.1.3	30251	GO:0009486			1	0
+NP_414970.1	tig	trigger factor	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+NP_414971.1	clpP	ATP-dependent Clp protease proteolytic subunit	3.4.21.92	3.4.21.92					0	0
+NP_414972.1	clpX	ATP-dependent Clp protease ATP-binding subunit ClpX	3.4.21.92	3.4.21.92					0	0
+NP_414973.1	lon	Lon protease	3.4.21.53	3.4.21.53					0	0
+NP_414978.1	queC	7-cyano-7-deazaguanine synthase	6.3.4.20	6.3.4.20	27982			Folate biosynthesis	0	1
+NP_414980.2	cof	HMP-PP phosphatase	3.1.3.74	3.1.3.74	20533;25112;25135	GO:0033883		Vitamin B6 metabolism	1	1
+NP_414986.1	tesB	acyl-CoA thioesterase II	3.1.2.20	3.1.2.20	16781	GO:0047617			1	0
+NP_414992.1	maa	maltose O-acetyltransferase	2.3.1.79	2.3.1.79	10456	GO:0008925			1	0
+NP_415002.1	apt	adenine phosphoribosyltransferase	2.4.2.7	2.4.2.7	16609	GO:0003999		Nucleotide metabolism;Purine metabolism	1	2
+NP_415006.1	htpG	chaperone protein HtpG	3.6.4.10	3.6.4.10	13065	GO:0016887			1	0
+NP_415007.1	adk	adenylate kinase	2.7.4.3	2.7.4.3	12973	GO:0004017		Nucleotide metabolism;Purine metabolism	1	2
+NP_415008.1	hemH	ferrochelatase	4.98.1.1	4.98.1.1	22584	GO:0004325		Porphyrin metabolism	1	1
+NP_415009.1	aes	acetylesterase	3.1.1.6	3.1.1.6	12957	GO:0008126			1	0
+NP_415010.1	gsk	inosine/guanosine kinase	2.7.1.73	2.7.1.73	21140;27710	GO:0008906;GO:0106366		Nucleotide metabolism;Purine metabolism	2	2
+NP_415013.1	ushA	5'-nucleotidase/UDP-sugar hydrolase	3.1.3.41	3.1.3.41	21664			Aminobenzoate degradation	0	1
+NP_415018.1	glsA	glutaminase 1	3.5.1.2	3.5.1.2	15889	GO:0004359		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis	1	2
+NP_415026.1	ybbO	NADP(+)-dependent aldehyde reductase YbbO	1.1.1.2	1.1.1.2	15937;19257	GO:0004090;GO:0008106			2	0
+NP_415027.1	tesA	multifunctional acyl-CoA thioesterase I and protease I and lysophospholipase L1	3.1.1.5	3.1.1.5	15177	GO:0004622		Glycerophospholipid metabolism	1	1
+NP_415036.1	selU	tRNA 2-selenouridine synthase	2.9.1.3	2.9.1.3	42716	GO:0043828			1	0
+NP_415038.1	allA	ureidoglycolate lyase	4.3.2.3	4.3.2.3	11304	GO:0050385		Purine metabolism	1	1
+NP_415040.1	gcl	glyoxylate carboligase	4.1.1.47	4.1.1.47	10136	GO:0009028		Glyoxylate and dicarboxylate metabolism	1	1
+NP_415041.1	hyi	hydroxypyruvate isomerase	5.3.1.22	5.3.1.22	11952	GO:0008903		Glyoxylate and dicarboxylate metabolism	1	1
+NP_415045.1	allB	allantoinase	3.5.2.5	3.5.2.5	17029	GO:0004038		Purine metabolism	1	1
+NP_415047.1	glxK	glycerate 2-kinase 2	2.7.1.165	2.7.1.165	27377	GO:0043798			1	0
+NP_415048.1	allE	(S)-ureidoglycine aminohydrolase	3.5.3.26	3.5.3.26	25241	GO:0071522		Purine metabolism	1	1
+NP_415049.1	allC	allantoate amidohydrolase	3.5.3.9	3.5.3.9	27485	GO:0047652		Purine metabolism	1	1
+NP_415050.1	allD	ureidoglycolate dehydrogenase	1.1.1.350	1.1.1.350	15329			Purine metabolism	0	1
+NP_415051.1	fdrA	putative oxamate carbamoyltransferase FdrA	2.1.3.5	2.1.3.5	22984	GO:0050205		Purine metabolism	1	1
+NP_415055.1	purK	5-(carboxyamino)imidazole ribonucleotide synthase	6.3.4.18	6.3.4.18	19317	GO:0034028		Purine metabolism	1	1
+NP_415056.1	purE	N(5)-carboxyaminoimidazole ribonucleotide mutase	5.4.99.18	5.4.99.18	13193	GO:0034023		Purine metabolism	1	1
+NP_415057.1	lpxH	UDP-2,3-diacylglucosamine diphosphatase	3.6.1.54	3.6.1.54	25213;67824	GO:0008758		Lipopolysaccharide biosynthesis	1	1
+NP_415058.1	ppiB	peptidyl-prolyl cis-trans isomerase B	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+NP_415059.1	cysS	cysteine--tRNA ligase	6.1.1.16	6.1.1.16	17773	GO:0004817		Aminoacyl-tRNA biosynthesis	1	1
+NP_415062.1	folD	bifunctional methylenetetrahydrofolate dehydrogenase/methenyltetrahydrofolate cyclohydrolase	1.5.1.5	1.5.1.5	22812	GO:0004488		One carbon pool by folate;Other carbon fixation pathways	1	2
+NP_415087.1	rrrD	lysozyme	3.2.1.17	3.2.1.17					0	0
+NP_415097.1	ompT	omptin family outer membrane protease OmpT	3.4.23.49	3.4.23.49					0	0
+NP_415102.1	cusS	sensor histidine kinase CusS	2.7.13.1	2.7.13.1	22720	GO:0008256			1	0
+NP_415110.1	nfsB	NAD(P)H-dependent nitroreductase NfsB	1.5.1.34	1.5.1.34	17865;17869;32247;32251	GO:0004155		Folate biosynthesis	1	1
+NP_415113.1	ybdK	putative glutamate--cysteine ligase 2	6.3.2.2	6.3.2.2	13285	GO:0004357		Glutathione metabolism;Histidine metabolism	1	2
+NP_415115.2	entD	phosphopantetheinyl transferase EntD	6.3.2.14	6.3.2.14	30571	GO:0047527		Biosynthesis of siderophore group nonribosomal peptides	1	1
+NP_415117.2	fes	ferric enterobactin esterase	3.1.1.108	3.1.1.108	30111				0	0
+NP_415118.1	entF	apo-serine activating enzyme	6.2.1.72	6.2.1.72	61704				0	0
+NP_415120.1	fepC	ferric enterobactin ABC transporter ATP binding subunit	7.2.2.17	7.2.2.17	58492	GO:0015624			1	0
+NP_415121.1	fepG	ferric enterobactin ABC transporter membrane subunit FepG	7.2.2.17	7.2.2.17	58492	GO:0015624			1	0
+NP_415122.1	fepD	ferric enterobactin ABC transporter membrane subunit FebD	7.2.2.17	7.2.2.17	58492	GO:0015624			1	0
+NP_415124.1	fepB	ferric enterobactin ABC transporter periplasmic binding protein	7.2.2.17	7.2.2.17	58492	GO:0015624			1	0
+NP_415125.1	entC	isochorismate synthase EntC	5.4.4.2	5.4.4.2	18985	GO:0008909		Biosynthesis of siderophore group nonribosomal peptides;Ubiquinone and other terpenoid-quinone biosynthesis	1	2
+NP_415126.1	entE	2,3-dihydroxybenzoate-AMP ligase	6.2.1.71	6.2.1.71	61652	GO:0008668			1	0
+NP_415127.1	entB	enterobactin synthase component B	3.3.2.1	3.3.2.1	11112	GO:0008908		Biosynthesis of siderophore group nonribosomal peptides	1	1
+NP_415128.1	entA	2,3-dihydro-2,3-dihydroxybenzoate dehydrogenase	1.3.1.28	1.3.1.28	23824	GO:0008667		Biosynthesis of siderophore group nonribosomal peptides	1	1
+NP_415133.1	ybdL	methionine transaminase	2.6.1.88	2.6.1.88	31763	GO:0010326		Glucosinolate metabolism	1	1
+NP_415137.2	dsbG	protein sulfenic acid reductase and chaperone DsbG	5.3.4.1	5.3.4.1					0	0
+NP_415138.1	ahpC	alkyl hydroperoxide reductase, AhpC component	1.11.1.26	1.11.1.26	62628	GO:0102039			1	0
+NP_415139.2	ahpF	alkyl hydroperoxide reductase, AhpF component	1.11.1.26	1.11.1.26	62628	GO:0102039			1	0
+NP_415144.1	rna	RNase I	4.6.1.21	4.6.1.21					0	0
+NP_415146.1	citG	triphosphoribosyl-dephospho-CoA synthase	2.4.2.52	2.4.2.52	15117	GO:0046917			1	0
+NP_415147.1	citX	apo-citrate lyase phosphoribosyl-dephospho-CoA transferase	2.7.7.61	2.7.7.61	16333	GO:0050519			1	0
+NP_415148.1	citF	citrate lyase alpha subunit	2.8.3.10	2.8.3.10	19405	GO:0008814			1	0
+NP_415149.4	citE	citrate lyase beta subunit	2.8.3.10	2.8.3.10	19405	GO:0008814			1	0
+NP_415150.1	citD	citrate lyase acyl carrier protein	2.8.3.10	2.8.3.10	19405	GO:0008814			1	0
+NP_415151.4	citC	citrate lyase synthetase	6.2.1.22	6.2.1.22	23788	GO:0008771			1	0
+NP_415152.1	dpiB	sensor histidine kinase DpiB	2.7.13.3	2.7.13.3					0	0
+NP_415161.1	lipA	lipoyl synthase	2.8.1.8	2.8.1.8	16585	GO:0016992			1	0
+NP_415163.2	lipB	lipoyl(octanoyl) transferase	2.3.1.181	2.3.1.181	17665	GO:0033819			1	0
+NP_415165.1	dacA	D-alanyl-D-alanine carboxypeptidase DacA	3.4.16.4	3.4.16.4					0	0
+NP_415169.1	rlmH	23S rRNA m(3)psi1915 methyltransferase	2.1.1.177	2.1.1.177	42752				0	0
+NP_415171.1	cobC	putative adenosylcobalamin phosphatase/alpha-ribazole phosphatase	3.1.3.73	3.1.3.73	24456;30367	GO:0043755		Porphyrin metabolism	1	1
+NP_415172.1	nadD	nicotinate-nucleotide adenylyltransferase	2.7.7.18	2.7.7.18	22860	GO:0004515		Nicotinate and nicotinamide metabolism	1	1
+NP_415174.1	lptE	lipopolysaccharide assembly protein LptE	7.5.2.5	7.5.2.5					0	0
+NP_415175.1	leuS	leucine--tRNA ligase	6.1.1.4	6.1.1.4	11688	GO:0004823		Aminoacyl-tRNA biosynthesis	1	1
+NP_415184.1	rihA	pyrimidine-specific ribonucleoside hydrolase RihA	3.2.2.3	3.2.2.3	15577	GO:0045437		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_415185.1	gltL	glutamate/aspartate ABC transporter ATP binding subunit	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_415186.1	gltK	glutamate/aspartate ABC transporter membrane subunit GltK	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_415187.1	gltJ	glutamate/aspartate ABC transporter membrane subunit GltJ	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_415188.1	gltI	glutamate/aspartate ABC transporter periplasmic binding protein	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_415190.1	lnt	apolipoprotein N-acyltransferase	2.3.1.269	2.3.1.269	48228				0	0
+NP_415194.1	miaB	isopentenyl-adenosine A37 tRNA methylthiolase	2.8.4.3	2.8.4.3	37067	GO:0035597			1	0
+NP_415195.1	ubiF	3-demethoxyubiquinol 3-hydroxylase	1.14.99.60	1.14.99.60	50908	GO:0008682		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_415200.1	asnB	asparagine synthetase B	3.5.1.2	3.5.1.2	15889	GO:0004359		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis	1	2
+NP_415201.1	umpH	UMP phosphatase	3.1.3.5	3.1.3.5	12484	GO:0008253			1	0
+NP_415203.1	nagA	N-acetylglucosamine-6-phosphate deacetylase	3.5.1.25	3.5.1.25	22936	GO:0008448		Amino sugar and nucleotide sugar metabolism	1	1
+NP_415204.1	nagB	glucosamine-6-phosphate deaminase	3.5.99.6	3.5.99.6	12172	GO:0004342		Amino sugar and nucleotide sugar metabolism	1	1
+NP_415205.1	nagE	N-acetylglucosamine-specific PTS enzyme IIABC component	2.7.1.191	2.7.1.191	49232	GO:0022870		Amino sugar and nucleotide sugar metabolism;Fructose and mannose metabolism	1	2
+NP_415206.1	glnS	glutamine--tRNA ligase	6.1.1.18	6.1.1.18	20121	GO:0004819		Aminoacyl-tRNA biosynthesis	1	1
+NP_415214.1	pgm	phosphoglucomutase	5.4.2.2	5.4.2.2	23536	GO:0004614		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism;Glycolysis / Gluconeogenesis	1	4
+NP_415220.1	speF	inducible ornithine decarboxylase	4.1.1.17	4.1.1.17	22964	GO:0004586		Arginine and proline metabolism;Glutathione metabolism	1	2
+NP_415223.1	kdpD	sensor histidine kinase KdpD	2.7.13.3	2.7.13.3					0	0
+NP_415224.1	kdpC	K(+) transporting P-type ATPase subunit KdpC	7.2.2.6	7.2.2.6	16777	GO:0008556			1	0
+NP_415225.1	kdpB	K(+) transporting P-type ATPase subunit KdpB	7.2.2.6	7.2.2.6	16777	GO:0008556			1	0
+NP_415226.1	kdpA	K(+) transporting P-type ATPase subunit KdpA	7.2.2.6	7.2.2.6	16777	GO:0008556			1	0
+YP_588443.1	kdpF	K(+) transporting P-type ATPase subunit KdpF	7.2.2.6	7.2.2.6	16777	GO:0008556			1	0
+NP_415239.1	pxpB	5-oxoprolinase component B	3.5.2.9	3.5.2.9	10348	GO:0017168		Glutathione metabolism	1	1
+NP_415240.1	pxpC	5-oxoprolinase component C	3.5.2.9	3.5.2.9	10348	GO:0017168		Glutathione metabolism	1	1
+NP_415241.1	pxpA	5-oxoprolinase component A	3.5.2.9	3.5.2.9	10348	GO:0017168		Glutathione metabolism	1	1
+NP_415248.1	gltA	citrate synthase	2.3.3.16	2.3.3.16	16845	GO:0036440		Citrate cycle (TCA cycle);Glyoxylate and dicarboxylate metabolism	1	2
+NP_415249.1	sdhC	succinate:quinone oxidoreductase, membrane protein SdhC	1.3.5.1	1.3.5.1	13713;27834;40523;75711	GO:0008177		Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	4
+NP_415250.1	sdhD	succinate:quinone oxidoreductase, membrane protein SdhD	1.3.5.1	1.3.5.1	13713;27834;40523;75711	GO:0008177		Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	4
+NP_415251.1	sdhA	succinate:quinone oxidoreductase, FAD binding protein	1.3.5.1	1.3.5.1	13713;27834;40523;75711	GO:0008177		Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	4
+NP_415252.1	sdhB	succinate:quinone oxidoreductase, [Fe-S] cluster binding protein	1.3.5.1	1.3.5.1	13713;27834;40523;75711	GO:0008177		Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	4
+NP_415254.1	sucA	subunit of E1(0) component of 2-oxoglutarate dehydrogenase	1.2.1.105	1.2.1.105	27786				0	0
+NP_415255.1	sucB	2-oxoglutarate dehydrogenase E2 subunit	1.2.1.105	1.2.1.105	27786				0	0
+NP_415256.1	sucC	succinyl-CoA synthetase subunit beta	6.2.1.5	6.2.1.5	17661	GO:0004775		Citrate cycle (TCA cycle);Other carbon fixation pathways;Propanoate metabolism	1	3
+NP_415257.1	sucD	succinyl-CoA synthetase subunit alpha	6.2.1.5	6.2.1.5	17661	GO:0004775		Citrate cycle (TCA cycle);Other carbon fixation pathways;Propanoate metabolism	1	3
+NP_415259.1	mngA	2-O-alpha-mannosyl-D-glycerate specific PTS enzyme II	2.7.1.195	2.7.1.195	33307				0	0
+NP_415261.2	cydA	cytochrome bd-I subunit 1	7.1.1.7	7.1.1.7	40527				0	0
+NP_415262.1	cydB	cytochrome bd-I subunit 2	7.1.1.7	7.1.1.7	40527				0	0
+YP_588444.1	cydX	cytochrome bd-I accessory subunit CydX	7.1.1.7	7.1.1.7	40527				0	0
+NP_415271.1	nadA	quinolinate synthase	2.5.1.72	2.5.1.72	25888	GO:0008987		Nicotinate and nicotinamide metabolism	1	1
+NP_415275.1	aroG	3-deoxy-7-phosphoheptulonate synthase, Phe-sensitive	2.5.1.54	2.5.1.54	14717	GO:0003849		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_415276.1	gpmA	2,3-bisphosphoglycerate-dependent phosphoglycerate mutase	5.4.2.11	5.4.2.11	15901	GO:0004619		Glycine, serine and threonine metabolism;Glycolysis / Gluconeogenesis;Methane metabolism	1	3
+NP_415278.1	galK	galactokinase	2.7.1.6	2.7.1.6	13553	GO:0004335		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism	1	3
+NP_415279.1	galT	galactose-1-phosphate uridylyltransferase	2.7.7.12	2.7.7.12	13989	GO:0008108		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism	1	3
+NP_415280.3	galE	UDP-glucose 4-epimerase	5.1.3.2	5.1.3.2	22168	GO:0003978		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism	1	3
+NP_415284.1	modA	molybdate ABC transporter periplasmic binding protein	7.3.2.5	7.3.2.5	22020	GO:0015412			1	0
+NP_415285.1	modB	molybdate ABC transporter membrane subunit	7.3.2.5	7.3.2.5	22020	GO:0015412			1	0
+NP_415286.1	modC	molybdate ABC transporter ATP binding subunit	7.3.2.5	7.3.2.5	22020	GO:0015412			1	0
+NP_415287.1	ybhA	pyridoxal phosphate/fructose-1,6-bisphosphate phosphatase	3.1.3.11	3.1.3.11	11064	GO:0042132		Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway	1	5
+NP_415288.1	pgl	6-phosphogluconolactonase	3.1.1.31	3.1.1.31	12556	GO:0017057		Pentose phosphate pathway	1	1
+NP_415295.1	bioA	adenosylmethionine-8-amino-7-oxononanoate aminotransferase	2.6.1.62	2.6.1.62	16861	GO:0004015		Biotin metabolism	1	1
+NP_415296.1	bioB	biotin synthase	2.8.1.6	2.8.1.6	22060	GO:0004076		Biotin metabolism	1	1
+NP_415297.1	bioF	8-amino-7-oxononanoate synthase	2.3.1.47	2.3.1.47	20712;42288	GO:0008710		Biotin metabolism	1	1
+NP_415298.1	bioC	malonyl-acyl carrier protein methyltransferase	2.1.1.197	2.1.1.197	17105	GO:0102130		Biotin metabolism	1	1
+NP_415299.1	bioD	dethiobiotin synthetase	6.3.3.3	6.3.3.3	15805	GO:0004141		Biotin metabolism	1	1
+NP_415302.1	moaA	GTP 3',8'-cyclase	4.1.99.22	4.1.99.22	49576	GO:0061798		Folate biosynthesis	1	1
+NP_415304.1	moaC	cyclic pyranopterin monophosphate synthase	4.6.1.17	4.6.1.17	49580	GO:0061799		Folate biosynthesis	1	1
+NP_415305.1	moaD	molybdopterin synthase sulfur carrier subunit	2.8.1.12	2.8.1.12	26333	GO:0030366			1	0
+NP_415306.1	moaE	molybdopterin synthase catalytic subunit	2.8.1.12	2.8.1.12	26333	GO:0030366			1	0
+NP_415310.1	clsB	cardiolipin synthase B	2.7.8.41	2.7.8.41	32931	GO:0043337		Glycerophospholipid metabolism	1	1
+NP_415313.1	ybhR	ABC exporter membrane subunit YbhR	7.6.2.2	7.6.2.2	33147	GO:0008559			1	0
+NP_415314.1	ybhS	ABC exporter membrane subunit YbhS	7.6.2.2	7.6.2.2	33147	GO:0008559			1	0
+NP_415315.4	ybhF	ABC exporter ATP binding subunit YbhF	7.6.2.2	7.6.2.2	33147	GO:0008559			1	0
+NP_415318.1	rhlE	ATP-dependent RNA helicase RhlE	5.6.2.7	5.6.2.7					0	0
+NP_415320.1	dinG	ATP-dependent DNA helicase DinG	5.6.2.3	5.6.2.3	13065	GO:0016887			1	0
+NP_415322.1	hcxB	hydroxycarboxylate dehydrogenase B	1.1.1.237	1.1.1.237	10776;10780;57408;57704	GO:0047995;GO:0050578;GO:0140175		Tyrosine metabolism;Ubiquinone and other terpenoid-quinone biosynthesis	3	2
+NP_415328.4	rlmF	23S rRNA m(6)A1618 methyltransferase	2.1.1.181	2.1.1.181	16497	GO:0052907			1	0
+NP_415330.1	glnQ	L-glutamine ABC transporter ATP binding subunit	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_415331.1	glnP	L-glutamine ABC transporter membrane subunit	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_415332.1	glnH	L-glutamine ABC transporter periplasmic binding protein	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_415343.1	ybiV	sugar phosphatase YbiV	3.1.3.23	3.1.3.23					0	0
+NP_415347.1	moeB	molybdopterin-synthase adenylyltransferase	2.7.7.80	2.7.7.80	43616	GO:0061605		Thiamine metabolism	1	1
+NP_415348.1	moeA	molybdopterin molybdotransferase	2.10.1.1	2.10.1.1	35047	GO:0061599		Folate biosynthesis	1	1
+NP_415349.1	iaaA	isoaspartyl dipeptidase proenzyme	3.4.19.5	3.4.19.5					0	0
+NP_415350.2	gsiA	glutathione ABC transporter ATP binding subunit GsiA	7.4.2.10	7.4.2.10	29791				0	0
+NP_415351.1	gsiB	glutathione ABC transporter periplasmic binding protein	7.4.2.10	7.4.2.10	29791				0	0
+NP_415352.1	gsiC	glutathione ABC transporter membrane subunit GsiC	7.4.2.10	7.4.2.10	29791				0	0
+NP_415353.1	gsiD	glutathione ABC transporter membrane subunit GsiD	7.4.2.10	7.4.2.10	29791				0	0
+NP_415356.1	rimO	ribosomal protein S12 methylthiotransferase RimO	2.8.4.4	2.8.4.4	36351;37083;37087	GO:0103039			1	0
+NP_415360.1	dacC	D-alanyl-D-alanine carboxypeptidase DacC	3.4.16.4	3.4.16.4					0	0
+NP_415362.1	ybjG	undecaprenyl pyrophosphate phosphatase	3.6.1.27	3.6.1.27	28094	GO:0050380		Peptidoglycan biosynthesis;Teichoic acid biosynthesis	1	2
+NP_415365.4	ybjI	5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase	3.1.3.102	3.1.3.102	35587	GO:0090711		Riboflavin metabolism	1	1
+NP_415370.1	grxA	reduced glutaredoxin 1	1.8.4.2	1.8.4.2	21064	GO:0019153		Glutathione metabolism	1	1
+NP_415372.1	nfsA	NADPH-dependent nitro/quinone reductase NfsA	1.6.5.10	1.6.5.10	46164	GO:0008753			1	0
+NP_415375.1	potF	putrescine ABC transporter periplasmic binding protein	7.6.2.11	7.6.2.11	29999	GO:0015417			1	0
+NP_415376.4	potG	putrescine ABC transporter ATP binding subunit	7.6.2.11	7.6.2.11	29999	GO:0015417			1	0
+NP_415377.1	potH	putrescine ABC transporter membrane subunit PotH	7.6.2.11	7.6.2.11	29999	GO:0015417			1	0
+NP_415378.1	potI	putrescine ABC transporter membrane subunit PotI	7.6.2.11	7.6.2.11	29999	GO:0015417			1	0
+NP_415380.1	rlmC	23S rRNA m(5)U747 methyltransferase	2.1.1.189	2.1.1.189	42628				0	0
+NP_415381.1	artJ	L-arginine ABC transporter periplasmic binding protein	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_415382.1	artM	L-arginine ABC transporter membrane subunit ArtM	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_415383.1	artQ	L-arginine ABC transporter membrane subunit ArtQ	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_415385.1	artP	L-arginine ABC transporter ATP binding subunit	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_415388.1	amiD	N-acetylmuramoyl-L-alanine amidase D	3.5.1.28	3.5.1.28					0	0
+NP_415391.1	ltaE	low-specificity L-threonine aldolase	4.1.2.26	4.1.2.26	21712	GO:0050179			1	0
+NP_415392.1	poxB	pyruvate oxidase	1.2.5.1	1.2.5.1	27405	GO:0052737			1	0
+NP_415394.4	hcp	protein S-nitrosylase	1.7.99.1	1.7.99.1	22052	GO:0050418			1	0
+NP_415403.1	clpA	ATP-dependent Clp protease ATP-binding subunit ClpA	3.4.21.92	3.4.21.92					0	0
+NP_415405.1	aat	leucyl/phenylalanyl-tRNA--protein transferase	2.3.2.6	2.3.2.6	12340;43632;50416	GO:0008914			1	0
+NP_415408.1	trxB	thioredoxin reductase	1.8.1.9	1.8.1.9	20345	GO:0004791			1	0
+NP_415413.1	serS	serine--tRNA ligase	6.1.1.11	6.1.1.11	12292;42580	GO:0004828		Aminoacyl-tRNA biosynthesis	1	1
+NP_415414.4	dmsA	dimethyl sulfoxide reductase subunit A	1.8.5.3	1.8.5.3	28494	GO:0009389			1	0
+NP_415415.1	dmsB	dimethyl sulfoxide reductase subunit B	1.8.5.3	1.8.5.3	28494	GO:0009389			1	0
+NP_415416.1	dmsC	dimethyl sulfoxide reductase subunit C	1.8.5.3	1.8.5.3	28494	GO:0009389			1	0
+NP_415422.1	pflA	pyruvate formate-lyase activating enzyme	1.97.1.4	1.97.1.4	19225	GO:0043364			1	0
+NP_415423.1	pflB	pyruvate formate-lyase	2.3.1.54	2.3.1.54	11844	GO:0008861		Butanoate metabolism;Pyruvate metabolism	1	2
+NP_415425.4	ycaO	ribosomal protein S12 methylthiotransferase accessory factor YcaO	3.6.1.8	3.6.1.8	14245;27762;29391;29395;29399	GO:0036219;GO:0036220;GO:0036221;GO:0047429;GO:0047693		Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism	5	3
+NP_415427.1	serC	phosphoserine/phosphohydroxythreonine aminotransferase	2.6.1.17	2.6.1.17	11960	GO:0009016		Lysine biosynthesis	1	1
+NP_415428.1	aroA	3-phosphoshikimate 1-carboxyvinyltransferase	2.5.1.19	2.5.1.19	21256	GO:0003866		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_415430.1	cmk	cytidylate kinase	2.7.4.25	2.7.4.25	11600;25094	GO:0036430;GO:0036431		Nucleotide metabolism;Pyrimidine metabolism	2	2
+NP_415434.1	msbA	ATP-binding lipopolysaccharide transport protein	7.5.2.6	7.5.2.6					0	0
+NP_415435.1	lpxK	tetraacyldisaccharide 4'-kinase	2.7.1.130	2.7.1.130	20700;67840	GO:0009029		Lipopolysaccharide biosynthesis	1	1
+NP_415438.1	kdsB	3-deoxy-manno-octulosonate cytidylyltransferase	2.7.7.38	2.7.7.38	23448	GO:0008690		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+NP_415447.1	gloC	hydroxyacylglutathione hydrolase GloC	3.1.2.6	3.1.2.6	21864;25245	GO:0004416		Pyruvate metabolism	1	1
+NP_415448.1	aspC	aspartate aminotransferase	2.6.1.1	2.6.1.1	21824	GO:0004069		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Carbon fixation by Calvin cycle	1	3
+NP_415450.1	asnS	asparagine--tRNA ligase	6.1.1.22	6.1.1.22	11180	GO:0004816		Aminoacyl-tRNA biosynthesis	1	1
+NP_415451.1	pncB	nicotinate phosphoribosyltransferase	6.3.4.21	6.3.4.21	36163	GO:0004516		Nicotinate and nicotinamide metabolism	1	1
+NP_415452.1	pepN	aminopeptidase N	3.4.11.2	3.4.11.2					0	0
+NP_415453.1	ssuB	aliphatic sulfonate ABC transporter ATP binding subunit	7.6.2.14	7.6.2.14					0	0
+NP_415454.4	ssuC	aliphatic sulfonate ABC transporter membrane subunit	7.6.2.14	7.6.2.14					0	0
+NP_415455.1	ssuD	FMNH2-dependent alkanesulfonate monooxygenase	1.14.14.5	1.14.14.5	23064	GO:0008726		Sulfur metabolism	1	1
+NP_415456.4	ssuA	aliphatic sulfonate ABC transporter periplasmic binding protein	7.6.2.14	7.6.2.14					0	0
+NP_415457.1	ssuE	NADPH-dependent FMN reductase	1.5.1.38	1.5.1.38	21624	GO:0052873		Riboflavin metabolism	1	1
+NP_415465.1	pyrD	dihydroorotate dehydrogenase, type 2	1.3.5.2	1.3.5.2	28687;28691;30187	GO:0106430		Pyrimidine metabolism	1	1
+NP_415468.1	rlmL	fused 23S rRNA m(2)G2445 methyltransferase and 23S rRNA m(7)G2069 methyltransferase	2.1.1.173	2.1.1.173	42740	GO:0052915			1	0
+NP_415474.1	fabA	beta-hydroxyacyl-acyl carrier protein dehydratase/isomerase	4.2.1.59	4.2.1.59	13097	GO:0019171		Fatty acid biosynthesis	1	1
+NP_415482.1	helD	DNA helicase IV	5.6.2.4	5.6.2.4	13065	GO:0016887			1	0
+NP_415483.2	mgsA	methylglyoxal synthase	4.2.3.3	4.2.3.3	17937	GO:0008929		Propanoate metabolism	1	1
+NP_415487.4	rlmI	23S rRNA m(5)C1962 methyltransferase	2.1.1.191	2.1.1.191	42912				0	0
+NP_415488.1	yccX	acylphosphatase	3.6.1.7	3.6.1.7	14965	GO:0003998			1	0
+NP_415491.1	hyaA	hydrogenase 1 small subunit	1.12.5.1	1.12.5.1	18641	GO:0047067			1	0
+NP_415492.1	hyaB	hydrogenase 1 large subunit	1.12.5.1	1.12.5.1	18641	GO:0047067			1	0
+NP_415493.1	hyaC	hydrogenase 1 cytochrome b subunit	1.12.5.1	1.12.5.1	18641	GO:0047067			1	0
+NP_415497.1	appC	cytochrome bd-II subunit 1	7.1.1.7	7.1.1.7	40527				0	0
+NP_415498.1	appB	cytochrome bd-II subunit 2	7.1.1.7	7.1.1.7	40527				0	0
+YP_001165313.1	appX	cytochrome bd-II accessory subunit AppX	7.1.1.7	7.1.1.7	40527				0	0
+NP_415502.4	etp	phosphotyrosine-protein phosphatase Etp	3.1.3.48	3.1.3.48	10684	GO:0004725			1	0
+NP_415513.2	torS	sensor histidine kinase TorS	2.7.13.3	2.7.13.3					0	0
+NP_415522.1	agp	glucose-1-phosphatase	3.1.3.10	3.1.3.10	19933	GO:0008877			1	0
+NP_415527.4	rutF	FMN reductase RutF	1.5.1.42	1.5.1.42	21620	GO:0052874		Biosynthesis of type II polyketide products;Riboflavin metabolism	1	2
+NP_415528.1	rutE	putative malonic semialdehyde reductase	1.1.1.298	1.1.1.298	26438	GO:0035527		Other carbon fixation pathways;Pyrimidine metabolism	1	2
+NP_415532.3	rutA	pyrimidine monooxygenase RutA	1.14.99.46	1.14.99.46	31587;31599	GO:0052614		Pyrimidine metabolism	1	1
+NP_415534.1	putA	fused DNA-binding transcriptional repressor/proline dehydrogenase/1-pyrroline-5-carboxylate dehydrogenase PutA	1.2.1.88	1.2.1.88	16417;24882;24943;30235;31155	GO:0003842		Alanine, aspartate and glutamate metabolism;Arginine and proline metabolism	1	2
+NP_415538.1	efeB	heme-containing peroxidase/deferrochelatase	4.98.1.1	4.98.1.1	22584	GO:0004325		Porphyrin metabolism	1	1
+NP_415544.1	dgcT	putative diguanylate cyclase DgcT	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+NP_415551.2	ghrA	glyoxylate/hydroxypyruvate reductase A	1.1.1.79	1.1.1.79	10992	GO:0030267		Glyoxylate and dicarboxylate metabolism	1	1
+NP_415563.1	ymdB	2'-O-acetyl-ADP-ribose deacetylase, regulator of RNase III activity	3.1.1.106	3.1.1.106	57060;59244	GO:0061463			1	0
+NP_415564.2	clsC	cardiolipin synthase C	2.7.8.41	2.7.8.41	32931	GO:0043337		Glycerophospholipid metabolism	1	1
+NP_415572.1	lpxL	lauroyl acyltransferase	2.3.1.241	2.3.1.241	28442;69396	GO:0008913		Lipopolysaccharide biosynthesis	1	1
+NP_415577.1	solA	N-methyl-L-tryptophan oxidase	1.5.3.2	1.5.3.2	11472	GO:0050131			1	0
+NP_415580.1	pyrC	dihydroorotase	3.5.2.3	3.5.2.3	24296	GO:0004151		Pyrimidine metabolism	1	1
+NP_415582.1	grxB	reduced glutaredoxin 2	1.8.4.2	1.8.4.2	21064	GO:0019153		Glutathione metabolism	1	1
+NP_415584.1	rimJ	ribosomal-protein-S5-alanine N-acetyltransferase	2.3.1.267	2.3.1.267	43752	GO:0008999			1	0
+NP_415602.1	rne	ribonuclease E	3.1.26.12	3.1.26.12					0	0
+NP_415604.1	rluC	23S rRNA pseudouridine(955/2504/2580) synthase	5.4.99.24	5.4.99.24	42528	GO:0160141			1	0
+NP_415608.2	plsX	putative phosphate acyltransferase	2.3.1.274	2.3.1.274	42292	GO:0043811			1	0
+NP_415609.1	fabH	3-oxoacyl-[acyl carrier protein] synthase 3	2.3.1.180	2.3.1.180	12080	GO:0033818		Fatty acid biosynthesis;Fatty acid metabolism	1	2
+NP_415610.1	fabD	[acyl-carrier-protein] S-malonyltransferase	2.3.1.39	2.3.1.39	41792			Fatty acid biosynthesis;Fatty acid metabolism;Mycolic acid biosynthesis	0	3
+NP_415611.1	fabG	3-oxoacyl-[acyl-carrier-protein] reductase FabG	1.1.1.100	1.1.1.100	17397	GO:0004316		Fatty acid biosynthesis	1	1
+NP_415613.1	fabF	3-oxoacyl-[acyl carrier protein] synthase 2	2.3.1.179	2.3.1.179	55040	GO:0004315			1	0
+NP_415614.1	pabC	aminodeoxychorismate lyase	4.1.3.38	4.1.3.38	16201	GO:0008696		Folate biosynthesis	1	1
+NP_415616.1	tmk	Tmk	2.7.4.9	2.7.4.9	13517	GO:0004798		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_415619.1	ptsG	glucose-specific PTS enzyme IIBC component	2.7.1.199	2.7.1.199	33367			Amino sugar and nucleotide sugar metabolism;Glycolysis / Gluconeogenesis	0	2
+NP_415624.1	thiK	thiamine kinase	2.7.1.89	2.7.1.89	12012	GO:0019165		Thiamine metabolism	1	1
+NP_415627.1	ndh	NADH:quinone oxidoreductase II	1.6.5.9	1.6.5.9	46160	GO:0050136			1	0
+NP_415637.1	nagK	N-acetyl-D-glucosamine kinase	2.7.1.59	2.7.1.59	17417	GO:0045127		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars	1	2
+NP_415641.1	potD	spermidine preferential ABC transporter periplasmic binding protein	7.6.2.11	7.6.2.11	29999	GO:0015417			1	0
+NP_415642.1	potC	spermidine preferential ABC transporter membrane subunit PotC	7.6.2.11	7.6.2.11	29999	GO:0015417			1	0
+NP_415643.3	potB	spermidine preferential ABC transporter membrane subunit PotB	7.6.2.11	7.6.2.11	29999	GO:0015417			1	0
+NP_415644.1	potA	spermidine preferential ABC transporter ATP binding subunit	7.6.2.11	7.6.2.11	29999	GO:0015417			1	0
+NP_415645.1	pepT	peptidase T	3.4.11.4	3.4.11.4					0	0
+NP_415646.4	roxA	50S ribosomal protein L16-arginine 3-hydroxylase	1.14.11.47	1.14.11.47	41556	GO:0106157			1	0
+NP_415647.1	phoQ	sensor histidine kinase PhoQ	2.7.13.3	2.7.13.3					0	0
+NP_415649.1	purB	adenylosuccinate lyase	4.3.2.2	4.3.2.2	16853;23920	GO:0004018;GO:0070626		Alanine, aspartate and glutamate metabolism;Nucleotide metabolism;Purine metabolism	2	3
+NP_415651.4	mnmA	tRNA-specific 2-thiouridylase	2.8.1.13	2.8.1.13	47032	GO:0103016			1	0
+NP_415652.1	nudJ	phosphatase NudJ	3.6.1.42	3.6.1.42	22156	GO:0004382		Nucleotide metabolism;Purine metabolism	1	2
+NP_415653.4	rluE	23S rRNA pseudouridine(2457) synthase	5.4.99.20	5.4.99.20	38871	GO:0160137			1	0
+NP_415654.1	icd	isocitrate dehydrogenase	1.1.1.42	1.1.1.42	19629	GO:0004450		Glutathione metabolism;Other carbon fixation pathways	1	2
+NP_415698.1	ycgM	oxaloacetate tautomerase	5.3.2.2	5.3.2.2	16021	GO:0050163		Pyruvate metabolism	1	1
+NP_415701.1	umuD	DNA polymerase V protein UmuD	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+NP_415702.1	umuC	DNA polymerase V catalytic protein	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+NP_415703.3	dsbB	protein thiol:quinone oxidoreductase DsbB	1.8.5.9	1.8.5.9	20928				0	0
+NP_415707.1	dadA	D-amino acid dehydrogenase	1.4.5.1	1.4.5.1	45996	GO:0008718			1	0
+NP_415708.1	dadX	alanine racemase 2	5.1.1.1	5.1.1.1	20249	GO:0008784		D-Amino acid metabolism	1	1
+NP_415710.1	ldcA	murein tetrapeptide carboxypeptidase	3.4.17.13	3.4.17.13	48688;83267;83271	GO:0106415			1	0
+NP_415715.1	treA	periplasmic trehalase	3.2.1.28	3.2.1.28	32675	GO:0004555		Starch and sucrose metabolism	1	1
+NP_415716.4	dhaM	dihydroxyacetone kinase subunit M	2.7.1.121	2.7.1.121	18381	GO:0047324		Glycerolipid metabolism	1	1
+NP_415717.1	dhaL	dihydroxyacetone kinase subunit L	2.7.1.121	2.7.1.121	18381	GO:0047324		Glycerolipid metabolism	1	1
+NP_415718.6	dhaK	dihydroxyacetone kinase subunit K	2.7.1.121	2.7.1.121	18381	GO:0047324		Glycerolipid metabolism	1	1
+NP_415722.1	pth	peptidyl-tRNA hydrolase	3.1.1.29	3.1.1.29	54448	GO:0004045			1	0
+NP_415725.1	prs	ribose-phosphate diphosphokinase	2.7.6.1	2.7.6.1	15609	GO:0004749		Pentose phosphate pathway;Purine metabolism	1	2
+NP_415726.1	ispE	4-(cytidine 5'-diphospho)-2-C-methyl-D-erythritol kinase	2.7.1.148	2.7.1.148	18437	GO:0050515		Terpenoid backbone biosynthesis	1	1
+NP_415728.1	hemA	glutamyl-tRNA reductase	1.2.1.70	1.2.1.70	12344	GO:0008883		Porphyrin metabolism	1	1
+NP_415730.1	prmC	protein-(glutamine-N(5)) methyltransferase	2.1.1.297	2.1.1.297	42896	GO:0102559			1	0
+NP_415733.1	kdsA	3-deoxy-D-manno-octulosonate 8-phosphate synthase	2.5.1.55	2.5.1.55	14053	GO:0008676		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+NP_415736.2	chaC	glutathione-specific gamma-glutamylcyclotransferase	4.3.2.7	4.3.2.7	47724	GO:0061928		Glutathione metabolism	1	1
+NP_415740.1	narX	sensor histidine kinase NarX	2.7.13.3	2.7.13.3					0	0
+NP_415742.1	narG	nitrate reductase A subunit alpha	1.7.5.1	1.7.5.1	56144	GO:0160182		Nitrogen cycle;Nitrogen metabolism	1	2
+NP_415743.1	narH	nitrate reductase A subunit beta	1.7.5.1	1.7.5.1	56144	GO:0160182		Nitrogen cycle;Nitrogen metabolism	1	2
+NP_415745.1	narI	nitrate reductase A subunit gamma	1.7.5.1	1.7.5.1	56144	GO:0160182		Nitrogen cycle;Nitrogen metabolism	1	2
+NP_415748.1	purU	formyltetrahydrofolate deformylase	3.5.1.10	3.5.1.10	19833	GO:0008864		Glyoxylate and dicarboxylate metabolism;One carbon pool by folate	1	2
+NP_415752.1	galU	UTP--glucose-1-phosphate uridylyltransferase	2.7.7.9	2.7.7.9	19889	GO:0003983		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Galactose metabolism;Glycerolipid metabolism;Pentose and glucuronate interconversions;Starch and sucrose metabolism;Sulfoquinovose metabolism	1	8
+NP_415754.1	tdk	thymidine/deoxyuridine kinase	2.7.1.21	2.7.1.21	19129	GO:0004797		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_415757.1	adhE	fused acetaldehyde-CoA dehydrogenase and Fe-dependent alcohol dehydrogenasealdehyde/alcohol dehydrogenase AdhE	1.1.1.1	1.1.1.1	10736;10740;25290	GO:0004022;GO:0120542		Fatty acid degradation;Glycolysis / Gluconeogenesis;Pyruvate metabolism	2	3
+NP_415759.1	oppA	oligopeptide ABC transporter periplasmic binding protein	7.4.2.6	7.4.2.6	14429;78459	GO:0015421			1	0
+NP_415760.1	oppB	murein tripeptide ABC transporter/oligopeptide ABC transporter inner membrane subunit OppB	7.4.2.6	7.4.2.6	14429;78459	GO:0015421			1	0
+NP_415761.1	oppC	murein tripeptide ABC transporter/oligopeptide ABC transporter inner membrane subunit OppC	7.4.2.6	7.4.2.6	14429;78459	GO:0015421			1	0
+YP_025300.1	oppD	murein tripeptide ABC transporter/oligopeptide ABC transporter ATP binding subunit OppD	7.4.2.6	7.4.2.6	14429;78459	GO:0015421			1	0
+NP_415763.1	oppF	murein tripeptide ABC transporter/oligopeptide ABC transporter ATP binding subunit OppF	7.4.2.6	7.4.2.6	14429;78459	GO:0015421			1	0
+NP_415765.1	clsA	cardiolipin synthase A	2.7.8.41	2.7.8.41	32931	GO:0043337		Glycerophospholipid metabolism	1	1
+NP_415769.1	yciA	acyl-CoA thioesterase YciA	3.1.2.20	3.1.2.20	16781	GO:0047617			1	0
+NP_415776.1	trpA	tryptophan synthase subunit alpha	4.1.2.8	4.1.2.8	14081	GO:0033984		Benzoxazinoid biosynthesis;Biosynthesis of various plant secondary metabolites;Phenylalanine, tyrosine and tryptophan biosynthesis	1	3
+NP_415777.1	trpB	tryptophan synthase subunit beta	4.2.1.122	4.2.1.122	26434	GO:0052684		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_415778.3	trpC	fused indole-3-glycerol phosphate synthase/phosphoribosylanthranilate isomerase	4.1.1.48	4.1.1.48	23476	GO:0004425		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_415779.1	trpD	anthranilate synthase subunit TrpD	2.4.2.18	2.4.2.18	11768	GO:0004048		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_415780.1	trpE	anthranilate synthase subunit TrpE	4.1.3.27	4.1.3.27	21732	GO:0004049		Phenazine biosynthesis;Phenylalanine, tyrosine and tryptophan biosynthesis	1	2
+NP_415782.1	rnm	RNase AM	3.1.3.97	3.1.3.97	43532	GO:0097657			1	0
+NP_415785.1	rluB	23S rRNA pseudouridine(2605) synthase	5.4.99.22	5.4.99.22	42520	GO:0160139			1	0
+NP_415786.1	btuR	cobinamide/cobalamin adenosyltransferase	2.5.1.17	2.5.1.17	11528;14725;28671	GO:0008817		Porphyrin metabolism	1	1
+NP_415790.1	topA	DNA topoisomerase I	5.6.2.1	5.6.2.1					0	0
+NP_415793.1	ribA	GTP cyclohydrolase 2	3.5.4.25	3.5.4.25	23704	GO:0003935		Folate biosynthesis;Riboflavin metabolism	1	2
+NP_415794.1	pgpB	phosphatidylglycerophosphatase B	3.1.3.27	3.1.3.27	33751			Glycerophospholipid metabolism	0	1
+NP_415797.1	pyrF	orotidine-5'-phosphate decarboxylase	4.1.1.23	4.1.1.23	11596	GO:0004590		Pyrimidine metabolism	1	1
+NP_415801.1	pdeR	cyclic di-GMP phosphodiesterase PdeR	3.1.4.52	3.1.4.52	24902	GO:0071111			1	0
+NP_415802.1	rnb	RNase II	3.1.13.1	3.1.13.1					0	0
+NP_415804.1	fabI	enoyl-[acyl-carrier-protein] reductase	1.3.1.104	1.3.1.104	22564	GO:0141148		Fatty acid biosynthesis	1	1
+NP_415813.4	puuA	glutamate-putrescine ligase	6.3.1.11	6.3.1.11	13633	GO:0034024		Arginine and proline metabolism	1	1
+NP_415814.4	puuD	gamma-glutamyl-gamma-aminobutyrate hydrolase	3.5.1.94	3.5.1.94	19737	GO:0033969		Arginine and proline metabolism	1	1
+NP_415816.1	puuC	gamma-glutamyl-gamma-aminobutyraldehyde dehydrogenase	1.2.1.19	1.2.1.19	19105	GO:0019145		Arginine and proline metabolism;beta-Alanine metabolism	1	2
+NP_415818.1	puuE	4-aminobutyrate aminotransferase PuuE	2.6.1.19	2.6.1.19	23352	GO:0034386		Alanine, aspartate and glutamate metabolism;Butanoate metabolism	1	2
+NP_415824.1	pspE	thiosulfate sulfurtransferase PspE	2.8.1.1	2.8.1.1	16881	GO:0004792		Sulfur metabolism	1	1
+NP_415825.4	ycjM	glucosylglycerate phosphorylase	2.4.1.352	2.4.1.352	55268	GO:0110068			1	0
+NP_415832.1	ycjT	kojibiose phosphorylase	2.4.1.230	2.4.1.230	11176	GO:0033831			1	0
+NP_415833.1	ycjU	beta-phosphoglucomutase	5.4.2.6	5.4.2.6	20113	GO:0008801			1	0
+NP_415840.1	tpx	lipid hydroperoxide peroxidase	1.11.1.24	1.11.1.24	62620	GO:0140824			1	0
+NP_415841.4	ycjG	L-Ala-D/L-Glu epimerase	5.1.1.20	5.1.1.20	28394	GO:0103031			1	0
+NP_415851.1	ogt	methylated-DNA--[protein]-cysteine S-methyltransferase	2.1.1.63	2.1.1.63	24000;53428	GO:0003908			1	0
+NP_415857.2	dgcM	diguanylate cyclase DgcM	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+NP_415859.1	dbpA	ATP-dependent RNA helicase DbpA	5.6.2.6	5.6.2.6	13065	GO:0016887			1	0
+NP_415898.1	ldhA	D-lactate dehydrogenase	1.1.1.28	1.1.1.28	16369	GO:0008720		Pyruvate metabolism	1	1
+NP_415903.4	feaB	phenylacetaldehyde dehydrogenase	1.2.1.39	1.2.1.39	21392	GO:0008957		Phenylalanine metabolism;Styrene degradation	1	2
+NP_415904.3	tynA	copper-containing amine oxidase	1.4.3.21	1.4.3.21	16153;25265;35107	GO:0008131		Phenylalanine metabolism	1	1
+NP_415905.1	paaZ	fused 3-oxo-5,6-dehydrosuberyl-CoA semialdehyde dehydrogenase and oxepin-CoA hydrolase	1.2.1.91	1.2.1.91	31747				0	0
+NP_415906.1	paaA	phenylacetyl-CoA 1,2-epoxidase, monooxygenase subunit	1.14.13.149	1.14.13.149	32171	GO:0097266			1	0
+NP_415907.1	paaB	phenylacetyl-CoA 1,2-epoxidase subunit B	1.14.13.149	1.14.13.149	32171	GO:0097266			1	0
+NP_415908.1	paaC	phenylacetyl-CoA 1,2-epoxidase, structural subunit	1.14.13.149	1.14.13.149	32171	GO:0097266			1	0
+NP_415910.1	paaE	phenylacetyl-CoA 1,2-epoxidase, reductase subunit	1.14.13.149	1.14.13.149	32171	GO:0097266			1	0
+NP_415912.1	paaG	putative ring 1,2-epoxyphenylacetyl-CoA isomerase (oxepin-CoA forming)	5.3.3.18	5.3.3.18	31843				0	0
+NP_415915.1	paaJ	beta-ketoadipyl-CoA thiolase	2.3.1.174	2.3.1.174	19481	GO:0033812		Benzoate degradation;Phenylalanine metabolism	1	2
+NP_415916.1	paaK	phenylacetate-CoA ligase	6.2.1.30	6.2.1.30	20956	GO:0047475		Phenylalanine metabolism	1	1
+NP_415924.1	pdxI	pyridoxal reductase	1.1.1.65	1.1.1.65	16129	GO:0050236		Vitamin B6 metabolism	1	1
+NP_415930.1	azoR	FMN dependent NADH:quinone oxidoreductase	1.7.1.17	1.7.1.17	55872				0	0
+NP_415931.4	hrpA	ATP-dependent 3'->5' RNA helicase HrpA	5.6.2.6	5.6.2.6	13065	GO:0016887			1	0
+NP_415933.1	aldA	aldehyde dehydrogenase A	1.2.1.21	1.2.1.21	20001	GO:0050569		Glyoxylate and dicarboxylate metabolism	1	1
+NP_415935.2	cybB	superoxide oxidase	1.10.3.17	1.10.3.17	29171				0	0
+NP_415947.1	tehB	tellurite methyltransferase	2.1.1.265	2.1.1.265	34539	GO:0035797			1	0
+NP_415957.1	ydcS	putative ABC transporter periplasmic binding protein/polyhydroxybutyrate synthase	2.3.1.304	2.3.1.304	15405;66924				0	0
+NP_415961.1	patD	gamma-aminobutyraldehyde dehydrogenase	1.2.1.19	1.2.1.19	19105	GO:0019145		Arginine and proline metabolism;beta-Alanine metabolism	1	2
+NP_415980.1	nhoA	arylamine N-acetyltransferase	2.3.1.118	2.3.1.118	20277	GO:0046990			1	0
+NP_415982.1	narV	nitrate reductase Z subunit gamma	1.7.5.1	1.7.5.1	56144	GO:0160182		Nitrogen cycle;Nitrogen metabolism	1	2
+NP_415984.1	narY	nitrate reductase Z subunit beta	1.7.5.1	1.7.5.1	56144	GO:0160182		Nitrogen cycle;Nitrogen metabolism	1	2
+NP_415985.1	narZ	nitrate reductase Z subunit alpha	1.7.5.1	1.7.5.1	56144	GO:0160182		Nitrogen cycle;Nitrogen metabolism	1	2
+NP_415991.1	fdnG	formate dehydrogenase N subunit alpha	1.17.5.3	1.17.5.3	29063;29067;29071;48592	GO:0036397			1	0
+NP_415992.1	fdnH	formate dehydrogenase N subunit beta	1.17.5.3	1.17.5.3	29063;29067;29071;48592	GO:0036397			1	0
+NP_415993.1	fdnI	formate dehydrogenase N subunit gamma	1.17.5.3	1.17.5.3	29063;29067;29071;48592	GO:0036397			1	0
+NP_415995.4	adhP	ethanol dehydrogenase/alcohol dehydrogenase	1.1.1.1	1.1.1.1	10736;10740;25290	GO:0004022;GO:0120542		Fatty acid degradation;Glycolysis / Gluconeogenesis;Pyruvate metabolism	2	3
+NP_415996.2	maeA	malate dehydrogenase (oxaloacetate-decarboxylating)	1.1.1.38	1.1.1.38	12653;15641	GO:0004471;GO:0008948		Carbon fixation by Calvin cycle;Pyruvate metabolism	2	2
+NP_415999.1	osmC	osmotically inducible peroxiredoxin OsmC	1.11.1.24	1.11.1.24	62620	GO:0140824			1	0
+NP_416005.1	ddpX	D-alanyl-D-alanine dipeptidase	3.4.13.22	3.4.13.22	20661	GO:0160237			1	0
+NP_416006.4	dosP	oxygen-sensing c-di-GMP phosphodiesterase DosP	3.1.4.52	3.1.4.52	24902	GO:0071111			1	0
+NP_416007.3	dosC	diguanylate cyclase DosC	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+NP_416010.1	gadB	glutamate decarboxylase B	4.1.1.15	4.1.1.15	17785	GO:0004351		Alanine, aspartate and glutamate metabolism;Butanoate metabolism	1	2
+NP_416028.3	lsrK	autoinducer-2 kinase	2.7.1.189	2.7.1.189	15377	GO:0071518			1	0
+NP_416030.1	lsrA	Autoinducer-2 ABC transporter ATP binding subunit	7.6.2.13	7.6.2.13					0	0
+NP_416031.1	lsrC	Autoinducer-2 ABC transporter membrane subunit LsrC	7.6.2.13	7.6.2.13					0	0
+NP_416032.1	lsrD	Autoinducer-2 ABC transporter membrane subunit LsrD	7.6.2.13	7.6.2.13					0	0
+NP_416033.1	lsrB	Autoinducer-2 ABC transporter periplasmic binding protein	7.6.2.13	7.6.2.13					0	0
+NP_416034.1	lsrF	3-hydroxy-2,4-pentadione 5-phosphate thiolase	2.3.1.245	2.3.1.245	44736				0	0
+NP_416035.1	lsrG	(4S)-4-hydroxy-5-phosphonooxypentane-2,3-dione isomerase	5.3.1.32	5.3.1.32	44360	GO:0002952			1	0
+NP_416036.1	tam	trans-aconitate 2-methyltransferase	2.1.1.144	2.1.1.144	14969	GO:0030798			1	0
+YP_025302.1	uxaB	tagaturonate reductase	1.1.1.58	1.1.1.58	17813	GO:0009026		Pentose and glucuronate interconversions	1	1
+NP_416041.1	glsB	glutaminase 2	3.5.1.2	3.5.1.2	15889	GO:0004359		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis	1	2
+NP_416042.2	sad	succinate semialdehyde dehydrogenase (NAD(P)(+)) Sad	1.2.1.20	1.2.1.20	57832	GO:0102810			1	0
+NP_416052.1	dgcZ	diguanylate cyclase DgcZ	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+NP_416056.1	dcp	peptidyl-dipeptidase Dcp	3.4.15.5	3.4.15.5					0	0
+NP_416057.1	ydfG	3-hydroxy acid dehydrogenase YdfG	1.1.1.298	1.1.1.298	26438	GO:0035527		Other carbon fixation pathways;Pyrimidine metabolism	1	2
+NP_416101.1	speG	spermidine N-acetyltransferase	2.3.1.57	2.3.1.57	11116;28150;28270;33099	GO:0004145			1	0
+NP_416110.4	bidA	dethiobiotin synthetase BidA	6.3.3.3	6.3.3.3	15805	GO:0004141		Biotin metabolism	1	1
+NP_416119.1	pntB	pyridine nucleotide transhydrogenase subunit beta	7.1.1.1	7.1.1.1	47992	GO:0008750			1	0
+NP_416120.1	pntA	pyridine nucleotide transhydrogenase subunit alpha	7.1.1.1	7.1.1.1	47992	GO:0008750			1	0
+NP_416123.1	folM	dihydromonapterin reductase	1.5.1.3	1.5.1.3	15009	GO:0004146		Folate biosynthesis;One carbon pool by folate	1	2
+NP_416126.1	rstB	sensor histidine kinase RstB	2.7.13.3	2.7.13.3					0	0
+NP_416128.1	fumC	fumarase C	4.2.1.2	4.2.1.2	12460	GO:0004333		Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	3
+NP_416129.1	fumA	fumarase A	4.2.1.2	4.2.1.2	12460	GO:0004333		Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	3
+NP_416130.3	manA	mannose-6-phosphate isomerase	5.3.1.8	5.3.1.8	12356	GO:0004476		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Fructose and mannose metabolism	1	3
+NP_416134.1	uidA	beta-glucuronidase	3.2.1.31	3.2.1.31	17633	GO:0004566		Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions	1	2
+NP_416136.1	hdhA	7-alpha-hydroxysteroid dehydrogenase	1.1.1.159	1.1.1.159	19409	GO:0008709			1	0
+NP_416139.1	malY	negative regulator of MalT activity/cystathionine beta-lyase	4.4.1.1	4.4.1.1	14005;24923;24931	GO:0004123;GO:0080146		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;One carbon pool by folate	2	3
+NP_416140.1	add	adenosine deaminase	3.5.4.4	3.5.4.4	24408;28190	GO:0004000;GO:0046936		Nucleotide metabolism;Purine metabolism	2	2
+NP_416150.1	nth	endonuclease III	4.2.99.18	4.2.99.18	66592	GO:0140078			1	0
+NP_416152.1	gstA	glutathione S-transferase GstA	2.5.1.18	2.5.1.18	16437;51220	GO:0004364		Glutathione metabolism	1	1
+NP_416153.1	pdxY	pyridoxal kinase 2	2.7.1.35	2.7.1.35	10224;25104;25108	GO:0008478		Vitamin B6 metabolism	1	1
+NP_416154.1	tyrS	tyrosine--tRNA ligase	6.1.1.1	6.1.1.1	10220	GO:0004831		Aminoacyl-tRNA biosynthesis	1	1
+NP_416155.1	pdxH	pyridoxine/pyridoxamine 5'-phosphate oxidase	1.4.3.5	1.4.3.5	15149;15817	GO:0004733		Vitamin B6 metabolism	1	1
+NP_416157.1	anmK	anhydro-N-acetylmuramic acid kinase	2.7.1.170	2.7.1.170	24952				0	0
+NP_416163.1	sodC	superoxide dismutase (Cu-Zn)	1.15.1.1	1.15.1.1	20696	GO:0004784			1	0
+NP_416168.1	gloA	lactoylglutathione lyase	4.4.1.5	4.4.1.5	19069	GO:0004462		Pyruvate metabolism	1	1
+NP_416170.1	lhr	ATP-dependent helicase Lhr	3.6.1.15	3.6.1.15	23680	GO:0017111			1	0
+NP_416173.1	sodB	superoxide dismutase (Fe)	1.15.1.1	1.15.1.1	20696	GO:0004784			1	0
+YP_001165321.1	cydH	cytochrome bd-I accessory subunit CydH	7.1.1.7	7.1.1.7	40527				0	0
+NP_416178.1	cfa	cyclopropane fatty acyl phospholipid synthase	2.1.1.79	2.1.1.79	11988	GO:0008825			1	0
+NP_416179.1	ribC	riboflavin synthase	2.5.1.9	2.5.1.9	20772	GO:0004746		Riboflavin metabolism	1	1
+NP_416190.1	fumD	fumarase D	4.2.1.2	4.2.1.2	12460	GO:0004333		Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	3
+NP_416191.1	pykF	pyruvate kinase 1	2.7.1.40	2.7.1.40	18157;30295;30727;56948;56952;56956	GO:0004743		Glycolysis / Gluconeogenesis;Pyruvate metabolism	1	2
+NP_416201.1	menI	1,4-dihydroxy-2-naphthoyl-CoA hydrolase	3.1.2.28	3.1.2.28	26309	GO:0061522		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_416202.1	ydiJ	D-2-hydroxyglutarate dehydrogenase	1.1.99.39	1.1.99.39	38295	GO:0051990			1	0
+NP_416207.1	ydiB	quinate/shikimate dehydrogenase	1.1.1.282	1.1.1.282	17737;17741;18425;22364	GO:0004764;GO:0030266;GO:0052733;GO:0052734		Phenylalanine, tyrosine and tryptophan biosynthesis	4	1
+NP_416208.1	aroD	3-dehydroquinate dehydratase	4.2.1.10	4.2.1.10	21096	GO:0003855		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_416209.1	ydiF	putative acetate-CoA transferase YdiF	2.8.3.9	2.8.3.9	12961	GO:0047371		Lysine degradation	1	1
+NP_416216.5	fadK	medium-chain-fatty-acid--CoA ligase	6.2.1.2	6.2.1.2	48340	GO:0031956			1	0
+NP_416217.1	ppsA	phosphoenolpyruvate synthetase	2.7.9.2	2.7.9.2	11364	GO:0008986		Glycolysis / Gluconeogenesis;Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism	1	4
+NP_416219.1	aroH	3-deoxy-7-phosphoheptulonate synthase, Trp-sensitive	2.5.1.54	2.5.1.54	14717	GO:0003849		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_416221.1	selO	protein adenylyltransferase SelO	2.7.7.108	2.7.7.108	54288;54292;58120	GO:0070733			1	0
+NP_416224.1	btuD	vitamin B12 ABC transporter ATP binding subunit	7.6.2.8	7.6.2.8	17873	GO:0015420			1	0
+NP_416225.1	btuE	thioredoxin/glutathione peroxidase BtuE	1.11.1.9	1.11.1.9	16833	GO:0004602		Glutathione metabolism	1	1
+NP_416226.1	btuC	vitamin B12 ABC transporter membrane subunit	7.6.2.8	7.6.2.8	17873	GO:0015420			1	0
+NP_416228.1	pheT	phenylalanine--tRNA ligase subunit beta	6.1.1.20	6.1.1.20	19413	GO:0004826		Aminoacyl-tRNA biosynthesis	1	1
+NP_416229.1	pheS	phenylalanine--tRNA ligase	6.1.1.20	6.1.1.20	19413	GO:0004826		Aminoacyl-tRNA biosynthesis	1	1
+NP_416234.1	thrS	threonine--tRNA ligase	6.1.1.3	6.1.1.3	24624	GO:0004829		Aminoacyl-tRNA biosynthesis	1	1
+NP_416237.3	pfkB	6-phosphofructokinase 2	2.7.1.11	2.7.1.11	16109	GO:0003872		Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway	1	4
+NP_416241.1	hxpB	hexitol phosphatase B	3.1.3.22	3.1.3.22	19537	GO:0050084		Fructose and mannose metabolism	1	1
+YP_025308.1	katE	catalase HPII	1.11.1.6	1.11.1.6	20309	GO:0004096		Glyoxylate and dicarboxylate metabolism	1	1
+NP_416248.1	chbF	monoacetylchitobiose-6-phosphate hydrolase	3.2.1.86	3.2.1.86	10772	GO:0008706		Starch and sucrose metabolism	1	1
+NP_416250.1	chbA	N,N'-diacetylchitobiose-specific PTS enzyme IIA component	2.7.1.196	2.7.1.196	33423				0	0
+NP_416251.1	chbC	N,N'-diacetylchitobiose-specific PTS enzyme IIC component	2.7.1.196	2.7.1.196	33423				0	0
+NP_416252.1	chbB	N,N'-diacetylchitobiose-specific PTS enzyme IIB component	2.7.1.196	2.7.1.196	33423				0	0
+NP_416254.1	nadE	NH3-dependent NAD(+) synthetase	6.3.1.5	6.3.1.5	21188	GO:0008795		Nicotinate and nicotinamide metabolism	1	1
+NP_416258.1	astE	succinylglutamate desuccinylase	3.5.1.96	3.5.1.96	15169	GO:0009017		Arginine and proline metabolism	1	1
+NP_416259.1	astB	N-succinylarginine dihydrolase	3.5.3.23	3.5.3.23	19533	GO:0009015		Arginine and proline metabolism	1	1
+NP_416260.1	astD	aldehyde dehydrogenase	1.2.1.71	1.2.1.71	10812	GO:0043824		Arginine and proline metabolism	1	1
+NP_416261.1	astA	arginine N-succinyltransferase	2.3.1.109	2.3.1.109	15185;65020	GO:0008791		Arginine and proline metabolism	1	1
+NP_416262.1	astC	succinylornithine transaminase	2.6.1.11	2.6.1.11	18049	GO:0003992		Arginine biosynthesis	1	1
+NP_416263.1	xthA	exodeoxyribonuclease III	3.1.11.2	3.1.11.2					0	0
+NP_416271.4	ynjE	molybdopterin synthase sulfurtransferase	2.8.1.11	2.8.1.11	48612	GO:0061604			1	0
+NP_416273.1	nudG	5-hydroxy-CTP diphosphatase	3.6.1.56	3.6.1.56	31583	GO:0106378			1	0
+NP_416275.1	gdhA	glutamate dehydrogenase	1.4.1.4	1.4.1.4	11612	GO:0004354		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Nitrogen metabolism	1	3
+NP_416277.1	topB	DNA topoisomerase III	5.6.2.1	5.6.2.1					0	0
+NP_416278.1	selD	selenide, water dikinase	2.7.9.3	2.7.9.3	18737	GO:0004756		Selenocompound metabolism	1	1
+NP_416281.1	ansA	L-asparaginase 1	3.5.1.1	3.5.1.1	21016	GO:0004067		Alanine, aspartate and glutamate metabolism;Cyanoamino acid metabolism	1	2
+NP_416282.4	pncA	nicotinamidase	3.5.1.19	3.5.1.19	14545	GO:0008936		Nicotinate and nicotinamide metabolism	1	1
+NP_416292.1	msrB	methionine sulfoxide reductase B	1.8.4.12	1.8.4.12	24164	GO:0033743			1	0
+NP_416293.1	gapA	glyceraldehyde-3-phosphate dehydrogenase A	1.2.1.12	1.2.1.12	10300	GO:0004365		Carbon fixation by Calvin cycle;Glycolysis / Gluconeogenesis	1	2
+NP_416295.1	yeaE	methylglyoxal reductase YeaE	1.1.1.21	1.1.1.21	12785;12789;25225;25229;37963;37967	GO:0004022;GO:0004032;GO:0032867		Galactose metabolism;Pentose and glucuronate interconversions	3	2
+NP_416297.1	yeaG	protein kinase YeaG	2.7.11.1	2.7.11.1	17989;46608	GO:0106310			1	0
+NP_416300.2	dgcJ	diguanylate cyclase DgcJ	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+NP_416308.4	dgcP	diguanylate cyclase DgcP	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+NP_416314.1	dmlA	D-malate/3-isopropylmalate dehydrogenase (decarboxylating)	1.1.1.83	1.1.1.83	18365	GO:0046553		Butanoate metabolism	1	1
+NP_416316.1	yeaW	carnitine monooxygenase subunit YeaW	1.14.13.239	1.14.13.239	55368;55396				0	0
+NP_416317.1	yeaX	carnitine monooxygenase subunit YeaX	1.14.13.239	1.14.13.239	55368;55396				0	0
+NP_416318.1	rnd	RNase D	3.1.13.5	3.1.13.5					0	0
+NP_416319.1	fadD	long-chain-fatty-acid--CoA ligase	6.2.1.3	6.2.1.3	15421	GO:0004467		Fatty acid biosynthesis	1	1
+NP_416321.1	tsaB	N(6)-L-threonylcarbamoyladenine synthase, TsaB subunit	2.3.1.234	2.3.1.234	37059	GO:0061711			1	0
+NP_416322.1	yoaA	ATP-dependent DNA helicase YoaA	5.6.2.3	5.6.2.3	13065	GO:0016887			1	0
+NP_416326.1	pabB	aminodeoxychorismate synthase subunit 1	2.6.1.85	2.6.1.85	11672	GO:0046820		Folate biosynthesis	1	1
+NP_416328.1	sdaA	L-serine deaminase I	4.3.1.17	4.3.1.17	19169	GO:0003941		Glycine, serine and threonine metabolism	1	1
+NP_416331.1	manX	mannose-specific PTS enzyme IIAB component	2.7.1.191	2.7.1.191	49232	GO:0022870		Amino sugar and nucleotide sugar metabolism;Fructose and mannose metabolism	1	2
+NP_416332.1	manY	mannose-specific PTS enzyme IIC component	2.7.1.191	2.7.1.191	49232	GO:0022870		Amino sugar and nucleotide sugar metabolism;Fructose and mannose metabolism	1	2
+NP_416333.4	manZ	mannose-specific PTS enzyme IID component	2.7.1.191	2.7.1.191	49232	GO:0022870		Amino sugar and nucleotide sugar metabolism;Fructose and mannose metabolism	1	2
+NP_416336.1	rlmA	23S rRNA m(1)G745 methyltransferase	2.1.1.187	2.1.1.187	42900	GO:0052911			1	0
+NP_416344.1	prc	tail-specific protease	3.4.21.102	3.4.21.102					0	0
+NP_416346.4	msrC	free methionine-(R)-sulfoxide reductase	1.8.4.14	1.8.4.14	21260	GO:0033745			1	0
+NP_416349.2	rsmF	16S rRNA m(5)C1407 methyltransferase	2.1.1.178	2.1.1.178	42756				0	0
+NP_416352.4	pphA	phosphoprotein phosphatase 1	3.1.3.16	3.1.3.16	20629;47004	GO:0004722			1	0
+NP_416359.1	ptrB	oligopeptidase B	3.4.21.83	3.4.21.83					0	0
+NP_416363.1	purT	phosphoribosylglycinamide formyltransferase 2	2.7.2.1	2.7.2.1	11352	GO:0008776		Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism;Taurine and hypotaurine metabolism	1	4
+NP_416364.1	eda	KHG/KDPG aldolase	4.1.1.112	4.1.1.112	15641	GO:0008948		Pyruvate metabolism	1	1
+NP_416365.1	edd	phosphogluconate dehydratase	4.2.1.12	4.2.1.12	17277	GO:0004456		Pentose phosphate pathway	1	1
+NP_416366.1	zwf	NADP(+)-dependent glucose-6-phosphate dehydrogenase	1.1.1.49	1.1.1.49	15841	GO:0004345			1	0
+NP_416368.1	pykA	pyruvate kinase 2	2.7.1.40	2.7.1.40	18157;30295;30727;56948;56952;56956	GO:0004743		Glycolysis / Gluconeogenesis;Pyruvate metabolism	1	2
+NP_416369.1	lpxM	Lipid A biosynthesis myristoyltransferase	2.3.1.243	2.3.1.243	28438;69400			Lipopolysaccharide biosynthesis	0	1
+NP_416371.4	znuA	Zn(2(+)) ABC transporter periplasmic binding protein	7.2.2.20	7.2.2.20	29795	GO:0015633			1	0
+NP_416372.1	znuC	Zn(2(+)) ABC transporter ATP binding subunit	7.2.2.20	7.2.2.20	29795	GO:0015633			1	0
+NP_416373.1	znuB	Zn(2(+)) ABC transporter membrane subunit	7.2.2.20	7.2.2.20	29795	GO:0015633			1	0
+NP_416374.1	ruvB	Holliday junction branch migration complex subunit RuvB	3.1.21.10	3.1.21.10					0	0
+NP_416375.1	ruvA	Holliday junction branch migration complex subunit RuvA	3.1.21.10	3.1.21.10					0	0
+NP_416377.1	ruvC	crossover junction endodeoxyribonuclease RuvC	3.1.21.10	3.1.21.10					0	0
+NP_416379.1	nudB	dihydroneopterin triphosphate diphosphatase	3.6.1.67	3.6.1.67	25302	GO:0019177		Folate biosynthesis	1	1
+NP_416380.1	aspS	aspartate--tRNA ligase	6.1.1.12	6.1.1.12	19649	GO:0004815		Aminoacyl-tRNA biosynthesis	1	1
+NP_416390.1	argS	arginine--tRNA ligase	6.1.1.19	6.1.1.19	20301	GO:0004814		Aminoacyl-tRNA biosynthesis	1	1
+NP_416397.1	cheB	protein-glutamate methylesterase/protein glutamine deamidase	3.1.1.61	3.1.1.61	23236	GO:0008984			1	0
+NP_416398.1	cheR	chemotaxis protein methyltransferase	2.1.1.80	2.1.1.80	24452	GO:0008983			1	0
+NP_416410.1	otsA	trehalose-6-phosphate synthase	2.4.1.15	2.4.1.15	18889	GO:0003825			1	0
+NP_416411.1	otsB	trehalose-6-phosphate phosphatase	3.1.3.12	3.1.3.12	23420	GO:0004805		Starch and sucrose metabolism	1	1
+YP_026162.2	araH	arabinose ABC transporter membrane subunit	7.5.2.12	7.5.2.12	30007	GO:0015612			1	0
+NP_416413.1	araG	arabinose ABC transporter ATP binding subunit	7.5.2.12	7.5.2.12	30007	GO:0015612			1	0
+NP_416414.1	araF	arabinose ABC transporter periplasmic binding protein	7.5.2.12	7.5.2.12	30007	GO:0015612			1	0
+NP_416418.1	ftnA	ferritin iron storage protein	1.16.3.2	1.16.3.2	11972				0	0
+NP_416422.1	pgsA	CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase	2.7.8.5	2.7.8.5	12593	GO:0008444		Glycerophospholipid metabolism	1	1
+NP_416427.1	tcyN	cystine ABC transporter ATP binding subunit	7.4.2.12	7.4.2.12	62576;62580				0	0
+NP_416428.1	tcyL	cystine ABC transporter membrane subunit	7.4.2.12	7.4.2.12	62576;62580				0	0
+NP_416429.4	dcyD	D-cysteine desulfhydrase	4.4.1.15	4.4.1.15	11268	GO:0019148		Cysteine and methionine metabolism;D-Amino acid metabolism	1	2
+NP_416430.1	tcyJ	cystine ABC transporter periplasmic binding protein	7.4.2.12	7.4.2.12	62576;62580				0	0
+NP_416437.1	amyA	alpha-amylase	3.2.1.1	3.2.1.1					0	0
+NP_416465.2	dgcQ	diguanylate cyclase DgcQ	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+NP_416470.1	dcm	DNA-cytosine methyltransferase	2.1.1.37	2.1.1.37	13681	GO:0003886			1	0
+NP_416476.1	hchA	protein/nucleic acid deglycase 1	3.5.1.124	3.5.1.124	49548;49552;49556;57188;57192;57196	GO:0036524			1	0
+NP_416477.1	hprS	sensor histidine kinase HprS	2.7.13.3	2.7.13.3					0	0
+NP_416479.1	hiuH	hydroxyisourate hydrolase/transthyretin-related protein	3.5.2.17	3.5.2.17	23736	GO:0033971		Purine metabolism	1	1
+NP_416489.1	amn	AMP nucleosidase	3.2.2.4	3.2.2.4	20129	GO:0008714		Nucleotide metabolism;Purine metabolism	1	2
+NP_416495.1	cobT	nicotinate-nucleotide--dimethylbenzimidazole phosphoribosyltransferase	2.4.2.21	2.4.2.21	11196	GO:0008939		Porphyrin metabolism	1	1
+NP_416496.1	cobS	cobalamin 5'-phosphate synthase	2.7.8.26	2.7.8.26	16049;23560	GO:0008818;GO:0051073		Porphyrin metabolism	2	1
+NP_416497.1	cobU	cobinamide-P guanylyltransferase/cobinamide kinase	2.7.1.156	2.7.1.156	15765;15769	GO:0043752		Porphyrin metabolism	1	1
+NP_416514.4	dacD	D-alanyl-D-alanine carboxypeptidase DacD	3.5.2.6	3.5.2.6	20401	GO:0008800			1	0
+NP_416515.1	sbcB	exodeoxyribonuclease I	3.1.11.1	3.1.11.1					0	0
+NP_416523.1	hisG	ATP phosphoribosyltransferase	2.4.2.17	2.4.2.17	18473	GO:0003879		Histidine metabolism	1	1
+NP_416524.1	hisD	histidinal/histidinol dehydrogenase	1.1.1.23	1.1.1.23	20641	GO:0004399			1	0
+NP_416525.1	hisC	histidinol-phosphate aminotransferase	2.6.1.9	2.6.1.9	23744	GO:0004400		Histidine metabolism	1	1
+NP_416526.4	hisB	imidazoleglycerol-phosphate dehydratase/histidinol-phosphatase	3.1.3.15	3.1.3.15	14465	GO:0004401		Histidine metabolism	1	1
+NP_416527.1	hisH	imidazole glycerol phosphate synthase subunit HisH	4.3.2.10	4.3.2.10	24793	GO:0000107		Histidine metabolism	1	1
+NP_416528.2	hisA	1-(5-phosphoribosyl)-5-[(5- phosphoribosylamino)methylideneamino]imidazole-4- carboxamide isomerase	5.3.1.16	5.3.1.16	15469	GO:0003949		Histidine metabolism	1	1
+NP_416529.1	hisF	imidazole glycerol phosphate synthase subunit HisF	4.3.2.10	4.3.2.10	24793	GO:0000107		Histidine metabolism	1	1
+NP_416530.1	hisI	putative bifunctional phosphoribosyl-AMP cyclohydrolase/phosphoribosyl-ATP pyrophosphatase	3.5.4.19	3.5.4.19	20049	GO:0004635		Histidine metabolism	1	1
+NP_416532.1	ugd	UDP-glucose 6-dehydrogenase	1.1.1.22	1.1.1.22	23596	GO:0003979		Amino sugar and nucleotide sugar metabolism;Ascorbate and aldarate metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Pentose and glucuronate interconversions	1	5
+NP_416533.1	gnd	6-phosphogluconate dehydrogenase, decarboxylating	1.1.1.44	1.1.1.44	10116	GO:0004616		Glutathione metabolism;Pentose phosphate pathway	1	2
+NP_416540.1	glf	UDP-galactopyranose mutase	5.4.99.9	5.4.99.9	24132	GO:0008767		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism	1	3
+NP_416542.1	rfbC	dTDP-4-dehydrorhamnose 3,5-epimerase	5.1.3.13	5.1.3.13	16969	GO:0008830		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis	1	4
+NP_416543.1	rfbA	glucose-1-phosphate thymidylyltransferase 1	2.7.7.24	2.7.7.24	15225	GO:0008879		Acarbose and validamycin biosynthesis;Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis	1	6
+NP_416544.1	rfbD	dTDP-4-dehydrorhamnose reductase	1.1.1.133	1.1.1.133	21796	GO:0008831		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis	1	4
+NP_416545.1	rfbB	dTDP-glucose 4,6-dehydratase 1	4.2.1.46	4.2.1.46	17221	GO:0008460		Acarbose and validamycin biosynthesis;Biosynthesis of nucleotide sugars;Biosynthesis of vancomycin group antibiotics;Biosynthesis of various nucleotide sugars;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis	1	6
+NP_416551.1	wcaJ	UDP-glucose:undecaprenyl-phosphate glucose-1-phosphate transferase	2.7.8.31	2.7.8.31	28126	GO:0089702			1	0
+NP_416552.1	cpsG	phosphomannomutase	5.4.2.8	5.4.2.8	11140	GO:0004615		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Fructose and mannose metabolism	1	3
+NP_416553.1	cpsB	mannose-1-phosphate guanylyltransferase	2.7.7.13	2.7.7.13	15229	GO:0004475		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Fructose and mannose metabolism	1	4
+NP_416555.2	gmm	GDP-mannose mannosyl hydrolase	3.2.1.42	3.2.1.42	15049	GO:0047917			1	0
+NP_416556.1	fcl	GDP-L-fucose synthase	1.1.1.271	1.1.1.271	18885	GO:0050577		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Fructose and mannose metabolism	1	3
+NP_416557.1	gmd	GDP-mannose 4,6-dehydratase	4.2.1.47	4.2.1.47	23820	GO:0008446		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Fructose and mannose metabolism	1	3
+NP_416565.1	wzb	protein-tyrosine phosphatase	3.1.3.48	3.1.3.48	10684	GO:0004725			1	0
+NP_416569.1	dcd	dCTP deaminase	3.5.4.13	3.5.4.13	22680	GO:0008829		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_416570.2	udk	uridine/cytidine kinase	2.7.1.48	2.7.1.48	16825;24674;27650;28162	GO:0004849;GO:0043771		Nucleotide metabolism;Pyrimidine metabolism	2	2
+NP_416571.1	dgcE	diguanylate cyclase DgcE	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+NP_416572.1	alkA	DNA-3-methyladenine glycosylase 2	3.2.2.21	3.2.2.21					0	0
+NP_416576.1	pphC	protein-serine/threonine phosphatase PphC	3.1.3.16	3.1.3.16	20629;47004	GO:0004722			1	0
+NP_416582.1	baeS	sensor histidine kinase BaeS	2.7.13.3	2.7.13.3					0	0
+NP_416594.1	gatD	galactitol-1-phosphate 5-dehydrogenase	1.1.1.251	1.1.1.251	28106			Galactose metabolism	0	1
+NP_416596.1	gatB	galactitol-specific PTS enzyme IIB component	2.7.1.198	2.7.1.198	42484			Fructose and mannose metabolism	0	1
+NP_416597.1	gatA	galactitol-specific PTS enzyme IIA component	2.7.1.198	2.7.1.198	42484			Fructose and mannose metabolism	0	1
+NP_416599.2	gatY	tagatose-1,6-bisphosphate aldolase 2	4.1.2.40	4.1.2.40	22948	GO:0009025		Galactose metabolism	1	1
+NP_416600.4	fbaB	fructose-bisphosphate aldolase class I	4.1.2.13	4.1.2.13	14729	GO:0004332		Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway	1	5
+NP_416606.1	thiD	bifunctional hydroxymethylpyrimidine kinase/phosphomethylpyrimidine kinase	2.7.1.49	2.7.1.49	23096	GO:0008902		Thiamine metabolism	1	1
+NP_416607.1	thiM	hydroxyethylthiazole kinase	2.7.1.32	2.7.1.32	12837	GO:0004103		Glycerophospholipid metabolism;Teichoic acid biosynthesis	1	2
+NP_416617.1	metG	methionine--tRNA ligase	6.1.1.10	6.1.1.10	13481	GO:0004825		Aminoacyl-tRNA biosynthesis	1	1
+NP_416630.1	btsS	high-affinity pyruvate receptor	2.7.13.3	2.7.13.3					0	0
+NP_416636.1	bglX	putative periplasmic glycoside hydrolase	3.2.1.108	3.2.1.108	10076	GO:0000016			1	0
+NP_416637.1	dld	quinone-dependent D-lactate dehydrogenase	1.1.5.12	1.1.5.12	51468	GO:0102029		Pyruvate metabolism	1	1
+NP_416648.1	cdd	cytidine/deoxycytidine deaminase	3.5.4.5	3.5.4.5	13433;16069	GO:0004126		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_416651.1	preT	dihydropyrimidine dehydrogenase (NAD(+)) subunit PreT	1.3.1.1	1.3.1.1	20189;28791	GO:0004159		Pantothenate and CoA biosynthesis;Pyrimidine metabolism;beta-Alanine metabolism	1	3
+NP_416652.4	preA	dihydropyrimidine dehydrogenase (NAD(+)) subunit PreA	1.3.1.1	1.3.1.1	20189;28791	GO:0004159		Pantothenate and CoA biosynthesis;Pyrimidine metabolism;beta-Alanine metabolism	1	3
+NP_416658.1	folE	GTP cyclohydrolase 1	3.5.4.16	3.5.4.16	17473	GO:0003934			1	0
+NP_416659.1	yeiG	S-formylglutathione hydrolase/S-lactoylglutathione hydrolase	3.1.2.12	3.1.2.12	14961	GO:0018738		Methane metabolism	1	1
+NP_416664.1	nfo	endonuclease IV	3.1.21.2	3.1.21.2					0	0
+NP_416667.1	rihB	pyrimidine-specific ribonucleoside hydrolase RihB	3.2.2.3	3.2.2.3	15577	GO:0045437		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_416670.1	psuG	pseudouridine-5'-phosphate glycosidase	4.2.1.70	4.2.1.70	18337	GO:0004730		Pyrimidine metabolism	1	1
+NP_416671.1	psuK	putative pseudouridine kinase	2.7.1.83	2.7.1.83	22448	GO:0050225		Pyrimidine metabolism	1	1
+NP_416673.1	fruK	1-phosphofructokinase	2.7.1.56	2.7.1.56	14213	GO:0008662			1	0
+NP_416679.4	lpxT	lipid A-core phosphotransferase	2.7.4.29	2.7.4.29	45468;74291			Lipopolysaccharide biosynthesis	0	1
+NP_416682.4	yejA	oligopeptide ABC transporter periplasmic binding protein YejA	7.4.2.6	7.4.2.6	14429;78459	GO:0015421			1	0
+NP_416683.1	yejB	putative oligopeptide ABC transporter membrane subunit YejB	7.4.2.6	7.4.2.6	14429;78459	GO:0015421			1	0
+NP_416684.1	yejE	putative oligopeptide ABC transporter membrane subunit YejE	7.4.2.6	7.4.2.6	14429;78459	GO:0015421			1	0
+NP_416685.1	yejF	oligopeptide ABC transporter ATP binding subunit YejF	7.4.2.6	7.4.2.6	14429;78459	GO:0015421			1	0
+NP_416688.1	rsuA	16S rRNA pseudouridine(516) synthase	5.4.99.19	5.4.99.19	38867	GO:0160136			1	0
+NP_416706.1	napC	periplasmic nitrate reductase cytochrome c protein	7.1.1.8	7.1.1.8	11484	GO:0008121			1	0
+NP_416707.4	napB	periplasmic nitrate reductase cytochrome c550 protein	1.9.6.1	1.9.6.1	12909	GO:0050140		Nitrogen cycle;Nitrogen metabolism	1	2
+NP_416708.1	napH	ferredoxin-type protein NapH	7.1.1.8	7.1.1.8	11484	GO:0008121			1	0
+NP_416709.1	napG	ferredoxin-type protein NapG	7.1.1.8	7.1.1.8	11484	GO:0008121			1	0
+NP_416710.1	napA	periplasmic nitrate reductase subunit NapA	1.9.6.1	1.9.6.1	12909	GO:0050140		Nitrogen cycle;Nitrogen metabolism	1	2
+NP_416714.1	mqo	malate:quinone oxidoreductase	1.1.5.4	1.1.5.4	30095;46012	GO:0008924		Citrate cycle (TCA cycle)	1	1
+NP_416716.1	alkB	DNA oxidative demethylase	1.14.11.54	1.14.11.54	49516	GO:1990930			1	0
+NP_416717.1	ada	DNA-binding transcriptional dual regulator/DNA repair protein Ada	2.1.1.63	2.1.1.63	24000;53428	GO:0003908			1	0
+NP_416718.1	ftp	FAD:protein FMN transferase	2.7.1.180	2.7.1.180	36847	GO:7770036			1	0
+NP_416722.2	rcsC	histidine kinase RcsC	2.7.13.3	2.7.13.3					0	0
+NP_416723.1	atoS	sensor histidine kinase AtoS	2.7.13.3	2.7.13.3					0	0
+NP_416725.1	atoD	acetyl-CoA:acetoacetyl-CoA transferase subunit alpha	2.8.3.9	2.8.3.9	12961	GO:0047371		Lysine degradation	1	1
+NP_416726.1	atoA	acetyl-CoA:acetoacetyl-CoA transferase subunit beta	2.8.3.9	2.8.3.9	12961	GO:0047371		Lysine degradation	1	1
+NP_416728.1	atoB	acetyl-CoA acetyltransferase	2.3.1.16	2.3.1.16	21564	GO:0003988		Fatty acid elongation	1	1
+NP_416734.1	gyrA	DNA gyrase subunit A	5.6.2.2	5.6.2.2					0	0
+NP_416735.1	ubiG	bifunctional 3-demethylubiquinone-8 3-O-methyltransferase and 2-octaprenyl-6-hydroxyphenol methylase	2.1.1.222	2.1.1.222	27770;31411;44592;44608;44612;50224	GO:0102208		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_416737.1	nrdA	ribonucleoside-diphosphate reductase 1 subunit alpha	1.17.4.1	1.17.4.1	23252;28026;28030;28034;28038	GO:0004748;GO:0051061;GO:0051062		Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism	3	3
+NP_416738.1	nrdB	ribonucleoside-diphosphate reductase 1 subunit beta	1.17.4.1	1.17.4.1	23252;28026;28030;28034;28038	GO:0004748;GO:0051061;GO:0051062		Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism	3	3
+NP_416742.1	glpQ	glycerophosphoryl diester phosphodiesterase GlpQ	3.1.4.46	3.1.4.46	12969;29875;29907	GO:0008889			1	0
+NP_416744.1	glpA	anaerobic glycerol-3-phosphate dehydrogenase subunit A	1.1.5.3	1.1.5.3	18977;28751;28755;29219	GO:0004368			1	0
+NP_416745.1	glpB	anaerobic glycerol-3-phosphate dehydrogenase subunit B	1.1.5.3	1.1.5.3	18977;28751;28755;29219	GO:0004368			1	0
+NP_416746.1	glpC	anaerobic glycerol-3-phosphate dehydrogenase subunit C	1.1.5.3	1.1.5.3	18977;28751;28755;29219	GO:0004368			1	0
+NP_416748.1	yfaU	2-keto-3-deoxy-L-rhamnonate aldolase	4.1.2.53	4.1.2.53	25784	GO:0106099		Fructose and mannose metabolism	1	1
+NP_416750.2	rhmD	L-rhamnonate dehydratase	4.2.1.90	4.2.1.90	23080	GO:0050032		Fructose and mannose metabolism	1	1
+NP_416754.1	nudI	pyrimidine deoxynucleotide diphosphatase NudI	3.6.1.12	3.6.1.12	22636	GO:0047840		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_416756.6	arnB	UDP-4-amino-4-deoxy-L-arabinose aminotransferase	2.6.1.87	2.6.1.87	24710	GO:0099620		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+NP_416757.1	arnC	undecaprenyl-phosphate 4-deoxy-4-formamido-L-arabinose transferase	2.4.2.53	2.4.2.53	27722	GO:0099621		Biosynthesis of various nucleotide sugars	1	1
+NP_416758.1	arnA	fused UDP-4-amino-4-deoxy-L-arabinose formyltransferase/UDP-glucuronate dehydrogenase	1.1.1.305	1.1.1.305	24702	GO:0099618		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+NP_416760.1	arnT	lipid IVA 4-amino-4-deoxy-L-arabinosyltransferase	2.4.2.43	2.4.2.43	27730;35371	GO:0103015			1	0
+NP_416763.1	menE	o-succinylbenzoate--CoA ligase	6.2.1.26	6.2.1.26	17009	GO:0008756		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_416764.1	menC	o-succinylbenzoate synthase	4.2.1.113	4.2.1.113	10196	GO:0043748		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_416765.1	menB	1,4-dihydroxy-2-naphthoyl-CoA synthase	4.1.3.36	4.1.3.36	26562	GO:0008935		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_416766.1	menH	2-succinyl-6-hydroxy-2, 4-cyclohexadiene-1-carboxylate synthase	4.2.99.20	4.2.99.20	25597	GO:0070205		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_416767.1	menD	2-succinyl-5-enolpyruvyl-6-hydroxy-3- cyclohexene-1-carboxylate synthase	2.2.1.9	2.2.1.9	25593	GO:0070204		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_416768.4	menF	isochorismate synthase MenF	5.4.4.2	5.4.4.2	18985	GO:0008909		Biosynthesis of siderophore group nonribosomal peptides;Ubiquinone and other terpenoid-quinone biosynthesis	1	2
+NP_416772.1	elaD	protease ElaD	3.4.19.12	3.4.19.12					0	0
+NP_416779.2	nuoN	NADH:quinone oxidoreductase subunit N	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416780.1	nuoM	NADH:quinone oxidoreductase subunit M	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416781.1	nuoL	NADH:quinone oxidoreductase subunit L	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416782.1	nuoK	NADH:quinone oxidoreductase subunit K	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416783.1	nuoJ	NADH:quinone oxidoreductase subunit J	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416784.1	nuoI	NADH:quinone oxidoreductase subunit I	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416785.1	nuoH	NADH:quinone oxidoreductase subunit H	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416786.4	nuoG	NADH:quinone oxidoreductase subunit G	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416787.1	nuoF	NADH:quinone oxidoreductase subunit F	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416788.1	nuoE	NADH:quinone oxidoreductase subunit E	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416789.2	nuoC	NADH:quinone oxidoreductase subunit CD	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416790.1	nuoB	NADH:quinone oxidoreductase subunit B	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416791.3	nuoA	NADH:quinone oxidoreductase subunit A	7.1.1.2	7.1.1.2	29091	GO:0008137			1	0
+NP_416793.1	alaA	glutamate--pyruvate aminotransferase AlaA	2.6.1.2	2.6.1.2	19453	GO:0004021		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Carbon fixation by Calvin cycle	1	3
+NP_416794.1	yfbR	dCMP phosphohydrolase	3.1.3.89	3.1.3.89	36167	GO:0002953			1	0
+NP_416796.2	hxpA	hexitol phosphatase A	3.1.3.21	3.1.3.21	11476;46084;66372	GO:0000121;GO:0043136		Glycerolipid metabolism	2	1
+NP_416799.1	ackA	acetate kinase	2.7.2.1	2.7.2.1	11352	GO:0008776		Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism;Taurine and hypotaurine metabolism	1	4
+NP_416800.1	pta	phosphate acetyltransferase	2.3.1.222	2.3.1.222	28046			Propanoate metabolism	0	1
+NP_416804.1	yfcF	glutathione S-transferase YfcF	2.5.1.18	2.5.1.18	16437;51220	GO:0004364		Glutathione metabolism	1	1
+NP_416806.1	folX	dihydroneopterin triphosphate 2'-epimerase	5.1.99.7	5.1.99.7	28346	GO:0008719			1	0
+NP_416809.1	hisP	lysine/arginine/ornithine ABC transporter/histidine ABC transporter, ATP binding subunit	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_416810.1	hisM	lysine/arginine/ornithine ABC transporter/histidine ABC transporter, membrane subunit HisM	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_416811.1	hisQ	lysine/arginine/ornithine ABC transporter/histidine ABC transporter, membrane subunit HisQ	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_416812.1	hisJ	histidine ABC transporter periplasmic binding protein	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_416813.1	argT	lysine/arginine/ornithine ABC transporter periplasmic binding protein	7.4.2.1	7.4.2.1	14673;29879;29883;29887	GO:0015426			1	0
+NP_416814.1	ubiX	flavin prenyltransferase	2.5.1.129	2.5.1.129	37743	GO:0106141		Riboflavin metabolism	1	1
+NP_416815.1	purF	amidophosphoribosyltransferase	2.4.2.14	2.4.2.14	14905	GO:0004044		Alanine, aspartate and glutamate metabolism;Purine metabolism	1	2
+NP_416818.1	folC	bifunctional folylpolyglutamate synthetase/dihydrofolate synthetase	6.3.2.12	6.3.2.12	23584	GO:0008841		Folate biosynthesis	1	1
+NP_416819.1	accD	acetyl-CoA carboxyltransferase subunit beta	2.1.3.15	2.1.3.15	54728				0	0
+NP_416821.1	truA	tRNA pseudouridine(38-40) synthase	5.4.99.12	5.4.99.12	22376	GO:0160147			1	0
+NP_416823.1	pdxB	erythronate-4-phosphate dehydrogenase	1.1.1.290	1.1.1.290	18829	GO:0033711		Vitamin B6 metabolism	1	1
+NP_416826.1	fabB	3-oxoacyl-[acyl carrier protein] synthase 1	2.3.1.41	2.3.1.41	22836	GO:0004315		Fatty acid biosynthesis	1	1
+NP_416827.4	mnmC	fused tRNA 5-aminomethyl-2-thiouridylate methyltransferase and tRNA 5-aminomethyl-2-thiouridylate synthase	2.1.1.61	2.1.1.61	19569	GO:0004808			1	0
+NP_416832.1	aroC	chorismate synthase	4.2.3.5	4.2.3.5	21020	GO:0004107		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_416833.4	prmB	ribosomal protein L3 N(5)-glutamine methyltransferase	2.1.1.298	2.1.1.298	45020	GO:0036009			1	0
+NP_416843.1	fadJ	multifunctional 3-hydroxyacyl-CoA dehydrogenase/3-hydroxyacyl-CoA epimerase/enoyl-CoA hydratase FadJ	1.1.1.35	1.1.1.35	22432	GO:0003857		Fatty acid elongation	1	1
+NP_416844.1	fadI	3-ketoacyl-CoA thiolase FadI	2.3.1.16	2.3.1.16	21564	GO:0003988		Fatty acid elongation	1	1
+NP_416852.1	yfdH	bactoprenol glucosyl transferase	2.4.1.78	2.4.1.78					0	0
+NP_416862.2	yfdR	5'-deoxynucleotidase	3.1.3.89	3.1.3.89	36167	GO:0002953			1	0
+NP_416867.1	dsdA	D-serine ammonia-lyase	4.3.1.18	4.3.1.18	13977	GO:0008721		D-Amino acid metabolism;Glycine, serine and threonine metabolism	1	2
+NP_416871.1	evgS	sensor histidine kinase EvgS	2.7.13.3	2.7.13.3					0	0
+NP_416872.4	yfdE	acetyl-CoA:oxalate CoA-transferase	2.8.3.19	2.8.3.19	37883	GO:0036412			1	0
+NP_416874.1	oxc	oxalyl-CoA decarboxylase	4.1.1.8	4.1.1.8	19333	GO:0008949		Glyoxylate and dicarboxylate metabolism	1	1
+NP_416875.1	frc	formyl-CoA transferase	2.8.3.16	2.8.3.16	16545;71735	GO:0033608		Glyoxylate and dicarboxylate metabolism	1	1
+NP_416879.4	lpxP	palmitoleoyl acyltransferase	2.3.1.242	2.3.1.242	44012;74287	GO:0008951		Lipopolysaccharide biosynthesis	1	1
+NP_416880.1	alaC	glutamate--pyruvate aminotransferase AlaC	2.6.1.2	2.6.1.2	19453	GO:0004021		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Carbon fixation by Calvin cycle	1	3
+NP_416881.1	pyrS	sensor histidine kinase PyrS	2.7.13.3	2.7.13.3					0	0
+NP_416889.1	glk	glucokinase	2.7.1.2	2.7.1.2	17825	GO:0004340		Neomycin, kanamycin and gentamicin biosynthesis;Starch and sucrose metabolism;Streptomycin biosynthesis	1	3
+NP_416899.1	gltX	glutamate--tRNA ligase	6.1.1.17	6.1.1.17	23540	GO:0004818		Aminoacyl-tRNA biosynthesis;Porphyrin metabolism	1	2
+NP_416902.1	xapA	xanthosine phosphorylase	2.4.2.15	2.4.2.15	13233	GO:0047975		Nucleotide metabolism;Purine metabolism	1	2
+NP_416906.1	ligA	DNA ligase	6.5.1.2	6.5.1.2					0	0
+NP_416909.1	cysK	cysteine synthase A	2.5.1.47	2.5.1.47	14829	GO:0004124		Cysteine and methionine metabolism;Sulfur cycle;Sulfur metabolism	1	3
+NP_416912.1	crr	Enzyme IIA(Glc)	2.7.1.192	2.7.1.192	33399			Amino sugar and nucleotide sugar metabolism	0	1
+NP_416913.1	pdxK	pyridoxine/pyridoxal/pyridoxamine kinase	2.7.1.35	2.7.1.35	10224;25104;25108	GO:0008478		Vitamin B6 metabolism	1	1
+NP_416916.1	cysM	cysteine synthase B	2.5.1.144	2.5.1.144	30891			Cysteine and methionine metabolism	0	1
+NP_416917.1	cysA	sulfate/thiosulfate ABC transporter ATP binding subunit	7.3.2.3	7.3.2.3	10192;29871	GO:0015419;GO:0102025			2	0
+YP_026168.2	cysW	sulfate/thiosulfate ABC transporter inner membrane subunit CysW	7.3.2.3	7.3.2.3	10192;29871	GO:0015419;GO:0102025			2	0
+NP_416919.1	cysU	sulfate/thiosulfate ABC transporter inner membrane subunit CysU	7.3.2.3	7.3.2.3	10192;29871	GO:0015419;GO:0102025			2	0
+NP_416920.1	cysP	thiosulfate/sulfate ABC transporter periplasmic binding protein CysP	7.3.2.3	7.3.2.3	10192;29871	GO:0015419;GO:0102025			2	0
+NP_416921.4	ucpA	oxidoreductase UcpA	1.1.1.304	1.1.1.304	27286	GO:0052588		Butanoate metabolism	1	1
+NP_416923.1	murQ	N-acetylmuramic acid 6-phosphate etherase	4.2.1.126	4.2.1.126	26410			Amino sugar and nucleotide sugar metabolism	0	1
+NP_416924.1	murP	N-acetylmuramic acid-specific PTS enzyme IICB component/anhydro-N-acetylmuramic acid transporter	2.7.1.192	2.7.1.192	33399			Amino sugar and nucleotide sugar metabolism	0	1
+NP_416926.4	yfeX	porphyrinogen peroxidase	1.11.1.19	1.11.1.19	28086				0	0
+NP_416930.1	amiA	N-acetylmuramoyl-L-alanine amidase A	3.5.1.28	3.5.1.28					0	0
+NP_416931.1	hemF	coproporphyrinogen III oxidase	1.3.3.3	1.3.3.3	18257	GO:0004109		Porphyrin metabolism	1	1
+NP_416935.1	eutC	ethanolamine ammonia-lyase subunit beta	4.3.1.7	4.3.1.7	15313	GO:0008851		Glycerophospholipid metabolism	1	1
+NP_416936.4	eutB	ethanolamine ammonia-lyase subunit alpha	4.3.1.7	4.3.1.7	15313	GO:0008851		Glycerophospholipid metabolism	1	1
+NP_416950.1	eutE	acetaldehyde dehydrogenase (acetylating) EutE	1.2.1.10	1.2.1.10	23288	GO:0008774		Benzoate degradation;Dioxin degradation;Phenylalanine metabolism;Pyruvate metabolism;Xylene degradation	1	5
+NP_416953.1	eutD	phosphate acetyltransferase EutD	2.3.1.8	2.3.1.8	19521	GO:0008959		Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism;Taurine and hypotaurine metabolism	1	4
+NP_416958.1	maeB	malate dehydrogenase (oxaloacetate-decarboxylating) (NADP(+))	1.1.1.40	1.1.1.40	15641;18253	GO:0004473;GO:0008948		Carbon fixation by Calvin cycle;Pyruvate metabolism	2	2
+NP_416959.1	talA	transaldolase A	2.2.1.2	2.2.1.2	17053	GO:0004801			1	0
+NP_416960.1	tktB	transketolase 2	2.2.1.1	2.2.1.1	10508;27626	GO:0004802		Carbon fixation by Calvin cycle;Pentose phosphate pathway	1	2
+NP_416964.1	narQ	sensor histidine kinase NarQ	2.7.13.3	2.7.13.3					0	0
+NP_416967.1	dapE	succinyl-diaminopimelate desuccinylase	3.5.1.18	3.5.1.18	22608	GO:0009014		Lysine biosynthesis	1	1
+NP_416969.1	tmcA	tRNA(Met) cytidine acetyltransferase	2.3.1.193	2.3.1.193	43788	GO:0051392			1	0
+NP_416971.1	purC	phosphoribosylaminoimidazole-succinocarboxamide synthase	6.3.2.6	6.3.2.6	22628	GO:0004639		Purine metabolism	1	1
+NP_416973.1	dapA	4-hydroxy-tetrahydrodipicolinate synthase	4.3.3.7	4.3.3.7	34171	GO:0008840		Lysine biosynthesis;Monobactam biosynthesis	1	2
+NP_416975.1	bcp	thiol peroxidase	1.11.1.24	1.11.1.24	62620	GO:0140824			1	0
+NP_416989.1	bepA	beta-barrel assembly-enhancing protease	3.4.21.107	3.4.21.107					0	0
+NP_416993.2	upp	uracil phosphoribosyltransferase	2.4.2.9	2.4.2.9	13017	GO:0004845		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_416994.1	purM	phosphoribosylformylglycinamide cyclo-ligase	6.3.3.1	6.3.3.1	23032	GO:0004641		Purine metabolism	1	1
+NP_416995.1	purN	phosphoribosylglycinamide formyltransferase 1	2.1.2.2	2.1.2.2	15053	GO:0004644		One carbon pool by folate;Purine metabolism	1	2
+NP_416996.1	ppk	polyphosphate kinase	2.7.4.1	2.7.4.1	19573	GO:0008976			1	0
+NP_416997.1	ppx	exopolyphosphatase	3.6.1.11	3.6.1.11	21528	GO:0004309			1	0
+NP_416998.1	pdeF	cyclic di-GMP phosphodiesterase PdeF	3.1.4.52	3.1.4.52	24902	GO:0071111			1	0
+NP_417002.1	guaA	GMP synthetase	6.3.5.2	6.3.5.2	11680	GO:0003922		Nucleotide metabolism;Purine metabolism	1	2
+NP_417003.1	guaB	inosine 5'-monophosphate dehydrogenase	1.1.1.205	1.1.1.205	11708	GO:0003938		Nucleotide metabolism;Purine metabolism	1	2
+NP_417004.1	xseA	exodeoxyribonuclease VII subunit XseA	3.1.11.6	3.1.11.6					0	0
+NP_417006.2	der	50S ribosomal subunit stability factor	3.6.5.3	3.6.5.3	19669	GO:0003924		Nucleotide metabolism;Purine metabolism	1	2
+NP_417009.1	hisS	histidine--tRNA ligase	6.1.1.21	6.1.1.21	17313	GO:0004821		Aminoacyl-tRNA biosynthesis	1	1
+NP_417010.1	ispG	(E)-4-hydroxy-3-methylbut-2-enyl-diphosphate synthase (flavodoxin)	1.17.7.3	1.17.7.3	43604	GO:0141197		Terpenoid backbone biosynthesis	1	1
+NP_417012.1	rlmN	23S rRNA m(2)A2503 methyltransferase/tRNA m(2)A37 methyltransferase	2.1.1.192	2.1.1.192	42916;43332	GO:0002935;GO:0070040			2	0
+NP_417013.1	ndk	nucleoside diphosphate kinase	2.7.4.6	2.7.4.6	18113;25098;25237;27674;27678;27682;27686;27690;28582;30347;30939;44640			Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism	0	3
+NP_417016.4	sseA	3-mercaptopyruvate sulfurtransferase	2.8.1.1	2.8.1.1	16881	GO:0004792		Sulfur metabolism	1	1
+NP_417018.4	pepB	aminopeptidase B	3.4.11.23	3.4.11.23					0	0
+YP_026169.1	iscS	cysteine desulfurase IscS	2.8.1.7	2.8.1.7	43892	GO:0031071			1	0
+NP_417027.1	trmJ	tRNA Cm32/Um32 methyltransferase	2.1.1.200	2.1.1.200	42932;42936	GO:0106339;GO:0160206			2	0
+NP_417028.1	suhB	Nus factor SuhB	3.1.3.19	3.1.3.19	13105	GO:0047954			1	0
+NP_417033.1	hcaE	putative 3-phenylpropionate/cinnamate dioxygenase subunit alpha	1.14.12.19	1.14.12.19	20357;25058	GO:0008695		Phenylalanine metabolism	1	1
+NP_417034.1	hcaF	putative 3-phenylpropionate/cinnamate dioxygenase subunit beta	1.14.12.19	1.14.12.19	20357;25058	GO:0008695		Phenylalanine metabolism	1	1
+NP_417035.1	hcaC	putative 3-phenylpropionate/cinnamate dioxygenase ferredoxin subunit	1.14.12.19	1.14.12.19	20357;25058	GO:0008695		Phenylalanine metabolism	1	1
+NP_417036.1	hcaB	2,3-dihydroxy-2,3-dihydrophenylpropionate dehydrogenase	1.3.1.87	1.3.1.87	25062;25066	GO:0018498		Phenylalanine metabolism	1	1
+NP_417037.1	hcaD	putative 3-phenylpropionate/cinnamate dioxygenase ferredoxin reductase subunit	1.14.12.19	1.14.12.19	20357;25058	GO:0008695		Phenylalanine metabolism	1	1
+NP_417046.1	glyA	serine hydroxymethyltransferase	2.1.2.1	2.1.2.1	15481;19625;79695	GO:0004372;GO:0004793;GO:0120567		Cyanoamino acid metabolism;Glycine, serine and threonine metabolism;Glyoxylate and dicarboxylate metabolism;Lysine degradation;Methane metabolism;One carbon pool by folate	3	6
+NP_417047.1	hmp	nitric oxide dioxygenase	1.14.12.17	1.14.12.17	19465;19469	GO:0008941			1	0
+NP_417051.2	glrK	histidine kinase GlrK	2.7.13.3	2.7.13.3					0	0
+YP_026170.1	purL	phosphoribosylformylglycinamide synthetase	6.3.5.3	6.3.5.3	17129	GO:0004642		Purine metabolism	1	1
+NP_417055.4	pgpC	phosphatidylglycerophosphatase C	3.1.3.27	3.1.3.27	33751			Glycerophospholipid metabolism	0	1
+NP_417058.1	acpS	holo-[acyl-carrier-protein] synthase	2.7.8.7	2.7.8.7	12068	GO:0008897		Mycolic acid biosynthesis;Pantothenate and CoA biosynthesis	1	2
+NP_417059.1	pdxJ	pyridoxine 5'-phosphate synthase	2.6.99.2	2.6.99.2	15265	GO:0033856		Vitamin B6 metabolism	1	1
+NP_417061.1	era	30S ribosomal subunit maturation GTPase Era	3.6.5.3	3.6.5.3	19669	GO:0003924		Nucleotide metabolism;Purine metabolism	1	2
+NP_417062.1	rnc	RNase III	3.1.26.3	3.1.26.3					0	0
+NP_417063.1	lepB	signal peptidase I	3.4.21.89	3.4.21.89					0	0
+NP_417064.1	lepA	30S ribosomal subunit biogenesis factor LepA	3.6.5.3	3.6.5.3	19669	GO:0003924		Nucleotide metabolism;Purine metabolism	1	2
+NP_417069.1	nadB	L-aspartate oxidase	1.4.3.16	1.4.3.16	25876	GO:0008734		Nicotinate and nicotinamide metabolism	1	1
+NP_417070.2	yfiC	tRNA m(6)A37 methyltransferase	2.1.1.223	2.1.1.223	43160	GO:7770054			1	0
+NP_417071.1	srmB	ATP-dependent RNA helicase SrmB	5.6.2.7	5.6.2.7					0	0
+NP_417074.1	grcA	stress-induced alternate pyruvate formate-lyase subunit	2.3.1.54	2.3.1.54	11844	GO:0008861		Butanoate metabolism;Pyruvate metabolism	1	2
+NP_417075.1	ung	uracil-DNA glycosylase	3.2.2.27	3.2.2.27					0	0
+NP_417078.4	tapT	tRNA 3-amino-3-carboxypropyltransferase	2.5.1.25	2.5.1.25	12300;62432	GO:0016432			1	0
+NP_417080.4	pssA	phosphatidylserine synthase	2.7.8.8	2.7.8.8	16913	GO:0003882		Glycerophospholipid metabolism;Glycine, serine and threonine metabolism	1	2
+NP_417084.1	yfiH	purine nucleoside phosphorylase YfiH	1.10.3.2	1.10.3.2	11276	GO:0052716			1	0
+NP_417085.1	rluD	23S rRNA pseudouridine(1911/1915/1917) synthase	5.4.99.23	5.4.99.23	42524	GO:0160140			1	0
+NP_417090.1	pheA	fused chorismate mutase/prephenate dehydratase	4.2.1.51	4.2.1.51	21648	GO:0004664		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_417091.1	tyrA	fused chorismate mutase/prephenate dehydrogenase	1.3.1.12	1.3.1.12	13869	GO:0008977		Novobiocin biosynthesis;Phenylalanine, tyrosine and tryptophan biosynthesis	1	2
+NP_417092.1	aroF	3-deoxy-7-phosphoheptulonate synthase, Tyr-sensitive	2.5.1.54	2.5.1.54	14717	GO:0003849		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_417095.1	dgcN	diguanylate cyclase DgcN	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+NP_417098.1	trmD	tRNA m(1)G37 methyltransferase	2.1.1.228	2.1.1.228	36899	GO:0052906			1	0
+NP_417105.1	nadK	NAD kinase	2.7.1.23	2.7.1.23	18629	GO:0003951		Nicotinate and nicotinamide metabolism	1	1
+NP_417145.4	glaH	glutarate dioxygenase GlaH	1.14.11.64	1.14.11.64	13821	GO:0106343		Lysine degradation	1	1
+NP_417146.2	lhgD	L-2-hydroxyglutarate dehydrogenase	1.1.5.13	1.1.5.13	58664	GO:0140696		Lysine degradation	1	1
+NP_417147.1	gabD	succinate-semialdehyde dehydrogenase (NADP(+)) GabD	1.2.1.20	1.2.1.20	57832	GO:0102810			1	0
+NP_417148.1	gabT	4-aminobutyrate aminotransferase GabT	2.6.1.11	2.6.1.11	18049	GO:0003992		Arginine biosynthesis	1	1
+NP_417154.1	ygaP	thiosulfate sulfurtransferase YgaP	2.8.1.1	2.8.1.1	16881	GO:0004792		Sulfur metabolism	1	1
+NP_417161.1	nrdE	ribonucleoside-diphosphate reductase 2 subunit alpha	1.17.4.1	1.17.4.1	23252;28026;28030;28034;28038	GO:0004748;GO:0051061;GO:0051062		Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism	3	3
+NP_417162.1	nrdF	ribonucleoside-diphosphate reductase 2 subunit beta	1.17.4.1	1.17.4.1	23252;28026;28030;28034;28038	GO:0004748;GO:0051061;GO:0051062		Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism	3	3
+NP_417163.1	proV	glycine betaine ABC transporter ATP binding subunit ProV	7.6.2.9	7.6.2.9	11036;76247	GO:0015418			1	0
+NP_417164.1	proW	glycine betaine ABC transporter membrane subunit ProW	7.6.2.9	7.6.2.9	11036;76247	GO:0015418			1	0
+NP_417165.1	proX	glycine betaine ABC transporter periplasmic binding protein ProX	7.6.2.9	7.6.2.9	11036;76247	GO:0015418			1	0
+NP_417172.1	luxS	S-ribosylhomocysteine lyase	4.4.1.21	4.4.1.21	17753	GO:0043768		Cysteine and methionine metabolism	1	1
+NP_417173.1	gshA	glutamate--cysteine ligase	6.3.2.2	6.3.2.2	13285	GO:0004357		Glutathione metabolism;Histidine metabolism	1	2
+NP_417177.1	alaS	alanine--tRNA ligase/DNA-binding transcriptional repressor	6.1.1.7	6.1.1.7	12540	GO:0004813		Aminoacyl-tRNA biosynthesis	1	1
+NP_417180.1	pncC	NMN aminohydrolase	3.5.1.42	3.5.1.42	12400	GO:0019159		Nicotinate and nicotinamide metabolism	1	1
+YP_026180.1	srlA	sorbitol-specific PTS enzyme IIC2 component	2.7.1.197	2.7.1.197	33363			Fructose and mannose metabolism	0	1
+YP_026181.1	srlE	sorbitol-specific PTS enzyme IIBC1 component	2.7.1.197	2.7.1.197	33363			Fructose and mannose metabolism	0	1
+NP_417184.1	srlB	sorbitol-specific PTS enzyme IIA component	2.7.1.197	2.7.1.197	33363			Fructose and mannose metabolism	0	1
+NP_417185.1	srlD	sorbitol-6-phosphate 2-dehydrogenase	1.1.1.140	1.1.1.140	19837	GO:0009010		Fructose and mannose metabolism	1	1
+NP_417188.4	gutQ	D-arabinose 5-phosphate isomerase GutQ	5.3.1.13	5.3.1.13	23104	GO:0019146		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+NP_417191.1	norW	NADH:flavorubredoxin reductase	1.18.1.1	1.18.1.1	18597	GO:0015044		Fatty acid degradation	1	1
+YP_026182.1	ascF	cryptic beta-glucoside specific PTS enzyme IIBC component	2.7.1.199	2.7.1.199	33367			Amino sugar and nucleotide sugar metabolism;Glycolysis / Gluconeogenesis	0	2
+NP_417196.1	ascB	cryptic 6-phospho-beta-glucosidase AscB	3.2.1.86	3.2.1.86	10772	GO:0008706		Starch and sucrose metabolism	1	1
+NP_417199.1	hycG	hydrogenase 3 [Fe-S] protein HycG	1.12.7.2	1.12.7.2	17445	GO:0008901			1	0
+NP_417200.1	hycF	hydrogenase 3 [Fe-S] protein HycF	1.12.7.2	1.12.7.2	17445	GO:0008901			1	0
+NP_417201.1	hycE	hydrogenase 3 large subunit	1.12.7.2	1.12.7.2	17445	GO:0008901			1	0
+NP_417202.1	hycD	hydrogenase 3 membrane subunit HycD	1.12.7.2	1.12.7.2	17445	GO:0008901			1	0
+NP_417203.1	hycC	hydrogenase 3 membrane subunit HycC	1.12.7.2	1.12.7.2	17445	GO:0008901			1	0
+NP_417204.1	hycB	hydrogenase 3 [Fe-S] protein HycB	1.12.7.2	1.12.7.2	17445	GO:0008901			1	0
+NP_417214.1	pphB	phosphoprotein phosphatase 2	3.1.3.16	3.1.3.16	20629;47004	GO:0004722			1	0
+NP_417223.1	pcm	protein-L-isoaspartate O-methyltransferase	2.1.1.77	2.1.1.77	12705;68048	GO:0004719			1	0
+NP_417224.1	umpG	broad specificity 5'(3')-nucleotidase and polyphosphatase	3.1.3.5	3.1.3.5	12484	GO:0008253			1	0
+NP_417225.1	truD	tRNA pseudouridine(13) synthase	5.4.99.27	5.4.99.27	42540	GO:0160150			1	0
+NP_417226.1	ispF	2-C-methyl-D-erythritol 2,4-cyclodiphosphate synthase	4.6.1.12	4.6.1.12	23864	GO:0008685		Terpenoid backbone biosynthesis	1	1
+NP_417227.1	ispD	2-C-methyl-D-erythritol 4-phosphate cytidylyltransferase	2.7.7.60	2.7.7.60	13429	GO:0050518		Terpenoid backbone biosynthesis	1	1
+NP_417230.1	cysC	adenylyl-sulfate kinase	2.7.1.25	2.7.1.25	24152	GO:0004020		Purine metabolism;Sulfur cycle;Sulfur metabolism	1	3
+NP_417231.1	cysN	sulfate adenylyltransferase subunit 1	2.7.7.4	2.7.7.4	18133	GO:0004781		Monobactam biosynthesis;Purine metabolism;Sulfur cycle;Sulfur metabolism	1	4
+NP_417232.1	cysD	sulfate adenylyltransferase subunit 2	2.7.7.4	2.7.7.4	18133	GO:0004781		Monobactam biosynthesis;Purine metabolism;Sulfur cycle;Sulfur metabolism	1	4
+NP_417242.1	cysH	phosphoadenosine phosphosulfate reductase	1.8.4.8	1.8.4.8	11724	GO:0004604		Sulfur cycle;Sulfur metabolism	1	2
+NP_417243.1	cysI	sulfite reductase, hemoprotein subunit	1.8.1.2	1.8.1.2	13801	GO:0004783		Sulfur cycle;Sulfur metabolism	1	2
+NP_417244.1	cysJ	sulfite reductase, flavoprotein subunit	1.5.1.30	1.5.1.30	19377	GO:0042602		Riboflavin metabolism	1	1
+NP_417245.1	queD	6-carboxy-5,6,7,8-tetrahydropterin synthase	4.1.2.50	4.1.2.50	27966	GO:0070497		Folate biosynthesis	1	1
+NP_417257.1	queE	putative 7-carboxy-7-deazaguanine synthase QueE	4.3.99.3	4.3.99.3	27974				0	0
+NP_417259.1	eno	enolase	4.2.1.11	4.2.1.11	10164	GO:0004634		Glycolysis / Gluconeogenesis;Methane metabolism	1	2
+NP_417260.1	pyrG	CTP synthetase	6.3.4.2	6.3.4.2	26426	GO:0003883		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_417261.1	mazG	nucleoside triphosphate pyrophosphohydrolase	3.6.1.9	3.6.1.9	10248;14245;22636;23996;27762;28334;28342;28362;28534;28610;29391;29395;29399;44644	GO:0004170;GO:0008828;GO:0035870;GO:0036217;GO:0036218;GO:0036219;GO:0036220;GO:0036221;GO:0036222;GO:0047429;GO:0047693;GO:0047840		Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism	12	3
+NP_417264.1	relA	GDP/GTP pyrophosphokinase	2.7.6.5	2.7.6.5	22088	GO:0008728		Purine metabolism	1	1
+NP_417265.1	rlmD	23S rRNA m(5)U1939 methyltransferase	2.1.1.190	2.1.1.190	42908				0	0
+NP_417266.1	barA	sensor histidine kinase BarA	2.7.13.3	2.7.13.3					0	0
+NP_417267.1	gudD	D-glucarate dehydratase	4.2.1.40	4.2.1.40	14573	GO:0008872		Ascorbate and aldarate metabolism	1	1
+NP_417271.1	truC	tRNA pseudouridine(65) synthase	5.4.99.26	5.4.99.26	42536	GO:0160149			1	0
+NP_417274.1	queF	7-cyano-7-deazaguanine reductase	1.7.1.13	1.7.1.13	13409	GO:0033739		Folate biosynthesis	1	1
+NP_417275.1	ppnN	nucleotide 5'-monophosphate nucleosidase	3.2.2.10	3.2.2.10	13425;30075	GO:0047405		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_417277.1	sdaB	L-serine deaminase II	4.3.1.17	4.3.1.17	19169	GO:0003941		Glycine, serine and threonine metabolism	1	1
+NP_417279.2	fucO	L-1,2-propanediol oxidoreductase	1.1.1.77	1.1.1.77	15933;23872	GO:0052660;GO:0052661			2	0
+NP_417280.1	fucA	L-fuculose-phosphate aldolase	4.1.2.17	4.1.2.17	12933	GO:0008738		Fructose and mannose metabolism	1	1
+NP_417282.1	fucI	L-fucose isomerase	5.3.1.25	5.3.1.25	17233	GO:0008736		Fructose and mannose metabolism	1	1
+NP_417283.2	fucK	L-fuculokinase	2.7.1.51	2.7.1.51	12376	GO:0008737		Fructose and mannose metabolism	1	1
+NP_417284.1	fucU	L-fucose mutarotase	5.1.3.29	5.1.3.29	25580	GO:0036373			1	0
+NP_417286.1	rlmM	23S rRNA 2'-O-ribose C2498 methyltransferase	2.1.1.186	2.1.1.186	42788	GO:0062105			1	0
+NP_417294.4	amiC	N-acetylmuramoyl-L-alanine amidase C	3.5.1.28	3.5.1.28					0	0
+NP_417295.1	argA	N-acetylglutamate synthase	2.3.1.1	2.3.1.1	24292	GO:0004042		Arginine biosynthesis	1	1
+NP_417296.1	recD	exodeoxyribonuclease V subunit RecD	3.1.11.5	3.1.11.5					0	0
+NP_417297.1	recB	exodeoxyribonuclease V subunit RecB	3.1.11.5	3.1.11.5					0	0
+NP_417298.1	ptrA	protease 3	3.4.24.55	3.4.24.55					0	0
+NP_417299.1	recC	exodeoxyribonuclease V subunit RecC	3.1.11.5	3.1.11.5					0	0
+NP_417304.1	thyA	thymidylate synthase	2.1.1.45	2.1.1.45	12104	GO:0004799		Nucleotide metabolism;One carbon pool by folate;Pyrimidine metabolism	1	3
+NP_417305.1	lgt	phosphatidylglycerol--prolipoprotein diacylglyceryl transferase	2.5.1.145	2.5.1.145	56712	GO:0008961			1	0
+NP_417313.1	aas	fused 2-acylglycerophospho-ethanolamine acyltransferase/acyl-acyl carrier protein synthetase	2.3.1.40	2.3.1.40	10304	GO:0008779		Glycerophospholipid metabolism	1	1
+NP_417315.1	lysA	diaminopimelate decarboxylase	4.1.1.20	4.1.1.20	15101	GO:0008836		D-Amino acid metabolism;Lysine biosynthesis	1	2
+NP_417319.1	kduD	2-keto-3-deoxy-D-gluconate dehydrogenase	1.1.1.127	1.1.1.127	24232	GO:0047001		Pentose and glucuronate interconversions	1	1
+NP_417320.1	kduI	5-dehydro-4-deoxy-D-glucuronate isomerase	5.3.1.17	5.3.1.17	23896	GO:0008697		Pentose and glucuronate interconversions	1	1
+NP_417342.1	xdhA	putative xanthine dehydrogenase molybdenum-binding subunit XdhA	1.17.1.4	1.17.1.4	16669;24670	GO:0004854		Nucleotide metabolism;Purine metabolism	1	2
+NP_417343.1	xdhB	putative xanthine dehydrogenase FAD-binding subunit XdhB	1.17.1.4	1.17.1.4	16669;24670	GO:0004854		Nucleotide metabolism;Purine metabolism	1	2
+NP_417344.1	xdhC	putative xanthine dehydrogenase [Fe-S]-binding subunit XdhC	1.17.1.4	1.17.1.4	16669;24670	GO:0004854		Nucleotide metabolism;Purine metabolism	1	2
+NP_417347.1	ygeX	2,3-diaminopropionate ammonia-lyase	4.3.1.15	4.3.1.15	22084;52432	GO:0008838			1	0
+NP_417353.1	mocA	molybdenum cofactor cytidylyltransferase	2.7.7.76	2.7.7.76	31335	GO:0061602		Folate biosynthesis	1	1
+NP_417359.1	guaD	guanine deaminase	3.5.4.3	3.5.4.3	14665	GO:0008892		Nucleotide metabolism;Purine metabolism	1	2
+NP_417365.1	idi	isopentenyl-diphosphate Delta-isomerase	5.3.3.2	5.3.3.2	23284	GO:0004452		Terpenoid backbone biosynthesis	1	1
+NP_417366.1	lysS	lysine--tRNA ligase	6.1.1.6	6.1.1.6	20792	GO:0004824		Aminoacyl-tRNA biosynthesis	1	1
+NP_417368.1	recJ	ssDNA-specific exonuclease RecJ	3.1.11.6	3.1.11.6					0	0
+NP_417369.1	dsbC	protein disulfide isomerase DsbC	5.3.4.1	5.3.4.1					0	0
+NP_417376.1	yqfB	N(4)-acetylcytidine amidohydrolase	3.5.1.135	3.5.1.135	62932;62936;62940	GO:0106251			1	0
+NP_417379.1	gcvP	glycine decarboxylase	1.4.1.27	1.4.1.27	27758			Glyoxylate and dicarboxylate metabolism;One carbon pool by folate	0	2
+NP_417380.1	gcvH	glycine cleavage system H protein	1.4.1.27	1.4.1.27	27758			Glyoxylate and dicarboxylate metabolism;One carbon pool by folate	0	2
+NP_417381.1	gcvT	aminomethyltransferase	1.4.1.27	1.4.1.27	27758			Glyoxylate and dicarboxylate metabolism;One carbon pool by folate	0	2
+NP_417382.1	ubiI	2-octaprenylphenol 6-hydroxylase	1.14.13.240	1.14.13.240	27790;55892	GO:0019168		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_417387.3	fau	5-formyltetrahydrofolate cyclo-ligase	6.3.3.2	6.3.3.2	10488	GO:0030272		One carbon pool by folate	1	1
+NP_417388.1	serA	phosphoglycerate dehydrogenase	1.1.1.399	1.1.1.399	49612	GO:0120568			1	0
+NP_417389.1	rpiA	ribose-5-phosphate isomerase A	5.3.1.6	5.3.1.6	14657	GO:0004751		Carbon fixation by Calvin cycle;Pentose phosphate pathway	1	2
+NP_417392.1	scpA	methylmalonyl-CoA mutase	5.4.99.2	5.4.99.2	22888	GO:0004494		Glyoxylate and dicarboxylate metabolism;Other carbon fixation pathways;Propanoate metabolism;Valine, leucine and isoleucine degradation	1	4
+NP_417395.1	scpC	propionyl-CoA:succinate CoA transferase	2.8.3.27	2.8.3.27	28010	GO:0043821		Propanoate metabolism	1	1
+NP_417400.1	fbaA	fructose-bisphosphate aldolase class II	4.1.2.13	4.1.2.13	14729	GO:0004332		Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway	1	5
+NP_417401.1	pgk	phosphoglycerate kinase	2.7.2.3	2.7.2.3	14801	GO:0004618		Carbon fixation by Calvin cycle;Glycolysis / Gluconeogenesis	1	2
+NP_417402.1	epd	D-erythrose-4-phosphate dehydrogenase	1.2.1.72	1.2.1.72	12056	GO:0048001		Vitamin B6 metabolism	1	1
+NP_417404.1	fumE	fumarase E	4.2.1.2	4.2.1.2	12460	GO:0004333		Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	3
+NP_417405.1	yggF	fructose 1,6-bisphosphatase YggF	3.1.3.11	3.1.3.11	11064	GO:0042132		Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway	1	5
+NP_417408.1	cmtA	mannitol-specific PTS enzyme IICB component CmtA	2.7.1.197	2.7.1.197	33363			Fructose and mannose metabolism	0	1
+NP_417409.1	cmtB	mannitol-specific PTS enzyme IIA component CmtB	2.7.1.197	2.7.1.197	33363			Fructose and mannose metabolism	0	1
+YP_026188.1	tktA	transketolase 1	2.2.1.1	2.2.1.1	10508;27626	GO:0004802		Carbon fixation by Calvin cycle;Pentose phosphate pathway	1	2
+NP_417412.1	speB	agmatinase	3.5.3.11	3.5.3.11	13929	GO:0008783		Arginine and proline metabolism	1	1
+NP_417413.1	speA	biosynthetic arginine decarboxylase	4.1.1.19	4.1.1.19	17641	GO:0008792		Arginine and proline metabolism	1	1
+NP_417417.1	metK	methionine adenosyltransferase	2.5.1.6	2.5.1.6	21080	GO:0004478		Biosynthesis of various plant secondary metabolites;Cysteine and methionine metabolism;One carbon pool by folate	1	3
+NP_417420.1	endA	DNA-specific endonuclease I	3.1.21.1	3.1.21.1					0	0
+NP_417421.4	rsmE	16S rRNA m(3)U1498 methyltransferase	2.1.1.193	2.1.1.193	42920				0	0
+NP_417422.1	gshB	glutathione synthetase	6.3.2.3	6.3.2.3	13557	GO:0004363		Glutathione metabolism	1	1
+NP_417424.1	yqgF	ribonuclease H-like domain-containing nuclease	3.1.11.1	3.1.11.1					0	0
+NP_417429.1	rdgB	dITP/XTP pyrophosphatase	3.6.1.66	3.6.1.66	28342;28610;29399	GO:0035870;GO:0036220;GO:0036222		Nucleotide metabolism;Purine metabolism	3	2
+NP_417432.1	ansB	L-asparaginase 2	3.5.1.1	3.5.1.1	21016	GO:0004067		Alanine, aspartate and glutamate metabolism;Cyanoamino acid metabolism	1	2
+NP_417435.1	trmB	tRNA m(7)G46 methyltransferase	2.1.1.33	2.1.1.33	42708	GO:0008176			1	0
+NP_417436.1	mutY	adenine DNA glycosylase	3.2.2.31	3.2.2.31					0	0
+NP_417440.4	speC	constitutive ornithine decarboxylase	4.1.1.17	4.1.1.17	22964	GO:0004586		Arginine and proline metabolism;Glutathione metabolism	1	2
+NP_417450.1	glcB	malate synthase G	2.3.3.9	2.3.3.9	18181	GO:0004474		Glyoxylate and dicarboxylate metabolism;Pyruvate metabolism	1	2
+YP_026190.1	glcF	glycolate dehydrogenase, [Fe-S] subunit	1.1.99.14	1.1.99.14	21264	GO:0019154		Glyoxylate and dicarboxylate metabolism	1	1
+YP_026191.1	glcE	glycolate dehydrogenase, predicted FAD-binding subunit	1.1.99.14	1.1.99.14	21264	GO:0019154		Glyoxylate and dicarboxylate metabolism	1	1
+NP_417453.1	glcD	glycolate dehydrogenase, predicted FAD-linked subunit	1.1.99.14	1.1.99.14	21264	GO:0019154		Glyoxylate and dicarboxylate metabolism	1	1
+NP_417462.1	gss	fused glutathionylspermidine amidase/glutathionylspermidine synthetase	3.5.1.78	3.5.1.78	17173	GO:0008884		Glutathione metabolism	1	1
+NP_417468.1	hybC	hydrogenase 2 large subunit	1.12.5.1	1.12.5.1	18641	GO:0047067			1	0
+NP_417469.1	hybB	hydrogenase 2 membrane subunit	1.12.5.1	1.12.5.1	18641	GO:0047067			1	0
+NP_417470.1	hybA	hydrogenase 2 [Fe-S] protein	1.12.5.1	1.12.5.1	18641	GO:0047067			1	0
+NP_417471.1	hybO	hydrogenase 2 small subunit	1.12.5.1	1.12.5.1	18641	GO:0047067			1	0
+NP_417474.1	gpr	L-glyceraldehyde 3-phosphate reductase	1.1.1.21	1.1.1.21	12785;12789;25225;25229;37963;37967	GO:0004022;GO:0004032;GO:0032867		Galactose metabolism;Pentose and glucuronate interconversions	3	2
+NP_417481.1	metC	cystathionine beta-lyase/L-cysteine desulfhydrase/alanine racemase	4.4.1.1	4.4.1.1	14005;24923;24931	GO:0004123;GO:0080146		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;One carbon pool by folate	2	3
+NP_417484.1	yqhD	NADPH-dependent aldehyde reductase YqhD	1.1.1.2	1.1.1.2	15937;19257	GO:0004090;GO:0008106			2	0
+NP_417485.4	dkgA	methylglyoxal reductase DkgA	1.1.1.21	1.1.1.21	12785;12789;25225;25229;37963;37967	GO:0004022;GO:0004032;GO:0032867		Galactose metabolism;Pentose and glucuronate interconversions	3	2
+NP_417490.1	plsC	1-acylglycerol-3-phosphate O-acyltransferase PlsC	2.3.1.51	2.3.1.51	19709	GO:0003841		Glycerolipid metabolism;Glycerophospholipid metabolism	1	2
+NP_417498.1	qseC	sensor histidine kinase QseC	2.7.13.3	2.7.13.3					0	0
+NP_417504.1	cpdA	cAMP phosphodiesterase	3.1.4.53	3.1.4.53	25277	GO:0004115		Purine metabolism	1	1
+NP_417506.1	nudF	ADP-sugar pyrophosphatase	3.6.1.21	3.6.1.21					0	0
+NP_417511.3	ygiD	4,5-DOPA dioxygenase extradiol	1.13.11.29	1.13.11.29	21220	GO:0050297		Tyrosine metabolism	1	1
+NP_417513.1	ribB	3,4-dihydroxy-2-butanone-4-phosphate synthase	4.1.99.12	4.1.99.12	18457	GO:0008686		Riboflavin metabolism	1	1
+NP_417524.1	hldE	fused heptose 7-phosphate kinase/heptose 1-phosphate adenyltransferase	2.7.1.167	2.7.1.167	27473	GO:0033785		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+NP_417525.1	glnE	fused glutamine synthetase deadenylase/glutamine synthetase adenylyltransferase	2.7.7.42	2.7.7.42	18589	GO:0008882			1	0
+NP_417526.1	ygiF	inorganic triphosphatase	3.6.1.25	3.6.1.25	14157	GO:0050355			1	0
+NP_417528.1	cca	fused CCA tRNA nucleotidyltransferase/phosphohydrolase	2.7.7.72	2.7.7.72	14433	GO:0004810			1	0
+NP_417529.1	bacA	undecaprenyl pyrophosphate phosphatase	3.6.1.27	3.6.1.27	28094	GO:0050380		Peptidoglycan biosynthesis;Teichoic acid biosynthesis	1	2
+NP_417530.2	folB	dihydroneopterin aldolase	4.1.2.25	4.1.2.25	10540	GO:0004150		Folate biosynthesis	1	1
+NP_417533.1	ttdA	L(+)-tartrate dehydratase subunit alpha	4.2.1.32	4.2.1.32	15413	GO:0008730		Glyoxylate and dicarboxylate metabolism	1	1
+NP_417534.1	ttdB	L(+)-tartrate dehydratase subunit beta	4.2.1.32	4.2.1.32	15413	GO:0008730		Glyoxylate and dicarboxylate metabolism	1	1
+NP_417536.1	tsaD	N(6)-L-threonylcarbamoyladenine synthase, TsaD subunit	2.3.1.234	2.3.1.234	37059	GO:0061711			1	0
+NP_417538.1	dnaG	DNA primase	2.7.7.101	2.7.7.101					0	0
+NP_417540.1	mug	stationary phase mismatch/uracil DNA glycosylase	3.2.2.28	3.2.2.28					0	0
+NP_417541.1	nfeF	NADPH-dependent Fe(3(+))-chelate reductase	1.16.1.9	1.16.1.9	28795	GO:0052851			1	0
+NP_417544.5	patA	putrescine aminotransferase	2.6.1.29	2.6.1.29	18217	GO:0019161			1	0
+NP_417552.1	fadH	2,4-dienoyl-CoA reductase	1.3.1.34	1.3.1.34	12136;45232	GO:0008670			1	0
+NP_417555.4	rlmG	23S rRNA m(2)G1835 methyltransferase	2.1.1.174	2.1.1.174	42744	GO:0052916			1	0
+NP_417562.1	uxaA	D-altronate dehydratase	4.2.1.7	4.2.1.7	15957	GO:0008789		Pentose and glucuronate interconversions	1	1
+NP_417563.1	uxaC	D-glucoronate/D-galacturonate isomerase	5.3.1.12	5.3.1.12	13049;27702	GO:0008880		Pentose and glucuronate interconversions	1	1
+NP_417573.1	yqjG	glutathionyl-hydroquinone reductase YqjG	1.8.5.7	1.8.5.7	51936				0	0
+YP_026202.1	cyuA	L-cysteine desulfidase	4.4.1.1	4.4.1.1	14005;24923;24931	GO:0004123;GO:0080146		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;One carbon pool by folate	2	3
+YP_026204.1	tdcG	L-serine deaminase III	4.3.1.17	4.3.1.17	19169	GO:0003941		Glycine, serine and threonine metabolism	1	1
+YP_026205.1	tdcE	2-oxobutanoate formate-lyase/pyruvate formate-lyase 4	2.3.1.54	2.3.1.54	11844	GO:0008861		Butanoate metabolism;Pyruvate metabolism	1	2
+NP_417585.2	tdcD	propionate kinase	2.7.2.15	2.7.2.15	23148	GO:0008980		Propanoate metabolism	1	1
+NP_417587.1	tdcB	catabolic threonine dehydratase	4.3.1.17	4.3.1.17	19169	GO:0003941		Glycine, serine and threonine metabolism	1	1
+NP_417593.4	garK	glycerate 2-kinase 1	2.7.1.165	2.7.1.165	27377	GO:0043798			1	0
+NP_417594.3	garR	tartronate semialdehyde reductase	1.1.1.60	1.1.1.60	18841;18845	GO:0008679		Glyoxylate and dicarboxylate metabolism	1	1
+NP_417595.1	garL	alpha-dehydro-beta-deoxy-D-glucarate aldolase	4.1.2.20	4.1.2.20	10268	GO:0008672		Ascorbate and aldarate metabolism	1	1
+NP_417597.1	garD	galactarate dehydratase	4.2.1.42	4.2.1.42	16005	GO:0008867		Ascorbate and aldarate metabolism	1	1
+NP_417599.1	yhaV	ribosome-dependent mRNA interferase toxin YhaV	3.1.26.1	3.1.26.1					0	0
+NP_417606.1	kbaY	tagatose-1,6-bisphosphate aldolase 1	4.1.2.40	4.1.2.40	22948	GO:0009025		Galactose metabolism	1	1
+NP_417615.1	rsmI	16S rRNA 2'-O-ribose C1402 methyltransferase	2.1.1.198	2.1.1.198	42924	GO:0062105			1	0
+NP_417622.2	yhbO	protein/nucleic acid deglycase 2	4.2.1.130	4.2.1.130	27754	GO:0019172		Pyruvate metabolism	1	1
+NP_417624.1	yhbQ	DNA damage response nuclease YhbQ	3.1.11.1	3.1.11.1					0	0
+NP_417631.2	deaD	ATP-dependent RNA helicase DeaD	5.6.2.7	5.6.2.7					0	0
+NP_417633.4	pnp	polynucleotide phosphorylase	2.7.7.8	2.7.7.8	22096	GO:0004654			1	0
+NP_417635.1	truB	tRNA pseudouridine(55) synthase	5.4.99.25	5.4.99.25	42532	GO:0160148			1	0
+NP_417640.1	argG	argininosuccinate synthetase	6.3.4.5	6.3.4.5	10932	GO:0004055		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis	1	2
+NP_417643.1	glmM	phosphoglucosamine mutase	5.4.2.10	5.4.2.10	23424	GO:0008966		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars	1	2
+NP_417644.4	folP	dihydropteroate synthase	2.5.1.15	2.5.1.15	19949	GO:0004156		Folate biosynthesis	1	1
+NP_417646.1	rlmE	23S rRNA 2'-O-ribose U2552 methyltransferase	2.1.1.166	2.1.1.166	42720	GO:0008650			1	0
+NP_417654.1	ispB	all-trans-octaprenyl-diphosphate synthase	2.5.1.90	2.5.1.90	27798	GO:0106350		Terpenoid backbone biosynthesis	1	1
+NP_417656.1	murA	UDP-N-acetylglucosamine 1-carboxyvinyltransferase	2.5.1.7	2.5.1.7	18681	GO:0008760		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Peptidoglycan biosynthesis	1	3
+NP_417664.1	kdsD	D-arabinose 5-phosphate isomerase KdsD	5.3.1.13	5.3.1.13	23104	GO:0019146		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+NP_417665.1	kdsC	3-deoxy-D-manno-octulosonate 8-phosphate phosphatase KdsC	3.1.3.45	3.1.3.45	11500	GO:0019143		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+NP_417666.1	lptC	lipopolysaccharide transport system protein LptC	7.5.2.5	7.5.2.5					0	0
+NP_417667.1	lptA	lipopolysaccharide transport system protein LptA	7.5.2.5	7.5.2.5					0	0
+NP_417668.1	lptB	lipopolysaccharide transport system ATP binding protein LptB	7.5.2.5	7.5.2.5					0	0
+YP_026207.1	arcB	sensor histidine kinase ArcB	2.7.13.3	2.7.13.3					0	0
+NP_417679.2	gltB	glutamate synthase subunit GltB	1.4.1.13	1.4.1.13	15501	GO:0004355		Alanine, aspartate and glutamate metabolism;Nitrogen metabolism	1	2
+NP_417680.1	gltD	glutamate synthase subunit GltD	1.4.1.13	1.4.1.13	15501	GO:0004355		Alanine, aspartate and glutamate metabolism;Nitrogen metabolism	1	2
+NP_417689.4	nanK	N-acetylmannosamine kinase	2.7.1.60	2.7.1.60	23832;25253	GO:0009384		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	3
+NP_417690.1	nanE	putative N-acetylmannosamine-6-phosphate 2-epimerase	5.1.3.9	5.1.3.9	23932;25257	GO:0047465		Amino sugar and nucleotide sugar metabolism	1	1
+NP_417703.1	mdh	malate dehydrogenase	1.1.1.37	1.1.1.37	21432	GO:0030060		Carbon fixation by Calvin cycle;Citrate cycle (TCA cycle);Glyoxylate and dicarboxylate metabolism;Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism	1	6
+NP_417719.1	yhdH	acrylyl-CoA reductase	1.3.1.84	1.3.1.84	26454	GO:0043957			1	0
+NP_417722.1	accC	biotin carboxylase	6.3.4.14	6.3.4.14	13501	GO:0004075			1	0
+NP_417728.4	yhdJ	DNA adenine methyltransferase	2.1.1.72	2.1.1.72	15197	GO:0009007			1	0
+NP_417740.1	aroE	shikimate dehydrogenase	1.1.1.25	1.1.1.25	17737	GO:0004764		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_417741.1	tsaC	L-threonylcarbamoyladenylate synthase	2.7.7.87	2.7.7.87	36407	GO:0061710			1	0
+NP_417745.1	def	peptide deformylase	3.5.1.88	3.5.1.88	24420	GO:0042586			1	0
+NP_417746.1	fmt	10-formyltetrahydrofolate:L-methionyl-tRNA(fMet) N-formyltransferase	2.1.2.9	2.1.2.9	24380	GO:0004479		Aminoacyl-tRNA biosynthesis	1	1
+NP_417747.1	rsmB	16S rRNA m(5)C967 methyltransferase	2.1.1.176	2.1.1.176	42748				0	0
+NP_417754.1	rpoA	RNA polymerase subunit alpha	2.7.7.6	2.7.7.6	21248	GO:0034062			1	0
+NP_417783.1	gspC	cryptic type II secretion system protein GspC	7.4.2.8	7.4.2.8					0	0
+NP_417784.4	gspD	cryptic type II secretion system secretin GspDalpha	7.4.2.8	7.4.2.8					0	0
+NP_417785.1	gspE	cryptic type II secretion system ATPase GspE	7.4.2.8	7.4.2.8					0	0
+NP_417786.1	gspF	cryptic type II secretion system protein GspF	7.4.2.8	7.4.2.8					0	0
+NP_417787.1	gspG	cryptic type II secretion system major pseudopilin GspG	7.4.2.8	7.4.2.8					0	0
+NP_417788.1	gspH	cryptic type II secretion system minor pseudopilin GspH	7.4.2.8	7.4.2.8					0	0
+NP_417789.4	gspI	cryptic type II secretion system minor pseudopilin GspI	7.4.2.8	7.4.2.8					0	0
+NP_417790.1	gspJ	cryptic type II secretion system minor pseudopilin GspJ	7.4.2.8	7.4.2.8					0	0
+NP_417791.1	gspK	cryptic type II secretion system minor pseudopilin GspK	7.4.2.8	7.4.2.8					0	0
+NP_417792.2	gspL	cryptic type II secretion system protein GspL	7.4.2.8	7.4.2.8					0	0
+NP_417793.2	gspM	cryptic type II secretion system protein GspM	7.4.2.8	7.4.2.8					0	0
+NP_417794.1	gspO	cryptic type II secretion system prepilin peptidase	3.4.23.43	3.4.23.43					0	0
+NP_417795.1	bfr	bacterioferritin	1.16.3.1	1.16.3.1	11148	GO:0004322		Porphyrin metabolism	1	1
+NP_417797.1	chiA	endochitinase	3.2.1.14	3.2.1.14					0	0
+NP_417806.1	fkpA	peptidyl-prolyl cis-trans isomerase/OMP chaperone FkpA	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+NP_417808.1	slyD	FKBP-type peptidyl-prolyl cis-trans isomerase SlyD	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+NP_417818.1	argD	N-acetylornithine aminotransferase/N-succinyldiaminopimelate aminotransferase	2.6.1.11	2.6.1.11	18049	GO:0003992		Arginine biosynthesis	1	1
+NP_417819.1	pabA	aminodeoxychorismate synthase subunit 2	2.6.1.85	2.6.1.85	11672	GO:0046820		Folate biosynthesis	1	1
+NP_417822.1	ppiA	peptidyl-prolyl cis-trans isomerase A	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+NP_417824.1	nirB	nitrite reductase (NADH) large subunit	1.7.1.15	1.7.1.15	24628	GO:0106316		Nitrogen cycle;Nitrogen metabolism	1	2
+NP_417825.1	nirD	nitrite reductase (NADH) small subunit	1.7.1.15	1.7.1.15	24628	GO:0106316		Nitrogen cycle;Nitrogen metabolism	1	2
+NP_417827.1	cysG	siroheme synthase	1.3.1.76	1.3.1.76	15613	GO:0043115		Porphyrin metabolism	1	1
+YP_026213.1	frlC	fructoselysine 3-epimerase	5.1.3.41	5.1.3.41	28390				0	0
+NP_417833.1	frlD	fructoselysine 6-kinase	2.7.1.218	2.7.1.218	28378				0	0
+NP_417843.1	trpS	tryptophan--tRNA ligase	6.1.1.2	6.1.1.2	24080	GO:0004830		Aminoacyl-tRNA biosynthesis	1	1
+NP_417844.1	gph	phosphoglycolate phosphatase	3.1.3.18	3.1.3.18	14369	GO:0008967		Glyoxylate and dicarboxylate metabolism	1	1
+NP_417845.1	rpe	ribulose-phosphate 3-epimerase	5.1.3.1	5.1.3.1	13677	GO:0004750		Carbon fixation by Calvin cycle;Pentose and glucuronate interconversions;Pentose phosphate pathway	1	3
+NP_417846.1	dam	DNA adenine methyltransferase	2.1.1.72	2.1.1.72	15197	GO:0009007			1	0
+NP_417848.1	aroB	3-dehydroquinate synthase	4.2.3.4	4.2.3.4	21968	GO:0003856		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+YP_026215.2	aroK	shikimate kinase 1	2.7.1.71	2.7.1.71	13121	GO:0004765		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+NP_417856.1	nudE	ADP-sugar diphosphatase NudE	3.6.1.21	3.6.1.21					0	0
+NP_417858.4	yrfG	purine nucleotidase	3.1.3.99	3.1.3.99	27718	GO:0008253		Nucleotide metabolism;Purine metabolism	1	2
+NP_417862.1	pck	phosphoenolpyruvate carboxykinase (ATP)	4.1.1.49	4.1.1.49	18617	GO:0004612		Carbon fixation by Calvin cycle;Citrate cycle (TCA cycle);Glycolysis / Gluconeogenesis;Pyruvate metabolism	1	4
+NP_417863.1	envZ	sensor histidine kinase EnvZ	2.7.13.3	2.7.13.3					0	0
+NP_417871.1	bioH	pimeloyl-acyl carrier protein methyl ester esterase	3.1.1.1	3.1.1.1	21164	GO:0106435			1	0
+NP_417875.1	malQ	4-alpha-glucanotransferase	2.4.1.25	2.4.1.25					0	0
+YP_026219.1	rtcA	RNA 3'-terminal phosphate cyclase	6.5.1.4	6.5.1.4	23976	GO:0003963			1	0
+NP_417879.1	rtcB	RNA-splicing ligase	6.5.1.8	6.5.1.8	68076;68080	GO:0170057			1	0
+YP_026220.1	glpG	rhomboid protease GlpG	3.4.21.105	3.4.21.105					0	0
+NP_417883.1	glpE	thiosulfate sulfurtransferase GlpE	2.8.1.1	2.8.1.1	16881	GO:0004792		Sulfur metabolism	1	1
+NP_417884.1	glpD	aerobic glycerol 3-phosphate dehydrogenase	1.1.5.3	1.1.5.3	18977;28751;28755;29219	GO:0004368			1	0
+NP_417887.1	glgA	glycogen synthase	2.4.1.21	2.4.1.21	18189	GO:0009011		Starch and sucrose metabolism	1	1
+NP_417888.1	glgC	glucose-1-phosphate adenylyltransferase	2.7.7.27	2.7.7.27	12120	GO:0008878		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Starch and sucrose metabolism	1	3
+NP_417889.1	glgX	limit dextrin alpha-1,6-glucohydrolase	3.2.1.196	3.2.1.196					0	0
+NP_417890.1	glgB	1,4-alpha-glucan branching enzyme	2.4.1.18	2.4.1.18					0	0
+NP_417891.1	asd	aspartate-semialdehyde dehydrogenase	1.2.1.11	1.2.1.11	24284	GO:0004073		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis	1	3
+NP_417894.2	gntK	D-gluconate kinase, thermostable	2.7.1.12	2.7.1.12	19433	GO:0046316		Pentose phosphate pathway	1	1
+NP_417896.1	yhhW	quercetin 2,3-dioxygenase	1.13.11.24	1.13.11.24	15381	GO:0008127			1	0
+NP_417904.1	ggt	glutathione hydrolase proenzyme	2.3.2.2	2.3.2.2	23904				0	0
+NP_417906.1	ugpQ	glycerophosphodiester phosphodiesterase UgpQ	3.1.4.46	3.1.4.46	12969;29875;29907	GO:0008889			1	0
+NP_417907.2	ugpC	sn-glycerol 3-phosphate ABC transporter ATP binding subunit	7.6.2.10	7.6.2.10	21668	GO:0015430			1	0
+NP_417908.1	ugpE	sn-glycerol 3-phosphate ABC transporter membrane subunit UgpE	7.6.2.10	7.6.2.10	21668	GO:0015430			1	0
+NP_417909.1	ugpA	sn-glycerol 3-phosphate ABC transporter membrane subunit UgpA	7.6.2.10	7.6.2.10	21668	GO:0015430			1	0
+NP_417910.1	ugpB	sn-glycerol 3-phosphate ABC transporter periplasmic binding protein	7.6.2.10	7.6.2.10	21668	GO:0015430			1	0
+NP_417911.4	livF	branched chain amino acid/phenylalanine ABC transporter ATP binding subunit LivF	7.4.2.2	7.4.2.2					0	0
+NP_417912.1	livG	branched chain amino acid/phenylalanine ABC transporter ATP binding subunit LivG	7.4.2.2	7.4.2.2					0	0
+NP_417913.1	livM	branched chain amino acid/phenylalanine ABC transporter membrane subunit LivM	7.4.2.2	7.4.2.2					0	0
+NP_417914.1	livH	branched chain amino acid/phenylalanine ABC transporter membrane subunit LivH	7.4.2.2	7.4.2.2					0	0
+NP_417915.1	livK	L-leucine/L-phenylalanine ABC transporter periplasmic binding protein	7.4.2.2	7.4.2.2					0	0
+YP_026223.1	livJ	branched chain amino acid/phenylalanine ABC transporter periplasmic binding protein	7.4.2.2	7.4.2.2					0	0
+NP_417922.1	rsmD	16S rRNA m(2)G966 methyltransferase	2.1.1.171	2.1.1.171	23548	GO:0052913			1	0
+NP_417926.1	zntA	Zn(2(+))/Cd(2(+))/Pb(2(+)) exporting P-type ATPase	7.2.2.12	7.2.2.12	20621	GO:0016463			1	0
+NP_417932.1	acpT	holo-[acyl carrier protein] synthase 2	2.7.8.7	2.7.8.7	12068	GO:0008897		Mycolic acid biosynthesis;Pantothenate and CoA biosynthesis	1	2
+NP_417954.1	rsmJ	16S rRNA m(2)G1516 methyltransferase	2.1.1.242	2.1.1.242	43220	GO:0036308			1	0
+NP_417955.1	prlC	oligopeptidase A	3.4.24.70	3.4.24.70					0	0
+NP_417956.1	rlmJ	23S rRNA m(6)A2030 methyltransferase	2.1.1.266	2.1.1.266	43736	GO:0036307			1	0
+NP_417957.1	gor	glutathione reductase (NADPH)	1.8.1.7	1.8.1.7	11740	GO:0004362		Glutathione metabolism	1	1
+NP_417960.1	arsC	arsenate reductase	1.20.4.1	1.20.4.1	22016	GO:0008794			1	0
+NP_417974.1	gadA	glutamate decarboxylase A	4.1.1.15	4.1.1.15	17785	GO:0004351		Alanine, aspartate and glutamate metabolism;Butanoate metabolism	1	2
+NP_417976.1	treF	cytoplasmic trehalase	3.2.1.28	3.2.1.28	32675	GO:0004555		Starch and sucrose metabolism	1	1
+NP_417982.2	pdeH	cyclic di-GMP phosphodiesterase PdeH	3.1.4.52	3.1.4.52	24902	GO:0071111			1	0
+NP_417983.2	kdgK	2-dehydro-3-deoxygluconokinase	2.7.1.45	2.7.1.45	14797	GO:0008673		Pentose phosphate pathway	1	1
+NP_417986.4	pdeK	c-di-GMP phosphodiesterase PdeK	3.1.4.52	3.1.4.52	24902	GO:0071111			1	0
+NP_417988.1	bcsZ	endo-1,4-D-glucanase	3.2.1.4	3.2.1.4					0	0
+NP_417989.1	bcsB	cellulose synthase periplasmic subunit	2.4.1.12	2.4.1.12	19929	GO:0016760		Starch and sucrose metabolism	1	1
+NP_417990.4	bcsA	cellulose synthase catalytic subunit	2.4.1.12	2.4.1.12	19929	GO:0016760		Starch and sucrose metabolism	1	1
+NP_417997.1	dppF	dipeptide ABC transporter ATP binding subunit DppF	7.4.2.9	7.4.2.9	23120				0	0
+NP_417998.1	dppD	dipeptide ABC transporter ATP binding subunit DppD	7.4.2.9	7.4.2.9	23120				0	0
+NP_417999.1	dppC	dipeptide ABC transporter membrane subunit DppC	7.4.2.9	7.4.2.9	23120				0	0
+NP_418000.1	dppB	dipeptide ABC transporter membrane subunit DppB	7.4.2.9	7.4.2.9	23120				0	0
+NP_418001.1	dppA	dipeptide ABC transporter periplasmic binding protein	7.4.2.9	7.4.2.9	23120				0	0
+NP_418002.2	eptB	phosphoethanolamine transferase EptB	2.7.8.42	2.7.8.42	24698;46908			Lipopolysaccharide biosynthesis	0	1
+NP_418005.1	tag	3-methyl-adenine DNA glycosylase I, constitutive	3.2.2.20	3.2.2.20					0	0
+NP_418007.3	bisC	biotin sulfoxide reductase	1.8.4.13	1.8.4.13	19993	GO:0033744			1	0
+NP_418009.2	ghrB	glyoxylate reductase	1.1.1.215	1.1.1.215	16653	GO:0008873		Pentose phosphate pathway	1	1
+NP_418016.1	glyS	glycine--tRNA ligase	6.1.1.14	6.1.1.14	16013	GO:0004820		Aminoacyl-tRNA biosynthesis	1	1
+NP_418017.1	glyQ	glycine--tRNA ligase subunit alpha	6.1.1.14	6.1.1.14	16013	GO:0004820		Aminoacyl-tRNA biosynthesis	1	1
+NP_418021.1	xylB	xylulokinase	2.7.1.17	2.7.1.17	10964	GO:0004856		Pentose and glucuronate interconversions	1	1
+NP_418022.1	xylA	xylose isomerase	5.3.1.5	5.3.1.5	22816;28546	GO:0009045		Fructose and mannose metabolism;Pentose and glucuronate interconversions	1	2
+NP_418023.1	xylF	xylose ABC transporter periplasmic binding protein	7.5.2.10	7.5.2.10	29899	GO:0015614			1	0
+NP_418024.1	xylG	xylose ABC transporter ATP binding subunit	7.5.2.10	7.5.2.10	29899	GO:0015614			1	0
+NP_418025.1	xylH	xylose ABC transporter membrane subunit	7.5.2.10	7.5.2.10	29899	GO:0015614			1	0
+YP_026231.1	avtA	valine--pyruvate aminotransferase	2.6.1.66	2.6.1.66	22912	GO:0009042		Valine, leucine and isoleucine biosynthesis	1	1
+NP_418032.1	yiaK	2,3-diketo-L-gulonate reductase	1.1.1.130	1.1.1.130	21924;21928			Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions	0	2
+NP_418037.1	lyxK	L-xylulose kinase	2.7.1.53	2.7.1.53	18869	GO:0008744		Pentose and glucuronate interconversions	1	1
+NP_418038.1	sgbH	3-keto-L-gulonate-6-phosphate decarboxylase SgbH	4.1.1.85	4.1.1.85	14353	GO:0033982		Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions	1	2
+NP_418039.2	sgbU	putative L-xylulose 5-phosphate 3-epimerase	5.1.3.22	5.1.3.22	18497	GO:0034015		Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions	1	2
+NP_418040.1	sgbE	L-ribulose-5-phosphate 4-epimerase SgbE	5.1.3.4	5.1.3.4	22368	GO:0008742		Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions	1	2
+YP_026233.1	yiaY	L-threonine dehydrogenase	1.1.1.103	1.1.1.103	13161	GO:0008743		Glycine, serine and threonine metabolism	1	1
+NP_418047.1	selB	selenocysteyl-tRNA-specific translation elongation factor	3.6.5.3	3.6.5.3	19669	GO:0003924		Nucleotide metabolism;Purine metabolism	1	2
+NP_418048.1	selA	selenocysteine synthase	2.9.1.1	2.9.1.1	22728	GO:0004125		Aminoacyl-tRNA biosynthesis;Selenocompound metabolism	1	2
+NP_418056.1	mtlA	mannitol-specific PTS enzyme IICBA component	2.7.1.197	2.7.1.197	33363			Fructose and mannose metabolism	0	1
+NP_418057.1	mtlD	mannitol-1-phosphate 5-dehydrogenase	1.1.1.17	1.1.1.17	19661	GO:0008926		Fructose and mannose metabolism	1	1
+NP_418063.1	trmL	tRNA (cytidine/uridine-2'-O)-ribose methyltransferase	2.1.1.207	2.1.1.207	43084;43088	GO:0141098;GO:0141102			2	0
+NP_418064.1	cysE	serine acetyltransferase	2.3.1.30	2.3.1.30	24560	GO:0009001		Biosynthesis of various antibiotics;Cysteine and methionine metabolism;Sulfur metabolism	1	3
+NP_418065.1	gpsA	glycerol-3-phosphate dehydrogenase	1.1.1.94	1.1.1.94	11092;11096	GO:0141152;GO:0141153		Glycerophospholipid metabolism	2	1
+NP_418067.1	grxC	reduced glutaredoxin 3	1.8.4.2	1.8.4.2	21064	GO:0019153		Glutathione metabolism	1	1
+NP_418069.1	gpmM	2,3-bisphosphoglycerate-independent phosphoglycerate mutase	5.4.2.12	5.4.2.12	15901	GO:0004619		Glycine, serine and threonine metabolism;Glycolysis / Gluconeogenesis;Methane metabolism	1	3
+NP_418072.1	waaH	UDP-glucuronate:LPS(HepIII) glycosyltransferase	2.4.1.17	2.4.1.17	21032	GO:0015020			1	0
+NP_418073.1	tdh	threonine dehydrogenase	1.1.1.103	1.1.1.103	13161	GO:0008743		Glycine, serine and threonine metabolism	1	1
+NP_418074.1	kbl	2-amino-3-ketobutyrate CoA ligase	2.3.1.29	2.3.1.29	20736	GO:0008890		Glycine, serine and threonine metabolism	1	1
+NP_418076.1	rfaD	ADP-L-glycero-D-mannoheptose 6-epimerase	5.1.3.20	5.1.3.20	17577	GO:0008712		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+NP_418077.1	waaF	ADP-heptose--LPS heptosyltransferase 2	2.4.99.24	2.4.99.24	28538;74071	GO:0008713			1	0
+NP_418078.1	waaC	ADP-heptose:LPS heptosyltransferase 1	2.4.99.23	2.4.99.23	28402;74067				0	0
+NP_418079.1	waaL	O-antigen ligase	2.4.99.26	2.4.99.26					0	0
+NP_418081.1	waaZ	lipopolysaccharide core biosynthesis protein WaaZ	2.4.99.15	2.4.99.15	28158;46484;73827;73831				0	0
+NP_418083.1	waaJ	UDP-glucose:(glucosyl)LPS alpha-1,2-glucosyltransferase	2.4.1.58	2.4.1.58					0	0
+NP_418084.1	waaO	UDP-D-glucose:(glucosyl)LPS alpha-1,3-glucosyltransferase	2.4.1.73	2.4.1.73					0	0
+NP_418087.1	waaP	lipopolysaccharide core heptose (I) kinase	2.7.1.235	2.7.1.235	74087;74091				0	0
+NP_418089.1	waaQ	lipopolysaccharide core heptosyltransferase 3	2.4.99.25	2.4.99.25	74095;74099				0	0
+NP_418090.1	waaA	KDO transferase	2.4.99.12	2.4.99.12	28066;67844			Lipopolysaccharide biosynthesis	0	1
+NP_418091.1	coaD	pantetheine-phosphate adenylyltransferase	2.7.7.3	2.7.7.3	19801	GO:0004595		Pantothenate and CoA biosynthesis	1	1
+NP_418092.1	mutM	DNA-formamidopyrimidine glycosylase	3.2.2.23	3.2.2.23					0	0
+NP_418096.4	dfp	fused 4'-phosphopantothenoylcysteine decarboxylase and phosphopantothenoylcysteine synthetase	4.1.1.36	4.1.1.36	16793	GO:0004633		Pantothenate and CoA biosynthesis	1	1
+NP_418097.2	dut	dUTP diphosphatase	3.6.1.23	3.6.1.23	10248	GO:0004170		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_418099.1	pyrE	orotate phosphoribosyltransferase	2.4.2.10	2.4.2.10	10380	GO:0004588		Pyrimidine metabolism	1	1
+YP_009518822.1	rph	truncated RNase PH	2.7.7.56	2.7.7.56	10628	GO:0009022			1	0
+NP_418101.1	yicC	putative RNase adaptor protein YicC	4.6.1.21	4.6.1.21					0	0
+NP_418104.2	ligB	DNA ligase B	6.5.1.2	6.5.1.2					0	0
+NP_418105.1	gmk	guanylate kinase	2.7.4.13	2.7.4.13	11216	GO:0047507			1	0
+NP_418107.1	spoT	bifunctional (p)ppGpp synthase/hydrolase SpoT	3.1.7.2	3.1.7.2	14253;33055	GO:0008893		Purine metabolism	1	1
+NP_418108.1	trmH	tRNA (Gm18) 2'-O-methyltransferase	2.1.1.34	2.1.1.34	20077	GO:0141100			1	0
+NP_418109.1	recG	ATP-dependent DNA helicase RecG	5.6.2.4	5.6.2.4	13065	GO:0016887			1	0
+NP_418113.1	yicI	alpha-D-xyloside xylohydrolase	3.2.1.177	3.2.1.177					0	0
+NP_418121.1	adeD	adenine deaminase	1.11.1.6	1.11.1.6	20309	GO:0004096		Glyoxylate and dicarboxylate metabolism	1	1
+NP_418124.4	uhpB	sensor histidine kinase UhpB	2.7.13.3	2.7.13.3					0	0
+NP_418126.1	ilvN	acetohydroxy acid synthase I subunit IlvN	2.2.1.6	2.2.1.6	25249;27654	GO:0003984		Butanoate metabolism;C5-Branched dibasic acid metabolism;Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis	1	4
+NP_418127.1	ilvB	acetohydroxy acid synthase I subunit IlvB	2.2.1.6	2.2.1.6	25249;27654	GO:0003984		Butanoate metabolism;C5-Branched dibasic acid metabolism;Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis	1	4
+YP_026237.1	dgoD	D-galactonate dehydratase	4.2.1.6	4.2.1.6	18649	GO:0008869		Galactose metabolism	1	1
+YP_026238.1	dgoA	2-dehydro-3-deoxy-6-phosphogalactonate aldolase	4.1.2.21	4.1.2.21	24464	GO:0008674		Galactose metabolism	1	1
+NP_418148.1	dgoK	2-dehydro-3-deoxygalactonokinase	2.7.1.58	2.7.1.58	16525	GO:0008671		Galactose metabolism	1	1
+NP_418152.1	yidA	sugar phosphatase YidA	3.1.3.23	3.1.3.23					0	0
+YP_026241.1	gyrB	DNA gyrase subunit B	5.6.2.2	5.6.2.2					0	0
+NP_418159.1	rnpA	RNase P protein component	3.1.26.5	3.1.26.5					0	0
+NP_418164.4	tnaA	tryptophanase	4.1.99.1	4.1.99.1	19553	GO:0009034		Tryptophan metabolism	1	1
+NP_418177.1	bglB	cryptic 6-phospho-beta-glucosidase B	3.2.1.86	3.2.1.86	10772	GO:0008706		Starch and sucrose metabolism	1	1
+NP_418178.1	bglF	cryptic beta-glucoside specific PTS enzyme II/BglG kinase/BglG phosphatase	2.7.1.199	2.7.1.199	33367			Amino sugar and nucleotide sugar metabolism;Glycolysis / Gluconeogenesis	0	2
+NP_418181.1	pstB	phosphate ABC transporter ATP binding subunit	7.3.2.1	7.3.2.1	24440	GO:0015415			1	0
+NP_418182.1	pstA	phosphate ABC transporter membrane subunit PstA	7.3.2.1	7.3.2.1	24440	GO:0015415			1	0
+NP_418183.1	pstC	phosphate ABC transporter membrane subunit PstC	7.3.2.1	7.3.2.1	24440	GO:0015415			1	0
+NP_418184.1	pstS	phosphate ABC transporter periplasmic binding protein	7.3.2.1	7.3.2.1	24440	GO:0015415			1	0
+NP_418185.1	glmS	L-glutamine--D-fructose-6-phosphate aminotransferase	2.6.1.16	2.6.1.16	13237	GO:0004360		Alanine, aspartate and glutamate metabolism;Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars	1	3
+NP_418186.1	glmU	fused N-acetylglucosamine-1-phosphate uridyltransferase and glucosamine-1-phosphate acetyltransferase	2.3.1.157	2.3.1.157	13725	GO:0019134		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars	1	2
+NP_418187.1	atpC	ATP synthase F1 complex subunit epsilon	7.1.2.2	7.1.2.2	57720				0	0
+NP_418188.1	atpD	ATP synthase F1 complex subunit beta	7.1.2.2	7.1.2.2	57720				0	0
+NP_418189.1	atpG	ATP synthase F1 complex subunit gamma	7.1.2.2	7.1.2.2	57720				0	0
+NP_418190.1	atpA	ATP synthase F1 complex subunit alpha	7.1.2.2	7.1.2.2	57720				0	0
+NP_418191.1	atpH	ATP synthase F1 complex subunit delta	7.1.2.2	7.1.2.2	57720				0	0
+NP_418192.1	atpF	ATP synthase Fo complex subunit b	7.1.2.2	7.1.2.2	57720				0	0
+NP_418193.1	atpE	ATP synthase Fo complex subunit c	7.1.2.2	7.1.2.2	57720				0	0
+NP_418194.1	atpB	ATP synthase Fo complex subunit a	7.1.2.2	7.1.2.2	57720				0	0
+NP_418196.1	rsmG	16S rRNA m(7)G527 methyltransferase	2.1.1.170	2.1.1.170	42732				0	0
+NP_418200.1	asnA	asparagine synthetase A	6.3.1.1	6.3.1.1	11372	GO:0004071		Alanine, aspartate and glutamate metabolism;Cyanoamino acid metabolism	1	2
+NP_418202.4	ravA	regulatory ATPase RavA	3.6.4.10	3.6.4.10	13065	GO:0016887			1	0
+NP_418204.2	rbsD	D-ribose pyranase	5.4.99.62	5.4.99.62	25432;25609	GO:0062193			1	0
+NP_418208.1	rbsK	ribokinase	2.7.1.15	2.7.1.15	13697	GO:0004747		Pentose phosphate pathway	1	1
+NP_418217.1	ilvM	acetolactate synthase II subunit IlvM	2.2.1.6	2.2.1.6	25249;27654	GO:0003984		Butanoate metabolism;C5-Branched dibasic acid metabolism;Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis	1	4
+YP_026247.1	ilvE	branched-chain-amino-acid aminotransferase	2.6.1.27	2.6.1.27	14093	GO:0050362		Tryptophan metabolism	1	1
+YP_026248.1	ilvD	dihydroxy-acid dehydratase	4.2.1.9	4.2.1.9	24809;27694	GO:0004160		Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis	1	2
+NP_418220.1	ilvA	threonine deaminase	4.3.1.19	4.3.1.19	22108	GO:0004794		Glycine, serine and threonine metabolism;Valine, leucine and isoleucine biosynthesis	1	2
+NP_418222.1	ilvC	ketol-acid reductoisomerase (NADP(+))	1.1.1.169	1.1.1.169	16233	GO:0008677		Pantothenate and CoA biosynthesis	1	1
+NP_418223.1	ppiC	peptidyl-prolyl cis-trans isomerase C	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+YP_026251.1	rep	ATP-dependent DNA helicase Rep	5.6.2.4	5.6.2.4	13065	GO:0016887			1	0
+YP_026252.1	gpp	guanosine-5'-triphosphate,3'-diphosphate phosphatase	3.6.1.40	3.6.1.40	13073	GO:0008894		Purine metabolism	1	1
+NP_418227.1	rhlB	ATP-dependent RNA helicase RhlB	5.6.2.7	5.6.2.7					0	0
+NP_418231.1	wecA	UDP-N-acetylglucosamine--undecaprenyl-phosphate N-acetylglucosaminephosphotransferase	2.7.8.33	2.7.8.33	28090	GO:0036380			1	0
+YP_026253.1	wecB	UDP-N-acetylglucosamine 2-epimerase	5.1.3.14	5.1.3.14	17213	GO:0008761		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	3
+YP_026254.1	wecC	UDP-N-acetyl-D-mannosamine dehydrogenase	1.1.1.336	1.1.1.336	25780	GO:0089714		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+YP_026255.1	rffG	dTDP-glucose 4,6-dehydratase 2	4.2.1.46	4.2.1.46	17221	GO:0008460		Acarbose and validamycin biosynthesis;Biosynthesis of nucleotide sugars;Biosynthesis of vancomycin group antibiotics;Biosynthesis of various nucleotide sugars;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis	1	6
+NP_418236.1	rffH	glucose-1-phosphate thymidylyltransferase 2	2.7.7.24	2.7.7.24	15225	GO:0008879		Acarbose and validamycin biosynthesis;Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis	1	6
+YP_026256.2	rffC	dTDP-4-amino-4,6-dideoxy-D-galactose acyltransferase	2.3.1.210	2.3.1.210	34443			Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	0	2
+NP_418238.1	wecE	dTDP-4-dehydro-6-deoxy-D-glucose transaminase	2.6.1.59	2.6.1.59	10368	GO:0019180		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	2
+YP_026257.1	wecF	TDP-N-acetylfucosamine:lipid II N-acetylfucosaminyltransferase	2.4.1.325	2.4.1.325	28759	GO:0102031			1	0
+NP_418242.1	rffM	UDP-N-acetyl-D-mannosaminuronic acid transferase	2.4.1.180	2.4.1.180	28366	GO:0047241			1	0
+NP_418248.1	hemD	uroporphyrinogen-III synthase	4.2.1.75	4.2.1.75	18965	GO:0004852		Porphyrin metabolism	1	1
+YP_026260.1	hemC	hydroxymethylbilane synthase	2.5.1.61	2.5.1.61	13185	GO:0004418		Porphyrin metabolism	1	1
+NP_418250.1	cyaA	adenylate cyclase	4.6.1.1	4.6.1.1	15389	GO:0004016		Purine metabolism	1	1
+NP_418254.2	dapF	diaminopimelate epimerase	5.1.1.7	5.1.1.7	15393	GO:0008837		D-Amino acid metabolism;Lysine biosynthesis	1	2
+NP_418257.1	yigB	5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase	3.1.3.102	3.1.3.102	35587	GO:0090711		Riboflavin metabolism	1	1
+NP_418258.1	uvrD	DNA helicase II	5.6.2.4	5.6.2.4	13065	GO:0016887			1	0
+NP_418264.4	yigI	acyl-CoA thioesterase YigI	3.1.2.2	3.1.2.2	16645	GO:0052816		Biosynthesis of unsaturated fatty acids;Fatty acid elongation;Fatty acid metabolism	1	3
+NP_418265.1	pldA	outer membrane phospholipase A	3.1.1.32	3.1.1.32	18689	GO:0008970			1	0
+YP_026263.3	recQ	ATP-dependent DNA helicase RecQ	5.6.2.4	5.6.2.4	13065	GO:0016887			1	0
+YP_026267.1	yigL	phosphosugar phosphatase YigL	3.1.3.23	3.1.3.23					0	0
+NP_418273.1	metE	cobalamin-independent homocysteine transmethylase	2.1.1.14	2.1.1.14	21196;45016	GO:0003871		Cysteine and methionine metabolism;Selenocompound metabolism	1	2
+NP_418275.1	udp	uridine phosphorylase	2.4.2.3	2.4.2.3	24388	GO:0004850		Nucleotide metabolism;Pyrimidine metabolism	1	2
+YP_026269.1	ubiE	bifunctional 2-octaprenyl-6-methoxy-1,4-benzoquinol methylase and demethylmenaquinone methyltransferase	2.1.1.163	2.1.1.163	26462;26466;30063;33255;42640;44776;44780;44784;44788;44792;44796	GO:0043770		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+YP_026271.1	tatD	3' -> 5' ssDNA/RNA exonuclease TatD	3.1.11.1	3.1.11.1					0	0
+NP_418285.1	ubiD	3-octaprenyl-4-hydroxybenzoate decarboxylase	4.1.1.98	4.1.1.98	27778;41680;44568;44572;44576;44580	GO:0008694		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_418286.1	fre	NAD(P)H-flavin reductase	1.5.1.30	1.5.1.30	19377	GO:0042602		Riboflavin metabolism	1	1
+YP_026272.1	fadA	3-ketoacyl-CoA thiolase	2.3.1.16	2.3.1.16	21564	GO:0003988		Fatty acid elongation	1	1
+NP_418288.1	fadB	multifunctional enoyl-CoA hydratase, 3-hydroxyacyl-CoA epimerase, Delta(3)-cis- Delta(2)-trans-enoyl-CoA isomerase, L-3-hydroxyacyl-CoA dehydrogenase	1.1.1.35	1.1.1.35	22432	GO:0003857		Fatty acid elongation	1	1
+NP_418289.1	pepQ	Xaa-Pro dipeptidase	3.4.13.9	3.4.13.9	76407	GO:0102009			1	0
+NP_418292.1	hemG	protoporphyrinogen oxidase	1.3.5.3	1.3.5.3	27409;63936;65032	GO:0070819			1	0
+NP_418294.1	mobA	molybdenum cofactor guanylyltransferase	2.7.7.77	2.7.7.77	34243	GO:0061603		Folate biosynthesis	1	1
+NP_418296.1	srkA	stress response kinase A	2.7.11.1	2.7.11.1	17989;46608	GO:0106310			1	0
+NP_418300.1	polA	DNA polymerase I	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+NP_418303.2	hemN	coproporphyrinogen III dehydrogenase	1.3.98.3	1.3.98.3	15425	GO:0051989		Porphyrin metabolism	1	1
+NP_418305.1	glnL	protein histidine kinase NtrB	2.7.13.3	2.7.13.3					0	0
+NP_418306.1	glnA	glutamine synthetase	6.3.1.2	6.3.1.2	16169	GO:0004356		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Glyoxylate and dicarboxylate metabolism;Nitrogen metabolism	1	4
+YP_026274.1	bipA	50S ribosomal subunit assembly factor BipA	3.6.5.3	3.6.5.3	19669	GO:0003924		Nucleotide metabolism;Purine metabolism	1	2
+NP_418314.1	yihQ	sulfoquinovosidase	3.2.1.199	3.2.1.199	49452	GO:1990929		Sulfoquinovose metabolism	1	1
+NP_418316.4	yihS	sulfoquinovose isomerase	5.3.1.31	5.3.1.31	40439;70707	GO:0061593		Sulfoquinovose metabolism	1	1
+NP_418317.1	yihT	6-deoxy-6-sulfofructose-1-phosphate aldolase	4.1.2.57	4.1.2.57	40515			Sulfoquinovose metabolism	0	1
+NP_418318.1	yihU	3-sulfolactaldehyde reductase	1.1.1.373	1.1.1.373	40511	GO:0061596		Sulfoquinovose metabolism	1	1
+NP_418319.2	yihV	6-deoxy-6-sulfofructose kinase	2.7.1.184	2.7.1.184	40443	GO:0061594		Sulfoquinovose metabolism	1	1
+NP_418321.4	yihX	alpha-D-glucose-1-phosphate phosphatase YihX	3.1.3.10	3.1.3.10	19933	GO:0008877			1	0
+NP_418323.1	dtd	D-aminoacyl-tRNA deacylase	3.1.1.96	3.1.1.96	13953;25347;53744;69791;69795;69799	GO:0051499;GO:0051500;GO:0106026			3	0
+NP_418328.1	fdoI	formate dehydrogenase O subunit gamma	1.17.5.3	1.17.5.3	29063;29067;29071;48592	GO:0036397			1	0
+NP_418329.1	fdoH	formate dehydrogenase O subunit beta	1.17.5.3	1.17.5.3	29063;29067;29071;48592	GO:0036397			1	0
+NP_418330.1	fdoG	formate dehydrogenase O subunit alpha	1.17.5.3	1.17.5.3	29063;29067;29071;48592	GO:0036397			1	0
+NP_418337.1	rhaM	L-rhamnose mutarotase	5.1.3.32	5.1.3.32	25584	GO:0062192			1	0
+NP_418338.1	rhaD	rhamnulose-1-phosphate aldolase	4.1.2.19	4.1.2.19	19689	GO:0008994		Fructose and mannose metabolism	1	1
+YP_026276.1	rhaA	L-rhamnose isomerase	5.3.1.14	5.3.1.14	23160	GO:0008740		Fructose and mannose metabolism	1	1
+NP_418340.1	rhaB	rhamnulokinase	2.7.1.5	2.7.1.5	20117	GO:0008993		Fructose and mannose metabolism	1	1
+NP_418344.3	sodA	superoxide dismutase (Mn)	1.15.1.1	1.15.1.1	20696	GO:0004784			1	0
+NP_418347.1	cpxA	sensor histidine kinase CpxA	2.7.13.2	2.7.13.2	11860	GO:0008257			1	0
+NP_418351.1	pfkA	6-phosphofructokinase 1	2.7.1.11	2.7.1.11	16109	GO:0003872		Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway	1	4
+NP_418352.1	sbp	sulfate/thiosulfate ABC transporter periplasmic binding protein Sbp	7.3.2.3	7.3.2.3	10192;29871	GO:0015419;GO:0102025			2	0
+NP_418353.1	cdh	CDP-diacylglycerol diphosphatase	3.6.1.26	3.6.1.26	15221	GO:0008715		Glycerophospholipid metabolism	1	1
+NP_418354.1	tpiA	triose-phosphate isomerase	5.3.1.1	5.3.1.1	18585	GO:0004807		Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Inositol phosphate metabolism	1	4
+NP_418359.1	fpr	flavodoxin/ferredoxin-NADP(+) reductase	1.18.1.2	1.18.1.2	20125;76995	GO:0004324			1	0
+NP_418360.1	glpX	fructose-1,6-bisphosphatase 2	3.1.3.11	3.1.3.11	11064	GO:0042132		Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway	1	5
+NP_418361.1	glpK	glycerol kinase	2.7.1.30	2.7.1.30	21644	GO:0004370		Glycerolipid metabolism	1	1
+NP_418365.1	menA	1,4-dihydroxy-2-naphthoate octaprenyltransferase	2.5.1.74	2.5.1.74	26478;30099;33211;44800;44804;44808;44812;44816;44820	GO:0046428			1	0
+NP_418374.1	metB	O-succinylhomoserine(thiol)-lyase/O- succinylhomoserine lyase	2.5.1.48	2.5.1.48	20397	GO:0003962		Cysteine and methionine metabolism	1	1
+NP_418375.1	metL	fused aspartate kinase/homoserine dehydrogenase 2	1.1.1.3	1.1.1.3	15757;15761	GO:0004022;GO:0004412		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis	2	3
+NP_418376.1	metF	5,10-methylenetetrahydrofolate reductase	1.5.1.54	1.5.1.54	19821	GO:0106312		One carbon pool by folate;Other carbon fixation pathways	1	2
+NP_418377.1	katG	catalase/hydroperoxidase HPI	1.11.1.21	1.11.1.21	20309;30275	GO:0004096		Glyoxylate and dicarboxylate metabolism	1	1
+NP_418380.4	gldA	L-1,2-propanediol dehydrogenase/glycerol dehydrogenase	1.1.1.6	1.1.1.6	13769	GO:0008888		Glycerolipid metabolism	1	1
+NP_418391.1	ppc	phosphoenolpyruvate carboxylase	4.1.1.31	4.1.1.31	28370	GO:0008964			1	0
+NP_418392.1	argE	acetylornithine deacetylase	3.5.1.16	3.5.1.16	15941	GO:0008777		Arginine biosynthesis	1	1
+NP_418393.1	argC	N-acetylglutamylphosphate reductase	1.2.1.38	1.2.1.38	21588	GO:0003942		Arginine biosynthesis	1	1
+NP_418394.3	argB	acetylglutamate kinase	2.7.2.8	2.7.2.8	14629	GO:0003991		Arginine biosynthesis	1	1
+NP_418395.1	argH	argininosuccinate lyase	4.3.2.1	4.3.2.1	24020	GO:0004056		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis	1	2
+NP_418397.2	sthA	soluble pyridine nucleotide transhydrogenase	1.6.1.3	1.6.1.3	11692	GO:0003957		Nicotinate and nicotinamide metabolism	1	1
+NP_418400.1	trmA	tRNA m(5)U54 methyltransferase	2.1.1.35	2.1.1.35	42712	GO:0030697			1	0
+NP_418402.2	murI	glutamate racemase	5.1.1.3	5.1.1.3	12813	GO:0008881		D-Amino acid metabolism	1	1
+NP_418403.1	murB	UDP-N-acetylenolpyruvoylglucosamine reductase	1.3.1.98	1.3.1.98	12248	GO:0008762		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Peptidoglycan biosynthesis	1	3
+NP_418404.1	birA	DNA-binding transcriptional repressor/biotin-[acetyl-CoA-carboxylase] ligase BirA	6.3.4.15	6.3.4.15	11756	GO:0004077			1	0
+NP_418405.1	coaA	pantothenate kinase	2.7.1.33	2.7.1.33	16373	GO:0004594		Pantothenate and CoA biosynthesis	1	1
+NP_418414.1	rpoB	RNA polymerase subunit beta	2.7.7.6	2.7.7.6	21248	GO:0034062			1	0
+NP_418415.1	rpoC	RNA polymerase subunit beta'	2.7.7.6	2.7.7.6	21248	GO:0034062			1	0
+NP_418417.1	thiH	2-iminoacetate synthase	4.1.99.19	4.1.99.19	26361	GO:0036355		Thiamine metabolism	1	1
+NP_418418.2	thiG	1-deoxy-D-xylulose 5-phosphate:thiol sulfurtransferase	2.8.1.10	2.8.1.10	26297	GO:1990107		Thiamine metabolism	1	1
+NP_418420.4	thiF	sulfur carrier protein ThiS adenylyltransferase	2.7.7.73	2.7.7.73	43344				0	0
+NP_418421.1	thiE	thiamine phosphate synthase	2.5.1.3	2.5.1.3	22328;47844;47848	GO:0004789		Thiamine metabolism	1	1
+NP_418422.1	thiC	phosphomethylpyrimidine synthase	4.1.99.17	4.1.99.17	24840	GO:0070284		Thiamine metabolism	1	1
+NP_418425.1	hemE	uroporphyrinogen decarboxylase	4.1.1.37	4.1.1.37	19865	GO:0004853		Porphyrin metabolism	1	1
+NP_418431.1	zraS	sensor histidine kinase ZraS	2.7.13.3	2.7.13.3					0	0
+NP_418433.1	purD	phosphoribosylamine--glycine ligase	6.3.4.13	6.3.4.13	17453	GO:0004637		Purine metabolism	1	1
+NP_418434.1	purH	bifunctional AICAR transformylase/IMP cyclohydrolase	2.1.2.3	2.1.2.3	22192	GO:0004643		One carbon pool by folate;Purine metabolism	1	2
+NP_418437.1	metA	homoserine O-succinyltransferase	2.3.1.46	2.3.1.46	22008	GO:0008899		Cysteine and methionine metabolism;Sulfur metabolism	1	2
+NP_418438.1	aceB	malate synthase A	2.3.3.9	2.3.3.9	18181	GO:0004474		Glyoxylate and dicarboxylate metabolism;Pyruvate metabolism	1	2
+NP_418439.1	aceA	isocitrate lyase	4.1.3.1	4.1.3.1	13245	GO:0004451		Glyoxylate and dicarboxylate metabolism	1	1
+NP_418440.1	aceK	isocitrate dehydrogenase kinase/phosphatase	2.7.11.5	2.7.11.5	43540	GO:0008772			1	0
+NP_418443.1	metH	cobalamin-dependent methionine synthase	2.1.1.13	2.1.1.13	11172	GO:0008705		Cysteine and methionine metabolism;One carbon pool by folate	1	2
+NP_418445.1	pepE	peptidase E	3.4.13.21	3.4.13.21					0	0
+NP_418446.1	rluF	23S rRNA pseudouridine(2604) and tRNA(Tyr) pseudouridine(35) synthase	5.4.99.21	5.4.99.21	38875	GO:0160138			1	0
+NP_418448.1	lysC	aspartate kinase III	2.7.2.4	2.7.2.4	23776	GO:0004072		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis;Monobactam biosynthesis	1	4
+NP_418449.1	pgi	glucose-6-phosphate isomerase	5.3.1.9	5.3.1.9	11816;85579	GO:0004347		Starch and sucrose metabolism	1	1
+NP_418456.1	malG	maltose ABC transporter membrane subunit MalG	7.5.2.1	7.5.2.1	22132	GO:0015423			1	0
+NP_418457.1	malF	maltose ABC transporter membrane subunit MalF	7.5.2.1	7.5.2.1	22132	GO:0015423			1	0
+NP_418458.1	malE	maltose ABC transporter periplasmic binding protein	7.5.2.1	7.5.2.1	22132	GO:0015423			1	0
+NP_418459.1	malK	maltose ABC transporter ATP binding subunit	7.5.2.1	7.5.2.1	22132	GO:0015423			1	0
+NP_418463.4	ubiC	chorismate lyase	4.1.3.40	4.1.3.40	16505	GO:0008813		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_418464.1	ubiA	4-hydroxybenzoate octaprenyltransferase	2.5.1.39	2.5.1.39	17709;27782;44504;44556;44560;44564	GO:0008412		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+NP_418465.4	plsB	glycerol-3-phosphate 1-O-acyltransferase	2.3.1.15	2.3.1.15	15325	GO:0004366		Glycerolipid metabolism;Glycerophospholipid metabolism	1	2
+NP_418466.1	dgkA	diacylglycerol kinase	2.7.1.107	2.7.1.107	10272	GO:0004143		Glycerolipid metabolism;Glycerophospholipid metabolism	1	2
+NP_418475.1	qorA	putative quinone oxidoreductase 1	1.6.5.5	1.6.5.5	14269;85243;85247	GO:0003960			1	0
+NP_418476.1	dnaB	replicative DNA helicase	5.6.2.3	5.6.2.3	13065	GO:0016887			1	0
+NP_418477.1	alr	alanine racemase 1	5.1.1.1	5.1.1.1	20249	GO:0008784		D-Amino acid metabolism	1	1
+NP_418478.1	tyrB	tyrosine aminotransferase	2.6.1.57	2.6.1.57	15093;17533;25152;25796	GO:0004838;GO:0008793;GO:0080099;GO:0080130		Cysteine and methionine metabolism;Isoquinoline alkaloid biosynthesis;Novobiocin biosynthesis;Phenylalanine metabolism;Phenylalanine, tyrosine and tryptophan biosynthesis;Tropane, piperidine and pyridine alkaloid biosynthesis;Tyrosine metabolism;Ubiquinone and other terpenoid-quinone biosynthesis	4	8
+NP_418479.1	aphA	acid phosphatase/phosphotransferase	3.1.3.2	3.1.3.2	15017				0	0
+NP_418485.1	pdeC	cyclic di-GMP phosphodiesterase PdeC	3.1.4.52	3.1.4.52	24902	GO:0071111			1	0
+NP_418493.1	acs	acetyl-CoA synthetase (AMP-forming)	6.2.1.1	6.2.1.1	23176	GO:0003987		Glycolysis / Gluconeogenesis;Glyoxylate and dicarboxylate metabolism;Methane metabolism;Other carbon fixation pathways	1	4
+NP_418496.1	nrfC	putative menaquinol-cytochrome c reductase 4Fe-4S subunit	7.1.1.8	7.1.1.8	11484	GO:0008121			1	0
+NP_418497.1	nrfD	putative menaquinol-cytochrome c reductase subunit NrfD	7.1.1.8	7.1.1.8	11484	GO:0008121			1	0
+NP_418507.2	yjcS	linear primary-alkylsulfatase	3.1.6.21	3.1.6.21	67908	GO:0018741			1	0
+NP_418508.1	alsK	D-allose kinase	2.7.1.55	2.7.1.55	14805	GO:0008787		Fructose and mannose metabolism	1	1
+NP_418510.1	alsC	D-allose ABC transporter membrane subunit	7.5.2.8	7.5.2.8	29799	GO:0015615			1	0
+NP_418511.1	alsA	D-allose ABC transporter ATP binding subunit	7.5.2.8	7.5.2.8	29799	GO:0015615			1	0
+NP_418512.1	alsB	D-allose ABC transporter periplasmic binding protein	7.5.2.8	7.5.2.8	29799	GO:0015615			1	0
+NP_418514.1	rpiB	allose-6-phosphate isomerase/ribose-5-phosphate isomerase B	5.3.1.6	5.3.1.6	14657	GO:0004751		Carbon fixation by Calvin cycle;Pentose phosphate pathway	1	2
+NP_418516.1	phnP	5-phospho-alpha-D-ribosyl 1,2-cyclic phosphate phosphodiesterase	3.1.4.55	3.1.4.55	34795	GO:0103043			1	0
+NP_418517.1	phnO	aminoalkylphosphonate N-acetyltransferase	2.3.1.280	2.3.1.280	51428;58052				0	0
+NP_418518.1	phnN	ribose 1,5-bisphosphate phosphokinase	2.7.4.23	2.7.4.23	20109	GO:0033863		Pentose phosphate pathway	1	1
+NP_418519.1	phnM	RPnTP hydrolase	3.6.1.63	3.6.1.63	34683				0	0
+NP_418522.1	phnJ	carbon-phosphorus lyase core complex subunit PhnJ	4.7.1.1	4.7.1.1	34707	GO:0098848		Phosphonate and phosphinate metabolism	1	1
+NP_418523.1	phnI	carbon-phosphorus lyase core complex subunit PhnI	2.7.8.37	2.7.8.37	34679	GO:0061693			1	0
+b4583	phnE1	phosphonate/phosphate ABC transporter membrane subunit PhnE1	7.3.2.2	7.3.2.2	18065	GO:0015416			1	0
+NP_418529.1	phnD	phosphonate/phosphate ABC transporter periplasmic binding protein	7.3.2.2	7.3.2.2	18065	GO:0015416			1	0
+NP_418530.1	phnC	phosphonate/phosphate ABC transporter ATP binding subunit	7.3.2.2	7.3.2.2	18065	GO:0015416			1	0
+NP_418536.1	basS	sensor histidine kinase BasS	2.7.13.3	2.7.13.3					0	0
+NP_418538.2	eptA	phosphoethanolamine transferase EptA	2.7.8.43	2.7.8.43	46896;46900;46904			Lipopolysaccharide biosynthesis	0	1
+NP_418541.2	adiA	arginine decarboxylase, degradative	4.1.1.19	4.1.1.19	17641	GO:0008792		Arginine and proline metabolism	1	1
+NP_418543.1	melA	alpha-galactosidase	3.2.1.22	3.2.1.22	21112	GO:0004557		Glycosphingolipid biosynthesis - globo and isoglobo series;Sphingolipid metabolism	1	2
+NP_418546.1	fumB	fumarase B	4.2.1.2	4.2.1.2	12460	GO:0004333		Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	3
+NP_418549.1	dcuS	sensor histidine kinase DcuS	2.7.13.3	2.7.13.3					0	0
+NP_418553.1	lysU	lysyl-tRNA synthetase	6.1.1.6	6.1.1.6	20792	GO:0004824		Aminoacyl-tRNA biosynthesis	1	1
+NP_418555.1	cadA	lysine decarboxylase 1	4.1.1.18	4.1.1.18	22352	GO:0008923		Biosynthesis of various siderophores;Lysine degradation;Tropane, piperidine and pyridine alkaloid biosynthesis	1	3
+NP_418559.1	dsbD	thiol-disulfide exchange protein DsbD	1.8.4.16	1.8.4.16	20732				0	0
+NP_418562.4	aspA	aspartate ammonia-lyase	4.3.1.1	4.3.1.1	16601	GO:0008797		Alanine, aspartate and glutamate metabolism	1	1
+NP_418566.1	groS	cochaperonin GroES	5.6.1.7	5.6.1.7					0	0
+NP_418567.1	groL	chaperonin GroEL	5.6.1.7	5.6.1.7					0	0
+NP_418574.1	ampC	beta-lactamase	3.5.2.6	3.5.2.6	20401	GO:0008800			1	0
+NP_418575.1	frdD	fumarate reductase membrane protein FrdD	1.3.5.1	1.3.5.1	13713;27834;40523;75711	GO:0008177		Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	4
+NP_418576.1	frdC	fumarate reductase membrane protein FrdC	1.3.5.1	1.3.5.1	13713;27834;40523;75711	GO:0008177		Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	4
+NP_418577.1	frdB	fumarate reductase [Fe-S] protein	1.3.5.1	1.3.5.1	13713;27834;40523;75711	GO:0008177		Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	4
+NP_418578.1	frdA	fumarate reductase flavoprotein subunit	1.3.5.1	1.3.5.1	13713;27834;40523;75711	GO:0008177		Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	4
+NP_418584.1	psd	phosphatidylserine decarboxylase proenzyme	4.1.1.65	4.1.1.65	20828	GO:0004609		Glycerophospholipid metabolism	1	1
+NP_418585.4	rsgA	ribosome small subunit-dependent GTPase A	3.6.5.3	3.6.5.3	19669	GO:0003924		Nucleotide metabolism;Purine metabolism	1	2
+NP_418586.4	orn	oligoribonuclease	3.1.13.3	3.1.13.3					0	0
+NP_418587.1	queG	epoxyqueuosine reductase	1.17.99.6	1.17.99.6	32159	GO:0052693			1	0
+NP_418588.1	nnr	NAD(P)HX epimerase/NAD(P)HX dehydratase	4.2.1.136	4.2.1.136	32223;32235	GO:0052855			1	0
+NP_418589.1	tsaE	N(6)-L-threonylcarbamoyladenine synthase, TsaE subunit	2.3.1.234	2.3.1.234	37059	GO:0061711			1	0
+NP_418590.1	amiB	N-acetylmuramoyl-L-alanine amidase B	3.5.1.28	3.5.1.28					0	0
+NP_418592.1	miaA	tRNA dimethylallyltransferase	2.5.1.75	2.5.1.75	26482	GO:0052381		Zeatin biosynthesis	1	1
+NP_418594.1	hflX	ribosome rescue factor HflX	3.6.5.3	3.6.5.3	19669	GO:0003924		Nucleotide metabolism;Purine metabolism	1	2
+NP_418598.1	purA	adenylosuccinate synthetase	6.3.4.4	6.3.4.4	15753	GO:0004019		Alanine, aspartate and glutamate metabolism;Nucleotide metabolism;Purine metabolism	1	3
+NP_418601.1	rlmB	23S rRNA 2'-O-ribose G2251 methyltransferase	2.1.1.185	2.1.1.185	24140	GO:0062105			1	0
+NP_418608.6	aidB	isovaleryl-CoA dehydrogenase and DNA-binding transcriptional repressor	1.3.8.4	1.3.8.4	12276	GO:0008470			1	0
+NP_418611.1	yjfP	carboxylesterase	3.1.1.1	3.1.1.1	21164	GO:0106435			1	0
+NP_418614.4	ulaA	L-ascorbate specific PTS enzyme IIC component	2.7.1.194	2.7.1.194	42436			Ascorbate and aldarate metabolism	0	1
+NP_418615.1	ulaB	L-ascorbate specific PTS enzyme IIB component	2.7.1.194	2.7.1.194	42436			Ascorbate and aldarate metabolism	0	1
+NP_418616.1	ulaC	L-ascorbate specific PTS enzyme IIA component	2.7.1.194	2.7.1.194	42436			Ascorbate and aldarate metabolism	0	1
+NP_418617.1	ulaD	3-keto-L-gulonate-6-phosphate decarboxylase UlaD	4.1.1.85	4.1.1.85	14353	GO:0033982		Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions	1	2
+NP_418618.1	ulaE	L-ribulose-5-phosphate 3-epimerase UlaE	5.1.3.22	5.1.3.22	18497	GO:0034015		Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions	1	2
+NP_418619.1	ulaF	L-ribulose-5-phosphate 4-epimerase UlaF	5.1.3.4	5.1.3.4	22368	GO:0008742		Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions	1	2
+NP_418628.4	fklB	peptidyl-prolyl cis-trans isomerase FklB	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+NP_418634.1	cpdB	2',3'-cyclic-nucleotide 2'-phosphodiesterase/3'-nucleotidase	3.1.3.6	3.1.3.6	10144	GO:0008254			1	0
+NP_418635.1	cysQ	3'(2'),5'-bisphosphate nucleotidase	3.1.3.7	3.1.3.7	10040;77639;77643	GO:0008441		Sulfur metabolism	1	1
+NP_418640.1	msrA	methionine sulfoxide reductase A	1.8.4.11	1.8.4.11	14217;19993	GO:0008113;GO:0033744			2	0
+NP_418646.1	chpB	endoribonuclease toxin ChpB	4.6.1.22	4.6.1.22					0	0
+NP_418647.1	ppa	inorganic pyrophosphatase	3.6.1.1	3.6.1.1	24576	GO:0004427			1	0
+NP_418648.1	ytfQ	galactofuranose ABC transporter periplasmic binding protein	7.5.2.9	7.5.2.9	61716	GO:0103116			1	0
+YP_026286.1	ytfR	galactofuranose ABC transporter putative ATP binding subunit	7.5.2.9	7.5.2.9	61716	GO:0103116			1	0
+NP_418651.3	ytfT	galactofuranose ABC transporter putative membrane subunit YtfT	7.5.2.9	7.5.2.9	61716	GO:0103116			1	0
+NP_418652.2	yjfF	galactofuranose ABC transporter putative membrane subunit YjtF	7.5.2.9	7.5.2.9	61716	GO:0103116			1	0
+NP_418653.1	fbp	fructose-1,6-bisphosphatase 1	3.1.3.11	3.1.3.11	11064	GO:0042132		Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway	1	5
+NP_418654.1	mpl	UDP-N-acetylmuramate--L-alanyl-gamma-D-glutamyl- meso-2,6-diaminoheptanedioate ligase	6.3.2.45	6.3.2.45	29563	GO:0106418			1	0
+NP_418659.1	nrdD	anaerobic ribonucleoside-triphosphate reductase	1.1.98.6	1.1.98.6	51476				0	0
+NP_418660.1	treC	trehalose-6-phosphate hydrolase	3.2.1.93	3.2.1.93	23008	GO:0008788		Starch and sucrose metabolism	1	1
+NP_418661.1	treB	trehalose-specific PTS enzyme IIBC component	2.7.1.201	2.7.1.201	33371			Starch and sucrose metabolism	0	1
+NP_418663.1	mgtA	Mg(2(+)) importing P-type ATPase	7.2.2.14	7.2.2.14	10260	GO:0015444			1	0
+NP_418664.2	ridA	enamine/imine deaminase, redox-regulated chaperone	3.5.99.10	3.5.99.10	39975;40671	GO:0120242;GO:0120243			2	0
+NP_418665.1	pyrI	aspartate carbamoyltransferase, PyrI subunit	2.1.3.2	2.1.3.2	20013	GO:0004070		Alanine, aspartate and glutamate metabolism;Pyrimidine metabolism	1	2
+NP_418666.1	pyrB	aspartate carbamoyltransferase catalytic subunit	2.1.3.2	2.1.3.2	20013	GO:0004070		Alanine, aspartate and glutamate metabolism;Pyrimidine metabolism	1	2
+NP_418675.1	argI	ornithine carbamoyltransferase ArgI	2.1.3.3	2.1.3.3	19513	GO:0004585		Arginine biosynthesis	1	1
+NP_418679.1	valS	valine--tRNA ligase	6.1.1.9	6.1.1.9	10704	GO:0004832		Aminoacyl-tRNA biosynthesis	1	1
+NP_418681.1	pepA	aminopeptidase A/I	3.4.11.1	3.4.11.1					0	0
+NP_418682.1	lptF	lipopolysaccharide transport system protein LptF	7.5.2.5	7.5.2.5					0	0
+NP_418683.4	lptG	lipopolysaccharide transport system protein LptG	7.5.2.5	7.5.2.5					0	0
+NP_418687.1	idnO	5-keto-D-gluconate 5-reductase	1.1.1.69	1.1.1.69	23936;23940	GO:0008874			1	0
+NP_418688.1	idnD	L-idonate 5-dehydrogenase	1.1.1.264	1.1.1.264	21172;21176	GO:0050572;GO:0102198			2	0
+NP_418689.1	idnK	D-gluconate kinase, thermosensitive	2.7.1.12	2.7.1.12	19433	GO:0046316		Pentose phosphate pathway	1	1
+NP_418690.4	ahr	NADPH-dependent aldehyde reductase Ahr	1.1.1.2	1.1.1.2	15937;19257	GO:0004090;GO:0008106			2	0
+NP_418707.1	fecE	ferric citrate ABC transporter ATP binding subunit	7.2.2.18	7.2.2.18	58912				0	0
+NP_418708.1	fecD	ferric citrate ABC transporter membrane subunit FecD	7.2.2.18	7.2.2.18	58912				0	0
+NP_418709.1	fecC	ferric citrate ABC transporter membrane subunit FecC	7.2.2.18	7.2.2.18	58912				0	0
+NP_418710.4	fecB	ferric citrate ABC transporter periplasmic binding protein	7.2.2.18	7.2.2.18	58912				0	0
+NP_418717.1	yjhG	D-xylonate dehydratase	4.2.1.82	4.2.1.82	19157	GO:0050401		Pentose and glucuronate interconversions	1	1
+NP_418718.4	yjhH	putative 2-dehydro-3-deoxy-D-pentonate aldolase	4.1.2.28	4.1.2.28	20609	GO:0047440		Pentose and glucuronate interconversions	1	1
+NP_418729.1	nanS	N-acetyl-9-O-acetylneuraminate esterase	3.1.1.53	3.1.1.53	22600;25564	GO:0106330;GO:0106331			2	0
+NP_418730.4	nanM	N-acetylneuraminate mutarotase	5.1.3.24	5.1.3.24	25233				0	0
+NP_418742.1	uxuA	D-mannonate dehydratase	4.2.1.8	4.2.1.8	20097	GO:0008927		Pentose and glucuronate interconversions	1	1
+NP_418743.1	uxuB	D-mannonate oxidoreductase	1.1.1.57	1.1.1.57	15729;51652	GO:0008866		Pentose and glucuronate interconversions	1	1
+NP_418748.1	iadA	isoaspartyl dipeptidase	3.4.19.5	3.4.19.5					0	0
+NP_418768.1	hsdS	type I restriction enzyme EcoKI specificity subunit	3.1.21.3	3.1.21.3					0	0
+NP_418769.1	hsdM	type I restriction enzyme EcoKI methylase subunit	3.1.21.3	3.1.21.3					0	0
+NP_418770.2	hsdR	type I restriction enzyme EcoKI endonuclease subunit	3.1.21.3	3.1.21.3					0	0
+NP_418778.4	lgoD	L-galactonate oxidoreductase	1.1.1.414	1.1.1.414	30183			Ascorbate and aldarate metabolism	0	1
+NP_418779.2	opgB	phosphoglycerol transferase I	2.7.8.20	2.7.8.20					0	0
+NP_418788.1	rsmC	16S rRNA m(2)G1207 methyltransferase	2.1.1.172	2.1.1.172	42736	GO:0052914			1	0
+NP_418790.1	rimI	protein N-acetyltransferase RimI	2.3.1.266	2.3.1.266	43756	GO:0008999			1	0
+NP_418791.1	yjjG	pyrimidine 5'-nucleotidase YjjG	3.1.3.5	3.1.3.5	12484	GO:0008253			1	0
+NP_418798.1	deoC	deoxyribose-phosphate aldolase	4.1.2.4	4.1.2.4	12821	GO:0004139		Pentose phosphate pathway	1	1
+NP_418799.1	deoA	thymidine phosphorylase	2.4.2.4	2.4.2.4	16037	GO:0009032		Nucleotide metabolism;Pyrimidine metabolism	1	2
+NP_418800.1	deoB	phosphopentomutase	5.4.2.7	5.4.2.7	18793;27658	GO:0008973		Pentose phosphate pathway;Purine metabolism	1	2
+NP_418801.1	deoD	purine nucleoside phosphorylase	2.4.2.1	2.4.2.1	13233;19805;27638;27642;27646;27738;27742;27750;36431	GO:0004731;GO:0047975		Nucleotide metabolism;Purine metabolism	2	2
+NP_418803.1	lplA	lipoate--protein ligase A	6.3.1.20	6.3.1.20	49288	GO:0016979			1	0
+NP_418805.1	serB	phosphoserine phosphatase	3.1.3.3	3.1.3.3	21208;24873	GO:0036424		Glycine, serine and threonine metabolism;Methane metabolism	1	2
+NP_418807.4	nadR	DNA-binding transcriptional repressor/NMN adenylyltransferase NadR	2.7.1.22	2.7.1.22	14017	GO:0050262		Nicotinate and nicotinamide metabolism	1	1
+NP_418811.2	yjjX	inosine/xanthosine triphosphatase	3.6.1.73	3.6.1.73	28330;28406	GO:0103023		Nucleotide metabolism;Purine metabolism	1	2
+NP_418816.1	creC	sensory histidine kinase CreC	2.7.13.3	2.7.13.3					0	0

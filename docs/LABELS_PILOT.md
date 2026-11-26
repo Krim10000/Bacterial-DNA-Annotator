@@ -85,3 +85,72 @@ Los resultados son **descriptivos**, no validación.
 3. Calcular FDR por operón.
 4. Validar con regulones independientes.
 5. Aplicar a 400 con cobertura y abstención.
+
+## Cruce con catálogos existentes
+
+Se cruzaron, sin descargar nada:
+
+```text
+EC de genes
+→ Rhea
+→ KEGG reaction
+→ KEGG pathway
+→ GO ID
+```
+
+Fuentes:
+
+```text
+data/metabolism/tsv/rhea2ec.tsv
+data/metabolism/tsv/rhea2go.tsv
+data/metabolism/tsv/rhea2kegg_reaction.tsv
+data/kegg/pathway_reactions.tsv
+```
+
+### Cobertura
+
+| Genoma | Genes | Con EC | Con GO | Con pathway | Pathways únicos |
+|---|---:|---:|---:|---:|---:|
+| K-12 | 4.534 | 1.455 | 1.162 | 751 | 99 |
+| B. subtilis | 4.134 | 1.342 | 707 | 563 | 94 |
+
+B. subtilis no tenía EC en `functional_annotation`; se recuperaron del GBFF
+local por coordenadas GFF/GenBank.
+
+### Operones
+
+```text
+K-12:      524/2.544 operones con pathway
+B. subtilis: 284/1.334 operones con pathway
+```
+
+### Validación K-12
+
+Top de pathways en operones diana:
+
+| Sigma | Diana | Pathway destacado | OR | p |
+|---|---|---:|---:|---:|
+| sigma24 | 37 | Lipopolysaccharide biosynthesis | 14,3 | 0,012 |
+| sigma38 | 116 | Glycolysis / Gluconeogenesis | 12,7 | 1e-6 |
+| sigma54 | 30 | Purine metabolism | 3,5 | 0,12 |
+| sigma32 | 46 | Aminoacyl-tRNA biosynthesis | 5,4 | 0,064 |
+| sigma28 | 14 | — | — | — |
+
+Lectura:
+
+- sigma38 y sigma24 tienen señal de pathway coherente.
+- sigma28 no tiene pathway porque los genes flagelares no tienen EC.
+- sigma32/sigma54 tienen poca cobertura metabólica.
+- Por eso el pathway solo no basta: hace falta GO/regulón.
+
+## Información adicional necesaria
+
+Para completar etiquetas de proceso:
+
+1. **GO basic/OBO** y anotaciones gen-GO (GOA/UniProt) para K-12 y B. subtilis.
+2. **KEGG gene→KO/pathway**, no solo pathway→Rhea.
+3. **Regulón/sigmulón de B. subtilis** o una tabla equivalente.
+4. **Expresión/condición**, opcional.
+5. **Negativos/ausencia**, para no confundir cobertura con enriquecimiento.
+
+Sin eso, el cruce actual es EC/Rhea/KEGG y un léxico; no una ontología completa.

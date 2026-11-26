@@ -1,0 +1,2545 @@
+operon_id	label	n_genes	n_pathways	pathways
+ecoli_k12:NC_000913.3:190:+	thrLABC	4	3	Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis
+ecoli_k12:NC_000913.3:5234:+	yaaX	1	0	
+ecoli_k12:NC_000913.3:5683:-	yaaA	1	0	
+ecoli_k12:NC_000913.3:6529:-	yaaJ	1	0	
+ecoli_k12:NC_000913.3:8238:+	talB	1	0	
+ecoli_k12:NC_000913.3:9306:+	mog	1	0	
+ecoli_k12:NC_000913.3:9928:-	satP	1	0	
+ecoli_k12:NC_000913.3:10643:-	yaaIW	2	0	
+ecoli_k12:NC_000913.3:10830:+	mbiA	1	0	
+ecoli_k12:NC_000913.3:12163:+	dnaKJ	2	0	
+ecoli_k12:NC_000913.3:15445:+	insL1	1	0	
+ecoli_k12:NC_000913.3:16751:-	mokC-hokC	2	0	
+ecoli_k12:NC_000913.3:17489:+	nhaAR	2	0	
+ecoli_k12:NC_000913.3:19811:-	insA1B1	2	0	
+ecoli_k12:NC_000913.3:20815:-	rpsT	1	0	
+ecoli_k12:NC_000913.3:21181:+	yaaY-ribF	2	1	Riboflavin metabolism
+ecoli_k12:NC_000913.3:22391:+	ileS-lspA	2	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:25826:+	fkpB-ispH	2	1	Terpenoid backbone biosynthesis
+ecoli_k12:NC_000913.3:27293:+	rihC	1	0	
+ecoli_k12:NC_000913.3:28374:+	dapB	1	2	Lysine biosynthesis;Monobactam biosynthesis
+ecoli_k12:NC_000913.3:29651:+	carAB	2	3	Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:34300:+	caiF	1	0	
+ecoli_k12:NC_000913.3:34781:-	caiTABCDE	6	0	
+ecoli_k12:NC_000913.3:42403:+	fixABCX	4	0	
+ecoli_k12:NC_000913.3:45807:+	yaaU	1	0	
+ecoli_k12:NC_000913.3:47246:+	kefFC	2	0	
+ecoli_k12:NC_000913.3:49823:+	folA	1	2	Folate biosynthesis;One carbon pool by folate
+ecoli_k12:NC_000913.3:50380:-	surA-apaH	5	1	Purine metabolism
+ecoli_k12:NC_000913.3:54755:-	lptD	1	0	
+ecoli_k12:NC_000913.3:57364:+	djlA	1	0	
+ecoli_k12:NC_000913.3:58474:+	yabPQ	2	0	
+ecoli_k12:NC_000913.3:59687:-	rapA-rluA	2	0	
+ecoli_k12:NC_000913.3:63429:-	polB	1	0	
+ecoli_k12:NC_000913.3:65855:-	araBAD	3	2	Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:70387:+	araC	1	0	
+ecoli_k12:NC_000913.3:71351:+	yabI	1	0	
+ecoli_k12:NC_000913.3:72229:-	thiBPQ	3	0	
+ecoli_k12:NC_000913.3:75644:-	sgrR	1	0	
+ecoli_k12:NC_000913.3:77367:+	sgrT	2	0	
+ecoli_k12:NC_000913.3:77621:+	setA	1	0	
+ecoli_k12:NC_000913.3:78848:-	leuLABCD	5	2	Pyruvate metabolism;Valine, leucine and isoleucine biosynthesis
+ecoli_k12:NC_000913.3:84368:+	leuO	1	0	
+ecoli_k12:NC_000913.3:85467:-	yabR	1	0	
+ecoli_k12:NC_000913.3:85630:+	ilvIH	2	4	Butanoate metabolism;C5-Branched dibasic acid metabolism;Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis
+ecoli_k12:NC_000913.3:88028:+	cra	1	0	
+ecoli_k12:NC_000913.3:89634:+	mraZ-ftsZ	16	3	D-Amino acid metabolism;Lysine biosynthesis;Peptidoglycan biosynthesis
+ecoli_k12:NC_000913.3:106557:+	lpxC	1	1	Lipopolysaccharide biosynthesis
+ecoli_k12:NC_000913.3:107705:+	secMA	2	0	
+ecoli_k12:NC_000913.3:111044:+	mutT	1	0	
+ecoli_k12:NC_000913.3:111649:-	coaE-yacG	3	1	Pantothenate and CoA biosynthesis
+ecoli_k12:NC_000913.3:113244:+	yacM	1	0	
+ecoli_k12:NC_000913.3:113444:+	guaC	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:114522:-	ppdD-hofC	3	0	
+ecoli_k12:NC_000913.3:117752:-	nadC	1	1	Nicotinate and nicotinamide metabolism
+ecoli_k12:NC_000913.3:118733:+	ampDE	2	0	
+ecoli_k12:NC_000913.3:120178:-	aroP	1	0	
+ecoli_k12:NC_000913.3:122092:+	pdhR-aceF	3	0	
+ecoli_k12:NC_000913.3:127912:+	lpd	1	0	
+ecoli_k12:NC_000913.3:129407:-	yacH	1	0	
+ecoli_k12:NC_000913.3:131615:+	acnB	1	1	Propanoate metabolism
+ecoli_k12:NC_000913.3:134388:+	yacL	1	0	
+ecoli_k12:NC_000913.3:134788:-	speED	2	3	Arginine and proline metabolism;Cysteine and methionine metabolism;Glutathione metabolism
+ecoli_k12:NC_000913.3:136570:-	yacC	1	0	
+ecoli_k12:NC_000913.3:137083:+	cueO	1	0	
+ecoli_k12:NC_000913.3:138835:-	gcd	1	1	Pentose phosphate pathway
+ecoli_k12:NC_000913.3:141431:+	hpt	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:142008:-	can	1	0	
+ecoli_k12:NC_000913.3:142779:+	yadGH	2	0	
+ecoli_k12:NC_000913.3:144577:+	yadI	1	0	
+ecoli_k12:NC_000913.3:145081:+	yadE	1	0	
+ecoli_k12:NC_000913.3:146314:-	panD	1	2	Pantothenate and CoA biosynthesis;beta-Alanine metabolism
+ecoli_k12:NC_000913.3:146968:+	rpnC	1	0	
+ecoli_k12:NC_000913.3:147944:-	panBC	2	2	Pantothenate and CoA biosynthesis;beta-Alanine metabolism
+ecoli_k12:NC_000913.3:149715:-	yadN-yadC	7	0	
+ecoli_k12:NC_000913.3:157253:-	pcnB-folK	2	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:159186:-	dksA-gluQ	2	0	
+ecoli_k12:NC_000913.3:160782:-	thpR-sfsA	2	0	
+ecoli_k12:NC_000913.3:162105:+	hrpB	1	0	
+ecoli_k12:NC_000913.3:164730:+	mrcB	2	0	
+ecoli_k12:NC_000913.3:167484:+	fhuACDB	4	0	
+ecoli_k12:NC_000913.3:173602:-	hemL	1	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:175048:+	yadX-erpA	4	0	
+ecoli_k12:NC_000913.3:177001:-	mtn-yadS	3	1	Cysteine and methionine metabolism
+ecoli_k12:NC_000913.3:179237:+	dgt	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:180884:+	degP	1	0	
+ecoli_k12:NC_000913.3:182463:+	cdaR	1	0	
+ecoli_k12:NC_000913.3:183709:-	yaeH	1	0	
+ecoli_k12:NC_000913.3:184257:-	yaeI	1	0	
+ecoli_k12:NC_000913.3:185123:-	glnD-dapD	2	1	Lysine biosynthesis
+ecoli_k12:NC_000913.3:188712:-	map	1	0	
+ecoli_k12:NC_000913.3:189874:+	rpsB	1	0	
+ecoli_k12:NC_000913.3:190857:+	tsf	1	0	
+ecoli_k12:NC_000913.3:191855:+	pyrH	1	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:192872:+	frr	1	0	
+ecoli_k12:NC_000913.3:193521:+	dxr	1	1	Terpenoid backbone biosynthesis
+ecoli_k12:NC_000913.3:194903:+	ispU-bamA	4	3	Glycerophospholipid metabolism;Peptidoglycan biosynthesis;Terpenoid backbone biosynthesis
+ecoli_k12:NC_000913.3:200482:+	skp-lpxD	2	1	Lipopolysaccharide biosynthesis
+ecoli_k12:NC_000913.3:202101:+	fabZ-accA	6	2	Fatty acid biosynthesis;Lipopolysaccharide biosynthesis
+ecoli_k12:NC_000913.3:209679:+	ldcC	1	3	Biosynthesis of various siderophores;Lysine degradation;Tropane, piperidine and pyridine alkaloid biosynthesis
+ecoli_k12:NC_000913.3:211877:+	yaeR	1	0	
+ecoli_k12:NC_000913.3:212331:+	tilS	1	0	
+ecoli_k12:NC_000913.3:213678:-	yaeP-rof	2	0	
+ecoli_k12:NC_000913.3:214291:+	yaeQ-nlpE	3	0	
+ecoli_k12:NC_000913.3:216179:-	yaeF	1	0	
+ecoli_k12:NC_000913.3:217057:-	rcsF-proS	3	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:220113:-	metNIQ	3	0	
+ecoli_k12:NC_000913.3:222833:+	gmhB	1	2	Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars
+ecoli_k12:NC_000913.3:229167:+	dkgB	1	2	Galactose metabolism;Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:229967:-	yafC	1	0	
+ecoli_k12:NC_000913.3:231122:+	yafDE	2	0	
+ecoli_k12:NC_000913.3:232597:-	mltD	1	0	
+ecoli_k12:NC_000913.3:234027:-	gloB	1	1	Pyruvate metabolism
+ecoli_k12:NC_000913.3:234288:+	ykfO	1	0	
+ecoli_k12:NC_000913.3:234816:+	yafS	1	0	
+ecoli_k12:NC_000913.3:235535:-	rnhA	1	0	
+ecoli_k12:NC_000913.3:236067:+	dnaQ	1	0	
+ecoli_k12:NC_000913.3:237335:+	yafT	1	0	
+ecoli_k12:NC_000913.3:238257:-	ykfM	1	0	
+ecoli_k12:NC_000913.3:239419:-	yafV	1	1	Alanine, aspartate and glutamate metabolism
+ecoli_k12:NC_000913.3:240343:+	ivy	1	0	
+ecoli_k12:NC_000913.3:240859:-	fadE	1	0	
+ecoli_k12:NC_000913.3:243543:+	gmhA	1	0	
+ecoli_k12:NC_000913.3:244327:+	yafJ	1	0	
+ecoli_k12:NC_000913.3:245065:-	dpaA	1	0	
+ecoli_k12:NC_000913.3:245961:-	dinJ-yafQ	2	0	
+ecoli_k12:NC_000913.3:246712:+	yafL	1	0	
+ecoli_k12:NC_000913.3:247637:+	rayT	1	0	
+ecoli_k12:NC_000913.3:250898:+	dinB	1	0	
+ecoli_k12:NC_000913.3:252005:+	yafNOP	3	0	
+ecoli_k12:NC_000913.3:254259:-	pepD	1	0	
+ecoli_k12:NC_000913.3:255977:+	gpt	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:256527:+	frsA	1	0	
+ecoli_k12:NC_000913.3:257829:+	crl	1	0	
+ecoli_k12:NC_000913.3:257923:-	insA9B9	2	0	
+ecoli_k12:NC_000913.3:259045:-	phoE	1	0	
+ecoli_k12:NC_000913.3:260388:+	proBA	2	2	Arginine and proline metabolism;Carbapenem biosynthesis
+ecoli_k12:NC_000913.3:263328:-	yafX-ykfI	5	0	
+ecoli_k12:NC_000913.3:265304:-	ykfF	1	0	
+ecoli_k12:NC_000913.3:265620:-	yafY-ykfB	2	0	
+ecoli_k12:NC_000913.3:267184:-	yafZ	1	0	
+ecoli_k12:NC_000913.3:268097:-	ykfA	1	0	
+ecoli_k12:NC_000913.3:269289:-	perR	1	0	
+ecoli_k12:NC_000913.3:270278:+	insNI1	2	0	
+ecoli_k12:NC_000913.3:272847:+	ykfC	1	0	
+ecoli_k12:NC_000913.3:274101:-	insH1	1	0	
+ecoli_k12:NC_000913.3:275325:+	mmuPM	2	2	Cysteine and methionine metabolism;One carbon pool by folate
+ecoli_k12:NC_000913.3:277756:-	afuC	1	0	
+ecoli_k12:NC_000913.3:279178:-	insA2B2	2	0	
+ecoli_k12:NC_000913.3:280385:-	yagB	1	0	
+ecoli_k12:NC_000913.3:280829:-	yagA	1	0	
+ecoli_k12:NC_000913.3:282278:+	yagEFGH	4	1	Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:288404:-	xynR	1	0	
+ecoli_k12:NC_000913.3:289301:-	argLF	2	1	Arginine biosynthesis
+ecoli_k12:NC_000913.3:290510:+	ykgS	1	0	
+ecoli_k12:NC_000913.3:290649:-	insA3B3	2	0	
+ecoli_k12:NC_000913.3:291500:+	yagJ	1	0	
+ecoli_k12:NC_000913.3:292322:-	yagK	1	0	
+ecoli_k12:NC_000913.3:293220:-	yagML	2	0	
+ecoli_k12:NC_000913.3:294918:-	yagN-ykgV	2	0	
+ecoli_k12:NC_000913.3:295696:-	intF	1	0	
+ecoli_k12:NC_000913.3:297381:-	paoA-yagP	5	0	
+ecoli_k12:NC_000913.3:302991:+	yagU	1	0	
+ecoli_k12:NC_000913.3:303853:-	ykgJ	1	0	
+ecoli_k12:NC_000913.3:304495:-	ecpABCDE	5	0	
+ecoli_k12:NC_000913.3:310746:-	matA	1	0	
+ecoli_k12:NC_000913.3:312112:+	ykgL	1	0	
+ecoli_k12:NC_000913.3:312374:-	ykgMO	2	0	
+ecoli_k12:NC_000913.3:313141:-	ykgR	1	0	
+ecoli_k12:NC_000913.3:315291:+	insE1F1	2	0	
+ecoli_k12:NC_000913.3:317726:-	rclABC	3	0	
+ecoli_k12:NC_000913.3:320227:+	rclR	1	0	
+ecoli_k12:NC_000913.3:321608:+	ykgEFG	3	0	
+ecoli_k12:NC_000913.3:324696:-	ykgH	1	0	
+ecoli_k12:NC_000913.3:325577:-	betIBA	3	2	Glycine, serine and threonine metabolism;One carbon pool by folate
+ecoli_k12:NC_000913.3:329463:+	betT	1	0	
+ecoli_k12:NC_000913.3:331802:+	yahV	1	0	
+ecoli_k12:NC_000913.3:332371:+	pdeL	1	0	
+ecoli_k12:NC_000913.3:333501:-	yahB	1	0	
+ecoli_k12:NC_000913.3:334525:-	yahC	1	0	
+ecoli_k12:NC_000913.3:335280:+	yahDEFGH	5	0	
+ecoli_k12:NC_000913.3:340165:+	yahIJ	2	0	
+ecoli_k12:NC_000913.3:342884:+	yahK	1	0	
+ecoli_k12:NC_000913.3:344176:+	yahL	1	0	
+ecoli_k12:NC_000913.3:345252:+	xtpA-yahM	2	0	
+ecoli_k12:NC_000913.3:345666:-	yahN	1	0	
+ecoli_k12:NC_000913.3:346484:+	yahO	1	0	
+ecoli_k12:NC_000913.3:346857:-	prpR	1	0	
+ecoli_k12:NC_000913.3:348682:+	prpB	1	1	Propanoate metabolism
+ecoli_k12:NC_000913.3:350012:+	prpCDE	3	1	Propanoate metabolism
+ecoli_k12:NC_000913.3:354922:+	codBA	2	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:357791:-	cynR	1	0	
+ecoli_k12:NC_000913.3:358799:+	cynTSX	3	0	
+ecoli_k12:NC_000913.3:361249:-	lacZYA	3	0	
+ecoli_k12:NC_000913.3:366428:-	mhpR-lacI	2	0	
+ecoli_k12:NC_000913.3:368611:+	mhpABCDFE	6	5	Benzoate degradation;Dioxin degradation;Phenylalanine metabolism;Pyruvate metabolism;Xylene degradation
+ecoli_k12:NC_000913.3:375459:+	mhpT	1	0	
+ecoli_k12:NC_000913.3:376772:+	yaiL	1	0	
+ecoli_k12:NC_000913.3:377535:-	frmRAB	3	1	Methane metabolism
+ecoli_k12:NC_000913.3:380069:-	yaiPXO	3	0	
+ecoli_k12:NC_000913.3:381351:+	insC1D1	2	0	
+ecoli_k12:NC_000913.3:383960:+	ykiC	1	0	
+ecoli_k12:NC_000913.3:384059:-	yaiS	1	0	
+ecoli_k12:NC_000913.3:385232:+	tauABCD	4	2	Sulfur metabolism;Taurine and hypotaurine metabolism
+ecoli_k12:NC_000913.3:388753:-	hemB	1	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:390251:+	yaiT	1	0	
+ecoli_k12:NC_000913.3:391592:-	ytiB	1	0	
+ecoli_k12:NC_000913.3:391739:-	insE2F2	2	0	
+ecoli_k12:NC_000913.3:394506:+	iprA	1	0	
+ecoli_k12:NC_000913.3:395130:-	ampH	1	0	
+ecoli_k12:NC_000913.3:396639:+	sbmA-yaiW	2	0	
+ecoli_k12:NC_000913.3:399025:-	yaiY	1	0	
+ecoli_k12:NC_000913.3:399593:+	yaiZ	1	0	
+ecoli_k12:NC_000913.3:399829:-	ddlA	1	2	D-Amino acid metabolism;Peptidoglycan biosynthesis
+ecoli_k12:NC_000913.3:401386:+	iraP	1	0	
+ecoli_k12:NC_000913.3:401747:+	phoA	1	0	
+ecoli_k12:NC_000913.3:403281:+	psiF	1	0	
+ecoli_k12:NC_000913.3:403703:+	dgcC	1	0	
+ecoli_k12:NC_000913.3:404835:-	proC	1	1	Arginine and proline metabolism
+ecoli_k12:NC_000913.3:405764:+	yaiI	1	0	
+ecoli_k12:NC_000913.3:406405:+	aroL	1	1	Phenylalanine, tyrosine and tryptophan biosynthesis
+ecoli_k12:NC_000913.3:406979:+	yaiA	1	0	
+ecoli_k12:NC_000913.3:407428:+	aroM	1	0	
+ecoli_k12:NC_000913.3:408177:+	ppnP	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:408947:+	ykiD	1	0	
+ecoli_k12:NC_000913.3:409108:-	rdgC	1	0	
+ecoli_k12:NC_000913.3:410144:+	mak	1	4	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Fructose and mannose metabolism;Starch and sucrose metabolism
+ecoli_k12:NC_000913.3:411297:-	araJ	1	0	
+ecoli_k12:NC_000913.3:412607:-	sbcDC	2	0	
+ecoli_k12:NC_000913.3:417142:+	phoBR	2	0	
+ecoli_k12:NC_000913.3:419591:+	brnQ-proY	2	0	
+ecoli_k12:NC_000913.3:422518:+	malZ	1	0	
+ecoli_k12:NC_000913.3:424337:-	acpH	1	1	Pantothenate and CoA biosynthesis
+ecoli_k12:NC_000913.3:425011:+	queA-secF	5	0	
+ecoli_k12:NC_000913.3:430605:+	yajD	1	0	
+ecoli_k12:NC_000913.3:431129:-	tsx	1	0	
+ecoli_k12:NC_000913.3:432312:-	yajI	1	0	
+ecoli_k12:NC_000913.3:433002:+	nrdR-nusB	4	1	Riboflavin metabolism
+ecoli_k12:NC_000913.3:435634:+	thiL-pgpA	2	2	Glycerophospholipid metabolism;Thiamine metabolism
+ecoli_k12:NC_000913.3:437161:-	yajO	1	0	
+ecoli_k12:NC_000913.3:438315:-	xseB-dxs	3	3	Biosynthesis of various other secondary metabolites;Terpenoid backbone biosynthesis;Thiamine metabolism
+ecoli_k12:NC_000913.3:441549:+	thiI	1	0	
+ecoli_k12:NC_000913.3:443051:-	panE-yajL	2	1	Pantothenate and CoA biosynthesis
+ecoli_k12:NC_000913.3:444683:+	yajQ	1	0	
+ecoli_k12:NC_000913.3:445302:-	yajR	1	0	
+ecoli_k12:NC_000913.3:446815:-	cyoABCDE	5	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:452070:-	yajG-ampG	2	0	
+ecoli_k12:NC_000913.3:454472:+	bolA	1	0	
+ecoli_k12:NC_000913.3:455133:+	tig	1	0	
+ecoli_k12:NC_000913.3:456677:+	clpP-hupB	4	0	
+ecoli_k12:NC_000913.3:461915:+	ppiD	1	0	
+ecoli_k12:NC_000913.3:463937:+	ybaV	1	0	
+ecoli_k12:NC_000913.3:464402:+	fadM	1	0	
+ecoli_k12:NC_000913.3:464852:-	queC	1	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:465612:-	ybaE	1	0	
+ecoli_k12:NC_000913.3:467412:+	cof	1	1	Vitamin B6 metabolism
+ecoli_k12:NC_000913.3:468383:+	decR-mdlB	3	0	
+ecoli_k12:NC_000913.3:472598:+	glnK-amtB	2	0	
+ecoli_k12:NC_000913.3:474301:-	tesB	1	0	
+ecoli_k12:NC_000913.3:475379:+	ybaY	1	0	
+ecoli_k12:NC_000913.3:475982:-	ybaZ	1	0	
+ecoli_k12:NC_000913.3:476672:+	ybaA	1	0	
+ecoli_k12:NC_000913.3:477067:-	pdeB	1	0	
+ecoli_k12:NC_000913.3:478781:-	ylaC	1	0	
+ecoli_k12:NC_000913.3:479367:-	maa	1	0	
+ecoli_k12:NC_000913.3:480090:-	tomB-hha	2	0	
+ecoli_k12:NC_000913.3:481254:-	acrAB	2	0	
+ecoli_k12:NC_000913.3:485761:+	acrR	1	0	
+ecoli_k12:NC_000913.3:486536:+	mscK	1	0	
+ecoli_k12:NC_000913.3:490110:-	priC-ybaM	2	0	
+ecoli_k12:NC_000913.3:490882:+	ybaN	1	0	
+ecoli_k12:NC_000913.3:491412:+	apt	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:492092:+	dnaX	2	0	
+ecoli_k12:NC_000913.3:494076:+	ybaB-recR	2	0	
+ecoli_k12:NC_000913.3:495120:+	htpG	1	0	
+ecoli_k12:NC_000913.3:497175:+	adk	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:498055:+	hemH	1	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:499014:-	aes	1	0	
+ecoli_k12:NC_000913.3:500125:+	gsk	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:501562:-	ybaL	1	0	
+ecoli_k12:NC_000913.3:503476:-	fsr	1	0	
+ecoli_k12:NC_000913.3:504914:+	ushA	1	1	Aminobenzoate degradation
+ecoli_k12:NC_000913.3:506603:-	ybaK	1	0	
+ecoli_k12:NC_000913.3:507286:-	ybaP	1	0	
+ecoli_k12:NC_000913.3:508218:+	ybaQ	1	0	
+ecoli_k12:NC_000913.3:508875:-	copA	2	0	
+ecoli_k12:NC_000913.3:511641:+	glsA-ybaT	2	2	Alanine, aspartate and glutamate metabolism;Arginine biosynthesis
+ecoli_k12:NC_000913.3:513993:+	cueR	1	0	
+ecoli_k12:NC_000913.3:514401:-	qmcA-ybbJ	2	0	
+ecoli_k12:NC_000913.3:515919:+	fetAB	2	0	
+ecoli_k12:NC_000913.3:517425:-	tesA-cnoX	3	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:519733:+	ybbAP	2	0	
+ecoli_k12:NC_000913.3:523261:+	rhsD-ybbC	2	0	
+ecoli_k12:NC_000913.3:529645:-	ylbG	1	0	
+ecoli_k12:NC_000913.3:530132:-	selU	1	0	
+ecoli_k12:NC_000913.3:531295:-	allS	1	0	
+ecoli_k12:NC_000913.3:532451:+	allAR	3	1	Purine metabolism
+ecoli_k12:NC_000913.3:533916:+	gcl-hyi	2	1	Glyoxylate and dicarboxylate metabolism
+ecoli_k12:NC_000913.3:536586:+	glxR	1	0	
+ecoli_k12:NC_000913.3:537633:+	allWB	2	1	Purine metabolism
+ecoli_k12:NC_000913.3:540565:+	ybbY-glxK	2	0	
+ecoli_k12:NC_000913.3:543261:-	allDCE	3	1	Purine metabolism
+ecoli_k12:NC_000913.3:546680:+	fdrA-ybcF	4	1	Purine metabolism
+ecoli_k12:NC_000913.3:551527:-	purEK	2	1	Purine metabolism
+ecoli_k12:NC_000913.3:553218:-	ppiB-lpxH	2	1	Lipopolysaccharide biosynthesis
+ecoli_k12:NC_000913.3:554611:+	cysS	1	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:556032:-	ybcI	1	0	
+ecoli_k12:NC_000913.3:556661:-	folD-ybcJ	2	2	One carbon pool by folate;Other carbon fixation pathways
+ecoli_k12:NC_000913.3:558212:+	sfmACDHF	5	0	
+ecoli_k12:NC_000913.3:563848:-	fimZ	1	0	
+ecoli_k12:NC_000913.3:564815:-	intD	1	0	
+ecoli_k12:NC_000913.3:566684:+	renD-insF3	3	0	
+ecoli_k12:NC_000913.3:568315:+	emrE	1	0	
+ecoli_k12:NC_000913.3:568695:+	ylcJ	1	0	
+ecoli_k12:NC_000913.3:568902:+	ybcK	1	0	
+ecoli_k12:NC_000913.3:570893:+	ybcLM	2	0	
+ecoli_k12:NC_000913.3:572368:+	ylcH-ylcG	6	0	
+ecoli_k12:NC_000913.3:573956:+	quuD	1	0	
+ecoli_k12:NC_000913.3:574529:-	nmpC-insH2	2	0	
+ecoli_k12:NC_000913.3:577398:+	essD-rzoD	4	0	
+ecoli_k12:NC_000913.3:578600:-	borD	1	0	
+ecoli_k12:NC_000913.3:579184:-	ybcV	1	0	
+ecoli_k12:NC_000913.3:579880:+	ybcW	1	0	
+ecoli_k12:NC_000913.3:580251:-	ylcI	1	0	
+ecoli_k12:NC_000913.3:580834:+	nohD	1	0	
+ecoli_k12:NC_000913.3:581534:+	tfaD	1	0	
+ecoli_k12:NC_000913.3:582875:+	tfaX	1	0	
+ecoli_k12:NC_000913.3:583681:+	appY	1	0	
+ecoli_k12:NC_000913.3:584680:-	ompT	1	0	
+ecoli_k12:NC_000913.3:586147:-	envY	1	0	
+ecoli_k12:NC_000913.3:587091:-	nfrB-ybcH	3	0	
+ecoli_k12:NC_000913.3:593328:-	cusRS	2	0	
+ecoli_k12:NC_000913.3:595600:+	cusCFBA	4	0	
+ecoli_k12:NC_000913.3:601959:+	pheP	1	0	
+ecoli_k12:NC_000913.3:603416:-	ybdG	1	0	
+ecoli_k12:NC_000913.3:604771:-	nfsB	1	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:605518:-	ybdF	1	0	
+ecoli_k12:NC_000913.3:605951:-	ybdJ	1	0	
+ecoli_k12:NC_000913.3:606265:-	ybdK	1	2	Glutathione metabolism;Histidine metabolism
+ecoli_k12:NC_000913.3:607836:+	hokE	1	0	
+ecoli_k12:NC_000913.3:608065:+	insL2	1	0	
+ecoli_k12:NC_000913.3:609459:-	entD	1	1	Biosynthesis of siderophore group nonribosomal peptides
+ecoli_k12:NC_000913.3:610254:-	fepA	1	0	
+ecoli_k12:NC_000913.3:612737:+	fes-entF	3	0	
+ecoli_k12:NC_000913.3:618254:+	fepE	1	0	
+ecoli_k12:NC_000913.3:619384:-	fepDGC	3	0	
+ecoli_k12:NC_000913.3:622300:+	entS	1	0	
+ecoli_k12:NC_000913.3:623554:-	fepB	1	0	
+ecoli_k12:NC_000913.3:624885:+	entCEBAH	5	2	Biosynthesis of siderophore group nonribosomal peptides;Ubiquinone and other terpenoid-quinone biosynthesis
+ecoli_k12:NC_000913.3:629894:+	cstA	1	0	
+ecoli_k12:NC_000913.3:632182:+	ybdD	1	0	
+ecoli_k12:NC_000913.3:632389:-	hcxA	1	0	
+ecoli_k12:NC_000913.3:633586:+	ybdL	1	1	Glucosinolate metabolism
+ecoli_k12:NC_000913.3:634747:-	ybdNM	2	0	
+ecoli_k12:NC_000913.3:636716:-	citR	1	0	
+ecoli_k12:NC_000913.3:637827:-	dsbG	1	0	
+ecoli_k12:NC_000913.3:638945:+	ahpCF	2	0	
+ecoli_k12:NC_000913.3:641439:-	uspG	1	0	
+ecoli_k12:NC_000913.3:642088:+	ybdR	1	0	
+ecoli_k12:NC_000913.3:643330:-	yldA	1	0	
+ecoli_k12:NC_000913.3:643557:-	rnk	1	0	
+ecoli_k12:NC_000913.3:644197:-	rna	1	0	
+ecoli_k12:NC_000913.3:645117:-	citCDEFXGT	7	0	
+ecoli_k12:NC_000913.3:652235:+	dpiBA	2	0	
+ecoli_k12:NC_000913.3:654583:-	dcuC	1	0	
+ecoli_k12:NC_000913.3:656557:+	pagP	1	0	
+ecoli_k12:NC_000913.3:657292:+	cspE	1	0	
+ecoli_k12:NC_000913.3:657555:-	crcB	1	0	
+ecoli_k12:NC_000913.3:658947:+	tatE	1	0	
+ecoli_k12:NC_000913.3:659251:-	lipA	1	0	
+ecoli_k12:NC_000913.3:660425:-	ybeF	1	0	
+ecoli_k12:NC_000913.3:661637:-	lipB	1	0	
+ecoli_k12:NC_000913.3:662379:-	ybeD	1	0	
+ecoli_k12:NC_000913.3:662752:-	dacA	1	0	
+ecoli_k12:NC_000913.3:664102:-	rsfS-rlpA	5	0	
+ecoli_k12:NC_000913.3:669296:-	leuS-cobC	5	3	Aminoacyl-tRNA biosynthesis;Nicotinate and nicotinamide metabolism;Porphyrin metabolism
+ecoli_k12:NC_000913.3:675018:+	ybeL	1	0	
+ecoli_k12:NC_000913.3:675570:-	ybeQ	1	0	
+ecoli_k12:NC_000913.3:676711:+	ybeR-djlB	2	0	
+ecoli_k12:NC_000913.3:678852:-	ybeT	1	0	
+ecoli_k12:NC_000913.3:679508:+	ybeU-djlC	2	0	
+ecoli_k12:NC_000913.3:681723:-	hscC	1	0	
+ecoli_k12:NC_000913.3:683477:-	rihA	1	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:684530:-	gltJKL	3	0	
+ecoli_k12:NC_000913.3:686681:-	gltI	2	0	
+ecoli_k12:NC_000913.3:687997:-	insH3	1	0	
+ecoli_k12:NC_000913.3:689343:-	ybeX-lnt	2	0	
+ecoli_k12:NC_000913.3:691874:-	ybeZY	2	0	
+ecoli_k12:NC_000913.3:693531:-	miaB	1	0	
+ecoli_k12:NC_000913.3:695101:+	ubiF	1	1	Ubiquinone and other terpenoid-quinone biosynthesis
+ecoli_k12:NC_000913.3:697513:-	asnB	1	2	Alanine, aspartate and glutamate metabolism;Arginine biosynthesis
+ecoli_k12:NC_000913.3:699574:-	umpH	1	0	
+ecoli_k12:NC_000913.3:700374:-	nagBAC	3	1	Amino sugar and nucleotide sugar metabolism
+ecoli_k12:NC_000913.3:703944:+	nagE	1	2	Amino sugar and nucleotide sugar metabolism;Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:706093:+	glnS	1	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:708334:+	chiPQ	2	0	
+ecoli_k12:NC_000913.3:710200:-	uof-fur	2	0	
+ecoli_k12:NC_000913.3:710935:-	ybfE-fldA	2	0	
+ecoli_k12:NC_000913.3:712038:-	ybfF	1	0	
+ecoli_k12:NC_000913.3:712987:+	seqA-pgm	2	4	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism;Glycolysis / Gluconeogenesis
+ecoli_k12:NC_000913.3:715412:+	ybfP	1	0	
+ecoli_k12:NC_000913.3:716946:-	speFL-potE	3	2	Arginine and proline metabolism;Glutathione metabolism
+ecoli_k12:NC_000913.3:721056:-	kdpFABCDE	6	0	
+ecoli_k12:NC_000913.3:729134:+	ybfA	1	0	
+ecoli_k12:NC_000913.3:729583:+	rhsC-ybfB	2	0	
+ecoli_k12:NC_000913.3:735650:+	ybfC	1	0	
+ecoli_k12:NC_000913.3:736445:+	ybfQ	1	0	
+ecoli_k12:NC_000913.3:738092:+	ybfD	1	0	
+ecoli_k12:NC_000913.3:739001:+	ybgA-phr	2	0	
+ecoli_k12:NC_000913.3:741075:-	dtpD	1	0	
+ecoli_k12:NC_000913.3:742827:+	ybgI-nei	5	1	Glutathione metabolism
+ecoli_k12:NC_000913.3:746723:-	abrB	1	0	
+ecoli_k12:NC_000913.3:747921:-	ybgDQPO	4	0	
+ecoli_k12:NC_000913.3:753185:-	gltA	1	2	Citrate cycle (TCA cycle);Glyoxylate and dicarboxylate metabolism
+ecoli_k12:NC_000913.3:754658:-	ybgUV	2	0	
+ecoli_k12:NC_000913.3:755177:+	sdhCDAB	4	4	Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism
+ecoli_k12:NC_000913.3:758706:+	sucABCD	4	3	Citrate cycle (TCA cycle);Other carbon fixation pathways;Propanoate metabolism
+ecoli_k12:NC_000913.3:765153:-	mngR	1	0	
+ecoli_k12:NC_000913.3:765984:+	mngAB	2	0	
+ecoli_k12:NC_000913.3:771458:+	cydA-ybgE	4	0	
+ecoli_k12:NC_000913.3:774752:+	ybgC-cpoB	7	0	
+ecoli_k12:NC_000913.3:782085:+	nadA-pnuC	2	1	Nicotinate and nicotinamide metabolism
+ecoli_k12:NC_000913.3:783882:-	zitB	1	0	
+ecoli_k12:NC_000913.3:784937:-	ybgS	1	0	
+ecoli_k12:NC_000913.3:785633:+	aroG	1	1	Phenylalanine, tyrosine and tryptophan biosynthesis
+ecoli_k12:NC_000913.3:786843:-	gpmA	1	3	Glycine, serine and threonine metabolism;Glycolysis / Gluconeogenesis;Methane metabolism
+ecoli_k12:NC_000913.3:787797:-	galETKM	4	3	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism
+ecoli_k12:NC_000913.3:792316:-	modEF	2	0	
+ecoli_k12:NC_000913.3:794773:+	acrZ	1	0	
+ecoli_k12:NC_000913.3:795089:+	modABC	3	0	
+ecoli_k12:NC_000913.3:797613:-	ybhA	1	5	Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:798586:+	pgl	1	1	Pentose phosphate pathway
+ecoli_k12:NC_000913.3:799622:-	ybhD	1	0	
+ecoli_k12:NC_000913.3:800759:+	ybhH	1	0	
+ecoli_k12:NC_000913.3:801887:+	ybhI	1	0	
+ecoli_k12:NC_000913.3:803503:+	ybhJ	1	0	
+ecoli_k12:NC_000913.3:805998:-	ybhC	1	0	
+ecoli_k12:NC_000913.3:807433:-	ybhB	1	0	
+ecoli_k12:NC_000913.3:807968:-	bioA	1	1	Biotin metabolism
+ecoli_k12:NC_000913.3:809344:+	bioBFCD	4	1	Biotin metabolism
+ecoli_k12:NC_000913.3:813526:+	uvrB	1	0	
+ecoli_k12:NC_000913.3:815739:-	ybhK	1	0	
+ecoli_k12:NC_000913.3:817044:+	moaABCDE	5	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:819884:+	ybhL	1	0	
+ecoli_k12:NC_000913.3:820793:+	ybhM	1	0	
+ecoli_k12:NC_000913.3:821542:-	ybhP-ybhN	3	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:824630:+	ybhQ	1	0	
+ecoli_k12:NC_000913.3:825002:-	cecR-ybhR	5	0	
+ecoli_k12:NC_000913.3:830872:+	rhlE	1	0	
+ecoli_k12:NC_000913.3:832468:-	ybiA	1	0	
+ecoli_k12:NC_000913.3:833070:+	dinG-ybiB	2	0	
+ecoli_k12:NC_000913.3:836351:+	hcxB	1	2	Tyrosine metabolism;Ubiquinone and other terpenoid-quinone biosynthesis
+ecoli_k12:NC_000913.3:837503:+	ybiE	1	0	
+ecoli_k12:NC_000913.3:837665:-	ybiIJ	2	0	
+ecoli_k12:NC_000913.3:838530:-	fiu-ybiX	2	0	
+ecoli_k12:NC_000913.3:841796:-	mcbA	1	0	
+ecoli_k12:NC_000913.3:842332:+	rlmF	1	0	
+ecoli_k12:NC_000913.3:843255:-	ybiO	1	0	
+ecoli_k12:NC_000913.3:845741:-	glnHPQ	3	0	
+ecoli_k12:NC_000913.3:848408:-	dps	1	0	
+ecoli_k12:NC_000913.3:849210:-	rhtA	1	0	
+ecoli_k12:NC_000913.3:850332:+	yliM	1	0	
+ecoli_k12:NC_000913.3:850450:+	ompX	1	0	
+ecoli_k12:NC_000913.3:851014:-	opgE	1	0	
+ecoli_k12:NC_000913.3:852725:-	mntS	2	0	
+ecoli_k12:NC_000913.3:853183:+	mntR-ybiR	2	0	
+ecoli_k12:NC_000913.3:854824:-	ldtB	1	0	
+ecoli_k12:NC_000913.3:855963:+	ybiT	1	0	
+ecoli_k12:NC_000913.3:857796:-	ybiU	1	0	
+ecoli_k12:NC_000913.3:859213:-	ybiV	1	0	
+ecoli_k12:NC_000913.3:860174:-	ybiYW	2	0	
+ecoli_k12:NC_000913.3:863642:+	fsaA	1	0	
+ecoli_k12:NC_000913.3:864380:-	moeAB	2	2	Folate biosynthesis;Thiamine metabolism
+ecoli_k12:NC_000913.3:866568:+	iaaA-gsiD	5	0	
+ecoli_k12:NC_000913.3:872979:+	pdeI-dgcI	2	0	
+ecoli_k12:NC_000913.3:876710:-	rimO	1	0	
+ecoli_k12:NC_000913.3:878248:+	bssR	1	0	
+ecoli_k12:NC_000913.3:878742:+	yliI	1	0	
+ecoli_k12:NC_000913.3:879854:-	gstB	1	0	
+ecoli_k12:NC_000913.3:880727:+	dacC	1	0	
+ecoli_k12:NC_000913.3:881976:-	deoR	1	0	
+ecoli_k12:NC_000913.3:882792:-	ybjG	1	2	Peptidoglycan biosynthesis;Teichoic acid biosynthesis
+ecoli_k12:NC_000913.3:883673:+	mdfA	1	0	
+ecoli_k12:NC_000913.3:884946:-	ybjH	1	0	
+ecoli_k12:NC_000913.3:885316:-	ybjJI	2	1	Riboflavin metabolism
+ecoli_k12:NC_000913.3:887423:+	rcdA	1	0	
+ecoli_k12:NC_000913.3:888134:-	ybjL	1	0	
+ecoli_k12:NC_000913.3:890089:+	ybjM	1	0	
+ecoli_k12:NC_000913.3:890496:-	grxA	1	1	Glutathione metabolism
+ecoli_k12:NC_000913.3:890913:+	ybjC-nfsA	2	0	
+ecoli_k12:NC_000913.3:891967:+	rimK	1	0	
+ecoli_k12:NC_000913.3:892957:+	ybjN	1	0	
+ecoli_k12:NC_000913.3:893784:+	potF	1	0	
+ecoli_k12:NC_000913.3:894991:+	potGHI	3	0	
+ecoli_k12:NC_000913.3:897989:+	ybjO-rlmC	2	0	
+ecoli_k12:NC_000913.3:899844:-	artJ	1	0	
+ecoli_k12:NC_000913.3:900866:-	artPIQM	4	0	
+ecoli_k12:NC_000913.3:903952:-	ybjP	1	0	
+ecoli_k12:NC_000913.3:904593:+	ybjQ-amiD	2	0	
+ecoli_k12:NC_000913.3:905740:-	ybjS	1	0	
+ecoli_k12:NC_000913.3:906852:-	poxB-ybjT	3	0	
+ecoli_k12:NC_000913.3:911182:-	hcp-hcr	2	0	
+ecoli_k12:NC_000913.3:913958:-	lysO	1	0	
+ecoli_k12:NC_000913.3:915352:-	aqpZ	1	0	
+ecoli_k12:NC_000913.3:916473:+	ybjD	1	0	
+ecoli_k12:NC_000913.3:918128:-	ybjX	1	0	
+ecoli_k12:NC_000913.3:919235:+	macAB	2	0	
+ecoli_k12:NC_000913.3:922366:-	cspD	1	0	
+ecoli_k12:NC_000913.3:922740:+	yljB	1	0	
+ecoli_k12:NC_000913.3:922913:+	clpSA	2	0	
+ecoli_k12:NC_000913.3:926225:-	infA	1	0	
+ecoli_k12:NC_000913.3:926728:-	cydD-aat	3	0	
+ecoli_k12:NC_000913.3:931085:-	trxB	1	0	
+ecoli_k12:NC_000913.3:932595:+	lrp	1	0	
+ecoli_k12:NC_000913.3:933224:+	ftsK	1	0	
+ecoli_k12:NC_000913.3:937372:+	lolA-rarA	2	0	
+ecoli_k12:NC_000913.3:939428:+	serS	1	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:940959:+	dmsABC	3	0	
+ecoli_k12:NC_000913.3:944931:-	ycaC	1	0	
+ecoli_k12:NC_000913.3:945871:+	ycaD	1	0	
+ecoli_k12:NC_000913.3:947229:+	ycaM	1	0	
+ecoli_k12:NC_000913.3:948660:-	ycaN	1	0	
+ecoli_k12:NC_000913.3:949668:+	ycaK	1	0	
+ecoli_k12:NC_000913.3:950340:-	focA-pflA	3	2	Butanoate metabolism;Pyruvate metabolism
+ecoli_k12:NC_000913.3:954872:-	ycaO	1	3	Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:956762:+	ycaP	1	0	
+ecoli_k12:NC_000913.3:957653:+	serC	1	1	Lysine biosynthesis
+ecoli_k12:NC_000913.3:958812:+	aroA	1	1	Phenylalanine, tyrosine and tryptophan biosynthesis
+ecoli_k12:NC_000913.3:960264:+	ycaL	1	0	
+ecoli_k12:NC_000913.3:961201:+	cmk	1	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:961995:+	rpsA	1	0	
+ecoli_k12:NC_000913.3:963828:+	ihfB	1	0	
+ecoli_k12:NC_000913.3:964320:+	ycaI-ycaQ	4	1	Lipopolysaccharide biosynthesis
+ecoli_k12:NC_000913.3:970673:+	ycaR-kdsB	2	2	Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars
+ecoli_k12:NC_000913.3:971752:+	ycbJ	1	0	
+ecoli_k12:NC_000913.3:972622:-	elyC	1	0	
+ecoli_k12:NC_000913.3:973537:+	cmoM-mukB	4	0	
+ecoli_k12:NC_000913.3:981047:+	ldtD-gloC	3	1	Pyruvate metabolism
+ecoli_k12:NC_000913.3:984519:-	aspC	1	3	Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Carbon fixation by Calvin cycle
+ecoli_k12:NC_000913.3:985894:-	ompF	1	0	
+ecoli_k12:NC_000913.3:987585:-	asnS	1	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:989154:-	pncB	1	1	Nicotinate and nicotinamide metabolism
+ecoli_k12:NC_000913.3:990622:+	pepN	1	0	
+ecoli_k12:NC_000913.3:993277:-	ssuEADCB	5	2	Riboflavin metabolism;Sulfur metabolism
+ecoli_k12:NC_000913.3:997868:+	elfA-ycbF	7	0	
+ecoli_k12:NC_000913.3:1004768:+	pyrD	1	1	Pyrimidine metabolism
+ecoli_k12:NC_000913.3:1005952:+	zapC	1	0	
+ecoli_k12:NC_000913.3:1006491:-	ycbX	1	0	
+ecoli_k12:NC_000913.3:1007844:+	rlmL-uup	2	0	
+ecoli_k12:NC_000913.3:1012001:+	pqiABC	3	0	
+ecoli_k12:NC_000913.3:1015715:+	rmf	1	0	
+ecoli_k12:NC_000913.3:1015952:-	fabA	1	1	Fatty acid biosynthesis
+ecoli_k12:NC_000913.3:1016539:-	ycbZ	1	0	
+ecoli_k12:NC_000913.3:1018485:+	matP	1	0	
+ecoli_k12:NC_000913.3:1019013:-	ompA	1	0	
+ecoli_k12:NC_000913.3:1020410:-	sulA	1	0	
+ecoli_k12:NC_000913.3:1021138:+	sxy	1	0	
+ecoli_k12:NC_000913.3:1021730:-	yccFS	2	0	
+ecoli_k12:NC_000913.3:1024471:+	helD	1	0	
+ecoli_k12:NC_000913.3:1026557:-	mgsA	1	1	Propanoate metabolism
+ecoli_k12:NC_000913.3:1027111:-	csgI	1	0	
+ecoli_k12:NC_000913.3:1027946:+	yccU	1	0	
+ecoli_k12:NC_000913.3:1028404:-	hspQ	1	0	
+ecoli_k12:NC_000913.3:1028779:-	rlmI	1	0	
+ecoli_k12:NC_000913.3:1030064:+	yccX	1	0	
+ecoli_k12:NC_000913.3:1030339:-	tusE	1	0	
+ecoli_k12:NC_000913.3:1030759:-	yccA	1	0	
+ecoli_k12:NC_000913.3:1032139:+	hyaABCDEF	6	0	
+ecoli_k12:NC_000913.3:1037740:+	appCBXA	4	0	
+ecoli_k12:NC_000913.3:1042030:-	gfcA-etk	7	0	
+ecoli_k12:NC_000913.3:1049833:+	insA4B4	2	0	
+ecoli_k12:NC_000913.3:1050963:-	cspH	1	0	
+ecoli_k12:NC_000913.3:1051461:+	cspG-gnsA	4	0	
+ecoli_k12:NC_000913.3:1052289:-	yccM	1	0	
+ecoli_k12:NC_000913.3:1053434:-	torS	1	0	
+ecoli_k12:NC_000913.3:1056261:+	torT	1	0	
+ecoli_k12:NC_000913.3:1057262:-	torR	1	0	
+ecoli_k12:NC_000913.3:1058084:+	torCAD	3	0	
+ecoli_k12:NC_000913.3:1062550:-	cbpAM	2	0	
+ecoli_k12:NC_000913.3:1064036:+	yccE	1	0	
+ecoli_k12:NC_000913.3:1065585:+	agp	1	0	
+ecoli_k12:NC_000913.3:1066864:-	wrbA-yccJ	2	0	
+ecoli_k12:NC_000913.3:1068081:+	ymdF	1	0	
+ecoli_k12:NC_000913.3:1068511:-	rutABCDEFG	7	4	Biosynthesis of type II polyketide products;Other carbon fixation pathways;Pyrimidine metabolism;Riboflavin metabolism
+ecoli_k12:NC_000913.3:1074242:+	rutR	1	0	
+ecoli_k12:NC_000913.3:1074920:-	putA	1	2	Alanine, aspartate and glutamate metabolism;Arginine and proline metabolism
+ecoli_k12:NC_000913.3:1079120:+	ymdG	1	0	
+ecoli_k12:NC_000913.3:1079305:+	putP	1	0	
+ecoli_k12:NC_000913.3:1082243:+	efeOB	2	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:1084992:+	phoH	1	0	
+ecoli_k12:NC_000913.3:1086106:-	pgaABCD	4	0	
+ecoli_k12:NC_000913.3:1092876:+	dgcT	1	0	
+ecoli_k12:NC_000913.3:1094275:-	insE4F4	2	0	
+ecoli_k12:NC_000913.3:1095843:+	ycdU	1	0	
+ecoli_k12:NC_000913.3:1097886:+	ghrA	1	1	Glyoxylate and dicarboxylate metabolism
+ecoli_k12:NC_000913.3:1098879:+	ycdXY	2	0	
+ecoli_k12:NC_000913.3:1100296:+	ycdZ	1	0	
+ecoli_k12:NC_000913.3:1100851:-	csgDEFG	4	0	
+ecoli_k12:NC_000913.3:1103951:+	csgBAC	3	0	
+ecoli_k12:NC_000913.3:1105414:+	ymdA	1	0	
+ecoli_k12:NC_000913.3:1105820:+	ymdB-clsC	2	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:1107784:-	opgC	1	0	
+ecoli_k12:NC_000913.3:1109335:+	opgGH	2	0	
+ecoli_k12:NC_000913.3:1113579:+	yceK	1	0	
+ecoli_k12:NC_000913.3:1113807:-	msyB	1	0	
+ecoli_k12:NC_000913.3:1114264:-	mdtG	1	0	
+ecoli_k12:NC_000913.3:1115662:-	lpxL	1	1	Lipopolysaccharide biosynthesis
+ecoli_k12:NC_000913.3:1116807:+	trhO	1	0	
+ecoli_k12:NC_000913.3:1117901:-	yceJI	2	0	
+ecoli_k12:NC_000913.3:1119307:-	solA-yceO	2	0	
+ecoli_k12:NC_000913.3:1120701:-	bssS	1	0	
+ecoli_k12:NC_000913.3:1121242:-	dinI	1	0	
+ecoli_k12:NC_000913.3:1121561:-	pyrC	1	1	Pyrimidine metabolism
+ecoli_k12:NC_000913.3:1122713:-	yceB	1	0	
+ecoli_k12:NC_000913.3:1123407:-	grxB	1	1	Glutathione metabolism
+ecoli_k12:NC_000913.3:1124118:-	mdtH	1	0	
+ecoli_k12:NC_000913.3:1125562:+	rimJ-yceM	3	0	
+ecoli_k12:NC_000913.3:1127839:+	murJ	1	0	
+ecoli_k12:NC_000913.3:1129414:-	flgAMN	3	0	
+ecoli_k12:NC_000913.3:1131018:+	flgBCDEFGHIJKL	12	0	
+ecoli_k12:NC_000913.3:1141182:-	rne	1	0	
+ecoli_k12:NC_000913.3:1144502:+	yceQ	1	0	
+ecoli_k12:NC_000913.3:1144940:+	rluC	1	0	
+ecoli_k12:NC_000913.3:1146011:-	yceF	1	0	
+ecoli_k12:NC_000913.3:1146794:+	yceD	1	0	
+ecoli_k12:NC_000913.3:1147367:+	rpmF	1	0	
+ecoli_k12:NC_000913.3:1147621:+	plsX-fabF	6	3	Fatty acid biosynthesis;Fatty acid metabolism;Mycolic acid biosynthesis
+ecoli_k12:NC_000913.3:1153300:+	pabC-ycfH	5	3	Folate biosynthesis;Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:1157869:+	ptsG	1	2	Amino sugar and nucleotide sugar metabolism;Glycolysis / Gluconeogenesis
+ecoli_k12:NC_000913.3:1159362:-	fhuE	1	0	
+ecoli_k12:NC_000913.3:1161885:+	hinT-ycfP	6	1	Thiamine metabolism
+ecoli_k12:NC_000913.3:1166085:+	ndh	1	0	
+ecoli_k12:NC_000913.3:1167599:+	ycfJ	1	0	
+ecoli_k12:NC_000913.3:1168200:-	comR	1	0	
+ecoli_k12:NC_000913.3:1169073:+	bhsA	2	0	
+ecoli_k12:NC_000913.3:1169412:-	ldtC	1	0	
+ecoli_k12:NC_000913.3:1170518:-	mfd	1	0	
+ecoli_k12:NC_000913.3:1174092:-	ycfT	1	0	
+ecoli_k12:NC_000913.3:1175427:+	lolC-cobB	6	2	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars
+ecoli_k12:NC_000913.3:1180479:-	ymfA-ycfZ	2	0	
+ecoli_k12:NC_000913.3:1181783:-	potABCD	4	0	
+ecoli_k12:NC_000913.3:1185844:+	pepT	1	0	
+ecoli_k12:NC_000913.3:1187119:-	roxA	1	0	
+ecoli_k12:NC_000913.3:1188316:-	phoPQ	2	0	
+ecoli_k12:NC_000913.3:1190616:-	mnmA-purB	3	3	Alanine, aspartate and glutamate metabolism;Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:1193827:-	rluE-nudJ	2	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:1195123:+	icd	1	2	Glutathione metabolism;Other carbon fixation pathways
+ecoli_k12:NC_000913.3:1196867:-	ymfED	2	0	
+ecoli_k12:NC_000913.3:1198695:+	lit	1	0	
+ecoli_k12:NC_000913.3:1199679:-	ymfH-intE	3	0	
+ecoli_k12:NC_000913.3:1201497:+	ymfI	1	0	
+ecoli_k12:NC_000913.3:1201776:-	ymfJ	1	0	
+ecoli_k12:NC_000913.3:1202259:-	ymfK	1	0	
+ecoli_k12:NC_000913.3:1203024:+	ymfT	1	0	
+ecoli_k12:NC_000913.3:1203268:+	ymfL-beeE	5	0	
+ecoli_k12:NC_000913.3:1206913:+	ymfQ-tfaP	3	0	
+ecoli_k12:NC_000913.3:1208517:-	tfaE	1	0	
+ecoli_k12:NC_000913.3:1209685:+	pinE	1	0	
+ecoli_k12:NC_000913.3:1210346:+	mcrA	1	0	
+ecoli_k12:NC_000913.3:1211680:-	iraM	1	0	
+ecoli_k12:NC_000913.3:1212260:-	ymgK	1	0	
+ecoli_k12:NC_000913.3:1212540:-	ymgL	1	0	
+ecoli_k12:NC_000913.3:1212703:-	ycgX	1	0	
+ecoli_k12:NC_000913.3:1213328:-	bluR	1	0	
+ecoli_k12:NC_000913.3:1214264:-	bluF	1	0	
+ecoli_k12:NC_000913.3:1215789:+	ycgZ-ariR	3	0	
+ecoli_k12:NC_000913.3:1216748:+	ymgC	1	0	
+ecoli_k12:NC_000913.3:1217328:+	pdeG	1	0	
+ecoli_k12:NC_000913.3:1218983:+	ymgF	1	0	
+ecoli_k12:NC_000913.3:1222305:-	ymgIGD	3	0	
+ecoli_k12:NC_000913.3:1223264:+	ymgJ	1	0	
+ecoli_k12:NC_000913.3:1224279:-	minCDE	3	0	
+ecoli_k12:NC_000913.3:1226600:+	ycgJ	1	0	
+ecoli_k12:NC_000913.3:1227071:-	pliG	1	0	
+ecoli_k12:NC_000913.3:1227368:+	ymgN	1	0	
+ecoli_k12:NC_000913.3:1227681:+	ycgL	1	0	
+ecoli_k12:NC_000913.3:1228079:+	ycgM	1	1	Pyruvate metabolism
+ecoli_k12:NC_000913.3:1228815:+	ycgN	1	0	
+ecoli_k12:NC_000913.3:1229483:-	hlyE	1	0	
+ecoli_k12:NC_000913.3:1230767:+	umuDC	2	0	
+ecoli_k12:NC_000913.3:1232500:-	dsbB	1	0	
+ecoli_k12:NC_000913.3:1233176:-	nhaB	1	0	
+ecoli_k12:NC_000913.3:1234938:+	fadR	1	0	
+ecoli_k12:NC_000913.3:1235709:-	ycgB	1	0	
+ecoli_k12:NC_000913.3:1237571:+	dadAX	2	1	D-Amino acid metabolism
+ecoli_k12:NC_000913.3:1240260:+	ymgM	1	0	
+ecoli_k12:NC_000913.3:1240335:-	cvrA	1	0	
+ecoli_k12:NC_000913.3:1242166:-	ldcA	1	0	
+ecoli_k12:NC_000913.3:1243180:+	emtA	1	0	
+ecoli_k12:NC_000913.3:1243793:-	ycgR	1	0	
+ecoli_k12:NC_000913.3:1244728:+	ymgE	1	0	
+ecoli_k12:NC_000913.3:1245160:+	ycgY	1	0	
+ecoli_k12:NC_000913.3:1245679:-	treA	1	1	Starch and sucrose metabolism
+ecoli_k12:NC_000913.3:1247696:-	dhaKLM	3	1	Glycerolipid metabolism
+ecoli_k12:NC_000913.3:1251066:+	dhaR	1	0	
+ecoli_k12:NC_000913.3:1253085:-	ycgV	1	0	
+ecoli_k12:NC_000913.3:1256721:-	ychF	1	0	
+ecoli_k12:NC_000913.3:1257929:-	pth	1	0	
+ecoli_k12:NC_000913.3:1258791:+	ychH	1	0	
+ecoli_k12:NC_000913.3:1259124:-	dauA	1	0	
+ecoli_k12:NC_000913.3:1260928:-	prs	1	2	Pentose phosphate pathway;Purine metabolism
+ecoli_k12:NC_000913.3:1262026:-	lolB-ispE	2	1	Terpenoid backbone biosynthesis
+ecoli_k12:NC_000913.3:1263714:+	hemA-kdsA	6	3	Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Porphyrin metabolism
+ecoli_k12:NC_000913.3:1269168:-	ldrA	1	0	
+ecoli_k12:NC_000913.3:1269703:-	ldrB	1	0	
+ecoli_k12:NC_000913.3:1270238:-	ldrC	1	0	
+ecoli_k12:NC_000913.3:1270749:-	chaA	1	0	
+ecoli_k12:NC_000913.3:1272119:+	chaBC	2	1	Glutathione metabolism
+ecoli_k12:NC_000913.3:1273246:-	ychN	1	0	
+ecoli_k12:NC_000913.3:1273784:+	ychO	1	0	
+ecoli_k12:NC_000913.3:1275179:-	narXL	2	0	
+ecoli_k12:NC_000913.3:1277957:+	narK	2	0	
+ecoli_k12:NC_000913.3:1279864:+	narGHJI	4	2	Nitrogen cycle;Nitrogen metabolism
+ecoli_k12:NC_000913.3:1286709:+	ychS	1	0	
+ecoli_k12:NC_000913.3:1287066:-	tpr	2	0	
+ecoli_k12:NC_000913.3:1287782:-	purU	1	2	Glyoxylate and dicarboxylate metabolism;One carbon pool by folate
+ecoli_k12:NC_000913.3:1288674:-	ychJ	1	0	
+ecoli_k12:NC_000913.3:1289245:+	rssAB	2	0	
+ecoli_k12:NC_000913.3:1291457:+	galU	1	8	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Galactose metabolism;Glycerolipid metabolism;Pentose and glucuronate interconversions;Starch and sucrose metabolism;Sulfoquinovose metabolism
+ecoli_k12:NC_000913.3:1292509:-	hns	1	0	
+ecoli_k12:NC_000913.3:1293527:+	tdk	1	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:1295446:-	adhE	1	3	Fatty acid degradation;Glycolysis / Gluconeogenesis;Pyruvate metabolism
+ecoli_k12:NC_000913.3:1298514:+	ychTE	2	0	
+ecoli_k12:NC_000913.3:1299567:+	insH21	1	0	
+ecoli_k12:NC_000913.3:1301182:+	oppABCDF	5	0	
+ecoli_k12:NC_000913.3:1306821:-	clsA-yciU	2	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:1308788:+	yciY	1	0	
+ecoli_k12:NC_000913.3:1309016:-	kch	1	0	
+ecoli_k12:NC_000913.3:1310569:-	yciI	1	0	
+ecoli_k12:NC_000913.3:1311089:+	tonB	1	0	
+ecoli_k12:NC_000913.3:1311848:-	yciA	1	0	
+ecoli_k12:NC_000913.3:1312351:-	yciCB	2	0	
+ecoli_k12:NC_000913.3:1314020:+	ompW	1	0	
+ecoli_k12:NC_000913.3:1314718:-	yciGFE	3	0	
+ecoli_k12:NC_000913.3:1316416:-	trpLEDCBA	6	4	Benzoxazinoid biosynthesis;Biosynthesis of various plant secondary metabolites;Phenazine biosynthesis;Phenylalanine, tyrosine and tryptophan biosynthesis
+ecoli_k12:NC_000913.3:1323220:+	rnm-yciQ	3	0	
+ecoli_k12:NC_000913.3:1326852:+	rluB	1	0	
+ecoli_k12:NC_000913.3:1327767:-	yciK-btuR	2	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:1329332:+	sohB	1	0	
+ecoli_k12:NC_000913.3:1330417:-	yciN	1	0	
+ecoli_k12:NC_000913.3:1331048:+	topA	1	0	
+ecoli_k12:NC_000913.3:1333855:+	cysB	1	0	
+ecoli_k12:NC_000913.3:1335148:+	ymiA-yciX	2	0	
+ecoli_k12:NC_000913.3:1335572:+	ymiC	1	0	
+ecoli_k12:NC_000913.3:1335831:+	acnA	1	0	
+ecoli_k12:NC_000913.3:1338570:-	ribA	1	2	Folate biosynthesis;Riboflavin metabolism
+ecoli_k12:NC_000913.3:1339330:+	pgpB-lapB	3	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:1341921:+	pyrF-yciH	2	1	Pyrimidine metabolism
+ecoli_k12:NC_000913.3:1343110:-	osmB	1	0	
+ecoli_k12:NC_000913.3:1343597:-	yciT	1	0	
+ecoli_k12:NC_000913.3:1344436:-	yciZ	1	0	
+ecoli_k12:NC_000913.3:1344647:+	ymiD	1	0	
+ecoli_k12:NC_000913.3:1344757:-	pdeR	1	0	
+ecoli_k12:NC_000913.3:1346796:+	ymiB	1	0	
+ecoli_k12:NC_000913.3:1346978:-	rnb	1	0	
+ecoli_k12:NC_000913.3:1348980:-	yciW	1	0	
+ecoli_k12:NC_000913.3:1350251:-	fabI	1	1	Fatty acid biosynthesis
+ecoli_k12:NC_000913.3:1351407:-	ycjD	1	0	
+ecoli_k12:NC_000913.3:1351828:-	sapABCDF	5	0	
+ecoli_k12:NC_000913.3:1357423:-	ymjA	1	0	
+ecoli_k12:NC_000913.3:1357802:-	ymjE-puuP	2	0	
+ecoli_k12:NC_000913.3:1359490:-	puuA	1	1	Arginine and proline metabolism
+ecoli_k12:NC_000913.3:1361120:+	puuDR	2	1	Arginine and proline metabolism
+ecoli_k12:NC_000913.3:1362743:+	puuCBE	3	4	Alanine, aspartate and glutamate metabolism;Arginine and proline metabolism;Butanoate metabolism;beta-Alanine metabolism
+ecoli_k12:NC_000913.3:1366935:-	pspF	1	0	
+ecoli_k12:NC_000913.3:1368079:+	pspABCDE	5	1	Sulfur metabolism
+ecoli_k12:NC_000913.3:1370216:+	ycjMNOPQRSTU	9	0	
+ecoli_k12:NC_000913.3:1381947:+	ompG	1	0	
+ecoli_k12:NC_000913.3:1382963:-	ycjW	1	0	
+ecoli_k12:NC_000913.3:1384117:+	ycjXF	2	0	
+ecoli_k12:NC_000913.3:1386720:+	tyrR	1	0	
+ecoli_k12:NC_000913.3:1388305:-	tpx	1	0	
+ecoli_k12:NC_000913.3:1388930:+	ycjG	1	0	
+ecoli_k12:NC_000913.3:1389870:-	mpaA	1	0	
+ecoli_k12:NC_000913.3:1390680:-	ycjY-ymjC	3	0	
+ecoli_k12:NC_000913.3:1391991:+	pgrR	1	0	
+ecoli_k12:NC_000913.3:1393227:+	mppA	1	0	
+ecoli_k12:NC_000913.3:1394891:-	ynaI	1	0	
+ecoli_k12:NC_000913.3:1396112:+	insH4	1	0	
+ecoli_k12:NC_000913.3:1397365:+	ynaJ	1	0	
+ecoli_k12:NC_000913.3:1397672:-	uspE	1	0	
+ecoli_k12:NC_000913.3:1398774:-	fnr	1	0	
+ecoli_k12:NC_000913.3:1399721:-	abgA-ogt	4	0	
+ecoli_k12:NC_000913.3:1404741:+	abgR	1	0	
+ecoli_k12:NC_000913.3:1405979:+	smrA	1	0	
+ecoli_k12:NC_000913.3:1406563:-	dgcM	1	0	
+ecoli_k12:NC_000913.3:1407989:+	ynaN-zntB	2	0	
+ecoli_k12:NC_000913.3:1409308:+	ynaL-dbpA	2	0	
+ecoli_k12:NC_000913.3:1411013:-	ttcA	1	0	
+ecoli_k12:NC_000913.3:1412000:-	xisR-intR	2	0	
+ecoli_k12:NC_000913.3:1413531:-	ralR-rcbA	2	0	
+ecoli_k12:NC_000913.3:1413984:-	recET	2	0	
+ecoli_k12:NC_000913.3:1417488:-	racC	1	0	
+ecoli_k12:NC_000913.3:1417838:-	kilR-ydaE	2	0	
+ecoli_k12:NC_000913.3:1418671:+	sieB	1	0	
+ecoli_k12:NC_000913.3:1419156:-	ydaGF	2	0	
+ecoli_k12:NC_000913.3:1419765:-	racR	1	0	
+ecoli_k12:NC_000913.3:1420365:+	ydaSTUVW	5	0	
+ecoli_k12:NC_000913.3:1423400:+	rzoR	1	0	
+ecoli_k12:NC_000913.3:1423782:+	trkG	1	0	
+ecoli_k12:NC_000913.3:1425377:+	ynaK-ydaY	2	0	
+ecoli_k12:NC_000913.3:1426454:+	ynaA-tfaR	4	0	
+ecoli_k12:NC_000913.3:1427746:-	insH5	1	0	
+ecoli_k12:NC_000913.3:1433084:-	pinR	1	0	
+ecoli_k12:NC_000913.3:1433991:-	ynaE	1	0	
+ecoli_k12:NC_000913.3:1434293:-	ynaM	1	0	
+ecoli_k12:NC_000913.3:1435185:-	uspF	1	0	
+ecoli_k12:NC_000913.3:1435760:-	ompN	1	0	
+ecoli_k12:NC_000913.3:1437260:-	ydbK	1	0	
+ecoli_k12:NC_000913.3:1441058:+	ydbJ	1	0	
+ecoli_k12:NC_000913.3:1441321:-	hslJ	1	0	
+ecoli_k12:NC_000913.3:1441854:-	ldhA	1	1	Pyruvate metabolism
+ecoli_k12:NC_000913.3:1443051:+	ydbH-ydbL	3	0	
+ecoli_k12:NC_000913.3:1446378:-	feaR	1	0	
+ecoli_k12:NC_000913.3:1447519:+	feaB	1	2	Phenylalanine metabolism;Styrene degradation
+ecoli_k12:NC_000913.3:1449076:-	tynA	1	1	Phenylalanine metabolism
+ecoli_k12:NC_000913.3:1451597:-	paaZ	1	0	
+ecoli_k12:NC_000913.3:1453927:+	paaABCDEFGHIJK	11	2	Benzoate degradation;Phenylalanine metabolism
+ecoli_k12:NC_000913.3:1463539:+	paaXY	2	0	
+ecoli_k12:NC_000913.3:1465165:-	ynbG	1	0	
+ecoli_k12:NC_000913.3:1465392:+	ydbA-insI2	2	0	
+ecoli_k12:NC_000913.3:1467921:-	insC2D2	2	0	
+ecoli_k12:NC_000913.3:1474221:+	pdxI	1	1	Vitamin B6 metabolism
+ecoli_k12:NC_000913.3:1475144:+	ydbD	1	0	
+ecoli_k12:NC_000913.3:1477621:+	ynbABCD	4	0	
+ecoli_k12:NC_000913.3:1482255:-	azoR	1	0	
+ecoli_k12:NC_000913.3:1483061:+	hrpA	1	0	
+ecoli_k12:NC_000913.3:1487235:+	ydcF	1	0	
+ecoli_k12:NC_000913.3:1488232:+	aldA	1	1	Glyoxylate and dicarboxylate metabolism
+ecoli_k12:NC_000913.3:1490902:+	cybB	1	0	
+ecoli_k12:NC_000913.3:1491677:+	ydcA-yncP	2	0	
+ecoli_k12:NC_000913.3:1491922:-	mokB-hokB	2	0	
+ecoli_k12:NC_000913.3:1492470:+	trg	1	0	
+ecoli_k12:NC_000913.3:1494148:-	ydcI	1	0	
+ecoli_k12:NC_000913.3:1495288:+	ydcJ	1	0	
+ecoli_k12:NC_000913.3:1496856:+	opgD	1	0	
+ecoli_k12:NC_000913.3:1498651:+	ydcH	1	0	
+ecoli_k12:NC_000913.3:1498938:+	rimL	1	0	
+ecoli_k12:NC_000913.3:1499469:-	ydcK	1	0	
+ecoli_k12:NC_000913.3:1500573:+	tehAB	2	0	
+ecoli_k12:NC_000913.3:1502457:+	ydcL	1	0	
+ecoli_k12:NC_000913.3:1503657:+	insQ	1	0	
+ecoli_k12:NC_000913.3:1504905:-	ydcO	1	0	
+ecoli_k12:NC_000913.3:1506172:+	sutR	1	0	
+ecoli_k12:NC_000913.3:1506781:+	rlhA	1	0	
+ecoli_k12:NC_000913.3:1508834:-	yncJ	1	0	
+ecoli_k12:NC_000913.3:1509286:+	hicA-ydcR	3	0	
+ecoli_k12:NC_000913.3:1511654:+	ydcS-patD	5	2	Arginine and proline metabolism;beta-Alanine metabolism
+ecoli_k12:NC_000913.3:1517099:-	yncL	1	0	
+ecoli_k12:NC_000913.3:1517389:+	ortT	1	0	
+ecoli_k12:NC_000913.3:1517648:+	ydcY	1	0	
+ecoli_k12:NC_000913.3:1517882:-	mnaT-ydcZ	2	0	
+ecoli_k12:NC_000913.3:1519027:+	curA	1	0	
+ecoli_k12:NC_000913.3:1520262:+	mcbR	1	0	
+ecoli_k12:NC_000913.3:1520963:-	pqqU	1	0	
+ecoli_k12:NC_000913.3:1523307:+	yncE	1	0	
+ecoli_k12:NC_000913.3:1524481:-	ansP	1	0	
+ecoli_k12:NC_000913.3:1526247:+	yncG	1	0	
+ecoli_k12:NC_000913.3:1526940:+	yncH	1	0	
+ecoli_k12:NC_000913.3:1529922:+	ydcD	1	0	
+ecoli_k12:NC_000913.3:1530319:-	yncO	1	0	
+ecoli_k12:NC_000913.3:1531816:+	ydcC	1	0	
+ecoli_k12:NC_000913.3:1533052:+	pptA	1	0	
+ecoli_k12:NC_000913.3:1533282:-	yddH	1	0	
+ecoli_k12:NC_000913.3:1534024:+	nhoA	1	0	
+ecoli_k12:NC_000913.3:1534965:-	yddE	1	0	
+ecoli_k12:NC_000913.3:1535937:-	narUZYWV	5	2	Nitrogen cycle;Nitrogen metabolism
+ecoli_k12:NC_000913.3:1544758:-	yddLK	2	0	
+ecoli_k12:NC_000913.3:1546288:-	yddG	1	0	
+ecoli_k12:NC_000913.3:1547401:+	fdnGHI	3	0	
+ecoli_k12:NC_000913.3:1552398:-	yddM	1	0	
+ecoli_k12:NC_000913.3:1552828:-	adhP	1	3	Fatty acid degradation;Glycolysis / Gluconeogenesis;Pyruvate metabolism
+ecoli_k12:NC_000913.3:1553972:-	maeA	1	2	Carbon fixation by Calvin cycle;Pyruvate metabolism
+ecoli_k12:NC_000913.3:1555826:-	sra	1	0	
+ecoli_k12:NC_000913.3:1556065:-	bdm	1	0	
+ecoli_k12:NC_000913.3:1556625:+	osmC	1	0	
+ecoli_k12:NC_000913.3:1557112:-	ddpXABCDF	6	0	
+ecoli_k12:NC_000913.3:1563334:-	yddY-dosP	3	0	
+ecoli_k12:NC_000913.3:1567504:-	digH	1	0	
+ecoli_k12:NC_000913.3:1568954:-	gadBC	2	2	Alanine, aspartate and glutamate metabolism;Butanoate metabolism
+ecoli_k12:NC_000913.3:1572407:-	pqqL	1	0	
+ecoli_k12:NC_000913.3:1575247:-	yddAB	2	0	
+ecoli_k12:NC_000913.3:1579545:+	yneP	1	0	
+ecoli_k12:NC_000913.3:1579633:-	ydeM	1	0	
+ecoli_k12:NC_000913.3:1580842:-	ydeN	1	0	
+ecoli_k12:NC_000913.3:1582926:-	ydeO	1	0	
+ecoli_k12:NC_000913.3:1583762:-	safA	1	0	
+ecoli_k12:NC_000913.3:1584207:-	ydeP	1	0	
+ecoli_k12:NC_000913.3:1586820:-	ydeTSRQ	4	0	
+ecoli_k12:NC_000913.3:1590854:-	hipBA	2	0	
+ecoli_k12:NC_000913.3:1598617:-	lsrRK	2	0	
+ecoli_k12:NC_000913.3:1601490:+	lsrACDBFG	6	0	
+ecoli_k12:NC_000913.3:1607346:+	tam	1	0	
+ecoli_k12:NC_000913.3:1608108:-	yneE	1	0	
+ecoli_k12:NC_000913.3:1609229:-	uxaB	1	1	Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:1610907:-	dgcF	1	0	
+ecoli_k12:NC_000913.3:1611966:-	glsB-yneG	2	2	Alanine, aspartate and glutamate metabolism;Arginine biosynthesis
+ecoli_k12:NC_000913.3:1613315:-	sad	1	0	
+ecoli_k12:NC_000913.3:1614804:+	ptrR	1	0	
+ecoli_k12:NC_000913.3:1615763:+	yneK	1	0	
+ecoli_k12:NC_000913.3:1617028:+	ydeA	1	0	
+ecoli_k12:NC_000913.3:1618243:-	marC	1	0	
+ecoli_k12:NC_000913.3:1619120:+	marRAB	3	0	
+ecoli_k12:NC_000913.3:1620238:-	eamA	1	0	
+ecoli_k12:NC_000913.3:1621332:+	ydeE	1	0	
+ecoli_k12:NC_000913.3:1622646:+	mgtST	2	0	
+ecoli_k12:NC_000913.3:1622960:-	dgcZ	1	0	
+ecoli_k12:NC_000913.3:1624105:-	ydeI	1	0	
+ecoli_k12:NC_000913.3:1624773:+	ydeJ	1	0	
+ecoli_k12:NC_000913.3:1625335:-	dcp	1	0	
+ecoli_k12:NC_000913.3:1627517:+	ydfG	1	2	Other carbon fixation pathways;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:1628352:+	rspR	1	0	
+ecoli_k12:NC_000913.3:1629215:+	ydfZ	1	0	
+ecoli_k12:NC_000913.3:1629453:-	ydfI	1	0	
+ecoli_k12:NC_000913.3:1631002:-	ydfJ	1	0	
+ecoli_k12:NC_000913.3:1632890:+	ynfT	1	0	
+ecoli_k12:NC_000913.3:1633072:+	ydfK	1	0	
+ecoli_k12:NC_000913.3:1633622:+	pinQ	1	0	
+ecoli_k12:NC_000913.3:1634310:-	nohA-tfaQ	3	0	
+ecoli_k12:NC_000913.3:1636756:+	ynfO-ydfO	2	0	
+ecoli_k12:NC_000913.3:1637609:-	gnsB	1	0	
+ecoli_k12:NC_000913.3:1637954:-	ynfN	1	0	
+ecoli_k12:NC_000913.3:1638188:-	cspI-ynfR	3	0	
+ecoli_k12:NC_000913.3:1639030:-	essQ-rzoQ	5	0	
+ecoli_k12:NC_000913.3:1640805:+	ynfU	1	0	
+ecoli_k12:NC_000913.3:1641339:-	cspB	1	0	
+ecoli_k12:NC_000913.3:1641855:+	cspF	1	0	
+ecoli_k12:NC_000913.3:1642122:+	ynfS	1	0	
+ecoli_k12:NC_000913.3:1642489:-	ydfUT	2	0	
+ecoli_k12:NC_000913.3:1644651:-	rem	1	0	
+ecoli_k12:NC_000913.3:1645119:-	hokD	1	0	
+ecoli_k12:NC_000913.3:1645346:-	relBE	2	0	
+ecoli_k12:NC_000913.3:1645897:+	ydfV	1	0	
+ecoli_k12:NC_000913.3:1646405:+	flxA	1	0	
+ecoli_k12:NC_000913.3:1647174:-	dicC-ydfW	3	0	
+ecoli_k12:NC_000913.3:1647934:+	dicA	1	0	
+ecoli_k12:NC_000913.3:1648508:+	ydfABC	3	0	
+ecoli_k12:NC_000913.3:1649609:+	dicB-ydfD	2	0	
+ecoli_k12:NC_000913.3:1652728:-	ynfP	1	0	
+ecoli_k12:NC_000913.3:1652896:-	rspAB	2	0	
+ecoli_k12:NC_000913.3:1655347:-	ynfA	1	0	
+ecoli_k12:NC_000913.3:1655808:+	ynfB-speG	2	0	
+ecoli_k12:NC_000913.3:1656747:-	ynfC	1	0	
+ecoli_k12:NC_000913.3:1657565:+	ynfD	1	0	
+ecoli_k12:NC_000913.3:1658069:+	ynfEFGH	4	0	
+ecoli_k12:NC_000913.3:1664506:+	dmsD	1	0	
+ecoli_k12:NC_000913.3:1665315:+	clcB	1	0	
+ecoli_k12:NC_000913.3:1666524:-	bidA	1	1	Biotin metabolism
+ecoli_k12:NC_000913.3:1667344:-	mlc	1	0	
+ecoli_k12:NC_000913.3:1668699:-	ynfL	1	0	
+ecoli_k12:NC_000913.3:1669699:+	ynfM	1	0	
+ecoli_k12:NC_000913.3:1671376:+	asr	1	0	
+ecoli_k12:NC_000913.3:1671777:+	ydgU	1	0	
+ecoli_k12:NC_000913.3:1671960:+	ydgD	1	0	
+ecoli_k12:NC_000913.3:1672820:-	mdtJI	2	0	
+ecoli_k12:NC_000913.3:1673608:-	mdtU	1	0	
+ecoli_k12:NC_000913.3:1673913:+	tqsA	1	0	
+ecoli_k12:NC_000913.3:1674972:-	pntAB	2	0	
+ecoli_k12:NC_000913.3:1678427:+	ydgH-folM	3	2	Folate biosynthesis;One carbon pool by folate
+ecoli_k12:NC_000913.3:1681695:-	ydgC	1	0	
+ecoli_k12:NC_000913.3:1682159:+	rstAB	2	0	
+ecoli_k12:NC_000913.3:1684259:+	tus	1	0	
+ecoli_k12:NC_000913.3:1685185:-	fumC	1	3	Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism
+ecoli_k12:NC_000913.3:1686731:-	fumA	1	3	Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism
+ecoli_k12:NC_000913.3:1688576:+	manA-ydgA	2	3	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:1691586:-	uidABC	3	2	Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:1696462:-	uidR	1	0	
+ecoli_k12:NC_000913.3:1697273:-	hdhA	1	0	
+ecoli_k12:NC_000913.3:1698152:-	malI	1	0	
+ecoli_k12:NC_000913.3:1699355:+	malXY	2	3	Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;One carbon pool by folate
+ecoli_k12:NC_000913.3:1702233:+	add	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:1703268:-	ydgJ	1	0	
+ecoli_k12:NC_000913.3:1704551:+	blr	1	0	
+ecoli_k12:NC_000913.3:1704949:+	cnu	1	0	
+ecoli_k12:NC_000913.3:1705250:+	ydgK	1	0	
+ecoli_k12:NC_000913.3:1705767:+	rsxA-nth	7	0	
+ecoli_k12:NC_000913.3:1712769:+	dtpA	1	0	
+ecoli_k12:NC_000913.3:1714377:+	gstA	1	1	Glutathione metabolism
+ecoli_k12:NC_000913.3:1715026:-	pdxY	1	1	Vitamin B6 metabolism
+ecoli_k12:NC_000913.3:1715948:-	tyrS	1	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:1717351:-	pdxH	1	1	Vitamin B6 metabolism
+ecoli_k12:NC_000913.3:1718066:-	mliC	1	0	
+ecoli_k12:NC_000913.3:1718493:-	anmK	1	0	
+ecoli_k12:NC_000913.3:1719876:+	slyB	1	0	
+ecoli_k12:NC_000913.3:1720390:-	slyA	1	0	
+ecoli_k12:NC_000913.3:1721025:+	ydhIJK	3	0	
+ecoli_k12:NC_000913.3:1724134:-	sodC	1	0	
+ecoli_k12:NC_000913.3:1724736:-	ydhF	1	0	
+ecoli_k12:NC_000913.3:1725681:-	ydhL	1	0	
+ecoli_k12:NC_000913.3:1726023:+	nemRA	2	0	
+ecoli_k12:NC_000913.3:1727837:+	gloA	1	1	Pyruvate metabolism
+ecoli_k12:NC_000913.3:1728347:+	rnt	1	0	
+ecoli_k12:NC_000913.3:1729087:+	lhr	1	0	
+ecoli_k12:NC_000913.3:1733754:-	grxD	1	0	
+ecoli_k12:NC_000913.3:1734435:+	mepH	1	0	
+ecoli_k12:NC_000913.3:1735378:+	sodB	1	0	
+ecoli_k12:NC_000913.3:1736121:-	ydhP	1	0	
+ecoli_k12:NC_000913.3:1737456:-	cydH	1	0	
+ecoli_k12:NC_000913.3:1737844:+	purR	1	0	
+ecoli_k12:NC_000913.3:1738866:-	punR	1	0	
+ecoli_k12:NC_000913.3:1739911:+	punC	1	0	
+ecoli_k12:NC_000913.3:1741413:+	cfa	1	0	
+ecoli_k12:NC_000913.3:1742601:-	ribC	1	1	Riboflavin metabolism
+ecoli_k12:NC_000913.3:1743457:+	mdtK	1	0	
+ecoli_k12:NC_000913.3:1744871:-	ydhQ	1	0	
+ecoli_k12:NC_000913.3:1746700:+	ydhR	1	0	
+ecoli_k12:NC_000913.3:1747131:+	ydhS	1	0	
+ecoli_k12:NC_000913.3:1748747:-	ydhXUT	3	0	
+ecoli_k12:NC_000913.3:1751077:-	ydhYVW	3	0	
+ecoli_k12:NC_000913.3:1754932:-	fumD	1	3	Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism
+ecoli_k12:NC_000913.3:1755496:+	ynhH-pykF	2	2	Glycolysis / Gluconeogenesis;Pyruvate metabolism
+ecoli_k12:NC_000913.3:1757421:+	lpp	1	0	
+ecoli_k12:NC_000913.3:1757721:-	ldtE	1	0	
+ecoli_k12:NC_000913.3:1758874:-	sufABCDSE	6	0	
+ecoli_k12:NC_000913.3:1764934:-	ydiH	1	0	
+ecoli_k12:NC_000913.3:1765222:-	ydiJ-menI	2	1	Ubiquinone and other terpenoid-quinone biosynthesis
+ecoli_k12:NC_000913.3:1769074:+	ydiK	1	0	
+ecoli_k12:NC_000913.3:1770615:+	ydiL	1	0	
+ecoli_k12:NC_000913.3:1771071:+	ydiM	1	0	
+ecoli_k12:NC_000913.3:1772512:+	ydiN-aroD	3	1	Phenylalanine, tyrosine and tryptophan biosynthesis
+ecoli_k12:NC_000913.3:1775587:+	ydiFO	2	1	Lysine degradation
+ecoli_k12:NC_000913.3:1778390:-	ydiP	1	0	
+ecoli_k12:NC_000913.3:1779617:+	ydiQ-fadK	5	0	
+ecoli_k12:NC_000913.3:1784734:-	ppsA	1	4	Glycolysis / Gluconeogenesis;Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism
+ecoli_k12:NC_000913.3:1787445:+	ppsR	1	0	
+ecoli_k12:NC_000913.3:1788435:+	aroH	1	1	Phenylalanine, tyrosine and tryptophan biosynthesis
+ecoli_k12:NC_000913.3:1789613:+	ydiE	1	0	
+ecoli_k12:NC_000913.3:1789808:-	selO	1	0	
+ecoli_k12:NC_000913.3:1791307:-	rflP	1	0	
+ecoli_k12:NC_000913.3:1792267:-	nlpC	1	0	
+ecoli_k12:NC_000913.3:1792809:-	btuCED	3	1	Glutathione metabolism
+ecoli_k12:NC_000913.3:1795253:-	pheM-ihfA	4	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:1799393:-	rpmI-rplT	2	0	
+ecoli_k12:NC_000913.3:1800096:-	thrS-infC	2	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:1805165:+	yniD	1	0	
+ecoli_k12:NC_000913.3:1805325:-	ydiY	1	0	
+ecoli_k12:NC_000913.3:1806370:+	pfkB	1	4	Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:1807400:+	ydiZ	1	0	
+ecoli_k12:NC_000913.3:1807796:+	yniA	1	0	
+ecoli_k12:NC_000913.3:1808697:-	yniB	1	0	
+ecoli_k12:NC_000913.3:1809380:+	hxpB	1	1	Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:1810211:+	ydjM	1	0	
+ecoli_k12:NC_000913.3:1810934:+	tcyP	1	0	
+ecoli_k12:NC_000913.3:1812329:-	ydjO	1	0	
+ecoli_k12:NC_000913.3:1813421:-	cedA	1	0	
+ecoli_k12:NC_000913.3:1813867:+	katE	1	1	Glyoxylate and dicarboxylate metabolism
+ecoli_k12:NC_000913.3:1816386:-	chbBCARFG	6	1	Starch and sucrose metabolism
+ecoli_k12:NC_000913.3:1821918:-	osmE	1	0	
+ecoli_k12:NC_000913.3:1822458:+	nadE	1	1	Nicotinate and nicotinamide metabolism
+ecoli_k12:NC_000913.3:1823515:+	cho	1	0	
+ecoli_k12:NC_000913.3:1824362:-	ves	1	0	
+ecoli_k12:NC_000913.3:1825140:-	spy	1	0	
+ecoli_k12:NC_000913.3:1825955:-	astCADBE	5	2	Arginine and proline metabolism;Arginine biosynthesis
+ecoli_k12:NC_000913.3:1832428:+	xthA	1	0	
+ecoli_k12:NC_000913.3:1833401:+	ydjX-ynjD	7	0	
+ecoli_k12:NC_000913.3:1839467:+	ynjE	1	0	
+ecoli_k12:NC_000913.3:1840783:-	ynjF	1	0	
+ecoli_k12:NC_000913.3:1841490:+	nudG	1	0	
+ecoli_k12:NC_000913.3:1841863:-	ynjH	1	0	
+ecoli_k12:NC_000913.3:1842371:+	gdhA	1	3	Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Nitrogen metabolism
+ecoli_k12:NC_000913.3:1843831:-	ynjI	1	0	
+ecoli_k12:NC_000913.3:1844999:-	selD-topB	2	1	Selenocompound metabolism
+ecoli_k12:NC_000913.3:1848125:-	ydjA	1	0	
+ecoli_k12:NC_000913.3:1848837:+	sppA-pncA	3	3	Alanine, aspartate and glutamate metabolism;Cyanoamino acid metabolism;Nicotinate and nicotinamide metabolism
+ecoli_k12:NC_000913.3:1852621:-	ydjE	1	0	
+ecoli_k12:NC_000913.3:1854096:-	ydjF	1	0	
+ecoli_k12:NC_000913.3:1854991:-	ydjLKJIHG	6	0	
+ecoli_k12:NC_000913.3:1861702:-	msrB-yeaC	2	0	
+ecoli_k12:NC_000913.3:1862771:+	gapA	1	2	Carbon fixation by Calvin cycle;Glycolysis / Gluconeogenesis
+ecoli_k12:NC_000913.3:1863850:+	yeaD	1	0	
+ecoli_k12:NC_000913.3:1864782:-	yeaE	1	2	Galactose metabolism;Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:1865726:-	mipA	1	0	
+ecoli_k12:NC_000913.3:1866908:+	yeaG	1	0	
+ecoli_k12:NC_000913.3:1868955:+	yeaH	1	0	
+ecoli_k12:NC_000913.3:1870385:+	cdgI	1	0	
+ecoli_k12:NC_000913.3:1872041:+	dgcJ	1	0	
+ecoli_k12:NC_000913.3:1873574:+	yeaK	1	0	
+ecoli_k12:NC_000913.3:1874078:-	yoaI	1	0	
+ecoli_k12:NC_000913.3:1874352:+	yeaL	1	0	
+ecoli_k12:NC_000913.3:1874755:-	nimR	1	0	
+ecoli_k12:NC_000913.3:1875673:+	nimT	1	0	
+ecoli_k12:NC_000913.3:1876909:+	yeaO	1	0	
+ecoli_k12:NC_000913.3:1877278:-	yoaF	1	0	
+ecoli_k12:NC_000913.3:1877715:+	dgcP-yoaJ	3	0	
+ecoli_k12:NC_000913.3:1879007:-	yeaQ	1	0	
+ecoli_k12:NC_000913.3:1879403:-	yeaR-yoaG	2	0	
+ecoli_k12:NC_000913.3:1880121:-	leuE	1	0	
+ecoli_k12:NC_000913.3:1880886:-	dmlR	1	0	
+ecoli_k12:NC_000913.3:1881912:+	dmlA	1	1	Butanoate metabolism
+ecoli_k12:NC_000913.3:1883188:+	yeaVWX	3	0	
+ecoli_k12:NC_000913.3:1886864:-	rnd	1	0	
+ecoli_k12:NC_000913.3:1888061:-	fadD	1	1	Fatty acid biosynthesis
+ecoli_k12:NC_000913.3:1889951:-	yoaA-yeaY	3	0	
+ecoli_k12:NC_000913.3:1893367:+	yoaB	1	0	
+ecoli_k12:NC_000913.3:1894133:+	yoaC	1	0	
+ecoli_k12:NC_000913.3:1894552:-	yoaH	1	0	
+ecoli_k12:NC_000913.3:1894805:+	pabB-nudL	2	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:1896932:+	sdaA	1	1	Glycine, serine and threonine metabolism
+ecoli_k12:NC_000913.3:1898427:+	pdeD	1	0	
+ecoli_k12:NC_000913.3:1900029:-	yoaLE	2	0	
+ecoli_k12:NC_000913.3:1902048:+	manXYZ	3	2	Amino sugar and nucleotide sugar metabolism;Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:1904801:+	yobD	1	0	
+ecoli_k12:NC_000913.3:1905688:+	mntP	1	0	
+ecoli_k12:NC_000913.3:1906251:-	rlmA	1	0	
+ecoli_k12:NC_000913.3:1907226:-	yobF-cspC	2	0	
+ecoli_k12:NC_000913.3:1908261:-	yebO	1	0	
+ecoli_k12:NC_000913.3:1908623:-	mgrB	1	0	
+ecoli_k12:NC_000913.3:1908925:+	yobH	1	0	
+ecoli_k12:NC_000913.3:1909308:-	kdgR	1	0	
+ecoli_k12:NC_000913.3:1910276:+	yebQ	1	0	
+ecoli_k12:NC_000913.3:1911695:-	htpX	1	0	
+ecoli_k12:NC_000913.3:1912768:-	proQ-prc	2	0	
+ecoli_k12:NC_000913.3:1915631:-	msrC	1	0	
+ecoli_k12:NC_000913.3:1916258:+	letAB	2	0	
+ecoli_k12:NC_000913.3:1920223:+	rsmF	1	0	
+ecoli_k12:NC_000913.3:1921780:+	yebVW	2	0	
+ecoli_k12:NC_000913.3:1922313:-	pphA	1	0	
+ecoli_k12:NC_000913.3:1923365:-	yobA-yebY	3	0	
+ecoli_k12:NC_000913.3:1925108:+	holE	1	0	
+ecoli_k12:NC_000913.3:1925440:+	yobB-exoX	2	0	
+ecoli_k12:NC_000913.3:1926779:-	ptrB	1	0	
+ecoli_k12:NC_000913.3:1929048:-	yebE	1	0	
+ecoli_k12:NC_000913.3:1930034:-	yebF	1	0	
+ecoli_k12:NC_000913.3:1930457:-	yebG	1	0	
+ecoli_k12:NC_000913.3:1930881:+	purT	1	4	Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism;Taurine and hypotaurine metabolism
+ecoli_k12:NC_000913.3:1932115:-	edd-eda	2	2	Pentose phosphate pathway;Pyruvate metabolism
+ecoli_k12:NC_000913.3:1934839:-	zwf	1	0	
+ecoli_k12:NC_000913.3:1936652:+	yebK	1	0	
+ecoli_k12:NC_000913.3:1937649:+	pykA	1	2	Glycolysis / Gluconeogenesis;Pyruvate metabolism
+ecoli_k12:NC_000913.3:1939222:-	znuA-lpxM	3	1	Lipopolysaccharide biosynthesis
+ecoli_k12:NC_000913.3:1942662:+	znuCB	2	0	
+ecoli_k12:NC_000913.3:1944346:-	ruvAB	2	0	
+ecoli_k12:NC_000913.3:1946115:-	yobI	1	0	
+ecoli_k12:NC_000913.3:1946251:+	yebB	1	0	
+ecoli_k12:NC_000913.3:1946855:-	nudB-ruvC	3	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:1948750:-	aspS	1	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:1950832:+	yecDE	2	0	
+ecoli_k12:NC_000913.3:1952266:+	yecN-cmoB	3	0	
+ecoli_k12:NC_000913.3:1954578:-	torYZ	2	0	
+ecoli_k12:NC_000913.3:1958441:-	yecM-cutC	3	0	
+ecoli_k12:NC_000913.3:1960062:+	argS	1	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:1961837:-	yecV	1	0	
+ecoli_k12:NC_000913.3:1961972:+	yecT	1	0	
+ecoli_k12:NC_000913.3:1962580:-	flhBAE	3	0	
+ecoli_k12:NC_000913.3:1966393:-	motA-cheZ	11	0	
+ecoli_k12:NC_000913.3:1977208:-	flhDC	3	0	
+ecoli_k12:NC_000913.3:1978518:-	insA5B5	2	0	
+ecoli_k12:NC_000913.3:1979753:+	uspC	1	0	
+ecoli_k12:NC_000913.3:1980188:-	otsBA	2	1	Starch and sucrose metabolism
+ecoli_k12:NC_000913.3:1982554:-	araFGH	3	0	
+ecoli_k12:NC_000913.3:1986925:+	ftnB	1	0	
+ecoli_k12:NC_000913.3:1987507:-	yecJ	1	0	
+ecoli_k12:NC_000913.3:1987843:-	azuC	2	0	
+ecoli_k12:NC_000913.3:1988222:+	yecR	1	0	
+ecoli_k12:NC_000913.3:1988716:+	ftnA	1	0	
+ecoli_k12:NC_000913.3:1989251:-	yecH	1	0	
+ecoli_k12:NC_000913.3:1989681:+	tyrP	1	0	
+ecoli_k12:NC_000913.3:1990954:-	yecA	1	0	
+ecoli_k12:NC_000913.3:1992269:-	pgsA	1	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:1992874:-	uvrYC	2	0	
+ecoli_k12:NC_000913.3:1995655:+	yecUF	2	0	
+ecoli_k12:NC_000913.3:1996110:-	sdiA	1	0	
+ecoli_k12:NC_000913.3:1997062:-	dcyD-tcyN	3	2	Cysteine and methionine metabolism;D-Amino acid metabolism
+ecoli_k12:NC_000913.3:1999585:-	tcyJ	1	0	
+ecoli_k12:NC_000913.3:2000473:-	fliAZ	2	0	
+ecoli_k12:NC_000913.3:2002110:-	fliC	1	0	
+ecoli_k12:NC_000913.3:2003872:+	fliDST	3	0	
+ecoli_k12:NC_000913.3:2006156:+	amyA	1	0	
+ecoli_k12:NC_000913.3:2007677:-	yedD	1	0	
+ecoli_k12:NC_000913.3:2008277:+	yedEF	2	0	
+ecoli_k12:NC_000913.3:2009821:+	yedK	1	0	
+ecoli_k12:NC_000913.3:2010600:+	yedL	1	0	
+ecoli_k12:NC_000913.3:2012700:-	fliE	1	0	
+ecoli_k12:NC_000913.3:2013229:+	fliFGHIJKLMNOPQR	13	0	
+ecoli_k12:NC_000913.3:2023968:+	rcsA	1	0	
+ecoli_k12:NC_000913.3:2024635:-	dsrB	1	0	
+ecoli_k12:NC_000913.3:2024986:+	yodD	1	0	
+ecoli_k12:NC_000913.3:2025511:+	yedP	1	0	
+ecoli_k12:NC_000913.3:2026323:-	dgcQ	1	0	
+ecoli_k12:NC_000913.3:2028188:-	yodC	1	0	
+ecoli_k12:NC_000913.3:2028449:-	yedI	1	0	
+ecoli_k12:NC_000913.3:2029539:+	yedA	1	0	
+ecoli_k12:NC_000913.3:2030448:-	dcm-vsr	2	0	
+ecoli_k12:NC_000913.3:2032384:-	drpB-yedJ	2	0	
+ecoli_k12:NC_000913.3:2035835:+	hchA	1	0	
+ecoli_k12:NC_000913.3:2036794:-	hprRS	2	0	
+ecoli_k12:NC_000913.3:2038956:+	hiuH	1	1	Purine metabolism
+ecoli_k12:NC_000913.3:2039478:+	msrPQ	2	0	
+ecoli_k12:NC_000913.3:2041375:+	zinT	1	0	
+ecoli_k12:NC_000913.3:2042368:+	yodB	1	0	
+ecoli_k12:NC_000913.3:2043651:+	mtfA	1	0	
+ecoli_k12:NC_000913.3:2044995:+	yeeJ	1	0	
+ecoli_k12:NC_000913.3:2053643:+	shiA	1	0	
+ecoli_k12:NC_000913.3:2055061:+	amn	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:2056858:+	yeeN	1	0	
+ecoli_k12:NC_000913.3:2058203:-	yeeO	1	0	
+ecoli_k12:NC_000913.3:2059964:-	cbl	1	0	
+ecoli_k12:NC_000913.3:2061016:-	nac	1	0	
+ecoli_k12:NC_000913.3:2062391:-	ldtA	1	0	
+ecoli_k12:NC_000913.3:2063388:-	cobUST	3	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:2066305:-	insH6	1	0	
+ecoli_k12:NC_000913.3:2068635:+	yoeA	1	0	
+ecoli_k12:NC_000913.3:2068952:-	insC3D3	2	0	
+ecoli_k12:NC_000913.3:2071539:+	flu	1	0	
+ecoli_k12:NC_000913.3:2074779:+	yeeRST	3	0	
+ecoli_k12:NC_000913.3:2077112:+	cbeA-yeeW	3	0	
+ecoli_k12:NC_000913.3:2078575:+	yoeF	1	0	
+ecoli_k12:NC_000913.3:2079032:-	tmaR	1	0	
+ecoli_k12:NC_000913.3:2079427:-	yoeJ	1	0	
+ecoli_k12:NC_000913.3:2079533:-	yeeA	1	0	
+ecoli_k12:NC_000913.3:2080789:-	sbmC	1	0	
+ecoli_k12:NC_000913.3:2081381:-	dacD	1	0	
+ecoli_k12:NC_000913.3:2082756:+	sbcB	1	0	
+ecoli_k12:NC_000913.3:2084226:-	tsuAB	2	0	
+ecoli_k12:NC_000913.3:2085704:-	yoeI-plaP	2	0	
+ecoli_k12:NC_000913.3:2087329:-	yeeY	1	0	
+ecoli_k12:NC_000913.3:2088304:-	yeeZ	1	0	
+ecoli_k12:NC_000913.3:2089211:-	yefM-yoeB	2	0	
+ecoli_k12:NC_000913.3:2089996:+	hisLGDCBHAFI	9	1	Histidine metabolism
+ecoli_k12:NC_000913.3:2097321:-	wzzB	1	0	
+ecoli_k12:NC_000913.3:2098447:-	gnd-ugd	2	7	Amino sugar and nucleotide sugar metabolism;Ascorbate and aldarate metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Glutathione metabolism;Pentose and glucuronate interconversions;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:2101396:-	rfbB-insH7	12	8	Acarbose and validamycin biosynthesis;Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of vancomycin group antibiotics;Biosynthesis of various nucleotide sugars;Galactose metabolism;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis
+ecoli_k12:NC_000913.3:2113434:-	galF	1	0	
+ecoli_k12:NC_000913.3:2114502:-	wcaKLM	3	0	
+ecoli_k12:NC_000913.3:2118680:-	wcaJ-wzxC	2	0	
+ecoli_k12:NC_000913.3:2121609:-	wcaA-cpsG	12	4	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:2133490:-	wza-wzc	3	0	
+ecoli_k12:NC_000913.3:2137902:+	yegH	1	0	
+ecoli_k12:NC_000913.3:2139759:-	dcd-asmA	2	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2142307:-	udk	1	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2143266:+	dgcE	1	0	
+ecoli_k12:NC_000913.3:2146692:-	alkA	1	0	
+ecoli_k12:NC_000913.3:2147674:+	yegD	1	0	
+ecoli_k12:NC_000913.3:2149039:-	yegI	1	0	
+ecoli_k12:NC_000913.3:2151185:+	yegJ	1	0	
+ecoli_k12:NC_000913.3:2151711:-	yegL-pphC	2	0	
+ecoli_k12:NC_000913.3:2153349:-	ibsBA	2	0	
+ecoli_k12:NC_000913.3:2154016:+	mdtA-baeR	6	0	
+ecoli_k12:NC_000913.3:2165189:+	yegP	1	0	
+ecoli_k12:NC_000913.3:2165668:+	trhP	1	0	
+ecoli_k12:NC_000913.3:2167302:-	ogrK	1	0	
+ecoli_k12:NC_000913.3:2167989:-	yegR	1	0	
+ecoli_k12:NC_000913.3:2168712:+	yegS	1	0	
+ecoli_k12:NC_000913.3:2169693:-	gatR	1	0	
+ecoli_k12:NC_000913.3:2170236:+	insE5F5	2	0	
+ecoli_k12:NC_000913.3:2171833:-	gatD	1	1	Galactose metabolism
+ecoli_k12:NC_000913.3:2174282:-	gatYZAB	4	2	Fructose and mannose metabolism;Galactose metabolism
+ecoli_k12:NC_000913.3:2177512:-	fbaB	1	5	Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:2178821:+	yegTUV	3	0	
+ecoli_k12:NC_000913.3:2182035:-	yegW	1	0	
+ecoli_k12:NC_000913.3:2182833:-	yegX	1	0	
+ecoli_k12:NC_000913.3:2183716:-	thiMD	2	3	Glycerophospholipid metabolism;Teichoic acid biosynthesis;Thiamine metabolism
+ecoli_k12:NC_000913.3:2185524:-	rcnR	1	0	
+ecoli_k12:NC_000913.3:2185917:+	rcnAB	2	0	
+ecoli_k12:NC_000913.3:2187380:-	yehDCBA	4	0	
+ecoli_k12:NC_000913.3:2192515:-	yehE	1	0	
+ecoli_k12:NC_000913.3:2193059:-	mrp	1	0	
+ecoli_k12:NC_000913.3:2194300:+	metG	1	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:2196474:+	yehF	1	0	
+ecoli_k12:NC_000913.3:2200279:+	yehI	1	0	
+ecoli_k12:NC_000913.3:2203972:+	yehK	1	0	
+ecoli_k12:NC_000913.3:2204596:+	yehLMPQ	4	0	
+ecoli_k12:NC_000913.3:2211225:+	yehR	1	0	
+ecoli_k12:NC_000913.3:2211726:-	yehS	1	0	
+ecoli_k12:NC_000913.3:2212243:-	btsSR	2	0	
+ecoli_k12:NC_000913.3:2214866:+	mlrA	1	0	
+ecoli_k12:NC_000913.3:2215657:+	yohO	1	0	
+ecoli_k12:NC_000913.3:2215745:-	osmF-yehW	4	0	
+ecoli_k12:NC_000913.3:2219692:-	bglX	1	0	
+ecoli_k12:NC_000913.3:2222185:+	dld	1	1	Pyruvate metabolism
+ecoli_k12:NC_000913.3:2223938:-	pbpG	1	0	
+ecoli_k12:NC_000913.3:2225044:-	yohC	1	0	
+ecoli_k12:NC_000913.3:2225801:+	yohD	1	0	
+ecoli_k12:NC_000913.3:2226509:-	yohF	1	0	
+ecoli_k12:NC_000913.3:2228982:+	yohP	1	0	
+ecoli_k12:NC_000913.3:2229438:-	dusC	1	0	
+ecoli_k12:NC_000913.3:2230624:+	yohJK	2	0	
+ecoli_k12:NC_000913.3:2231844:+	cdd	1	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2232878:+	sanA-yeiS	2	0	
+ecoli_k12:NC_000913.3:2234033:+	preTA	2	3	Pantothenate and CoA biosynthesis;Pyrimidine metabolism;beta-Alanine metabolism
+ecoli_k12:NC_000913.3:2236743:-	mglBAC	3	0	
+ecoli_k12:NC_000913.3:2240628:-	galS	1	0	
+ecoli_k12:NC_000913.3:2241810:-	folE-yeiB	2	0	
+ecoli_k12:NC_000913.3:2243910:+	yeiG	1	1	Methane metabolism
+ecoli_k12:NC_000913.3:2244778:-	cirA	1	0	
+ecoli_k12:NC_000913.3:2247063:-	lysP	1	0	
+ecoli_k12:NC_000913.3:2248737:-	yeiE	1	0	
+ecoli_k12:NC_000913.3:2249717:+	yeiH	1	0	
+ecoli_k12:NC_000913.3:2250840:+	nfo-yeiI	2	0	
+ecoli_k12:NC_000913.3:2252895:-	nupX	1	0	
+ecoli_k12:NC_000913.3:2254245:-	rihB	1	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2255355:+	yeiL	1	0	
+ecoli_k12:NC_000913.3:2256085:-	psuKGT	3	1	Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2259719:-	fruBKA	3	0	
+ecoli_k12:NC_000913.3:2263863:+	setB	1	0	
+ecoli_k12:NC_000913.3:2265041:-	yeiW	1	0	
+ecoli_k12:NC_000913.3:2265450:+	yeiP	1	0	
+ecoli_k12:NC_000913.3:2266245:+	yeiQ	1	0	
+ecoli_k12:NC_000913.3:2267829:+	yeiR-lpxT	2	1	Lipopolysaccharide biosynthesis
+ecoli_k12:NC_000913.3:2269979:+	mepS	1	0	
+ecoli_k12:NC_000913.3:2270726:+	pdeN	1	0	
+ecoli_k12:NC_000913.3:2272364:+	yejABEF	4	0	
+ecoli_k12:NC_000913.3:2277893:-	yejG	1	0	
+ecoli_k12:NC_000913.3:2278570:-	rsuA-bcr	2	0	
+ecoli_k12:NC_000913.3:2280632:+	radD	1	0	
+ecoli_k12:NC_000913.3:2282517:+	rplY	1	0	
+ecoli_k12:NC_000913.3:2282940:-	yejK	1	0	
+ecoli_k12:NC_000913.3:2284129:+	yejL-lapC	2	0	
+ecoli_k12:NC_000913.3:2286390:-	yejO-insH8	2	0	
+ecoli_k12:NC_000913.3:2290500:+	narP	1	0	
+ecoli_k12:NC_000913.3:2291358:-	napF-ccmH	15	2	Nitrogen cycle;Nitrogen metabolism
+ecoli_k12:NC_000913.3:2303606:+	yojO	1	0	
+ecoli_k12:NC_000913.3:2303905:+	eco	1	0	
+ecoli_k12:NC_000913.3:2305108:-	mqo	1	1	Citrate cycle (TCA cycle)
+ecoli_k12:NC_000913.3:2306972:-	yojI	1	0	
+ecoli_k12:NC_000913.3:2308691:-	ada-alkB	2	0	
+ecoli_k12:NC_000913.3:2310479:-	ftp	1	0	
+ecoli_k12:NC_000913.3:2311646:-	ompC	1	0	
+ecoli_k12:NC_000913.3:2313488:+	rcsDB	2	0	
+ecoli_k12:NC_000913.3:2317027:-	rcsC	1	0	
+ecoli_k12:NC_000913.3:2320043:+	atoSC	2	0	
+ecoli_k12:NC_000913.3:2323447:+	atoDAEB	4	2	Fatty acid elongation;Lysine degradation
+ecoli_k12:NC_000913.3:2327367:-	yfaQP	2	0	
+ecoli_k12:NC_000913.3:2334336:-	yfaAT	2	0	
+ecoli_k12:NC_000913.3:2336793:-	gyrA	1	0	
+ecoli_k12:NC_000913.3:2339567:+	ubiG	1	1	Ubiquinone and other terpenoid-quinone biosynthesis
+ecoli_k12:NC_000913.3:2340417:-	yfaL	1	0	
+ecoli_k12:NC_000913.3:2344594:-	ypaB	1	0	
+ecoli_k12:NC_000913.3:2344865:+	nrdA-yfaE	3	3	Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2347350:-	yoaM	1	0	
+ecoli_k12:NC_000913.3:2348822:-	inaA	1	0	
+ecoli_k12:NC_000913.3:2349935:-	glpTQ	2	0	
+ecoli_k12:NC_000913.3:2352647:+	glpABC	3	0	
+ecoli_k12:NC_000913.3:2356904:+	rpnE	1	0	
+ecoli_k12:NC_000913.3:2358042:-	yfaVU	2	1	Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:2360209:-	yfaX-rhmD	2	1	Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:2362431:-	yfaY	1	0	
+ecoli_k12:NC_000913.3:2363733:-	yfaZ	1	0	
+ecoli_k12:NC_000913.3:2364554:+	nudI	1	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2365018:-	ais	1	0	
+ecoli_k12:NC_000913.3:2365910:+	arnBCADTEF	7	2	Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars
+ecoli_k12:NC_000913.3:2373272:-	pmrD	1	0	
+ecoli_k12:NC_000913.3:2373648:-	menFDHBCE	6	2	Biosynthesis of siderophore group nonribosomal peptides;Ubiquinone and other terpenoid-quinone biosynthesis
+ecoli_k12:NC_000913.3:2380722:-	elaAB	2	0	
+ecoli_k12:NC_000913.3:2381608:+	rbn	1	0	
+ecoli_k12:NC_000913.3:2382713:+	elaD	1	0	
+ecoli_k12:NC_000913.3:2383995:-	yfbK	1	0	
+ecoli_k12:NC_000913.3:2385860:+	yfbL	1	0	
+ecoli_k12:NC_000913.3:2386934:+	yfbM	1	0	
+ecoli_k12:NC_000913.3:2387710:-	yfbN	1	0	
+ecoli_k12:NC_000913.3:2388635:+	yfbO	1	0	
+ecoli_k12:NC_000913.3:2389116:+	yfbP	1	0	
+ecoli_k12:NC_000913.3:2390048:-	nuoABCEFGHIJKLMN	13	0	
+ecoli_k12:NC_000913.3:2405703:-	lrhA	1	0	
+ecoli_k12:NC_000913.3:2407561:+	alaA	1	3	Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Carbon fixation by Calvin cycle
+ecoli_k12:NC_000913.3:2408862:+	yfbR	1	0	
+ecoli_k12:NC_000913.3:2409520:-	yfbU-yfbS	3	1	Glycerolipid metabolism
+ecoli_k12:NC_000913.3:2412677:-	yfbV	1	0	
+ecoli_k12:NC_000913.3:2413470:+	ackA	1	4	Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism;Taurine and hypotaurine metabolism
+ecoli_k12:NC_000913.3:2414747:+	pta	1	1	Propanoate metabolism
+ecoli_k12:NC_000913.3:2417081:+	yfcC	1	0	
+ecoli_k12:NC_000913.3:2418634:-	yfcD	1	0	
+ecoli_k12:NC_000913.3:2419234:-	yfcE	1	0	
+ecoli_k12:NC_000913.3:2419841:-	yfcF	1	1	Glutathione metabolism
+ecoli_k12:NC_000913.3:2420621:+	yfcG	1	0	
+ecoli_k12:NC_000913.3:2421325:+	folX-yfcH	2	0	
+ecoli_k12:NC_000913.3:2422649:-	rpnB	1	0	
+ecoli_k12:NC_000913.3:2423736:-	hisQMP	3	0	
+ecoli_k12:NC_000913.3:2426006:-	hisJ	1	0	
+ecoli_k12:NC_000913.3:2427009:-	argT	1	0	
+ecoli_k12:NC_000913.3:2428057:-	ubiX	1	1	Riboflavin metabolism
+ecoli_k12:NC_000913.3:2428721:-	folC-purF	4	3	Alanine, aspartate and glutamate metabolism;Folate biosynthesis;Purine metabolism
+ecoli_k12:NC_000913.3:2433012:-	accD	1	0	
+ecoli_k12:NC_000913.3:2434082:-	dedA	1	0	
+ecoli_k12:NC_000913.3:2434824:-	usg-truA	2	0	
+ecoli_k12:NC_000913.3:2436715:-	pdxB	1	1	Vitamin B6 metabolism
+ecoli_k12:NC_000913.3:2437950:+	flk	1	0	
+ecoli_k12:NC_000913.3:2438942:-	yfcJ	1	0	
+ecoli_k12:NC_000913.3:2440385:-	fabB	1	1	Fatty acid biosynthesis
+ecoli_k12:NC_000913.3:2441764:+	mnmC	1	0	
+ecoli_k12:NC_000913.3:2443891:-	prmB-yfcL	6	1	Phenylalanine, tyrosine and tryptophan biosynthesis
+ecoli_k12:NC_000913.3:2448606:+	smrB	1	0	
+ecoli_k12:NC_000913.3:2449228:-	yfcSRQPO	5	0	
+ecoli_k12:NC_000913.3:2455083:-	yfcV	1	0	
+ecoli_k12:NC_000913.3:2456327:-	sixA	1	0	
+ecoli_k12:NC_000913.3:2457015:-	fadIJ	2	1	Fatty acid elongation
+ecoli_k12:NC_000913.3:2460650:-	yfcZ	1	0	
+ecoli_k12:NC_000913.3:2461306:+	fadL	1	0	
+ecoli_k12:NC_000913.3:2463012:+	yfdF	1	0	
+ecoli_k12:NC_000913.3:2464252:-	mlaA	1	0	
+ecoli_k12:NC_000913.3:2465301:+	yfdC	1	0	
+ecoli_k12:NC_000913.3:2466545:+	intS	1	0	
+ecoli_k12:NC_000913.3:2467855:+	yfdGHI	3	0	
+ecoli_k12:NC_000913.3:2470497:-	yodE	1	0	
+ecoli_k12:NC_000913.3:2471077:-	yfdK	1	0	
+ecoli_k12:NC_000913.3:2472112:-	yfdONM	3	0	
+ecoli_k12:NC_000913.3:2473604:+	yfdP	1	0	
+ecoli_k12:NC_000913.3:2474032:+	yfdQ	1	0	
+ecoli_k12:NC_000913.3:2474984:+	yfdR-ypdJ	4	0	
+ecoli_k12:NC_000913.3:2476310:+	torI	1	0	
+ecoli_k12:NC_000913.3:2476694:-	dsdC	1	0	
+ecoli_k12:NC_000913.3:2477847:+	dsdXA	2	2	D-Amino acid metabolism;Glycine, serine and threonine metabolism
+ecoli_k12:NC_000913.3:2480638:-	emrKY	2	0	
+ecoli_k12:NC_000913.3:2483729:+	evgLAS	3	0	
+ecoli_k12:NC_000913.3:2488023:-	yfdE	1	0	
+ecoli_k12:NC_000913.3:2489242:-	yfdV	1	0	
+ecoli_k12:NC_000913.3:2490256:-	frc-oxc	2	1	Glyoxylate and dicarboxylate metabolism
+ecoli_k12:NC_000913.3:2493767:-	yfdX	1	0	
+ecoli_k12:NC_000913.3:2494698:+	ypdI	1	0	
+ecoli_k12:NC_000913.3:2495050:-	yfdY	1	0	
+ecoli_k12:NC_000913.3:2495645:+	lpxP	1	1	Lipopolysaccharide biosynthesis
+ecoli_k12:NC_000913.3:2496921:+	ypdK	1	0	
+ecoli_k12:NC_000913.3:2497057:-	alaC	1	3	Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Carbon fixation by Calvin cycle
+ecoli_k12:NC_000913.3:2498671:+	pyrS-ypdC	3	0	
+ecoli_k12:NC_000913.3:2501990:-	fryB-fryA	5	0	
+ecoli_k12:NC_000913.3:2508461:-	glk	1	3	Neomycin, kanamycin and gentamicin biosynthesis;Starch and sucrose metabolism;Streptomycin biosynthesis
+ecoli_k12:NC_000913.3:2509630:+	yfeO	1	0	
+ecoli_k12:NC_000913.3:2511001:+	ypeC	1	0	
+ecoli_k12:NC_000913.3:2511468:-	ypeD-mntH	2	0	
+ecoli_k12:NC_000913.3:2513042:+	nupC	1	0	
+ecoli_k12:NC_000913.3:2514331:+	insL3	1	0	
+ecoli_k12:NC_000913.3:2515643:-	pdeA	1	0	
+ecoli_k12:NC_000913.3:2518467:+	yfeCD	2	0	
+ecoli_k12:NC_000913.3:2519257:-	gltX	1	2	Aminoacyl-tRNA biosynthesis;Porphyrin metabolism
+ecoli_k12:NC_000913.3:2521593:-	xapR	1	0	
+ecoli_k12:NC_000913.3:2522729:-	xapAB	2	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:2525127:+	yfeN	1	0	
+ecoli_k12:NC_000913.3:2525930:-	yfeR	1	0	
+ecoli_k12:NC_000913.3:2526946:+	yfeH	1	0	
+ecoli_k12:NC_000913.3:2527941:-	ligA-ypeB	2	0	
+ecoli_k12:NC_000913.3:2530247:-	zipA	1	0	
+ecoli_k12:NC_000913.3:2531463:+	cysZK	2	3	Cysteine and methionine metabolism;Sulfur cycle;Sulfur metabolism
+ecoli_k12:NC_000913.3:2533764:+	ptsH-crr	3	1	Amino sugar and nucleotide sugar metabolism
+ecoli_k12:NC_000913.3:2536386:-	pdxK	1	1	Vitamin B6 metabolism
+ecoli_k12:NC_000913.3:2537342:+	yfeKS	2	0	
+ecoli_k12:NC_000913.3:2538672:-	cysPUWAM	5	1	Cysteine and methionine metabolism
+ecoli_k12:NC_000913.3:2543832:-	ucpA	1	1	Butanoate metabolism
+ecoli_k12:NC_000913.3:2544752:-	murR	1	0	
+ecoli_k12:NC_000913.3:2545773:+	murQ-yfeW	3	1	Amino sugar and nucleotide sugar metabolism
+ecoli_k12:NC_000913.3:2549646:-	yfeX	1	0	
+ecoli_k12:NC_000913.3:2550641:-	yfeY	1	0	
+ecoli_k12:NC_000913.3:2551277:-	ypeA-yfeZ	2	0	
+ecoli_k12:NC_000913.3:2552352:+	amiA-hemF	2	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:2554130:-	eutBCLKR	5	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:2558858:+	intZ	1	0	
+ecoli_k12:NC_000913.3:2560257:+	yffL	1	0	
+ecoli_k12:NC_000913.3:2561368:+	yffMN	2	0	
+ecoli_k12:NC_000913.3:2562111:+	yffOP	2	0	
+ecoli_k12:NC_000913.3:2563592:+	yffQR	2	0	
+ecoli_k12:NC_000913.3:2564523:+	yffS	1	0	
+ecoli_k12:NC_000913.3:2565481:-	eutNEJGHA	6	5	Benzoate degradation;Dioxin degradation;Phenylalanine metabolism;Pyruvate metabolism;Xylene degradation
+ecoli_k12:NC_000913.3:2572157:-	eutSPQTDM	6	4	Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism;Taurine and hypotaurine metabolism
+ecoli_k12:NC_000913.3:2576098:-	maeB	1	2	Carbon fixation by Calvin cycle;Pyruvate metabolism
+ecoli_k12:NC_000913.3:2578666:+	talA-tktB	2	2	Carbon fixation by Calvin cycle;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:2581734:-	ypfG	1	0	
+ecoli_k12:NC_000913.3:2582903:-	nudK	1	0	
+ecoli_k12:NC_000913.3:2583546:-	aegA	1	0	
+ecoli_k12:NC_000913.3:2585731:+	narQ	1	0	
+ecoli_k12:NC_000913.3:2587595:+	acrD	1	0	
+ecoli_k12:NC_000913.3:2590807:-	ypfM	1	0	
+ecoli_k12:NC_000913.3:2591247:+	yffB-ypfN	3	1	Lysine biosynthesis
+ecoli_k12:NC_000913.3:2593072:-	ypfH	1	0	
+ecoli_k12:NC_000913.3:2593844:-	ypfJ-tmcA	2	0	
+ecoli_k12:NC_000913.3:2596905:-	purC	1	1	Purine metabolism
+ecoli_k12:NC_000913.3:2597831:-	dapA-bamC	2	2	Lysine biosynthesis;Monobactam biosynthesis
+ecoli_k12:NC_000913.3:2599906:+	gcvR-bcp	2	0	
+ecoli_k12:NC_000913.3:2601201:+	hyfA-focB	12	0	
+ecoli_k12:NC_000913.3:2614820:-	yfgO	1	0	
+ecoli_k12:NC_000913.3:2616094:+	bepA-yfgD	2	0	
+ecoli_k12:NC_000913.3:2618075:-	hda	1	0	
+ecoli_k12:NC_000913.3:2618871:-	upp-uraA	2	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2621197:+	purMN	2	2	One carbon pool by folate;Purine metabolism
+ecoli_k12:NC_000913.3:2623044:+	ppk-ppx	2	0	
+ecoli_k12:NC_000913.3:2626695:-	pdeF	1	0	
+ecoli_k12:NC_000913.3:2629290:+	yfgG	1	0	
+ecoli_k12:NC_000913.3:2629792:+	yfgHI	2	0	
+ecoli_k12:NC_000913.3:2630958:-	guaBA	2	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:2634232:+	xseA	1	0	
+ecoli_k12:NC_000913.3:2635599:-	yfgJ	1	0	
+ecoli_k12:NC_000913.3:2635884:-	hisS-der	4	3	Aminoacyl-tRNA biosynthesis;Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:2640595:-	rodZ-ispG	3	1	Terpenoid backbone biosynthesis
+ecoli_k12:NC_000913.3:2643129:-	rlmN	1	0	
+ecoli_k12:NC_000913.3:2644433:-	ndk	1	3	Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2645013:-	yfhM-pbpC	2	0	
+ecoli_k12:NC_000913.3:2652494:+	sseA	1	1	Sulfur metabolism
+ecoli_k12:NC_000913.3:2653855:+	timP	2	0	
+ecoli_k12:NC_000913.3:2654157:-	sseB	1	0	
+ecoli_k12:NC_000913.3:2655075:-	pepB	1	0	
+ecoli_k12:NC_000913.3:2656536:-	iscR-iscX	8	0	
+ecoli_k12:NC_000913.3:2662583:-	trmJ	1	0	
+ecoli_k12:NC_000913.3:2663442:+	suhB	1	0	
+ecoli_k12:NC_000913.3:2664390:+	yfhR	1	0	
+ecoli_k12:NC_000913.3:2665435:+	csiE	1	0	
+ecoli_k12:NC_000913.3:2666707:-	hcaT	1	0	
+ecoli_k12:NC_000913.3:2668006:-	hcaR-iroK	2	0	
+ecoli_k12:NC_000913.3:2669032:+	hcaEFCBD	5	1	Phenylalanine metabolism
+ecoli_k12:NC_000913.3:2673346:+	yphA	1	0	
+ecoli_k12:NC_000913.3:2673816:-	yphCB	2	0	
+ecoli_k12:NC_000913.3:2675827:-	yphFED	3	0	
+ecoli_k12:NC_000913.3:2679464:-	yphG	1	0	
+ecoli_k12:NC_000913.3:2682863:+	yphH	1	0	
+ecoli_k12:NC_000913.3:2684254:-	glyA	1	6	Cyanoamino acid metabolism;Glycine, serine and threonine metabolism;Glyoxylate and dicarboxylate metabolism;Lysine degradation;Methane metabolism;One carbon pool by folate
+ecoli_k12:NC_000913.3:2685835:+	hmp	1	0	
+ecoli_k12:NC_000913.3:2687070:-	glnB	1	0	
+ecoli_k12:NC_000913.3:2687469:-	qseG-glrR	2	0	
+ecoli_k12:NC_000913.3:2689671:-	glrK	1	0	
+ecoli_k12:NC_000913.3:2691656:-	purL	1	1	Purine metabolism
+ecoli_k12:NC_000913.3:2695801:+	mltF	1	0	
+ecoli_k12:NC_000913.3:2697354:-	tadA	1	0	
+ecoli_k12:NC_000913.3:2697915:-	pgpC	1	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:2698759:+	yfhH	1	0	
+ecoli_k12:NC_000913.3:2699663:+	yfhL	1	0	
+ecoli_k12:NC_000913.3:2700117:-	shoB	1	0	
+ecoli_k12:NC_000913.3:2700618:-	rnc-acpS	5	5	Mycolic acid biosynthesis;Nucleotide metabolism;Pantothenate and CoA biosynthesis;Purine metabolism;Vitamin B6 metabolism
+ecoli_k12:NC_000913.3:2704335:-	lepAB	2	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:2707322:-	rseD-rseC	5	0	
+ecoli_k12:NC_000913.3:2710420:+	nadB	1	1	Nicotinate and nicotinamide metabolism
+ecoli_k12:NC_000913.3:2712027:-	yfiC	1	0	
+ecoli_k12:NC_000913.3:2712896:+	srmB	1	0	
+ecoli_k12:NC_000913.3:2714439:-	yfiE	1	0	
+ecoli_k12:NC_000913.3:2715423:+	eamB	1	0	
+ecoli_k12:NC_000913.3:2716066:-	grcA	1	2	Butanoate metabolism;Pyruvate metabolism
+ecoli_k12:NC_000913.3:2716754:+	ung	1	0	
+ecoli_k12:NC_000913.3:2717491:-	yfiF	1	0	
+ecoli_k12:NC_000913.3:2718735:+	trxC	1	0	
+ecoli_k12:NC_000913.3:2719223:+	tapT-patZ	2	0	
+ecoli_k12:NC_000913.3:2722702:+	pssLA	2	2	Glycerophospholipid metabolism;Glycine, serine and threonine metabolism
+ecoli_k12:NC_000913.3:2724128:+	yfiM	1	0	
+ecoli_k12:NC_000913.3:2724448:-	kgtP	1	0	
+ecoli_k12:NC_000913.3:2725925:+	yfiS	1	0	
+ecoli_k12:NC_000913.3:2731600:-	clpB	3	0	
+ecoli_k12:NC_000913.3:2734303:-	rluD-yfiH	2	0	
+ecoli_k12:NC_000913.3:2736146:+	bamD	1	0	
+ecoli_k12:NC_000913.3:2737154:+	raiA	2	0	
+ecoli_k12:NC_000913.3:2737599:+	pheLA	2	1	Phenylalanine, tyrosine and tryptophan biosynthesis
+ecoli_k12:NC_000913.3:2738948:-	aroF-tyrA	2	2	Novobiocin biosynthesis;Phenylalanine, tyrosine and tryptophan biosynthesis
+ecoli_k12:NC_000913.3:2741360:+	yfiL-yfiB	4	0	
+ecoli_k12:NC_000913.3:2744183:-	rpsP-rplS	4	0	
+ecoli_k12:NC_000913.3:2746434:-	ffh	1	0	
+ecoli_k12:NC_000913.3:2747962:+	ypjD-yfjD	2	0	
+ecoli_k12:NC_000913.3:2750115:-	grpE	1	0	
+ecoli_k12:NC_000913.3:2750831:+	nadK	1	1	Nicotinate and nicotinamide metabolism
+ecoli_k12:NC_000913.3:2751795:+	recN	1	0	
+ecoli_k12:NC_000913.3:2753605:+	bamE	1	0	
+ecoli_k12:NC_000913.3:2754008:-	ratA-yfjF	2	0	
+ecoli_k12:NC_000913.3:2754896:+	smpB	1	0	
+ecoli_k12:NC_000913.3:2756159:+	intA	1	0	
+ecoli_k12:NC_000913.3:2757644:-	yfjH	1	0	
+ecoli_k12:NC_000913.3:2758644:+	alpA	1	0	
+ecoli_k12:NC_000913.3:2758985:+	yfjI	1	0	
+ecoli_k12:NC_000913.3:2760547:+	yfjJ	1	0	
+ecoli_k12:NC_000913.3:2761351:-	abpAB	2	0	
+ecoli_k12:NC_000913.3:2765513:-	yfjM	1	0	
+ecoli_k12:NC_000913.3:2765918:+	rnlAB	2	0	
+ecoli_k12:NC_000913.3:2767710:+	yfjP	1	0	
+ecoli_k12:NC_000913.3:2768665:+	yfjQ	1	0	
+ecoli_k12:NC_000913.3:2769703:+	yfjR-yfjT	4	0	
+ecoli_k12:NC_000913.3:2771840:-	yfjU	1	0	
+ecoli_k12:NC_000913.3:2773318:+	yfjW	1	0	
+ecoli_k12:NC_000913.3:2775919:+	lfgA-ypjF	5	0	
+ecoli_k12:NC_000913.3:2778146:-	ypjA	1	0	
+ecoli_k12:NC_000913.3:2783638:-	ypjCB	2	0	
+ecoli_k12:NC_000913.3:2788985:+	glaH-glaR	6	2	Arginine biosynthesis;Lysine degradation
+ecoli_k12:NC_000913.3:2796337:-	kbp	1	0	
+ecoli_k12:NC_000913.3:2796870:-	yqaE	1	0	
+ecoli_k12:NC_000913.3:2797211:+	ygaVP	2	1	Sulfur metabolism
+ecoli_k12:NC_000913.3:2798091:-	stpA	1	0	
+ecoli_k12:NC_000913.3:2799164:+	alaE	1	0	
+ecoli_k12:NC_000913.3:2799650:-	ygaC	1	0	
+ecoli_k12:NC_000913.3:2800146:+	ygaM	1	0	
+ecoli_k12:NC_000913.3:2800723:+	nrdHIEF	4	3	Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2804815:+	proVWX	3	0	
+ecoli_k12:NC_000913.3:2809617:+	ygaZH	2	0	
+ecoli_k12:NC_000913.3:2810770:+	mprA	1	0	
+ecoli_k12:NC_000913.3:2811427:+	emrAB	2	0	
+ecoli_k12:NC_000913.3:2814218:-	luxS	1	1	Cysteine and methionine metabolism
+ecoli_k12:NC_000913.3:2814883:-	gshA	1	2	Glutathione metabolism;Histidine metabolism
+ecoli_k12:NC_000913.3:2816512:-	yqaBA	2	0	
+ecoli_k12:NC_000913.3:2818961:-	csrA	1	0	
+ecoli_k12:NC_000913.3:2819381:-	alaS	1	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:2822139:-	recAX	2	0	
+ecoli_k12:NC_000913.3:2823849:-	pncC	1	1	Nicotinate and nicotinamide metabolism
+ecoli_k12:NC_000913.3:2824491:-	mltB	1	0	
+ecoli_k12:NC_000913.3:2825832:+	srlAEBD	4	1	Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:2828621:+	gutM-gutQ	3	2	Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars
+ecoli_k12:NC_000913.3:2830775:-	norR	1	0	
+ecoli_k12:NC_000913.3:2832476:+	norVW	2	1	Fatty acid degradation
+ecoli_k12:NC_000913.3:2835173:-	hypF	1	0	
+ecoli_k12:NC_000913.3:2837578:-	hydN	1	0	
+ecoli_k12:NC_000913.3:2838254:-	ascG	1	0	
+ecoli_k12:NC_000913.3:2839524:+	ascFB	2	3	Amino sugar and nucleotide sugar metabolism;Glycolysis / Gluconeogenesis;Starch and sucrose metabolism
+ecoli_k12:NC_000913.3:2842573:-	hycBCDEFGHI	8	0	
+ecoli_k12:NC_000913.3:2849974:-	hycA	1	0	
+ecoli_k12:NC_000913.3:2850647:+	hypABCDE	5	0	
+ecoli_k12:NC_000913.3:2854338:+	fhlA	1	0	
+ecoli_k12:NC_000913.3:2856453:-	ygbA	1	0	
+ecoli_k12:NC_000913.3:2857093:+	mutS	1	0	
+ecoli_k12:NC_000913.3:2859760:+	pphB	1	0	
+ecoli_k12:NC_000913.3:2860467:-	ygbI	1	0	
+ecoli_k12:NC_000913.3:2861430:+	ygbJKLM	4	0	
+ecoli_k12:NC_000913.3:2865101:+	ygbN	1	0	
+ecoli_k12:NC_000913.3:2866559:-	rpoS	1	0	
+ecoli_k12:NC_000913.3:2867614:-	nlpD	1	0	
+ecoli_k12:NC_000913.3:2868893:-	ftsB-pcm	6	1	Terpenoid backbone biosynthesis
+ecoli_k12:NC_000913.3:2873014:-	ygbE	1	0	
+ecoli_k12:NC_000913.3:2873387:-	cysDNC	3	4	Monobactam biosynthesis;Purine metabolism;Sulfur cycle;Sulfur metabolism
+ecoli_k12:NC_000913.3:2876581:+	iap	1	0	
+ecoli_k12:NC_000913.3:2878569:-	casABCDE12	7	0	
+ecoli_k12:NC_000913.3:2884553:-	cas3	1	0	
+ecoli_k12:NC_000913.3:2887578:-	cysJIH	3	3	Riboflavin metabolism;Sulfur cycle;Sulfur metabolism
+ecoli_k12:NC_000913.3:2892214:+	queD	1	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:2892657:+	ygcNOP	3	0	
+ecoli_k12:NC_000913.3:2894919:-	ygcSRQ	3	0	
+ecoli_k12:NC_000913.3:2897964:-	ygcU	1	0	
+ecoli_k12:NC_000913.3:2899488:-	ygcW	1	0	
+ecoli_k12:NC_000913.3:2900592:+	yqcE-ygcE	2	0	
+ecoli_k12:NC_000913.3:2904747:-	queE	1	0	
+ecoli_k12:NC_000913.3:2905557:+	yqcG-ygcG	2	0	
+ecoli_k12:NC_000913.3:2906643:-	eno	1	2	Glycolysis / Gluconeogenesis;Methane metabolism
+ecoli_k12:NC_000913.3:2908029:-	pyrG	1	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2909894:-	mazEFG	3	3	Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2911417:-	relA	1	1	Purine metabolism
+ecoli_k12:NC_000913.3:2913699:-	rlmD	1	0	
+ecoli_k12:NC_000913.3:2915057:+	barA	1	0	
+ecoli_k12:NC_000913.3:2918045:-	gudPXD	3	1	Ascorbate and aldarate metabolism
+ecoli_k12:NC_000913.3:2922535:-	yqcC-yqcA	3	0	
+ecoli_k12:NC_000913.3:2924735:-	syd	1	0	
+ecoli_k12:NC_000913.3:2925348:+	queF	1	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:2926308:+	ppnN	1	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2928229:+	sdaCB	2	1	Glycine, serine and threonine metabolism
+ecoli_k12:NC_000913.3:2931055:+	ygdG	1	0	
+ecoli_k12:NC_000913.3:2931865:-	fucAO	2	1	Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:2934235:+	fucPIKUR	5	1	Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:2940143:-	gcvA-rlmM	3	0	
+ecoli_k12:NC_000913.3:2942918:-	ygdI	1	0	
+ecoli_k12:NC_000913.3:2943337:+	csdAE	2	0	
+ecoli_k12:NC_000913.3:2945036:-	mltA-tcdA	2	0	
+ecoli_k12:NC_000913.3:2947757:-	amiC	1	0	
+ecoli_k12:NC_000913.3:2949242:+	argA	1	1	Arginine biosynthesis
+ecoli_k12:NC_000913.3:2950635:-	ptrA-recD	3	0	
+ecoli_k12:NC_000913.3:2959060:-	ppdA-recC	5	0	
+ecoli_k12:NC_000913.3:2964361:-	lgt-thyA	2	3	Nucleotide metabolism;One carbon pool by folate;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:2966188:-	rppH-ptsP	2	0	
+ecoli_k12:NC_000913.3:2969330:-	ygdT	1	0	
+ecoli_k12:NC_000913.3:2969662:+	mutH	1	0	
+ecoli_k12:NC_000913.3:2970420:+	ygdQ	1	0	
+ecoli_k12:NC_000913.3:2971271:+	ygdR	1	0	
+ecoli_k12:NC_000913.3:2971597:+	tas	1	0	
+ecoli_k12:NC_000913.3:2972669:-	aas-lplT	2	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:2976599:+	galR	1	0	
+ecoli_k12:NC_000913.3:2977637:-	lysA	1	2	D-Amino acid metabolism;Lysine biosynthesis
+ecoli_k12:NC_000913.3:2979021:+	lysR	1	0	
+ecoli_k12:NC_000913.3:2979943:-	ygeA	1	0	
+ecoli_k12:NC_000913.3:2980764:-	araE	1	0	
+ecoli_k12:NC_000913.3:2982497:-	kduID	2	1	Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:2984411:-	yqeF	1	0	
+ecoli_k12:NC_000913.3:2985847:+	yqeG	1	0	
+ecoli_k12:NC_000913.3:2987536:+	yqeH	1	0	
+ecoli_k12:NC_000913.3:2988502:+	yqeIJ	2	0	
+ecoli_k12:NC_000913.3:2989819:-	yqeKL	2	0	
+ecoli_k12:NC_000913.3:2991268:+	ygeG	1	0	
+ecoli_k12:NC_000913.3:2992094:+	ygeH	1	0	
+ecoli_k12:NC_000913.3:2993638:+	ygeI	1	0	
+ecoli_k12:NC_000913.3:2996372:-	insC4D4	2	0	
+ecoli_k12:NC_000913.3:2998034:-	ygeQ	1	0	
+ecoli_k12:NC_000913.3:2999136:-	actS	1	0	
+ecoli_k12:NC_000913.3:3000345:+	xdhABC	3	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:3004008:-	ygeV	1	0	
+ecoli_k12:NC_000913.3:3006262:+	ygeW	1	0	
+ecoli_k12:NC_000913.3:3007510:+	ygeXY	2	0	
+ecoli_k12:NC_000913.3:3010028:+	hyuA	1	0	
+ecoli_k12:NC_000913.3:3011461:+	yqeA	1	0	
+ecoli_k12:NC_000913.3:3012614:-	yqeB	1	0	
+ecoli_k12:NC_000913.3:3014287:-	yqeC	1	0	
+ecoli_k12:NC_000913.3:3015160:+	mocA	1	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:3016060:+	ygfK-ssnA	2	0	
+ecoli_k12:NC_000913.3:3020540:+	ygfM-ghxQ	5	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:3028524:-	ygfTS	2	0	
+ecoli_k12:NC_000913.3:3031367:+	uacT-yqfG	2	0	
+ecoli_k12:NC_000913.3:3032939:-	yqfH	1	0	
+ecoli_k12:NC_000913.3:3033065:+	idi	1	1	Terpenoid backbone biosynthesis
+ecoli_k12:NC_000913.3:3033657:-	prfB-lysS	2	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:3036373:-	xerD-recJ	3	0	
+ecoli_k12:NC_000913.3:3039855:+	fldB	1	0	
+ecoli_k12:NC_000913.3:3040416:-	sdhE-ygfX	2	0	
+ecoli_k12:NC_000913.3:3041313:+	ygfZ	1	0	
+ecoli_k12:NC_000913.3:3042489:-	trhA	1	0	
+ecoli_k12:NC_000913.3:3043312:-	yqfB	1	0	
+ecoli_k12:NC_000913.3:3043662:+	bglA	1	0	
+ecoli_k12:NC_000913.3:3045158:-	ygfF	1	0	
+ecoli_k12:NC_000913.3:3046168:-	gcvTHP	3	2	Glyoxylate and dicarboxylate metabolism;One carbon pool by folate
+ecoli_k12:NC_000913.3:3050958:+	yqfI	1	0	
+ecoli_k12:NC_000913.3:3051115:-	ygfB-ubiI	4	1	Ubiquinone and other terpenoid-quinone biosynthesis
+ecoli_k12:NC_000913.3:3055612:+	zapA	1	0	
+ecoli_k12:NC_000913.3:3056241:+	fau	1	1	One carbon pool by folate
+ecoli_k12:NC_000913.3:3056890:-	ibsC	1	0	
+ecoli_k12:NC_000913.3:3057178:-	serA	1	0	
+ecoli_k12:NC_000913.3:3058666:-	rpiA	1	2	Carbon fixation by Calvin cycle;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:3059753:+	argP	1	0	
+ecoli_k12:NC_000913.3:3060850:+	scpA-scpC	4	4	Glyoxylate and dicarboxylate metabolism;Other carbon fixation pathways;Propanoate metabolism;Valine, leucine and isoleucine degradation
+ecoli_k12:NC_000913.3:3066277:-	srsR	1	0	
+ecoli_k12:NC_000913.3:3067340:-	yggE	1	0	
+ecoli_k12:NC_000913.3:3068173:-	argO	1	0	
+ecoli_k12:NC_000913.3:3068947:-	mscS	1	0	
+ecoli_k12:NC_000913.3:3070165:-	fbaA	1	5	Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:3071459:-	pgk	1	2	Carbon fixation by Calvin cycle;Glycolysis / Gluconeogenesis
+ecoli_k12:NC_000913.3:3072672:-	epd	1	1	Vitamin B6 metabolism
+ecoli_k12:NC_000913.3:3073976:-	cmtB-yggC	6	8	Carbon fixation by Calvin cycle;Citrate cycle (TCA cycle);Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Other carbon fixation pathways;Pentose phosphate pathway;Pyruvate metabolism
+ecoli_k12:NC_000913.3:3079644:-	tktA	1	2	Carbon fixation by Calvin cycle;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:3081913:+	loiP	1	0	
+ecoli_k12:NC_000913.3:3082877:-	yqgB-speB	3	1	Arginine and proline metabolism
+ecoli_k12:NC_000913.3:3086145:-	yqgG	1	0	
+ecoli_k12:NC_000913.3:3086187:+	yqgC	1	0	
+ecoli_k12:NC_000913.3:3086399:-	yqgD	1	0	
+ecoli_k12:NC_000913.3:3086706:+	metK	1	3	Biosynthesis of various plant secondary metabolites;Cysteine and methionine metabolism;One carbon pool by folate
+ecoli_k12:NC_000913.3:3088284:+	galP	1	0	
+ecoli_k12:NC_000913.3:3089755:+	yggI	1	0	
+ecoli_k12:NC_000913.3:3090347:+	endA	1	0	
+ecoli_k12:NC_000913.3:3091134:+	rsmE-gshB	2	1	Glutathione metabolism
+ecoli_k12:NC_000913.3:3092937:+	yqgEF	2	0	
+ecoli_k12:NC_000913.3:3094100:-	yggR	1	0	
+ecoli_k12:NC_000913.3:3095098:+	yggS-hemW	5	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:3098558:-	yggM	1	0	
+ecoli_k12:NC_000913.3:3099682:-	ansB	1	2	Alanine, aspartate and glutamate metabolism;Cyanoamino acid metabolism
+ecoli_k12:NC_000913.3:3100904:-	yggN	1	0	
+ecoli_k12:NC_000913.3:3101807:-	trmB-yggL	2	0	
+ecoli_k12:NC_000913.3:3103013:+	mutY-yggX	2	0	
+ecoli_k12:NC_000913.3:3104433:+	mltC	1	0	
+ecoli_k12:NC_000913.3:3105714:+	nupG	1	0	
+ecoli_k12:NC_000913.3:3107020:-	speC	1	2	Arginine and proline metabolism;Glutathione metabolism
+ecoli_k12:NC_000913.3:3109317:-	yqgH	1	0	
+ecoli_k12:NC_000913.3:3109553:+	yqgA	1	0	
+ecoli_k12:NC_000913.3:3110590:-	yghGFED	4	0	
+ecoli_k12:NC_000913.3:3111266:+	yqhJ	1	0	
+ecoli_k12:NC_000913.3:3113543:-	pppA	1	0	
+ecoli_k12:NC_000913.3:3114550:-	yghJ	1	0	
+ecoli_k12:NC_000913.3:3119597:-	glcA	1	0	
+ecoli_k12:NC_000913.3:3121634:-	glcDEFGB	5	2	Glyoxylate and dicarboxylate metabolism;Pyruvate metabolism
+ecoli_k12:NC_000913.3:3128272:+	glcC	1	0	
+ecoli_k12:NC_000913.3:3129043:-	yghO	1	0	
+ecoli_k12:NC_000913.3:3130214:+	insH9	1	0	
+ecoli_k12:NC_000913.3:3131341:-	yghQ	1	0	
+ecoli_k12:NC_000913.3:3132454:-	yghSR	2	0	
+ecoli_k12:NC_000913.3:3134131:+	yghT	1	0	
+ecoli_k12:NC_000913.3:3134872:-	pitB	1	0	
+ecoli_k12:NC_000913.3:3136663:-	gss	1	1	Glutathione metabolism
+ecoli_k12:NC_000913.3:3138727:+	yghU	1	0	
+ecoli_k12:NC_000913.3:3139716:-	hybOABCDEFG	8	0	
+ecoli_k12:NC_000913.3:3146450:-	yghW	1	0	
+ecoli_k12:NC_000913.3:3147597:-	yqhI	1	0	
+ecoli_k12:NC_000913.3:3147897:+	gpr	1	2	Galactose metabolism;Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:3148977:-	yqhA	1	0	
+ecoli_k12:NC_000913.3:3149662:+	yghA	1	0	
+ecoli_k12:NC_000913.3:3150818:-	exbBD	2	0	
+ecoli_k12:NC_000913.3:3152236:+	metC	1	3	Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;One carbon pool by folate
+ecoli_k12:NC_000913.3:3153563:+	yghB	1	0	
+ecoli_k12:NC_000913.3:3154262:-	yqhC	1	0	
+ecoli_k12:NC_000913.3:3155355:+	yqhD	1	0	
+ecoli_k12:NC_000913.3:3156623:+	dkgA	1	2	Galactose metabolism;Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:3157650:+	yqhG	1	0	
+ecoli_k12:NC_000913.3:3158627:+	yqhH	1	0	
+ecoli_k12:NC_000913.3:3158927:-	ygiQ	1	0	
+ecoli_k12:NC_000913.3:3161257:-	ftsP	1	0	
+ecoli_k12:NC_000913.3:3162744:-	plsC	1	2	Glycerolipid metabolism;Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:3163715:-	parC	1	0	
+ecoli_k12:NC_000913.3:3166111:-	ygiS	1	0	
+ecoli_k12:NC_000913.3:3167851:-	mqsRA	2	0	
+ecoli_k12:NC_000913.3:3168749:-	ygiV	1	0	
+ecoli_k12:NC_000913.3:3169284:-	ygiW	1	0	
+ecoli_k12:NC_000913.3:3169828:+	qseBC	2	0	
+ecoli_k12:NC_000913.3:3171879:-	ygiZ	1	0	
+ecoli_k12:NC_000913.3:3172530:+	mdaB-ygiN	2	0	
+ecoli_k12:NC_000913.3:3173504:-	nudF-parE	5	1	Purine metabolism
+ecoli_k12:NC_000913.3:3178115:+	tolC	1	0	
+ecoli_k12:NC_000913.3:3179744:+	ygiBC	2	0	
+ecoli_k12:NC_000913.3:3181619:-	ygiD	1	1	Tyrosine metabolism
+ecoli_k12:NC_000913.3:3182550:+	zupT	1	0	
+ecoli_k12:NC_000913.3:3183381:-	yqiD	1	0	
+ecoli_k12:NC_000913.3:3183813:-	ribB	1	1	Riboflavin metabolism
+ecoli_k12:NC_000913.3:3184840:+	ubiK	1	0	
+ecoli_k12:NC_000913.3:3185414:+	ygiL	1	0	
+ecoli_k12:NC_000913.3:3186025:+	yqiG-insD5	3	0	
+ecoli_k12:NC_000913.3:3189881:+	yqiHI	2	0	
+ecoli_k12:NC_000913.3:3191739:-	glgS	1	0	
+ecoli_k12:NC_000913.3:3192208:+	yqiJK	2	0	
+ecoli_k12:NC_000913.3:3194766:+	ibsD	1	0	
+ecoli_k12:NC_000913.3:3195141:+	ibsE	1	0	
+ecoli_k12:NC_000913.3:3195320:-	ygiF-hldE	3	2	Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars
+ecoli_k12:NC_000913.3:3201207:+	ygiM	1	0	
+ecoli_k12:NC_000913.3:3201891:+	cca	1	0	
+ecoli_k12:NC_000913.3:3203310:-	bacA	1	2	Peptidoglycan biosynthesis;Teichoic acid biosynthesis
+ecoli_k12:NC_000913.3:3204221:-	folB	1	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:3204694:+	plsY	1	0	
+ecoli_k12:NC_000913.3:3205324:-	ttdR	1	0	
+ecoli_k12:NC_000913.3:3206463:+	ttdABT	3	1	Glyoxylate and dicarboxylate metabolism
+ecoli_k12:NC_000913.3:3209530:-	tsaD	1	0	
+ecoli_k12:NC_000913.3:3210781:+	rpsU	1	0	
+ecoli_k12:NC_000913.3:3211107:+	dnaG	1	0	
+ecoli_k12:NC_000913.3:3213047:+	rpoD	1	0	
+ecoli_k12:NC_000913.3:3214967:-	mug	1	0	
+ecoli_k12:NC_000913.3:3215727:-	nfeF	1	0	
+ecoli_k12:NC_000913.3:3216779:+	nfeR	1	0	
+ecoli_k12:NC_000913.3:3217556:-	aer	1	0	
+ecoli_k12:NC_000913.3:3219494:+	patA	1	0	
+ecoli_k12:NC_000913.3:3220915:-	ygjH	1	0	
+ecoli_k12:NC_000913.3:3221466:+	ebgR	1	0	
+ecoli_k12:NC_000913.3:3222633:+	ebgAC	2	0	
+ecoli_k12:NC_000913.3:3226234:+	ygjI	1	0	
+ecoli_k12:NC_000913.3:3227801:+	ygjJK	2	0	
+ecoli_k12:NC_000913.3:3231665:+	fadH	1	0	
+ecoli_k12:NC_000913.3:3233728:-	higBA	2	0	
+ecoli_k12:NC_000913.3:3234739:-	rlmG	1	0	
+ecoli_k12:NC_000913.3:3235960:+	ygjP	1	0	
+ecoli_k12:NC_000913.3:3236540:+	ygjQ	1	0	
+ecoli_k12:NC_000913.3:3237311:+	ygjR	1	0	
+ecoli_k12:NC_000913.3:3238580:+	alx	1	0	
+ecoli_k12:NC_000913.3:3239944:+	sstT	1	0	
+ecoli_k12:NC_000913.3:3241193:-	ygjV	1	0	
+ecoli_k12:NC_000913.3:3241827:-	uxaCA	2	1	Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:3245224:+	exuT	1	0	
+ecoli_k12:NC_000913.3:3246652:+	exuR	1	0	
+ecoli_k12:NC_000913.3:3247668:+	yqiM-mzrA	3	0	
+ecoli_k12:NC_000913.3:3248969:+	yqjCDEK	4	0	
+ecoli_k12:NC_000913.3:3250562:+	yqjF	1	0	
+ecoli_k12:NC_000913.3:3251024:+	yqjG	1	0	
+ecoli_k12:NC_000913.3:3252304:+	yhaHI	2	0	
+ecoli_k12:NC_000913.3:3253318:-	yhaJ	1	0	
+ecoli_k12:NC_000913.3:3254319:+	yhaKL	2	0	
+ecoli_k12:NC_000913.3:3255341:-	cyuPA	2	3	Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;One carbon pool by folate
+ecoli_k12:NC_000913.3:3258285:-	tdcBCDEFG	6	4	Butanoate metabolism;Glycine, serine and threonine metabolism;Propanoate metabolism;Pyruvate metabolism
+ecoli_k12:NC_000913.3:3266127:-	tdcA	1	0	
+ecoli_k12:NC_000913.3:3267380:+	tdcR	1	0	
+ecoli_k12:NC_000913.3:3267854:+	yhaBC	2	0	
+ecoli_k12:NC_000913.3:3270625:-	garPLRK	4	2	Ascorbate and aldarate metabolism;Glyoxylate and dicarboxylate metabolism
+ecoli_k12:NC_000913.3:3275282:+	garD	1	1	Ascorbate and aldarate metabolism
+ecoli_k12:NC_000913.3:3277002:+	prlF-yhaV	2	0	
+ecoli_k12:NC_000913.3:3277856:-	agaR	1	0	
+ecoli_k12:NC_000913.3:3278914:+	kbaZ-agaV	2	0	
+ecoli_k12:NC_000913.3:3281976:+	agaS-kbaY	2	1	Galactose metabolism
+ecoli_k12:NC_000913.3:3284170:+	agaBCDI	4	0	
+ecoli_k12:NC_000913.3:3287426:+	yraHIJK	4	0	
+ecoli_k12:NC_000913.3:3292475:-	rsmI	1	0	
+ecoli_k12:NC_000913.3:3293400:+	lpoA-dolP	4	0	
+ecoli_k12:NC_000913.3:3297098:-	yraQ	1	0	
+ecoli_k12:NC_000913.3:3298211:-	yraR	1	0	
+ecoli_k12:NC_000913.3:3298974:+	yhbO	1	1	Pyruvate metabolism
+ecoli_k12:NC_000913.3:3299472:-	yhbP	1	0	
+ecoli_k12:NC_000913.3:3299966:+	yhbQ	1	0	
+ecoli_k12:NC_000913.3:3300255:-	ubiT-yhbS	2	0	
+ecoli_k12:NC_000913.3:3301485:+	ubiUV	2	0	
+ecoli_k12:NC_000913.3:3303448:+	yhbW	1	0	
+ecoli_k12:NC_000913.3:3304573:-	mtr	1	0	
+ecoli_k12:NC_000913.3:3305971:-	yrbN-deaD	2	0	
+ecoli_k12:NC_000913.3:3308040:-	nlpI	1	0	
+ecoli_k12:NC_000913.3:3309033:-	pnp	1	0	
+ecoli_k12:NC_000913.3:3311415:-	rpsO	1	0	
+ecoli_k12:NC_000913.3:3311833:-	rbfA-truB	2	0	
+ecoli_k12:NC_000913.3:3313342:-	rimP-infB	5	0	
+ecoli_k12:NC_000913.3:3318637:+	argG	1	2	Alanine, aspartate and glutamate metabolism;Arginine biosynthesis
+ecoli_k12:NC_000913.3:3319988:-	yhbX	1	0	
+ecoli_k12:NC_000913.3:3322173:-	secG	1	0	
+ecoli_k12:NC_000913.3:3322733:-	ftsH-glmM	3	3	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Folate biosynthesis
+ecoli_k12:NC_000913.3:3327035:-	rlmE	1	0	
+ecoli_k12:NC_000913.3:3327790:+	yhbY	1	0	
+ecoli_k12:NC_000913.3:3328239:-	greA	1	0	
+ecoli_k12:NC_000913.3:3328963:+	dacB	1	0	
+ecoli_k12:NC_000913.3:3330582:-	yhbE-obgE	2	0	
+ecoli_k12:NC_000913.3:3332862:-	rplU-rpmA	2	0	
+ecoli_k12:NC_000913.3:3333710:+	ispB	1	1	Terpenoid backbone biosynthesis
+ecoli_k12:NC_000913.3:3334909:+	sfsB	1	0	
+ecoli_k12:NC_000913.3:3335235:-	murA	1	3	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Peptidoglycan biosynthesis
+ecoli_k12:NC_000913.3:3336549:-	ibaG	1	0	
+ecoli_k12:NC_000913.3:3336963:-	mlaFEDCB	5	0	
+ecoli_k12:NC_000913.3:3340275:+	yrbG-lptB	6	2	Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars
+ecoli_k12:NC_000913.3:3344717:+	rpoN-hpf	2	0	
+ecoli_k12:NC_000913.3:3346578:+	ptsN	1	0	
+ecoli_k12:NC_000913.3:3347115:+	rapZ-npr	2	0	
+ecoli_k12:NC_000913.3:3348452:+	yrbL	1	0	
+ecoli_k12:NC_000913.3:3349081:-	elbB-mtgA	2	0	
+ecoli_k12:NC_000913.3:3350689:-	arcB	1	0	
+ecoli_k12:NC_000913.3:3353121:-	yhcC	1	0	
+ecoli_k12:NC_000913.3:3354725:+	gltBD	2	2	Alanine, aspartate and glutamate metabolism;Nitrogen metabolism
+ecoli_k12:NC_000913.3:3361176:+	gltF	1	0	
+ecoli_k12:NC_000913.3:3362112:+	yhcADEFG	5	0	
+ecoli_k12:NC_000913.3:3365702:-	insH10	1	0	
+ecoli_k12:NC_000913.3:3369014:-	nanRATEKQ	6	3	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars
+ecoli_k12:NC_000913.3:3374869:+	dcuD	1	0	
+ecoli_k12:NC_000913.3:3376279:-	sspAB	2	0	
+ecoli_k12:NC_000913.3:3377815:-	rplM-rpsI	2	0	
+ecoli_k12:NC_000913.3:3378870:-	zapE	1	0	
+ecoli_k12:NC_000913.3:3380191:+	yhcB-degS	3	0	
+ecoli_k12:NC_000913.3:3383330:-	mdh	1	6	Carbon fixation by Calvin cycle;Citrate cycle (TCA cycle);Glyoxylate and dicarboxylate metabolism;Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism
+ecoli_k12:NC_000913.3:3384703:+	argR	1	0	
+ecoli_k12:NC_000913.3:3385538:+	yhcN	1	0	
+ecoli_k12:NC_000913.3:3385857:-	yhcO	1	0	
+ecoli_k12:NC_000913.3:3386221:-	aaeXAB	3	0	
+ecoli_k12:NC_000913.3:3389520:+	aaeR	1	0	
+ecoli_k12:NC_000913.3:3390583:-	tldD	1	0	
+ecoli_k12:NC_000913.3:3392458:-	yhdP	1	0	
+ecoli_k12:NC_000913.3:3396326:-	mreB-rng	5	0	
+ecoli_k12:NC_000913.3:3401392:-	csrD	1	0	
+ecoli_k12:NC_000913.3:3403484:+	yhdH	1	0	
+ecoli_k12:NC_000913.3:3405436:+	accB-prmA	5	0	
+ecoli_k12:NC_000913.3:3410280:+	dusB-fis	2	0	
+ecoli_k12:NC_000913.3:3411653:+	yhdJ	1	0	
+ecoli_k12:NC_000913.3:3412621:+	yhdU	1	0	
+ecoli_k12:NC_000913.3:3412803:-	envR	1	0	
+ecoli_k12:NC_000913.3:3413864:+	acrEF	2	0	
+ecoli_k12:NC_000913.3:3418390:+	yhdV	1	0	
+ecoli_k12:NC_000913.3:3420134:+	yhdXYZ	3	0	
+ecoli_k12:NC_000913.3:3429236:+	yrdA	1	0	
+ecoli_k12:NC_000913.3:3429766:-	smf-yrdB	6	1	Phenylalanine, tyrosine and tryptophan biosynthesis
+ecoli_k12:NC_000913.3:3433690:+	def-fmt	2	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:3435207:+	rsmB-trkA	2	0	
+ecoli_k12:NC_000913.3:3438024:+	mscL	1	0	
+ecoli_k12:NC_000913.3:3438431:-	yhdN-arfA	4	0	
+ecoli_k12:NC_000913.3:3439616:-	rpsM-rplQ	5	0	
+ecoli_k12:NC_000913.3:3442618:-	rplN-rpmJ	12	0	
+ecoli_k12:NC_000913.3:3448314:-	rpsJ-rpsQ	11	0	
+ecoli_k12:NC_000913.3:3453508:-	gspAB	2	0	
+ecoli_k12:NC_000913.3:3455578:+	gspCDEFGHIJKLMO	12	0	
+ecoli_k12:NC_000913.3:3466249:-	bfd-bfr	2	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:3467160:-	chiA	1	0	
+ecoli_k12:NC_000913.3:3470145:-	rpsL-tufA	4	0	
+ecoli_k12:NC_000913.3:3474678:-	yheO-tusB	4	0	
+ecoli_k12:NC_000913.3:3476607:-	fkpA	1	0	
+ecoli_k12:NC_000913.3:3477640:+	slyX	1	0	
+ecoli_k12:NC_000913.3:3477907:-	slyD	1	0	
+ecoli_k12:NC_000913.3:3478592:-	kefG-yheV	3	0	
+ecoli_k12:NC_000913.3:3481289:+	yheSTU	3	0	
+ecoli_k12:NC_000913.3:3484490:+	prkB	1	0	
+ecoli_k12:NC_000913.3:3485414:-	yhfA	1	0	
+ecoli_k12:NC_000913.3:3486120:+	crp-yhfK	2	0	
+ecoli_k12:NC_000913.3:3488960:-	yrfJ-argD	2	1	Arginine biosynthesis
+ecoli_k12:NC_000913.3:3490266:-	yhfG-pabA	3	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:3491725:-	ppiA	1	0	
+ecoli_k12:NC_000913.3:3492568:+	tsgA	1	0	
+ecoli_k12:NC_000913.3:3494011:+	nirB-cysG	4	3	Nitrogen cycle;Nitrogen metabolism;Porphyrin metabolism
+ecoli_k12:NC_000913.3:3499448:+	yhfL	1	0	
+ecoli_k12:NC_000913.3:3499910:+	frlABCD	4	0	
+ecoli_k12:NC_000913.3:3504052:+	frlR	1	0	
+ecoli_k12:NC_000913.3:3504935:-	yhfX-yhfS	6	0	
+ecoli_k12:NC_000913.3:3511060:-	yhfZY	2	0	
+ecoli_k12:NC_000913.3:3512634:-	damX-trpS	5	5	Aminoacyl-tRNA biosynthesis;Carbon fixation by Calvin cycle;Glyoxylate and dicarboxylate metabolism;Pentose and glucuronate interconversions;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:3517398:-	aroKB	2	1	Phenylalanine, tyrosine and tryptophan biosynthesis
+ecoli_k12:NC_000913.3:3519465:-	hofMNOPQ	5	0	
+ecoli_k12:NC_000913.3:3522871:+	mrcA	1	0	
+ecoli_k12:NC_000913.3:3525589:-	nudE	1	0	
+ecoli_k12:NC_000913.3:3526469:+	igaA	1	0	
+ecoli_k12:NC_000913.3:3528669:+	yrfG-hslO	3	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:3530715:-	yhgE	1	0	
+ecoli_k12:NC_000913.3:3532818:+	pck	1	4	Carbon fixation by Calvin cycle;Citrate cycle (TCA cycle);Glycolysis / Gluconeogenesis;Pyruvate metabolism
+ecoli_k12:NC_000913.3:3534516:-	ompR-envZ	2	0	
+ecoli_k12:NC_000913.3:3536812:+	greB-yhgF	2	0	
+ecoli_k12:NC_000913.3:3540163:+	feoABC	3	0	
+ecoli_k12:NC_000913.3:3543167:+	rpnA	1	0	
+ecoli_k12:NC_000913.3:3544074:-	bioH	1	0	
+ecoli_k12:NC_000913.3:3544882:+	yhgH	1	0	
+ecoli_k12:NC_000913.3:3545624:+	nfuA	1	0	
+ecoli_k12:NC_000913.3:3546559:+	gntT	1	0	
+ecoli_k12:NC_000913.3:3547986:-	malPQ	2	0	
+ecoli_k12:NC_000913.3:3553085:+	malT	1	0	
+ecoli_k12:NC_000913.3:3555833:-	rtcBA	2	0	
+ecoli_k12:NC_000913.3:3558268:+	rtcR	1	0	
+ecoli_k12:NC_000913.3:3560622:-	glpEG	2	1	Sulfur metabolism
+ecoli_k12:NC_000913.3:3562013:+	glpD	1	0	
+ecoli_k12:NC_000913.3:3563724:-	yzgL	1	0	
+ecoli_k12:NC_000913.3:3564134:-	glgBXCAP	5	3	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Starch and sucrose metabolism
+ecoli_k12:NC_000913.3:3573660:-	yhgPO	2	0	
+ecoli_k12:NC_000913.3:3573775:-	asd	1	3	Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis
+ecoli_k12:NC_000913.3:3575071:+	yhgN	1	0	
+ecoli_k12:NC_000913.3:3575721:-	gntRKU	3	1	Pentose phosphate pathway
+ecoli_k12:NC_000913.3:3578950:-	yhhW	1	0	
+ecoli_k12:NC_000913.3:3579768:-	yhhX	1	0	
+ecoli_k12:NC_000913.3:3581138:+	yhhY	1	0	
+ecoli_k12:NC_000913.3:3581863:+	yhhZ-insB6	4	0	
+ecoli_k12:NC_000913.3:3584404:+	yrhD	1	0	
+ecoli_k12:NC_000913.3:3584759:+	yrhB	1	0	
+ecoli_k12:NC_000913.3:3585081:-	ggt	1	0	
+ecoli_k12:NC_000913.3:3586943:+	yhhA	1	0	
+ecoli_k12:NC_000913.3:3587370:-	ugpAECQ	4	0	
+ecoli_k12:NC_000913.3:3591009:-	ugpB	1	0	
+ecoli_k12:NC_000913.3:3592724:-	livKHMGF	5	0	
+ecoli_k12:NC_000913.3:3597984:+	panZ	1	0	
+ecoli_k12:NC_000913.3:3598555:-	livJ	1	0	
+ecoli_k12:NC_000913.3:3599929:-	rpoH	1	0	
+ecoli_k12:NC_000913.3:3601028:-	ftsYEX	3	0	
+ecoli_k12:NC_000913.3:3604393:+	rsmD-yhhL	2	0	
+ecoli_k12:NC_000913.3:3605251:-	yhhM	1	0	
+ecoli_k12:NC_000913.3:3605751:+	yhhN	1	0	
+ecoli_k12:NC_000913.3:3606451:+	zntA	1	0	
+ecoli_k12:NC_000913.3:3608751:-	tusA	1	0	
+ecoli_k12:NC_000913.3:3609217:+	yhhQ	1	0	
+ecoli_k12:NC_000913.3:3609955:+	dcrB	1	0	
+ecoli_k12:NC_000913.3:3610516:-	yhhS	1	0	
+ecoli_k12:NC_000913.3:3611865:+	yhhT	1	0	
+ecoli_k12:NC_000913.3:3612969:+	acpT	1	2	Mycolic acid biosynthesis;Pantothenate and CoA biosynthesis
+ecoli_k12:NC_000913.3:3613667:+	nikABCDER	6	0	
+ecoli_k12:NC_000913.3:3619192:+	rhsB-yhhH	2	0	
+ecoli_k12:NC_000913.3:3624378:+	yhhI	1	0	
+ecoli_k12:NC_000913.3:3625679:-	yhiI-yhhJ	3	0	
+ecoli_k12:NC_000913.3:3630665:-	yhiY	1	0	
+ecoli_k12:NC_000913.3:3630968:-	yhiJ	1	0	
+ecoli_k12:NC_000913.3:3634841:+	yhiM	1	0	
+ecoli_k12:NC_000913.3:3636208:-	yhiN	1	0	
+ecoli_k12:NC_000913.3:3637642:+	pitA	1	0	
+ecoli_k12:NC_000913.3:3639385:-	uspB	1	0	
+ecoli_k12:NC_000913.3:3640111:+	uspA	1	0	
+ecoli_k12:NC_000913.3:3640612:-	yriBA	2	0	
+ecoli_k12:NC_000913.3:3640862:+	dtpB	1	0	
+ecoli_k12:NC_000913.3:3642380:-	prlC-rsmJ	2	0	
+ecoli_k12:NC_000913.3:3645385:+	rlmJ-gor	2	1	Glutathione metabolism
+ecoli_k12:NC_000913.3:3647705:-	dinQ	1	0	
+ecoli_k12:NC_000913.3:3648528:+	arsRBC	3	0	
+ecoli_k12:NC_000913.3:3651291:+	yhiS	1	0	
+ecoli_k12:NC_000913.3:3652182:-	insH11	1	0	
+ecoli_k12:NC_000913.3:3653961:+	slp	1	0	
+ecoli_k12:NC_000913.3:3654683:+	dctR	1	0	
+ecoli_k12:NC_000913.3:3655255:-	yhiD	1	0	
+ecoli_k12:NC_000913.3:3655966:-	hdeAB	2	0	
+ecoli_k12:NC_000913.3:3656995:+	hdeD	1	0	
+ecoli_k12:NC_000913.3:3658366:+	gadE	1	0	
+ecoli_k12:NC_000913.3:3659232:+	mdtEF	2	0	
+ecoli_k12:NC_000913.3:3663890:-	gadW	1	0	
+ecoli_k12:NC_000913.3:3664986:-	gadX	1	0	
+ecoli_k12:NC_000913.3:3666180:-	gadA	1	2	Alanine, aspartate and glutamate metabolism;Butanoate metabolism
+ecoli_k12:NC_000913.3:3667791:-	ccp	1	0	
+ecoli_k12:NC_000913.3:3669592:+	treF	1	1	Starch and sucrose metabolism
+ecoli_k12:NC_000913.3:3671292:-	yhjB	1	0	
+ecoli_k12:NC_000913.3:3672414:+	rcdB	1	0	
+ecoli_k12:NC_000913.3:3673362:+	yhjD	1	0	
+ecoli_k12:NC_000913.3:3674786:+	yhjE	1	0	
+ecoli_k12:NC_000913.3:3676290:-	yhjG	1	0	
+ecoli_k12:NC_000913.3:3678420:-	pdeH	1	0	
+ecoli_k12:NC_000913.3:3679419:+	kdgK	1	1	Pentose phosphate pathway
+ecoli_k12:NC_000913.3:3680444:-	yhjJ	1	0	
+ecoli_k12:NC_000913.3:3682161:-	dctA	1	0	
+ecoli_k12:NC_000913.3:3683630:-	pdeK	1	0	
+ecoli_k12:NC_000913.3:3685700:-	bcsABZC	4	1	Starch and sucrose metabolism
+ecoli_k12:NC_000913.3:3695997:-	yhjR	1	0	
+ecoli_k12:NC_000913.3:3696458:+	bcsEFG	3	0	
+ecoli_k12:NC_000913.3:3699980:-	ldrD	1	0	
+ecoli_k12:NC_000913.3:3700563:+	yhjV	1	0	
+ecoli_k12:NC_000913.3:3701864:-	dppBCDF	4	0	
+ecoli_k12:NC_000913.3:3706098:-	dppA	1	0	
+ecoli_k12:NC_000913.3:3708784:-	eptB	1	1	Lipopolysaccharide biosynthesis
+ecoli_k12:NC_000913.3:3710799:-	yhjX	1	0	
+ecoli_k12:NC_000913.3:3712236:-	yhjY	1	0	
+ecoli_k12:NC_000913.3:3713092:+	tag-yiaC	2	0	
+ecoli_k12:NC_000913.3:3714061:-	bisC	1	0	
+ecoli_k12:NC_000913.3:3716547:+	yiaD	1	0	
+ecoli_k12:NC_000913.3:3717310:+	ghrB	1	1	Pentose phosphate pathway
+ecoli_k12:NC_000913.3:3718334:-	yiaF	1	0	
+ecoli_k12:NC_000913.3:3719478:+	yiaG	1	0	
+ecoli_k12:NC_000913.3:3720049:+	cspA	1	0	
+ecoli_k12:NC_000913.3:3720400:+	ysaE	1	0	
+ecoli_k12:NC_000913.3:3720448:-	hokA	1	0	
+ecoli_k12:NC_000913.3:3720680:+	insJK	2	0	
+ecoli_k12:NC_000913.3:3722328:-	glyQS	2	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:3725413:-	ysaB	1	0	
+ecoli_k12:NC_000913.3:3725887:+	wecH	1	0	
+ecoli_k12:NC_000913.3:3726924:-	yiaBA	2	0	
+ecoli_k12:NC_000913.3:3727917:-	xylAB	3	2	Fructose and mannose metabolism;Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:3731131:+	xylFGHR	4	0	
+ecoli_k12:NC_000913.3:3736353:-	baxL	2	0	
+ecoli_k12:NC_000913.3:3737497:+	malS	1	0	
+ecoli_k12:NC_000913.3:3739705:+	avtA	1	1	Valine, leucine and isoleucine biosynthesis
+ecoli_k12:NC_000913.3:3741109:-	ysaA	1	0	
+ecoli_k12:NC_000913.3:3741684:-	plaR	1	0	
+ecoli_k12:NC_000913.3:3742733:+	yiaKL	2	2	Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:3744328:+	yiaM-sgbE	7	2	Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:3751128:-	yiaT	1	0	
+ecoli_k12:NC_000913.3:3751992:+	yiaU	1	0	
+ecoli_k12:NC_000913.3:3752963:-	yiaWV	2	0	
+ecoli_k12:NC_000913.3:3754973:-	aldB	1	0	
+ecoli_k12:NC_000913.3:3756676:-	yiaY	1	1	Glycine, serine and threonine metabolism
+ecoli_k12:NC_000913.3:3758017:-	selAB	2	4	Aminoacyl-tRNA biosynthesis;Nucleotide metabolism;Purine metabolism;Selenocompound metabolism
+ecoli_k12:NC_000913.3:3761347:-	yibF	1	0	
+ecoli_k12:NC_000913.3:3762183:+	rhsA-yibA	2	0	
+ecoli_k12:NC_000913.3:3768177:+	yibG	1	0	
+ecoli_k12:NC_000913.3:3769345:+	yibV	1	0	
+ecoli_k12:NC_000913.3:3770243:-	yibIH	2	0	
+ecoli_k12:NC_000913.3:3772281:+	mtlADR	3	1	Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:3776171:-	yibT	1	0	
+ecoli_k12:NC_000913.3:3776665:+	yibL	1	0	
+ecoli_k12:NC_000913.3:3777399:+	lldPRD	3	0	
+ecoli_k12:NC_000913.3:3781215:+	trmL	1	0	
+ecoli_k12:NC_000913.3:3781741:-	cysE	1	3	Biosynthesis of various antibiotics;Cysteine and methionine metabolism;Sulfur metabolism
+ecoli_k12:NC_000913.3:3782642:-	secB-gpsA	2	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:3784191:-	grxC	1	1	Glutathione metabolism
+ecoli_k12:NC_000913.3:3784584:-	yibN	1	0	
+ecoli_k12:NC_000913.3:3785260:+	gpmM-yibQ	3	3	Glycine, serine and threonine metabolism;Glycolysis / Gluconeogenesis;Methane metabolism
+ecoli_k12:NC_000913.3:3789047:-	waaH	1	0	
+ecoli_k12:NC_000913.3:3790320:-	kbl-tdh	2	1	Glycine, serine and threonine metabolism
+ecoli_k12:NC_000913.3:3792826:-	htrL	1	0	
+ecoli_k12:NC_000913.3:3793987:+	rfaD-waaL	4	2	Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars
+ecoli_k12:NC_000913.3:3797772:-	yibYXX	3	0	
+ecoli_k12:NC_000913.3:3798239:-	waaQGPSBOJYZU	10	0	
+ecoli_k12:NC_000913.3:3808540:+	waaA-coaD	2	2	Lipopolysaccharide biosynthesis;Pantothenate and CoA biosynthesis
+ecoli_k12:NC_000913.3:3810343:-	mutM	1	0	
+ecoli_k12:NC_000913.3:3811250:-	rpmBG	2	0	
+ecoli_k12:NC_000913.3:3811891:-	yicR	1	0	
+ecoli_k12:NC_000913.3:3812731:+	dfp-dut	2	3	Nucleotide metabolism;Pantothenate and CoA biosynthesis;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:3814494:+	slmA	1	0	
+ecoli_k12:NC_000913.3:3815127:-	pyrE	1	1	Pyrimidine metabolism
+ecoli_k12:NC_000913.3:3815863:-	rph	1	0	
+ecoli_k12:NC_000913.3:3816676:+	yicC	1	0	
+ecoli_k12:NC_000913.3:3817760:+	dinD	1	0	
+ecoli_k12:NC_000913.3:3818874:+	yicG	1	0	
+ecoli_k12:NC_000913.3:3819488:-	ligB	1	0	
+ecoli_k12:NC_000913.3:3821428:+	gmk	1	0	
+ecoli_k12:NC_000913.3:3822106:+	rpoZ-recG	4	1	Purine metabolism
+ecoli_k12:NC_000913.3:3827460:-	gltS	1	0	
+ecoli_k12:NC_000913.3:3828945:+	xanP-yicH	2	0	
+ecoli_k12:NC_000913.3:3832219:-	yicJI	2	0	
+ecoli_k12:NC_000913.3:3836953:+	setC	1	0	
+ecoli_k12:NC_000913.3:3838248:+	yicL	1	0	
+ecoli_k12:NC_000913.3:3838642:-	yicU	1	0	
+ecoli_k12:NC_000913.3:3839175:-	nlpA	1	0	
+ecoli_k12:NC_000913.3:3840215:+	yicS	1	0	
+ecoli_k12:NC_000913.3:3840549:-	nepI	1	0	
+ecoli_k12:NC_000913.3:3841950:-	yicN	1	0	
+ecoli_k12:NC_000913.3:3842455:-	adeQ	1	0	
+ecoli_k12:NC_000913.3:3843964:+	adeD	1	1	Glyoxylate and dicarboxylate metabolism
+ecoli_k12:NC_000913.3:3845730:-	uhpABCT	5	0	
+ecoli_k12:NC_000913.3:3850802:-	ilvBN	2	4	Butanoate metabolism;C5-Branched dibasic acid metabolism;Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis
+ecoli_k12:NC_000913.3:3852890:-	ivbL	1	0	
+ecoli_k12:NC_000913.3:3853553:+	tisB	1	0	
+ecoli_k12:NC_000913.3:3853766:-	ysdE	1	0	
+ecoli_k12:NC_000913.3:3853922:+	emrD	1	0	
+ecoli_k12:NC_000913.3:3855114:-	yidHGF	3	0	
+ecoli_k12:NC_000913.3:3856415:+	yidI	1	0	
+ecoli_k12:NC_000913.3:3856911:-	yidKJ	2	0	
+ecoli_k12:NC_000913.3:3860283:+	yidL	1	0	
+ecoli_k12:NC_000913.3:3861987:-	glvCB	2	0	
+ecoli_k12:NC_000913.3:3863899:+	yidP	1	0	
+ecoli_k12:NC_000913.3:3864612:-	yidE	1	0	
+ecoli_k12:NC_000913.3:3866469:-	ibpAB	2	0	
+ecoli_k12:NC_000913.3:3867728:+	yidQ	1	0	
+ecoli_k12:NC_000913.3:3868062:-	yidR	1	0	
+ecoli_k12:NC_000913.3:3869377:+	cbrA	1	0	
+ecoli_k12:NC_000913.3:3870438:-	dgoRKADT	5	1	Galactose metabolism
+ecoli_k12:NC_000913.3:3875438:+	yidX	1	0	
+ecoli_k12:NC_000913.3:3876140:-	yidA	1	0	
+ecoli_k12:NC_000913.3:3877067:-	yidB	1	0	
+ecoli_k12:NC_000913.3:3877705:-	dnaA-gyrB	4	0	
+ecoli_k12:NC_000913.3:3884026:+	ysdD	1	0	
+ecoli_k12:NC_000913.3:3884336:+	rpmH-yidC	4	0	
+ecoli_k12:NC_000913.3:3886828:+	mnmE	1	0	
+ecoli_k12:NC_000913.3:3888435:+	tnaCAB	3	1	Tryptophan metabolism
+ecoli_k12:NC_000913.3:3891615:+	mdtL-yidZ	2	0	
+ecoli_k12:NC_000913.3:3893881:+	yieEF	2	0	
+ecoli_k12:NC_000913.3:3895272:-	adeP	1	0	
+ecoli_k12:NC_000913.3:3896774:+	yieH	1	0	
+ecoli_k12:NC_000913.3:3897506:+	cbrBC	2	0	
+ecoli_k12:NC_000913.3:3898671:-	bglG-yieK	6	3	Amino sugar and nucleotide sugar metabolism;Glycolysis / Gluconeogenesis;Starch and sucrose metabolism
+ecoli_k12:NC_000913.3:3906853:-	pstS-phoU	5	0	
+ecoli_k12:NC_000913.3:3911839:-	glmUS	2	3	Alanine, aspartate and glutamate metabolism;Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars
+ecoli_k12:NC_000913.3:3915553:-	atpIBEFHAGDC	9	0	
+ecoli_k12:NC_000913.3:3923057:-	rsmG	1	0	
+ecoli_k12:NC_000913.3:3923744:-	mnmG	1	0	
+ecoli_k12:NC_000913.3:3926012:-	mioC	1	0	
+ecoli_k12:NC_000913.3:3926545:-	asnC	1	0	
+ecoli_k12:NC_000913.3:3927155:+	asnA	1	2	Alanine, aspartate and glutamate metabolism;Cyanoamino acid metabolism
+ecoli_k12:NC_000913.3:3928152:-	ravA-viaA	2	0	
+ecoli_k12:NC_000913.3:3931316:+	kup	1	0	
+ecoli_k12:NC_000913.3:3933351:+	rbsDACBKR	7	1	Pentose phosphate pathway
+ecoli_k12:NC_000913.3:3939185:-	yieP-hsrA	2	0	
+ecoli_k12:NC_000913.3:3947128:-	hdfR	1	0	
+ecoli_k12:NC_000913.3:3948086:+	maoP	1	0	
+ecoli_k12:NC_000913.3:3948449:-	yifB	1	0	
+ecoli_k12:NC_000913.3:3950322:+	ilvLX	2	0	
+ecoli_k12:NC_000913.3:3952201:+	ilvMEDA	4	6	Butanoate metabolism;C5-Branched dibasic acid metabolism;Glycine, serine and threonine metabolism;Pantothenate and CoA biosynthesis;Tryptophan metabolism;Valine, leucine and isoleucine biosynthesis
+ecoli_k12:NC_000913.3:3956927:-	ilvY	1	0	
+ecoli_k12:NC_000913.3:3957970:+	ilvC	1	1	Pantothenate and CoA biosynthesis
+ecoli_k12:NC_000913.3:3959532:-	ppiC	1	0	
+ecoli_k12:NC_000913.3:3960677:+	rep	1	0	
+ecoli_k12:NC_000913.3:3962745:-	gpp	1	1	Purine metabolism
+ecoli_k12:NC_000913.3:3964365:-	rhlB	1	0	
+ecoli_k12:NC_000913.3:3965761:+	trxA	1	0	
+ecoli_k12:NC_000913.3:3966231:+	rhoL	2	0	
+ecoli_k12:NC_000913.3:3967916:+	wecA-wzzE	2	0	
+ecoli_k12:NC_000913.3:3970133:+	wecB-rffM	10	7	Acarbose and validamycin biosynthesis;Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of vancomycin group antibiotics;Biosynthesis of various nucleotide sugars;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis
+ecoli_k12:NC_000913.3:3980887:+	thrP	1	0	
+ecoli_k12:NC_000913.3:3982958:+	aslB	1	0	
+ecoli_k12:NC_000913.3:3984352:-	aslA	1	0	
+ecoli_k12:NC_000913.3:3986686:-	hemCDXY	4	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:3991153:+	cyaA	1	1	Purine metabolism
+ecoli_k12:NC_000913.3:3993739:-	cyaY	1	0	
+ecoli_k12:NC_000913.3:3993850:+	yzcX	1	0	
+ecoli_k12:NC_000913.3:3994522:+	lptM-yigB	5	3	D-Amino acid metabolism;Lysine biosynthesis;Riboflavin metabolism
+ecoli_k12:NC_000913.3:3997983:+	uvrD	1	0	
+ecoli_k12:NC_000913.3:4000292:-	yigE	1	0	
+ecoli_k12:NC_000913.3:4001218:+	ysgD	1	0	
+ecoli_k12:NC_000913.3:4001426:+	corA	1	0	
+ecoli_k12:NC_000913.3:4002419:-	yigGF	2	0	
+ecoli_k12:NC_000913.3:4003288:-	rarD	1	0	
+ecoli_k12:NC_000913.3:4004230:-	yigI	1	3	Biosynthesis of unsaturated fatty acids;Fatty acid elongation;Fatty acid metabolism
+ecoli_k12:NC_000913.3:4004862:+	pldA	1	0	
+ecoli_k12:NC_000913.3:4005864:+	recQ	1	0	
+ecoli_k12:NC_000913.3:4007757:+	rhtC	1	0	
+ecoli_k12:NC_000913.3:4008439:-	rhtB	1	0	
+ecoli_k12:NC_000913.3:4009170:+	pldB-yigL	2	0	
+ecoli_k12:NC_000913.3:4011076:+	bioP	1	0	
+ecoli_k12:NC_000913.3:4011863:-	metR	1	0	
+ecoli_k12:NC_000913.3:4013053:+	metE	1	2	Cysteine and methionine metabolism;Selenocompound metabolism
+ecoli_k12:NC_000913.3:4015354:-	ysgA	1	0	
+ecoli_k12:NC_000913.3:4016431:+	udp	1	2	Nucleotide metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:4017333:+	rmuC	1	0	
+ecoli_k12:NC_000913.3:4018855:+	ubiEJB	4	1	Ubiquinone and other terpenoid-quinone biosynthesis
+ecoli_k12:NC_000913.3:4021945:+	tatABCD	4	0	
+ecoli_k12:NC_000913.3:4024333:-	rfaH	1	0	
+ecoli_k12:NC_000913.3:4024988:+	ubiD	1	1	Ubiquinone and other terpenoid-quinone biosynthesis
+ecoli_k12:NC_000913.3:4026527:+	fre	1	1	Riboflavin metabolism
+ecoli_k12:NC_000913.3:4027609:-	fadBA	2	1	Fatty acid elongation
+ecoli_k12:NC_000913.3:4031161:+	pepQ-hemG	4	0	
+ecoli_k12:NC_000913.3:4040906:-	mobAB	2	1	Folate biosynthesis
+ecoli_k12:NC_000913.3:4042069:+	yihD	1	0	
+ecoli_k12:NC_000913.3:4042415:+	srkA-dsbA	2	0	
+ecoli_k12:NC_000913.3:4044199:+	yihF	1	0	
+ecoli_k12:NC_000913.3:4045670:-	yihG	1	0	
+ecoli_k12:NC_000913.3:4046966:+	polA	1	0	
+ecoli_k12:NC_000913.3:4049899:+	spfP	2	0	
+ecoli_k12:NC_000913.3:4050133:-	yihA	1	0	
+ecoli_k12:NC_000913.3:4051347:+	yihI	1	0	
+ecoli_k12:NC_000913.3:4052045:+	hemN	1	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:4053647:-	yshB	1	0	
+ecoli_k12:NC_000913.3:4053869:-	glnLG	2	0	
+ecoli_k12:NC_000913.3:4056625:-	glnA	1	4	Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Glyoxylate and dicarboxylate metabolism;Nitrogen metabolism
+ecoli_k12:NC_000913.3:4058407:+	bipA	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:4060447:+	yihLM	2	0	
+ecoli_k12:NC_000913.3:4062247:+	yihN	1	0	
+ecoli_k12:NC_000913.3:4063603:-	ompL	1	0	
+ecoli_k12:NC_000913.3:4064363:-	yihO	1	0	
+ecoli_k12:NC_000913.3:4065809:-	yihP	1	0	
+ecoli_k12:NC_000913.3:4067240:-	yihQ	1	1	Sulfoquinovose metabolism
+ecoli_k12:NC_000913.3:4069475:-	yihUTSR	4	1	Sulfoquinovose metabolism
+ecoli_k12:NC_000913.3:4073739:+	yihV-csqR	2	1	Sulfoquinovose metabolism
+ecoli_k12:NC_000913.3:4075553:+	yihX-fabY	4	0	
+ecoli_k12:NC_000913.3:4079291:+	yiiE	1	0	
+ecoli_k12:NC_000913.3:4079751:+	yiiF	1	0	
+ecoli_k12:NC_000913.3:4080299:-	fdoG-fdhE	4	0	
+ecoli_k12:NC_000913.3:4086016:+	fdhD	1	0	
+ecoli_k12:NC_000913.3:4087002:+	yiiG	1	0	
+ecoli_k12:NC_000913.3:4088107:-	frvABXR	4	0	
+ecoli_k12:NC_000913.3:4093124:-	rhaDM	2	1	Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:4094723:-	rhaBA	2	1	Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:4097736:+	rhaSR	2	0	
+ecoli_k12:NC_000913.3:4099491:-	rhaT	1	0	
+ecoli_k12:NC_000913.3:4100810:+	sodA	1	0	
+ecoli_k12:NC_000913.3:4101690:+	kdgT	1	0	
+ecoli_k12:NC_000913.3:4102822:+	yiiM	1	0	
+ecoli_k12:NC_000913.3:4103602:-	cpxRA	2	0	
+ecoli_k12:NC_000913.3:4105820:+	cpxP	1	0	
+ecoli_k12:NC_000913.3:4106469:+	fieF	1	0	
+ecoli_k12:NC_000913.3:4107552:+	pfkA	1	4	Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:4108834:+	sbp	1	0	
+ecoli_k12:NC_000913.3:4109930:+	cdh	1	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:4110740:-	tpiA	1	4	Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Inositol phosphate metabolism
+ecoli_k12:NC_000913.3:4111615:-	yiiQ	1	0	
+ecoli_k12:NC_000913.3:4112315:+	yiiR-uspD	3	0	
+ecoli_k12:NC_000913.3:4113726:-	fpr	1	0	
+ecoli_k12:NC_000913.3:4114569:-	glpFKX	3	6	Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycerolipid metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:4118515:+	zapB	1	0	
+ecoli_k12:NC_000913.3:4118845:-	rraA	1	0	
+ecoli_k12:NC_000913.3:4119423:-	menA	1	0	
+ecoli_k12:NC_000913.3:4120416:-	hslVU	2	0	
+ecoli_k12:NC_000913.3:4122380:-	cytR-ftsN	2	0	
+ecoli_k12:NC_000913.3:4124612:-	priA	1	0	
+ecoli_k12:NC_000913.3:4127013:+	rpmE	1	0	
+ecoli_k12:NC_000913.3:4127286:-	yiiX	1	0	
+ecoli_k12:NC_000913.3:4128078:-	metJ	1	0	
+ecoli_k12:NC_000913.3:4128672:+	metBL	2	3	Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis
+ecoli_k12:NC_000913.3:4132616:+	metF	1	2	One carbon pool by folate;Other carbon fixation pathways
+ecoli_k12:NC_000913.3:4133835:+	katG	1	1	Glyoxylate and dicarboxylate metabolism
+ecoli_k12:NC_000913.3:4136108:+	yijE	1	0	
+ecoli_k12:NC_000913.3:4137040:-	yijF	1	0	
+ecoli_k12:NC_000913.3:4137932:-	ptsA-gldA	3	1	Glycerolipid metabolism
+ecoli_k12:NC_000913.3:4142530:+	frwCB	2	0	
+ecoli_k12:NC_000913.3:4143995:+	pflD-frwD	3	0	
+ecoli_k12:NC_000913.3:4147466:-	yijO	1	0	
+ecoli_k12:NC_000913.3:4148532:-	eptC	1	0	
+ecoli_k12:NC_000913.3:4150447:-	ppc	1	0	
+ecoli_k12:NC_000913.3:4153696:-	argE	1	1	Arginine biosynthesis
+ecoli_k12:NC_000913.3:4155001:+	argCBH	3	2	Alanine, aspartate and glutamate metabolism;Arginine biosynthesis
+ecoli_k12:NC_000913.3:4158490:+	oxyR	1	0	
+ecoli_k12:NC_000913.3:4159390:-	sthA	1	1	Nicotinate and nicotinamide metabolism
+ecoli_k12:NC_000913.3:4161067:+	fabR-yijD	2	0	
+ecoli_k12:NC_000913.3:4162170:-	trmA	1	0	
+ecoli_k12:NC_000913.3:4163639:+	btuB-murI	2	1	D-Amino acid metabolism
+ecoli_k12:NC_000913.3:4172057:+	murB-birA	2	3	Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Peptidoglycan biosynthesis
+ecoli_k12:NC_000913.3:4174076:-	coaA	1	1	Pantothenate and CoA biosynthesis
+ecoli_k12:NC_000913.3:4175944:+	tufB	1	0	
+ecoli_k12:NC_000913.3:4177358:+	secE-nusG	2	0	
+ecoli_k12:NC_000913.3:4178447:+	rplKA	2	0	
+ecoli_k12:NC_000913.3:4179996:+	rplJL	2	0	
+ecoli_k12:NC_000913.3:4181245:+	rpoBC	2	0	
+ecoli_k12:NC_000913.3:4189786:+	yjaZ	1	0	
+ecoli_k12:NC_000913.3:4190735:-	thiCEFSGH	6	1	Thiamine metabolism
+ecoli_k12:NC_000913.3:4196332:-	rsd	1	0	
+ecoli_k12:NC_000913.3:4196903:+	nudC-nfi	3	1	Porphyrin metabolism
+ecoli_k12:NC_000913.3:4199504:+	yjaG	1	0	
+ecoli_k12:NC_000913.3:4200281:+	hupA-yjaH	2	0	
+ecoli_k12:NC_000913.3:4201263:-	zraP	1	0	
+ecoli_k12:NC_000913.3:4201926:+	zraSR	2	0	
+ecoli_k12:NC_000913.3:4204642:-	purHD	2	2	One carbon pool by folate;Purine metabolism
+ecoli_k12:NC_000913.3:4213234:+	yjaA	1	0	
+ecoli_k12:NC_000913.3:4213680:-	yjaB	1	0	
+ecoli_k12:NC_000913.3:4214280:+	metA	1	2	Cysteine and methionine metabolism;Sulfur metabolism
+ecoli_k12:NC_000913.3:4215478:+	aceBAK	4	2	Glyoxylate and dicarboxylate metabolism;Pyruvate metabolism
+ecoli_k12:NC_000913.3:4220301:-	arpA	1	0	
+ecoli_k12:NC_000913.3:4222804:-	iclR	1	0	
+ecoli_k12:NC_000913.3:4223828:+	metH	1	2	Cysteine and methionine metabolism;One carbon pool by folate
+ecoli_k12:NC_000913.3:4227731:+	yjbB	1	0	
+ecoli_k12:NC_000913.3:4229453:-	pepE	1	0	
+ecoli_k12:NC_000913.3:4230354:+	rluF	1	0	
+ecoli_k12:NC_000913.3:4231359:-	yjbD	1	0	
+ecoli_k12:NC_000913.3:4231884:-	lysC	1	4	Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis;Monobactam biosynthesis
+ecoli_k12:NC_000913.3:4233758:+	pgi	1	1	Starch and sucrose metabolism
+ecoli_k12:NC_000913.3:4235906:+	yjbE	1	0	
+ecoli_k12:NC_000913.3:4236262:+	yjbFGH	3	0	
+ecoli_k12:NC_000913.3:4239777:-	yjbT	1	0	
+ecoli_k12:NC_000913.3:4240325:+	psiE	1	0	
+ecoli_k12:NC_000913.3:4240779:-	xylE	1	0	
+ecoli_k12:NC_000913.3:4242531:-	malEFG	4	0	
+ecoli_k12:NC_000913.3:4246784:+	malK-malM	3	0	
+ecoli_k12:NC_000913.3:4252506:+	ubiCA	2	1	Ubiquinone and other terpenoid-quinone biosynthesis
+ecoli_k12:NC_000913.3:4254043:-	plsB	1	2	Glycerolipid metabolism;Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:4256637:+	dgkA	1	2	Glycerolipid metabolism;Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:4257115:+	lexA-dinF	2	0	
+ecoli_k12:NC_000913.3:4259237:+	yjbJ	1	0	
+ecoli_k12:NC_000913.3:4259488:-	zur	1	0	
+ecoli_k12:NC_000913.3:4260321:+	yjbLM	2	0	
+ecoli_k12:NC_000913.3:4261669:+	dusA	1	0	
+ecoli_k12:NC_000913.3:4262840:+	pspG	1	0	
+ecoli_k12:NC_000913.3:4263248:-	qorA	1	0	
+ecoli_k12:NC_000913.3:4264314:+	dnaB	1	0	
+ecoli_k12:NC_000913.3:4265782:+	alr	1	1	D-Amino acid metabolism
+ecoli_k12:NC_000913.3:4267114:+	tyrB	1	8	Cysteine and methionine metabolism;Isoquinoline alkaloid biosynthesis;Novobiocin biosynthesis;Phenylalanine metabolism;Phenylalanine, tyrosine and tryptophan biosynthesis;Tropane, piperidine and pyridine alkaloid biosynthesis;Tyrosine metabolism;Ubiquinone and other terpenoid-quinone biosynthesis
+ecoli_k12:NC_000913.3:4268809:-	yjbS	1	0	
+ecoli_k12:NC_000913.3:4269414:+	aphA	1	0	
+ecoli_k12:NC_000913.3:4270238:+	yjbQR	2	0	
+ecoli_k12:NC_000913.3:4271049:-	uvrA	1	0	
+ecoli_k12:NC_000913.3:4274125:+	ssb	1	0	
+ecoli_k12:NC_000913.3:4274760:-	yjcB	1	0	
+ecoli_k12:NC_000913.3:4275471:+	pdeC	1	0	
+ecoli_k12:NC_000913.3:4277060:-	soxS	1	0	
+ecoli_k12:NC_000913.3:4277469:+	soxR	1	0	
+ecoli_k12:NC_000913.3:4278479:+	ghxP-yjcE	2	0	
+ecoli_k12:NC_000913.3:4281783:-	yjcF	1	0	
+ecoli_k12:NC_000913.3:4283253:-	yjcH-actP	2	0	
+ecoli_k12:NC_000913.3:4285413:-	acs	1	4	Glycolysis / Gluconeogenesis;Glyoxylate and dicarboxylate metabolism;Methane metabolism;Other carbon fixation pathways
+ecoli_k12:NC_000913.3:4287611:+	ytcB	1	0	
+ecoli_k12:NC_000913.3:4287764:+	nrfABCDEFG	7	0	
+ecoli_k12:NC_000913.3:4294481:+	gltP	1	0	
+ecoli_k12:NC_000913.3:4296436:-	yjcO	1	0	
+ecoli_k12:NC_000913.3:4297219:-	fdhF	1	0	
+ecoli_k12:NC_000913.3:4299564:-	ytcA-mdtP	4	0	
+ecoli_k12:NC_000913.3:4304612:-	yjcS	1	0	
+ecoli_k12:NC_000913.3:4306870:-	alsRBACEK	6	1	Fructose and mannose metabolism
+ecoli_k12:NC_000913.3:4313350:+	rpiB	1	2	Carbon fixation by Calvin cycle;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:4313868:+	yjdP	1	0	
+ecoli_k12:NC_000913.3:4314344:-	phnCDE1FGHIJKLMNOP	14	2	Pentose phosphate pathway;Phosphonate and phosphinate metabolism
+ecoli_k12:NC_000913.3:4325298:-	yjdN	1	0	
+ecoli_k12:NC_000913.3:4326399:-	yjdM	1	0	
+ecoli_k12:NC_000913.3:4327135:+	rdcAB	2	0	
+ecoli_k12:NC_000913.3:4330502:+	proP	1	0	
+ecoli_k12:NC_000913.3:4332116:+	pmrR	1	0	
+ecoli_k12:NC_000913.3:4332181:-	eptA-basS	3	1	Lipopolysaccharide biosynthesis
+ecoli_k12:NC_000913.3:4335694:-	adiC	1	0	
+ecoli_k12:NC_000913.3:4337168:-	adiY	1	0	
+ecoli_k12:NC_000913.3:4338254:-	adiA	1	1	Arginine and proline metabolism
+ecoli_k12:NC_000913.3:4340720:-	melR	1	0	
+ecoli_k12:NC_000913.3:4341911:+	melAB	2	2	Glycosphingolipid biosynthesis - globo and isoglobo series;Sphingolipid metabolism
+ecoli_k12:NC_000913.3:4344929:-	yjdF	1	0	
+ecoli_k12:NC_000913.3:4345680:-	fumB	1	3	Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism
+ecoli_k12:NC_000913.3:4347404:-	dcuB	1	0	
+ecoli_k12:NC_000913.3:4349315:-	dcuSR	2	0	
+ecoli_k12:NC_000913.3:4351843:+	yjdIJ	2	0	
+ecoli_k12:NC_000913.3:4352584:+	ghoST	2	0	
+ecoli_k12:NC_000913.3:4353200:-	lysU	1	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:4354954:-	dtpC	1	0	
+ecoli_k12:NC_000913.3:4356470:-	cadBA	2	3	Biosynthesis of various siderophores;Lysine degradation;Tropane, piperidine and pyridine alkaloid biosynthesis
+ecoli_k12:NC_000913.3:4360396:-	cadC	1	0	
+ecoli_k12:NC_000913.3:4362733:-	cutA-dicD	3	0	
+ecoli_k12:NC_000913.3:4365472:-	dcuA	1	0	
+ecoli_k12:NC_000913.3:4366839:-	aspA	2	1	Alanine, aspartate and glutamate metabolism
+ecoli_k12:NC_000913.3:4368664:+	fxsA	1	0	
+ecoli_k12:NC_000913.3:4369156:-	yjeH	1	0	
+ecoli_k12:NC_000913.3:4370688:+	groSL	2	0	
+ecoli_k12:NC_000913.3:4372809:+	yjeI	1	0	
+ecoli_k12:NC_000913.3:4373365:-	yjeJ	1	0	
+ecoli_k12:NC_000913.3:4374629:-	epmB	1	0	
+ecoli_k12:NC_000913.3:4375699:+	efp	1	0	
+ecoli_k12:NC_000913.3:4376317:+	ecnAB	2	0	
+ecoli_k12:NC_000913.3:4376875:+	gdx	1	0	
+ecoli_k12:NC_000913.3:4377189:-	blc	1	0	
+ecoli_k12:NC_000913.3:4377811:-	ampC	1	0	
+ecoli_k12:NC_000913.3:4379007:-	frdABCD	4	4	Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism
+ecoli_k12:NC_000913.3:4382643:+	epmA	1	0	
+ecoli_k12:NC_000913.3:4383839:+	yjeM	1	0	
+ecoli_k12:NC_000913.3:4385393:+	yjeNO	2	0	
+ecoli_k12:NC_000913.3:4386047:-	psd-mscM	2	1	Glycerophospholipid metabolism
+ecoli_k12:NC_000913.3:4390457:-	rsgA	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:4391604:+	orn	1	0	
+ecoli_k12:NC_000913.3:4392892:+	yjeV	1	0	
+ecoli_k12:NC_000913.3:4392928:-	queG	1	0	
+ecoli_k12:NC_000913.3:4394066:+	nnr-miaA	5	1	Zeatin biosynthesis
+ecoli_k12:NC_000913.3:4400288:+	hfq	1	0	
+ecoli_k12:NC_000913.3:4400672:+	hflXKC	3	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:4404386:+	yjeT	1	0	
+ecoli_k12:NC_000913.3:4404687:+	purA	1	3	Alanine, aspartate and glutamate metabolism;Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:4406190:+	nsrR-rlmB	3	0	
+ecoli_k12:NC_000913.3:4410133:+	yjfIJ	2	0	
+ecoli_k12:NC_000913.3:4411302:+	yjfKLMC	4	0	
+ecoli_k12:NC_000913.3:4414275:+	aidB	1	0	
+ecoli_k12:NC_000913.3:4416017:-	yjfN	1	0	
+ecoli_k12:NC_000913.3:4416441:-	bsmA	1	0	
+ecoli_k12:NC_000913.3:4416952:+	yjfP	1	0	
+ecoli_k12:NC_000913.3:4417698:-	ulaR	1	0	
+ecoli_k12:NC_000913.3:4418561:-	ulaG	1	0	
+ecoli_k12:NC_000913.3:4419980:+	ulaABCDEF	6	2	Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:4424516:-	yjfY	1	0	
+ecoli_k12:NC_000913.3:4425118:+	rpsF-rplI	4	0	
+ecoli_k12:NC_000913.3:4426628:-	yjfZ	1	0	
+ecoli_k12:NC_000913.3:4428079:-	ytfB	1	0	
+ecoli_k12:NC_000913.3:4428935:+	fklB	1	0	
+ecoli_k12:NC_000913.3:4429864:+	cycA	1	0	
+ecoli_k12:NC_000913.3:4431321:-	ytfE	1	0	
+ecoli_k12:NC_000913.3:4432091:-	ytfF	1	0	
+ecoli_k12:NC_000913.3:4433164:-	qorB	1	0	
+ecoli_k12:NC_000913.3:4434113:+	ytfH	1	0	
+ecoli_k12:NC_000913.3:4434622:-	cpdB	1	0	
+ecoli_k12:NC_000913.3:4436755:+	cysQ	1	1	Sulfur metabolism
+ecoli_k12:NC_000913.3:4437707:+	ytfI	1	0	
+ecoli_k12:NC_000913.3:4438708:-	ytfJ	1	0	
+ecoli_k12:NC_000913.3:4439587:+	ytfK	1	0	
+ecoli_k12:NC_000913.3:4439872:-	paeA	1	0	
+ecoli_k12:NC_000913.3:4441538:-	msrA	1	0	
+ecoli_k12:NC_000913.3:4442382:+	tamA-ytfP	3	0	
+ecoli_k12:NC_000913.3:4448447:+	chpSB	2	0	
+ecoli_k12:NC_000913.3:4449122:-	ppa	1	0	
+ecoli_k12:NC_000913.3:4449962:+	ytfQ-yjfF	4	0	
+ecoli_k12:NC_000913.3:4454611:-	fbp	1	5	Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway
+ecoli_k12:NC_000913.3:4455785:+	mpl	1	0	
+ecoli_k12:NC_000913.3:4457314:-	yjgA	1	0	
+ecoli_k12:NC_000913.3:4457959:+	tldE	1	0	
+ecoli_k12:NC_000913.3:4459900:-	nrdDG	2	0	
+ecoli_k12:NC_000913.3:4463054:-	treBC	2	1	Starch and sucrose metabolism
+ecoli_k12:NC_000913.3:4466299:-	treR	1	0	
+ecoli_k12:NC_000913.3:4467431:+	mgtLA	2	0	
+ecoli_k12:NC_000913.3:4470527:-	ridA	1	0	
+ecoli_k12:NC_000913.3:4470986:-	pyrLBI	3	2	Alanine, aspartate and glutamate metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:4472814:-	yjgH	1	0	
+ecoli_k12:NC_000913.3:4473340:-	bdcA	1	0	
+ecoli_k12:NC_000913.3:4474124:+	bdcR	1	0	
+ecoli_k12:NC_000913.3:4474862:+	tabA	1	0	
+ecoli_k12:NC_000913.3:4475437:+	yjgL	1	0	
+ecoli_k12:NC_000913.3:4477307:-	argI	1	1	Arginine biosynthesis
+ecoli_k12:NC_000913.3:4478473:+	rraB	1	0	
+ecoli_k12:NC_000913.3:4479034:-	yjgM	1	0	
+ecoli_k12:NC_000913.3:4479730:+	yjgN	1	0	
+ecoli_k12:NC_000913.3:4480982:-	holC-valS	2	1	Aminoacyl-tRNA biosynthesis
+ecoli_k12:NC_000913.3:4484440:-	pepA	1	0	
+ecoli_k12:NC_000913.3:4486043:+	ytgBA	2	0	
+ecoli_k12:NC_000913.3:4486218:+	lptFG	2	0	
+ecoli_k12:NC_000913.3:4488561:-	yjgR	1	0	
+ecoli_k12:NC_000913.3:4490141:-	idnDOTR	4	0	
+ecoli_k12:NC_000913.3:4494623:+	idnK	1	1	Pentose phosphate pathway
+ecoli_k12:NC_000913.3:4495190:-	ahr	1	0	
+ecoli_k12:NC_000913.3:4498272:+	insC6D6	2	0	
+ecoli_k12:NC_000913.3:4501260:+	yjgZ	1	0	
+ecoli_k12:NC_000913.3:4502103:-	insG	1	0	
+ecoli_k12:NC_000913.3:4504058:+	nanXY	2	0	
+ecoli_k12:NC_000913.3:4506448:+	ythA	1	0	
+ecoli_k12:NC_000913.3:4507197:+	insO	1	0	
+ecoli_k12:NC_000913.3:4507466:-	insI3	1	0	
+ecoli_k12:NC_000913.3:4510690:-	fecIRABCDE	7	0	
+ecoli_k12:NC_000913.3:4518372:+	ykiE	1	0	
+ecoli_k12:NC_000913.3:4518527:+	insA7	1	0	
+ecoli_k12:NC_000913.3:4519338:-	yjhU	1	0	
+ecoli_k12:NC_000913.3:4520671:-	yjhF	1	0	
+ecoli_k12:NC_000913.3:4522127:-	yjhIHG	3	1	Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:4526106:-	sgcXBCQAER	7	0	
+ecoli_k12:NC_000913.3:4532437:-	yjhP	1	0	
+ecoli_k12:NC_000913.3:4533239:-	topAI-yjhQ	2	0	
+ecoli_k12:NC_000913.3:4536597:+	ythB	1	0	
+ecoli_k12:NC_000913.3:4536614:-	nanCMS	3	0	
+ecoli_k12:NC_000913.3:4540957:+	fimB	1	0	
+ecoli_k12:NC_000913.3:4542037:+	fimE	1	0	
+ecoli_k12:NC_000913.3:4543115:+	fimAICDFGH	8	0	
+ecoli_k12:NC_000913.3:4549953:-	gntP	1	0	
+ecoli_k12:NC_000913.3:4551636:+	uxuABR	3	1	Pentose and glucuronate interconversions
+ecoli_k12:NC_000913.3:4555490:-	yjiC	1	0	
+ecoli_k12:NC_000913.3:4556574:+	ytiCD	2	0	
+ecoli_k12:NC_000913.3:4556913:+	idlP-iraD	2	0	
+ecoli_k12:NC_000913.3:4557378:-	hypT	1	0	
+ecoli_k12:NC_000913.3:4558354:-	yjiH-iadA	3	0	
+ecoli_k12:NC_000913.3:4560930:+	kptA	1	0	
+ecoli_k12:NC_000913.3:4561497:-	yjiJ	1	0	
+ecoli_k12:NC_000913.3:4562743:-	yjiK	1	0	
+ecoli_k12:NC_000913.3:4563668:-	yjiM-ytiA	3	0	
+ecoli_k12:NC_000913.3:4565966:-	mdtM-yjiN	2	0	
+ecoli_k12:NC_000913.3:4568692:-	ytiE	1	0	
+ecoli_k12:NC_000913.3:4570162:-	yjiR	1	0	
+ecoli_k12:NC_000913.3:4571751:+	yjiS	1	0	
+ecoli_k12:NC_000913.3:4572414:+	yjiT	1	0	
+ecoli_k12:NC_000913.3:4576912:-	mcrBBC	3	0	
+ecoli_k12:NC_000913.3:4579499:-	symE	1	0	
+ecoli_k12:NC_000913.3:4580068:-	hsdRMS	3	0	
+ecoli_k12:NC_000913.3:4586949:+	mrr	1	0	
+ecoli_k12:NC_000913.3:4587909:-	btsT-yjiA	3	0	
+ecoli_k12:NC_000913.3:4591657:+	tsr	1	0	
+ecoli_k12:NC_000913.3:4593361:-	lgoT	1	0	
+ecoli_k12:NC_000913.3:4594937:-	lgoR	1	0	
+ecoli_k12:NC_000913.3:4595990:+	lgoD	1	1	Ascorbate and aldarate metabolism
+ecoli_k12:NC_000913.3:4597150:-	opgB	1	0	
+ecoli_k12:NC_000913.3:4599695:-	yjjA	1	0	
+ecoli_k12:NC_000913.3:4600238:-	dnaTC	2	0	
+ecoli_k12:NC_000913.3:4601624:-	yjjPB	2	0	
+ecoli_k12:NC_000913.3:4603477:+	yjjQ-bglJ	2	0	
+ecoli_k12:NC_000913.3:4604875:-	fhuF	1	0	
+ecoli_k12:NC_000913.3:4605804:+	yjjZ	1	0	
+ecoli_k12:NC_000913.3:4606669:-	rsmC	1	0	
+ecoli_k12:NC_000913.3:4607803:+	holD-yjjG	3	0	
+ecoli_k12:NC_000913.3:4609414:+	prfC	1	0	
+ecoli_k12:NC_000913.3:4611396:+	osmY	1	0	
+ecoli_k12:NC_000913.3:4612128:+	ytjA	1	0	
+ecoli_k12:NC_000913.3:4612411:+	yjjUV	2	0	
+ecoli_k12:NC_000913.3:4614680:-	yjjIW	2	0	
+ecoli_k12:NC_000913.3:4617323:+	deoCABD	4	4	Nucleotide metabolism;Pentose phosphate pathway;Purine metabolism;Pyrimidine metabolism
+ecoli_k12:NC_000913.3:4621769:+	hipH	1	0	
+ecoli_k12:NC_000913.3:4623101:-	ytjB-lplA	2	0	
+ecoli_k12:NC_000913.3:4624895:+	serB-nadR	3	3	Glycine, serine and threonine metabolism;Methane metabolism;Nicotinate and nicotinamide metabolism
+ecoli_k12:NC_000913.3:4628855:-	ettA	1	0	
+ecoli_k12:NC_000913.3:4630733:+	slt	1	0	
+ecoli_k12:NC_000913.3:4632760:+	trpR	1	0	
+ecoli_k12:NC_000913.3:4633233:-	yjjX	1	2	Nucleotide metabolism;Purine metabolism
+ecoli_k12:NC_000913.3:4633797:+	ytjC	1	0	
+ecoli_k12:NC_000913.3:4634441:-	rob	1	0	
+ecoli_k12:NC_000913.3:4635521:+	creABCD	4	0	
+ecoli_k12:NC_000913.3:4639590:-	arcA	1	0	
+ecoli_k12:NC_000913.3:4640402:+	yjjY	1	0	
+ecoli_k12:NC_000913.3:4640718:+	ytjE	1	0	
+ecoli_k12:NC_000913.3:4640942:+	yjtD	1	0	

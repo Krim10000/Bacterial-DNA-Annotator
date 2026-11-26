@@ -244,5 +244,8 @@ tests/test_labels.py
 
 Resultados: `docs/LABELS_PILOT.md`.
 
-Todavía usa un léxico, no GO/KEGG completo. La validación K-12 muestra señal
-para heat shock, flagelo, nitrógeno y stationary; envelope es débil.
+Todavía usa un léxico, no GO/KEGG completo. También existe un cruce EC→Rhea→GO/KEGG
+en `scripts/labels/03_cross_catalogs.py` y `04_pathway_labels.py`. La validación
+K-12 muestra señal para heat shock, flagelo, nitrógeno y stationary; envelope
+es débil. Pathway cubre sigma38/sigma24, pero no sigma28 porque los genes
+flagelares no tienen EC.

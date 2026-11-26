@@ -1,0 +1,1343 @@
+id	name	product	ec	ecs	rhea	go	kegg_reaction	pathways	n_go	n_pathways
+cds_2	dnaN	sp|P05649|DPO3B_BACSU Beta sliding clamp	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+cds_7	gyrA	sp|P05653|GYRA_BACSU DNA gyrase subunit A	5.99.1.3	5.99.1.3					0	0
+cds_11	guaB	sp|P21879|IMDH_BACSU Inosine-5'-monophosphate dehydrogenase	1.1.1.205	1.1.1.205	11708	GO:0003938		Nucleotide metabolism;Purine metabolism	1	2
+cds_12	dacA	sp|P08750|DACA_BACSU D-alanyl-D-alanine carboxypeptidase DacA	3.4.16.4	3.4.16.4					0	0
+cds_13	pdxS	sp|P37527|PDXS_BACSU Pyridoxal 5'-phosphate synthase subunit PdxS	4.3.3.6	4.3.3.6	31507	GO:0036381		Vitamin B6 metabolism	1	1
+cds_14	pdxT	sp|P37528|PDXT_BACSU Pyridoxal 5'-phosphate synthase subunit PdxT	3.5.1.2	3.5.1.2	15889	GO:0004359		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis	1	2
+cds_15	serS	sp|P37464|SYS_BACSU Serine--tRNA ligase	6.1.1.11	6.1.1.11	12292;42580	GO:0004828		Aminoacyl-tRNA biosynthesis	1	1
+cds_16	dck	sp|P37529|DCK_BACSU Deoxyadenosine/deoxycytidine kinase	2.7.1.76	2.7.1.76	23452	GO:0004136		Nucleotide metabolism;Purine metabolism	1	2
+cds_17	dgk	sp|P37530|DGK_BACSU Deoxyguanosine kinase	2.7.1.113	2.7.1.113	19201	GO:0004138		Nucleotide metabolism;Purine metabolism	1	2
+cds_18	sleL	sp|P37531|SLEL_BACSU Cortical fragment-lytic enzyme	3.2.1.-	3.2.1.-					0	0
+cds_19	yaaI	sp|P37532|YAAI_BACSU Uncharacterized isochorismatase family protein YaaI	3.-.-.-	3.-.-.-					0	0
+cds_20	tadA	sp|P21335|TADA_BACSU tRNA-specific adenosine deaminase	3.5.4.33	3.5.4.33	43168	GO:0052717			1	0
+cds_21	dnaX	sp|P09122|DPO3X_BACSU DNA polymerase III subunit tau	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+cds_30	yaaO	sp|P37536|YAAO_BACSU Uncharacterized protein YaaO	4.1.1.-	4.1.1.-					0	0
+cds_31	tmk	sp|P37537|KTHY_BACSU Thymidylate kinase	2.7.4.9	2.7.4.9	13517	GO:0004798		Nucleotide metabolism;Pyrimidine metabolism	1	2
+cds_34	holB	sp|P37540|HOLB_BACSU DNA polymerase III subunit delta'	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+cds_37	yabB	sp|P37543|YABB_BACSU Probable RNA methyltransferase YabB	2.1.1.223	2.1.1.223	43160	GO:7770054			1	0
+cds_39	rsmI	sp|P37544|RSMI_BACSU Ribosomal RNA small subunit methyltransferase I	2.1.1.198	2.1.1.198	42924	GO:0062105			1	0
+cds_41	metG	sp|P37465|SYM_BACSU Methionine--tRNA ligase	6.1.1.10	6.1.1.10	13481	GO:0004825		Aminoacyl-tRNA biosynthesis	1	1
+cds_42	yabD	sp|P37545|YABD_BACSU Uncharacterized metal-dependent hydrolase YabD	3.1.-.-	3.1.-.-					0	0
+cds_44	rnmV	sp|P37547|RNM5_BACSU Ribonuclease M5	3.1.26.8	3.1.26.8					0	0
+cds_45	rsmA	sp|P37468|RSMA_BACSU Ribosomal RNA small subunit methyltransferase A	2.1.1.-	2.1.1.-					0	0
+cds_49	ispE	sp|P37550|ISPE_BACSU 4-diphosphocytidyl-2-C-methyl-D-erythritol kinase	2.7.1.148	2.7.1.148	18437	GO:0050515		Terpenoid backbone biosynthesis	1	1
+cds_51	ridA	sp|P37552|RIDA_BACSU 2-iminobutanoate/2-iminopropanoate deaminase	3.5.99.10	3.5.99.10	39975;40671	GO:0120242;GO:0120243			2	0
+cds_54	glmU	sp|P14192|GLMU_BACSU Bifunctional protein GlmU	2.3.1.157	2.3.1.157	13725	GO:0019134		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars	1	2
+cds_55	prs	sp|P14193|KPRS_BACSU Ribose-phosphate pyrophosphokinase	2.7.6.1	2.7.6.1	15609	GO:0004749		Pentose phosphate pathway;Purine metabolism	1	2
+cds_57	pth	sp|P37470|PTH_BACSU Peptidyl-tRNA hydrolase	3.1.1.29	3.1.1.29	54448	GO:0004045			1	0
+cds_59	mfd	sp|P37474|MFD_BACSU Transcription-repair-coupling factor	3.6.4.-	3.6.4.-					0	0
+cds_67	yabR	sp|P37560|YABR_BACSU Uncharacterized protein YabR	2.7.-.-	2.7.-.-					0	0
+cds_68	spoIIE	sp|P37475|SP2E_BACSU Stage II sporulation protein E	3.1.3.16	3.1.3.16	20629;47004	GO:0004722			1	0
+cds_70	yabT	sp|P37562|PKN1_BACSU Serine/threonine-protein kinase YabT	2.7.11.1	2.7.11.1	17989;46608	GO:0106310			1	0
+cds_71	tilS	sp|P37563|TILS_BACSU tRNA(Ile)-lysidine synthase	6.3.4.19	6.3.4.19	43744	GO:0032267			1	0
+cds_72	hprT	sp|P37472|HGPRT_BACSU Hypoxanthine-guanine phosphoribosyltransferase	2.4.2.8	2.4.2.8	17973;25424	GO:0004422;GO:0052657		Nucleotide metabolism;Purine metabolism	2	2
+cds_73	ftsH	sp|P37476|FTSH_BACSU ATP-dependent zinc metalloprotease FtsH	3.4.24.-	3.4.24.-					0	0
+cds_74	coaX	sp|P37564|COAX_BACSU Type III pantothenate kinase	2.7.1.33	2.7.1.33	16373	GO:0004594		Pantothenate and CoA biosynthesis	1	1
+cds_77	cysK	sp|P37887|CYSK_BACSU Cysteine synthase	2.5.1.47	2.5.1.47	14829	GO:0004124		Cysteine and methionine metabolism;Sulfur cycle;Sulfur metabolism	1	3
+cds_78	pabB	sp|P28820|PABB_BACSU Aminodeoxychorismate synthase component 1	2.6.1.85	2.6.1.85	11672	GO:0046820		Folate biosynthesis	1	1
+cds_80	pabC	sp|P28821|PABC_BACSU Aminodeoxychorismate lyase	4.1.3.38	4.1.3.38	16201	GO:0008696		Folate biosynthesis	1	1
+cds_81	sul	sp|P28822|DHPS_BACSU Dihydropteroate synthase	2.5.1.15	2.5.1.15	19949	GO:0004156		Folate biosynthesis	1	1
+cds_82	folB	sp|P28823|FOLB_BACSU Dihydroneopterin aldolase	4.1.2.25	4.1.2.25	10540	GO:0004150		Folate biosynthesis	1	1
+cds_83	folK	sp|P29252|HPPK_BACSU 2-amino-4-hydroxy-6-hydroxymethyldihydropteridine pyrophosphokinase	2.7.6.3	2.7.6.3	11412	GO:0003848		Folate biosynthesis	1	1
+cds_85	dus1	sp|P37567|DUS1_BACSU Probable tRNA-dihydrouridine synthase 1	1.-.-.-	1.-.-.-					0	0
+cds_86	lysS	sp|P37477|SYK_BACSU Lysine--tRNA ligase	6.1.1.6	6.1.1.6	20792	GO:0004824		Aminoacyl-tRNA biosynthesis	1	1
+cds_93	mcsB	sp|P37570|MCSB_BACSU Protein-arginine kinase	2.7.3.3	2.7.3.3	22940	GO:0004054		Arginine and proline metabolism	1	1
+cds_96	disA	sp|P37573|DISA_BACSU DNA integrity scanning protein DisA	2.7.7.85	2.7.7.85	35655	GO:0106408			1	0
+cds_98	ispD	sp|Q06755|ISPD_BACSU 2-C-methyl-D-erythritol 4-phosphate cytidylyltransferase	2.7.7.60	2.7.7.60	13429	GO:0050518		Terpenoid backbone biosynthesis	1	1
+cds_99	ispF	sp|Q06756|ISPF_BACSU 2-C-methyl-D-erythritol 2,4-cyclodiphosphate synthase	4.6.1.12	4.6.1.12	23864	GO:0008685		Terpenoid backbone biosynthesis	1	1
+cds_100	gltX	sp|P22250|SYE_BACSU Glutamate--tRNA ligase	6.1.1.17	6.1.1.17	23540	GO:0004818		Aminoacyl-tRNA biosynthesis;Porphyrin metabolism	1	2
+cds_101	cysE	sp|Q06750|CYSE_BACSU Serine acetyltransferase	2.3.1.30	2.3.1.30	24560	GO:0009001		Biosynthesis of various antibiotics;Cysteine and methionine metabolism;Sulfur metabolism	1	3
+cds_102	cysS	sp|Q06752|SYC_BACSU Cysteine--tRNA ligase	6.1.1.16	6.1.1.16	17773	GO:0004817		Aminoacyl-tRNA biosynthesis	1	1
+cds_104	yacO	sp|Q06753|YACO_BACSU Putative TrmH family tRNA/rRNA methyltransferase YacO	2.1.1.-	2.1.1.-					0	0
+cds_113	ybxB	sp|P37872|YBXB_BACSU Uncharacterized protein YbxB	2.1.1.174	2.1.1.174	42744	GO:0052916			1	0
+cds_114	rpoB	sp|P37870|RPOB_BACSU DNA-directed RNA polymerase subunit beta	2.7.7.6	2.7.7.6	21248	GO:0034062			1	0
+cds_115	rpoC	sp|P37871|RPOC_BACSU DNA-directed RNA polymerase subunit beta'	2.7.7.6	2.7.7.6	21248	GO:0034062			1	0
+cds_120	tuf	sp|P33166|EFTU_BACSU Elongation factor Tu	3.6.5.3	3.6.5.3	19669	GO:0003924		Nucleotide metabolism;Purine metabolism	1	2
+cds_121	ybaC	sp|P70981|YBAC_BACSU Probable aminopeptidase YbaC	3.4.11.5	3.4.11.5					0	0
+cds_144	adk	sp|P16304|KAD_BACSU Adenylate kinase	2.7.4.3	2.7.4.3	12973	GO:0004017		Nucleotide metabolism;Purine metabolism	1	2
+cds_145	map	sp|P19994|MAP11_BACSU Methionine aminopeptidase 1	3.4.11.18	3.4.11.18					0	0
+cds_150	rpoA	sp|P20429|RPOA_BACSU DNA-directed RNA polymerase subunit alpha	2.7.7.6	2.7.7.6	21248	GO:0034062			1	0
+cds_152	ecfA	sp|P40735|ECFA1_BACSU Energy-coupling factor transporter ATP-binding protein EcfA1	3.6.3.-	3.6.3.-					0	0
+cds_153	ecfAB	sp|P70970|ECFA2_BACSU Energy-coupling factor transporter ATP-binding protein EcfA2	3.6.3.-	3.6.3.-					0	0
+cds_155	truA	sp|P70973|TRUA_BACSU tRNA pseudouridine synthase A	5.4.99.12	5.4.99.12	22376	GO:0160147			1	0
+cds_160	cwlD	sp|P50864|CWLD_BACSU Germination-specific N-acetylmuramoyl-L-alanine amidase	3.5.1.28	3.5.1.28					0	0
+cds_181	nagZ	sp|P40406|NAGZ_BACSU Beta-hexosaminidase	3.2.1.52	3.2.1.52					0	0
+cds_183	ybbF	sp|Q797S1|PTXBC_BACSU Putative PTS system EIIBC component YbbF	2.7.1.192	2.7.1.192	33399			Amino sugar and nucleotide sugar metabolism	0	1
+cds_185	murQ	sp|Q45582|MURQ_BACSU N-acetylmuramic acid 6-phosphate etherase	4.2.1.126	4.2.1.126	26410			Amino sugar and nucleotide sugar metabolism	0	1
+cds_190	cdaA	sp|Q45589|CDAA_BACSU Cyclic di-AMP synthase CdaA	2.7.7.85	2.7.7.85	35655	GO:0106408			1	0
+cds_192	glmM	sp|O34824|GLMM_BACSU Phosphoglucosamine mutase	5.4.2.10	5.4.2.10	23424	GO:0008966		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars	1	2
+cds_193	glmS	sp|P0CI73|GLMS_BACSU Glutamine--fructose-6-phosphate aminotransferase [isomerizing]	2.6.1.16	2.6.1.16	13237	GO:0004360		Alanine, aspartate and glutamate metabolism;Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars	1	3
+cds_194	alkA	sp|P37878|3MGA_BACSU DNA-3-methyladenine glycosylase	3.2.2.21	3.2.2.21					0	0
+cds_195	adaA	sp|P19219|ADAA_BACSU Bifunctional transcriptional activator/DNA repair enzyme AdaA	2.1.1.63	2.1.1.63	24000;53428	GO:0003908			1	0
+cds_196	adaB	sp|P19220|ADAB_BACSU Methylated-DNA--protein-cysteine methyltransferase, inducible	2.1.1.63	2.1.1.63	24000;53428	GO:0003908			1	0
+cds_197	dabB	sp|P39755|DABB_BACSU Probable inorganic carbon transporter subunit DabB	1.6.-.-	1.6.-.-					0	0
+cds_208	skfE	sp|O31427|SKFE_BACSU SkfA peptide export ATP-binding protein SkfE	3.6.3.25	3.6.3.25					0	0
+cds_216	ybdM	sp|O31435|YBDM_BACSU Probable serine/threonine-protein kinase YbdM	2.7.11.-	2.7.11.-					0	0
+cds_222	ybxI	sp|P54427|YBXI_BACSU Probable beta-lactamase YbxI	3.5.2.6	3.5.2.6	20401	GO:0008800			1	0
+cds_223	cypC	sp|O31440|CYPC_BACSU Fatty-acid peroxygenase	1.11.2.4	1.11.2.4	46024;46028;46032;48360;48384				0	0
+cds_226	glpQ	sp|P37965|GLPQ_BACSU Glycerophosphodiester phosphodiesterase	3.1.4.46	3.1.4.46	12969;29875;29907	GO:0008889			1	0
+cds_235	purT	sp|P39771|PURT_BACSU Formate-dependent phosphoribosylglycinamide formyltransferase	2.1.2.-	2.1.2.-					0	0
+cds_236	mpr	sp|P39790|MPR_BACSU Extracellular metalloprotease	3.4.21.-	3.4.21.-					0	0
+cds_238	ybfK	sp|O31452|YBFK_BACSU Carboxylesterase YbfK	3.1.1.1	3.1.1.1	21164	GO:0106435			1	0
+cds_239	pssA	sp|P39823|PSS_BACSU CDP-diacylglycerol--serine O-phosphatidyltransferase	2.7.8.8	2.7.8.8	16913	GO:0003882		Glycerophospholipid metabolism;Glycine, serine and threonine metabolism	1	2
+cds_241	psd	sp|P39822|PSD_BACSU Phosphatidylserine decarboxylase proenzyme	4.1.1.65	4.1.1.65	20828	GO:0004609		Glycerophospholipid metabolism	1	1
+cds_243	ybfO	sp|O31455|YBFO_BACSU Putative hydrolase YbfO	3.-.-.-	3.-.-.-					0	0
+cds_247	gamP	sp|P39816|PTW3C_BACSU PTS system glucosamine-specific EIICBA component	2.7.1.193	2.7.1.193	49240	GO:0022880		Amino sugar and nucleotide sugar metabolism	1	1
+cds_248	gamA	sp|O31458|GAMA_BACSU Glucosamine-6-phosphate deaminase 2	3.5.99.6	3.5.99.6	12172	GO:0004342		Amino sugar and nucleotide sugar metabolism	1	1
+cds_253	ybgG	sp|O31463|HMT_BACSU Homocysteine S-methyltransferase YbgG	2.1.1.10	2.1.1.10	21820;26337	GO:0008898;GO:0061627		Cysteine and methionine metabolism;One carbon pool by folate	2	2
+cds_255	glsA1	sp|O31465|GLSA1_BACSU Glutaminase 1	3.5.1.2	3.5.1.2	15889	GO:0004359		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis	1	2
+cds_258	ycbC	sp|P42235|KDGD_BACSU Probable 5-dehydro-4-deoxyglucarate dehydratase	4.2.1.41	4.2.1.41	24608	GO:0047448		Ascorbate and aldarate metabolism	1	1
+cds_261	gudD	sp|P42238|GUDD_BACSU Probable glucarate dehydratase	4.2.1.40	4.2.1.40	14573	GO:0008872		Ascorbate and aldarate metabolism	1	1
+cds_263	garD	sp|P42240|GARD_BACSU Probable galactarate dehydratase (L-threo-forming)	4.2.1.42	4.2.1.42	16005	GO:0008867		Ascorbate and aldarate metabolism	1	1
+cds_274	phoD	sp|P42251|PPBD_BACSU Alkaline phosphatase D	3.1.3.1	3.1.3.1	15017				0	0
+cds_277	pcp	sp|P28618|PCP_BACSU Pyrrolidone-carboxylate peptidase	3.4.11.8	3.4.11.8					0	0
+cds_278	ycbU	sp|P42253|YCBU_BACSU Uncharacterized aminotransferase YcbU	2.8.1.7	2.8.1.7	43892	GO:0031071			1	0
+cds_281	ansZ	sp|O34482|ASPG2_BACSU L-asparaginase 2	3.5.1.1	3.5.1.1	21016	GO:0004067		Alanine, aspartate and glutamate metabolism;Cyanoamino acid metabolism	1	2
+cds_282	estA	sp|P37957|ESTA_BACSU Lipase EstA	3.1.1.3	3.1.1.3	12044	GO:0004806			1	0
+cds_289	yccK	sp|P46905|YCCK_BACSU Uncharacterized oxidoreductase YccK	1.-.-.-	1.-.-.-					0	0
+cds_293	cwlK	sp|O34360|CWLK_BACSU Peptidoglycan L-alanyl-D-glutamate endopeptidase CwlK	3.4.-.-	3.4.-.-					0	0
+cds_295	ycdF	sp|P80869|DHG2_BACSU Glucose 1-dehydrogenase 2	1.1.1.-	1.1.1.-					0	0
+cds_296	ycdG	sp|O34364|O16G2_BACSU Probable oligo-1,6-glucosidase 2	3.2.1.10	3.2.1.10	68864	GO:0004574		Starch and sucrose metabolism	1	1
+cds_298	znuC	sp|O34946|ZNUC_BACSU High-affinity zinc uptake system ATP-binding protein ZnuC	3.6.3.-	3.6.3.-					0	0
+cds_310	opuAA	sp|P46920|OPUAA_BACSU Glycine betaine transport ATP-binding protein OpuAA	3.6.3.32	3.6.3.32					0	0
+cds_313	amhX	sp|P54983|AMHX_BACSU Amidohydrolase AmhX	3.5.1.-	3.5.1.-					0	0
+cds_316	amyE	sp|P00691|AMY_BACSU Alpha-amylase	3.2.1.1	3.2.1.1					0	0
+cds_317	ldh	sp|P13714|LDH_BACSU L-lactate dehydrogenase	1.1.1.27	1.1.1.27	23444	GO:0004459		Glycolysis / Gluconeogenesis;Pyruvate metabolism	1	2
+cds_325	nadE	sp|P08164|NADE_BACSU NH(3)-dependent NAD(+) synthetase	6.3.1.5	6.3.1.5	21188	GO:0008795		Nicotinate and nicotinamide metabolism	1	1
+cds_327	aroK	sp|P37944|AROK_BACSU Shikimate kinase	2.7.1.71	2.7.1.71	13121	GO:0004765		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_328	ycgJ	sp|O31474|YCGJ_BACSU Uncharacterized methyltransferase YcgJ	2.1.1.-	2.1.1.-					0	0
+cds_330	cah	sp|P94388|CAH_BACSU Cephalosporin-C deacetylase	3.1.1.41	3.1.1.41	22596	GO:0047739		Penicillin and cephalosporin biosynthesis	1	1
+cds_332	putB	sp|P94390|PROD2_BACSU Proline dehydrogenase 2	1.5.5.2	1.5.5.2	23784;42416	GO:0004657		Arginine and proline metabolism	1	1
+cds_333	putC	sp|P94391|ROCA2_BACSU 1-pyrroline-5-carboxylate dehydrogenase 2	1.2.1.88	1.2.1.88	16417;24882;24943;30235;31155	GO:0003842		Alanine, aspartate and glutamate metabolism;Arginine and proline metabolism	1	2
+cds_338	ycgS	sp|P94396|YCGS_BACSU Uncharacterized hydrolase YcgS	3.7.1.-	3.7.1.-					0	0
+cds_339	ycgT	sp|O31475|FENR1_BACSU Ferredoxin--NADP reductase 1	1.18.1.-	1.18.1.-					0	0
+cds_341	nasE	sp|P42436|NASE_BACSU Assimilatory nitrite reductase [NAD(P)H] small subunit	1.7.1.4	1.7.1.4	24628;24632	GO:0106314;GO:0106316		Nitrogen cycle;Nitrogen metabolism	2	2
+cds_342	nasD	sp|P42435|NASD_BACSU Nitrite reductase [NAD(P)H]	1.7.1.4	1.7.1.4	24628;24632	GO:0106314;GO:0106316		Nitrogen cycle;Nitrogen metabolism	2	2
+cds_343	nasC	sp|P42434|NASC_BACSU Assimilatory nitrate reductase catalytic subunit	1.7.99.4	1.7.99.4					0	0
+cds_344	nasB	sp|P42433|NASB_BACSU Assimilatory nitrate reductase electron transfer subunit	1.7.1.3	1.7.1.3	19061	GO:0050464		Nitrogen cycle;Nitrogen metabolism	1	2
+cds_346	folE2	sp|P94398|GCH4_BACSU GTP cyclohydrolase FolE2	3.5.4.16	3.5.4.16	17473	GO:0003934			1	0
+cds_355	bglC	sp|P42403|BGLC_BACSU Aryl-phospho-beta-D-glucosidase BglC	3.2.1.86	3.2.1.86	10772	GO:0008706		Starch and sucrose metabolism	1	1
+cds_359	hxlB	sp|P42404|PHI_BACSU 3-hexulose-6-phosphate isomerase	5.3.1.27	5.3.1.27	25900	GO:0043800		Methane metabolism;Pentose phosphate pathway	1	2
+cds_360	hxlA	sp|P42405|HPS_BACSU 3-hexulose-6-phosphate synthase	4.1.2.43	4.1.2.43	25201	GO:0043801		Methane metabolism;Pentose phosphate pathway	1	2
+cds_370	sfp	sp|P39135|SFP_BACSU 4'-phosphopantetheinyl transferase Sfp	2.7.8.-	2.7.8.-					0	0
+cds_376	bsdB	sp|P94404|PADL_BACSU Probable UbiX-like flavin prenyltransferase	4.1.1.-	4.1.1.-					0	0
+cds_377	bsdC	sp|P94405|YCLC_BACSU Phenolic acid decarboxylase	4.1.1.61	4.1.1.61	10876	GO:0018799		Aminobenzoate degradation	1	1
+cds_378	bsdD	sp|C0H3U9|BSDD_BACSU Protein BsdD	4.1.1.91	4.1.1.91	30703				0	0
+cds_394	yclM	sp|P94417|AK3_BACSU Aspartokinase 3	2.7.2.4	2.7.2.4	23776	GO:0004072		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis;Monobactam biosynthesis	1	4
+cds_406	gabT	sp|P94427|GABT_BACSU Probable 4-aminobutyrate aminotransferase	2.6.1.19	2.6.1.19	23352	GO:0034386		Alanine, aspartate and glutamate metabolism;Butanoate metabolism	1	2
+cds_407	gabD	sp|P94428|GABD_BACSU Succinate-semialdehyde dehydrogenase [NADP(+)]	1.2.1.24	1.2.1.24	13217	GO:0004777		Alanine, aspartate and glutamate metabolism;Butanoate metabolism;Nicotinate and nicotinamide metabolism;Tyrosine metabolism	1	4
+cds_409	gdh	sp|P12310|DHG_BACSU Glucose 1-dehydrogenase	1.1.1.47	1.1.1.47	14293;14405	GO:0047934;GO:0047935		Pentose phosphate pathway	2	1
+cds_414	mtlA	sp|P42956|PTMCB_BACSU PTS system mannitol-specific EIICB component	2.7.1.197	2.7.1.197	33363			Fructose and mannose metabolism	0	1
+cds_415	mtlF	sp|C0H3V2|PTMA_BACSU Mannitol-specific phosphotransferase enzyme IIA component	2.7.1.197	2.7.1.197	33363			Fructose and mannose metabolism	0	1
+cds_416	mtlD	sp|P42957|MTLD_BACSU Mannitol-1-phosphate 5-dehydrogenase	1.1.1.17	1.1.1.17	19661	GO:0008926		Fructose and mannose metabolism	1	1
+cds_421	ycsD	sp|P42961|YCSD_BACSU Uncharacterized protein YcsD	4.2.1.-	4.2.1.-					0	0
+cds_423	ycsE	sp|P42962|YCSE_BACSU 5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase YcsE	3.1.3.-	3.1.3.-					0	0
+cds_424	pxpA	sp|P42963|PXPA_BACSU 5-oxoprolinase subunit A	3.5.2.9	3.5.2.9	10348	GO:0017168		Glutathione metabolism	1	1
+cds_427	pxpB	sp|P60495|PXPB_BACSU 5-oxoprolinase subunit B	3.5.2.9	3.5.2.9	10348	GO:0017168		Glutathione metabolism	1	1
+cds_428	pxpC	sp|Q7WY77|PXPC_BACSU 5-oxoprolinase subunit C	3.5.2.9	3.5.2.9	10348	GO:0017168		Glutathione metabolism	1	1
+cds_430	lipC	sp|P42969|LIPC_BACSU Spore germination lipase LipC	3.1.1.-	3.1.1.-					0	0
+cds_434	ycsN	sp|P42972|YCSN_BACSU Uncharacterized oxidoreductase YcsN	1.1.1.-	1.1.1.-					0	0
+cds_436	ydaB	sp|P96575|YDAB_BACSU Putative acyl--CoA ligase YdaB	6.2.1.-	6.2.1.-					0	0
+cds_438	ydaD	sp|P80873|GS39_BACSU General stress protein 39	1.1.1.-	1.1.1.-					0	0
+cds_439	ydaE	sp|P96578|DLYKI_BACSU Probable D-lyxose ketol-isomerase	5.3.1.15	5.3.1.15	14201	GO:0047828		Pentose and glucuronate interconversions	1	1
+cds_440	ydaF	sp|P96579|YDAF_BACSU Putative ribosomal N-acetyltransferase YdaF	2.3.1.-	2.3.1.-					0	0
+cds_445	topB	sp|P96583|TOP3_BACSU DNA topoisomerase 3	5.99.1.2	5.99.1.2					0	0
+cds_449	ydaM	sp|P96587|YDAM_BACSU Probable glycosyltransferase YdaM	2.4.-.-	2.4.-.-					0	0
+cds_452	mutT	sp|P96590|MUTT_BACSU Putative 8-oxo-dGTP diphosphatase	3.6.1.-	3.6.1.-					0	0
+cds_453	ydaP	sp|P96591|YDAP_BACSU Putative thiamine pyrophosphate-containing protein YdaP	1.2.3.3	1.2.3.3	20848	GO:0047112		Pyruvate metabolism	1	1
+cds_463	ydbD	sp|P80878|MCAT_BACSU Manganese catalase	1.11.1.6	1.11.1.6	20309	GO:0004096		Glyoxylate and dicarboxylate metabolism	1	1
+cds_472	ydbM	sp|P96608|YDBM_BACSU Putative acyl-CoA dehydrogenase YdbM	1.3.99.-	1.3.99.-					0	0
+cds_479	cshA	sp|P96614|CSHA_BACSU DEAD-box ATP-dependent RNA helicase CshA	3.6.1.-	3.6.1.-					0	0
+cds_482	ydcA	sp|P96617|YDCA_BACSU Putative rhomboid protease YdcA	3.4.21.-	3.4.21.-					0	0
+cds_483	acpS	sp|P96618|ACPS_BACSU Holo-[acyl-carrier-protein] synthase	2.7.8.7	2.7.8.7	12068	GO:0008897		Mycolic acid biosynthesis;Pantothenate and CoA biosynthesis	1	2
+cds_485	alr1	sp|P10725|ALR1_BACSU Alanine racemase 1	5.1.1.1	5.1.1.1	20249	GO:0008784		D-Amino acid metabolism	1	1
+cds_490	rsbT	sp|P42411|RSBT_BACSU Serine/threonine-protein kinase RsbT	2.7.11.1	2.7.11.1	17989;46608	GO:0106310			1	0
+cds_491	rsbU	sp|P40399|RSBU_BACSU Phosphoserine phosphatase RsbU	3.1.3.3	3.1.3.3	21208;24873	GO:0036424		Glycine, serine and threonine metabolism;Methane metabolism	1	2
+cds_493	rsbW	sp|P17904|RSBW_BACSU Serine-protein kinase RsbW	2.7.11.1	2.7.11.1	17989;46608	GO:0106310			1	0
+cds_495	rsbX	sp|P17906|RSBX_BACSU Phosphoserine phosphatase RsbX	3.1.3.3	3.1.3.3	21208;24873	GO:0036424		Glycine, serine and threonine metabolism;Methane metabolism	1	2
+cds_500	ydcI	sp|O31489|YDCI_BACSU Uncharacterized protein YdcI	3.6.4.13	3.6.4.13	13065	GO:0016887			1	0
+cds_520	cwlT	sp|P96645|CWLT_BACSU Bifunctional muramidase/DL-endopeptidase CwlT	3.2.1.92	3.2.1.92					0	0
+cds_524	rapI	sp|P96649|RAPI_BACSU Response regulator aspartate phosphatase I	3.1.-.-	3.1.-.-					0	0
+cds_527	yddN	sp|P96651|YDDN_BACSU Uncharacterized protein YddN	1.14.14.-	1.14.14.-					0	0
+cds_530	yddQ	sp|P96654|YDDQ_BACSU Uncharacterized isochorismatase family protein YddQ	3.-.-.-	3.-.-.-					0	0
+cds_531	yddR	sp|P96655|YDDR_BACSU UPF0173 protein YddR	3.-.-.-	3.-.-.-					0	0
+cds_537	ydeA	sp|P96658|YDEA_BACSU Uncharacterized protease YdeA	4.2.1.130	4.2.1.130	27754	GO:0019172		Pyruvate metabolism	1	1
+cds_552	ydeN	sp|P96671|YDEN_BACSU Putative hydrolase YdeN	3.-.-.-	3.-.-.-					0	0
+cds_556	ydeQ	sp|P96674|YDEQ_BACSU Uncharacterized NAD(P)H oxidoreductase YdeQ	1.6.99.-	1.6.99.-					0	0
+cds_570	nap	sp|P96688|NAP_BACSU Uncharacterized carboxylesterase nap	3.1.1.1	3.1.1.1	21164	GO:0106435			1	0
+cds_574	mhqN	sp|P96692|MHQN_BACSU Putative NAD(P)H nitroreductase MhqN	1.-.-.-	1.-.-.-					0	0
+cds_575	mhqO	sp|P96693|MHQO_BACSU Putative ring-cleaving dioxygenase MhqO	1.13.11.-	1.13.11.-					0	0
+cds_576	mhqP	sp|P96694|MHQP_BACSU Putative oxidoreductase MhqP	1.-.-.-	1.-.-.-					0	0
+cds_588	ydgE	sp|P96703|YDGE_BACSU Uncharacterized N-acetyltransferase YdgE	2.3.1.-	2.3.1.-					0	0
+cds_594	ydgI	sp|P96707|YDGI_BACSU Putative NAD(P)H nitroreductase YdgI	1.-.-.-	1.-.-.-					0	0
+cds_602	phoB	sp|P19405|PPB3_BACSU Alkaline phosphatase 3	3.1.3.1	3.1.3.1	15017				0	0
+cds_612	gmuD	sp|O05508|GMUD_BACSU 6-phospho-beta-glucosidase GmuD	3.2.1.86	3.2.1.86	10772	GO:0008706		Starch and sucrose metabolism	1	1
+cds_614	gmuE	sp|O05510|SCRK_BACSU Putative fructokinase	2.7.1.4	2.7.1.4	16125	GO:0008865		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Fructose and mannose metabolism;Starch and sucrose metabolism	1	4
+cds_615	gmuF	sp|O05511|MANA2_BACSU Probable mannose-6-phosphate isomerase GmuF	5.3.1.8	5.3.1.8	12356	GO:0004476		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Fructose and mannose metabolism	1	3
+cds_616	gmuG	sp|O05512|MANB_BACSU Mannan endo-1,4-beta-mannosidase	3.2.1.78	3.2.1.78					0	0
+cds_621	thiL	sp|O05514|THIL_BACSU Thiamine-monophosphate kinase	2.7.4.16	2.7.4.16	15913	GO:0009030		Thiamine metabolism	1	1
+cds_622	tsaE	sp|O05515|TSAE_BACSU tRNA threonylcarbamoyladenosine biosynthesis protein TsaE	3.6.4.13	3.6.4.13	13065	GO:0016887			1	0
+cds_624	rimI	sp|O05517|RIMI_BACSU Putative [ribosomal protein bS18]-alanine N-acetyltransferase	2.3.1.128	2.3.1.128					0	0
+cds_627	moaC	sp|O05520|MOAC_BACSU Cyclic pyranopterin monophosphate synthase	4.6.1.17	4.6.1.17	49580	GO:0061799		Folate biosynthesis	1	1
+cds_632	ydiL	sp|O05525|YDIL_BACSU Putative membrane peptidase YdiL	3.4.-.-	3.4.-.-					0	0
+cds_639	ydiO	sp|O34939|YDIO_BACSU Type II methyltransferase M1.BsuMI	2.1.1.37	2.1.1.37	13681	GO:0003886			1	0
+cds_640	ydiP	sp|O34680|YDIP_BACSU Type II methyltransferase M2.BsuMI	2.1.1.37	2.1.1.37	13681	GO:0003886			1	0
+cds_643	ydiR	sp|O35025|YDIR_BACSU Type II restriction enzyme BsuMI component YdiR	3.1.21.4	3.1.21.4					0	0
+cds_644	ydiS	sp|O34885|YDIS_BACSU Type II restriction enzyme BsuMI component YdiS	3.1.21.4	3.1.21.4					0	0
+cds_645	ydjA	sp|O34303|YDJA_BACSU Type II restriction enzyme BsuMI component YdjA	3.1.21.4	3.1.21.4					0	0
+cds_651	gutB	sp|Q06004|DHSO_BACSU Sorbitol dehydrogenase	1.1.1.14	1.1.1.14	10160;33031	GO:0003939		Fructose and mannose metabolism	1	1
+cds_653	ydjE	sp|O34768|YDJE_BACSU Uncharacterized sugar kinase YdjE	2.7.1.-	2.7.1.-					0	0
+cds_660	bdhA	sp|O34788|BDHA_BACSU (R,R)-butanediol dehydrogenase	1.1.1.4	1.1.1.4	24340	GO:0000721		Butanoate metabolism	1	1
+cds_667	cotA	sp|P07788|COTA_BACSU Laccase	1.3.3.5	1.3.3.5	20980	GO:0047705		Porphyrin metabolism	1	1
+cds_679	purE	sp|P12044|PURE_BACSU N5-carboxyaminoimidazole ribonucleotide mutase	4.1.1.21	4.1.1.21	10792	GO:0004638		Purine metabolism	1	1
+cds_680	purK	sp|P12045|PURK_BACSU N5-carboxyaminoimidazole ribonucleotide synthase	4.1.1.21	4.1.1.21	10792	GO:0004638		Purine metabolism	1	1
+cds_681	purB	sp|P12047|PUR8_BACSU Adenylosuccinate lyase	4.3.2.2	4.3.2.2	16853;23920	GO:0004018;GO:0070626		Alanine, aspartate and glutamate metabolism;Nucleotide metabolism;Purine metabolism	2	3
+cds_682	purC	sp|P12046|PUR7_BACSU Phosphoribosylaminoimidazole-succinocarboxamide synthase	6.3.2.6	6.3.2.6	22628	GO:0004639		Purine metabolism	1	1
+cds_683	purS	sp|P12049|PURS_BACSU Phosphoribosylformylglycinamidine synthase subunit PurS	6.3.5.3	6.3.5.3	17129	GO:0004642		Purine metabolism	1	1
+cds_684	purQ	sp|P12041|PURQ_BACSU Phosphoribosylformylglycinamidine synthase subunit PurQ	6.3.5.3	6.3.5.3	17129	GO:0004642		Purine metabolism	1	1
+cds_685	purL	sp|P12042|PURL_BACSU Phosphoribosylformylglycinamidine synthase subunit PurL	6.3.5.3	6.3.5.3	17129	GO:0004642		Purine metabolism	1	1
+cds_686	purF	sp|P00497|PUR1_BACSU Amidophosphoribosyltransferase	2.4.2.14	2.4.2.14	14905	GO:0004044		Alanine, aspartate and glutamate metabolism;Purine metabolism	1	2
+cds_687	purM	sp|P12043|PUR5_BACSU Phosphoribosylformylglycinamidine cyclo-ligase	6.3.3.1	6.3.3.1	23032	GO:0004641		Purine metabolism	1	1
+cds_688	purN	sp|P12040|PUR3_BACSU Phosphoribosylglycinamide formyltransferase	2.1.2.2	2.1.2.2	15053	GO:0004644		One carbon pool by folate;Purine metabolism	1	2
+cds_689	purH	sp|P12048|PUR9_BACSU Bifunctional purine biosynthesis protein PurH	2.1.2.3	2.1.2.3	22192	GO:0004643		One carbon pool by folate;Purine metabolism	1	2
+cds_690	purD	sp|P12039|PUR2_BACSU Phosphoribosylamine--glycine ligase	6.3.4.13	6.3.4.13	17453	GO:0004637		Purine metabolism	1	1
+cds_694	yerA	sp|O34909|YERA_BACSU Putative adenine deaminase YerA	3.5.4.2	3.5.4.2	23688	GO:0000034		Nucleotide metabolism;Purine metabolism	1	2
+cds_697	yerD	sp|O34849|YERD_BACSU Glutamate synthase large subunit-like protein YerD	1.4.1.13	1.4.1.13	15501	GO:0004355		Alanine, aspartate and glutamate metabolism;Nitrogen metabolism	1	2
+cds_699	pcrB	sp|O34790|PCRB_BACSU Heptaprenylglyceryl phosphate synthase	2.5.1.41	2.5.1.41	23404	GO:0047294		Glycerophospholipid metabolism	1	1
+cds_700	pcrA	sp|O34580|PCRA_BACSU ATP-dependent DNA helicase PcrA	3.6.4.12	3.6.4.12	13065	GO:0016887			1	0
+cds_701	ligA	sp|O31498|DNLJ_BACSU DNA ligase	6.5.1.2	6.5.1.2					0	0
+cds_706	gatC	sp|O06492|GATC_BACSU Aspartyl/glutamyl-tRNA(Asn/Gln) amidotransferase subunit C	6.3.5.7	6.3.5.7	17521	GO:0050567		Aminoacyl-tRNA biosynthesis	1	1
+cds_707	gatA	sp|O06491|GATA_BACSU Aspartyl/glutamyl-tRNA(Asn/Gln) amidotransferase subunit A	6.3.5.7	6.3.5.7	17521	GO:0050567		Aminoacyl-tRNA biosynthesis	1	1
+cds_708	gatB	sp|O30509|GATB_BACSU Aspartyl/glutamyl-tRNA(Asn/Gln) amidotransferase subunit B	6.3.5.7	6.3.5.7	17521	GO:0050567		Aminoacyl-tRNA biosynthesis	1	1
+cds_711	dagK	sp|O31502|DAGK_BACSU Diacylglycerol kinase	2.7.1.107	2.7.1.107	10272	GO:0004143		Glycerolipid metabolism;Glycerophospholipid metabolism	1	2
+cds_712	rlmCD	sp|O31503|RLMCD_BACSU 23S rRNA (uracil-C(5))-methyltransferase RlmCD	2.1.1.189	2.1.1.189	42628				0	0
+cds_724	rapH	sp|Q59HN8|RAPH_BACSU Response regulator aspartate phosphatase H	3.1.-.-	3.1.-.-					0	0
+cds_730	yesF	sp|O31512|YESF_BACSU Uncharacterized oxidoreductase YesF	1.-.-.-	1.-.-.-					0	0
+cds_733	cotJC	sp|Q45538|COTJC_BACSU Protein CotJC	1.11.1.6	1.11.1.6	20309	GO:0004096		Glyoxylate and dicarboxylate metabolism	1	1
+cds_734	yesJ	sp|O31513|YESJ_BACSU Uncharacterized N-acetyltransferase YesJ	2.3.1.-	2.3.1.-					0	0
+cds_742	yesR	sp|O31521|URHG1_BACSU Unsaturated rhamnogalacturonyl hydrolase YesR	3.2.1.172	3.2.1.172	30927	GO:0102211			1	0
+cds_748	yesX	sp|O31527|YESX_BACSU Rhamnogalacturonan exolyase YesX	4.2.2.24	4.2.2.24					0	0
+cds_749	yesY	sp|O31528|RHGT2_BACSU Probable rhamnogalacturonan acetylesterase YesY	3.1.1.-	3.1.1.-					0	0
+cds_750	yesZ	sp|O31529|BGAL1_BACSU Beta-galactosidase YesZ	3.2.1.23	3.2.1.23					0	0
+cds_751	yetA	sp|O31530|YETA_BACSU Uncharacterized protein YetA	3.1.-.-	3.1.-.-					0	0
+cds_755	lplD	sp|P39130|LPLD_BACSU Alpha-galacturonidase	3.2.1.67	3.2.1.67	14117	GO:0047911			1	0
+cds_757	hmoA	sp|O31534|HMOA_BACSU Heme-degrading monooxygenase HmoA	1.14.14.18	1.14.14.18	21764	GO:0004392		Porphyrin metabolism	1	1
+cds_765	yetM	sp|O06489|YETM_BACSU Putative FAD-dependent monooxygenase YetM	1.14.13.-	1.14.13.-					0	0
+cds_767	cypD	sp|O08394|CYPD_BACSU Bifunctional cytochrome P450/NADPH--P450 reductase 1	1.6.2.4	1.6.2.4	24040;67656	GO:0003958			1	0
+cds_769	yfnH	sp|O06486|RFBF_BACSU Probable glucose-1-phosphate cytidylyltransferase	2.7.7.33	2.7.7.33	18213	GO:0047343		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Starch and sucrose metabolism	1	4
+cds_771	yfnF	sp|O06484|YFNF_BACSU Uncharacterized protein YfnF	2.4.1.-	2.4.1.-					0	0
+cds_772	yfnE	sp|O06483|YFNE_BACSU Uncharacterized glycosyltransferase YfnE	2.4.1.-	2.4.1.-					0	0
+cds_773	yfnD	sp|O31542|YFND_BACSU Uncharacterized protein YfnD	2.4.1.-	2.4.1.-					0	0
+cds_775	yfnB	sp|O06480|YFNB_BACSU Putative HAD-hydrolase YfnB	3.1.3.-	3.1.3.-					0	0
+cds_777	yfmT	sp|O06478|ALDH5_BACSU Benzaldehyde dehydrogenase YfmT	1.2.1.67	1.2.1.67	13309	GO:0050608		Aminobenzoate degradation	1	1
+cds_779	yfmR	sp|O06476|YFMR_BACSU Uncharacterized ABC transporter ATP-binding protein YfmR	3.6.3.-	3.6.3.-					0	0
+cds_783	yfmM	sp|O34512|YFMM_BACSU Uncharacterized ABC transporter ATP-binding protein YfmM	3.6.3.-	3.6.3.-					0	0
+cds_784	yfmL	sp|O34750|YFML_BACSU Probable ATP-dependent RNA helicase YfmL	3.6.1.-	3.6.1.-					0	0
+cds_785	huaK	sp|O34536|HUAK_BACSU Protein lysine acetyltransferase	2.3.1.-	2.3.1.-					0	0
+cds_786	yfmJ	sp|O34812|YFMJ_BACSU Putative NADP-dependent oxidoreductase YfmJ	1.-.-.-	1.-.-.-					0	0
+cds_789	yfmF	sp|O34510|YFMF_BACSU Fe(3+)-citrate import ATP-binding protein YfmF	3.6.3.-	3.6.3.-					0	0
+cds_795	pel	sp|P39116|PLY_BACSU Pectate lyase	4.2.2.2	4.2.2.2					0	0
+cds_801	yflN	sp|O34409|YFLN_BACSU Probable metallo-hydrolase YflN	3.-.-.-	3.-.-.-					0	0
+cds_802	nos	sp|O34453|NOSO_BACSU Nitric oxide synthase oxygenase	1.14.13.39	1.14.13.39	19897	GO:0004517		Arginine biosynthesis	1	1
+cds_803	acyP	sp|O35031|ACYP_BACSU Acylphosphatase	3.6.1.7	3.6.1.7	14965	GO:0003998			1	0
+cds_808	mapB	sp|O34484|MAP12_BACSU Methionine aminopeptidase 2	3.4.11.18	3.4.11.18					0	0
+cds_809	nagP	sp|O34521|PTWCB_BACSU PTS system N-acetylglucosamine-specific EIICB component	2.7.1.69	2.7.1.69					0	0
+cds_810	ltaS2	sp|O34952|LTAS2_BACSU Lipoteichoic acid synthase 2	2.7.8.-	2.7.8.-					0	0
+cds_817	treP	sp|P39794|PTTBC_BACSU PTS system trehalose-specific EIIBC component	2.7.1.201	2.7.1.201	33371			Starch and sucrose metabolism	0	1
+cds_818	treA	sp|P39795|TREC_BACSU Trehalose-6-phosphate hydrolase	3.2.1.93	3.2.1.93	23008	GO:0008788		Starch and sucrose metabolism	1	1
+cds_821	yfkO	sp|O34475|YFKO_BACSU Putative NAD(P)H nitroreductase YfkO	1.5.1.39	1.5.1.39	21620;21624	GO:0052873;GO:0052874		Biosynthesis of type II polyketide products;Riboflavin metabolism	2	2
+cds_822	yfkN	sp|O34313|NTPES_BACSU Trifunctional nucleotide phosphoesterase protein YfkN	3.1.4.16	3.1.4.16	19621;27858;27878;27882;27886	GO:0008663		Purine metabolism;Pyrimidine metabolism	1	2
+cds_823	yfkM	sp|P80876|GS18_BACSU General stress protein 18	4.2.1.130	4.2.1.130	27754	GO:0019172		Pyruvate metabolism	1	1
+cds_826	yfkJ	sp|O35016|YFKJ_BACSU Low molecular weight protein-tyrosine-phosphatase YfkJ	3.1.3.48	3.1.3.48	10684	GO:0004725			1	0
+cds_836	pdaA	sp|O34928|PDAA_BACSU Peptidoglycan-N-acetylmuramic acid deacetylase PdaA	3.5.1.-	3.5.1.-					0	0
+cds_837	yfjR	sp|O34969|YFJR_BACSU Uncharacterized oxidoreductase YfjR	1.1.1.-	1.1.1.-					0	0
+cds_839	yfjP	sp|O31544|YFJP_BACSU Putative DNA-3-methyladenine glycosylase YfjP	3.2.2.21	3.2.2.21					0	0
+cds_840	yfjO	sp|O31545|YFJO_BACSU Uncharacterized RNA methyltransferase YfjO	2.1.1.-	2.1.1.-					0	0
+cds_842	dus2	sp|O31546|DUS2_BACSU Probable tRNA-dihydrouridine synthase 2	1.-.-.-	1.-.-.-					0	0
+cds_845	acoA	sp|O31404|ACOA_BACSU Acetoin:2,6-dichlorophenolindophenol oxidoreductase subunit alpha	1.1.1.303	1.1.1.303	22900	GO:0052587		Butanoate metabolism	1	1
+cds_846	acoB	sp|O34591|ACOB_BACSU Acetoin:2,6-dichlorophenolindophenol oxidoreductase subunit beta	1.1.1.303	1.1.1.303	22900	GO:0052587		Butanoate metabolism	1	1
+cds_847	acoC	sp|O31550|ACOC_BACSU Dihydrolipoyllysine-residue acetyltransferase component of acetoin cleaving system	2.3.1.12	2.3.1.12	17017;33151	GO:0004742		Citrate cycle (TCA cycle);Glycolysis / Gluconeogenesis;Lipoic acid metabolism;Pyruvate metabolism	1	4
+cds_848	acoL	sp|O34324|DLDH3_BACSU Dihydrolipoyl dehydrogenase	1.8.1.4	1.8.1.4	15045;33059	GO:0004148		Citrate cycle (TCA cycle);Glycine, serine and threonine metabolism;Glycolysis / Gluconeogenesis;Lipoic acid metabolism;Lysine degradation;Propanoate metabolism;Pyruvate metabolism;Valine, leucine and isoleucine degradation	1	8
+cds_857	glvA	sp|P54716|GLVA_BACSU Maltose-6'-phosphate glucosidase	3.2.1.122	3.2.1.122	20421	GO:0050081		Starch and sucrose metabolism	1	1
+cds_859	malP	sp|P54715|PTOCB_BACSU PTS system maltose-specific EIICB component	2.7.1.69	2.7.1.69					0	0
+cds_862	catD	sp|P54720|CATD_BACSU Putative oxidoreductase CatD	1.13.11.2	1.13.11.2	17337	GO:0018577		Benzoate degradation	1	1
+cds_863	catE	sp|P54721|CADE_BACSU Catechol-2,3-dioxygenase	1.13.11.2	1.13.11.2	17337	GO:0018577		Benzoate degradation	1	1
+cds_875	estB	sp|Q79F14|ESTB_BACSU Extracellular esterase EstB	3.1.1.3	3.1.1.3	12044	GO:0004806			1	0
+cds_882	mprF	sp|C0H3X7|MPRF_BACSU Phosphatidylglycerol lysyltransferase	2.3.2.3	2.3.2.3	10668	GO:0050071			1	0
+cds_886	yfhB	sp|O31570|YFHB_BACSU Uncharacterized isomerase YfhB	5.1.-.-	5.1.-.-					0	0
+cds_887	yfhC	sp|O31571|YFHC_BACSU Putative NAD(P)H nitroreductase YfhC	1.6.99.-	1.6.99.-					0	0
+cds_898	yfhM	sp|O31581|YFHM_BACSU AB hydrolase superfamily protein YfhM	3.3.2.10	3.3.2.10	19037	GO:0004301			1	0
+cds_899	csbB	sp|Q45539|CSBB_BACSU Putative glycosyltransferase CsbB	2.4.-.-	2.4.-.-					0	0
+cds_902	mutY	sp|O31584|MUTY_BACSU Adenine DNA glycosylase	3.2.2.-	3.2.2.-					0	0
+cds_904	fabL	sp|P71079|FABL_BACSU Enoyl-[acyl-carrier-protein] reductase [NADPH] FabL	1.3.1.10	1.3.1.10	22564	GO:0141148		Fatty acid biosynthesis	1	1
+cds_910	gsaB	sp|P71084|GSAB_BACSU Glutamate-1-semialdehyde 2,1-aminomutase 2	5.4.3.8	5.4.3.8	14265	GO:0042286		Porphyrin metabolism	1	1
+cds_911	ygaF	sp|Q796Y8|BCP_BACSU Peroxiredoxin Bcp	1.11.1.15	1.11.1.15					0	0
+cds_921	thiC	sp|P45740|THIC_BACSU Phosphomethylpyrimidine synthase	4.1.99.17	4.1.99.17	24840	GO:0070284		Thiamine metabolism	1	1
+cds_922	ygaK	sp|Q796Y5|YGAK_BACSU Uncharacterized FAD-linked oxidoreductase YgaK	1.21.-.-	1.21.-.-					0	0
+cds_924	katA	sp|P26901|CATA_BACSU Vegetative catalase	1.11.1.6	1.11.1.6	20309	GO:0004096		Glyoxylate and dicarboxylate metabolism	1	1
+cds_928	ssuD	sp|P40402|SSUD_BACSU Alkanesulfonate monooxygenase	1.14.14.5	1.14.14.5	23064	GO:0008726		Sulfur metabolism	1	1
+cds_935	queG	sp|P97030|QUEG_BACSU Epoxyqueuosine reductase	1.17.99.-	1.17.99.-					0	0
+cds_941	prkA	sp|P39134|PRKA_BACSU ATP-dependent protease PrkA	2.7.11.21	2.7.11.21	17989;46608	GO:0106310			1	0
+cds_946	yhcB	sp|P54586|YHCB_BACSU Uncharacterized protein YhcB	1.6.5.-	1.6.5.-					0	0
+cds_955	dgcK	sp|P54595|DGCK_BACSU Diguanylate cyclase DgcK	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+cds_962	srtD	sp|P54603|SRTD_BACSU Sortase D	3.4.22.70	3.4.22.70					0	0
+cds_963	yhcT	sp|P54604|YHCT_BACSU Uncharacterized RNA pseudouridine synthase YhcT	5.4.99.-	5.4.99.-					0	0
+cds_966	yhcW	sp|P54607|YHCW_BACSU Putative phosphatase YhcW	3.1.3.18	3.1.3.18	14369	GO:0008967		Glyoxylate and dicarboxylate metabolism	1	1
+cds_967	yhcX	sp|P54608|YHCX_BACSU Probable hydrolase YhcX	3.5.-.-	3.5.-.-					0	0
+cds_971	glpK	sp|P18157|GLPK_BACSU Glycerol kinase	2.7.1.30	2.7.1.30	21644	GO:0004370		Glycerolipid metabolism	1	1
+cds_973	pgcA	sp|P18159|PGCA_BACSU Phosphoglucomutase	5.4.2.2	5.4.2.2	23536	GO:0004614		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism;Glycolysis / Gluconeogenesis	1	4
+cds_976	azr	sp|O07529|AZR_BACSU FMN-dependent NADPH-azoreductase	1.7.1.-	1.7.1.-					0	0
+cds_979	lytF	sp|O07532|LYTF_BACSU Peptidoglycan endopeptidase LytF	3.4.-.-	3.4.-.-					0	0
+cds_984	lytE	sp|P54421|LYTE_BACSU Probable peptidoglycan endopeptidase LytE	3.4.-.-	3.4.-.-					0	0
+cds_986	citA	sp|P39119|CISY_BACSU Citrate synthase 1	2.3.3.1	2.3.3.1	16845	GO:0036440		Citrate cycle (TCA cycle);Glyoxylate and dicarboxylate metabolism	1	2
+cds_987	yhdF	sp|O07575|YHDF_BACSU Uncharacterized oxidoreductase YhdF	1.-.-.-	1.-.-.-					0	0
+cds_995	yhdN	sp|P80874|GS69_BACSU Aldo-keto reductase YhdN	1.1.1.-	1.1.1.-					0	0
+cds_996	plsC	sp|O07584|PLSC_BACSU 1-acyl-sn-glycerol-3-phosphate acyltransferase	2.3.1.51	2.3.1.51	19709	GO:0003841		Glycerolipid metabolism;Glycerophospholipid metabolism	1	2
+cds_999	yhdR	sp|O07587|AAT3_BACSU Putative aspartate aminotransferase YhdR	2.6.-.-	2.6.-.-					0	0
+cds_1003	yhdW	sp|O07592|YHDW_BACSU Putative glycerophosphodiester phosphodiesterase YhdW	3.1.4.46	3.1.4.46	12969;29875;29907	GO:0008889			1	0
+cds_1006	srtN	sp|O07595|NPD_BACSU NAD-dependent protein deacetylase	3.5.1.-	3.5.1.-					0	0
+cds_1007	yheN	sp|O07596|YHEN_BACSU Putative polysaccharide deacetylase YheN	3.5.1.-	3.5.1.-					0	0
+cds_1008	dat	sp|O07597|DAAA_BACSU D-alanine aminotransferase	2.6.1.21	2.6.1.21	15869	GO:0047810		D-Amino acid metabolism	1	1
+cds_1013	yheG	sp|O07548|YHEG_BACSU Uncharacterized protein YheG	1.-.-.-	1.-.-.-					0	0
+cds_1022	hemZ	sp|Q796V8|HEMZ_BACSU Oxygen-independent coproporphyrinogen-III oxidase-like protein HemZ	1.3.99.-	1.3.99.-					0	0
+cds_1032	yhaM	sp|O07521|YHAM_BACSU 3'-5' exoribonuclease YhaM	3.1.-.-	3.1.-.-					0	0
+cds_1034	prsA	sp|P24327|PRSA_BACSU Foldase protein PrsA	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+cds_1040	serC	sp|P80862|SERC_BACSU Phosphoserine aminotransferase	2.6.1.52	2.6.1.52	14329;16573	GO:0004648		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Methane metabolism;Vitamin B6 metabolism	1	4
+cds_1041	hit	sp|O07513|HIT_BACSU Protein hit	3.6.1.29	3.6.1.29	13893	GO:0047710		Purine metabolism	1	1
+cds_1045	yhaA	sp|O07598|YHAA_BACSU Putative amidohydrolase YhaA	3.5.1.-	3.5.1.-					0	0
+cds_1048	hmoB	sp|P38049|HMOB_BACSU Heme-degrading monooxygenase HmoB	1.14.99.48	1.14.99.48	37039;37363			Porphyrin metabolism	0	1
+cds_1050	hemE	sp|P32395|DCUP_BACSU Uroporphyrinogen decarboxylase	4.1.1.37	4.1.1.37	19865	GO:0004853		Porphyrin metabolism	1	1
+cds_1051	cpfC	sp|P32396|CPFC_BACSU Coproporphyrin III ferrochelatase	4.99.1.1	4.99.1.1					0	0
+cds_1052	cgoX	sp|P32397|CGOX_BACSU Coproporphyrinogen III oxidase	1.3.3.4	1.3.3.4	25576	GO:0004729		Porphyrin metabolism	1	1
+cds_1055	fabHB	sp|O07600|FABH2_BACSU Beta-ketoacyl-[acyl-carrier-protein] synthase III 2	2.3.1.180	2.3.1.180	12080	GO:0033818		Fatty acid biosynthesis;Fatty acid metabolism	1	2
+cds_1057	yhfE	sp|O07603|YHFE_BACSU Putative aminopeptidase YhfE	3.4.11.-	3.4.11.-					0	0
+cds_1062	lplJ	sp|O07608|LPLJ_BACSU Lipoate-protein ligase LplJ	6.3.1.20	6.3.1.20	49288	GO:0016979			1	0
+cds_1064	lcfB	sp|O07610|LCFB_BACSU Long-chain-fatty-acid--CoA ligase	6.2.1.3	6.2.1.3	15421	GO:0004467		Fatty acid biosynthesis	1	1
+cds_1066	yhfN	sp|P40769|YHFN_BACSU Uncharacterized metalloprotease YhfN	3.4.24.84	3.4.24.84					0	0
+cds_1067	aprE	sp|P04189|SUBT_BACSU Subtilisin E	3.4.21.62	3.4.21.62					0	0
+cds_1068	yhfO	sp|O07614|YHFO_BACSU Uncharacterized N-acetyltransferase YhfO	2.3.1.-	2.3.1.-					0	0
+cds_1069	yhfP	sp|O07615|YHFP_BACSU Putative quinone oxidoreductase YhfP	1.-.-.-	1.-.-.-					0	0
+cds_1071	phoE	sp|O07617|PHOE_BACSU Uncharacterized phosphatase PhoE	3.1.3.-	3.1.3.-					0	0
+cds_1072	yhfS	sp|O07618|YHFS_BACSU Putative acetyl-CoA C-acetyltransferase YhfS	2.3.1.9	2.3.1.9	21036	GO:0003985		Benzoate degradation;Butanoate metabolism;Fatty acid degradation;Fatty acid metabolism;Glyoxylate and dicarboxylate metabolism;Lysine degradation;Other carbon fixation pathways;Pyruvate metabolism;Terpenoid backbone biosynthesis;Tryptophan metabolism;Valine, leucine and isoleucine degradation	1	11
+cds_1073	yhfT	sp|O07619|YHFT_BACSU Uncharacterized acyl--CoA ligase YhfT	6.2.1.-	6.2.1.-					0	0
+cds_1076	yhfW	sp|O07622|YHFW_BACSU Putative Rieske 2Fe-2S iron-sulfur protein YhfW	1.-.-.-	1.-.-.-					0	0
+cds_1077	yhxC	sp|P40397|YHXC_BACSU Uncharacterized oxidoreductase YhxC	1.-.-.-	1.-.-.-					0	0
+cds_1080	yhxD	sp|P40398|YHXD_BACSU Uncharacterized oxidoreductase YhxD	1.-.-.-	1.-.-.-					0	0
+cds_1086	sipV	sp|O07560|LEPV_BACSU Signal peptidase I V	3.4.21.89	3.4.21.89					0	0
+cds_1090	ntdC	sp|O07564|NTDC_BACSU Glucose-6-phosphate 3-dehydrogenase	1.1.1.-	1.1.1.-					0	0
+cds_1091	ntdB	sp|O07565|NTDB_BACSU Kanosamine-6-phosphate phosphatase	3.-.-.-	3.-.-.-					0	0
+cds_1092	ntdA	sp|O07566|NTDA_BACSU 3-oxo-glucose-6-phosphate:glutamate aminotransferase	2.6.1.-	2.6.1.-					0	0
+cds_1114	wprA	sp|P54423|WPRA_BACSU Cell wall-associated protease	3.4.21.-	3.4.21.-					0	0
+cds_1116	asnO	sp|O05272|ASNO_BACSU Asparagine synthetase [glutamine-hydrolyzing] 3	6.3.5.4	6.3.5.4	12228	GO:0004066		Alanine, aspartate and glutamate metabolism	1	1
+cds_1122	iolX	sp|P40332|IOLX_BACSU scyllo-inositol 2-dehydrogenase (NAD(+))	1.1.1.370	1.1.1.370	17613			Inositol phosphate metabolism	0	1
+cds_1127	yisY	sp|O06734|YISY_BACSU AB hydrolase superfamily protein YisY	3.1.-.-	3.1.-.-					0	0
+cds_1128	yisZ	sp|O06735|CYSC2_BACSU Probable adenylyl-sulfate kinase	2.7.1.25	2.7.1.25	24152	GO:0004020		Purine metabolism;Sulfur cycle;Sulfur metabolism	1	3
+cds_1129	yitA	sp|O06736|SAT2_BACSU Probable sulfate adenylyltransferase	2.7.7.4	2.7.7.4	18133	GO:0004781		Monobactam biosynthesis;Purine metabolism;Sulfur cycle;Sulfur metabolism	1	4
+cds_1130	cysH1	sp|O06737|CYSH2_BACSU Adenosine 5'-phosphosulfate reductase 2	1.8.4.8	1.8.4.8	11724	GO:0004604		Sulfur cycle;Sulfur metabolism	1	2
+cds_1131	comB	sp|O06738|COMB_BACSU Probable 2-phosphosulfolactate phosphatase	3.1.3.71	3.1.3.71	23416	GO:0050532		Methane metabolism	1	1
+cds_1132	yitD	sp|O06739|PSLS_BACSU Phosphosulfolactate synthase	4.4.1.19	4.4.1.19	22784	GO:0043817		Methane metabolism	1	1
+cds_1136	yitH	sp|O06743|YITH_BACSU Uncharacterized N-acetyltransferase YitH	2.3.1.-	2.3.1.-					0	0
+cds_1137	yitI	sp|O06744|YITI_BACSU Uncharacterized N-acetyltransferase YitI	2.3.1.-	2.3.1.-					0	0
+cds_1138	yitJ	sp|O06745|YITJ_BACSU Bifunctional homocysteine S-methyltransferase/5,10-methylenetetrahydrofolate reductase	1.5.1.20	1.5.1.20	19817;19821	GO:0106312;GO:0106313		One carbon pool by folate;Other carbon fixation pathways	2	2
+cds_1147	nprB	sp|P39899|NPRB_BACSU Neutral protease B	3.4.24.-	3.4.24.-					0	0
+cds_1154	yitV	sp|P70948|YITV_BACSU Putative esterase YitV	3.1.-.-	3.1.-.-					0	0
+cds_1157	yitY	sp|Q796P5|YITY_BACSU Uncharacterized FAD-linked oxidoreductase YitY	1.-.-.-	1.-.-.-					0	0
+cds_1159	argC	sp|P23715|ARGC_BACSU N-acetyl-gamma-glutamyl-phosphate reductase	1.2.1.38	1.2.1.38	21588	GO:0003942		Arginine biosynthesis	1	1
+cds_1160	argJ	sp|Q9ZJ14|ARGJ_BACAM Arginine biosynthesis bifunctional protein ArgJ	2.3.1.1	2.3.1.1	24292	GO:0004042		Arginine biosynthesis	1	1
+cds_1161	argB	sp|P68728|ARGB_BACAM Acetylglutamate kinase	2.7.2.8	2.7.2.8	14629	GO:0003991		Arginine biosynthesis	1	1
+cds_1162	argD	sp|P36839|ARGD_BACSU Acetylornithine aminotransferase	2.6.1.11	2.6.1.11	18049	GO:0003992		Arginine biosynthesis	1	1
+cds_1163	carA	sp|P36838|CARX_BACSU Carbamoyl phosphate synthase arginine-specific small chain	6.3.5.5	6.3.5.5	18633	GO:0004088		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Pyrimidine metabolism	1	3
+cds_1164	carB	sp|P18185|CARY_BACSU Carbamoyl phosphate synthase arginine-specific large chain	6.3.5.5	6.3.5.5	18633	GO:0004088		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Pyrimidine metabolism	1	3
+cds_1165	argF	sp|P18186|OTC_BACSU Ornithine carbamoyltransferase	2.1.3.3	2.1.3.3	19513	GO:0004585		Arginine biosynthesis	1	1
+cds_1173	fabHA	sp|O34746|FABH1_BACSU Beta-ketoacyl-[acyl-carrier-protein] synthase III 1	2.3.1.180	2.3.1.180	12080	GO:0033818		Fatty acid biosynthesis;Fatty acid metabolism	1	2
+cds_1174	fabF	sp|O34340|FABF_BACSU 3-oxoacyl-[acyl-carrier-protein] synthase 2	2.3.1.179	2.3.1.179	55040	GO:0004315			1	0
+cds_1176	appD	sp|P42064|APPD_BACSU Oligopeptide transport ATP-binding protein AppD	3.6.3.-	3.6.3.-					0	0
+cds_1177	appF	sp|P42065|APPF_BACSU Oligopeptide transport ATP-binding protein AppF	3.6.3.-	3.6.3.-					0	0
+cds_1183	trpS	sp|P21656|SYW_BACSU Tryptophan--tRNA ligase	6.1.1.2	6.1.1.2	24080	GO:0004830		Aminoacyl-tRNA biosynthesis	1	1
+cds_1203	yjbM	sp|O31611|YJBM_BACSU GTP pyrophosphokinase YjbM	2.7.6.5	2.7.6.5	22088	GO:0008728		Purine metabolism	1	1
+cds_1204	ppnKA	sp|O31612|NADK1_BACSU NAD kinase 1	2.7.1.23	2.7.1.23	18629	GO:0003951		Nicotinate and nicotinamide metabolism	1	1
+cds_1206	prpE	sp|O31614|PRPE_BACSU Bis(5'-nucleosyl)-tetraphosphatase PrpE [asymmetrical]	3.6.1.17	3.6.1.17	22484	GO:0004081		Purine metabolism	1	1
+cds_1208	tenA	sp|P25052|TENA_BACSU Aminopyrimidine aminohydrolase	3.5.99.2	3.5.99.2	17509;31799	GO:0050334		Thiamine metabolism	1	1
+cds_1209	tenI	sp|P25053|TENI_BACSU Thiazole tautomerase	5.3.99.10	5.3.99.10	31459			Thiamine metabolism	0	1
+cds_1210	thiO	sp|O31616|GLYOX_BACSU Glycine oxidase	1.4.3.19	1.4.3.19	11532;12472;15165;22688	GO:0043799		Glycine, serine and threonine metabolism	1	1
+cds_1213	thiF	sp|O31619|THIF_BACSU Sulfur carrier protein ThiS adenylyltransferase	2.7.7.73	2.7.7.73	43344				0	0
+cds_1214	thiD	sp|O31620|THID_BACSU Hydroxymethylpyrimidine/phosphomethylpyrimidine kinase	2.7.1.49	2.7.1.49	23096	GO:0008902		Thiamine metabolism	1	1
+cds_1215	fabI	sp|P54616|FABI_BACSU Enoyl-[acyl-carrier-protein] reductase [NADH] FabI	1.3.1.9	1.3.1.9	10240	GO:0004318		Fatty acid biosynthesis	1	1
+cds_1228	yjcF	sp|O31628|YJCF_BACSU Uncharacterized N-acetyltransferase YjcF	2.3.1.-	2.3.1.-					0	0
+cds_1232	metC	sp|O31632|METC_BACSU Cystathionine beta-lyase MetC	4.4.1.8	4.4.1.8					0	0
+cds_1233	yjcK	sp|O31633|YJCK_BACSU Probable N-acetyltransferase YjcK	2.3.1.128	2.3.1.128					0	0
+cds_1245	yjdA	sp|O31642|YJDA_BACSU Uncharacterized oxidoreductase YjdA	1.1.1.-	1.1.1.-					0	0
+cds_1248	manP	sp|O31645|PTN3B_BACSU PTS system mannose-specific EIIBCA component	2.7.1.191	2.7.1.191	49232	GO:0022870		Amino sugar and nucleotide sugar metabolism;Fructose and mannose metabolism	1	2
+cds_1249	manA	sp|O31646|MANA1_BACSU Mannose-6-phosphate isomerase ManA	5.3.1.8	5.3.1.8	12356	GO:0004476		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Fructose and mannose metabolism	1	3
+cds_1251	yjdG	sp|O31648|YJDG_BACSU Uncharacterized N-acetyltransferase YjdG	2.3.1.-	2.3.1.-					0	0
+cds_1264	forC	sp|O34720|FORC_BACSU Formate dehydrogenase catalytic subunit ForC	1.2.1.-	1.2.1.-					0	0
+cds_1269	yjiB	sp|O34374|YJIB_BACSU Putative cytochrome P450 YjiB	1.14.-.-	1.14.-.-					0	0
+cds_1270	yjiC	sp|O34539|NDPGT_BACSU NDP-glycosyltransferase YjiC	2.4.1.-	2.4.1.-					0	0
+cds_1278	yjlD	sp|P80861|YJLD_BACSU NADH dehydrogenase-like protein YjlD	1.6.99.-	1.6.99.-					0	0
+cds_1281	yjmC	sp|O34736|YJMC_BACSU Uncharacterized oxidoreductase YjmC	1.1.1.-	1.1.1.-					0	0
+cds_1282	yjmD	sp|O35045|YJMD_BACSU Uncharacterized zinc-type alcohol dehydrogenase-like protein YjmD	1.1.1.-	1.1.1.-					0	0
+cds_1283	uxuA	sp|O34346|UXUA_BACSU Mannonate dehydratase	4.2.1.8	4.2.1.8	20097	GO:0008927		Pentose and glucuronate interconversions	1	1
+cds_1284	uxuB	sp|O34896|UXUB_BACSU Uncharacterized oxidoreductase UxuB	1.1.1.57	1.1.1.57	15729;51652	GO:0008866		Pentose and glucuronate interconversions	1	1
+cds_1287	uxaB	sp|O34354|UXAB_BACSU Altronate oxidoreductase	1.1.1.58	1.1.1.58	17813	GO:0009026		Pentose and glucuronate interconversions	1	1
+cds_1288	uxaA	sp|O34673|UXAA_BACSU Altronate dehydratase	4.2.1.7	4.2.1.7	15957	GO:0008789		Pentose and glucuronate interconversions	1	1
+cds_1295	xlyB	sp|O34391|XLYB_BACSU N-acetylmuramoyl-L-alanine amidase XlyB	3.5.1.28	3.5.1.28					0	0
+cds_1297	yjqB	sp|O34785|YJQB_BACSU UPF0714 protein YjqB	3.4.19.-	3.4.19.-					0	0
+cds_1298	yjqC	sp|O34423|YJQC_BACSU Uncharacterized protein YjqC	1.11.1.-	1.11.1.-					0	0
+cds_1334	xlyA	sp|P39800|XLYA_BACSU N-acetylmuramoyl-L-alanine amidase XlyA	3.5.1.28	3.5.1.28					0	0
+cds_1340	mhqA	sp|O34689|MHQA_BACSU Putative ring-cleaving dioxygenase MhqA	1.13.11.-	1.13.11.-					0	0
+cds_1342	ykcB	sp|O34575|YKCB_BACSU Putative mannosyltransferase YkcB	2.4.1.-	2.4.1.-					0	0
+cds_1343	ykcC	sp|O34319|YKCC_BACSU Uncharacterized glycosyltransferase YkcC	2.4.-.-	2.4.-.-					0	0
+cds_1346	proG	sp|Q00777|P5CR3_BACSU Pyrroline-5-carboxylate reductase 3	1.5.1.2	1.5.1.2	14105;14109	GO:0004735		Arginine and proline metabolism	1	1
+cds_1347	dppA	sp|P26902|DPPA_BACSU D-aminopeptidase	3.4.11.-	3.4.11.-					0	0
+cds_1354	ykfB	sp|O34508|AEEP_BACSU L-Ala-D/L-Glu epimerase	5.1.1.20	5.1.1.20	28394	GO:0103031			1	0
+cds_1355	ykfC	sp|O35010|YKFC_BACSU Gamma-D-glutamyl-L-lysine dipeptidyl-peptidase	3.4.-.-	3.4.-.-					0	0
+cds_1357	pgl	sp|O34499|6PGL_BACSU 6-phosphogluconolactonase	3.1.1.31	3.1.1.31	12556	GO:0017057		Pentose phosphate pathway	1	1
+cds_1358	ykgA	sp|O34497|YKGA_BACSU Uncharacterized protein YkgA	3.5.3.18	3.5.3.18	17305;25173	GO:0016403			1	0
+cds_1360	hmp	sp|P49852|HMP_BACSU Flavohemoprotein	1.5.1.34	1.5.1.34	17865;17869;32247;32251	GO:0004155		Folate biosynthesis	1	1
+cds_1367	purU	sp|O34990|PURU_BACSU Formyltetrahydrofolate deformylase	3.5.1.10	3.5.1.10	19833	GO:0008864		Glyoxylate and dicarboxylate metabolism;One carbon pool by folate	1	2
+cds_1368	proB	sp|P39820|PROB_BACSU Glutamate 5-kinase 1	2.7.2.11	2.7.2.11	14877	GO:0004349		Arginine and proline metabolism;Carbapenem biosynthesis	1	2
+cds_1369	proA	sp|P39821|PROA_BACSU Gamma-glutamyl phosphate reductase	1.2.1.41	1.2.1.41	19541	GO:0004350		Arginine and proline metabolism;Carbapenem biosynthesis	1	2
+cds_1370	ohrA	sp|O34762|OHRA_BACSU Organic hydroperoxide resistance protein OhrA	1.11.1.15	1.11.1.15					0	0
+cds_1372	ohrB	sp|P80242|OHRB_BACSU Organic hydroperoxide resistance protein OhrB	1.11.1.15	1.11.1.15					0	0
+cds_1374	guaD	sp|O34598|GUAD_BACSU Guanine deaminase	3.5.4.3	3.5.4.3	14665	GO:0008892		Nucleotide metabolism;Purine metabolism	1	2
+cds_1375	metE	sp|P80877|METE_BACSU 5-methyltetrahydropteroyltriglutamate--homocysteine methyltransferase	2.1.1.14	2.1.1.14	21196;45016	GO:0003871		Cysteine and methionine metabolism;Selenocompound metabolism	1	2
+cds_1376	isp	sp|P11018|ISP1_BACSU Major intracellular serine protease	3.4.21.-	3.4.21.-					0	0
+cds_1383	ykoH	sp|O34638|YKOH_BACSU Sensor histidine kinase YkoH	2.7.13.3	2.7.13.3					0	0
+cds_1393	ykoN	sp|C0SPB9|YKON_BACSU Uncharacterized glycosyltransferase YkoN	2.4.1.-	2.4.1.-					0	0
+cds_1395	ykoQ	sp|O35040|YKOQ_BACSU Uncharacterized metallophosphoesterase YkoQ	3.1.-.-	3.1.-.-					0	0
+cds_1397	ykoT	sp|O34755|YKOT_BACSU Uncharacterized glycosyltransferase YkoT	2.-.-.-	2.-.-.-					0	0
+cds_1398	ligd	sp|O34398|LIGD_BACSU Bifunctional non-homologous end joining protein LigD	6.5.1.1	6.5.1.1					0	0
+cds_1400	dgcW	sp|O34311|DGCW_BACSU Diguanylate cyclase DgcW	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+cds_1408	ktrD	sp|O31658|KTRD_BACSU Ktr system potassium uptake protein D	3.6.3.12	3.6.3.12					0	0
+cds_1411	ykrP	sp|O31660|YKRP_BACSU Putative membrane-bound acyltransferase YkrP	2.3.-.-	2.3.-.-					0	0
+cds_1413	ogt	sp|P11742|OGT_BACSU Methylated-DNA--protein-cysteine methyltransferase, constitutive	2.1.1.63	2.1.1.63	24000;53428	GO:0003908			1	0
+cds_1415	mtnA	sp|O31662|MTNA_BACSU Methylthioribose-1-phosphate isomerase	5.3.1.23	5.3.1.23	19989	GO:0046523		Cysteine and methionine metabolism	1	1
+cds_1417	mtnU	sp|O31664|MTNU_BACSU 2-oxoglutaramate amidase	3.5.1.3	3.5.1.3	11716;32963;59412	GO:0050152;GO:0106008		Alanine, aspartate and glutamate metabolism	2	1
+cds_1418	mtnE	sp|O31665|MTNE_BACSU L-glutamine--4-(methylsulfanyl)-2-oxobutanoate aminotransferase	2.6.1.1	2.6.1.1	21824	GO:0004069		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Carbon fixation by Calvin cycle	1	3
+cds_1419	mtnW	sp|O31666|MTNW_BACSU 2,3-diketo-5-methylthiopentyl-1-phosphate enolase	5.3.2.5	5.3.2.5	18769	GO:0043715		Cysteine and methionine metabolism	1	1
+cds_1420	mtnX	sp|O31667|MTNX_BACSU 2-hydroxy-3-keto-5-methylthiopentenyl-1-phosphate phosphatase	3.1.3.87	3.1.3.87	14481	GO:0043716		Cysteine and methionine metabolism	1	1
+cds_1421	mtnB	sp|O31668|MTNB_BACSU Methylthioribulose-1-phosphate dehydratase	4.2.1.109	4.2.1.109	15549	GO:0046570		Cysteine and methionine metabolism	1	1
+cds_1422	mtnD	sp|O31669|MTND_BACSU Acireductone dioxygenase	1.13.11.54	1.13.11.54	24504	GO:0010309		Cysteine and methionine metabolism	1	1
+cds_1432	queC	sp|O31675|QUEC_BACSU 7-cyano-7-deazaguanine synthase	6.3.4.20	6.3.4.20	27982			Folate biosynthesis	0	1
+cds_1434	queE	sp|O31677|QUEE_BACSU 7-carboxy-7-deazaguanine synthase	4.3.99.3	4.3.99.3	27974				0	0
+cds_1435	queF	sp|O31678|QUEF_BACSU NADPH-dependent 7-cyano-7-deazaguanine reductase	1.7.1.13	1.7.1.13	13409	GO:0033739		Folate biosynthesis	1	1
+cds_1437	ykvO	sp|O31680|YKVO_BACSU Uncharacterized oxidoreductase YkvO	1.-.-.-	1.-.-.-					0	0
+cds_1440	ykvQ	sp|O31682|YKVQ_BACSU Putative glycosylase YkvQ	3.2.-.-	3.2.-.-					0	0
+cds_1446	stoA	sp|O31687|STOA_BACSU Sporulation thiol-disulfide oxidoreductase A	5.3.4.1	5.3.4.1					0	0
+cds_1447	zosA	sp|O31688|ZOSA_BACSU Zinc-transporting ATPase	3.6.3.5	3.6.3.5					0	0
+cds_1448	ykvY	sp|O31689|YKVY_BACSU Putative dipeptidase YkvY	3.4.11.9	3.4.11.9					0	0
+cds_1453	ptsG	sp|P20166|PTG3C_BACSU PTS system glucose-specific EIICBA component	2.7.1.199	2.7.1.199	33367			Amino sugar and nucleotide sugar metabolism;Glycolysis / Gluconeogenesis	0	2
+cds_1454	ptsH	sp|P08877|PTHP_BACSU Phosphocarrier protein HPr	2.7.11.-	2.7.11.-					0	0
+cds_1455	ptsI	sp|P08838|PT1_BACSU Phosphoenolpyruvate-protein phosphotransferase	2.7.3.9	2.7.3.9	23880	GO:0008965			1	0
+cds_1457	splB	sp|P37956|SPL_BACSU Spore photoproduct lyase	4.1.99.14	4.1.99.14	56132				0	0
+cds_1460	ykwC	sp|O34948|YKWC_BACSU Uncharacterized oxidoreductase YkwC	1.1.-.-	1.1.-.-					0	0
+cds_1463	kinA	sp|P16497|KINA_BACSU Sporulation kinase A	2.7.13.3	2.7.13.3					0	0
+cds_1464	dapX	sp|P16524|DAPX_BACSU Probable N-acetyl-LL-diaminopimelate aminotransferase	2.6.1.-	2.6.1.-					0	0
+cds_1470	ykuE	sp|O34870|YKUE_BACSU Metallophosphoesterase YkuE	3.1.-.-	3.1.-.-					0	0
+cds_1471	fadH	sp|O34717|FADH_BACSU Probable 2,4-dienoyl-CoA reductase [(2E)-enoyl-CoA-producing]	1.3.1.34	1.3.1.34	12136;45232	GO:0008670			1	0
+cds_1477	ykuK	sp|O34776|YKUK_BACSU Uncharacterized protein YkuK	3.1.27.5	3.1.27.5					0	0
+cds_1484	dapH	sp|O34981|DAPH_BACSU 2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-acetyltransferase	2.3.1.89	2.3.1.89	13085	GO:0047200		Lysine biosynthesis;Monobactam biosynthesis	1	2
+cds_1485	ykuR	sp|O34916|DAPEL_BACSU N-acetyldiaminopimelate deacetylase	3.5.1.47	3.5.1.47	20405	GO:0050118		Lysine biosynthesis	1	1
+cds_1488	ykuU	sp|O34564|YKUU_BACSU Putative peroxiredoxin YkuU	1.11.1.-	1.11.1.-					0	0
+cds_1489	ykuV	sp|O31699|YKUV_BACSU Thiol-disulfide oxidoreductase YkuV	1.8.-.-	1.8.-.-					0	0
+cds_1492	mobA	sp|O31701|MOBA_BACSU Probable molybdenum cofactor guanylyltransferase	2.7.7.77	2.7.7.77	34243	GO:0061603		Folate biosynthesis	1	1
+cds_1493	moeB	sp|O31702|MOEB_BACSU Molybdopterin-synthase adenylyltransferase	2.7.7.80	2.7.7.80	43616	GO:0061605		Thiamine metabolism	1	1
+cds_1494	moeA	sp|O31703|MOEA_BACSU Molybdopterin molybdenumtransferase	2.10.1.1	2.10.1.1	35047	GO:0061599		Folate biosynthesis	1	1
+cds_1495	mobB	sp|O31704|MOBB_BACSU Probable molybdopterin-guanine dinucleotide biosynthesis adapter protein	2.7.7.77	2.7.7.77	34243	GO:0061603		Folate biosynthesis	1	1
+cds_1496	moaE	sp|O31705|MOAE_BACSU Molybdopterin synthase catalytic subunit	2.8.1.12	2.8.1.12	26333	GO:0030366			1	0
+cds_1505	fruK	sp|O31714|K1PF_BACSU 1-phosphofructokinase	2.7.1.56	2.7.1.56	14213	GO:0008662			1	0
+cds_1506	fruA	sp|P71012|PTF3A_BACSU PTS system fructose-specific EIIABC component	2.7.1.202	2.7.1.202	49252			Fructose and mannose metabolism	0	1
+cds_1507	sipT	sp|P71013|LEPT_BACSU Signal peptidase I T	3.4.21.89	3.4.21.89					0	0
+cds_1509	ykpB	sp|O31717|YKPB_BACSU Uncharacterized oxidoreductase YkpB	1.1.1.-	1.1.1.-					0	0
+cds_1510	ampS	sp|P39762|AMPS_BACSU Aminopeptidase AmpS	3.4.11.24	3.4.11.24					0	0
+cds_1514	kinC	sp|P39764|KINC_BACSU Sporulation kinase C	2.7.13.3	2.7.13.3					0	0
+cds_1515	ykqA	sp|P39759|YKQA_BACSU Putative gamma-glutamylcyclotransferase YkqA	2.3.2.-	2.3.2.-					0	0
+cds_1517	adeC	sp|P39761|ADEC_BACSU Adenine deaminase	3.5.4.2	3.5.4.2	23688	GO:0000034		Nucleotide metabolism;Purine metabolism	1	2
+cds_1521	defB	sp|Q45495|DEF2_BACSU Peptide deformylase 2	3.5.1.-	3.5.1.-					0	0
+cds_1524	pdhA	sp|P21881|ODPA_BACSU Pyruvate dehydrogenase E1 component subunit alpha	1.2.4.1	1.2.4.1	19189	GO:0004739			1	0
+cds_1525	pdhB	sp|P21882|ODPB_BACSU Pyruvate dehydrogenase E1 component subunit beta	1.2.4.1	1.2.4.1	19189	GO:0004739			1	0
+cds_1526	pdhC	sp|P21883|ODP2_BACSU Dihydrolipoyllysine-residue acetyltransferase component of pyruvate dehydrogenase complex	2.3.1.12	2.3.1.12	17017;33151	GO:0004742		Citrate cycle (TCA cycle);Glycolysis / Gluconeogenesis;Lipoic acid metabolism;Pyruvate metabolism	1	4
+cds_1527	pdhD	sp|P21880|DLDH1_BACSU Dihydrolipoyl dehydrogenase	1.8.1.4	1.8.1.4	15045;33059	GO:0004148		Citrate cycle (TCA cycle);Glycine, serine and threonine metabolism;Glycolysis / Gluconeogenesis;Lipoic acid metabolism;Lysine degradation;Propanoate metabolism;Pyruvate metabolism;Valine, leucine and isoleucine degradation	1	8
+cds_1529	speA	sp|P21885|SPEA_BACSU Arginine decarboxylase	4.1.1.19	4.1.1.19	17641	GO:0008792		Arginine and proline metabolism	1	1
+cds_1533	suhB	sp|Q45499|SUHB_BACSU Inositol-1-monophosphatase	3.1.3.-	3.1.3.-					0	0
+cds_1535	yktD	sp|Q45500|YKTD_BACSU Putative S-adenosyl-L-methionine-dependent methyltransferase YktD	2.1.1.-	2.1.1.-					0	0
+cds_1536	nprE	sp|P68735|NPRE_BACSA Bacillolysin	3.4.24.28	3.4.24.28					0	0
+cds_1543	bipA	sp|O07631|BIPA_BACSU Large ribosomal subunit assembly factor BipA	3.6.5.1	3.6.5.1	19669	GO:0003924		Nucleotide metabolism;Purine metabolism	1	2
+cds_1549	glsA2	sp|O07637|GLSA2_BACSU Glutaminase 2	3.5.1.2	3.5.1.2	15889	GO:0004359		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis	1	2
+cds_1552	pyc	sp|Q9KWU4|PYC_BACSU Pyruvate carboxylase	6.4.1.1	6.4.1.1	20844	GO:0004736		Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	3
+cds_1553	ctaA	sp|P12946|CTAA_BACSU Heme A synthase	1.3.-.-	1.3.-.-					0	0
+cds_1554	ctaB2	sp|P24009|COXX2_BACSU Protoheme IX farnesyltransferase 2	2.5.1.-	2.5.1.-					0	0
+cds_1555	ctaC	sp|P24011|COX2_BACSU Cytochrome c oxidase subunit 2	1.9.3.1	1.9.3.1					0	0
+cds_1556	ctaD	sp|P24010|COX1_BACSU Cytochrome c oxidase subunit 1	1.9.3.1	1.9.3.1					0	0
+cds_1557	ctaE	sp|P24012|COX3_BACSU Cytochrome c oxidase subunit 3	1.9.3.1	1.9.3.1					0	0
+cds_1558	ctaF	sp|P24013|COX4_BACSU Cytochrome c oxidase subunit 4B	1.9.3.1	1.9.3.1					0	0
+cds_1561	ylbB	sp|O34682|YLBB_BACSU Uncharacterized protein YlbB	1.-.-.-	1.-.-.-					0	0
+cds_1568	ylbH	sp|O34331|YLBH_BACSU Putative rRNA methyltransferase YlbH	2.1.1.171	2.1.1.171	23548	GO:0052913			1	0
+cds_1569	coaD	sp|O34797|COAD_BACSU Phosphopantetheine adenylyltransferase	2.7.7.3	2.7.7.3	19801	GO:0004595		Pantothenate and CoA biosynthesis	1	1
+cds_1571	ylbK	sp|O34731|YLBK_BACSU Uncharacterized NTE family protein YlbK	3.1.-.-	3.1.-.-					0	0
+cds_1578	ylbP	sp|O34468|YLBP_BACSU Uncharacterized N-acetyltransferase YlbP	2.3.1.-	2.3.1.-					0	0
+cds_1579	panE	sp|O34661|PANE_BACSU 2-dehydropantoate 2-reductase	1.1.1.169	1.1.1.169	16233	GO:0008677		Pantothenate and CoA biosynthesis	1	1
+cds_1580	bshC	sp|P55342|BSHC_BACSU Putative cysteine ligase BshC	6.-.-.-	6.-.-.-					0	0
+cds_1582	rsmH	sp|Q07876|RSMH_BACSU Ribosomal RNA small subunit methyltransferase H	2.1.1.199	2.1.1.199	42928	GO:0071424			1	0
+cds_1586	murE	sp|Q03523|MURE_BACSU UDP-N-acetylmuramoyl-L-alanyl-D-glutamate--2,6-diaminopimelate ligase	6.3.2.13	6.3.2.13	23676	GO:0008765		Lysine biosynthesis;Peptidoglycan biosynthesis	1	2
+cds_1587	mraY	sp|Q03521|MRAY_BACSU Phospho-N-acetylmuramoyl-pentapeptide-transferase	2.7.8.13	2.7.8.13	21920;28386	GO:0008963;GO:0051992		Peptidoglycan biosynthesis	2	1
+cds_1588	murD	sp|Q03522|MURD_BACSU UDP-N-acetylmuramoylalanine--D-glutamate ligase	6.3.2.9	6.3.2.9	16429	GO:0008764		D-Amino acid metabolism;Peptidoglycan biosynthesis	1	2
+cds_1590	murG	sp|P37585|MURG_BACSU UDP-N-acetylglucosamine--N-acetylmuramyl-(pentapeptide) pyrophosphoryl-undecaprenol N-acetylglucosamine transferase	2.4.1.227	2.4.1.227	23192;31227	GO:0050511;GO:0051991		Peptidoglycan biosynthesis	2	1
+cds_1591	murB	sp|P18579|MURB_BACSU UDP-N-acetylenolpyruvoylglucosamine reductase	1.1.1.158	1.1.1.158					0	0
+cds_1598	bpr	sp|P16397|SUBF_BACSU Bacillopeptidase F	3.4.21.-	3.4.21.-					0	0
+cds_1603	ylmB	sp|O31724|FAPD_BACSU N-formyl-4-amino-5-aminomethyl-2-methylpyrimidine deformylase	3.5.1.-	3.5.1.-					0	0
+cds_1611	ileS	sp|Q45477|SYI_BACSU Isoleucine--tRNA ligase	6.1.1.5	6.1.1.5	11060	GO:0004822		Aminoacyl-tRNA biosynthesis	1	1
+cds_1613	lspA	sp|Q45479|LSPA_BACSU Lipoprotein signal peptidase	3.4.23.36	3.4.23.36					0	0
+cds_1614	ylyB	sp|Q45480|YLYB_BACSU Uncharacterized RNA pseudouridine synthase YlyB	4.2.1.-	4.2.1.-					0	0
+cds_1615	pyrR	sp|P39765|PYRR_BACSU Bifunctional protein PyrR	2.4.2.9	2.4.2.9	13017	GO:0004845		Nucleotide metabolism;Pyrimidine metabolism	1	2
+cds_1617	pyrB	sp|P05654|PYRB_BACSU Aspartate carbamoyltransferase catalytic subunit	2.1.3.2	2.1.3.2	20013	GO:0004070		Alanine, aspartate and glutamate metabolism;Pyrimidine metabolism	1	2
+cds_1618	pyrC	sp|P25995|PYRC_BACSU Dihydroorotase	3.5.2.3	3.5.2.3	24296	GO:0004151		Pyrimidine metabolism	1	1
+cds_1619	pyrAA	sp|P25993|CARA_BACSU Carbamoyl phosphate synthase pyrimidine-specific small chain	6.3.5.5	6.3.5.5	18633	GO:0004088		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Pyrimidine metabolism	1	3
+cds_1620	pyrAB	sp|P25994|CARB_BACSU Carbamoyl phosphate synthase pyrimidine-specific large chain	6.3.5.5	6.3.5.5	18633	GO:0004088		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Pyrimidine metabolism	1	3
+cds_1621	pyrK	sp|P25983|PYRK_BACSU Dihydroorotate dehydrogenase B (NAD(+)), electron transfer subunit	1.3.98.1	1.3.98.1	30059	GO:1990663		Pyrimidine metabolism	1	1
+cds_1622	pyrD	sp|P25996|PYRDB_BACSU Dihydroorotate dehydrogenase B (NAD(+)), catalytic subunit	1.3.1.15	1.3.1.15	14861	GO:0050158			1	0
+cds_1623	pyrF	sp|P25971|PYRF_BACSU Orotidine 5'-phosphate decarboxylase	4.1.1.23	4.1.1.23	11596	GO:0004590		Pyrimidine metabolism	1	1
+cds_1626	cysH	sp|P94498|CYSH1_BACSU Adenosine 5'-phosphosulfate reductase 1	1.8.4.8	1.8.4.8	11724	GO:0004604		Sulfur cycle;Sulfur metabolism	1	2
+cds_1628	sat	sp|O34764|SAT1_BACSU Sulfate adenylyltransferase	2.7.7.4	2.7.7.4	18133	GO:0004781		Monobactam biosynthesis;Purine metabolism;Sulfur cycle;Sulfur metabolism	1	4
+cds_1629	cysC	sp|O34577|CYSC1_BACSU Probable adenylyl-sulfate kinase	2.7.1.25	2.7.1.25	24152	GO:0004020		Purine metabolism;Sulfur cycle;Sulfur metabolism	1	3
+cds_1630	sumT	sp|O34744|SUMT_BACSU Uroporphyrinogen-III C-methyltransferase	2.1.1.107	2.1.1.107	32459	GO:0004851		Porphyrin metabolism	1	1
+cds_1631	sirB	sp|O34632|SIRB_BACSU Sirohydrochlorin ferrochelatase	4.99.1.4	4.99.1.4	24360	GO:0051266		Porphyrin metabolism	1	1
+cds_1632	sirC	sp|O34813|SIRC_BACSU Precorrin-2 dehydrogenase	1.3.1.76	1.3.1.76	15613	GO:0043115		Porphyrin metabolism	1	1
+cds_1634	yloB	sp|O34431|ATCL_BACSU Calcium-transporting ATPase	3.6.3.8	3.6.3.8					0	0
+cds_1637	gmk	sp|O34328|KGUA_BACSU Guanylate kinase	2.7.4.8	2.7.4.8	12697;20780	GO:0004385;GO:0050316		Nucleotide metabolism;Purine metabolism	2	2
+cds_1638	rpoZ	sp|O35011|RPOZ_BACSU DNA-directed RNA polymerase subunit omega	2.7.7.6	2.7.7.6	21248	GO:0034062			1	0
+cds_1639	coaBC	sp|O35033|COABC_BACSU Coenzyme A biosynthesis bifunctional protein CoaBC	4.1.1.36	4.1.1.36	16793	GO:0004633		Pantothenate and CoA biosynthesis	1	1
+cds_1640	priA	sp|P94461|PRIA_BACSU Replication restart protein PriA	3.6.4.-	3.6.4.-					0	0
+cds_1641	defA	sp|P94462|DEF1_BACSU Peptide deformylase 1	3.5.1.88	3.5.1.88	24420	GO:0042586			1	0
+cds_1642	fmt	sp|P94463|FMT_BACSU Methionyl-tRNA formyltransferase	2.1.2.9	2.1.2.9	24380	GO:0004479		Aminoacyl-tRNA biosynthesis	1	1
+cds_1643	rsmB	sp|P94464|RSMB_BACSU Probable ribosomal RNA small subunit methyltransferase B	2.1.1.176	2.1.1.176	42748				0	0
+cds_1644	rlmN	sp|O34617|RLMN_BACSU Probable dual-specificity RNA methyltransferase RlmN	2.1.1.192	2.1.1.192	42916;43332	GO:0002935;GO:0070040			2	0
+cds_1645	prpC	sp|O34779|PRPC_BACSU Protein phosphatase PrpC	3.1.3.16	3.1.3.16	20629;47004	GO:0004722			1	0
+cds_1646	prkC	sp|O34507|PRKC_BACSU Serine/threonine-protein kinase PrkC	2.7.11.1	2.7.11.1	17989;46608	GO:0106310			1	0
+cds_1648	rpe	sp|O34557|RPE_BACSU Ribulose-phosphate 3-epimerase	5.1.3.1	5.1.3.1	13677	GO:0004750		Carbon fixation by Calvin cycle;Pentose and glucuronate interconversions;Pentose phosphate pathway	1	3
+cds_1649	thiN	sp|O34664|THIN_BACSU Thiamine pyrophosphokinase	2.7.6.2	2.7.6.2	11576	GO:0004788		Thiamine metabolism	1	1
+cds_1652	yloV	sp|O34751|YLOV_BACSU Protein YloV	2.7.-.-	2.7.-.-					0	0
+cds_1653	sdaAB	sp|O34635|SDHAB_BACSU Probable L-serine dehydratase, beta chain	4.3.1.17	4.3.1.17	19169	GO:0003941		Glycine, serine and threonine metabolism	1	1
+cds_1654	sdaAA	sp|O34607|SDHAA_BACSU Probable L-serine dehydratase, alpha chain	4.3.1.17	4.3.1.17	19169	GO:0003941		Glycine, serine and threonine metabolism	1	1
+cds_1655	recG	sp|O34942|RECG_BACSU ATP-dependent DNA helicase RecG	3.6.4.12	3.6.4.12	13065	GO:0016887			1	0
+cds_1657	plsX	sp|P71018|PLSX_BACSU Phosphate acyltransferase	2.3.1.n2	2.3.1.n2					0	0
+cds_1658	fabD	sp|P71019|FABD_BACSU Malonyl CoA-acyl carrier protein transacylase	2.3.1.39	2.3.1.39	41792			Fatty acid biosynthesis;Fatty acid metabolism;Mycolic acid biosynthesis	0	3
+cds_1659	fabG	sp|P51831|FABG_BACSU 3-oxoacyl-[acyl-carrier-protein] reductase FabG	1.1.1.100	1.1.1.100	17397	GO:0004316		Fatty acid biosynthesis	1	1
+cds_1661	rnc	sp|P51833|RNC_BACSU Ribonuclease 3	3.1.26.3	3.1.26.3					0	0
+cds_1671	trmD	sp|O31741|TRMD_BACSU tRNA (guanine-N(1)-)-methyltransferase	2.1.1.228	2.1.1.228	36899	GO:0052906			1	0
+cds_1674	rnhB	sp|O31744|RNH2_BACSU Ribonuclease HII	3.1.26.4	3.1.26.4					0	0
+cds_1677	sucC	sp|P80886|SUCC_BACSU Succinate--CoA ligase [ADP-forming] subunit beta	6.2.1.4	6.2.1.4	22120;86307	GO:0004776		Citrate cycle (TCA cycle);Propanoate metabolism	1	2
+cds_1678	sucD	sp|P80865|SUCD_BACSU Succinate--CoA ligase [ADP-forming] subunit alpha	6.2.1.4	6.2.1.4	22120;86307	GO:0004776		Citrate cycle (TCA cycle);Propanoate metabolism	1	2
+cds_1680	topA	sp|P39814|TOP1_BACSU DNA topoisomerase 1	5.99.1.2	5.99.1.2					0	0
+cds_1681	trmFO	sp|P39815|TRMFO_BACSU Methylenetetrahydrofolate--tRNA-(uracil-5-)-methyltransferase TrmFO	2.1.1.74	2.1.1.74	16873;62372	GO:0047151			1	0
+cds_1683	clpQ	sp|P39070|CLPQ_BACSU ATP-dependent protease subunit ClpQ	3.4.25.2	3.4.25.2					0	0
+cds_1692	fliI	sp|P23445|FLII_BACSU Flagellum-specific ATP synthase	3.6.3.14	3.6.3.14					0	0
+cds_1711	cheB	sp|Q05522|CHEB_BACSU Protein-glutamate methylesterase/protein-glutamine glutaminase	3.1.1.61	3.1.1.61	23236	GO:0008984			1	0
+cds_1712	cheA	sp|P29072|CHEA_BACSU Chemotaxis protein CheA	2.7.3.-	2.7.3.-					0	0
+cds_1715	cheD	sp|P40404|CHED_BACSU Chemoreceptor glutamine deamidase CheD	3.5.1.44	3.5.1.44	16441	GO:0050568			1	0
+cds_1720	pyrH	sp|O31749|PYRH_BACSU Uridylate kinase	2.7.4.22	2.7.4.22	24400	GO:0033862		Nucleotide metabolism;Pyrimidine metabolism	1	2
+cds_1722	uppS	sp|O31751|ISPT_BACSU Isoprenyl transferase	2.5.1.31	2.5.1.31	27551	GO:0008834		Peptidoglycan biosynthesis;Terpenoid backbone biosynthesis	1	2
+cds_1724	dxr	sp|O31753|DXR_BACSU 1-deoxy-D-xylulose 5-phosphate reductoisomerase	1.1.1.267	1.1.1.267	13717	GO:0030604		Terpenoid backbone biosynthesis	1	1
+cds_1726	proS	sp|O31755|SYP_BACSU Proline--tRNA ligase	6.1.1.15	6.1.1.15	14305	GO:0004827		Aminoacyl-tRNA biosynthesis	1	1
+cds_1735	truB	sp|P32732|TRUB_BACSU tRNA pseudouridine synthase B	5.4.99.25	5.4.99.25	42532	GO:0160148			1	0
+cds_1738	pnp	sp|P50849|PNP_BACSU Polyribonucleotide nucleotidyltransferase	2.7.7.8	2.7.7.8	22096	GO:0004654			1	0
+cds_1740	ymxG	sp|Q04805|YMXG_BACSU Uncharacterized zinc protease YmxG	3.4.24.-	3.4.24.-					0	0
+cds_1742	dpaA	sp|Q04809|DPAA_BACSU Dipicolinate synthase subunit A	1.3.1.-	1.3.1.-					0	0
+cds_1744	asd	sp|Q04797|DHAS_BACSU Aspartate-semialdehyde dehydrogenase	1.2.1.11	1.2.1.11	24284	GO:0004073		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis	1	3
+cds_1745	dapG	sp|Q04795|AK1_BACSU Aspartokinase 1	2.7.2.4	2.7.2.4	23776	GO:0004072		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis;Monobactam biosynthesis	1	4
+cds_1746	dapA	sp|Q04796|DAPA_BACSU 4-hydroxy-tetrahydrodipicolinate synthase	4.2.1.52	4.2.1.52					0	0
+cds_1747	rnjB	sp|O31760|RNJ2_BACSU Ribonuclease J2	3.1.-.-	3.1.-.-					0	0
+cds_1754	ymfH	sp|O31766|YMFH_BACSU Uncharacterized zinc protease YmfH	3.4.24.-	3.4.24.-					0	0
+cds_1755	ymfI	sp|O31767|YMFI_BACSU Uncharacterized oxidoreductase YmfI	1.1.1.-	1.1.1.-					0	0
+cds_1760	pgsA	sp|P46322|PGSA_BACSU CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase	2.7.8.5	2.7.8.5	12593	GO:0008444		Glycerophospholipid metabolism	1	1
+cds_1764	rny	sp|O31774|RNY_BACSU Ribonuclease Y	3.1.26.-	3.1.26.-					0	0
+cds_1767	tdh	sp|O31776|TDH_BACSU L-threonine 3-dehydrogenase	1.1.1.103	1.1.1.103	13161	GO:0008743		Glycine, serine and threonine metabolism	1	1
+cds_1768	kbl	sp|O31777|BIOF1_BACSU 8-amino-7-oxononanoate synthase 1	2.3.1.29	2.3.1.29	20736	GO:0008890		Glycine, serine and threonine metabolism	1	1
+cds_1769	miaB	sp|O31778|MIAB_BACSU tRNA-2-methylthio-N(6)-dimethylallyladenosine synthase	2.8.4.3	2.8.4.3	37067	GO:0035597			1	0
+cds_1779	pksB	sp|O34769|PKSB_BACSU Probable polyketide biosynthesis zinc-dependent hydrolase PksB	3.1.2.-	3.1.2.-					0	0
+cds_1780	pksC	sp|O34825|PKSC_BACSU Polyketide biosynthesis malonyl CoA-acyl carrier protein transacylase PksC	2.3.1.39	2.3.1.39	41792			Fatty acid biosynthesis;Fatty acid metabolism;Mycolic acid biosynthesis	0	3
+cds_1781	pksD	sp|O34877|PKSD_BACSU Polyketide biosynthesis acyltransferase homolog PksD	2.3.1.-	2.3.1.-					0	0
+cds_1782	pksE	sp|O34787|PKSE_BACSU Polyketide biosynthesis protein PksE	2.3.1.-	2.3.1.-					0	0
+cds_1784	pksF	sp|P40804|PKSF_BACSU Polyketide biosynthesis malonyl-ACP decarboxylase PksF	2.3.1.-	2.3.1.-					0	0
+cds_1797	ymaC	sp|O31789|YMAC_BACSU UPF0714 protein YmaC	3.4.19.-	3.4.19.-					0	0
+cds_1798	ymaD	sp|O31790|YMAD_BACSU Uncharacterized protein YmaD	1.11.1.15	1.11.1.15					0	0
+cds_1803	miaA	sp|O31795|MIAA_BACSU tRNA dimethylallyltransferase	2.5.1.75	2.5.1.75	26482	GO:0052381		Zeatin biosynthesis	1	1
+cds_1808	nrdE	sp|P50620|RIR1_BACSU Ribonucleoside-diphosphate reductase subunit alpha	1.17.4.1	1.17.4.1	23252;28026;28030;28034;28038	GO:0004748;GO:0051061;GO:0051062		Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism	3	3
+cds_1809	nrdF	sp|P50621|RIR2_BACSU Ribonucleoside-diphosphate reductase subunit beta	1.17.4.1	1.17.4.1	23252;28026;28030;28034;28038	GO:0004748;GO:0051061;GO:0051062		Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism	3	3
+cds_1811	cwlC	sp|Q06320|CWLC_BACSU Sporulation-specific N-acetylmuramoyl-L-alanine amidase	3.5.1.28	3.5.1.28					0	0
+cds_1816	glnA	sp|P12425|GLN1A_BACSU Glutamine synthetase	6.3.1.2	6.3.1.2	16169	GO:0004356		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Glyoxylate and dicarboxylate metabolism;Nitrogen metabolism	1	4
+cds_1822	ynaD	sp|P94482|YNAD_BACSU Uncharacterized N-acetyltransferase YnaD	2.3.1.-	2.3.1.-					0	0
+cds_1829	xynB	sp|P94489|XYNB_BACSU Beta-xylosidase	3.2.1.37	3.2.1.37					0	0
+cds_1831	xylA	sp|P0CI80|XYLA_BACSU Xylose isomerase	5.3.1.5	5.3.1.5	22816;28546	GO:0009045		Fructose and mannose metabolism;Pentose and glucuronate interconversions	1	2
+cds_1832	xylB	sp|P39211|XYLB_BACSU Xylulose kinase	2.7.1.17	2.7.1.17	10964	GO:0004856		Pentose and glucuronate interconversions	1	1
+cds_1835	alr2	sp|P94494|ALR2_BACSU Alanine racemase 2	5.1.1.1	5.1.1.1	20249	GO:0008784		D-Amino acid metabolism	1	1
+cds_1837	yncF	sp|O31801|YNCF_BACSU Deoxyuridine 5'-triphosphate nucleotidohydrolase YncF	3.6.1.23	3.6.1.23	10248	GO:0004170		Nucleotide metabolism;Pyrimidine metabolism	1	2
+cds_1840	thyA1	sp|P0CI79|TYSY1_BACSU Thymidylate synthase 1	2.1.1.45	2.1.1.45	12104	GO:0004799		Nucleotide metabolism;One carbon pool by folate;Pyrimidine metabolism	1	3
+cds_1856	yndL	sp|O31815|YNDL_BACSU UPF0714 protein YndL	3.4.19.-	3.4.19.-					0	0
+cds_1858	fosB	sp|O31817|FOSB_BACSU Metallothiol transferase FosB	2.5.1.-	2.5.1.-					0	0
+cds_1863	tkt	sp|P45694|TKT_BACSU Transketolase	2.2.1.1	2.2.1.1	10508;27626	GO:0004802		Carbon fixation by Calvin cycle;Pentose phosphate pathway	1	2
+cds_1874	citB	sp|P09339|ACNA_BACSU Aconitate hydratase A	4.2.1.3	4.2.1.3	10336	GO:0003994			1	0
+cds_1882	plsY	sp|Q45064|PLSY_BACSU Glycerol-3-phosphate acyltransferase	2.3.1.n3	2.3.1.n3					0	0
+cds_1884	parE	sp|Q59192|PARE_BACSU DNA topoisomerase 4 subunit B	5.99.1.-	5.99.1.-					0	0
+cds_1885	parC	sp|Q45066|PARC_BACSU DNA topoisomerase 4 subunit A	5.99.1.-	5.99.1.-					0	0
+cds_1889	eglS	sp|P10475|GUN2_BACSU Endoglucanase	3.2.1.4	3.2.1.4					0	0
+cds_1891	xynC	sp|Q45070|XYNC_BACSU Glucuronoxylanase XynC	3.2.1.136	3.2.1.136					0	0
+cds_1892	xynD	sp|Q45071|XYND_BACSU Arabinoxylan arabinofuranohydrolase	3.2.1.55	3.2.1.55					0	0
+cds_1894	yngB	sp|O31822|YNGB_BACSU UTP--glucose-1-phosphate uridylyltransferase YngB	2.7.7.9	2.7.7.9	19889	GO:0003983		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Galactose metabolism;Glycerolipid metabolism;Pentose and glucuronate interconversions;Starch and sucrose metabolism;Sulfoquinovose metabolism	1	8
+cds_1898	yngF	sp|O34893|YNGF_BACSU Putative enoyl-CoA hydratase/isomerase YngF	4.2.1.18	4.2.1.18	21536	GO:0004490		Valine, leucine and isoleucine degradation	1	1
+cds_1899	yngG	sp|O34873|HMGCL_BACSU Hydroxymethylglutaryl-CoA lyase YngG	4.1.3.4	4.1.3.4	24404	GO:0004419		Butanoate metabolism;Valine, leucine and isoleucine degradation	1	2
+cds_1901	accC2	sp|O34544|ACCC2_BACSU Biotin carboxylase 2	6.4.1.4	6.4.1.4	13589	GO:0004485		Valine, leucine and isoleucine degradation	1	1
+cds_1902	yngI	sp|O31826|YNGI_BACSU Putative acyl-CoA synthetase YngI	6.2.1.16	6.2.1.16	16117	GO:0030729		Butanoate metabolism;Valine, leucine and isoleucine degradation	1	2
+cds_1903	yngJ	sp|O34421|ACDC_BACSU Probable acyl-CoA dehydrogenase YngJ	1.3.8.4	1.3.8.4	12276	GO:0008470			1	0
+cds_1912	dacC	sp|P39844|DACC_BACSU D-alanyl-D-alanine carboxypeptidase DacC	3.4.16.4	3.4.16.4					0	0
+cds_1913	galM	sp|P39840|GALM_BACSU Aldose 1-epimerase	5.1.3.3	5.1.3.3	10264;21228;28675;63332;63336	GO:0004034;GO:0050558		Galactose metabolism;Glycolysis / Gluconeogenesis	2	2
+cds_1918	ggt	sp|P54422|GGT_BACSU Glutathione hydrolase proenzyme	2.3.2.2	2.3.2.2	23904				0	0
+cds_1920	yogA	sp|O35017|YOGA_BACSU Uncharacterized zinc-type alcohol dehydrogenase-like protein YogA	1.-.-.-	1.-.-.-					0	0
+cds_1921	gltB	sp|O34399|GLTB_BACSU Glutamate synthase [NADPH] small chain	1.4.1.13	1.4.1.13	15501	GO:0004355		Alanine, aspartate and glutamate metabolism;Nitrogen metabolism	1	2
+cds_1922	gltA	sp|P39812|GLTA_BACSU Glutamate synthase [NADPH] large chain	1.4.1.13	1.4.1.13	15501	GO:0004355		Alanine, aspartate and glutamate metabolism;Nitrogen metabolism	1	2
+cds_1924	proJ	sp|O07509|PROJ_BACSU Glutamate 5-kinase 2	2.7.2.11	2.7.2.11	14877	GO:0004349		Arginine and proline metabolism;Carbapenem biosynthesis	1	2
+cds_1927	yoxD	sp|P14802|YOXD_BACSU Uncharacterized oxidoreductase YoxD	1.-.-.-	1.-.-.-					0	0
+cds_1930	yoaA	sp|O34569|YOAA_BACSU Uncharacterized N-acetyltransferase YoaA	2.3.1.-	2.3.1.-					0	0
+cds_1932	yoaC	sp|O34861|YOAC_BACSU Putative sugar kinase YoaC	2.7.1.-	2.7.1.-					0	0
+cds_1934	yoaE	sp|C0SP82|YOAE_BACSU Probable oxidoreductase YoaE	1.-.-.-	1.-.-.-					0	0
+cds_1940	yoaI	sp|C0SPC0|YOAI_BACSU Probable 4-hydroxyphenylacetate 3-monooxygenase	1.14.14.9	1.14.14.9	30595	GO:0052881			1	0
+cds_1943	pelB	sp|O34819|PEL1_BACSU Pectin lyase	4.2.2.10	4.2.2.10					0	0
+cds_1960	penP	sp|P39824|BLAC_BACSU Beta-lactamase	3.5.2.6	3.5.2.6	20401	GO:0008800			1	0
+cds_1965	rph	sp|O34309|RPH_BACSU Rifampicin phosphotransferase	2.7.9.-	2.7.9.-					0	0
+cds_1966	xynA	sp|P18429|XYNA_BACSU Endo-1,4-beta-xylanase A	3.2.1.8	3.2.1.8					0	0
+cds_1978	rapK	sp|O34930|RAPK_BACSU Regulatory protein RapK	3.1.-.-	3.1.-.-					0	0
+cds_1990	yobN	sp|O34363|YOBN_BACSU Putative L-amino-acid oxidase YobN	1.4.-.-	1.4.-.-					0	0
+cds_1994	yobR	sp|O34376|YOBR_BACSU Uncharacterized N-acetyltransferase YobR	2.3.1.-	2.3.1.-					0	0
+cds_1996	yobT	sp|O34910|YOBT_BACSU Uncharacterized protein YobT	3.-.-.-	3.-.-.-					0	0
+cds_2005	yocD	sp|O35046|YOCD_BACSU Putative carboxypeptidase YocD	3.4.17.-	3.4.17.-					0	0
+cds_2006	des	sp|O34653|DES_BACSU Fatty acid desaturase	1.14.19.-	1.14.19.-					0	0
+cds_2009	yocH	sp|O34669|YOCH_BACSU Cell wall-binding protein YocH	3.2.1.-	3.2.1.-					0	0
+cds_2010	recQ	sp|O34748|RECQ_BACSU ATP-dependent DNA helicase RecQ	3.6.1.12	3.6.1.12	22636	GO:0047840		Nucleotide metabolism;Pyrimidine metabolism	1	2
+cds_2012	azoR1	sp|O35022|AZOR1_BACSU FMN-dependent NADH:quinone oxidoreductase 1	1.7.-.-	1.7.-.-					0	0
+cds_2021	dhaS	sp|O34660|ALDH4_BACSU Putative aldehyde dehydrogenase DhaS	1.2.1.3	1.2.1.3	16185;25294	GO:0004029;GO:0140087		Glycolysis / Gluconeogenesis;Pyruvate metabolism	2	2
+cds_2022	sqhC	sp|Q796C3|SQHC_BACSU Sporulenol synthase	4.2.1.137	4.2.1.137	34255				0	0
+cds_2023	sodF	sp|O35023|SODF_BACSU Probable superoxide dismutase [Fe]	1.15.1.1	1.15.1.1	20696	GO:0004784			1	0
+cds_2026	odhB	sp|P16263|ODO2_BACSU Dihydrolipoyllysine-residue succinyltransferase component of 2-oxoglutarate dehydrogenase complex	2.3.1.61	2.3.1.61	15213	GO:0004149		Citrate cycle (TCA cycle);Lipoic acid metabolism	1	2
+cds_2027	odhA	sp|P23129|ODO1_BACSU 2-oxoglutarate dehydrogenase E1 component	1.2.4.2	1.2.4.2	12188	GO:0004591			1	0
+cds_2030	yojM	sp|O31851|YOJM_BACSU Superoxide dismutase-like protein YojM	1.15.1.1	1.15.1.1	20696	GO:0004784			1	0
+cds_2031	cwlS	sp|O31852|CWLS_BACSU D-gamma-glutamyl-meso-diaminopimelic acid endopeptidase CwlS	3.5.1.-	3.5.1.-					0	0
+cds_2032	yojK	sp|O31853|YOJK_BACSU Uncharacterized UDP-glucosyltransferase YojK	2.4.1.-	2.4.1.-					0	0
+cds_2037	bshB2	sp|O31857|BSHB2_BACSU Probable N-acetyl-alpha-D-glucosaminyl L-malate deacetylase 2	3.5.1.-	3.5.1.-					0	0
+cds_2044	yolI	sp|O34882|YOLI_BACSU Probable tautomerase YolI	5.3.2.-	5.3.2.-					0	0
+cds_2046	yodC	sp|P81102|YODC_BACSU Putative NAD(P)H nitroreductase YodC	1.6.99.3	1.6.99.3					0	0
+cds_2047	mhqD	sp|O34842|MHQD_BACSU Putative hydrolase MhqD	3.1.-.-	3.1.-.-					0	0
+cds_2051	ctpA	sp|O34666|CTPA_BACSU Carboxy-terminal processing protease CtpA	3.4.21.102	3.4.21.102					0	0
+cds_2052	yodH	sp|O34954|YODH_BACSU Uncharacterized methyltransferase YodH	2.1.1.-	2.1.1.-					0	0
+cds_2054	yodJ	sp|O34866|YODJ_BACSU Putative carboxypeptidase YodJ	3.4.16.4	3.4.16.4					0	0
+cds_2055	deoD	sp|O34925|DEOD_BACSU Purine nucleoside phosphorylase DeoD-type	2.4.2.1	2.4.2.1	13233;19805;27638;27642;27646;27738;27742;27750;36431	GO:0004731;GO:0047975		Nucleotide metabolism;Purine metabolism	2	2
+cds_2058	pgpB	sp|O34349|PGPB_BACSU Phosphatidylglycerophosphatase B	3.1.3.27	3.1.3.27	33751			Glycerophospholipid metabolism	0	1
+cds_2064	kamA	sp|O34676|KAMA_BACSU L-lysine 2,3-aminomutase	5.4.3.2	5.4.3.2	19177	GO:0050066		Lysine degradation	1	1
+cds_2065	yodP	sp|O34895|YODP_BACSU N-acetyltransferase YodP	2.3.1.-	2.3.1.-					0	0
+cds_2067	yodR	sp|O34466|YODR_BACSU Probable coenzyme A transferase subunit beta	2.8.3.-	2.8.3.-					0	0
+cds_2068	yodS	sp|O34317|YODS_BACSU Probable coenzyme A transferase subunit alpha	2.8.3.-	2.8.3.-					0	0
+cds_2069	yodT	sp|O34662|YODT_BACSU Uncharacterized aminotransferase YodT	2.6.1.48	2.6.1.48	10212	GO:0047589		Lysine degradation	1	1
+cds_2075	phy	sp|P42094|PHYT_BACSU 3-phytase	3.1.3.8	3.1.3.8	16989	GO:0016158		Inositol phosphate metabolism	1	1
+cds_2094	yosS	sp|O34919|YOSS_BACSU SPbeta prophage-derived deoxyuridine 5'-triphosphate nucleotidohydrolase YosS	3.6.1.23	3.6.1.23	10248	GO:0004170		Nucleotide metabolism;Pyrimidine metabolism	1	2
+cds_2117	mtbP	sp|P09389|MTBB_BPSPB Orphan methyltransferase M.SPBetaI	2.1.1.37	2.1.1.37	13681	GO:0003886			1	0
+cds_2119	yorS	sp|P68522|53DR_BACSU 5'(3')-deoxyribonucleotidase	3.1.3.-	3.1.3.-					0	0
+cds_2126	dpol	sp|O64146|DPOL_BPSPB DNA-directed DNA polymerase	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+cds_2127	yorK	sp|O31903|YORK_BACSU Putative SPbeta prophage-derived single-strand DNA-specific exonuclease YorK	3.1.-.-	3.1.-.-					0	0
+cds_2138	yoqZ	sp|O31913|YOQZ_BACSU SPbeta prophage-derived UPF0714 protein YoqZ	3.4.19.-	3.4.19.-					0	0
+cds_2141	yoqW	sp|O31916|YOQW_BACSU Abasic site processing protein YoqW	3.4.-.-	3.4.-.-					0	0
+cds_2232	yomI	sp|O64046|TMP_BPSPB Probable tape measure protein	3.2.1.-	3.2.1.-					0	0
+cds_2236	yomE	sp|O31980|YOME_BACSU SPbeta prophage-derived uncharacterized protein YomE	3.1.-.-	3.1.-.-					0	0
+cds_2239	blyA	sp|O31982|BLYA_BACSU N-acetylmuramoyl-L-alanine amidase BlyA	3.5.1.28	3.5.1.28					0	0
+cds_2248	uvrX	sp|O31990|UVRX_BACSU Putative UV-damage repair protein UvrX	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+cds_2255	yokL	sp|O31995|YOKL_BACSU SPbeta prophage-derived uncharacterized N-acetyltransferase YokL	2.3.1.-	2.3.1.-					0	0
+cds_2258	yokI	sp|O31998|YOKI_BACSU Toxin YokI	3.1.-.-	3.1.-.-					0	0
+cds_2263	yokD	sp|O32003|YOKD_BACSU SPbeta prophage-derived aminoglycoside N(3')-acetyltransferase-like protein YokD	2.3.1.81	2.3.1.81	12665	GO:0046353			1	0
+cds_2271	msrB	sp|P54155|MSRB_BACSU Peptide methionine sulfoxide reductase MsrB	1.8.4.12	1.8.4.12	24164	GO:0033743			1	0
+cds_2272	msrA	sp|P54154|MSRA_BACSU Peptide methionine sulfoxide reductase MsrA	1.8.4.11	1.8.4.11	14217;19993	GO:0008113;GO:0033744			2	0
+cds_2280	ilvA	sp|P37946|ILVA_BACSU L-threonine dehydratase biosynthetic IlvA	4.3.1.19	4.3.1.19	22108	GO:0004794		Glycine, serine and threonine metabolism;Valine, leucine and isoleucine biosynthesis	1	2
+cds_2284	dfrA	sp|P11045|DYR_BACSU Dihydrofolate reductase	1.5.1.3	1.5.1.3	15009	GO:0004146		Folate biosynthesis;One carbon pool by folate	1	2
+cds_2285	thyA2	sp|P11044|TYSY2_BACSU Thymidylate synthase 2	2.1.1.45	2.1.1.45	12104	GO:0004799		Nucleotide metabolism;One carbon pool by folate;Pyrimidine metabolism	1	3
+cds_2286	ypjQ	sp|P54173|YPJQ_BACSU Uncharacterized protein YpjQ	3.1.3.27	3.1.3.27	33751			Glycerophospholipid metabolism	0	1
+cds_2288	ypiP	sp|P54171|YPIP_BACSU Uncharacterized protein YpiP	2.1.1.242	2.1.1.242	43220	GO:0036308			1	0
+cds_2289	brxA	sp|P54170|BRXA_BACSU Bacilliredoxin BrxA	5.3.4.1	5.3.4.1					0	0
+cds_2290	ilvD	sp|P51785|ILVD_BACSU Dihydroxy-acid dehydratase	4.2.1.9	4.2.1.9	24809;27694	GO:0004160		Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis	1	2
+cds_2292	ypgQ	sp|P54168|YPGQ_BACSU Uncharacterized protein YpgQ	3.6.1.-	3.6.1.-					0	0
+cds_2293	bsaA	sp|P52035|BSAA_BACSU Glutathione peroxidase homolog BsaA	1.11.1.-	1.11.1.-					0	0
+cds_2294	metAA	sp|P54167|METAA_BACSU Homoserine O-acetyltransferase	2.3.1.31	2.3.1.31	13701	GO:0004414		Cysteine and methionine metabolism	1	1
+cds_2295	ugtP	sp|P54166|UGTP_BACSU Processive diacylglycerol beta-glucosyltransferase	2.4.1.315	2.4.1.315	39027;39031			Glycerolipid metabolism	0	1
+cds_2300	ypeP	sp|P54164|YPEP_BACSU Uncharacterized protein YpeP	3.1.-.-	3.1.-.-					0	0
+cds_2307	dynA	sp|P54159|DYNA_BACSU Dynamin-like protein A	3.6.5.5	3.6.5.5	19669	GO:0003924		Nucleotide metabolism;Purine metabolism	1	2
+cds_2308	ypbQ	sp|P54158|YPBQ_BACSU Uncharacterized protein YpbQ	2.1.1.-	2.1.1.-					0	0
+cds_2311	xpt	sp|P42085|XPT_BACSU Xanthine phosphoribosyltransferase	2.4.2.22	2.4.2.22	10800	GO:0000310		Nucleotide metabolism;Purine metabolism	1	2
+cds_2312	ypwA	sp|P50848|CBP1_BACSU Carboxypeptidase 1	3.4.17.19	3.4.17.19					0	0
+cds_2314	kdgA	sp|P50846|ALKD_BACSU 2-dehydro-3-deoxy-phosphogluconate aldolase	4.1.2.14	4.1.2.14	17089	GO:0008675		Pentose phosphate pathway	1	1
+cds_2315	kdgK	sp|P50845|KDGK_BACSU 2-dehydro-3-deoxygluconokinase	2.7.1.45	2.7.1.45	14797	GO:0008673		Pentose phosphate pathway	1	1
+cds_2317	kduI	sp|P50843|KDUI_BACSU 4-deoxy-L-threo-5-hexosulose-uronate ketol-isomerase	5.3.1.17	5.3.1.17	23896	GO:0008697		Pentose and glucuronate interconversions	1	1
+cds_2318	kduD	sp|P50842|KDUD_BACSU 2-dehydro-3-deoxy-D-gluconate 5-dehydrogenase	1.1.1.125	1.1.1.125	12160	GO:0008678			1	0
+cds_2319	ypvA	sp|P50831|YPVA_BACSU Probable ATP-dependent helicase YpvA	3.6.1.-	3.6.1.-					0	0
+cds_2322	ypsC	sp|P50840|YPSC_BACSU Putative RNA methyltransferase YpsC	2.1.1.264	2.1.1.264	43772				0	0
+cds_2326	mrfA	sp|P50830|MRFA_BACSU Mitomycin repair factor A	3.6.4.-	3.6.4.-					0	0
+cds_2334	recU	sp|P39792|RECU_BACSU Holliday junction resolvase RecU	3.1.22.4	3.1.22.4					0	0
+cds_2335	ponA	sp|P39793|PBPA_BACSU Penicillin-binding protein 1A/1B	2.4.1.129	2.4.1.129					0	0
+cds_2337	nth	sp|P39788|END3_BACSU Endonuclease III	4.2.99.18	4.2.99.18	66592	GO:0140078			1	0
+cds_2340	aspB	sp|P53001|AAT1_BACSU Aspartate aminotransferase	2.6.1.1	2.6.1.1	21824	GO:0004069		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Carbon fixation by Calvin cycle	1	3
+cds_2343	dinG	sp|P54394|DING_BACSU 3'-5' exonuclease DinG	3.6.1.-	3.6.1.-					0	0
+cds_2344	panD	sp|P52999|PAND_BACSU Aspartate 1-decarboxylase	4.1.1.11	4.1.1.11	19497	GO:0004068		Pantothenate and CoA biosynthesis;beta-Alanine metabolism	1	2
+cds_2345	panC	sp|P52998|PANC_BACSU Pantothenate synthetase	6.3.2.1	6.3.2.1	10912	GO:0004592		Pantothenate and CoA biosynthesis;beta-Alanine metabolism	1	2
+cds_2346	panB	sp|P52996|PANB_BACSU 3-methyl-2-oxobutanoate hydroxymethyltransferase	2.1.2.11	2.1.2.11	11824	GO:0003864		Pantothenate and CoA biosynthesis	1	1
+cds_2347	birA	sp|P0CI75|BIRA_BACSU Bifunctional ligase/repressor BirA	6.3.4.15	6.3.4.15	11756	GO:0004077			1	0
+cds_2348	cca	sp|P42977|CCA_BACSU CCA-adding enzyme	2.7.7.25	2.7.7.25					0	0
+cds_2349	bshA	sp|P42982|BSHA_BACSU N-acetyl-alpha-D-glucosaminyl L-malate synthase	2.4.1.-	2.4.1.-					0	0
+cds_2350	bshB1	sp|P42981|BSHB1_BACSU N-acetyl-alpha-D-glucosaminyl L-malate deacetylase 1	3.5.1.-	3.5.1.-					0	0
+cds_2351	mgsA	sp|P42980|MGSA_BACSU Methylglyoxal synthase	4.2.3.3	4.2.3.3	17937	GO:0008929		Propanoate metabolism	1	1
+cds_2352	dapB	sp|P42976|DAPB_BACSU 4-hydroxy-tetrahydrodipicolinate reductase	1.17.1.8	1.17.1.8	35323;35331	GO:0008839		Lysine biosynthesis;Monobactam biosynthesis	1	2
+cds_2359	qcrA	sp|P46911|QCRA_BACSU Menaquinol:cytochrome c reductase iron-sulfur subunit	1.10.2.-	1.10.2.-					0	0
+cds_2363	aroA	sp|P20691|AROA_BACSU 3-phosphoshikimate 1-carboxyvinyltransferase	2.5.1.19	2.5.1.19	21256	GO:0003866		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_2364	tyrA	sp|P20692|TYRA_BACSU Prephenate dehydrogenase	1.3.1.12	1.3.1.12	13869	GO:0008977		Novobiocin biosynthesis;Phenylalanine, tyrosine and tryptophan biosynthesis	1	2
+cds_2365	hisC	sp|P17731|HIS8_BACSU Histidinol-phosphate aminotransferase	2.6.1.5	2.6.1.5	15093;25152	GO:0004838;GO:0080130		Isoquinoline alkaloid biosynthesis;Novobiocin biosynthesis;Phenylalanine metabolism;Phenylalanine, tyrosine and tryptophan biosynthesis;Tropane, piperidine and pyridine alkaloid biosynthesis;Tyrosine metabolism;Ubiquinone and other terpenoid-quinone biosynthesis	2	7
+cds_2366	trpA	sp|P07601|TRPA_BACSU Tryptophan synthase alpha chain	4.2.1.20	4.2.1.20	10532	GO:0004834		Glycine, serine and threonine metabolism;Phenylalanine, tyrosine and tryptophan biosynthesis	1	2
+cds_2367	trpB	sp|P07600|TRPB_BACSU Tryptophan synthase beta chain	4.2.1.20	4.2.1.20	10532	GO:0004834		Glycine, serine and threonine metabolism;Phenylalanine, tyrosine and tryptophan biosynthesis	1	2
+cds_2368	trpF	sp|P20167|TRPF_BACSU N-(5'-phosphoribosyl)anthranilate isomerase	5.3.1.24	5.3.1.24	21540	GO:0004640		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_2369	trpC	sp|P03964|TRPC_BACSU Indole-3-glycerol phosphate synthase	4.1.1.48	4.1.1.48	23476	GO:0004425		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_2370	trpD	sp|P03947|TRPD_BACSU Anthranilate phosphoribosyltransferase	2.4.2.18	2.4.2.18	11768	GO:0004048		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_2371	trpE	sp|P03963|TRPE_BACSU Anthranilate synthase component 1	4.1.3.27	4.1.3.27	21732	GO:0004049		Phenazine biosynthesis;Phenylalanine, tyrosine and tryptophan biosynthesis	1	2
+cds_2372	aroH	sp|P19080|AROH_BACSU Chorismate mutase AroH	5.4.99.5	5.4.99.5	13897	GO:0004106		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_2373	aroB	sp|P31102|AROB_BACSU 3-dehydroquinate synthase	4.2.3.4	4.2.3.4	21968	GO:0003856		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_2374	aroC	sp|P31104|AROC_BACSU Chorismate synthase	4.2.3.5	4.2.3.5	21020	GO:0004107		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_2377	hepT	sp|P31114|HEPS2_BACSU Heptaprenyl diphosphate synthase component 2	2.5.1.30	2.5.1.30	27794	GO:0000010		Terpenoid backbone biosynthesis	1	1
+cds_2378	menG	sp|P31113|MENG_BACSU Demethylmenaquinone methyltransferase	2.1.1.163	2.1.1.163	26462;26466;30063;33255;42640;44776;44780;44784;44788;44792;44796	GO:0043770		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+cds_2381	folE	sp|P19465|GCH1_BACSU GTP cyclohydrolase 1	3.5.4.16	3.5.4.16	17473	GO:0003934			1	0
+cds_2386	gpsA	sp|P46919|GPDA_BACSU Glycerol-3-phosphate dehydrogenase [NAD(P)+]	1.1.1.94	1.1.1.94	11092;11096	GO:0141152;GO:0141153		Glycerophospholipid metabolism	2	1
+cds_2387	der	sp|P50743|DER_BACSU GTPase Der	3.6.5.-	3.6.5.-					0	0
+cds_2392	fni	sp|P50740|IDI2_BACSU Isopentenyl-diphosphate delta-isomerase	5.3.3.2	5.3.3.2	23284	GO:0004452		Terpenoid backbone biosynthesis	1	1
+cds_2394	cmk	sp|P38493|KCY_BACSU Cytidylate kinase	2.7.4.14	2.7.4.14	11600;24400;25094	GO:0033862;GO:0036430;GO:0036431		Nucleotide metabolism;Pyrimidine metabolism	3	2
+cds_2399	prsW	sp|P50738|PRSW_BACSU Protease PrsW	3.4.-.-	3.4.-.-					0	0
+cds_2400	bdr	sp|P50736|BDR_BACSU Bacilliredoxin reductase Bdr	1.8.-.-	1.8.-.-					0	0
+cds_2401	gudB	sp|P50735|GUDB_BACSU Cryptic catabolic NAD-specific glutamate dehydrogenase GudB	1.4.1.2	1.4.1.2	15133	GO:0004352		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Nitrogen metabolism;Taurine and hypotaurine metabolism	1	4
+cds_2403	ypbG	sp|P50733|YPBG_BACSU Uncharacterized protein YpbG	3.1.-.-	3.1.-.-					0	0
+cds_2407	recS	sp|P50729|RECS_BACSU Probable ATP-dependent DNA helicase RecS	3.6.1.-	3.6.1.-					0	0
+cds_2411	serA	sp|P35136|SERA_BACSU D-3-phosphoglycerate dehydrogenase	1.1.1.95	1.1.1.95	12641	GO:0004617		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Methane metabolism	1	3
+cds_2412	aroD	sp|P35146|AROD_BACSU 3-dehydroquinate dehydratase	4.2.1.10	4.2.1.10	21096	GO:0003855		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_2423	dacB	sp|P35150|DACB_BACSU D-alanyl-D-alanine carboxypeptidase DacB	3.4.16.4	3.4.16.4					0	0
+cds_2429	ribH	sp|P11998|RISB_BACSU 6,7-dimethyl-8-ribityllumazine synthase	2.5.1.78	2.5.1.78	26152	GO:0000906		Riboflavin metabolism	1	1
+cds_2430	ribBA	sp|P17620|RIBBA_BACSU Riboflavin biosynthesis protein RibBA	3.5.4.25	3.5.4.25	23704	GO:0003935		Folate biosynthesis;Riboflavin metabolism	1	2
+cds_2431	ribE	sp|P16440|RISA_BACSU Riboflavin synthase	2.5.1.9	2.5.1.9	20772	GO:0004746		Riboflavin metabolism	1	1
+cds_2432	ribD	sp|P17618|RIBD_BACSU Riboflavin biosynthesis protein RibD	1.1.1.193	1.1.1.193	17845	GO:0008703		Riboflavin metabolism	1	1
+cds_2434	sipS	sp|P28628|LEPS_BACSU Signal peptidase I S	3.4.21.89	3.4.21.89					0	0
+cds_2439	ppiB	sp|P35137|PPIB_BACSU Peptidyl-prolyl cis-trans isomerase B	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+cds_2450	spoIIAB	sp|P10728|SP2AB_BACSU Anti-sigma F factor	2.7.11.-	2.7.11.-					0	0
+cds_2452	dacF	sp|P38422|DACF_BACSU D-alanyl-D-alanine carboxypeptidase DacF	3.4.16.4	3.4.16.4					0	0
+cds_2453	punA	sp|P46354|PUNA_BACSU Purine nucleoside phosphorylase 1	2.4.2.1	2.4.2.1	13233;19805;27638;27642;27646;27738;27742;27750;36431	GO:0004731;GO:0047975		Nucleotide metabolism;Purine metabolism	2	2
+cds_2454	drm	sp|P46353|DEOB_BACSU Phosphopentomutase	5.4.2.7	5.4.2.7	18793;27658	GO:0008973		Pentose phosphate pathway;Purine metabolism	1	2
+cds_2460	mleA	sp|P54572|MAO1_BACSU NAD-dependent malic enzyme 1	1.1.1.38	1.1.1.38	12653;15641	GO:0004471;GO:0008948		Carbon fixation by Calvin cycle;Pyruvate metabolism	2	2
+cds_2462	ansB	sp|P26899|ASPA_BACSU Aspartate ammonia-lyase	4.3.1.1	4.3.1.1	16601	GO:0008797		Alanine, aspartate and glutamate metabolism	1	1
+cds_2463	ansA	sp|P26900|ASPG1_BACSU L-asparaginase 1	3.5.1.1	3.5.1.1	21016	GO:0004067		Alanine, aspartate and glutamate metabolism;Cyanoamino acid metabolism	1	2
+cds_2466	nudF	sp|P54570|ADPP_BACSU ADP-ribose pyrophosphatase	3.1.7.1	3.1.7.1	21496	GO:0050210			1	0
+cds_2467	yqkF	sp|P54569|YQKF_BACSU Uncharacterized oxidoreductase YqkF	1.1.1.-	1.1.1.-					0	0
+cds_2481	coaA	sp|P54556|COAA_BACSU Pantothenate kinase	2.7.1.33	2.7.1.33	16373	GO:0004594		Pantothenate and CoA biosynthesis	1	1
+cds_2482	dsdA	sp|P54555|SDHD_BACSU Probable D-serine dehydratase	4.3.1.18	4.3.1.18	13977	GO:0008721		D-Amino acid metabolism;Glycine, serine and threonine metabolism	1	2
+cds_2483	yqjQ	sp|P54554|YQJQ_BACSU Uncharacterized oxidoreductase YqjQ	1.1.1.-	1.1.1.-					0	0
+cds_2484	yqjP	sp|P54553|YQJP_BACSU Probable metallo-hydrolase YqjP	3.-.-.-	3.-.-.-					0	0
+cds_2485	proI	sp|P54552|P5CR2_BACSU Pyrroline-5-carboxylate reductase 2	1.5.1.2	1.5.1.2	14105;14109	GO:0004735		Arginine and proline metabolism	1	1
+cds_2487	namA	sp|P54550|NAMA_BACSU NADPH dehydrogenase	1.6.99.1	1.6.99.1	13149	GO:0003959			1	0
+cds_2489	rnz	sp|P54548|RNZ_BACSU Ribonuclease Z	3.1.26.11	3.1.26.11					0	0
+cds_2490	zwf	sp|P54547|G6PD_BACSU Glucose-6-phosphate 1-dehydrogenase	1.1.1.49	1.1.1.49	15841	GO:0004345			1	0
+cds_2491	gndA	sp|P80859|6PGD_BACSU 6-phosphogluconate dehydrogenase, NADP(+)-dependent, decarboxylating	1.1.1.44	1.1.1.44	10116	GO:0004616		Glutathione metabolism;Pentose phosphate pathway	1	2
+cds_2492	dinB1	sp|P54545|DPO41_BACSU DNA polymerase IV 1	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+cds_2498	yqjC	sp|P54540|YQJC_BACSU Uncharacterized protein YqjC	5.1.99.1	5.1.99.1	20553	GO:0004493		Glyoxylate and dicarboxylate metabolism;Other carbon fixation pathways;Propanoate metabolism;Valine, leucine and isoleucine degradation	1	4
+cds_2499	yqjB	sp|P54539|YQJB_BACSU Putative L,D-transpeptidase YqjB	2.-.-.-	2.-.-.-					0	0
+cds_2505	bmrU	sp|P39074|BMRU_BACSU Putative lipid kinase BmrU	2.7.1.-	2.7.1.-					0	0
+cds_2508	bfmBB	sp|P37942|ODB2_BACSU Lipoamide acyltransferase component of branched-chain alpha-keto acid dehydrogenase complex	2.3.1.168	2.3.1.168	18865;84647;84651	GO:0043754		Lipoic acid metabolism;Valine, leucine and isoleucine degradation	1	2
+cds_2510	bfmBAA	sp|P37940|ODBA_BACSU 2-oxoisovalerate dehydrogenase subunit alpha	1.2.4.4	1.2.4.4	13457;84639;84643	GO:0003863			1	0
+cds_2511	bfmBC	sp|P54533|DLDH2_BACSU Dihydrolipoyl dehydrogenase	1.8.1.4	1.8.1.4	15045;33059	GO:0004148		Citrate cycle (TCA cycle);Glycine, serine and threonine metabolism;Glycolysis / Gluconeogenesis;Lipoic acid metabolism;Lysine degradation;Propanoate metabolism;Pyruvate metabolism;Valine, leucine and isoleucine degradation	1	8
+cds_2513	yqiT	sp|P54531|DHLE_BACSU Leucine dehydrogenase	1.4.1.8	1.4.1.8	11156	GO:0050391			1	0
+cds_2514	yqiS	sp|P54530|PTB_BACSU Probable phosphate butyryltransferase	2.3.1.19	2.3.1.19	20892	GO:0050182		Butanoate metabolism	1	1
+cds_2516	mmgF	sp|P54528|MMGF_BACSU 2-methylisocitrate lyase	4.1.3.30	4.1.3.30	16809	GO:0046421		Propanoate metabolism	1	1
+cds_2517	mmgE	sp|P45859|MMGE_BACSU Citrate/2-methylcitrate dehydratase	4.2.1.79	4.2.1.79	17725	GO:0047547		Propanoate metabolism	1	1
+cds_2518	mmgD	sp|P45858|MMGD_BACSU Citrate/2-methylcitrate synthase	2.3.3.5	2.3.3.5	23780	GO:0050440		Propanoate metabolism	1	1
+cds_2519	mmgC	sp|P45857|ACDB_BACSU Acyl-CoA dehydrogenase	1.3.99.-	1.3.99.-					0	0
+cds_2520	mmgB	sp|P45856|HBD_BACSU Probable 3-hydroxybutyryl-CoA dehydrogenase	1.1.1.157	1.1.1.157	16197	GO:0008691		Benzoate degradation;Butanoate metabolism	1	2
+cds_2521	mmgA	sp|P45855|THL_BACSU Acetyl-CoA acetyltransferase	2.3.1.9	2.3.1.9	21036	GO:0003985		Benzoate degradation;Butanoate metabolism;Fatty acid degradation;Fatty acid metabolism;Glyoxylate and dicarboxylate metabolism;Lysine degradation;Other carbon fixation pathways;Pyruvate metabolism;Terpenoid backbone biosynthesis;Tryptophan metabolism;Valine, leucine and isoleucine degradation	1	11
+cds_2522	yqiK	sp|P54527|YQIK_BACSU Uncharacterized protein YqiK	3.1.4.46	3.1.4.46	12969;29875;29907	GO:0008889			1	0
+cds_2528	spoIVB	sp|P17896|SP4B_BACSU SpoIVB peptidase	3.4.-.-	3.4.-.-					0	0
+cds_2531	yqxC	sp|P19672|YQXC_BACSU Putative rRNA methyltransferase YqxC	2.1.1.-	2.1.1.-					0	0
+cds_2532	dxs	sp|P54523|DXS_BACSU 1-deoxy-D-xylulose-5-phosphate synthase	2.2.1.7	2.2.1.7	12605	GO:0008661		Terpenoid backbone biosynthesis;Thiamine metabolism	1	2
+cds_2533	ispA	sp|P54383|ISPA_BACSU Farnesyl diphosphate synthase	2.5.1.10	2.5.1.10	19361	GO:0004337		Biosynthesis of various other secondary metabolites;Terpenoid backbone biosynthesis	1	2
+cds_2534	xseB	sp|P54522|EX7S_BACSU Exodeoxyribonuclease 7 small subunit	3.1.11.6	3.1.11.6					0	0
+cds_2535	xseA	sp|P54521|EX7L_BACSU Exodeoxyribonuclease 7 large subunit	3.1.11.6	3.1.11.6					0	0
+cds_2536	folD	sp|P54382|FOLD_BACSU Bifunctional protein FolD	1.5.1.5	1.5.1.5	22812	GO:0004488		One carbon pool by folate;Other carbon fixation pathways	1	2
+cds_2539	accC1	sp|P49787|ACCC1_BACSU Biotin carboxylase 1	6.3.4.14	6.3.4.14	13501	GO:0004075			1	0
+cds_2540	accB	sp|P49786|BCCP_BACSU Biotin carboxyl carrier protein of acetyl-CoA carboxylase	6.4.1.2	6.4.1.2	11308	GO:0003989		Aflatoxin biosynthesis;Fatty acid biosynthesis;Fatty acid metabolism;Mycolic acid biosynthesis;Other carbon fixation pathways;Propanoate metabolism;Pyruvate metabolism	1	7
+cds_2551	yqhT	sp|P54518|YQHT_BACSU Uncharacterized peptidase YqhT	3.4.-.-	3.4.-.-					0	0
+cds_2552	yqhS	sp|P54517|AROQ_BACSU 3-dehydroquinate dehydratase	4.2.1.10	4.2.1.10	21096	GO:0003855		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_2556	yqhO	sp|P54513|YQHO_BACSU Uncharacterized protein YqhO	3.1.1.-	3.1.1.-					0	0
+cds_2558	lipM	sp|P54511|LIPM_BACSU Octanoyltransferase LipM	2.3.1.181	2.3.1.181	17665	GO:0033819			1	0
+cds_2560	gcvPB	sp|P54377|GCSPB_BACSU Probable glycine dehydrogenase (decarboxylating) subunit 2	1.4.4.2	1.4.4.2	24304	GO:0004375		Glycine, serine and threonine metabolism;Lipoic acid metabolism	1	2
+cds_2561	gcvPA	sp|P54376|GCSPA_BACSU Probable glycine dehydrogenase (decarboxylating) subunit 1	1.4.4.2	1.4.4.2	24304	GO:0004375		Glycine, serine and threonine metabolism;Lipoic acid metabolism	1	2
+cds_2562	gcvT	sp|P54378|GCST_BACSU Aminomethyltransferase	2.1.2.10	2.1.2.10	16945	GO:0004047		Glycine, serine and threonine metabolism;Lipoic acid metabolism;One carbon pool by folate	1	3
+cds_2563	yqhH	sp|P54509|YQHH_BACSU Putative ATP-dependent helicase YqhH	3.6.-.-	3.6.-.-					0	0
+cds_2568	sipW	sp|P54506|LEPW_BACSU Signal peptidase I W	3.4.21.89	3.4.21.89					0	0
+cds_2584	yqgX	sp|P54501|YQGX_BACSU Probable metallo-hydrolase YqgX	3.-.-.-	3.-.-.-					0	0
+cds_2590	glcK	sp|P54495|GLK_BACSU Glucokinase	2.7.1.2	2.7.1.2	17825	GO:0004340		Neomycin, kanamycin and gentamicin biosynthesis;Starch and sucrose metabolism;Streptomycin biosynthesis	1	3
+cds_2592	gluP	sp|P54493|GLUP_BACSU Rhomboid protease GluP	3.4.21.105	3.4.21.105					0	0
+cds_2594	yqgN	sp|P54491|YQGN_BACSU Uncharacterized protein YqgN	6.3.3.2	6.3.3.2	10488	GO:0030272		One carbon pool by folate	1	1
+cds_2596	yqgM	sp|P54490|YQGM_BACSU Uncharacterized glycosyltransferase YqgM	2.4.1.-	2.4.1.-					0	0
+cds_2600	pstB1	sp|P46342|PSTB1_BACSU Phosphate import ATP-binding protein PstB 1	3.6.3.27	3.6.3.27					0	0
+cds_2601	pstB2	sp|P46341|PSTB2_BACSU Phosphate import ATP-binding protein PstB 2	3.6.3.27	3.6.3.27					0	0
+cds_2605	pbpA	sp|P54488|PBP2A_BACSU Penicillin-binding protein 2A	3.4.-.-	3.4.-.-					0	0
+cds_2607	sodA	sp|P54375|SODM_BACSU Superoxide dismutase [Mn]	1.15.1.1	1.15.1.1	20696	GO:0004784			1	0
+cds_2614	yqfW	sp|P54480|YQFW_BACSU Putative nucleotidase YqfW	3.1.3.-	3.1.3.-					0	0
+cds_2618	nfo	sp|P54476|END4_BACSU Probable endonuclease 4	3.1.21.2	3.1.21.2					0	0
+cds_2619	cshB	sp|P54475|CSHB_BACSU DEAD-box ATP-dependent RNA helicase CshB	3.6.1.-	3.6.1.-					0	0
+cds_2621	ispH	sp|P54473|ISPH_BACSU 4-hydroxy-3-methylbut-2-enyl diphosphate reductase	1.17.1.2	1.17.1.2					0	0
+cds_2623	trmK	sp|P54471|TRMK_BACSU tRNA (adenine(22)-N(1))-methyltransferase	2.1.1.217	2.1.1.217	43144	GO:0160105			1	0
+cds_2626	dnaG	sp|P05096|DNAG_BACSU DNA primase	2.7.7.-	2.7.7.-					0	0
+cds_2628	yqfL	sp|P54470|PDRP_BACSU Putative pyruvate, phosphate dikinase regulatory protein	2.7.-.-	2.7.-.-					0	0
+cds_2630	glyS	sp|P54381|SYGB_BACSU Glycine--tRNA ligase beta subunit	6.1.1.14	6.1.1.14	16013	GO:0004820		Aminoacyl-tRNA biosynthesis	1	1
+cds_2631	glyQ	sp|P54380|SYGA_BACSU Glycine--tRNA ligase alpha subunit	6.1.1.14	6.1.1.14	16013	GO:0004820		Aminoacyl-tRNA biosynthesis	1	1
+cds_2635	cdd	sp|P19079|CDD_BACSU Cytidine deaminase	3.5.4.5	3.5.4.5	13433;16069	GO:0004126		Nucleotide metabolism;Pyrimidine metabolism	1	2
+cds_2636	dgkA	sp|P19638|UDPK_BACSU Undecaprenol kinase	2.7.1.107	2.7.1.107	10272	GO:0004143		Glycerolipid metabolism;Glycerophospholipid metabolism	1	2
+cds_2649	rsmE	sp|P54461|RSME_BACSU Ribosomal RNA small subunit methyltransferase E	2.1.1.193	2.1.1.193	42920				0	0
+cds_2650	prmA	sp|P54460|PRMA_BACSU Ribosomal protein L11 methyltransferase	2.1.1.-	2.1.1.-					0	0
+cds_2655	hemW	sp|P54304|HEMW_BACSU Heme chaperone HemW	1.3.98.3	1.3.98.3	15425	GO:0051989		Porphyrin metabolism	1	1
+cds_2659	gpr	sp|P22322|GPR_BACSU Germination protease	3.4.24.78	3.4.24.78					0	0
+cds_2661	holA	sp|P54459|HOLA_BACSU DNA polymerase III subunit delta	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+cds_2664	comEB	sp|P32393|COMEB_BACSU ComE operon protein 2	3.5.4.12	3.5.4.12	22924	GO:0004132		Nucleotide metabolism;Pyrimidine metabolism	1	2
+cds_2666	comER	sp|P39696|COMER_BACSU ComE operon protein 4	1.5.1.2	1.5.1.2	14105;14109	GO:0004735		Arginine and proline metabolism	1	1
+cds_2667	yqeM	sp|P54458|YQEM_BACSU Putative methyltransferase YqeM	2.1.1.-	2.1.1.-					0	0
+cds_2670	nadD	sp|P54455|NADD_BACSU Nicotinate-nucleotide adenylyltransferase	2.7.7.18	2.7.7.18	22860	GO:0004515		Nicotinate and nicotinamide metabolism	1	1
+cds_2672	aroE	sp|P54374|AROE_BACSU Shikimate dehydrogenase (NADP(+))	1.1.1.25	1.1.1.25	17737	GO:0004764		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_2677	cwlH	sp|P54450|CWLH_BACSU N-acetylmuramoyl-L-alanine amidase CwlH	3.5.1.28	3.5.1.28					0	0
+cds_2679	yqeC	sp|P54448|YQEC_BACSU Putative 6-phosphogluconate dehydrogenase YqeC	1.1.1.-	1.1.1.-					0	0
+cds_2684	arsC	sp|P45947|ARSC_BACSU Arsenate reductase	1.20.4.4	1.20.4.4	43848	GO:0030612			1	0
+cds_2697	cwlA	sp|P24808|CWLA_BACSU N-acetylmuramoyl-L-alanine amidase CwlA	3.5.1.28	3.5.1.28					0	0
+cds_2751	yrkQ	sp|P54444|YRKQ_BACSU Sensor histidine kinase YrkQ	2.7.13.3	2.7.13.3					0	0
+cds_2754	yrkN	sp|P54441|YRKN_BACSU Uncharacterized protein YrkN	2.3.-.-	2.3.-.-					0	0
+cds_2755	yrkL	sp|P54439|YRKL_BACSU Uncharacterized NAD(P)H oxidoreductase YrkL	1.6.-.-	1.6.-.-					0	0
+cds_2759	yrkH	sp|P54435|YRKH_BACSU Uncharacterized protein YrkH	3.-.-.-	3.-.-.-					0	0
+cds_2767	bltD	sp|P39909|BLTD_BACSU Spermine/spermidine N(1)-acetyltransferase	2.3.1.57	2.3.1.57	11116;28150;28270;33099	GO:0004145			1	0
+cds_2772	czcO	sp|O07085|CZCO_BACSU Uncharacterized oxidoreductase CzcO	1.14.-.-	1.14.-.-					0	0
+cds_2774	yrdN	sp|P94502|YRDN_BACSU Probable tautomerase YrdN	5.3.2.-	5.3.2.-					0	0
+cds_2782	cypA	sp|O08469|CPXY_BACSU Cytochrome P450	1.14.-.-	1.14.-.-					0	0
+cds_2783	yrdC	sp|O07081|YRDC_BACSU Uncharacterized isochorismatase family protein YrdC	3.-.-.-	3.-.-.-					0	0
+cds_2786	aadK	sp|P17585|AADK_BACSU Aminoglycoside 6-adenylyltransferase	2.7.7.-	2.7.7.-					0	0
+cds_2787	yrpB	sp|O05413|NMO_BACSU Probable nitronate monooxygenase	1.13.12.-	1.13.12.-					0	0
+cds_2788	yrpC	sp|O05412|MURI2_BACSU Glutamate racemase 2	5.1.1.3	5.1.1.3	12813	GO:0008881		D-Amino acid metabolism	1	1
+cds_2792	yrpG	sp|O05408|YRPG_BACSU Uncharacterized oxidoreductase YrpG	1.1.-.-	1.1.-.-					0	0
+cds_2795	yraM	sp|O07931|YRAM_BACSU Putative isomerase YraM	5.3.3.7	5.3.3.7	17265	GO:0047614		C5-Branched dibasic acid metabolism	1	1
+cds_2797	csn	sp|O07921|CHIS_BACSU Chitosanase	3.2.1.132	3.2.1.132					0	0
+cds_2805	adhB	sp|O06012|ADHB_BACSU Uncharacterized zinc-type alcohol dehydrogenase-like protein AdhB	1.1.1.-	1.1.1.-					0	0
+cds_2810	adhA	sp|C0SPA5|ADHA_BACSU Probable formaldehyde dehydrogenase AdhA	1.1.1.-	1.1.1.-					0	0
+cds_2811	yraA	sp|O06006|YRAA_BACSU Putative cysteine protease YraA	4.2.1.130	4.2.1.130	27754	GO:0019172		Pyruvate metabolism	1	1
+cds_2812	sacC	sp|P05656|SACC_BACSU Levanase	3.2.1.7	3.2.1.7					0	0
+cds_2816	levD	sp|P26379|PTFA_BACSU PTS system fructose-specific EIIA component	2.7.1.202	2.7.1.202	49252			Fructose and mannose metabolism	0	1
+cds_2823	yrhL	sp|O05402|YRHL_BACSU Putative peptidoglycan O-acetyltransferase YrhL	2.3.1.-	2.3.1.-					0	0
+cds_2825	cypB	sp|O08336|CYPB_BACSU Bifunctional cytochrome P450/NADPH--P450 reductase 2	1.14.14.1	1.14.14.1	17149	GO:0016712			1	0
+cds_2835	mccB	sp|O05394|MCCB_BACSU Cystathionine gamma-lyase	4.4.1.1	4.4.1.1	14005;24923;24931	GO:0004123;GO:0080146		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;One carbon pool by folate	2	3
+cds_2836	mccA	sp|O05393|MCCA_BACSU O-acetylserine dependent cystathionine beta-synthase	2.5.1.47	2.5.1.47	14829	GO:0004124		Cysteine and methionine metabolism;Sulfur cycle;Sulfur metabolism	1	3
+cds_2837	mtnN	sp|O32028|MTNN_BACSU 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase	3.2.2.9	3.2.2.9	13617;17805;29859	GO:0008782;GO:0008930		Cysteine and methionine metabolism	2	1
+cds_2838	yrrT	sp|O32029|YRRT_BACSU Uncharacterized methyltransferase YrrT	2.1.1.-	2.1.1.-					0	0
+cds_2843	udk	sp|O32033|URK_BACSU Uridine kinase	2.7.1.48	2.7.1.48	16825;24674;27650;28162	GO:0004849;GO:0043771		Nucleotide metabolism;Pyrimidine metabolism	2	2
+cds_2846	trmR	sp|O32036|TRMR_BACSU tRNA 5-hydroxyuridine methyltransferase	2.1.1.-	2.1.1.-					0	0
+cds_2849	yrrK	sp|O34634|YQGF_BACSU Nuclease YqgF	3.1.22.4	3.1.22.4					0	0
+cds_2851	alaS	sp|O34526|SYA_BACSU Alanine--tRNA ligase	6.1.1.7	6.1.1.7	12540	GO:0004813		Aminoacyl-tRNA biosynthesis	1	1
+cds_2853	glnQ	sp|O34677|GLNQ_BACSU Glutamine transport ATP-binding protein GlnQ	3.6.3.-	3.6.3.-					0	0
+cds_2860	recD2	sp|O34481|RECD2_BACSU ATP-dependent RecD2 DNA helicase	3.1.11.5	3.1.11.5					0	0
+cds_2862	mnmA	sp|O35020|MNMA_BACSU tRNA-specific 2-thiouridylase MnmA	2.8.1.-	2.8.1.-					0	0
+cds_2863	iscS1	sp|O34599|ISCS1_BACSU Putative cysteine desulfurase IscS 1	2.8.1.7	2.8.1.7	43892	GO:0031071			1	0
+cds_2866	tcdA	sp|O32037|TCDA_BACSU tRNA threonylcarbamoyladenosine dehydratase	6.1.-.-	6.1.-.-					0	0
+cds_2867	aspS	sp|O32038|SYDND_BACSU Aspartate--tRNA(Asp/Asn) ligase	6.1.1.12	6.1.1.12	19649	GO:0004815		Aminoacyl-tRNA biosynthesis	1	1
+cds_2868	hisS	sp|O32039|SYH_BACSU Histidine--tRNA ligase	6.1.1.21	6.1.1.21	17313	GO:0004821		Aminoacyl-tRNA biosynthesis	1	1
+cds_2870	yrvJ	sp|O32041|YRVJ_BACSU Putative N-acetylmuramoyl-L-alanine amidase YrvJ	3.5.1.28	3.5.1.28					0	0
+cds_2871	dtd	sp|O32042|DTD_BACSU Inactive D-aminoacyl-tRNA deacylase	3.1.-.-	3.1.-.-					0	0
+cds_2872	relA	sp|O54408|RELA_BACSU GTP pyrophosphokinase	2.7.6.5	2.7.6.5	22088	GO:0008728		Purine metabolism	1	1
+cds_2873	apt	sp|O34443|APT_BACSU Adenine phosphoribosyltransferase	2.4.2.7	2.4.2.7	16609	GO:0003999		Nucleotide metabolism;Purine metabolism	1	2
+cds_2874	recJ	sp|O32044|RECJ_BACSU Single-stranded-DNA-specific exonuclease RecJ	3.1.-.-	3.1.-.-					0	0
+cds_2883	tgt	sp|O32053|TGT_BACSU Queuine tRNA-ribosyltransferase	2.4.2.29	2.4.2.29	24104				0	0
+cds_2884	queA	sp|O32054|QUEA_BACSU S-adenosylmethionine:tRNA ribosyltransferase-isomerase	2.4.99.17	2.4.99.17	32155	GO:0051075			1	0
+cds_2886	ruvB	sp|O32055|RUVB_BACSU Holliday junction branch migration complex subunit RuvB	3.1.22.4	3.1.22.4					0	0
+cds_2887	ruvA	sp|O05392|RUVA_BACSU Holliday junction branch migration complex subunit RuvA	3.1.22.4	3.1.22.4					0	0
+cds_2890	yrbE	sp|O05389|YRBE_BACSU Uncharacterized oxidoreductase YrbE	1.-.-.-	1.-.-.-					0	0
+cds_2891	yrzF	sp|O32057|YRZF_BACSU Putative serine/threonine-protein kinase YrzF	2.7.11.1	2.7.11.1	17989;46608	GO:0106310			1	0
+cds_2899	nadA	sp|Q9KWZ1|NADA_BACSU Quinolinate synthase	2.5.1.72	2.5.1.72	25888	GO:0008987		Nicotinate and nicotinamide metabolism	1	1
+cds_2900	nadC	sp|P39666|NADC_BACSU Probable nicotinate-nucleotide pyrophosphorylase [carboxylating]	2.4.2.19	2.4.2.19	12733	GO:0004514		Nicotinate and nicotinamide metabolism	1	1
+cds_2901	nadB	sp|P38032|NADB_BACSU L-aspartate oxidase	1.4.3.16	1.4.3.16	25876	GO:0008734		Nicotinate and nicotinamide metabolism	1	1
+cds_2902	nifS	sp|P38033|NIFS_BACSU Putative cysteine desulfurase NifS	2.8.1.7	2.8.1.7	43892	GO:0031071			1	0
+cds_2906	obg	sp|P20964|OBG_BACSU GTPase Obg	3.6.5.-	3.6.5.-					0	0
+cds_2911	spoIVFB	sp|P26937|SP4FB_BACSU Stage IV sporulation protein FB	3.4.24.-	3.4.24.-					0	0
+cds_2919	maf	sp|Q02169|NTPPA_BACSU dTTP/UTP pyrophosphatase	3.6.1.9	3.6.1.9	10248;14245;22636;23996;27762;28334;28342;28362;28534;28610;29391;29395;29399;44644	GO:0004170;GO:0008828;GO:0035870;GO:0036217;GO:0036218;GO:0036219;GO:0036220;GO:0036221;GO:0036222;GO:0047429;GO:0047693;GO:0047840		Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism	12	3
+cds_2922	folC	sp|Q05865|FOLC_BACSU Dihydrofolate synthase/folylpolyglutamate synthase	6.3.2.17	6.3.2.17	10580;51904;51912	GO:0004326		Folate biosynthesis	1	1
+cds_2923	valS	sp|Q05873|SYV_BACSU Valine--tRNA ligase	6.1.1.9	6.1.1.9	10704	GO:0004832		Aminoacyl-tRNA biosynthesis	1	1
+cds_2926	hemL	sp|P30949|GSA_BACSU Glutamate-1-semialdehyde 2,1-aminomutase	5.4.3.8	5.4.3.8	14265	GO:0042286		Porphyrin metabolism	1	1
+cds_2927	hemB	sp|P30950|HEM2_BACSU Delta-aminolevulinic acid dehydratase	4.2.1.24	4.2.1.24	24064	GO:0004655		Porphyrin metabolism	1	1
+cds_2928	hemD	sp|P21248|HEM4_BACSU Uroporphyrinogen-III synthase	4.2.1.75	4.2.1.75	18965	GO:0004852		Porphyrin metabolism	1	1
+cds_2929	hemC	sp|P16616|HEM3_BACSU Porphobilinogen deaminase	2.5.1.61	2.5.1.61	13185	GO:0004418		Porphyrin metabolism	1	1
+cds_2934	lon1	sp|P37945|LON1_BACSU Lon protease 1	3.4.21.53	3.4.21.53					0	0
+cds_2937	tig	sp|P80698|TIG_BACSU Trigger factor	5.2.1.8	5.2.1.8	16237	GO:0003755			1	0
+cds_2939	leuD	sp|P94568|LEUD_BACSU 3-isopropylmalate dehydratase small subunit	4.2.1.33	4.2.1.33	32287	GO:0003861			1	0
+cds_2940	leuC	sp|P80858|LEUC_BACSU 3-isopropylmalate dehydratase large subunit	4.2.1.33	4.2.1.33	32287	GO:0003861			1	0
+cds_2941	leuB	sp|P05645|LEU3_BACSU 3-isopropylmalate dehydrogenase	1.1.1.85	1.1.1.85	32271	GO:0003862			1	0
+cds_2942	leuA	sp|P94565|LEU1_BACSU 2-isopropylmalate synthase	2.3.3.13	2.3.3.13	21524	GO:0003852		Pyruvate metabolism;Valine, leucine and isoleucine biosynthesis	1	2
+cds_2943	ilvC	sp|P37253|ILVC_BACSU Ketol-acid reductoisomerase (NADP(+))	1.1.1.86	1.1.1.86	13493;22068	GO:0004455		Pantothenate and CoA biosynthesis	1	1
+cds_2944	ilvH	sp|P37252|ILVH_BACSU Acetolactate synthase small subunit	2.2.1.6	2.2.1.6	25249;27654	GO:0003984		Butanoate metabolism;C5-Branched dibasic acid metabolism;Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis	1	4
+cds_2945	ilvB	sp|P37251|ILVB_BACSU Acetolactate synthase large subunit	2.2.1.6	2.2.1.6	25249;27654	GO:0003984		Butanoate metabolism;C5-Branched dibasic acid metabolism;Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis	1	4
+cds_2947	ysnE	sp|P94562|YSNE_BACSU Uncharacterized N-acetyltransferase YsnE	2.3.1.-	2.3.1.-					0	0
+cds_2949	ysnB	sp|P94559|YSNB_BACSU Probable metallophosphoesterase YsnB	3.1.4.-	3.1.4.-					0	0
+cds_2951	rph	sp|P28619|RNPH_BACSU Ribonuclease PH	2.7.7.56	2.7.7.56	10628	GO:0009022			1	0
+cds_2953	racE	sp|P94556|MURI1_BACSU Glutamate racemase 1	5.1.1.3	5.1.1.3	12813	GO:0008881		D-Amino acid metabolism	1	1
+cds_2957	sdhB	sp|P08066|SDHB_BACSU Succinate dehydrogenase iron-sulfur subunit	1.3.5.1	1.3.5.1	13713;27834;40523;75711	GO:0008177		Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	4
+cds_2958	sdhA	sp|P08065|SDHA_BACSU Succinate dehydrogenase flavoprotein subunit	1.3.5.1	1.3.5.1	13713;27834;40523;75711	GO:0008177		Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	4
+cds_2959	sdhC	sp|P08064|DHSC_BACSU Succinate dehydrogenase cytochrome b558 subunit	1.3.5.1	1.3.5.1	13713;27834;40523;75711	GO:0008177		Butanoate metabolism;Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	4
+cds_2961	lysC	sp|P08495|AK2_BACSU Aspartokinase 2	2.7.2.4	2.7.2.4	23776	GO:0004072		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis;Monobactam biosynthesis	1	4
+cds_2962	uvrC	sp|P14951|UVRC_BACSU UvrABC system protein C	4.1.99.3	4.1.99.3	10672	GO:0003904			1	0
+cds_2964	abf2	sp|P94552|IABF2_BACSU Intracellular exo-alpha-L-arabinofuranosidase 2	3.2.1.55	3.2.1.55					0	0
+cds_2968	fadB	sp|P94549|FADB_BACSU Probable enoyl-CoA hydratase	4.2.1.17	4.2.1.17	16105;20724;76647	GO:0004300;GO:0018812		Caprolactam degradation;Fatty acid elongation;Phenylalanine metabolism	2	3
+cds_2970	lcfA	sp|P94547|LCFA_BACSU Long-chain-fatty-acid--CoA ligase	6.2.1.3	6.2.1.3	15421	GO:0004467		Fatty acid biosynthesis	1	1
+cds_2973	polX	sp|P94544|POLX_BACSU DNA polymerase/3'-5' exonuclease PolX	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+cds_2976	rnhC	sp|P94541|RNH3_BACSU Ribonuclease HIII	3.1.26.4	3.1.26.4					0	0
+cds_2977	pheT	sp|P17922|SYFB_BACSU Phenylalanine--tRNA ligase beta subunit	6.1.1.20	6.1.1.20	19413	GO:0004826		Aminoacyl-tRNA biosynthesis	1	1
+cds_2978	pheS	sp|P17921|SYFA_BACSU Phenylalanine--tRNA ligase alpha subunit	6.1.1.20	6.1.1.20	19413	GO:0004826		Aminoacyl-tRNA biosynthesis	1	1
+cds_2979	rlmP	sp|P94538|RLMP_BACSU 23S rRNA (guanosine(2553)-2'-O)-methyltransferase RlmP	2.1.1.-	2.1.1.-					0	0
+cds_2982	glcD	sp|P94535|GLCD_BACSU Glycolate oxidase subunit GlcD	1.1.3.15	1.1.3.15	16789;25311	GO:0003973;GO:0047639		Glyoxylate and dicarboxylate metabolism	2	1
+cds_2983	glcF	sp|P94534|GLCF_BACSU Probable glycolate oxidase iron-sulfur subunit	1.1.99.14	1.1.99.14	21264	GO:0019154		Glyoxylate and dicarboxylate metabolism	1	1
+cds_2987	abfA	sp|P94531|IABF1_BACSU Intracellular exo-alpha-(1->5)-L-arabinofuranosidase 1	3.2.1.55	3.2.1.55					0	0
+cds_2991	egsA	sp|P94527|G1PDH_BACSU Glycerol-1-phosphate dehydrogenase [NAD(P)+]	1.1.1.261	1.1.1.261	21412;21416	GO:0106357;GO:0106358		Glycerophospholipid metabolism	2	1
+cds_2993	araD	sp|P94525|ARAD_BACSU L-ribulose-5-phosphate 4-epimerase	5.1.3.4	5.1.3.4	22368	GO:0008742		Ascorbate and aldarate metabolism;Pentose and glucuronate interconversions	1	2
+cds_2994	araB	sp|P94524|ARAB_BACSU Ribulokinase	2.7.1.16	2.7.1.16	17601;22072	GO:0008741;GO:0019150		Pentose and glucuronate interconversions	2	1
+cds_2995	araA	sp|P94523|ARAA_BACSU L-arabinose isomerase	5.3.1.4	5.3.1.4	14821	GO:0008733		Pentose and glucuronate interconversions	1	1
+cds_2996	abnA	sp|P94522|EABN1_BACSU Extracellular endo-alpha-(1->5)-L-arabinanase 1	3.2.1.99	3.2.1.99					0	0
+cds_2997	ysdC	sp|P94521|YSDC_BACSU Putative aminopeptidase YsdC	3.4.11.-	3.4.11.-					0	0
+cds_3008	serB	sp|P94512|PSP_BACSU Phosphoserine phosphatase	3.1.3.-	3.1.3.-					0	0
+cds_3009	thrS	sp|P18255|SYT1_BACSU Threonine--tRNA ligase 1	6.1.1.3	6.1.1.3	24624	GO:0004829		Aminoacyl-tRNA biosynthesis	1	1
+cds_3015	speH	sp|O34426|SPEH_BACSU S-adenosylmethionine decarboxylase proenzyme	4.1.1.50	4.1.1.50	15981	GO:0004014		Arginine and proline metabolism;Cysteine and methionine metabolism	1	2
+cds_3016	gapB	sp|O34425|G3P2_BACSU Glyceraldehyde-3-phosphate dehydrogenase 2	1.2.1.59	1.2.1.59	10296;10300	GO:0004365;GO:0047100		Carbon fixation by Calvin cycle;Glycolysis / Gluconeogenesis	2	2
+cds_3019	ytbE	sp|O34678|YTBE_BACSU Uncharacterized oxidoreductase YtbE	1.-.-.-	1.-.-.-					0	0
+cds_3020	coaE	sp|O34932|COAE_BACSU Dephospho-CoA kinase	2.7.1.24	2.7.1.24	18245	GO:0004140		Pantothenate and CoA biosynthesis	1	1
+cds_3023	polA	sp|O34996|DPO1_BACSU DNA polymerase I	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+cds_3026	mdh	sp|P49814|MDH_BACSU Malate dehydrogenase	1.1.1.37	1.1.1.37	21432	GO:0030060		Carbon fixation by Calvin cycle;Citrate cycle (TCA cycle);Glyoxylate and dicarboxylate metabolism;Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism	1	6
+cds_3027	icd	sp|P39126|IDH_BACSU Isocitrate dehydrogenase [NADP]	1.1.1.42	1.1.1.42	19629	GO:0004450		Glutathione metabolism;Other carbon fixation pathways	1	2
+cds_3028	citZ	sp|P39120|CISY2_BACSU Citrate synthase 2	2.3.3.1	2.3.3.1	16845	GO:0036440		Citrate cycle (TCA cycle);Glyoxylate and dicarboxylate metabolism	1	2
+cds_3032	pyk	sp|P80885|KPYK_BACSU Pyruvate kinase	2.7.1.40	2.7.1.40	18157;30295;30727;56948;56952;56956	GO:0004743		Glycolysis / Gluconeogenesis;Pyruvate metabolism	1	2
+cds_3033	pfkA	sp|O34529|PFKA_BACSU ATP-dependent 6-phosphofructokinase	2.7.1.11	2.7.1.11	16109	GO:0003872		Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway	1	4
+cds_3034	accA	sp|O34847|ACCA_BACSU Acetyl-coenzyme A carboxylase carboxyl transferase subunit alpha	6.4.1.2	6.4.1.2	11308	GO:0003989		Aflatoxin biosynthesis;Fatty acid biosynthesis;Fatty acid metabolism;Mycolic acid biosynthesis;Other carbon fixation pathways;Propanoate metabolism;Pyruvate metabolism	1	7
+cds_3035	accD	sp|C0SP93|ACCD_BACSU Acetyl-coenzyme A carboxylase carboxyl transferase subunit beta	6.4.1.2	6.4.1.2	11308	GO:0003989		Aflatoxin biosynthesis;Fatty acid biosynthesis;Fatty acid metabolism;Mycolic acid biosynthesis;Other carbon fixation pathways;Propanoate metabolism;Pyruvate metabolism	1	7
+cds_3036	ytsJ	sp|O34962|MAO4_BACSU Bifunctional malic/malolactic enzyme	1.1.1.38	1.1.1.38	12653;15641	GO:0004471;GO:0008948		Carbon fixation by Calvin cycle;Pyruvate metabolism	2	2
+cds_3037	dnaE	sp|O34623|DPO3A_BACSU DNA polymerase III subunit alpha	2.7.7.7	2.7.7.7	22508	GO:0034061			1	0
+cds_3041	nrnA	sp|O34600|NRNA_BACSU Bifunctional oligoribonuclease and PAP phosphatase NrnA	3.1.3.7	3.1.3.7	10040;77639;77643	GO:0008441		Sulfur metabolism	1	1
+cds_3045	sndA	sp|O34980|SNDA_BACSU N-acetyl-L-cysteine deacetylase	3.-.-.-	3.-.-.-					0	0
+cds_3046	ribR	sp|P94465|RIBR_BACSU RNA-binding riboflavin kinase RibR	2.7.1.26	2.7.1.26	14357	GO:0008531		Riboflavin metabolism	1	1
+cds_3047	cmoJ	sp|O34974|CMOJ_BACSU N-acetyl-S-alkylcysteine sulfoxide monooxygenase	1.14.-.-	1.14.-.-					0	0
+cds_3049	cmoO	sp|O34846|CMOO_BACSU N-acetyl-S-alkylcysteine monooxygenase	1.14.-.-	1.14.-.-					0	0
+cds_3058	ytkK	sp|O34308|YTKK_BACSU Putative oxidoreductase YtkK	1.1.1.-	1.1.1.-					0	0
+cds_3060	argH	sp|O34858|ARLY_BACSU Argininosuccinate lyase	4.3.2.1	4.3.2.1	24020	GO:0004056		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis	1	2
+cds_3061	argG	sp|O34347|ASSY_BACSU Argininosuccinate synthase	6.3.4.5	6.3.4.5	10932	GO:0004055		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis	1	2
+cds_3065	tpx	sp|P80864|TPX_BACSU Thiol peroxidase	1.11.1.15	1.11.1.15					0	0
+cds_3070	nadK2	sp|O34934|NADK2_BACSU NAD kinase 2	2.7.1.23	2.7.1.23	18629	GO:0003951		Nicotinate and nicotinamide metabolism	1	1
+cds_3071	ytcJ	sp|O34355|YTCJ_BACSU Putative amidohydrolase YtcJ	3.5.-.-	3.5.-.-					0	0
+cds_3072	ytcI	sp|C0SPB0|YTCI_BACSU Uncharacterized acyl--CoA ligase YtcI	6.2.1.-	6.2.1.-					0	0
+cds_3074	thiI	sp|O34595|THII_BACSU Probable tRNA sulfurtransferase	2.8.1.4	2.8.1.4	24176	GO:0140741			1	0
+cds_3075	iscS2	sp|O34874|ISCS2_BACSU Putative cysteine desulfurase IscS 2	2.8.1.7	2.8.1.7	43892	GO:0031071			1	0
+cds_3078	hisK	sp|O34411|HIS9_BACSU Histidinol-phosphatase	3.1.3.15	3.1.3.15	14465	GO:0004401		Histidine metabolism	1	1
+cds_3080	ytsP	sp|O34553|YTSP_BACSU Protein YtsP	1.8.4.14	1.8.4.14	21260	GO:0033745			1	0
+cds_3081	dgcP	sp|O34325|DGCP_BACSU Diguanylate cyclase DgcP	2.7.7.65	2.7.7.65	24898	GO:0052621			1	0
+cds_3083	tyrS1	sp|P22326|SYY1_BACSU Tyrosine--tRNA ligase 1	6.1.1.1	6.1.1.1	10220	GO:0004831		Aminoacyl-tRNA biosynthesis	1	1
+cds_3084	acsA	sp|P39062|ACSA_BACSU Acetyl-coenzyme A synthetase	6.2.1.1	6.2.1.1	23176	GO:0003987		Glycolysis / Gluconeogenesis;Glyoxylate and dicarboxylate metabolism;Methane metabolism;Other carbon fixation pathways	1	4
+cds_3085	acuA	sp|P39065|ACUA_BACSU Acetoin utilization protein AcuA	2.3.1.-	2.3.1.-					0	0
+cds_3092	aroA	sp|P39912|AROG_BACSU Protein AroA(G)	2.5.1.54	2.5.1.54	14717	GO:0003849		Phenylalanine, tyrosine and tryptophan biosynthesis	1	1
+cds_3096	murC	sp|P40778|MURC_BACSU UDP-N-acetylmuramate--L-alanine ligase	6.3.2.8	6.3.2.8	23372	GO:0008763		Peptidoglycan biosynthesis	1	1
+cds_3102	ytoP	sp|O34924|YTOP_BACSU Putative aminopeptidase YtoP	3.4.-.-	3.4.-.-					0	0
+cds_3104	malS	sp|O34389|MAO3_BACSU NAD-dependent malic enzyme 3	1.1.1.38	1.1.1.38	12653;15641	GO:0004471;GO:0008948		Carbon fixation by Calvin cycle;Pyruvate metabolism	2	2
+cds_3106	trmB	sp|O34522|TRMB_BACSU tRNA (guanine-N(7)-)-methyltransferase	2.1.1.33	2.1.1.33	42708	GO:0008176			1	0
+cds_3109	amyX	sp|C0SPA0|PULA_BACSU Pullulanase	3.2.1.41	3.2.1.41					0	0
+cds_3110	ytlR	sp|O34799|YTLR_BACSU Putative lipid kinase YtlR	2.7.1.-	2.7.1.-					0	0
+cds_3112	ytlP	sp|O34570|THPR_BACSU RNA 2',3'-cyclic phosphodiesterase	3.1.4.-	3.1.4.-					0	0
+cds_3113	ytkP	sp|O34476|CYSM_BACSU Probable cysteine synthase	2.5.1.47	2.5.1.47	14829	GO:0004124		Cysteine and methionine metabolism;Sulfur cycle;Sulfur metabolism	1	3
+cds_3114	ytjP	sp|O34944|PEPVL_BACSU Putative dipeptidase YtjP	3.5.-.-	3.5.-.-					0	0
+cds_3117	ythP	sp|O34977|YTHP_BACSU Uncharacterized ABC transporter ATP-binding protein YthP	3.6.3.-	3.6.3.-					0	0
+cds_3119	ytzG	sp|O32068|YTZG_BACSU Uncharacterized RNA pseudouridine synthase YtzG	4.2.1.70	4.2.1.70	18337	GO:0004730		Pyrimidine metabolism	1	1
+cds_3125	yteT	sp|O34371|YTET_BACSU Putative oxidoreductase YteT	1.1.-.-	1.1.-.-					0	0
+cds_3127	yteR	sp|O34559|URHG2_BACSU Unsaturated rhamnogalacturonyl hydrolase YteR	3.2.1.172	3.2.1.172	30927	GO:0102211			1	0
+cds_3133	bioI	sp|P53554|BIOI_BACSU Biotin biosynthesis cytochrome P450	1.14.14.46	1.14.14.46	52852				0	0
+cds_3134	bioB	sp|P53557|BIOB_BACSU Biotin synthase	2.8.1.6	2.8.1.6	22060	GO:0004076		Biotin metabolism	1	1
+cds_3135	bioD	sp|P53558|BIOD_BACSU ATP-dependent dethiobiotin synthetase BioD	6.3.3.3	6.3.3.3	15805	GO:0004141		Biotin metabolism	1	1
+cds_3136	bioF	sp|P53556|BIOF2_BACSU 8-amino-7-oxononanoate synthase 2	2.3.1.-	2.3.1.-					0	0
+cds_3137	bioK	sp|P53555|BIOK_BACSU L-Lysine--8-amino-7-oxononanoate transaminase	2.6.1.105	2.6.1.105	26329			Biotin metabolism	0	1
+cds_3139	ytaP	sp|O34973|YTAP_BACSU Putative hydrolase YtaP	3.-.-.-	3.-.-.-					0	0
+cds_3144	melA	sp|O34645|AGAL_BACSU Alpha-galactosidase	3.2.1.22	3.2.1.22	21112	GO:0004557		Glycosphingolipid biosynthesis - globo and isoglobo series;Sphingolipid metabolism	1	2
+cds_3145	ytwF	sp|O32072|YTWF_BACSU Putative sulfurtransferase YtwF	2.8.1.-	2.8.1.-					0	0
+cds_3146	leuS	sp|P36430|SYL_BACSU Leucine--tRNA ligase	6.1.1.4	6.1.1.4	11688	GO:0004823		Aminoacyl-tRNA biosynthesis	1	1
+cds_3159	ytrB	sp|O34641|YTRB_BACSU ABC transporter ATP-binding protein YtrB	3.6.3.-	3.6.3.-					0	0
+cds_3164	mnmM	sp|O34614|MNMM_BACSU tRNA (mnm(5)s(2)U34)-methyltransferase	2.1.1.-	2.1.1.-					0	0
+cds_3166	ytpA	sp|O34705|PLBAC_BACSU Phospholipase YtpA	3.1.-.-	3.1.-.-					0	0
+cds_3169	asnB	sp|P54420|ASNB_BACSU Asparagine synthetase [glutamine-hydrolyzing] 1	2.4.-.-	2.4.-.-					0	0
+cds_3170	metK	sp|P54419|METK_BACSU S-adenosylmethionine synthase	2.5.1.6	2.5.1.6	21080	GO:0004478		Biosynthesis of various plant secondary metabolites;Cysteine and methionine metabolism;One carbon pool by folate	1	3
+cds_3171	pckA	sp|P54418|PCKA_BACSU Phosphoenolpyruvate carboxykinase (ATP)	4.1.1.49	4.1.1.49	18617	GO:0004612		Carbon fixation by Calvin cycle;Citrate cycle (TCA cycle);Glycolysis / Gluconeogenesis;Pyruvate metabolism	1	4
+cds_3173	ytmA	sp|O34493|YTMA_BACSU Uncharacterized peptidase YtmA	3.1.-.-	3.1.-.-					0	0
+cds_3177	ytkD	sp|O35013|YTKD_BACSU Putative 8-oxo-dGTP diphosphatase YtkD	3.6.1.15	3.6.1.15	23680	GO:0017111			1	0
+cds_3182	luxS	sp|O34667|LUXS_BACSU S-ribosylhomocysteine lyase	4.4.1.21	4.4.1.21	17753	GO:0043768		Cysteine and methionine metabolism	1	1
+cds_3183	ytiB	sp|O34872|YTIB_BACSU Putative carbonic anhydrase YtiB	4.2.1.1	4.2.1.1	10748	GO:0004089			1	0
+cds_3185	ythA	sp|C0SP90|YTHA_BACSU Putative cytochrome bd menaquinol oxidase subunit I	1.10.3.-	1.10.3.-					0	0
+cds_3186	ythB	sp|O34505|YTHB_BACSU Putative cytochrome bd menaquinol oxidase subunit II	1.10.3.-	1.10.3.-					0	0
+cds_3190	mntB	sp|O34338|MNTB_BACSU Manganese transport system ATP-binding protein MntB	3.6.3.-	3.6.3.-					0	0
+cds_3192	menC	sp|O34514|MENC_BACSU o-succinylbenzoate synthase	4.2.1.113	4.2.1.113	10196	GO:0043748		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+cds_3193	menE	sp|P23971|MENE_BACSU 2-succinylbenzoate--CoA ligase	6.2.1.26	6.2.1.26	17009	GO:0008756		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+cds_3194	menB	sp|P23966|MENB_BACSU 1,4-dihydroxy-2-naphthoyl-CoA synthase	4.1.3.36	4.1.3.36	26562	GO:0008935		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+cds_3195	menH	sp|P23974|MENH_BACSU Putative 2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase	4.2.99.20	4.2.99.20	25597	GO:0070205		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+cds_3196	menD	sp|P23970|MEND_BACSU 2-succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate synthase	2.2.1.9	2.2.1.9	25593	GO:0070204		Ubiquinone and other terpenoid-quinone biosynthesis	1	1
+cds_3197	menF	sp|P23973|MENF_BACSU Isochorismate synthase MenF	5.4.4.2	5.4.4.2	18985	GO:0008909		Biosynthesis of siderophore group nonribosomal peptides;Ubiquinone and other terpenoid-quinone biosynthesis	1	2
+cds_3199	ytdA	sp|P42407|YTDA_BACSU Putative UTP--glucose-1-phosphate uridylyltransferase	2.7.7.9	2.7.7.9	19889	GO:0003983		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Galactose metabolism;Glycerolipid metabolism;Pentose and glucuronate interconversions;Starch and sucrose metabolism;Sulfoquinovose metabolism	1	8
+cds_3200	ytcA	sp|O34862|YTCA_BACSU Putative UDP-glucose 6-dehydrogenase YtcA	1.1.1.22	1.1.1.22	23596	GO:0003979		Amino sugar and nucleotide sugar metabolism;Ascorbate and aldarate metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Pentose and glucuronate interconversions	1	5
+cds_3201	ytcB	sp|O34886|YTCB_BACSU Uncharacterized UDP-glucose epimerase YtcB	5.1.3.2	5.1.3.2	22168	GO:0003978		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism	1	3
+cds_3202	ytcC	sp|O34413|YTCC_BACSU Putative glycosyltransferase YtcC	2.4.1.-	2.4.1.-					0	0
+cds_3208	glgP	sp|P39123|PHSG_BACSU Glycogen phosphorylase	2.4.1.1	2.4.1.1	41732	GO:0004645			1	0
+cds_3209	glgA	sp|P39125|GLGA_BACSU Glycogen synthase	2.4.1.21	2.4.1.21	18189	GO:0009011		Starch and sucrose metabolism	1	1
+cds_3210	glgD	sp|P39124|GLGD_BACSU Glycogen biosynthesis protein GlgD	2.7.7.27	2.7.7.27	12120	GO:0008878		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Starch and sucrose metabolism	1	3
+cds_3211	glgC	sp|P39122|GLGC_BACSU Glucose-1-phosphate adenylyltransferase	2.7.7.27	2.7.7.27	12120	GO:0008878		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Starch and sucrose metabolism	1	3
+cds_3212	glgB	sp|P39118|GLGB_BACSU 1,4-alpha-glucan branching enzyme GlgB	2.4.1.18	2.4.1.18					0	0
+cds_3216	yuaI	sp|O32075|YUAI_BACSU Uncharacterized N-acetyltransferase YuaI	2.3.1.-	2.3.1.-					0	0
+cds_3221	gbsB	sp|P71017|GBSB_BACSU Choline dehydrogenase	1.1.1.1	1.1.1.1	10736;10740;25290	GO:0004022;GO:0120542		Fatty acid degradation;Glycolysis / Gluconeogenesis;Pyruvate metabolism	2	3
+cds_3222	gbsA	sp|P71016|GBSA_BACSU Betaine aldehyde dehydrogenase	1.2.1.8	1.2.1.8	15305	GO:0008802		Glycine, serine and threonine metabolism;One carbon pool by folate	1	2
+cds_3230	cdoA	sp|O32085|CDOA_BACSU Cysteine dioxygenase	1.13.11.20	1.13.11.20	20441	GO:0017172		Cysteine and methionine metabolism;Taurine and hypotaurine metabolism	1	2
+cds_3231	uppP	sp|P94507|UPPP_BACSU Undecaprenyl-diphosphatase	3.6.1.27	3.6.1.27	28094	GO:0050380		Peptidoglycan biosynthesis;Teichoic acid biosynthesis	1	2
+cds_3233	iolU	sp|O05265|IOLU_BACSU scyllo-inositol 2-dehydrogenase (NADP(+)) IolU	1.1.1.371	1.1.1.371	39063	GO:0102497		Inositol phosphate metabolism	1	1
+cds_3234	rhaA	sp|O05264|RHAA_BACSU L-rhamnose isomerase	5.3.1.14	5.3.1.14	23160	GO:0008740		Fructose and mannose metabolism	1	1
+cds_3235	rhaM	sp|O05263|RHAM_BACSU L-rhamnose mutarotase	5.1.3.32	5.1.3.32	25584	GO:0062192			1	0
+cds_3236	rhaB	sp|O05262|RHAB_BACSU Rhamnulokinase	2.7.1.5	2.7.1.5	20117	GO:0008993		Fructose and mannose metabolism	1	1
+cds_3238	yuxG	sp|P40747|YUXG_BACSU Uncharacterized oxidoreductase YuxG	1.1.1.-	1.1.1.-					0	0
+cds_3243	tgl	sp|P40746|TGL_BACSU Protein-glutamine gamma-glutamyltransferase	2.3.2.13	2.3.2.13	54816	GO:0003810			1	0
+cds_3246	yugT	sp|O05242|O16G3_BACSU Probable oligo-1,6-glucosidase 3	3.2.1.10	3.2.1.10	68864	GO:0004574		Starch and sucrose metabolism	1	1
+cds_3254	pgi	sp|P80860|G6PI_BACSU Glucose-6-phosphate isomerase	5.3.1.9	5.3.1.9	11816;85579	GO:0004347		Starch and sucrose metabolism	1	1
+cds_3255	yugK	sp|O05240|YUGK_BACSU Probable NADH-dependent butanol dehydrogenase 2	1.1.1.-	1.1.1.-					0	0
+cds_3256	yugJ	sp|O05239|YUGJ_BACSU Probable NADH-dependent butanol dehydrogenase 1	1.1.1.-	1.1.1.-					0	0
+cds_3263	patB	sp|Q08432|CBL_BACSU Cystathionine beta-lyase PatB	4.4.1.1	4.4.1.1	14005;24923;24931	GO:0004123;GO:0080146		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;One carbon pool by folate	2	3
+cds_3264	kinB	sp|Q08430|KINB_BACSU Sporulation kinase B	2.7.13.3	2.7.13.3					0	0
+cds_3266	kapD	sp|O05231|KAPD_BACSU Probable 3'-5' exonuclease KapD	3.1.-.-	3.1.-.-					0	0
+cds_3268	pbpD	sp|P40750|PBPD_BACSU Penicillin-binding protein 4	2.-.-.-	2.-.-.-					0	0
+cds_3271	malK	sp|O05250|MALK_BACSU Sensor histidine kinase MalK	2.7.13.3	2.7.13.3					0	0
+cds_3286	yuxO	sp|P14205|COMA2_BACSU Putative esterase ComA2	3.1.-.-	3.1.-.-					0	0
+cds_3287	comA	sp|P14204|CMPA_BACSU Transcriptional regulatory protein ComA	4.4.1.19	4.4.1.19	22784	GO:0043817		Methane metabolism	1	1
+cds_3288	comP	sp|Q99027|COMP_BACSU Sensor histidine kinase ComP	2.7.-.-	2.7.-.-					0	0
+cds_3293	pdeH	sp|P14203|PDEH_BACSU Cyclic di-GMP phosphodiesterase PdeH	3.1.3.71	3.1.3.71	23416	GO:0050532		Methane metabolism	1	1
+cds_3294	pncB	sp|O32090|PNCB_BACSU Nicotinate phosphoribosyltransferase	2.4.2.11	2.4.2.11					0	0
+cds_3295	pncA	sp|O32091|PNCA_BACSU Uncharacterized isochorismatase family protein PncA	3.5.1.19	3.5.1.19	14545	GO:0008936		Nicotinate and nicotinamide metabolism	1	1
+cds_3302	yueE	sp|O32098|YUEE_BACSU Putative phosphohydrolase YueE	3.-.-.-	3.-.-.-					0	0
+cds_3303	yueD	sp|O32099|BZRD_BACSU Benzil reductase ((S)-benzoin forming)	1.1.1.320	1.1.1.320	25968;31891	GO:0004090;GO:0016616			2	0
+cds_3311	ald	sp|Q08352|DHA_BACSU Alanine dehydrogenase	1.4.1.1	1.4.1.1	18405	GO:0000286		Alanine, aspartate and glutamate metabolism;Taurine and hypotaurine metabolism	1	2
+cds_3314	dhbF	sp|P45745|DHBF_BACSU Dimodular nonribosomal peptide synthase	2.7.7.-	2.7.7.-					0	0
+cds_3315	dhbB	sp|P45743|DHBB_BACSU Isochorismatase	3.3.2.1	3.3.2.1	11112	GO:0008908		Biosynthesis of siderophore group nonribosomal peptides	1	1
+cds_3316	dhbE	sp|P40871|DHBE_BACSU 2,3-dihydroxybenzoate-AMP ligase	2.7.7.58	2.7.7.58					0	0
+cds_3317	dhbC	sp|P45744|DHBC_BACSU Isochorismate synthase DhbC	5.4.4.2	5.4.4.2	18985	GO:0008909		Biosynthesis of siderophore group nonribosomal peptides;Ubiquinone and other terpenoid-quinone biosynthesis	1	2
+cds_3318	dhbA	sp|P39071|DHBA_BACSU 2,3-dihydro-2,3-dihydroxybenzoate dehydrogenase	1.3.1.28	1.3.1.28	23824	GO:0008667		Biosynthesis of siderophore group nonribosomal peptides	1	1
+cds_3320	yuiH	sp|O32103|YUIH_BACSU Uncharacterized oxidoreductase YuiH	1.7.3.-	1.7.3.-					0	0
+cds_3323	pepA	sp|O32106|AMPA_BACSU Probable cytosol aminopeptidase	3.4.11.1	3.4.11.1					0	0
+cds_3328	yumC	sp|O05268|FENR2_BACSU Ferredoxin--NADP reductase 2	1.18.1.2	1.18.1.2	20125;76995	GO:0004324			1	0
+cds_3330	guaC	sp|O05269|GUAC_BACSU GMP reductase	1.7.1.7	1.7.1.7	17185	GO:0003920		Nucleotide metabolism;Purine metabolism	1	2
+cds_3334	dapF	sp|O32114|DAPF_BACSU Diaminopimelate epimerase	5.1.1.7	5.1.1.7	15393	GO:0008837		D-Amino acid metabolism;Lysine biosynthesis	1	2
+cds_3340	yuxL	sp|P39839|YUXL_BACSU Uncharacterized peptidase YuxL	3.4.-.-	3.4.-.-					0	0
+cds_3341	thrB	sp|P04948|KHSE_BACSU Homoserine kinase	2.7.1.39	2.7.1.39	13985	GO:0004413		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism	1	2
+cds_3343	hom	sp|P19582|DHOM_BACSU Homoserine dehydrogenase	1.1.1.3	1.1.1.3	15757;15761	GO:0004022;GO:0004412		Cysteine and methionine metabolism;Glycine, serine and threonine metabolism;Lysine biosynthesis	2	3
+cds_3345	yutG	sp|O32124|YUTG_BACSU Uncharacterized protein YutG	3.1.3.27	3.1.3.27	33751			Glycerophospholipid metabolism	0	1
+cds_3346	yutF	sp|O32125|YUTF_BACSU 5'-nucleotidase YutF	3.1.3.5	3.1.3.5	12484	GO:0008253			1	0
+cds_3350	lipA	sp|O32129|LIPA_BACSU Lipoyl synthase	2.8.1.8	2.8.1.8	16585	GO:0016992			1	0
+cds_3351	lytH	sp|O32130|LYTH_BACSU L-Ala--D-Glu endopeptidase	3.4.-.-	3.4.-.-					0	0
+cds_3354	yunD	sp|O32133|YUND_BACSU Uncharacterized metallophosphoesterase YunD	3.1.-.-	3.1.-.-					0	0
+cds_3358	allB	sp|O32137|ALLB_BACSU Allantoinase	3.5.2.5	3.5.2.5	17029	GO:0004038		Purine metabolism	1	1
+cds_3362	pucL	sp|O32141|PUCL_BACSU Uric acid degradation bifunctional protein PucL	1.7.3.3	1.7.3.3	21368	GO:0004846		Purine metabolism	1	1
+cds_3363	pucM	sp|O32142|HIUH_BACSU 5-hydroxyisourate hydrolase	3.5.2.17	3.5.2.17	23736	GO:0033971		Purine metabolism	1	1
+cds_3364	pucE	sp|O32143|XDHE_BACSU Probable xanthine dehydrogenase subunit E	1.17.1.4	1.17.1.4	16669;24670	GO:0004854		Nucleotide metabolism;Purine metabolism	1	2
+cds_3365	pucD	sp|O32144|XDHD_BACSU Probable xanthine dehydrogenase subunit D	1.17.1.4	1.17.1.4	16669;24670	GO:0004854		Nucleotide metabolism;Purine metabolism	1	2
+cds_3366	pucC	sp|O32145|XDHC_BACSU Probable xanthine dehydrogenase subunit C	1.17.1.4	1.17.1.4	16669;24670	GO:0004854		Nucleotide metabolism;Purine metabolism	1	2
+cds_3367	pucB	sp|O32146|PUCB_BACSU Purine catabolism protein PucB	2.7.7.-	2.7.7.-					0	0
+cds_3369	pucG	sp|O32148|PUCG_BACSU (S)-ureidoglycine--glyoxylate transaminase	2.6.1.112	2.6.1.112	33867			Purine metabolism	0	1
+cds_3370	pucF	sp|O32149|ALLC_BACSU Allantoate amidohydrolase	3.5.3.9	3.5.3.9	27485	GO:0047652		Purine metabolism	1	1
+cds_3371	bsn	sp|O32150|BSN2_BACSU Extracellular ribonuclease	3.1.-.-	3.1.-.-					0	0
+cds_3372	yurJ	sp|O32151|YURJ_BACSU Uncharacterized ABC transporter ATP-binding protein YurJ	3.6.3.-	3.6.3.-					0	0
+cds_3374	frlD	sp|O32153|FRLD_BACSU Fructosamine kinase FrlD	2.7.1.-	2.7.1.-					0	0
+cds_3378	frlB	sp|O32157|FRLB_BACSU Fructosamine deglycase FrlB	3.5.-.-	3.5.-.-					0	0
+cds_3383	yurT	sp|O32161|YURT_BACSU Uncharacterized protein YurT	4.4.1.5	4.4.1.5	19069	GO:0004462		Pyruvate metabolism	1	1
+cds_3386	sufU	sp|O32163|SUFU_BACSU Zinc-dependent sulfurtransferase SufU	2.-.-.-	2.-.-.-					0	0
+cds_3387	sufS	sp|O32164|SUFS_BACSU Cysteine desulfurase SufS	2.8.1.7	2.8.1.7	43892	GO:0031071			1	0
+cds_3399	yusI	sp|O32175|YUSI_BACSU Uncharacterized protein YusI	1.20.4.-	1.20.4.-					0	0
+cds_3400	fadE	sp|O32176|FADE_BACSU Probable acyl-CoA dehydrogenase	1.3.99.-	1.3.99.-					0	0
+cds_3401	fadA	sp|O32177|FADA_BACSU 3-ketoacyl-CoA thiolase	2.3.1.16	2.3.1.16	21564	GO:0003988		Fatty acid elongation	1	1
+cds_3402	fadN	sp|O32178|FADN_BACSU Probable 3-hydroxyacyl-CoA dehydrogenase	1.1.1.35	1.1.1.35	22432	GO:0003857		Fatty acid elongation	1	1
+cds_3404	fadM	sp|O32179|PROD1_BACSU Proline dehydrogenase 1	1.5.5.2	1.5.5.2	23784;42416	GO:0004657		Arginine and proline metabolism	1	1
+cds_3409	yusQ	sp|O32183|YUSQ_BACSU Probable tautomerase YusQ	5.3.2.-	5.3.2.-					0	0
+cds_3418	yusZ	sp|P37959|YUSZ_BACSU Uncharacterized oxidoreductase YusZ	1.-.-.-	1.-.-.-					0	0
+cds_3420	htrB	sp|Q9R9I1|HTRB_BACSU Serine protease Do-like HtrB	3.4.21.107	3.4.21.107					0	0
+cds_3424	fumC	sp|P07343|FUMC_BACSU Fumarate hydratase class II	4.2.1.2	4.2.1.2	12460	GO:0004333		Citrate cycle (TCA cycle);Other carbon fixation pathways;Pyruvate metabolism	1	3
+cds_3436	yvqK	sp|O34899|PDUO_BACSU Corrinoid adenosyltransferase	2.5.1.17	2.5.1.17	11528;14725;28671	GO:0008817		Porphyrin metabolism	1	1
+cds_3440	yvrD	sp|O34782|YVRD_BACSU Uncharacterized oxidoreductase YvrD	1.-.-.-	1.-.-.-					0	0
+cds_3441	yvrE	sp|O34940|YVRE_BACSU Putative sugar lactone lactonase YvrE	3.1.1.-	3.1.1.-					0	0
+cds_3447	oxdC	sp|O34714|OXDC_BACSU Oxalate decarboxylase OxdC	4.1.1.2	4.1.1.2	16509	GO:0046564		Glyoxylate and dicarboxylate metabolism	1	1
+cds_3452	fhuC	sp|P49938|FHUC_BACSU Iron(3+)-hydroxamate import ATP-binding protein FhuC	3.6.3.34	3.6.3.34					0	0
+cds_3464	yvgN	sp|O32210|GR_BACSU Glyoxal reductase	1.1.1.283	1.1.1.283	21748	GO:0043892			1	0
+cds_3467	cysI	sp|O32213|CYSI_BACSU Sulfite reductase [NADPH] hemoprotein beta-component	1.8.1.2	1.8.1.2	13801	GO:0004783		Sulfur cycle;Sulfur metabolism	1	2
+cds_3468	cysJ	sp|O32214|CYSJ_BACSU Sulfite reductase [NADPH] flavoprotein alpha-component	1.8.1.2	1.8.1.2	13801	GO:0004783		Sulfur cycle;Sulfur metabolism	1	2
+cds_3469	helD	sp|O32215|HELR_BACSU RNA polymerase recycling motor protein HelD	3.6.4.12	3.6.4.12	13065	GO:0016887			1	0
+cds_3483	yvaG	sp|O32229|YVAG_BACSU Uncharacterized oxidoreductase YvaG	1.-.-.-	1.-.-.-					0	0
+cds_3485	rnr	sp|O32231|RNR_BACSU Ribonuclease R	3.1.13.1	3.1.13.1					0	0
+cds_3486	est	sp|O32232|EST_BACSU Carboxylesterase	3.1.1.1	3.1.1.1	21164	GO:0106435			1	0
+cds_3488	yvaM	sp|O32234|YVAM_BACSU AB hydrolase superfamily protein YvaM	3.-.-.-	3.-.-.-					0	0
+cds_3514	eno	sp|P37869|ENO_BACSU Enolase	4.2.1.11	4.2.1.11	10164	GO:0004634		Glycolysis / Gluconeogenesis;Methane metabolism	1	2
+cds_3515	gpmI	sp|P39773|GPMI_BACSU 2,3-bisphosphoglycerate-independent phosphoglycerate mutase	5.4.2.1	5.4.2.1					0	0
+cds_3516	tpiA	sp|P27876|TPIS_BACSU Triosephosphate isomerase	5.3.1.1	5.3.1.1	18585	GO:0004807		Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Inositol phosphate metabolism	1	4
+cds_3517	pgk	sp|P40924|PGK_BACSU Phosphoglycerate kinase	2.7.2.3	2.7.2.3	14801	GO:0004618		Carbon fixation by Calvin cycle;Glycolysis / Gluconeogenesis	1	2
+cds_3519	gapA	sp|P09124|G3P1_BACSU Glyceraldehyde-3-phosphate dehydrogenase 1	1.2.1.12	1.2.1.12	10300	GO:0004365		Carbon fixation by Calvin cycle;Glycolysis / Gluconeogenesis	1	2
+cds_3530	lutA	sp|O07020|LUTA_BACSU Lactate utilization protein A	1.8.98.-	1.8.98.-					0	0
+cds_3536	rsbP	sp|O07014|RSBP_BACSU Phosphoserine phosphatase RsbP	3.1.3.3	3.1.3.3	21208;24873	GO:0036424		Glycine, serine and threonine metabolism;Methane metabolism	1	2
+cds_3537	ganB	sp|O07013|GANB_BACSU Endo-beta-1,4-galactanase	3.2.1.-	3.2.1.-					0	0
+cds_3547	epsO	sp|P71065|EPSO_BACSU Putative pyruvyl transferase EpsO	2.-.-.-	2.-.-.-					0	0
+cds_3548	epsN	sp|Q795J3|EPSN_BACSU Putative pyridoxal phosphate-dependent aminotransferase EpsN	2.6.1.-	2.6.1.-					0	0
+cds_3550	epsL	sp|P71062|EPSL_BACSU Uncharacterized sugar transferase EpsL	2.7.-.-	2.7.-.-					0	0
+cds_3552	epsJ	sp|P71059|EPSJ_BACSU Uncharacterized glycosyltransferase EpsJ	2.4.-.-	2.4.-.-					0	0
+cds_3553	epsI	sp|P71058|EPSI_BACSU Putative pyruvyl transferase EpsI	2.-.-.-	2.-.-.-					0	0
+cds_3554	epsH	sp|P71057|EPSH_BACSU Putative glycosyltransferase EpsH	2.-.-.-	2.-.-.-					0	0
+cds_3556	epsF	sp|P71055|EPSF_BACSU Putative glycosyltransferase EpsF	2.-.-.-	2.-.-.-					0	0
+cds_3557	epsE	sp|P71054|EPSE_BACSU Putative glycosyltransferase EpsE	2.-.-.-	2.-.-.-					0	0
+cds_3558	epsD	sp|P71053|EPSD_BACSU Putative glycosyltransferase EpsD	2.4.-.-	2.4.-.-					0	0
+cds_3559	epsC	sp|P71052|EPSC_BACSU Probable polysaccharide biosynthesis protein EpsC	5.1.3.-	5.1.3.-					0	0
+cds_3560	yveL	sp|P71051|YVEL_BACSU Putative tyrosine-protein kinase YveL	2.7.10.2	2.7.10.2	10596	GO:0004713			1	0
+cds_3563	pnbA	sp|P37967|PNBA_BACSU Para-nitrobenzyl esterase	3.1.1.1	3.1.1.1	21164	GO:0106435			1	0
+cds_3565	padC	sp|O07006|PADC_BACSU Phenolic acid decarboxylase PadC	4.1.1.102	4.1.1.102	33227;33807;46920				0	0
+cds_3567	racX	sp|P32960|RACX_BACSU Broad specificity amino-acid racemase RacX	5.1.1.-	5.1.1.-					0	0
+cds_3569	sacB	sp|P05655|LSC_BACSU Levansucrase	2.4.1.10	2.4.1.10	13653	GO:0050053		Starch and sucrose metabolism	1	1
+cds_3570	levB	sp|O07003|LEVB_BACSU Levanbiose-producing levanase	3.2.1.64	3.2.1.64					0	0
+cds_3576	cotQ	sp|O06997|COTQ_BACSU Uncharacterized FAD-linked oxidoreductase CotQ	1.-.-.-	1.-.-.-					0	0
+cds_3578	clpP	sp|P80244|CLPP_BACSU ATP-dependent Clp protease proteolytic subunit	3.4.21.92	3.4.21.92					0	0
+cds_3579	yvdM	sp|O06995|PGMB_BACSU Beta-phosphoglucomutase	2.7.1.41	2.7.1.41	16397	GO:0047937		Starch and sucrose metabolism	1	1
+cds_3580	malL	sp|O06994|O16G1_BACSU Oligo-1,6-glucosidase 1	3.2.1.10	3.2.1.10	68864	GO:0004574		Starch and sucrose metabolism	1	1
+cds_3581	mdxK	sp|O06993|MALPY_BACSU Maltose phosphorylase	2.4.1.8	2.4.1.8	21116	GO:0050082		Starch and sucrose metabolism	1	1
+cds_3589	yvdC	sp|O32263|YVDC_BACSU Uncharacterized protein YvdC	3.6.1.9	3.6.1.9	10248;14245;22636;23996;27762;28334;28342;28362;28534;28610;29391;29395;29399;44644	GO:0004170;GO:0008828;GO:0035870;GO:0036217;GO:0036218;GO:0036219;GO:0036220;GO:0036221;GO:0036222;GO:0047429;GO:0047693;GO:0047840		Nucleotide metabolism;Purine metabolism;Pyrimidine metabolism	12	3
+cds_3603	yvcI	sp|O06972|YVCI_BACSU Uncharacterized Nudix hydrolase YvcI	3.6.-.-	3.6.-.-					0	0
+cds_3604	trxB	sp|P80880|TRXB_BACSU Thioredoxin reductase	1.8.1.9	1.8.1.9	20345	GO:0004791			1	0
+cds_3605	cwlO	sp|P40767|CWLO_BACSU Peptidoglycan DL-endopeptidase CwlO	3.4.-.-	3.4.-.-					0	0
+cds_3607	bmrA	sp|O06967|BMRA_BACSU Multidrug resistance ABC transporter ATP-binding/permease protein BmrA	3.6.3.-	3.6.3.-					0	0
+cds_3611	hisI	sp|O34912|HIS2_BACSU Histidine biosynthesis bifunctional protein HisIE	3.5.4.19	3.5.4.19	20049	GO:0004635		Histidine metabolism	1	1
+cds_3612	hisF	sp|O34727|HIS6_BACSU Imidazole glycerol phosphate synthase subunit HisF	4.3.1.-	4.3.1.-					0	0
+cds_3613	hisA	sp|O35006|HIS4_BACSU 1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino] imidazole-4-carboxamide isomerase	5.3.1.16	5.3.1.16	15469	GO:0003949		Histidine metabolism	1	1
+cds_3614	hisH	sp|O34565|HIS5_BACSU Imidazole glycerol phosphate synthase subunit HisH	2.4.2.-	2.4.2.-					0	0
+cds_3615	hisB	sp|O34683|HIS7_BACSU Imidazoleglycerol-phosphate dehydratase	4.2.1.19	4.2.1.19	11040	GO:0004424		Histidine metabolism	1	1
+cds_3616	hisD	sp|O34651|HISX_BACSU Histidinol dehydrogenase	1.1.1.23	1.1.1.23	20641	GO:0004399			1	0
+cds_3617	hisG	sp|O34520|HIS1_BACSU ATP phosphoribosyltransferase	2.4.2.17	2.4.2.17	18473	GO:0003879		Histidine metabolism	1	1
+cds_3618	hisZ	sp|O34459|HISZ_BACSU ATP phosphoribosyltransferase regulatory subunit	2.4.2.17	2.4.2.17	18473	GO:0003879		Histidine metabolism	1	1
+cds_3620	pelC	sp|O34310|PLYC_BACSU Pectate lyase C	4.2.2.2	4.2.2.2					0	0
+cds_3621	yvoF	sp|O34993|YVOF_BACSU Putative acetyltransferase YvoF	2.3.1.-	2.3.1.-					0	0
+cds_3622	ppaX	sp|Q9JMQ2|PPAX_BACSU Pyrophosphatase PpaX	3.6.1.1	3.6.1.1	24576	GO:0004427			1	0
+cds_3624	lgt	sp|O34752|LGT_BACSU Phosphatidylglycerol--prolipoprotein diacylglyceryl transferase	2.4.99.-	2.4.99.-					0	0
+cds_3625	hprK	sp|O34483|HPRK_BACSU HPr kinase/phosphorylase	2.7.4.-	2.7.4.-					0	0
+cds_3626	nagA	sp|O34450|NAGA_BACSU N-acetylglucosamine-6-phosphate deacetylase	3.5.1.25	3.5.1.25	22936	GO:0008448		Amino sugar and nucleotide sugar metabolism	1	1
+cds_3627	nagB	sp|O35000|NAGB_BACSU Glucosamine-6-phosphate deaminase 1	3.5.99.6	3.5.99.6	12172	GO:0004342		Amino sugar and nucleotide sugar metabolism	1	1
+cds_3631	cypX	sp|O34926|CYPX_BACSU Pulcherriminic acid synthase	1.14.-.-	1.14.-.-					0	0
+cds_3632	yvmC	sp|O34351|CDLS_BACSU Cyclo(L-leucyl-L-leucyl) synthase	6.-.-.-	6.-.-.-					0	0
+cds_3644	yvkC	sp|O34796|YVKC_BACSU Uncharacterized phosphotransferase YvkC	2.7.-.-	2.7.-.-					0	0
+cds_3674	degV	sp|P32436|DEGV_BACSU Protein DegV	2.7.2.-	2.7.2.-					0	0
+cds_3676	degS	sp|P13799|DEGS_BACSU Signal transduction histidine-protein kinase/phosphatase DegS	2.7.3.-	2.7.3.-					0	0
+cds_3678	tagV	sp|P96499|TAGV_BACSU Polyisoprenyl-teichoic acid--peptidoglycan teichoic acid transferase TagV	2.7.8	2.7.8					0	0
+cds_3679	tagO	sp|O34753|TAGO_BACSU Probable undecaprenyl-phosphate N-acetylglucosaminyl 1-phosphate transferase	2.7.8.33	2.7.8.33	28090	GO:0036380			1	0
+cds_3681	tuaG	sp|O32268|TUAG_BACSU Putative teichuronic acid biosynthesis glycosyltransferase TuaG	2.4.1.-	2.4.1.-					0	0
+cds_3684	tuaD	sp|O32271|TUAD_BACSU UDP-glucose 6-dehydrogenase TuaD	1.1.1.22	1.1.1.22	23596	GO:0003979		Amino sugar and nucleotide sugar metabolism;Ascorbate and aldarate metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Pentose and glucuronate interconversions	1	5
+cds_3685	tuaC	sp|O32272|TUAC_BACSU Putative teichuronic acid biosynthesis glycosyltransferase TuaC	2.4.1.-	2.4.1.-					0	0
+cds_3688	lytC	sp|Q02114|LYTC_BACSU N-acetylmuramoyl-L-alanine amidase LytC	3.5.1.28	3.5.1.28					0	0
+cds_3691	tagU	sp|Q02115|TAGU_BACSU Polyisoprenyl-teichoic acid--peptidoglycan teichoic acid transferase TagU	2.7.8	2.7.8					0	0
+cds_3692	mnaA	sp|P39131|MNAA_BACSU UDP-N-acetylglucosamine 2-epimerase	5.1.3.14	5.1.3.14	17213	GO:0008761		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars	1	3
+cds_3693	gtaB	sp|Q05852|GTAB_BACSU UTP--glucose-1-phosphate uridylyltransferase	2.7.7.9	2.7.7.9	19889	GO:0003983		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Galactose metabolism;Glycerolipid metabolism;Pentose and glucuronate interconversions;Starch and sucrose metabolism;Sulfoquinovose metabolism	1	8
+cds_3696	gtaB	sp|Q05852|GTAB_BACSU UTP--glucose-1-phosphate uridylyltransferase	2.7.7.9	2.7.7.9	19889	GO:0003983		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Galactose metabolism;Glycerolipid metabolism;Pentose and glucuronate interconversions;Starch and sucrose metabolism;Sulfoquinovose metabolism	1	8
+cds_3697	tagH	sp|P42954|TAGH_BACSU Teichoic acids export ATP-binding protein TagH	3.6.3.40	3.6.3.40					0	0
+cds_3699	tagF	sp|P13485|TAGF_BACSU Teichoic acid poly(glycerol phosphate) polymerase	2.7.8.12	2.7.8.12	13565	GO:0047355			1	0
+cds_3700	tagE	sp|P13484|TAGE_BACSU Poly(glycerol-phosphate) alpha-glucosyltransferase	2.4.1.52	2.4.1.52	15845	GO:0047265			1	0
+cds_3701	tagD	sp|P27623|TAGD_BACSU Glycerol-3-phosphate cytidylyltransferase	2.7.7.39	2.7.7.39	13361	GO:0047348		Glycerophospholipid metabolism	1	1
+cds_3702	tagA	sp|P27620|TAGA_BACSU N-acetylglucosaminyldiphosphoundecaprenol N-acetyl-beta-D-mannosaminyltransferase	2.4.1.187	2.4.1.187	16053	GO:0047244			1	0
+cds_3703	tagB	sp|P27621|TAGB_BACSU Teichoic acid glycerol-phosphate primase	2.7.8.-	2.7.8.-					0	0
+cds_3705	lytD	sp|P39848|LYTD_BACSU Beta-N-acetylglucosaminidase	3.2.1.96	3.2.1.96	73067				0	0
+cds_3706	yvyI	sp|P39841|MANA3_BACSU Putative mannose-6-phosphate isomerase YvyI	5.3.1.8	5.3.1.8	12356	GO:0004476		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Fructose and mannose metabolism	1	3
+cds_3711	tagT	sp|Q7WY78|TAGT_BACSU Polyisoprenyl-teichoic acid--peptidoglycan teichoic acid transferase TagT	2.7.8	2.7.8					0	0
+cds_3712	ywtE	sp|P96741|YWTE_BACSU 5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase YwtE	3.1.3.-	3.1.3.-					0	0
+cds_3715	capA	sp|P96738|CAPA_BACSU PGA biosynthesis protein CapA	6.3.2.-	6.3.2.-					0	0
+cds_3716	capC	sp|P96737|CAPC_BACSU PGA biosynthesis protein CapC	6.3.2.-	6.3.2.-					0	0
+cds_3717	capB	sp|P96736|CAPB_BACSU PGA synthase CapB	6.3.2.-	6.3.2.-					0	0
+cds_3719	rbsK	sp|P36945|RBSK_BACSU Ribokinase	2.7.1.15	2.7.1.15	13697	GO:0004747		Pentose phosphate pathway	1	1
+cds_3720	rbsD	sp|P36946|RBSD_BACSU D-ribose pyranase	5.4.99.62	5.4.99.62	25432;25609	GO:0062193			1	0
+cds_3721	rbsA	sp|P36947|RBSA_BACSU Ribose import ATP-binding protein RbsA	3.6.3.17	3.6.3.17					0	0
+cds_3726	ywrO	sp|P80871|GS14_BACSU General stress protein 14	1.10.5.1	1.10.5.1	12364	GO:0001512			1	0
+cds_3727	alsD	sp|Q04777|ALDC_BACSU Alpha-acetolactate decarboxylase	4.1.1.5	4.1.1.5	21580	GO:0047605		Butanoate metabolism;C5-Branched dibasic acid metabolism	1	2
+cds_3733	cotH	sp|Q45535|COTH_BACSU Spore coat protein H	2.7.11.21	2.7.11.21	17989;46608	GO:0106310			1	0
+cds_3735	ywrF	sp|O05220|YWRF_BACSU Uncharacterized protein YwrF	1.14.13.-	1.14.13.-					0	0
+cds_3737	ywrD	sp|O05218|YWRD_BACSU Glutathione hydrolase-like YwrD proenzyme	2.3.2.2	2.3.2.2	23904				0	0
+cds_3742	ywqN	sp|P96726|YWQN_BACSU Putative NAD(P)H-dependent FMN-containing oxidoreductase YwqN	1.-.-.-	1.-.-.-					0	0
+cds_3744	nfi	sp|P96724|NFI_BACSU Endonuclease V	3.1.21.7	3.1.21.7					0	0
+cds_3746	ywqJ	sp|P96722|YWQJ_BACSU Toxin YwqJ	3.1.-.-	3.1.-.-					0	0
+cds_3750	ywqF	sp|P96718|YWQF_BACSU UDP-glucose 6-dehydrogenase YwqF	1.1.1.22	1.1.1.22	23596	GO:0003979		Amino sugar and nucleotide sugar metabolism;Ascorbate and aldarate metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Pentose and glucuronate interconversions	1	5
+cds_3751	ywqE	sp|P96717|YWQE_BACSU Tyrosine-protein phosphatase YwqE	3.1.3.48	3.1.3.48	10684	GO:0004725			1	0
+cds_3757	ywpJ	sp|P94592|YWPJ_BACSU Phosphatase YwpJ	3.1.3.-	3.1.3.-					0	0
+cds_3773	ywoF	sp|P94576|YWOF_BACSU Uncharacterized protein YwoF	4.2.2.2	4.2.2.2					0	0
+cds_3776	ywoC	sp|P94573|YWOC_BACSU Uncharacterized isochorismatase family protein YwoC	3.-.-.-	3.-.-.-					0	0
+cds_3781	bcrC	sp|P94571|BCRC_BACSU Undecaprenyl-diphosphatase BcrC	3.6.1.27	3.6.1.27	28094	GO:0050380		Peptidoglycan biosynthesis;Teichoic acid biosynthesis	1	2
+cds_3790	ywnB	sp|P71037|YWNB_BACSU Uncharacterized protein YwnB	1.-.-.-	1.-.-.-					0	0
+cds_3792	ureC	sp|P77837|URE1_BACSU Urease subunit alpha	3.5.1.5	3.5.1.5	20557	GO:0009039			1	0
+cds_3793	ureB	sp|P71035|URE2_BACSU Urease subunit beta	3.5.1.5	3.5.1.5	20557	GO:0009039			1	0
+cds_3794	ureA	sp|P75030|URE3_BACSU Urease subunit gamma	3.5.1.5	3.5.1.5	20557	GO:0009039			1	0
+cds_3798	moaA	sp|P39757|MOAA_BACSU GTP 3',8-cyclase	4.1.99.22	4.1.99.22	49576	GO:0061798		Folate biosynthesis	1	1
+cds_3804	murAA	sp|P70965|MURA1_BACSU UDP-N-acetylglucosamine 1-carboxyvinyltransferase 1	2.5.1.7	2.5.1.7	18681	GO:0008760		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Peptidoglycan biosynthesis	1	3
+cds_3808	atpC	sp|P37812|ATPE_BACSU ATP synthase epsilon chain	3.6.3.14	3.6.3.14					0	0
+cds_3809	atpD	sp|P37809|ATPB_BACSU ATP synthase subunit beta	3.6.3.14	3.6.3.14					0	0
+cds_3810	atpG	sp|P37810|ATPG_BACSU ATP synthase gamma chain	3.6.3.14	3.6.3.14					0	0
+cds_3811	atpA	sp|P37808|ATPA_BACSU ATP synthase subunit alpha	3.6.3.14	3.6.3.14					0	0
+cds_3812	atpH	sp|P37811|ATPD_BACSU ATP synthase subunit delta	3.6.3.14	3.6.3.14					0	0
+cds_3813	atpF	sp|P37814|ATPF_BACSU ATP synthase subunit b	3.6.3.14	3.6.3.14					0	0
+cds_3814	atpE	sp|P37815|ATPL_BACSU ATP synthase subunit c	3.6.3.14	3.6.3.14					0	0
+cds_3815	atpB	sp|P37813|ATP6_BACSU ATP synthase subunit a	3.6.3.14	3.6.3.14					0	0
+cds_3817	upp	sp|P39149|UPP_BACSU Uracil phosphoribosyltransferase	2.4.2.9	2.4.2.9	13017	GO:0004845		Nucleotide metabolism;Pyrimidine metabolism	1	2
+cds_3818	glyA	sp|P39148|GLYA_BACSU Serine hydroxymethyltransferase	2.1.2.1	2.1.2.1	15481;19625;79695	GO:0004372;GO:0004793;GO:0120567		Cyanoamino acid metabolism;Glycine, serine and threonine metabolism;Glyoxylate and dicarboxylate metabolism;Lysine degradation;Methane metabolism;One carbon pool by folate	3	6
+cds_3820	ywlF	sp|P39156|YWLF_BACSU Putative sugar phosphate isomerase YwlF	5.3.1.-	5.3.1.-					0	0
+cds_3821	ywlE	sp|P39155|PAP_BACSU Protein-arginine-phosphatase	3.1.3.48	3.1.3.48	10684	GO:0004725			1	0
+cds_3823	ywlC	sp|P39153|SUA5_BACSU Threonylcarbamoyl-AMP synthase	2.7.7.87	2.7.7.87	36407	GO:0061710			1	0
+cds_3828	prmC	sp|P45873|PRMC_BACSU Release factor glutamine methyltransferase	2.1.1.297	2.1.1.297	42896	GO:0102559			1	0
+cds_3834	tdk	sp|Q03221|KITH_BACSU Thymidine kinase	2.7.1.21	2.7.1.21	19129	GO:0004797		Nucleotide metabolism;Pyrimidine metabolism	1	2
+cds_3837	glpX	sp|Q03224|GLPX_BACSU Fructose-1,6-bisphosphatase class 2	3.1.3.11	3.1.3.11	11064	GO:0042132		Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway	1	5
+cds_3838	murAB	sp|P19670|MURA2_BACSU UDP-N-acetylglucosamine 1-carboxyvinyltransferase 2	2.5.1.7	2.5.1.7	18681	GO:0008760		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Peptidoglycan biosynthesis	1	3
+cds_3839	tal	sp|P19669|TAL_BACSU Transaldolase	2.2.1.2	2.2.1.2	17053	GO:0004801			1	0
+cds_3840	fbaA	sp|P13243|ALF_BACSU Probable fructose-bisphosphate aldolase	4.1.2.13	4.1.2.13	14729	GO:0004332		Carbon fixation by Calvin cycle;Fructose and mannose metabolism;Glycolysis / Gluconeogenesis;Methane metabolism;Pentose phosphate pathway	1	5
+cds_3843	pyrG	sp|P13242|PYRG_BACSU CTP synthase	6.3.4.2	6.3.4.2	26426	GO:0003883		Nucleotide metabolism;Pyrimidine metabolism	1	2
+cds_3844	rpoE	sp|P12464|RPOE_BACSU DNA-directed RNA polymerase subunit delta	2.7.7.6	2.7.7.6	21248	GO:0034062			1	0
+cds_3845	acdA	sp|P45867|ACDA_BACSU Acyl-CoA dehydrogenase	1.3.99.-	1.3.99.-					0	0
+cds_3846	fadF	sp|P45866|FADF_BACSU Probable iron-sulfur-binding oxidoreductase FadF	1.-.-.-	1.-.-.-					0	0
+cds_3847	clsB	sp|P45865|CLSB_BACSU Minor cardiolipin synthase ClsB	2.7.8.-	2.7.8.-					0	0
+cds_3848	uvsE	sp|P45864|UVSE_BACSU UV DNA damage endonuclease	3.-.-.-	3.-.-.-					0	0
+cds_3852	ywiE	sp|P45860|CLS1_BACSU Probable cardiolipin synthase YwiE	2.7.8.-	2.7.8.-					0	0
+cds_3853	narI	sp|P42177|NARI_BACSU Nitrate reductase gamma chain	1.7.99.4	1.7.99.4					0	0
+cds_3854	narJ	sp|P42178|NARJ_BACSU Probable nitrate reductase molybdenum cofactor assembly chaperone NarJ	1.7.99.4	1.7.99.4					0	0
+cds_3855	narH	sp|P42176|NARH_BACSU Nitrate reductase beta chain	1.7.99.4	1.7.99.4					0	0
+cds_3856	narG	sp|P42175|NARG_BACSU Nitrate reductase alpha chain	1.7.5.1	1.7.5.1	56144	GO:0160182		Nitrogen cycle;Nitrogen metabolism	1	2
+cds_3861	argS	sp|P46906|SYR_BACSU Arginine--tRNA ligase	6.1.1.19	6.1.1.19	20301	GO:0004814		Aminoacyl-tRNA biosynthesis	1	1
+cds_3864	albA	sp|P71011|ALBA_BACSU Antilisterial bacteriocin subtilosin biosynthesis protein AlbA	1.21.98.-	1.21.98.-					0	0
+cds_3868	albF	sp|P71006|ALBF_BACSU Putative zinc protease AlbF	3.4.24.-	3.4.24.-					0	0
+cds_3875	speB	sp|P70999|SPEB_BACSU Agmatinase	3.5.3.11	3.5.3.11	13929	GO:0008783		Arginine and proline metabolism	1	1
+cds_3876	speE	sp|P70998|SPEE_BACSU Polyamine aminopropyltransferase	2.5.1.16	2.5.1.16	12721	GO:0004766		Arginine and proline metabolism;Cysteine and methionine metabolism;Glutathione metabolism	1	3
+cds_3879	ywhC	sp|P70995|YWHC_BACSU Putative zinc metalloprotease YwhC	3.4.24.-	3.4.24.-					0	0
+cds_3880	ywhB	sp|P70994|4OT_BACSU 2-hydroxymuconate tautomerase	5.3.2.6	5.3.2.6	33431				0	0
+cds_3882	thrZ	sp|P18256|SYT2_BACSU Threonine--tRNA ligase 2	6.1.1.3	6.1.1.3	24624	GO:0004829		Aminoacyl-tRNA biosynthesis	1	1
+cds_3891	lipL	sp|P39648|LIPL_BACSU Octanoyl-[GcvH]:protein N-octanoyltransferase	2.3.1.204	2.3.1.204	16413;20213				0	0
+cds_3893	pta	sp|P39646|PTAS_BACSU Phosphate acetyltransferase	2.3.1.8	2.3.1.8	19521	GO:0008959		Methane metabolism;Other carbon fixation pathways;Pyruvate metabolism;Taurine and hypotaurine metabolism	1	4
+cds_3894	chdC	sp|P39645|CHDC_BACSU Coproheme decarboxylase	1.11.1.-	1.11.1.-					0	0
+cds_3895	bacG	sp|P39644|BACG_BACSU NADPH-dependent reductase BacG	1.3.1.-	1.3.1.-					0	0
+cds_3896	bacF	sp|P39643|BACF_BACSU Transaminase BacF	2.6.1.1	2.6.1.1	21824	GO:0004069		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Carbon fixation by Calvin cycle	1	3
+cds_3898	bacD	sp|P39641|BACD_BACSU Alanine--anticapsin ligase	6.3.2.28	6.3.2.28					0	0
+cds_3899	bacC	sp|P39640|BACC_BACSU Dihydroanticapsin 7-dehydrogenase	1.1.1.385	1.1.1.385	44628			Biosynthesis of various antibiotics	0	1
+cds_3901	bacA	sp|P39638|BACA_BACSU Prephenate decarboxylase	4.1.1.100	4.1.1.100	33499			Biosynthesis of various antibiotics	0	1
+cds_3904	rocB	sp|P39635|ROCB_BACSU Protein RocB	3.5.1.-	3.5.1.-					0	0
+cds_3905	rocA	sp|P39634|ROCA_BACSU 1-pyrroline-5-carboxylate dehydrogenase	1.2.1.88	1.2.1.88	16417;24882;24943;30235;31155	GO:0003842		Alanine, aspartate and glutamate metabolism;Arginine and proline metabolism	1	2
+cds_3906	rocG	sp|P39633|DHE2_BACSU Catabolic NAD-specific glutamate dehydrogenase RocG	1.4.1.2	1.4.1.2	15133	GO:0004352		Alanine, aspartate and glutamate metabolism;Arginine biosynthesis;Nitrogen metabolism;Taurine and hypotaurine metabolism	1	4
+cds_3908	spsL	sp|Q7WY56|SPSL_BACSU Spore coat polysaccharide biosynthesis protein SpsL	5.1.3.13	5.1.3.13	16969	GO:0008830		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis	1	4
+cds_3909	spsK	sp|P39631|SPSK_BACSU Spore coat polysaccharide biosynthesis protein SpsK	1.1.1.133	1.1.1.133	21796	GO:0008831		Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis	1	4
+cds_3910	rfbB	sp|P39630|RMLB_BACSU dTDP-glucose 4,6-dehydratase	4.2.1.46	4.2.1.46	17221	GO:0008460		Acarbose and validamycin biosynthesis;Biosynthesis of nucleotide sugars;Biosynthesis of vancomycin group antibiotics;Biosynthesis of various nucleotide sugars;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis	1	6
+cds_3911	rmlA	sp|P39629|RMLA_BACSU Glucose-1-phosphate thymidylyltransferase	2.7.7.24	2.7.7.24	15225	GO:0008879		Acarbose and validamycin biosynthesis;Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Biosynthesis of various nucleotide sugars;Polyketide sugar unit biosynthesis;Streptomycin biosynthesis	1	6
+cds_3913	spsF	sp|P39626|SPSF_BACSU Spore coat polysaccharide biosynthesis protein SpsF	2.-.-.-	2.-.-.-					0	0
+cds_3914	spsE	sp|P39625|SPSE_BACSU Spore coat polysaccharide biosynthesis protein SpsE	2.5.-.-	2.5.-.-					0	0
+cds_3915	spsD	sp|P39624|SPSD_BACSU Spore coat polysaccharide biosynthesis protein SpsD	2.3.1.-	2.3.1.-					0	0
+cds_3916	spsC	sp|P39623|SPSC_BACSU Spore coat polysaccharide biosynthesis protein SpsC	2.6.1.-	2.6.1.-					0	0
+cds_3923	ywdH	sp|P39616|ALDH2_BACSU Putative aldehyde dehydrogenase YwdH	1.2.1.-	1.2.1.-					0	0
+cds_3924	ung	sp|P39615|UNG_BACSU Uracil-DNA glycosylase	3.2.2.27	3.2.2.27					0	0
+cds_3925	ywdF	sp|P39614|YWDF_BACSU Uncharacterized glycosyltransferase YwdF	2.4.-.-	2.4.-.-					0	0
+cds_3929	pdxK	sp|P39610|PDXK_BACSU Pyridoxine kinase	2.7.1.35	2.7.1.35	10224;25104;25108	GO:0008478		Vitamin B6 metabolism	1	1
+cds_3931	sacA	sp|P07819|SCRB_BACSU Sucrose-6-phosphate hydrolase	3.2.1.26	3.2.1.26					0	0
+cds_3932	sacP	sp|P05306|PTSBC_BACSU PTS system sucrose-specific EIIBC component	2.7.1.211	2.7.1.211	49236	GO:0022878		Starch and sucrose metabolism	1	1
+cds_3936	vpr	sp|P29141|SUBV_BACSU Minor extracellular protease Vpr	3.4.21.-	3.4.21.-					0	0
+cds_3937	ywcH	sp|P39606|YWCH_BACSU Uncharacterized protein YwcH	1.14.-.-	1.14.-.-					0	0
+cds_3938	nfrA1	sp|P39605|NFRA1_BACSU FMN reductase (NADPH)	1.5.1.38	1.5.1.38	21624	GO:0052873		Riboflavin metabolism	1	1
+cds_3942	qoxC	sp|P34958|QOX3_BACSU Quinol oxidase subunit 3	1.10.3.-	1.10.3.-					0	0
+cds_3943	qoxB	sp|P34956|QOX1_BACSU Quinol oxidase subunit 1	1.10.3.-	1.10.3.-					0	0
+cds_3946	galT	sp|P39575|GALT_BACSU Galactose-1-phosphate uridylyltransferase	2.7.7.12	2.7.7.12	13989	GO:0008108		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism	1	3
+cds_3947	galK	sp|P39574|GAL1_BACSU Galactokinase	2.7.1.6	2.7.1.6	13553	GO:0004335		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism	1	3
+cds_3954	efeB	sp|P39597|EFEB_BACSU Deferrochelatase	1.11.1.-	1.11.1.-					0	0
+cds_3957	thiE	sp|P39594|THIE_BACSU Thiamine-phosphate synthase	2.5.1.3	2.5.1.3	22328;47844;47848	GO:0004789		Thiamine metabolism	1	1
+cds_3958	thiM	sp|P39593|THIM_BACSU Hydroxyethylthiazole kinase	2.7.1.50	2.7.1.50	24212	GO:0004417		Thiamine metabolism	1	1
+cds_3968	epr	sp|P16396|SUBE_BACSU Minor extracellular protease Epr	3.4.21.-	3.4.21.-					0	0
+cds_3969	sacX	sp|P15400|SACX_BACSU Probable PTS system sucrose-specific EIIBC component	2.7.1.69	2.7.1.69					0	0
+cds_3975	ywaD	sp|P25152|BSAP_BACSU Aminopeptidase YwaD	3.4.11.-	3.4.11.-					0	0
+cds_3976	ywaC	sp|P39583|YWAC_BACSU GTP pyrophosphokinase YwaC	2.7.6.5	2.7.6.5	22088	GO:0008728		Purine metabolism	1	1
+cds_3977	menA	sp|P39582|MENA_BACSU 1,4-dihydroxy-2-naphthoate octaprenyltransferase	2.5.1.74	2.5.1.74	26478;30099;33211;44800;44804;44808;44812;44816;44820	GO:0046428			1	0
+cds_3979	dltA	sp|P39581|DLTA_BACSU D-alanine--D-alanyl carrier protein ligase	6.1.1.13	6.1.1.13					0	0
+cds_3980	dltB	sp|P39580|DLTB_BACSU Teichoic acid D-alanyltransferase	2.3.1	2.3.1					0	0
+cds_3981	dltC	sp|P39579|DLTC_BACSU D-alanyl carrier protein	6.1.1.13	6.1.1.13					0	0
+cds_3982	dltD	sp|P39578|DLTD_BACSU Protein DltD	2.3.1	2.3.1					0	0
+cds_3983	dltE	sp|P39577|DLTE_BACSU Uncharacterized oxidoreductase DltE	1.-.-.-	1.-.-.-					0	0
+cds_3984	ilvK	sp|P39576|ILVE2_BACSU Branched-chain-amino-acid aminotransferase 2	2.6.1.42	2.6.1.42	18321;24801;24813	GO:0052654;GO:0052655;GO:0052656		Pantothenate and CoA biosynthesis;Valine, leucine and isoleucine biosynthesis;Valine, leucine and isoleucine degradation	3	3
+cds_3985	licH	sp|P46320|LICH_BACSU Probable 6-phospho-beta-glucosidase	3.2.1.86	3.2.1.86	10772	GO:0008706		Starch and sucrose metabolism	1	1
+cds_3988	licB	sp|P46318|PTJB_BACSU Lichenan-specific phosphotransferase enzyme IIB component	2.7.1.-	2.7.1.-					0	0
+cds_3989	licR	sp|P46321|LICR_BACSU Probable licABCH operon regulator	2.7.1.69	2.7.1.69					0	0
+cds_3991	yxlJ	sp|P94378|3MGH_BACSU Putative 3-methyladenine DNA glycosylase	3.2.2.-	3.2.2.-					0	0
+cds_3992	katX	sp|P94377|CATX_BACSU Catalase X	1.11.1.6	1.11.1.6	20309	GO:0004096		Glyoxylate and dicarboxylate metabolism	1	1
+cds_4001	nnrD	sp|P94368|NNRD_BACSU ADP-dependent (S)-NAD(P)H-hydrate dehydratase	4.2.1.136	4.2.1.136	32223;32235	GO:0052855			1	0
+cds_4004	cydB	sp|P94365|CYDB_BACSU Cytochrome bd ubiquinol oxidase subunit 2	1.10.3.-	1.10.3.-					0	0
+cds_4005	cydA	sp|P94364|CYDA_BACSU Cytochrome bd ubiquinol oxidase subunit 1	1.10.3.-	1.10.3.-					0	0
+cds_4007	yxkI	sp|P94362|YXKI_BACSU Putative membrane metalloprotease YxkI	3.4.24.-	3.4.24.-					0	0
+cds_4009	yxkH	sp|P94361|YXKH_BACSU Putative polysaccharide deacetylase YxkH	3.-.-.-	3.-.-.-					0	0
+cds_4010	msmX	sp|P94360|MSMX_BACSU Oligosaccharides import ATP-binding protein MsmX	3.6.3.-	3.6.3.-					0	0
+cds_4012	aldY	sp|P94358|ALDY_BACSU Putative aldehyde dehydrogenase AldY	1.2.1.-	1.2.1.-					0	0
+cds_4015	galE	sp|P55180|GALE_BACSU UDP-glucose 4-epimerase	5.1.3.2	5.1.3.2	22168	GO:0003978		Amino sugar and nucleotide sugar metabolism;Biosynthesis of nucleotide sugars;Galactose metabolism	1	3
+cds_4021	pepT	sp|P55179|PEPT_BACSU Peptidase T	3.4.11.4	3.4.11.4					0	0
+cds_4025	yxjF	sp|P42317|YXJF_BACSU Uncharacterized oxidoreductase YxjF	1.1.1.-	1.1.1.-					0	0
+cds_4026	scoB	sp|P42316|SCOB_BACSU Probable succinyl-CoA:3-ketoacid coenzyme A transferase subunit B	2.8.3.5	2.8.3.5	24564;25480	GO:0008260		Butanoate metabolism;Valine, leucine and isoleucine degradation	1	2
+cds_4027	scoA	sp|P42315|SCOA_BACSU Probable succinyl-CoA:3-ketoacid coenzyme A transferase subunit A	2.8.3.5	2.8.3.5	24564;25480	GO:0008260		Butanoate metabolism;Valine, leucine and isoleucine degradation	1	2
+cds_4029	yxjB	sp|P42313|YXJB_BACSU Putative 23S rRNA (guanine-N(1)-)-methyltransferase YxjB	2.1.1.188	2.1.1.188	42904	GO:0052912			1	0
+cds_4033	katE	sp|P42234|CATE_BACSU Catalase-2	1.11.1.6	1.11.1.6	20309	GO:0004096		Glyoxylate and dicarboxylate metabolism	1	1
+cds_4035	bglS	sp|P04957|GUB_BACSU Beta-glucanase	3.2.1.73	3.2.1.73					0	0
+cds_4040	yxiM	sp|P42304|YXIM_BACSU Uncharacterized esterase YxiM	3.1.-.-	3.1.-.-					0	0
+cds_4055	bglP	sp|P40739|PTV3B_BACSU PTS system beta-glucoside-specific EIIBCA component	2.7.1.-	2.7.1.-					0	0
+cds_4061	abn2	sp|P42293|EABN2_BACSU Extracellular endo-alpha-(1->5)-L-arabinanase 2	3.2.1.99	3.2.1.99					0	0
+cds_4063	hutH	sp|P10944|HUTH_BACSU Histidine ammonia-lyase	4.3.1.3	4.3.1.3	21232	GO:0004397		Histidine metabolism	1	1
+cds_4064	hutU	sp|P25503|HUTU_BACSU Urocanate hydratase	4.2.1.49	4.2.1.49	13101	GO:0016153		Histidine metabolism	1	1
+cds_4065	hutI	sp|P42084|HUTI_BACSU Imidazolonepropionase	3.5.2.7	3.5.2.7	23660	GO:0050480		Histidine metabolism	1	1
+cds_4066	hutG	sp|P42068|HUTG_BACSU Formimidoylglutamase	3.5.3.8	3.5.3.8	22492	GO:0050415		Histidine metabolism	1	1
+cds_4068	pdp	sp|P39142|PDP_BACSU Pyrimidine-nucleoside phosphorylase	2.4.2.2	2.4.2.2	16037;22824;24388;52540	GO:0004850;GO:0009032;GO:0047847		Nucleotide metabolism;Pyrimidine metabolism	3	2
+cds_4070	deoC	sp|P39121|DEOC_BACSU Deoxyribose-phosphate aldolase	4.1.2.4	4.1.2.4	12821	GO:0004139		Pentose phosphate pathway	1	1
+cds_4075	scmP	sp|P54955|SCMP_BACSU N-acetylcysteine deacetylase	3.5.-.-	3.5.-.-					0	0
+cds_4079	scmL	sp|P54951|SCML_BACSU S-(2-succino)cysteine N-acetyltransferase	2.3.1.-	2.3.1.-					0	0
+cds_4080	scmK	sp|P54950|SCMK_BACSU N-acetyl-S-(2-succino)cysteine monooxygenase	1.14.-.-	1.14.-.-					0	0
+cds_4082	yxeI	sp|P54948|PAC_BACSU Penicillin V acylase	3.5.1.11	3.5.1.11	18693	GO:0008953		Penicillin and cephalosporin biosynthesis	1	1
+cds_4083	yxeH	sp|P54947|YXEH_BACSU Putative phosphatase YxeH	3.1.3.-	3.1.3.-					0	0
+cds_4093	yxdK	sp|P42422|YXDK_BACSU Sensor histidine kinase YxdK	2.7.13.3	2.7.13.3					0	0
+cds_4095	iolJ	sp|P42420|IOLJ_BACSU 6-phospho-5-dehydro-2-deoxy-D-gluconate aldolase	4.1.2.29	4.1.2.29	13177	GO:0047441		Inositol phosphate metabolism	1	1
+cds_4096	iolI	sp|P42419|IOLI_BACSU Inosose isomerase	5.3.99.11	5.3.99.11	25776			Inositol phosphate metabolism	0	1
+cds_4098	iolG	sp|P26935|IOLG_BACSU Inositol 2-dehydrogenase/D-chiro-inositol 3-dehydrogenase	1.1.1.18	1.1.1.18	16949	GO:0050112		Inositol phosphate metabolism;Streptomycin biosynthesis	1	2
+cds_4100	iolE	sp|P42416|IOLE_BACSU Inosose dehydratase	4.2.1.44	4.2.1.44	14065	GO:0050114		Inositol phosphate metabolism	1	1
+cds_4101	iolD	sp|P42415|IOLD_BACSU 3D-(3,5/4)-trihydroxycyclohexane-1,2-dione hydrolase	3.7.1.22	3.7.1.22	25836	GO:0102481		Inositol phosphate metabolism	1	1
+cds_4102	iolC	sp|P42414|IOLC_BACSU 5-dehydro-2-deoxygluconokinase	2.7.1.92	2.7.1.92	13497	GO:0047590		Inositol phosphate metabolism	1	1
+cds_4103	iolB	sp|P42413|IOLB_BACSU 5-deoxy-glucuronate isomerase	5.3.1.30	5.3.1.30	25840	GO:0102482		Inositol phosphate metabolism	1	1
+cds_4104	iolA	sp|P42412|IOLA_BACSU Malonate-semialdehyde dehydrogenase	1.2.1.27	1.2.1.27	20804;76615	GO:0004491		Valine, leucine and isoleucine degradation	1	1
+cds_4106	iolS	sp|P46336|IOLS_BACSU Aldo-keto reductase IolS	1.1.1.-	1.1.1.-					0	0
+cds_4112	yxbG	sp|P46331|YXBG_BACSU Uncharacterized oxidoreductase YxbG	1.-.-.-	1.-.-.-					0	0
+cds_4114	aldX	sp|P46329|ALDH3_BACSU Putative aldehyde dehydrogenase AldX	1.2.1.3	1.2.1.3	16185;25294	GO:0004029;GO:0140087		Glycolysis / Gluconeogenesis;Pyruvate metabolism	2	2
+cds_4117	yxbB	sp|P46326|YXBB_BACSU Uncharacterized protein YxbB	2.1.1.-	2.1.1.-					0	0
+cds_4120	asnH	sp|P42113|ASNH_BACSU Asparagine synthetase [glutamine-hydrolyzing] 2	6.3.5.4	6.3.5.4	12228	GO:0004066		Alanine, aspartate and glutamate metabolism	1	1
+cds_4126	qdoI	sp|P42106|QDOI_BACSU Quercetin 2,3-dioxygenase	1.13.11.24	1.13.11.24	15381	GO:0008127			1	0
+cds_4128	yxnA	sp|O32291|YXNA_BACSU Uncharacterized oxidoreductase YxnA	1.-.-.-	1.-.-.-					0	0
+cds_4132	yxaB	sp|P42101|GS30_BACSU General stress protein 30	2.-.-.-	2.-.-.-					0	0
+cds_4133	glxK	sp|P42100|GLXK_BACSU Glycerate kinase	2.7.1.31	2.7.1.31	23516	GO:0008887		Glycerolipid metabolism;Glycine, serine and threonine metabolism;Glyoxylate and dicarboxylate metabolism	1	3
+cds_4135	gntK	sp|P12011|GNTK_BACSU Gluconokinase	2.7.1.12	2.7.1.12	19433	GO:0046316		Pentose phosphate pathway	1	1
+cds_4137	gntZ	sp|P12013|6PGDH_BACSU 6-phosphogluconate dehydrogenase, NAD(+)-dependent, decarboxylating	1.1.1.343	1.1.1.343	33023			Pentose phosphate pathway	0	1
+cds_4138	ahpC	sp|P80239|AHPC_BACSU Alkyl hydroperoxide reductase C	1.11.1.15	1.11.1.15					0	0
+cds_4139	ahpF	sp|P42974|DHNA_BACSU NADH dehydrogenase	1.6.99.3	1.6.99.3					0	0
+cds_4140	bglA	sp|P42973|BGLA_BACSU Aryl-phospho-beta-D-glucosidase BglA	3.2.1.86	3.2.1.86	10772	GO:0008706		Starch and sucrose metabolism	1	1
+cds_4147	yydG	sp|Q45595|YYDG_BACSU Putative peptide biosynthesis protein YydG	5.1.1.-	5.1.1.-					0	0
+cds_4153	rlmH	sp|Q45601|RLMH_BACSU Ribosomal RNA large subunit methyltransferase H	2.1.1.177	2.1.1.177	42752				0	0
+cds_4161	yycN	sp|O32293|YYCN_BACSU Uncharacterized N-acetyltransferase YycN	2.3.1.-	2.3.1.-					0	0
+cds_4162	rapG	sp|O32294|RAPG_BACSU Regulatory protein RapG	3.1.-.-	3.1.-.-					0	0
+cds_4164	rocF	sp|P39138|ARGI_BACSU Arginase	3.5.3.1	3.5.3.1	20569	GO:0004053		Arginine and proline metabolism;Arginine biosynthesis	1	2
+cds_4169	yyxA	sp|P39668|YYXA_BACSU Uncharacterized serine protease YyxA	3.4.21.-	3.4.21.-					0	0
+cds_4170	yycJ	sp|C0SP91|YYCJ_BACSU Exodeoxyribonuclease YycJ	3.-.-.-	3.-.-.-					0	0
+cds_4173	walK	sp|Q45614|WALK_BACSU Sensor histidine kinase WalK	2.7.13.3	2.7.13.3					0	0
+cds_4175	purA	sp|A7ZAP4|PURA_BACVZ Adenylosuccinate synthetase	6.3.4.4	6.3.4.4	15753	GO:0004019		Alanine, aspartate and glutamate metabolism;Nucleotide metabolism;Purine metabolism	1	3
+cds_4177	dnaC	sp|P37469|DNAC_BACSU Replicative DNA helicase DnaC	3.6.4.12	3.6.4.12	13065	GO:0016887			1	0
+cds_4184	gdpP	sp|P37484|GDPP_BACSU Cyclic-di-AMP phosphodiesterase GdpP	3.1.4.-	3.1.4.-					0	0
+cds_4189	ppaC	sp|P37487|PPAC_BACSU Manganese-dependent inorganic pyrophosphatase	3.6.1.1	3.6.1.1	24576	GO:0004427			1	0
+cds_4206	yybB	sp|P37502|YYBB_BACSU Probable metallo-hydrolase YybB	3.-.-.-	3.-.-.-					0	0
+cds_4208	yyaT	sp|P37504|YYAT_BACSU Uncharacterized protein YyaT	2.3.1.-	2.3.1.-					0	0
+cds_4212	yyaP	sp|P37508|YYAP_BACSU Uncharacterized protein YyaP	1.-.-.-	1.-.-.-					0	0
+cds_4220	maa	sp|P37515|MAA_BACSU Probable maltose O-acetyltransferase	2.3.1.79	2.3.1.79	10456	GO:0008925			1	0
+cds_4223	exoA	sp|P37454|EXOA_BACSU Exodeoxyribonuclease	3.1.11.2	3.1.11.2					0	0
+cds_4228	yyaE	sp|P37519|YYAE_BACSU Probable oxidoreductase YyaE	1.-.-.-	1.-.-.-					0	0
+cds_4236	rsmG	sp|P25813|RSMG_BACSU Ribosomal RNA small subunit methyltransferase G	2.1.1.170	2.1.1.170	42732				0	0
+cds_4238	mnmE	sp|P25811|MNME_BACSU tRNA modification GTPase MnmE	3.6.-.-	3.6.-.-					0	0
+cds_4241	rnpA	sp|P25814|RNPA_BACSU Ribonuclease P protein component	3.1.26.5	3.1.26.5					0	0

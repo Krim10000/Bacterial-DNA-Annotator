@@ -1,0 +1,96 @@
+{
+ "ecoli_k12": {
+  "n_operons": 2544,
+  "n_with_pathway": 524,
+  "n_pathways": 99,
+  "top": [
+   [
+    "Purine metabolism",
+    52
+   ],
+   [
+    "Nucleotide metabolism",
+    50
+   ],
+   [
+    "Pyruvate metabolism",
+    35
+   ],
+   [
+    "Pyrimidine metabolism",
+    33
+   ],
+   [
+    "Alanine, aspartate and glutamate metabolism",
+    26
+   ],
+   [
+    "Fructose and mannose metabolism",
+    26
+   ],
+   [
+    "Pentose phosphate pathway",
+    25
+   ],
+   [
+    "Glycolysis / Gluconeogenesis",
+    25
+   ],
+   [
+    "Biosynthesis of nucleotide sugars",
+    24
+   ],
+   [
+    "Amino sugar and nucleotide sugar metabolism",
+    24
+   ]
+  ]
+ },
+ "subtilis": {
+  "n_operons": 1334,
+  "n_with_pathway": 284,
+  "n_pathways": 94,
+  "top": [
+   [
+    "Nucleotide metabolism",
+    37
+   ],
+   [
+    "Purine metabolism",
+    31
+   ],
+   [
+    "Amino sugar and nucleotide sugar metabolism",
+    26
+   ],
+   [
+    "Pyruvate metabolism",
+    26
+   ],
+   [
+    "Alanine, aspartate and glutamate metabolism",
+    24
+   ],
+   [
+    "Glycine, serine and threonine metabolism",
+    23
+   ],
+   [
+    "Pyrimidine metabolism",
+    22
+   ],
+   [
+    "Biosynthesis of nucleotide sugars",
+    22
+   ],
+   [
+    "Cysteine and methionine metabolism",
+    21
+   ],
+   [
+    "Aminoacyl-tRNA biosynthesis",
+    20
+   ]
+  ]
+ }
+}
