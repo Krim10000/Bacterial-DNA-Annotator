@@ -92,6 +92,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--no-expression", action="store_true")
     ap.add_argument("--pwm", type=Path, default=None,
                     help="PWM específica (p. ej. data/dbtbs/promoter_pwms_subtilis_all.tsv)")
+    ap.add_argument("--policy", choices=("argmax", "two_stage"), default="argmax")
+    ap.add_argument("--delta", type=float, default=1.0)
+    ap.add_argument("--fallback", default="sigma70")
     ap.add_argument("--jobs", type=int, default=1,
                     help="Procesos en paralelo para --all (por defecto 1).")
     ap.add_argument("--selftest", action="store_true")
@@ -115,7 +118,8 @@ def main(argv: list[str] | None = None) -> int:
             seed=args.seed, max_p=args.max_p, min_z=args.min_z,
             min_margin=args.min_margin,
             use_expression=not args.no_expression,
-            pwm_path=args.pwm,
+            pwm_path=args.pwm, policy=args.policy,
+            delta=args.delta, fallback=args.fallback,
         )
         jobs = max(1, int(args.jobs))
         if jobs == 1:
@@ -155,7 +159,8 @@ def main(argv: list[str] | None = None) -> int:
         window=args.window, null_windows=args.null_windows, seed=args.seed,
         max_p=args.max_p, min_z=args.min_z, min_margin=args.min_margin,
         use_expression=not args.no_expression,
-        pwm_path=args.pwm,
+        pwm_path=args.pwm, policy=args.policy,
+        delta=args.delta, fallback=args.fallback,
     )
     s = res["summary"]
     print(f"{args.genome}: {s['n_assigned']} asignados · "

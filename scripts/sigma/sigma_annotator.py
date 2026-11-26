@@ -683,6 +683,32 @@ def factor_quality(row: dict[str, str]) -> tuple[str, str, bool]:
     return "fragment", "evidencia incompleta", False
 
 
+def select_best(ranked: list[dict[str, Any]], *,
+                policy: str = "argmax", delta: float = 1.0,
+                fallback: str = "sigma70") -> tuple[dict[str, Any], float]:
+    """Selecciona top-1 con política explícita y calcula margen.
+
+    ``two_stage`` solo cambia el top-1 si una alternativa supera al fallback
+    por ``delta``. No inventa ningún sigma: todos vienen de ``ranked``.
+    """
+    if not ranked:
+        raise ValueError("ranked vacío")
+    if policy not in {"argmax", "two_stage"}:
+        raise ValueError(f"policy desconocida: {policy}")
+    if policy == "argmax":
+        best = ranked[0]
+    else:
+        base = next((h for h in ranked if h.get("sigma") == fallback), None)
+        alt = next((h for h in ranked if h.get("sigma") != fallback), None)
+        if base is not None and alt is not None and float(alt.get("z", 0)) - float(base.get("z", 0)) > float(delta):
+            best = alt
+        else:
+            best = base if base is not None else ranked[0]
+    second = next((h for h in ranked if h is not best), None)
+    margin = round(float(best.get("z", 0)) - float(second.get("z", 0)), 3) if second else 99.0
+    return best, margin
+
+
 def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
                     *, window: int = DEFAULT_WINDOW,
                     null_windows: int = DEFAULT_NULL_WINDOWS,
@@ -692,6 +718,9 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
                     min_margin: float = DEFAULT_MIN_MARGIN,
                     use_expression: bool = True,
                     pwm_path: Path | str | None = None,
+                    policy: str = "argmax",
+                    delta: float = 1.0,
+                    fallback: str = "sigma70",
                     overwrite: bool = True) -> dict[str, Any]:
     """Anota sigma para un genoma y devuelve rutas + métricas."""
     base = data_root / "regulation" / genome
@@ -777,9 +806,8 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
         ranked = sorted(hits.values(),
                         key=lambda h: (h["z"], h["pvalue"], h["score"]),
                         reverse=True)
-        best = ranked[0]
-        second = ranked[1] if len(ranked) > 1 else None
-        margin = round(best["z"] - second["z"], 3) if second else 99.0
+        best, margin = select_best(ranked, policy=policy, delta=delta,
+                                   fallback=fallback)
 
         op_gene_ids = op_genes.get(oid, [])
         op_gene_rows = [genes_by_id[g] for g in op_gene_ids if g in genes_by_id]
@@ -942,6 +970,9 @@ def annotate_genome(data_root: Path, genome: str, out_dir: Path | None = None,
         "null_windows": null_windows,
         "sequence_available": sequence_available,
         "seed": seed,
+        "policy": policy,
+        "policy_delta": float(delta),
+        "policy_fallback": fallback,
         "version": VERSION,
         "sha256": _sha256([out / "sigma_promoters.tsv", out / "sigma_factors.tsv"]),
     }

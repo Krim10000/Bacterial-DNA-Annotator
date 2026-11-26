@@ -52,3 +52,17 @@ argmax_order(scores)
 two_stage_order(scores, delta=1.0)
 hybrid_order(scores, external, threshold=0.75, delta=2.0)
 ```
+
+## Implementación
+
+`sigma_annotator.annotate_genome(..., policy="two_stage", delta=1.0)` y el
+módulo sigma (`policy`, `policy_delta`) permiten activar la política sin
+cambiar el escáner. El valor por defecto sigue siendo `argmax` para no alterar
+resultados históricos sin una decisión explícita.
+
+CLI:
+
+```bash
+python scripts/sigma/10_annotate_sigma.py --genome subtilis \
+  --policy two_stage --delta 1.0
+```

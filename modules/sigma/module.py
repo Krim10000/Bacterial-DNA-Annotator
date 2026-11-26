@@ -41,6 +41,8 @@ def _run(ctx: RunContext, genome: str) -> ModuleResult:
             min_z=float(ctx.config.get("min_z", 2.0)),
             min_margin=float(ctx.config.get("min_margin", 1.0)),
             use_expression=bool(ctx.config.get("use_expression", True)),
+            policy=str(ctx.config.get("policy") or "argmax"),
+            delta=float(ctx.config.get("policy_delta") or 1.0),
             pwm_path=(ctx.config.get("pwm_file")
                       or ((ctx.data_root / "dbtbs" /
                            "promoter_pwms_subtilis_all.tsv")
@@ -108,6 +110,10 @@ MODULE = Module(
                help="Busca data/expression/<genoma>.tsv; si no existe, no falla."),
         Option("pwm_file", "PWM específica (opcional)", "text", "",
                help="Ruta a promoter_pwms_*.tsv; vacío usa la PWM de K-12."),
+        Option("policy", "Política de decisión", "text", "argmax",
+               help="argmax o two_stage; two_stage exige margen sobre sigma70."),
+        Option("policy_delta", "Margen two-stage", "float", 1.0,
+               help="Diferencia mínima de z para elegir una alternativa."),
     ),
     docs="docs/SIGMA_MODULE.md",
     input_kind="genome",
