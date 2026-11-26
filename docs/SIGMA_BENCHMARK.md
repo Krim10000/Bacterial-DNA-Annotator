@@ -490,8 +490,11 @@ comparación es una cota, no un censo exacto.
 9. **Ventana fija.** `-80/+20` no captura elementos reguladores lejanos,
    UP-elements ni la geometría completa de todos los promotores. Tampoco se
    modela la distancia -10/TSS como restricción dura.
-10. **Fuente de *B. subtilis*.** `gt_tss.tsv` combina BSGatlas/DBTBS/Nicolas et
-    al.; 547 TSS de `dbtbs_tss.tsv` no están en `gt_tss.tsv` y no se agregaron.
+10. **Fuente de *B. subtilis*.** `gt_tss.tsv` **no es DBTBS puro**: es el GFF
+    de **BSGatlas v1.1**. De sus 2.226 filas, 1.777 (79,8 %) solo citan
+    Nicolas et al. (tiling array), 379 (17,0 %) mencionan DBTBS y solo 430
+    cumplen DBTBS/BsubCyc + `Resolution: 0`. El benchmark de B. subtilis, por
+    tanto, está dominado por BSGatlas/Nicolas, no por DBTBS curado.
     Las etiquetas de las fuentes no siempre coinciden (`F` vs `SigF`/`SigG`).
 11. **Comparación por operón aproximada.** El mapeo por `first_gene_name` deja
     1.043 filas existentes sin un gen del GT con etiqueta mapeable, y 557 genes

@@ -6,7 +6,10 @@
 > tienen coordenada válida y el sigma tiene PWM equivalente?
 >
 > **Respuesta corta:** **5.540** pares TSS–sigma: **3.314** de K-12
-> (RegulonDB) y **2.226** de *B. subtilis* (DBTBS). No es un benchmark de los
+> (RegulonDB) y **2.226** de *B. subtilis* (**BSGatlas v1.1**, no DBTBS puro).
+> Corrección 2026-11-26: de las 2.226 filas, **1.777 (79,8 %)** solo citan
+> Nicolas et al. (tiling array), **379 (17,0 %)** mencionan DBTBS y solo
+> **430** cumplen DBTBS/BsubCyc + `Resolution: 0`. No es un benchmark de los
 > 6 mecanismos de [`SIGMA_CASES.md`](SIGMA_CASES.md), no tiene conjunto
 > negativo y no reemplaza las predicciones de
 > [`SIGMA_BENCHMARK.md`](SIGMA_BENCHMARK.md).
@@ -85,7 +88,7 @@ primaria es `(genome_id, contig, pos, strand, sigma)`.
 | Genoma | Fuente | Filas fuente | Sigma con PWM (pre-coord.) | Coord. inválida | Duplicado TSS | **Gold** |
 |---|---|---:|---:|---:|---:|---:|
 | K-12 | RegulonDB | 4.057 | 3.340 | 25 | 1 | **3.314** |
-| *B. subtilis* | DBTBS | 3.390 | 2.226 | 0 | 0 | **2.226** |
+| *B. subtilis* | BSGatlas v1.1 | 3.390 | 2.226 | 0 | 0 | **2.226** (430 estrictos DBTBS) |
 | **Total** | | **7.447** | **5.566** | **25** | **1** | **5.540** |
 
 K-12: de 4.057 filas, 716 no tienen `sigmaFactor`, 1 tiene `sigma19` (sin PWM),
@@ -315,7 +318,7 @@ Salida esperada del validador (resumen):
 filas: 5540
 por genoma: ecoli_k12=3314, subtilis=2226
 por sigma: sigma24=522, sigma28=214, sigma32=325, sigma38=423, sigma54=110, sigma70=3946
-por fuente: DBTBS=2226, RegulonDB=3314
+por fuente: BSGatlas=2226 (430 DBTBS estrictos), RegulonDB=3314
 por confianza: C=73, S=928, W=2307, curated=2232
 PMID: 3743/5540 filas (67.6%)
 duplicados: 0
