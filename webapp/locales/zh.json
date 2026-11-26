@@ -1484,5 +1484,16 @@
  "Sin datos experimentales asociados. La ficha es una caracterización computacional, no una validación de función.": "没有相关实验数据。该卡片是计算表征，不是功能验证。",
  "structure_confidence no es una estructura experimental. annotation_confidence low significa anotación no validada.": "structure_confidence 不是实验结构。annotation_confidence low 表示未验证注释。",
  "Las fuentes de base de datos y las predicciones se muestran separadas; la confianza estructural no equivale a función.": "数据库来源与预测分开显示；结构置信度不等于功能。",
- "Cada fila distingue qué viene de bases de datos oficiales (UniProt/RefSeq/PDB/Pfam/M-CSA) y qué viene de herramientas computacionales (ESMFold, Foldseek, P2Rank, EnzyMM/M-CSA, AlphaFill).": "每行区分官方数据库（UniProt/RefSeq/PDB/Pfam/M-CSA）与计算工具（ESMFold、Foldseek、P2Rank、EnzyMM/M-CSA、AlphaFill）。"
+ "Cada fila distingue qué viene de bases de datos oficiales (UniProt/RefSeq/PDB/Pfam/M-CSA) y qué viene de herramientas computacionales (ESMFold, Foldseek, P2Rank, EnzyMM/M-CSA, AlphaFill).": "每行区分官方数据库（UniProt/RefSeq/PDB/Pfam/M-CSA）与计算工具（ESMFold、Foldseek、P2Rank、EnzyMM/M-CSA、AlphaFill）。",
+ "GO MF/CC": "GO MF/CC",
+ "Anotar GO MF/CC": "注释 GO MF/CC",
+ "índice GO MF/CC OK": "GO MF/CC 索引正常",
+ "Bonus por etiqueta contextual": "上下文标签加分",
+ "GO MF/CC por accesión UniProt.": "按 UniProt 登录号注释 GO MF/CC。",
+ "~5 s por genoma con índice local": "使用本地索引每个基因组约 5 秒",
+ "Si no hay accesión o GO, el gen queda no_data.": "没有登录号或 GO 时，基因标记为 no_data。",
+ "Suma a z si el operón tiene la etiqueta esperada; 0 lo desactiva.": "若操纵子具有预期标签则加到 z；0 表示禁用。",
+ "Anota función molecular y componente celular por accesión UniProt.": "按 UniProt 登录号注释分子功能和细胞组分。",
+ "MF/CC por accesión UniProt; no es ortología ni prueba experimental.": "按 UniProt 登录号的 MF/CC；不是直系同源或实验证明。",
+ "Función molecular y componente celular por accesión UniProt; se leen de data/labels/go_mf_cc/<genoma>/gene_go.tsv.": "按 UniProt 登录号的分子功能和细胞组分；读取自 data/labels/go_mf_cc/<genome>/gene_go.tsv。"
 }

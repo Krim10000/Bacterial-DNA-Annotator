@@ -1484,5 +1484,16 @@
  "Sin datos experimentales asociados. La ficha es una caracterización computacional, no una validación de función.": "No associated experimental data. This card is a computational characterization, not functional validation.",
  "structure_confidence no es una estructura experimental. annotation_confidence low significa anotación no validada.": "structure_confidence is not an experimental structure. annotation_confidence low means unvalidated annotation.",
  "Las fuentes de base de datos y las predicciones se muestran separadas; la confianza estructural no equivale a función.": "Database sources and predictions are shown separately; structural confidence is not function.",
- "Cada fila distingue qué viene de bases de datos oficiales (UniProt/RefSeq/PDB/Pfam/M-CSA) y qué viene de herramientas computacionales (ESMFold, Foldseek, P2Rank, EnzyMM/M-CSA, AlphaFill).": "Each row separates official databases (UniProt/RefSeq/PDB/Pfam/M-CSA) from computational tools (ESMFold, Foldseek, P2Rank, EnzyMM/M-CSA, AlphaFill)."
+ "Cada fila distingue qué viene de bases de datos oficiales (UniProt/RefSeq/PDB/Pfam/M-CSA) y qué viene de herramientas computacionales (ESMFold, Foldseek, P2Rank, EnzyMM/M-CSA, AlphaFill).": "Each row separates official databases (UniProt/RefSeq/PDB/Pfam/M-CSA) from computational tools (ESMFold, Foldseek, P2Rank, EnzyMM/M-CSA, AlphaFill).",
+ "GO MF/CC": "GO MF/CC",
+ "Anotar GO MF/CC": "Annotate GO MF/CC",
+ "índice GO MF/CC OK": "GO MF/CC index OK",
+ "Bonus por etiqueta contextual": "Context label bonus",
+ "GO MF/CC por accesión UniProt.": "GO MF/CC by UniProt accession.",
+ "~5 s por genoma con índice local": "~5 s per genome with local index",
+ "Si no hay accesión o GO, el gen queda no_data.": "Without accession or GO, the gene is no_data.",
+ "Suma a z si el operón tiene la etiqueta esperada; 0 lo desactiva.": "Adds to z if the operon has the expected label; 0 disables it.",
+ "Anota función molecular y componente celular por accesión UniProt.": "Annotates molecular function and cellular component by UniProt accession.",
+ "MF/CC por accesión UniProt; no es ortología ni prueba experimental.": "MF/CC by UniProt accession; not orthology or experimental proof.",
+ "Función molecular y componente celular por accesión UniProt; se leen de data/labels/go_mf_cc/<genoma>/gene_go.tsv.": "Molecular function and cellular component by UniProt accession; read from data/labels/go_mf_cc/<genome>/gene_go.tsv."
 }

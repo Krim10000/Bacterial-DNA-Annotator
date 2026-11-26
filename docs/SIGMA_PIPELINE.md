@@ -12,14 +12,15 @@ anterior y deja un archivo con contrato explícito.
 | 0 | Anotación base | `scripts/annotation/00_annotate_single.py` o pipeline | FASTA | GFF, proteínas, genes | No re-predice CDS |
 | 1 | Operones/promotores de operón | `scripts/regulation/find_operons.py` / pipeline | GFF | `operons.tsv`, `operon_genes.tsv`, `promoters.tsv` | No re-llama operones |
 | 2 | Inventario sigma | `scripts/regulation/12_promoters_sigma.py` | genes/proteoma + HMMER/DIAMOND | `regulators_inventory.tsv` | No usar su `promoters.tsv` como capa final |
-| 3 | Etiquetas | `modules/labels` (`order=32`) | genes/operones + GO/KEGG/EC | `labels/<g>/operon_labels.tsv` | No reanotar genes |
-| 4 | Ortología global | `scripts/sigma/20_group_sigma.py` | inventario | `ortholog_group` | No recalcular por genoma |
-| 5 | Escaneo sigma | `scripts/sigma/10_annotate_sigma.py` / `annotate_genome` | operones + secuencia + inventario + PWM | `data/sigma/<g>/sigma_factors.tsv`, `sigma_promoters.tsv` | No reescanear con `12` |
-| 6 | Calibración | `63_train_kmer_calibrator.py` (offline) y política `hybrid` | gold de una especie | modelo JSON | No calibrar con gold en producción |
-| 7 | Contexto | `51_eval_context.py` (offline/opcional) | PWM + features | contexto/ablación | No reanotar genes/operones |
-| 8 | Dossier | `scripts/sigma/02_build_dossier.py` | salidas 2–4 | `reports/sigma_dossiers/*.json` | No reescanear |
-| 9 | Evaluación | `scripts/sigma/50_eval_layers.py`, `51_eval_context.py` | gold | métricas | No usar en producción |
-| 10 | GUI | `webapp/browser.py`, `sigma_view.py` | `sigma_promoters.tsv` | visualización | No recalcula |
+| 3 | GO MF/CC | `modules/go_mf_cc` (`order=31`) | genes+accesión UniProt + GAF | `go_mf_cc/<g>/gene_go.tsv` | No confundir con ortología |
+| 4 | Etiquetas | `modules/labels` (`order=32`) | genes/operones + GO/KEGG/EC | `labels/<g>/operon_labels.tsv` | No reanotar genes |
+| 5 | Ortología global | `scripts/sigma/20_group_sigma.py` | inventario | `ortholog_group` | No recalcular por genoma |
+| 6 | Escaneo sigma | `scripts/sigma/10_annotate_sigma.py` / `annotate_genome` | operones + secuencia + inventario + PWM | `data/sigma/<g>/sigma_factors.tsv`, `sigma_promoters.tsv` | No reescanear con `12` |
+| 7 | Calibración | `63_train_kmer_calibrator.py` (offline) y política `hybrid` | gold de una especie | modelo JSON | No calibrar con gold en producción |
+| 8 | Contexto | `51_eval_context.py` (offline/opcional) | PWM + features | contexto/ablación | No reanotar genes/operones |
+| 9 | Dossier | `scripts/sigma/02_build_dossier.py` | salidas 2–4 | `reports/sigma_dossiers/*.json` | No reescanear |
+| 10 | Evaluación | `scripts/sigma/50_eval_layers.py`, `51_eval_context.py` | gold | métricas | No usar en producción |
+| 11 | GUI | `webapp/browser.py`, `sigma_view.py` | `sigma_promoters.tsv` | visualización | No recalcula |
 
 ## Duplicaciones prohibidas
 

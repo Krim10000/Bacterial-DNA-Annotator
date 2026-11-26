@@ -431,6 +431,33 @@ def _p(data_root: Path, *parts: str) -> Path:
 DEMO_DIR = Path(__file__).resolve().parent / "demo"
 
 
+def load_go_mf_cc(data_root: Path, genome: str) -> pd.DataFrame:
+    """Carga GO MF/CC por gen (una fila por gen, fuentes agregadas)."""
+    for root in (_p(data_root, "labels", "go_mf_cc", genome),
+                 _p(data_root.parent, "results", "go_mf_cc", genome)):
+        path = root / "gene_go.tsv"
+        if path.exists():
+            try:
+                raw = pd.read_csv(path, sep="\t", dtype=str).fillna("")
+            except Exception:
+                return pd.DataFrame()
+            if raw.empty:
+                return raw
+            rows = []
+            for gid, grp in raw.groupby("gene_id"):
+                mf = sorted({r["go_name"] for _, r in grp.iterrows()
+                             if r.get("aspect") == "F" and r.get("go_name")})
+                cc = sorted({r["go_name"] for _, r in grp.iterrows()
+                             if r.get("aspect") == "C" and r.get("go_name")})
+                src = sorted({str(r.get("source", "")) for _, r in grp.iterrows()
+                              if r.get("source")})
+                rows.append({"gene_id": gid, "mf": "; ".join(mf), "cc": "; ".join(cc),
+                             "n_mf": len(mf), "n_cc": len(cc),
+                             "sources": "; ".join(src)})
+            return pd.DataFrame(rows)
+    return pd.DataFrame()
+
+
 def load_tables(data_root: Path, genome: str) -> dict:
     """Carga las pistas de un genoma. Las que falten se devuelven vacías.
 
@@ -445,6 +472,7 @@ def load_tables(data_root: Path, genome: str) -> dict:
         path = reg / f"{name}.tsv"
         out[name] = (pd.read_csv(path, sep="\t", dtype=str).fillna("")
                      if path.exists() else pd.DataFrame())
+    out["go_mf_cc"] = load_go_mf_cc(data_root, genome)
     hp = _p(data_root, "operon_finder", f"{genome}_hairpins.tsv")
     if not hp.exists() and genome == "demo":
         hp = DEMO_DIR / "hairpins.tsv"
@@ -1112,13 +1140,13 @@ def svg(tables: dict, contig: str, start: int, end: int,
     # ``sospecha``: la banda de sigma mide 18 px, así que con menos espacio
     # se solapaba con las bandas vecinas (sobre todo en la hebra −).
     Y = {
-        "+": {"genes": 82, "operones": 132, "promotores": 166,
+        "+": {"genes": 82, "go_mf_cc": 112, "operones": 132, "promotores": 166,
               "horquillas": 200, "transcripcion": 234, "complejos": 268,
               "sigma": 296, "sospecha": 324},
-        "−": {"genes": 390, "operones": 440, "promotores": 474,
+        "−": {"genes": 390, "go_mf_cc": 420, "operones": 440, "promotores": 474,
               "horquillas": 508, "transcripcion": 542, "complejos": 576,
               "sigma": 604, "sospecha": 632},
-        "": {"genes": 0, "operones": 700, "promotores": 734,
+        "": {"genes": 0, "go_mf_cc": 680, "operones": 700, "promotores": 734,
              "horquillas": 768, "transcripcion": 802,
              "complejos": 836, "sigma": 864, "sospecha": 892},
     }
@@ -1215,7 +1243,7 @@ def svg(tables: dict, contig: str, start: int, end: int,
                  f'fill="{"#e3efff" if sec == "+" else "#fff1d6" if sec == "−" else "#eceef2"}"/>')
         o.append(f'<text x="8" y="{header_y-1}" font-size="13.5" fill="#26303f" '
                  f'font-weight="800">{label}</text>')
-        for key, txt in (("operones", "OPERONES"), ("promotores", "PROMOTORES"),
+        for key, txt in (("go_mf_cc", "GO MF/CC"), ("operones", "OPERONES"), ("promotores", "PROMOTORES"),
                          ("horquillas", "HORQUILLAS"),
                          ("transcripcion", "TSS / TTS"),
                          ("sigma", SIGMA_LANE_LABEL)):
@@ -1326,6 +1354,28 @@ def svg(tables: dict, contig: str, start: int, end: int,
                 o.append(f'<text x="{lx:.1f}" y="{yg+20+row*10:.1f}" font-size="9.5" '
                          f'fill="#3b3f4a" text-anchor="middle">{_esc(name)[:16]}</text>')
             o.append("</g>")
+
+    # GO MF/CC: una línea por gen anotado, con su fuente en el tooltip.
+    if "go_mf_cc" in tracks:
+        go = tables.get("go_mf_cc", pd.DataFrame())
+        if isinstance(go, pd.DataFrame) and not go.empty:
+            go_map = {str(r["gene_id"]): r for _, r in go.iterrows()}
+            for sec in ("+", "−", ""):
+                y = Y[sec]["go_mf_cc"]
+                for _, g in _strand_rows(genes, sec).iterrows():
+                    rec = go_map.get(str(g.get("id") or g.get("gene_id") or ""))
+                    if rec is None:
+                        continue
+                    gx0, gx1 = x(g["start"]), x(g["end"])
+                    n = int(rec.get("n_mf") or 0) + int(rec.get("n_cc") or 0)
+                    color = "#1e6fb8" if int(rec.get("n_mf") or 0) and int(rec.get("n_cc") or 0) else "#6d4c9f"
+                    o.append(hit_open("gene", g.get("id") or g.get("gene_id"))
+                             + f'<title>{_esc(str(g.get("etiqueta") or ""))} · GO MF/CC: {n} términos · {_esc(str(rec.get("sources") or "")[:120])}</title>')
+                    o.append(f'<line x1="{gx0:.1f}" y1="{y}" x2="{gx1:.1f}" y2="{y}" '
+                             f'stroke="{color}" stroke-width="4" opacity="0.85"/>')
+                    if n:
+                        o.append(f'<text x="{gx0:.1f}" y="{y-4}" font-size="8" fill="{color}">{n}</text>')
+                    o.append("</g>")
 
     # operones por hebra
     if "operones" in tracks:
@@ -3283,7 +3333,7 @@ def render(data_root: Path, genome: str) -> None:
         )
 
     # --- pistas visibles: casillas, para poder superponer sin que se pisen
-    t1, t2, t3, t4, t5, t6, t7, t8 = st.columns(8)
+    t1, t2, t3, t4, t5, t6, t7, t8, t9 = st.columns(9)
     tracks: set[str] = set()
     if t1.checkbox("Genes", True, key="br_t_genes"):
         tracks.add("genes")
@@ -3305,6 +3355,8 @@ def render(data_root: Path, genome: str) -> None:
         help="Anotaciones de sigma del módulo `sigma`: color por tipo y "
              "opacidad/trazo por confianza. Se leen de "
              "`data/sigma/<genoma>/sigma_promoters.tsv`.")
+    if t9.checkbox("GO MF/CC", True, key="br_t_go", help="Función molecular y componente celular por accesión UniProt; se leen de data/labels/go_mf_cc/<genoma>/gene_go.tsv."):
+        tracks.add("go_mf_cc")
     if ver_sigma and isinstance(sigma_df, pd.DataFrame) and not sigma_df.empty:
         tracks.add("sigma")
     if ver_sigma and (not isinstance(sigma_df, pd.DataFrame)
