@@ -1495,5 +1495,9 @@
  "Suma a z si el operón tiene la etiqueta esperada; 0 lo desactiva.": "Adds to z if the operon has the expected label; 0 disables it.",
  "Anota función molecular y componente celular por accesión UniProt.": "Annotates molecular function and cellular component by UniProt accession.",
  "MF/CC por accesión UniProt; no es ortología ni prueba experimental.": "MF/CC by UniProt accession; not orthology or experimental proof.",
- "Función molecular y componente celular por accesión UniProt; se leen de data/labels/go_mf_cc/<genoma>/gene_go.tsv.": "Molecular function and cellular component by UniProt accession; read from data/labels/go_mf_cc/<genome>/gene_go.tsv."
+ "Función molecular y componente celular por accesión UniProt; se leen de data/labels/go_mf_cc/<genoma>/gene_go.tsv.": "Molecular function and cellular component by UniProt accession; read from data/labels/go_mf_cc/<genome>/gene_go.tsv.",
+ "Anotaciones GO asociadas a accesiones UniProt, con código de evidencia.": "GO annotations linked to UniProt accessions, with evidence code.",
+ "ViennaRNA, Rhea, ChEBI, STRING, UniProt, Pfam, Rfam, eQuilibrator, Gene Ontology y GOA (CC BY 4.0).": "ViennaRNA, Rhea, ChEBI, STRING, UniProt, Pfam, Rfam, eQuilibrator, Gene Ontology and GOA (CC BY 4.0).",
+ "Transferencia directa de MF/CC por accesión: si la proteína tiene accesión y GO, se anota sin depender del GAF de su especie.": "Direct MF/CC transfer by accession: if the protein has an accession and GO, it is annotated without relying on its species GAF.",
+ "Anotación MF/CC por accesión UniProt (gene_go.tsv), etiquetas de proceso y propagación jerárquica para genes/operones, y prior contextual de sigma.": "MF/CC annotation by UniProt accession (gene_go.tsv), process labels and hierarchical propagation for genes/operons, and sigma context prior."
 }

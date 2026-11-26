@@ -212,8 +212,20 @@ CREDITS: list[dict[str, str]] = [
              "The Gene Ontology Consortium, Nucleic Acids Research "
              "2021;49:D325-D334. Ontología local: go-basic.obo, "
              "data-version releases/2026-07-26.",
-        use="Etiquetas de proceso y propagación jerárquica para genes/operones "
-            "y como prior contextual de sigma.",
+        use="Anotación MF/CC por accesión UniProt (gene_go.tsv), etiquetas "
+            "de proceso y propagación jerárquica para genes/operones, y prior "
+            "contextual de sigma.",
+        license="CC BY 4.0",
+    ),
+    dict(
+        group="data", name="GOA / UniProt-GO",
+        what="Anotaciones GO asociadas a accesiones UniProt, con código de evidencia.",
+        author="UniProt Consortium / Gene Ontology Consortium",
+        url="https://www.ebi.ac.uk/GOA/",
+        cite="The UniProt Consortium, Nucleic Acids Research 2023;51:D523-D531. "
+             "GAF locales generados 2026-07-28.",
+        use="Transferencia directa de MF/CC por accesión: si la proteína tiene "
+            "accesión y GO, se anota sin depender del GAF de su especie.",
         license="CC BY 4.0",
     ),
     dict(
@@ -417,7 +429,7 @@ LICENSES_NOTE = [
     ("Uso libre", "Streamlit, pandas, NumPy, scikit-learn, NetworkX, SciPy, HMMER, "
                   "Infernal, pyrodigal, DIAMOND, tRNAscan-SE, barrnap, Biopython."),
     ("Uso abierto con condiciones", "ViennaRNA, Rhea, ChEBI, STRING, UniProt, Pfam, "
-                                    "Rfam, eQuilibrator, Gene Ontology (CC BY 4.0)."),
+                                    "Rfam, eQuilibrator, Gene Ontology y GOA (CC BY 4.0)."),
     ("Uso académico o no comercial", "RegulonDB, KEGG, DoriC, TECRDB y los pesos de "
                                      "ESMFold."),
     ("No se redistribuye en el repositorio", "RegulonDB, Pfam, STRING, DoriC y "
