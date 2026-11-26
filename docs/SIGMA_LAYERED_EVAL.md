@@ -142,6 +142,13 @@ Por sigma (top-1):
 44,8 % porque las PWMs son de *E. coli*; no es un fallo del mismo tipo: es
 transferencia entre especies.
 
+> **Corrección (2026-11-25).** Confirmado: el 44,8 % de *B. subtilis* es
+> transferencia de *E. coli* (el flag `--pwm` se ignoraba). Con la PWM
+> propia el top-1 es **29,7 %** (top-3 80,7 %); con la capa de contexto
+> asciende a **43,4 %** (top-3 86,9 %), todavía por debajo de la mayoría
+> trivial. Detalle, ablación y límites en
+> [`SIGMA_CONTEXT.md`](SIGMA_CONTEXT.md).
+
 **Lo que el gold ya permite separar:**
 
 - 124 TSS de K-12 tienen **más de un sigma**; un top-1 único no puede acertarlos
@@ -154,6 +161,7 @@ transferencia entre especies.
 ## 4. Multietiqueta y procesos superpuestos
 
 > Combinaciones de features para refinar: [`SIGMA_FEATURE_COMBINATIONS.md`](SIGMA_FEATURE_COMBINATIONS.md).
+> Iteración 2 (localización, motivo, multietiqueta): [`SIGMA_ITERATION2.md`](SIGMA_ITERATION2.md).
 
 El gold puede tener varios sigma por TSS. El script evalúa:
 

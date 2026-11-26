@@ -741,6 +741,11 @@ def main(argv: list[str] | None = None) -> int:
         print(selftest())
         return 0
 
+    # ``--pwm`` debe llegar a ``evaluate``; antes se parseaba pero se ignoraba
+    # (PWMS_PATH quedaba siempre en None y se usaba la matriz de K-12).
+    global PWMS_PATH
+    PWMS_PATH = args.pwm
+
     data_root = ROOT / "data"
     if args.all:
         paths = _gold_paths(args.gold_root)

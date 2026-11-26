@@ -278,12 +278,16 @@ def load_pwm_library(data_root: Path, pwm_path: Path | str | None = None) -> dic
             "class": SIGMA_CLASS.get(sigma, "unknown"),
             "arch": SIGMA_ARCH.get(sigma, "unknown"),
             "source": str(path),
+            "n_sites": 0,
         })
+        rec["n_sites"] = max(int(rec.get("n_sites") or 0),
+                             int(row.get("n_sites") or 0))
         rec["up" if box == "-35" else "down"] = {
             "width": width,
             "pwm": np.asarray(pwm, dtype=float),
             "consensus": row.get("consensus", ""),
             "info_bits": float(row.get("info_bits") or 0.0),
+            "n_sites": int(row.get("n_sites") or 0),
         }
     # sigma54 se etiqueta -35/-10 en la fuente, pero su geometría es -24/-12.
     for sigma, rec in out.items():

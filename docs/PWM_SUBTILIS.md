@@ -59,7 +59,24 @@ python scripts/sigma/50_eval_layers.py \
 
 ## Resultado
 
-En la evaluación con el gold de B. subtilis:
+> **Corrección (2026-11-25).** El 44,79 % que figuraba aquí **no era con la
+> matriz propia**: `50_eval_layers.py` parseaba `--pwm` pero lo ignoraba y
+> seguía usando `data/regulondb/gt/promoter_pwms.tsv` (E. coli). Con la
+> matriz propia, 200 señuelos y ventana −80/+20, el resultado es:
+>
+> | Configuración | Top-1 | Top-3 |
+> |---|---:|---:|
+> | E. coli PWM (bug `--pwm`) | 44,79 % | 85,53 % |
+> | **PWM propia de B. subtilis** | **29,69 %** | **80,68 %** |
+> | PWM propia + capa de contexto | 43,40 % | 86,88 % |
+>
+> La matriz propia **no supera la mayoría trivial** (87,56 %). El contexto
+> recupera parte de la diferencia, pero tampoco la supera. Ver
+> [`SIGMA_CONTEXT.md`](SIGMA_CONTEXT.md) para el protocolo, la ablación y
+> los límites.
+
+En la evaluación original con el gold de B. subtilis (matriz de E. coli por
+el bug de `--pwm`) se reportaba:
 
 ```text
 top-1: 44,79 %
