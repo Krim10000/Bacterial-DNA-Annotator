@@ -11,7 +11,7 @@ Cada documento verifica DOI/PMID/URL; las afirmaciones sin verificación se marc
 | `GENERALIZATION.md` | terminado | 1129 | 57 | LOSO/LOCO, transferencia, negativos |
 | `ALT_SIGMA.md` | terminado | 1016 | 48 | Arquitecturas y motivos alternativos |
 | `SIGMA_CONTEXT.md` | terminado | 2150 | 74 | Contexto/regulón |
-| `SIGMA_STRUCTURE.md` | en curso | — | — | Estructura, dominios, bolsillos |
+| `SIGMA_STRUCTURE.md` | terminado | 1127 | 66 | Estructura, dominios, bolsillos |
 
 ## Síntesis
 
@@ -35,6 +35,10 @@ Cada documento verifica DOI/PMID/URL; las afirmaciones sin verificación se marc
 16. RegulonDB y EcoCyc no son independientes: comparten curación y códigos ECO.
 17. La circularidad tiene al menos 10 formas; hace falta provenance holdout.
 18. En nuestros datos, K-12 no gana (escala 0); B. subtilis sube +13,70 pp, pero gold y tablas comparten BSGatlas/DBTBS.
+19. La estructura informa familia/dominios/integridad/interfaz, no promotor.
+20. Los bolsillos de sigma son de DNA/interfaz o metales/ADP en anti-sigma/RNAP; no son ligandos funcionales que decidan el promotor.
+21. AlphaFold/PDB sirven para validar arquitectura y truncamientos; pLDDT/PAE no son evidencia de función.
+22. Foldseek/pockets no asignan función por sí solos.
 
 ### Lo que no se puede afirmar
 
@@ -62,11 +66,15 @@ inventario por especie
 
 ## Bibliografía adicional
 
-Basta de búsqueda amplia por ahora. Falta una revisión en curso:
+Basta de búsqueda amplia por ahora. Las siete revisiones están cerradas.
 
-```text
-SIGMA_STRUCTURE.md
-```
+No hace falta más búsqueda amplia. Solo búsquedas dirigidas a huecos concretos:
+
+- ECF por subgrupo;
+- σ38 vs σ70;
+- σ54 y activadores;
+- gold TSS multi-especie;
+- provenance holdout.
 
 Después solo búsquedas dirigidas a huecos concretos:
 
