@@ -21,4 +21,5 @@ def test_k12_bp_if_data():
     res = MODULE.run(ctx, "ecoli_k12")
     assert res.ok
     assert res.metrics["n_bp_rows"] > 0
-    assert res.metrics["source"].startswith("go.obo")
+    assert res.metrics["n_direct"] > 0
+    assert res.metrics["sources"]["direct_gaf"] == "GAF aspect P"

@@ -63,9 +63,13 @@ order = 33
 Insumos:
 
 ```text
+data/labels/go_bp_direct/goa_bp.sqlite   (aspect P de los GAF)
 data/labels/go_mf_cc/<genoma>/gene_go.tsv
 data/labels/external/go/go.obo
 ```
+
+El BP directo se busca por accesión; el MF→BP solo se usa si no hay BP directo
+para el mismo gen y término.
 
 Salida:
 
@@ -94,12 +98,15 @@ confidence = automatic
 
 ```text
 442 genomas
-81.683 filas BP
-64.836 genes con BP
+569.262 filas BP
+230.689 genes con BP
 ```
 
-K-12: 844 filas, 628 genes.
-B. subtilis: 719 filas, 612 genes.
+K-12: 5.726 filas, 2.307 genes (5.649 BP directos, 77 inferidos).
+B. subtilis: 3.857 filas, 2.024 genes (3.799 BP directos, 58 inferidos).
+
+El salto grande viene de indexar `aspect=P` de los 193 GAF: es BP directo,
+no inferencia desde MF.
 
 ## Lo que falta
 
