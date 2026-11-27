@@ -1432,3 +1432,23 @@ ribosomal 37.976
 structural_accessory 6.579
 sigma_regulator 6.228
 ```
+
+### 2026-11-27 | lead | INFO | sigma-pockets | daemon baja CPU
+
+P2Rank de baja prioridad:
+
+```text
+nice 19
+1 hilo
+solo si CPU < 90 %
+cola: 1.972 estructuras AFDB/PDB
+reanudable
+```
+
+Salida:
+
+```text
+data/sigma/structures/p2rank_lowcpu/
+```
+
+Supervisión programada cada 45 min (`p2rank-supervisor`).
