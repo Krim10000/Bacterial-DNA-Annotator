@@ -53,3 +53,21 @@ pocket ≠ promotor
 ```
 
 Es un feature estructural, no una anotación.
+
+## Resultado final
+
+```text
+estructuras: 1.972 / 1.972
+con pocket: 1.972
+pockets: 7.683
+origen: AFDB
+```
+
+Archivo agregado:
+
+```text
+data/sigma/structures/p2rank_lowcpu/p2rank_lowcpu_pockets.tsv
+data/sigma/structures/p2rank_lowcpu/p2rank_lowcpu_summary.json
+```
+
+El supervisor cada 45 min fue eliminado porque el daemon terminó.

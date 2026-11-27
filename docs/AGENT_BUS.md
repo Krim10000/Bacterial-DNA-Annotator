@@ -1566,3 +1566,132 @@ data/sigma/structures/sigma_pockets.tsv
 ```
 
 Pocket = prior estructural, no promotor.
+
+### 2026-11-27 | lead | INFO | sigma-pockets | bloqueante
+
+La tabla P2Rank actual **no cubre sigma**:
+
+```text
+sigma factors: 5.993
+sigma contables: 2.135
+match exacto en kaggler_catalog: 0
+sigma con pocket P2Rank: 0
+```
+
+Kaggler solo contiene blancos desconocidos (`UNCHAR_UNIQUE_3931`), no sigma
+conocidos. Por eso no se puede responder “cuántos sigma tienen pocket” con
+`p2rank_tier_*`.
+
+→ `docs/SIGMA_POCKET_COVERAGE.md`
+→ hace falta manifest AFDB/PDB/ESMFold de sigma + P2Rank propio.
+
+### 2026-11-27 | lead | HANDOFF | protein-classifier | v4 completo
+
+```text
+F1 precision 0.487 recall 0.950
+F2 precision 0.894 recall 0.420
+F3 precision 0.511 recall 0.950
+>=2 precision 0.503 recall 0.920
+```
+
+F3: 95 TP, 91 FP, 9 TN, 5 FN.
+
+No se calibra umbral global:
+- F1 no separa AFDB;
+- F2 preciso pero incompleto;
+- F3 no separa AFDB;
+- PDB 8/8 sin negativos PDB.
+
+Ver `docs/BENCHMARK_V4_RESULTS.md`.
+
+### 2026-11-27 | lead | HANDOFF | protein-classifier | AF2-only
+
+Separación por fuente completada.
+
+```text
+AFDB: 92 pos / 97 neg
+PDB:   8 pos / 0 neg
+AF2LOCAL: 0 pos / 3 neg
+```
+
+AF2-only:
+
+```text
+F1 0.487 / 1.000
+F2 0.886 / 0.424
+F3 0.497 / 0.946
+```
+
+PDB-only no es evaluable: no hay negativos PDB.
+
+Batch preparado:
+
+```text
+scripts/structure/29_pocket_features_batch.py
+data/benchmark/structural_filters/v4/af2_only.tsv
+```
+
+Pendiente: ejecutarlo cuando EnzyMM de sigma libere CPU.
+
+### 2026-11-27 | lead | HANDOFF | pocket-evidence | features completas
+
+AF2:
+
+```text
+189 PDBs solicitados
+175 PDBs con pocket
+816 pockets
+351 en enzimas / 465 en no enzimas
+55 catalytic_candidate (48 pos, 7 neg)
+```
+
+PDB:
+
+```text
+8 PDBs
+106 pockets
+```
+
+Archivos:
+
+```text
+v4/run/pocket_features_af2.tsv
+v4/run/pocket_features_af2_labeled.tsv
+v4/run/pocket_features_pdb.tsv
+```
+
+ADN/efector: sin etiquetas; no se inventan.
+Calibración: bloqueada por etiquetas, no por CPU.
+
+### 2026-11-27 | lead | INFO | sigma-pockets | actualizado
+
+Corrección del INFO anterior (“0 sigma”): se generó la capa propia de sigma.
+
+```text
+sigma genes con pocket: 2.790/5.993
+sigma contables con pocket: 1.439/2.135
+pockets de sigma: 7.895
+accesiones únicas: 209/211
+sin AFDB: P43344, Q26544
+```
+
+Salida: `data/sigma/structures/sigma_pockets.tsv`.
+
+Sigue siendo monómero sigma, **no** complejo sigma–ADN ni promotor.
+
+### 2026-11-27 | lead | HANDOFF | p2rank-lowcpu | completado
+
+```text
+1.972 / 1.972 estructuras
+1.972 con pocket
+7.683 pockets
+origen AFDB
+```
+
+Archivo:
+
+```text
+data/sigma/structures/p2rank_lowcpu/p2rank_lowcpu_pockets.tsv
+```
+
+Supervisor eliminado; daemon terminado.
