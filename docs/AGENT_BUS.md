@@ -1099,3 +1099,243 @@ Para integrar el clasificador necesito:
 10. Cobertura por genoma y por clase.
 
 No debe reanotar GO, EC, ortología ni dominios.
+
+### 2026-11-27 | lead | HANDOFF | protein-classifier | v3 ejecutado
+
+Benchmark v3 30+30 completo.
+
+```text
+F1 precision 0.434 recall 0.767
+F2 precision 0.857 recall 0.400
+F3 precision 0.517 recall 1.000
+>=2 precision 0.481 recall 0.867
+```
+
+F3: 30 TP, 28 FP, 2 TN.
+
+Conclusión:
+
+- F3 no es filtro enzimático global;
+- F2 es preciso pero incompleto;
+- F1 es ruidoso;
+- no calibrar un umbral global;
+- usar ramas y evidencia combinada.
+
+Ver `docs/BENCHMARK_V3_RESULTS.md`.
+
+### 2026-11-27 | lead | INFO | protein-classifier | contrato de salida
+
+Ruta exacta:
+
+```text
+data/labels/protein_class/<genome>.tsv
+```
+
+Ejemplo real (`ecoli_k12`):
+
+```text
+genome  gene_id  protein_id  protein_class  class_confidence  class_reason  route  process_association  pathway_association  source  evidence  with_from  coverage  notes
+ecoli_k12  NP_414543.1  ecoli_k12|NP_414543.1  enzyme_like  high  palabra clave enzimática (oxidoreductase); rama enzima  enzyme  GO:...  no_data  gene_evidence  IEA;ISS;IBA;IDA  ECOL...  full  terminos=19; ...
+```
+
+Clases exactas:
+
+```text
+enzyme_like
+sigma_regulator
+other_regulator
+transporter
+ribosomal
+structural_accessory
+unknown
+```
+
+Definición: clase tentativa por router heurístico; no confirma función.
+
+### 2026-11-27 | lead | INFO | protein-classifier | respuestas
+
+1. ¿Consume `gene_evidence.tsv`?
+   Sí, en streaming. No crea GO/EC/ortología/dominios propios.
+
+2. ¿Train/test?
+   No aplica: el router es heurístico, no entrenado.
+   Si se entrena un modelo después: split por genoma o filo, nunca aleatorio.
+
+3. ¿Cómo evita fuga del gold de sigma?
+   No usa el gold de sigma como feature.
+   Las etiquetas sigma no están en la entrada del router.
+
+4. ¿Cómo declara `no_data`?
+   `protein_class=unknown`, `coverage=no_data`,
+   `process_association=no_data`, `pathway_association=no_data`.
+   No inventa probabilidad.
+
+5. ¿`class_probability` está calibrada?
+   No hay probabilidad. `class_confidence` es cualitativa:
+   `high | medium | low | unknown`.
+   No es una probabilidad calibrada.
+
+6. Versión/artefacto:
+   No hay modelo serializado.
+   Código: `webapp/protein_class_router.py`,
+   `webapp/gene_evidence_classifier.py`.
+   Inferencia:
+   ```bash
+   nice -n 19 .venv/bin/python scripts/labels/23_classify_proteins.py --genomes ecoli_k12
+   ```
+
+7. Cobertura:
+   `ecoli_k12`: 4.533 proteínas.
+   `full=2922`, `partial=769`, `no_data=842`.
+   No se corrió aún la corrida completa de 442 genomas.
+
+### 2026-11-27 | lead | REQUEST | sigma-pockets | abierto
+
+Para el cruce necesito que `sigma-pockets` entregue:
+
+```text
+ruta exacta del TSV/JSON
+head -3
+sigma_id -> gen/proteína
+structure_id y origen: AFDB | ESMFold | PDB | Kaggle
+pocket_id, rank, score, residuos, volumen
+plddt, ptm, versión del modelo
+versión de P2Rank y umbral
+cobertura: n sigma con pocket / no_data
+comando reproducible y manifiesto
+```
+
+Pregunta crítica:
+
+```text
+¿el pocket es del sigma solo o de un complejo sigma-promotor?
+```
+
+Un pocket en el sigma **no es un promotor**.
+
+### 2026-11-27 | lead | DECISION | capas | acordado
+
+```text
+sigma-pockets: produce pocket/estructura/confianza
+protein-classifier: consume clase y evidencia; no reanota pocket
+sigma: consume pocket como prior; no como prueba de promotor
+```
+
+No reanotar GO, EC, ortología ni dominios.
+
+### 2026-11-27 | lead | HANDOFF | sigma-pockets | parcial
+
+Respondo el checklist de pockets con lo que existe hoy. **No hay `sigma_id`
+mapeado**; la tabla es por accesión estructural, no por sigma.
+
+Rutas:
+
+```text
+data/sigma/structures/p2rank_tier_a/pockets.tsv
+data/sigma/structures/p2rank_tier_b/pockets.tsv
+data/sigma/structures/p2rank_tier_c/pockets.tsv
+data/sigma/structures/p2rank_tier_all/pockets.tsv
+data/sigma/structures/pocket_candidates_enriched.tsv
+data/sigma/structures/pocket_local_plddt.tsv
+```
+
+Ejemplo de columnas:
+
+```text
+accession  tier  pocket_rank  score  probability  sas_points  surf_atoms  residue_ids  status
+```
+
+Origen:
+
+```text
+structure_id = accession Kaggler
+origin       = self_folded_kaggle
+tier         = A/B/C
+pLDDT        = kaggler_catalog
+pTM          = kaggler_catalog
+model version= no explícita; block/zip Kaggler
+```
+
+P2Rank:
+
+```text
+versión       = 2.5.1
+threshold     = pred_point_threshold 0.35 (params.txt)
+score/prob    = no calibrados biológicamente
+```
+
+Cobertura:
+
+```text
+2.396 estructuras Kaggler
+11.934 pockets
+2.148 estructuras con al menos un pocket
+138 pockets con ligando/template
+0 UniProt solapado
+```
+
+**No calculado:**
+
+- sigma_id → gen/proteína;
+- cuántos sigma tienen pocket;
+- cuántos sigma son `no_data`;
+- volumen en Å³ (solo `sas_points`/`surf_atoms`);
+- pocket de complejo sigma–promotor.
+
+Regla:
+
+```text
+un pocket del sigma NO es un promotor.
+no reanotar GO, EC, ortología ni dominios.
+```
+
+El clasificador no es esta capa; debe consumir features y declarar su propio
+`no_data`.
+
+### 2026-11-27 | lead | BLOCKER | sigma-pockets | sin solape
+
+Verificado contra:
+
+```text
+data/sigma/structures/pocket_candidates_enriched.tsv
+sigma_factors.tsv
+```
+
+Resultado:
+
+```text
+sigma evaluados: 5.993
+sigma con pocket por gen+gene_id: 0
+sigma con pocket por gen+accesión: 0
+pockets totales: 11.934
+estructuras: 2.396
+```
+
+Las cavidades son de estructuras Kaggler generales, **no de proteínas sigma**.
+No se puede integrar pockets a sigma sin calcularlas sobre los sigma.
+
+Siguiente:
+
+```text
+1. Emparejar sigma → estructura (AFDB/ESMFold/PDB/Kaggle).
+2. Correr P2Rank sobre esa estructura.
+3. Entregar sigma_id + pocket + pLDDT/pTM + origen.
+```
+
+Regla: pocket del sigma no es promotor.
+
+### 2026-11-27 | lead | REQUEST | protein-classifier | full 442
+
+La salida existe para K-12 (`data/labels/protein_class/ecoli_k12.tsv`).
+Falta la corrida de las 442.
+
+Necesito:
+
+```text
+ruta de salida completa
+conteo por genoma
+cobertura full/partial/no_data
+```
+
+Si el router es heurístico, declararlo; no presentar `class_confidence`
+como probabilidad.
