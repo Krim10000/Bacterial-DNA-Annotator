@@ -99,7 +99,11 @@ import module_ui  # noqa: E402
 import browser  # noqa: E402
 import sigma_view  # noqa: E402
 import labels_view  # noqa: E402
+import regulatory_view  # noqa: E402
 import pockets_view  # noqa: E402
+import mechanistic_view  # noqa: E402
+import mechanistic_3d_view  # noqa: E402
+import sigma_pockets_view  # noqa: E402
 from pathways import (  # noqa: E402
     PATHWAYS,
     catalog,
@@ -1199,6 +1203,7 @@ MODE_LABELS: dict[str, str] = {
     "browser": "mode_browser",
     "sigma": "mode_sigma",
     "labels": "mode_labels",
+    "regulatory": "mode_regulatory",
     "tree": "mode_tree",
     "pathways": "mode_pathways",
     "modules": "mode_modules",
@@ -1221,7 +1226,7 @@ MENU_GROUPS: tuple[dict, ...] = (
         "title": "Explorar genoma",
         "icon": "🧭",
         "caption": "Navegador, sigmas, pockets y árbol de vida del genoma activo.",
-        "modes": ("browser", "sigma", "labels", "tree", "references"),
+        "modes": ("browser", "sigma", "labels", "regulatory", "tree", "references"),
     },
     {
         "id": "catalogo",
@@ -1255,6 +1260,8 @@ MODE_QUERY_ALIASES: dict[str, str] = {
     "sigma": "sigma",
     "etiquetas": "labels",
     "labels": "labels",
+    "regulacion": "regulatory",
+    "regulatory": "regulatory",
     "rutas": "pathways",
     "hipotesis": "hypotheses",
     "hipótesis": "hypotheses",
@@ -1280,6 +1287,7 @@ MODE_QUERY_VALUES: dict[str, str] = {
     "browser": "navegador",
     "sigma": "sigmas",
     "labels": "etiquetas",
+    "regulatory": "regulacion",
     "tree": "arbol",
     "pathways": "rutas",
     "modules": "modulos",
@@ -2582,11 +2590,24 @@ def main() -> None:
         tabs_sigma = st.tabs([
             "🧪 Sigma y promotores",
             "🕳️ Pockets (P2Rank)",
+            "⚙️ Modelo mecánico",
+            "🧬 Modelo 3D",
+            "🧫 Sigma pockets",
         ])
         with tabs_sigma[0]:
             sigma_view.render(DATA_ROOT, elegido)
         with tabs_sigma[1]:
             pockets_view.render(DATA_ROOT, elegido)
+        with tabs_sigma[2]:
+            mechanistic_view.render(DATA_ROOT)
+        with tabs_sigma[3]:
+            mechanistic_3d_view.render(DATA_ROOT)
+        with tabs_sigma[4]:
+            sigma_pockets_view.render(DATA_ROOT)
+        return
+    if mode_key == "regulatory":
+        elegido = st.session_state.get("genoma_global") or _global_genome()
+        regulatory_view.render(DATA_ROOT, elegido)
         return
     if mode_key == "labels":
         elegido = st.session_state.get("genoma_global") or _global_genome()

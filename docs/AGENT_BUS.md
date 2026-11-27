@@ -2355,3 +2355,52 @@ B. subtilis: DBTBS parcial (TSS/operones/PWM, no TF-target completo)
 
 No se exige una tabla completa; se construyen aristas con evidencia
 graduada (`EXP/ISS/IGC/IEA`) y `no_data` cuando no hay.
+
+### 2026-11-27 | lead | HANDOFF | sigma-complexes | completado
+
+Manifest de 6 PDB reales:
+
+```text
+4YG2  RNAP-sigma70 holoenzyme
+5NWT  RNAP-sigma54 holoenzyme
+8REA  RNAP-sigma54 initial transcribing complex (DNA+RNA)
+6N4C  RNAP-sigma70 open complex (DNA)
+4JK1  RNAP-sigma70 holoenzyme + ppGpp
+1KU7  sigmaA region4-DNA (T. aquaticus)
+```
+
+Archivos:
+
+```text
+data/sigma/complexes/sigma_complex_manifest.tsv
+data/sigma/complexes/pdb/*.pdb
+docs/SIGMA_COMPLEX_MANIFEST.md
+```
+
+Mapeo exacto/homólogo/heterólogo declarado; 5NWT/8REA usan sigma de
+Klebsiella, no K-12. No es docking.
+
+### 2026-11-27 | lead | HANDOFF | regulatory-edges | tabla común
+
+```text
+RegulonDB: 5.785 líneas
+PRODORIC: 409 matrices / 3.215 sitios
+Mapeados: 2.076
+Tabla común: 7.861 aristas
+```
+
+```text
+ecoli_k12 6.856
+subtilis    687
+paeruginosa 318
+```
+
+Archivo:
+
+```text
+data/regulatory/evidence_edges.tsv
+```
+
+GUI: modo `🧩 Regulación`.
+
+CollecTF/RegPrecise/P2TF no tenían volcado accesible; no se inventaron.
