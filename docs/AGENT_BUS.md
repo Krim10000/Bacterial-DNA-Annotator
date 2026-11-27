@@ -1044,3 +1044,18 @@ hmmscan no termina con 4.400–8.800 secuencias en 23 GB
 
 No hay cobertura de dominios. Registro y comando en `docs/DOMAIN_PILOT.md`.
 No se reintenta en este entorno.
+
+
+### 2026-11-27 | lead | INFO | dominios | piloto completado
+
+Piloto reducido terminado:
+
+```text
+4.010 no_data
+655 genes con GO por dominio (16,3 %)
+1.286 filas
+278 Pfam
+1.625 s / 1,68 GB RSS
+```
+
+Escalado completo diferido por tiempo (~50 h CPU).

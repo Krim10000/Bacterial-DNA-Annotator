@@ -95,18 +95,25 @@ medir RSS/tiempo
 o InterProScan externo
 ```
 
-## Estado: DIFERIDO
+## Estado: PILOTO COMPLETADO, ESCALADO DIFERIDO
 
-No se insiste en este entorno.
-
-Motivo:
+El intento reducido terminó:
 
 ```text
-hmmscan contra Pfam completo no termina con 4.400–8.800 secuencias
-en 23 GB de RAM / tiempo disponible
+muestra: 4.010 no_data (401 genomas, 10/genoma)
+hmmscan --cut_ga --cpu 2
+tiempo: 1.625 s (~27 min)
+RSS: 1,68 GB
+dominios: 1.286 filas
+genes con GO por dominio: 655 / 4.010 = 16,3 %
+Pfam: 278
+términos GO: 211
 ```
 
-No hay TSV de dominios. No se usa como cobertura.
+El resultado es válido para el piloto, pero el escalado a 476.531 requiere
+mucho más tiempo/lotes: a este ritmo son ~50 h de CPU.
+
+No se usa como cobertura global todavía.
 
 ### Retomar en otro entorno
 
