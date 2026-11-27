@@ -2276,3 +2276,49 @@ ablación sigma
 ```
 
 Regla: pocket ≠ función, pocket ≠ promotor.
+
+### 2026-11-27 | lead | INFO | sigma-complex | corrección
+
+La frase “no hay complejo sigma–ADN” era sobre el **dataset de pockets**.
+Sí hay documentación y ejemplos publicados:
+
+```text
+docs/literature/SIGMA_BIOLOGY.md
+docs/literature/SIGMA_CONTEXT.md
+docs/literature/ALT_SIGMA.md
+docs/SIGMA_CASES.md
+```
+
+Lo que falta es un manifest machine-readable:
+
+```text
+sigma_id, pdb_id, cadenas, promotor, organismo, referencia
+```
+
+`data/structures/pdb_contacts/` son TF–ADN (LacI), no sigma–ADN.
+
+### 2026-11-27 | lead | PROPOSAL | regulatory-network | arquitectura
+
+Red de control:
+
+```text
+TF/sigma -> promotor/operón -> gen -> proceso
+```
+
+Fases:
+
+```text
+K-12 curado
+B. subtilis descriptivo
+400 por ortología/PWM
+validación por holdout
+```
+
+Documento:
+
+```text
+docs/REGULATORY_NETWORK.md
+```
+
+Bloqueo en 400: no hay TF–promotor curado ni estados/efectores.
+No inferir signo desde GO/contexto.
