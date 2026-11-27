@@ -2404,3 +2404,111 @@ data/regulatory/evidence_edges.tsv
 GUI: modo `🧩 Regulación`.
 
 CollecTF/RegPrecise/P2TF no tenían volcado accesible; no se inventaron.
+
+### 2026-11-27 | lead | HANDOFF | protein-cost | completado
+
+Perfil de longitud y coste biosintético de aminoácidos por proteína.
+Coste de Akashi & Gojobori 2002 (~P/residuo, tabla 4; Trp 74,3 vs Ala 11,7).
+
+```text
+genomas: 401
+proteínas: 1.342.045
+coste medio global: 23,38 ~P/residuo
+pequeñas y caras: 62.419 (4,65 %)
+grandes y baratas: 79.946 (5,96 %)
+desconocidas / anotadas: 771.522 / 570.523
+Δcoste (desconocida − anotada): +0,53 ~P  (386/401 especies > 0)
+Δlongitud: −108 aa                        (400/401 especies < 0)
+```
+
+Salidas:
+
+```text
+data/sigma/protein_cost/protein_cost_proteins.tsv.gz
+data/sigma/protein_cost/protein_cost_by_species.tsv
+data/sigma/protein_cost/protein_cost_grid.tsv
+data/sigma/protein_cost/protein_cost_unknown_vs_known.tsv
+data/sigma/protein_cost/protein_cost_summary.json
+data/sigma/protein_cost/protein_cost_unknown_vs_known.png
+data/sigma/protein_cost/protein_cost_ecoli_k12.png
+```
+
+Código: `scripts/sigma/123_protein_cost_stats.py` (etapa `sigma_protein_cost`
+de `run_pipeline.sh`), doc `docs/PROTEIN_COST.md`, pruebas
+`tests/test_protein_cost_stats.py`.
+
+Límite: descriptor de secuencia, no anotación. El sesgo de GC obliga a
+comparar dentro de la especie (`cost_z`), nunca el coste bruto entre especies.
+El contraste desconocidas vs anotadas mezcla sesgo de anotación con proteínas
+accesorias reales: no permite separarlos.
+
+No se tocó P2Rank, fpocket ni Kaggler.
+
+### 2026-11-27 | lead | HANDOFF | protein-cost-ui | completado
+
+Vista de coste en la webapp: pestaña **🧪 Sigma → 💰 Coste de aminoácidos**.
+
+```text
+mapa de calor 6 franjas de longitud × 3 clases de coste (por especie)
+clic en casilla -> proteínas de esa casilla ordenadas por cost_z
+clic en fila    -> ficha de gen reutilizada (webapp/gene_card.py) + secuencia
+```
+
+Código: `webapp/protein_cost_view.py` (función pura + `render`), enganchado en
+`webapp/app.py` (sexta pestaña de Sigma, con la especie activa).
+Datos: `scripts/sigma/124_split_protein_cost.py` reparte el detalle global en
+`data/sigma/protein_cost/by_genome/<genoma>.tsv.gz` (401 especies, 1.342.045
+proteínas) y añade producto/nombre de gen/locus para la ficha.
+
+Pruebas: `tests/test_protein_cost_view.py` (14, incluye `AppTest` real).
+
+Límite: el mapa describe composición y tamaño; un clic no convierte un pocket
+ni un coste en función. La ficha no tiene coordenadas de ADN para los genomas
+ab initio (no hay FASTA genómico en `data/`), así que DNA/traducción quedan
+como no disponibles; la secuencia proteica sí se muestra.
+
+No se tocó P2Rank, fpocket ni Kaggler.
+
+### 2026-11-27 | lead | DECISION | protein-cost-ui | corregido
+
+La primera versión del mapa de calor era una **tabla de contingencia** 6x3
+(franjas de longitud x terciles de coste): no era una distribución. Se
+sustituye por un mapa de calor de densidad real, calculado **desde el proteoma
+deducido** de cada especie (`annotations_ab_initio/<genoma>/proteins.faa`), sin
+tablas intermedias.
+
+```text
+X: longitud (log)   Y: coste medio ~P/residuo   color: nº de proteínas
+ejes al p99,5; extremos acumulados en celdas abiertas (>= / <=)
+la suma de la rejilla == nº de proteínas del proteoma
+```
+
+Clic en celda -> proteínas de esa celda por cost_z -> ficha de gen reutilizada.
+Coste calculado en memoria: 1,3 s para 4.300 proteínas y 5,6 s para 11.514
+(cacheado por especie). `124_split_protein_cost.py` deja de ser necesario para
+la vista, pero sigue disponible como export por especie.
+
+Pruebas: `tests/test_protein_cost_view.py` (14, incluye `AppTest` real con
+celda sembrada).
+
+No se tocó P2Rank, fpocket ni Kaggler.
+
+### 2026-11-27 | lead | HANDOFF | entraf | completado
+
+```text
+668 entradas
+668 PDB
+255 PubMed
+361 mapeadas
+307 no_match
+```
+
+Archivo:
+
+```text
+data/regulatory/entraf_entries.tsv
+```
+
+GUI: `🧩 Regulación → Catálogo ENTRAF`.
+
+Cita y agradecimiento en `docs/ENTRAF.md` y `webapp/credits.py`.

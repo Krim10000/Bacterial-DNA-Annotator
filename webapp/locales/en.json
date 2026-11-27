@@ -1550,5 +1550,9 @@
  "Candidato para detección geométrica alternativa; no integrado todavía.": "Alternative geometric detection candidate; not integrated yet.",
  "Predice sitios de unión a ADN con graph transformer y estructuras predichas.": "Predicts DNA-binding sites with a graph transformer and predicted structures.",
  "Anotación funcional de estructuras proteicas: motivos, plantillas y cavidades.": "Functional annotation of protein structures: motifs, templates and cavities.",
- "Catalogado desde bio.tools; el endpoint EBI revisado el 2026-11-27 responde 'service retired'. No invocable hasta encontrar un espejo operativo.": "Catalogued from bio.tools; the EBI endpoint checked on 2026-11-27 returns 'service retired'. Not invocable until an operational mirror is found."
+ "Catalogado desde bio.tools; el endpoint EBI revisado el 2026-11-27 responde 'service retired'. No invocable hasta encontrar un espejo operativo.": "Catalogued from bio.tools; the EBI endpoint checked on 2026-11-27 returns 'service retired'. Not invocable until an operational mirror is found.",
+ "💰 Coste de aminoácidos": "💰 Amino acid cost",
+ "Uso académico; citar ENTRAF y agradecer a IIMAS-UNAM. No se redistribuye el HTML crudo.": "Academic use; cite ENTRAF and acknowledge IIMAS-UNAM. Raw HTML is not redistributed.",
+ "Enciclopedia curada de factores de transcripción con unión a ADN en bacterias y arqueas.": "Curated encyclopedia of DNA-binding transcription factors in bacteria and archaea.",
+ "Catálogo de TFs, rol, familia, estructura PDB, PubMed y evidencia experimental; insumo para aristas TF–promotor.": "TF catalog with role, family, PDB structure, PubMed and experimental evidence; input for TF–promoter edges."
 }

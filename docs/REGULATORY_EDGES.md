@@ -94,3 +94,15 @@ data/regulatory/external/prodoric/matrices.json.gz
 ```
 
 Las matrices crudas ya no se usan para la tabla final.
+
+## ENTRAF
+
+Catálogo de TFs añadido:
+
+```text
+668 entradas
+361 mapeadas
+307 no_match
+```
+
+Ver `docs/ENTRAF.md` y la pestaña `Catálogo ENTRAF` en la GUI.

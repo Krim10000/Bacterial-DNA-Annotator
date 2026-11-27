@@ -1550,5 +1550,9 @@
  "Candidato para detección geométrica alternativa; no integrado todavía.": "替代几何检测候选；尚未整合。",
  "Predice sitios de unión a ADN con graph transformer y estructuras predichas.": "使用图变换器和预测结构预测 DNA 结合位点。",
  "Anotación funcional de estructuras proteicas: motivos, plantillas y cavidades.": "蛋白质结构功能注释：基序、模板和空腔。",
- "Catalogado desde bio.tools; el endpoint EBI revisado el 2026-11-27 responde 'service retired'. No invocable hasta encontrar un espejo operativo.": "来自 bio.tools 的目录；2026-11-27 检查的 EBI 端点返回“service retired”。在找到可用镜像前无法调用。"
+ "Catalogado desde bio.tools; el endpoint EBI revisado el 2026-11-27 responde 'service retired'. No invocable hasta encontrar un espejo operativo.": "来自 bio.tools 的目录；2026-11-27 检查的 EBI 端点返回“service retired”。在找到可用镜像前无法调用。",
+ "💰 Coste de aminoácidos": "💰 氨基酸成本",
+ "Uso académico; citar ENTRAF y agradecer a IIMAS-UNAM. No se redistribuye el HTML crudo.": "学术用途；引用 ENTRAF 并致谢 IIMAS-UNAM。不重新分发原始 HTML。",
+ "Enciclopedia curada de factores de transcripción con unión a ADN en bacterias y arqueas.": "细菌和古菌中 DNA 结合转录因子的 curated 百科全书。",
+ "Catálogo de TFs, rol, familia, estructura PDB, PubMed y evidencia experimental; insumo para aristas TF–promotor.": "包含角色、家族、PDB 结构、PubMed 和实验证据的 TF 目录；用于 TF–启动子边。"
 }
