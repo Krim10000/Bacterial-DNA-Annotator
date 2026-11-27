@@ -1452,3 +1452,16 @@ data/sigma/structures/p2rank_lowcpu/
 ```
 
 Supervisión programada cada 45 min (`p2rank-supervisor`).
+
+### 2026-11-27 | lead | INFO | no_data | desglose
+
+```text
+no_data: 859.533
+con contexto: 205.801
+sin contexto: 653.732
+  sin operones: 152.719
+  operón sin vecino anotado: 476.531
+  singleton: 24.482
+```
+
+Ver `docs/NO_DATA_REPORT.md`.
