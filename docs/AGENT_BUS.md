@@ -1339,3 +1339,96 @@ cobertura full/partial/no_data
 
 Si el router es heurístico, declararlo; no presentar `class_confidence`
 como probabilidad.
+
+### 2026-11-27 | lead | INFO | servicios externos | catalogados
+
+Registro nuevo:
+
+```text
+webapp/external_services.py
+```
+
+Instalados/integrados:
+
+```text
+P2Rank, Foldseek, EnzyMM, M-CSA
+```
+
+Catalogados, NO invocados:
+
+```text
+ProFunc, COACH, COFACTOR, AlloSite, AlloPred,
+GraphSite, PocketMaster, PocketMatch, fpocket
+```
+
+ProFunc queda con URL de bio.tools:
+`https://bio.tools/profunc`
+
+Créditos actualizados en `webapp/credits.py` y `SHORT`.
+Tests: `tests/test_external_services.py`.
+
+Regla: `cataloged != used`.
+
+### 2026-11-27 | lead | BLOCKER | servicios externos | ProFunc retirado
+
+Verificación directa:
+
+```text
+HTTP 200
+"The service you have requested has been retired and is no longer available."
+```
+
+bio.tools mantiene la ficha, pero el endpoint EBI no es operativo.
+
+Implementado:
+
+```text
+webapp/profunc_adapter.py
+scripts/structure/26_profunc_check.py
+```
+
+El adaptador detecta `retired`, no envía PDB y no simula resultados.
+Si hay un espejo operativo, actualizar `PROFUNC_URL`.
+
+### 2026-11-27 | lead | HANDOFF | sigma-pockets | corrida lanzada
+
+P2Rank sobre sigma con estructura local:
+
+```text
+169 sigma AFDB
+P2Rank 2.5.1
+nice 19
+2 threads
+```
+
+Salida:
+
+```text
+data/sigma/structures/p2rank_sigma/
+data/sigma/structures/sigma_pockets.tsv
+```
+
+No se corren 5.993 sin estructura.
+
+### 2026-11-27 | lead | HANDOFF | protein-classifier | full 442
+
+Corrida completa:
+
+```text
+1.524.918 filas
+full:    557.763
+partial: 107.623
+no_data: 859.532
+```
+
+Clases:
+
+```text
+unknown 931.507
+enzyme_like 372.170
+transporter 128.092
+other_regulator 42.366
+ribosomal 37.976
+structural_accessory 6.579
+sigma_regulator 6.228
+```
