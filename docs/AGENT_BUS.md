@@ -1516,3 +1516,53 @@ data/labels/context/gene_cluster_context.tsv
 ```
 
 IGC baja; no GO directo.
+
+### 2026-11-27 | lead | HANDOFF | pocket-evidence | features
+
+Tabla de features P2Rank + fpocket:
+
+```text
+scripts/structure/28_pocket_feature_table.py
+docs/POCKET_FEATURE_TABLE.md
+```
+
+Columnas:
+
+```text
+p2rank_pocket, p2rank_score,
+fpocket_id, jaccard,
+fpocket_score, druggability, volume, sasa_total,
+hydrophobicity, charge, fpocket_residues
+```
+
+Prueba 102L: 3 P2Rank pockets, mejor Jaccard 0.3939.
+No asigna tipo funcional.
+
+### 2026-11-27 | lead | INFO | benchmark-v4 | F3 lento
+
+```text
+F1 195/200
+F2 47/200
+F3 21/200
+```
+
+F3 es el cuello; no calibrar hasta terminar.
+
+### 2026-11-27 | lead | HANDOFF | sigma-pockets | terminado
+
+P2Rank sigma:
+
+```text
+169 estructuras AFDB
+125 sigma con pocket
+44 sin pocket
+833 pockets
+```
+
+Archivo:
+
+```text
+data/sigma/structures/sigma_pockets.tsv
+```
+
+Pocket = prior estructural, no promotor.
