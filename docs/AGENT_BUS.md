@@ -2322,3 +2322,36 @@ docs/REGULATORY_NETWORK.md
 
 Bloqueo en 400: no hay TF–promotor curado ni estados/efectores.
 No inferir signo desde GO/contexto.
+
+### 2026-11-27 | lead | HANDOFF | sigma-annotations | completado
+
+```text
+data/sigma/structures/sigma_annotations.tsv
+```
+
+Cobertura:
+
+```text
+sigma: 5.993
+especies: 401
+con estructura: 3.901
+con pocket: 2.790
+con HMMER: 2.602
+```
+
+Cada fila declara `inventory_source`, `species_source`, `structure_source`,
+`pocket_source`, `hmmer_source`, `literature_source` y `reference_scope`.
+
+`literature_reference` es de familia, no de gen; no se inventaron referencias.
+No se tocó GO/EC/ortología ni el clasificador.
+
+### 2026-11-27 | lead | INFO | TF-promotor | inventario
+
+```text
+K-12: TF-RISet.tsv, 5.785 líneas, 3.444 interacciones
+B. subtilis: DBTBS parcial (TSS/operones/PWM, no TF-target completo)
+400: sin TF-promotor curado
+```
+
+No se exige una tabla completa; se construyen aristas con evidencia
+graduada (`EXP/ISS/IGC/IEA`) y `no_data` cuando no hay.

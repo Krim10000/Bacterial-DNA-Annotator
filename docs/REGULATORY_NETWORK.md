@@ -232,3 +232,106 @@ data/regulatory/nodes.tsv
 data/regulatory/loops.tsv
 data/regulatory/summary.json
 ```
+
+## Bases TF–promotor disponibles
+
+### K-12
+
+```text
+data/regulondb/TF-RISet.tsv
+5.785 líneas
+3.444 interacciones TF–promotor con secuencia
+216 TF
+```
+
+También:
+
+```text
+NetworkRegulatorGene.tsv
+NetworkRegulatorConfGene.tsv
+NetworkSigmaTU.tsv
+TFSet.tsv
+RegulatorSet.tsv
+```
+
+Es la base curada más fuerte.
+
+### B. subtilis
+
+```text
+data/dbtbs/gt_tss.tsv
+data/dbtbs/gt_operons.tsv
+data/dbtbs/gt_terminators.tsv
+data/dbtbs/promoter_pwms_subtilis.tsv
+```
+
+Hay TSS, operones, terminadores y PWMs, pero **no una tabla TF–target
+equivalente a TF-RISet**. Es parcial.
+
+### 400 genomas
+
+```text
+no hay TF–promotor curado
+```
+
+Solo hay:
+
+```text
+1.555 represores anotados
+14.850 TF con familia declarada
+sigma
+operones/promotores
+GO/contexto
+```
+
+## Cómo combinarlo
+
+No exigir una pieza completa. Construir aristas con evidencia graduada:
+
+```text
+arista TF–promotor
+  fuente
+  evidencia
+  with_from
+  confianza
+```
+
+Ejemplo:
+
+```text
+TF ortólogo de un TF de K-12
++ sitio PWM conservado
++ promotor del operón
+→ arista ISS/IGC
+confidence = medium
+```
+
+Si solo hay:
+
+```text
+TF anotado + promotor + contexto
+→ arista IGC
+confidence = low
+```
+
+Si no hay sitio ni ortología:
+
+```text
+no_data
+```
+
+## Regla
+
+```text
+una arista no es una verdad binaria
+es una hipótesis con evidencia
+```
+
+La red final debe permitir:
+
+```text
+ver la arista
+ver la fuente
+ver la confianza
+ver qué falta
+```
