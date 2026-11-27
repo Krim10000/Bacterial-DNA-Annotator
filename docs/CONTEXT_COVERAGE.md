@@ -75,3 +75,36 @@ No sirve para:
 - usar contexto como feature del clasificador;
 - combinarlo con dominio/estructura;
 - no fusionarlo como GO directo.
+
+## Contexto conservado por cluster
+
+Además del vecino local, se buscó el mismo cluster en otro genoma:
+
+```text
+no_data:                         859.532
+con contexto por cluster:         64.330
+sin cluster:                     177.319
+cluster sin donante anotado:     617.883
+```
+
+Archivo:
+
+```text
+data/labels/context/gene_cluster_context.tsv
+```
+
+Columnas:
+
+```text
+genome
+gene_id
+protein_id
+cluster
+n_donors
+context_terms
+source = cluster_context
+evidence = IGC
+confidence = low
+```
+
+No es GO directo; es contexto conservado.

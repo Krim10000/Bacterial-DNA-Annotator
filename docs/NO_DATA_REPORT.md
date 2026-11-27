@@ -77,3 +77,17 @@ no_data: 859.532
 4. Estructura/Foldseek para el residuo.
 5. Reporte por especie y por filo.
 ```
+
+## Contexto conservado por cluster
+
+```text
+con contexto por cluster:  64.330
+sin cluster:              177.319
+cluster sin donante:      617.883
+```
+
+Archivo:
+
+```text
+data/labels/context/gene_cluster_context.tsv
+```

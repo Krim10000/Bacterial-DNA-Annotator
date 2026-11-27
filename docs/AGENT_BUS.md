@@ -1465,3 +1465,54 @@ sin contexto: 653.732
 ```
 
 Ver `docs/NO_DATA_REPORT.md`.
+
+### 2026-11-27 | lead | HANDOFF | pocket-evidence | fpocket
+
+`fpocket` instalado y probado:
+
+```text
+~/.local/bin/fpocket
+102L -> 8 pockets
+pocket 1 score 0.200, volume ~1548
+```
+
+Adaptador:
+
+```text
+webapp/fpocket_adapter.py
+scripts/structure/27_fpocket_descriptors.py
+docs/FPOCKET_ADAPTER.md
+```
+
+Produce score, druggability, volumen, SASA, hidrofobicidad, carga y
+flexibilidad. No extrae residuos todavía y no está conectado al scoring.
+
+`PocketMatch` compila pero segfault con el ejemplo; no se integra.
+
+### 2026-11-27 | lead | INFO | benchmark-v4 | en ejecución
+
+v4 100+100 lanzado directamente con 2 workers.
+
+```text
+F1 Foldseek: en curso
+F2/F3: pendientes
+```
+
+No calibrar hasta terminar F1/F2/F3.
+
+### 2026-11-27 | lead | INFO | contexto cluster | completado
+
+```text
+no_data: 859.532
+con contexto por cluster: 64.330
+sin cluster: 177.319
+cluster sin donante anotado: 617.883
+```
+
+Archivo:
+
+```text
+data/labels/context/gene_cluster_context.tsv
+```
+
+IGC baja; no GO directo.
