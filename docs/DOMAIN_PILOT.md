@@ -94,3 +94,49 @@ Siguiente:
 medir RSS/tiempo
 o InterProScan externo
 ```
+
+## Estado: DIFERIDO
+
+No se insiste en este entorno.
+
+Motivo:
+
+```text
+hmmscan contra Pfam completo no termina con 4.400–8.800 secuencias
+en 23 GB de RAM / tiempo disponible
+```
+
+No hay TSV de dominios. No se usa como cobertura.
+
+### Retomar en otro entorno
+
+Requisitos recomendados:
+
+```text
+RAM: 32–64 GB
+CPU: 8–16
+Disco: >300 GB
+```
+
+Comando base:
+
+```bash
+# muestra estratificada
+python scripts/labels/29_domains_stratified.py \
+  --per-genome 10 \
+  --threads 8
+
+# o por lotes de 500
+```
+
+Antes de escalar:
+
+```text
+1. medir RSS de hmmscan
+2. confirmar que el domtblout termina
+3. validar 100 hits contra Pfam/InterPro
+4. recién entonces correr 476.531
+```
+
+No se debe consumir ningún resultado de dominio hasta que exista
+`gene_domain_evidence.tsv` completo.

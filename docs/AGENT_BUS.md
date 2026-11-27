@@ -1033,3 +1033,14 @@ Negativos:
 
 Monitor v3 activo: espera CPU y luego corre F1/F2/F3.
 No calibrar hasta revisar métricas.
+
+### 2026-11-27 | lead | DEFERRED | dominios | diferido
+
+Dominios Pfam diferidos por recursos:
+
+```text
+hmmscan no termina con 4.400–8.800 secuencias en 23 GB
+```
+
+No hay cobertura de dominios. Registro y comando en `docs/DOMAIN_PILOT.md`.
+No se reintenta en este entorno.
