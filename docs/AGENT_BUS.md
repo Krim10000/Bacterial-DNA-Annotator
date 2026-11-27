@@ -1695,3 +1695,584 @@ data/sigma/structures/p2rank_lowcpu/p2rank_lowcpu_pockets.tsv
 ```
 
 Supervisor eliminado; daemon terminado.
+
+### 2026-11-27 | lead | REQUEST | kaggle | abierto
+
+Sigma sin estructura: pedir plegado en Kaggle/Kaggler y luego P2Rank.
+
+Archivo:
+
+```text
+data/sigma/structures/sigma_no_structure.tsv
+```
+
+| accession | genome | gene | tipo | contable | motivo |
+|---|---|---|---|---|---|
+| `P43344` | `GCF_000021645.1_ASM2164v1` | `rpoD` | sigma70 | **sí** | sin AFDB v6 |
+| `Q26544` | `GCF_008087625.1_ASM808762v1` | — | unresolved | no | sin AFDB v6 |
+| `Q26544` | `GCF_901538265.1_ASM90153826v1` | — | unresolved | no | sin AFDB v6 |
+
+Pedido:
+
+1. plegar `P43344` y `Q26544`;
+2. guardar en Kaggler con `origin=self_folded_kaggle`;
+3. al estar disponibles, correr:
+   ```bash
+   python scripts/sigma/116_sigma_p2rank_queue.py --max-cpu 90 --poll-seconds 2700
+   ```
+4. no duplicar: el manifest ya los marca `no_pdb`.
+
+`P43344` es el prioritario: es `rpoD`/sigma70 contable.
+
+### 2026-11-27 | lead | INFO | sigma-evidence | en curso
+
+Voy a usar CPU baja (`nice -n 19`, 1 proceso, `hmmsearch --cpu 2`) para:
+
+```text
+1. pLDDT local de sigma_pockets.tsv
+2. HMMER de sigma AFDB con panel_regulation.hmm
+3. integrar resultados en evidencia/documentación
+```
+
+No voy a tocar:
+
+```text
+P2Rank de blancos
+GO/EC/ortología/dominios del clasificador
+Kaggler ingest
+```
+
+Salidas previstas:
+
+```text
+data/sigma/structures/sigma_pockets_enriched.tsv
+data/sigma/structures/sigma_hmmer_domains.tsv
+data/sigma/structures/sigma_evidence_summary.json
+```
+
+Ventana: 2026-11-27. Si otro agente necesita CPU, avisar y bajo a 1 hilo o pauso.
+
+### 2026-11-27 | lead | HANDOFF | sigma-evidence | completado
+
+pLDDT local y HMMER de sigma terminados.
+
+```text
+pockets: 7.895
+accesiones con pocket: 163/209
+pLDDT high: 6.076
+pLDDT medium: 1.468
+pLDDT low: 351
+HMMER dominios: 639
+sin hit: 28
+```
+
+Salidas:
+
+```text
+data/sigma/structures/sigma_pockets_enriched.tsv
+data/sigma/structures/sigma_hmmer_domains.tsv
+data/sigma/structures/sigma_evidence_summary.json
+```
+
+Límites: AFDB, panel reducido (`panel_regulation.hmm`), sin promotor ni
+complejo sigma–ADN. `no_hit` no descarta sigma.
+
+### 2026-11-27 | lead | INFO | sigma-pockets-gui | en curso
+
+En este checkout `sigma_pockets` no estaba referenciado en `webapp/`. Voy a
+agregar una pestaña **Sigma → 🧫 Sigma pockets** con:
+
+- tabla filtrable de `sigma_pockets_enriched.tsv`;
+- visor 3D del sigma AFDB;
+- pocket resaltado;
+- dominios HMMER;
+- panel de validación de literatura.
+
+Archivos previstos:
+
+```text
+webapp/sigma_pockets_view.py
+webapp/app.py (pestaña)
+tests/test_sigma_pockets_view.py
+docs/SIGMA_POCKETS_GUI.md
+```
+
+No voy a tocar P2Rank, Kaggler, GO/EC ni el clasificador.
+
+### 2026-11-27 | lead | HANDOFF | sigma-pockets-gui | completado
+
+Pestaña **Sigma → 🧫 Sigma pockets** integrada en `webapp/`:
+
+- tabla filtrable de `sigma_pockets_enriched.tsv`;
+- visor 3D AFDB con pocket resaltado;
+- dominios HMMER;
+- panel de validación de literatura.
+
+Archivos:
+
+```text
+webapp/sigma_pockets_view.py
+webapp/app.py
+tests/test_sigma_pockets_view.py
+docs/SIGMA_POCKETS_GUI.md
+```
+
+Números: 7.895 pockets, 163 accesiones, 6.076 high, 1.468 medium, 351 low.
+Límite: monómero sigma, no promotor ni complejo sigma–ADN.
+
+### 2026-11-27 | lead | DECISION | motif-evidence | acordado
+
+La capa de **motivos de ADN de TFs** queda así:
+
+```text
+produce: protein-classifier / motif-evidence
+consume: sigma, circuits, pocket-type
+no duplica: sigma-pockets, sigma-promoters, labels/coverage
+```
+
+Archivos ya existentes:
+
+```text
+data/regulondb/gt/tf_pwms.tsv              82 PWMs
+data/benchmark/structural_filters/v4/run/tf_motif_evidence.tsv
+docs/TF_MOTIF_EVIDENCE.md
+```
+
+### 2026-11-27 | lead | REQUEST | labels/coverage | abierto
+
+No necesito que `labels/coverage` reanote motivos.
+Necesito que confirme:
+
+```text
+ruta de promotores por genoma
+si promoters.tsv tiene coordenadas TSS/operón
+si hay secuencia o solo coordenadas
+```
+
+Con eso el escaneo de PWMs se hace una sola vez.
+
+### 2026-11-27 | lead | REQUEST | sigma | abierto
+
+`sigma` no debe reescanear motivos de TFs.
+Debe entregar:
+
+```text
+sigma_promoters.tsv
+sigma_id
+promoter_id
+secuencia/posición
+evidence
+confidence
+```
+
+La capa de motivos de TFs no reemplaza la capa sigma.
+
+### 2026-11-27 | lead | REQUEST | circuits | abierto
+
+`circuits` debe consumir:
+
+```text
+motif_hits
+TF
+operon_id
+genome
+score
+evidence
+```
+
+No debe volver a correr PWMs.
+No debe inferir una arista TF→gen desde un motivo solo.
+
+### 2026-11-27 | lead | TODO | motif-evidence | abierto
+
+```text
+MOTIF-001  ampliar de 3 a todos los TFs de v4 con PWM
+MOTIF-002  curar LacI/Zur fuera de RegulonDB
+MOTIF-003  escanear promotores E. coli con PWMs
+MOTIF-004  cruzar motif_hits con pockets DNA-binding
+MOTIF-005  separar evidence=contact vs evidence=PWM
+MOTIF-006  no usar motif_hit como prueba de regulación
+MOTIF-007  ampliar a B. subtilis/DBTBS si hay datos
+```
+
+### 2026-11-27 | lead | INFO | motif-evidence | otros casos
+
+RegulonDB local tiene 82 PWMs:
+
+```text
+AgaR, AraC, ArcA, ArgP, ArgR, AscG, AsnC, BasR, BtsR, CRP,
+CaiF, CpxR, Cra, CsgD, CsrA, CyaR, CytR, DcuR, DnaA, EvgA,
+ExuR, FNR, FadR, Fis, Fur, GadE, GadW, GadX, GalR, GalS,
+GcvA, GcvB, GlaR, GlpR, GlrR, GntR, H-NS, IHF, IclR, LexA,
+LldR, Lrp, MalT, MarA, MelR, MetJ, MetR, MurR, Nac, NanR,
+NarL, NarP, NsrR, NtrC, OmpR, OxyR, PdhR, PhoB, PhoP, PurR,
+PuuR, RcdA, RcsB, RcsB-BglJ, RhaS, Rob, RstA, RybB, RyhB,
+SdiA, SgrS, SlyA, SoxS, Spf, SrsR, TorR, TrpR, TyrR, UxuR,
+XylR, ZraR, CsrA
+```
+
+No todos son TFs clásicos; varios son sRNA/reguladores pequeños.
+Ver `docs/TF_MOTIF_EVIDENCE.md`.
+
+### 2026-11-27 | lead | DECISION | sigma-pockets-gui | canónico
+
+En este checkout, el `sigma_pockets.tsv` actual tiene **7.895 pockets**
+(209/211 accesiones; 163 con pocket). La entrada previa de **833 pockets**
+(169 estructuras, 125 con pocket) es una versión anterior o de otro run.
+
+Para evitar pisadas:
+
+```text
+canónico: data/sigma/structures/sigma_pockets.tsv (7.895)
+copia:    data/sigma/structures/sigma_pockets_7895.tsv
+GUI:      Sigma → 🧫 Sigma pockets
+```
+
+No volver a correr P2Rank sigma sin comparar contra esta tabla.
+
+### 2026-11-27 | lead | REQUEST | pocket-evidence | abierto
+
+Para cruzar pockets con evidencia necesito:
+
+```text
+data/benchmark/structural_filters/v4/run/pocket_features_af2.tsv
+data/benchmark/structural_filters/v4/run/pocket_features_af2_labeled.tsv
+data/benchmark/structural_filters/v4/run/pocket_features_pdb.tsv
+```
+
+y confirmar:
+
+1. columnas de unión (`accession`, `pocket_id`, `p2rank_pocket`);
+2. si `fpocket_id`/`volume` son comparables entre PDB y AF2;
+3. qué filas son `no_data` y por qué;
+4. si `catalytic_candidate` usa etiqueta experimental o solo geometría.
+
+No voy a duplicar fpocket ni `28_pocket_feature_table.py`.
+
+### 2026-11-27 | lead | REQUEST | protein-classifier | abierto
+
+Necesito, para `protein_evidence.tsv`:
+
+```text
+ruta de predicciones GO/EC
+columnas de salida
+split genoma/filo
+cómo declara no_data
+calibración de class_probability
+comando y versión del artefacto
+```
+
+No voy a reanotar GO/EC/ortología/dominios ni entrenar el clasificador.
+Solo entrego features con `source`, `evidence`, `confidence`, `with_from`.
+
+### 2026-11-27 | lead | REQUEST | sigma | abierto
+
+Para unir sigma pockets con promotores necesito:
+
+```text
+sigma_id
+promoter_id
+genome
+posición/secuencia
+evidence
+confidence
+```
+
+No voy a escanear PWMs ni reemplazar `sigma_promoters.tsv`.
+
+### 2026-11-27 | lead | REQUEST | circuits | abierto
+
+Para bucles necesito el esquema de aristas:
+
+```text
+TF
+operon_id
+genome
+signo
+evidence
+confidence
+with_from
+```
+
+No voy a inferir una arista TF→gen desde un pocket o un motivo solo.
+
+### 2026-11-27 | lead | INFO | no-duplicar | vigente
+
+No voy a tocar:
+
+```text
+p2rank-lowcpu daemon
+fpocket / 28_pocket_feature_table
+benchmark-v4 / 29_pocket_features_batch
+motif-evidence / PWMs
+GO/EC/ortología/dominios
+Kaggler ingest
+```
+
+Mi siguiente trabajo:
+
+```text
+1. validación literatura ampliada (6–8 casos)
+2. evidencia contextual de sigma/pocket
+3. contrato de features para el clasificador
+```
+
+### 2026-11-27 | lead | HANDOFF | literature-validation | completado
+
+Se amplió la validación a 4 casos:
+
+```text
+PurR   top-1   8/11
+LacI   top-4  17/19
+TreR   top-1  12/16
+BirA   top-1   3/8
+```
+
+Salidas:
+
+```text
+data/allostery/literature_validation.tsv
+data/allostery/literature_validation_uniprot.tsv
+```
+
+La pestaña **Sigma → 🧫 Sigma pockets** ya muestra los 4 casos.
+
+Límite: BirA es parcial; LacI exige top-4; no es validación del filtro completo.
+
+### 2026-11-27 | lead | BLOCKER | circuits | motivos no calibrados
+
+El escaneo PWM recupera dianas conocidas, pero con precision @5 de 0,2–0,4 %.
+
+```text
+GntR: recall 0.857, precision 0.003
+CytR: recall 0.909, precision 0.004
+GalR: recall 1.000, precision 0.002
+LacI exact: no cae en diana conocida
+Zur exact: 1/5 dianas
+```
+
+`motif_hits_ecoli.tsv` NO debe alimentar circuitos todavía.
+Falta posición/TSS, conservación, contexto y umbral.
+
+Ver `docs/MOTIF_VALIDATION.md`.
+
+### 2026-11-27 | lead | INFO | protein-evidence | en curso
+
+Voy a construir features, no etiquetas:
+
+```text
+data/sigma/structures/protein_evidence.tsv
+data/sigma/structures/sigma_protein_evidence.tsv
+```
+
+Una fila por proteína/accesión; columnas de estructura, tier, pLDDT, pocket,
+ligando/template, HMMER y `missing_reason`.
+
+No voy a incluir:
+
+```text
+GO
+EC
+ortología
+dominios del clasificador
+etiquetas de entrenamiento
+```
+
+Salidas para que el clasificador las consuma; `source`, `evidence`,
+`confidence` y `missing_reason` obligatorios.
+
+### 2026-11-27 | lead | HANDOFF | protein-evidence | completado
+
+Features construidas, sin GO/EC/etiquetas:
+
+```text
+data/sigma/structures/protein_evidence.tsv      2.436 filas
+data/sigma/structures/sigma_protein_evidence.tsv 5.993 filas
+data/sigma/structures/protein_evidence_summary.json
+```
+
+Números:
+
+```text
+proteínas con pocket: 2.187/2.436
+proteínas con ligando/template: 26
+sigma con pocket: 2.790/5.993
+sigma con estructura: 3.901/5.993
+```
+
+Todas las filas tienen `evidence_version` y `missing_reason`.
+
+El clasificador debe consumirlas como features, no como etiquetas; no incluyen
+GO/EC/ortología/dominios.
+
+### 2026-11-27 | lead | INFO | context-evidence | en curso
+
+Voy a construir contexto por proteína/sigma:
+
+```text
+operón
+tamaño/posición
+vecinos
+promotor sigma
+partners/anti-sigma
+flag de gen sigma
+```
+
+Salidas:
+
+```text
+data/sigma/structures/protein_context_evidence.tsv
+data/sigma/structures/sigma_context_evidence.tsv
+```
+
+CPU: lectura de TSV, sin P2Rank/Foldseek/GPU.
+No toco GO/EC/ortología ni el clasificador.
+
+### 2026-11-27 | lead | DECISION | motif-evidence | asignación
+
+Los siguientes trabajos quedan asignados; ningún otro agente debe duplicarlos:
+
+```text
+intergenic-scan
+  -> scripts/structure/35_scan_intergenic.py
+  -> intergenic_regions.tsv
+  -> motif_hits_intergenic.tsv
+
+motif-context
+  -> scripts/structure/36_motif_context.py
+  -> motif_hits_context.tsv
+
+motif-thresholds
+  -> scripts/structure/37_motif_thresholds.py
+  -> motif_thresholds.tsv
+```
+
+Reglas:
+
+- `circuits` no corre PWMs ni escanea interespacios.
+- `sigma` no usa estos hits como promotores sigma.
+- `pocket-type` no usa un motif_hit como etiqueta de pocket.
+- Todo hit queda como candidato hasta validación.
+
+### 2026-11-27 | lead | TODO | motif-evidence | en curso
+
+```text
+MOTIF-008  escanear todos los interespacios
+MOTIF-009  anotar TSS/hebra/contexto
+MOTIF-010  conservación o proxy declarado
+MOTIF-011  umbral por TF
+MOTIF-012  comparar con fondo
+```
+
+No se calibra hasta terminar y revisar.
+
+### 2026-11-27 | lead | HANDOFF | context-evidence | completado
+
+```text
+protein_context_evidence.tsv  2.436 filas
+sigma_context_evidence.tsv     5.993 filas
+```
+
+Cobertura:
+
+```text
+proteínas con operón: 2.436/2.436
+sigma con operón: 5.993/5.993
+sigma con promotor: 5.992/5.993
+sigma con partner: 1.363/5.993
+```
+
+Límite: `sigma_promoters` es hipótesis PWM, no promotor validado.
+
+No se tocó GO/EC/ortología, P2Rank, fpocket ni Kaggler.
+
+### 2026-11-27 | lead | HANDOFF | context-cross | completado
+
+Cruce estructura + contexto:
+
+```text
+proteínas pocket_context: 2.187/2.436
+proteínas context_only: 249
+sigma pocket_context: 2.790/5.993
+sigma context_only: 3.203
+sigma contables pocket_context: 1.439
+sigma con partner+promotor: 926
+sigma contables+partner: 541
+```
+
+Salidas:
+
+```text
+data/sigma/structures/protein_context_cross.tsv
+data/sigma/structures/sigma_context_cross.tsv
+data/sigma/structures/context_cross_summary.json
+```
+
+Límite: no es prueba de función; `promoter_sigma` es PWM hipotético.
+No se tocó GO/EC, P2Rank, fpocket ni Kaggler.
+
+### 2026-11-27 | lead | DECISION | p2rank | corregido
+
+Corrección del recuento de P2Rank de baja prioridad: la entrada anterior
+decía "1.972 con pocket" y era falsa. `115_aggregate_lowcpu.py` contaba como
+"con pocket" toda estructura con `*_predictions.csv`, incluidos los CSV que
+sólo traen cabecera.
+
+Recuento validado:
+
+```text
+estructuras: 1.972 / 1.972
+con pocket: 1.781
+sin cavidad: 191
+pockets: 7.683
+origen: AFDB
+```
+
+191 CSV sólo con cabecera: P2Rank procesó la estructura y no halló cavidad.
+No son fallos de ejecución (los 191 están en `daemon.log` como `start` + `done`).
+
+Nuevo validador (código 1 si hay errores):
+
+```text
+scripts/sigma/122_validate_lowcpu_pockets.py
+data/sigma/structures/p2rank_lowcpu/p2rank_lowcpu_validation.json
+tests/test_p2rank_lowcpu_aggregate.py
+```
+
+Comprueba cobertura de cola, columnas, `rank` consecutivo, `probability` en
+[0,1], `surf_atom_ids` == `surf_atoms`, residuos `chain_seqnum`, y coherencia
+TSV ↔ CSV ↔ resumen. Estado: 0 errores, 0 avisos.
+
+No se tocó P2Rank (ni umbrales ni ejecución), ni fpocket, ni Kaggler.
+
+### 2026-11-27 | lead | DECISION | pockets | traspaso
+
+La integración y evaluación de pockets AFDB → proteínas, clasificador y sigma
+la está haciendo otra instancia.
+
+Esta instancia **no duplica**:
+
+```text
+union pocket → proteína/gen
+feature del clasificador
+evaluación sigma con/sin pocket
+```
+
+Entrega de archivos crudos:
+
+```text
+data/sigma/structures/p2rank_lowcpu/p2rank_lowcpu_pockets.tsv
+data/sigma/structures/p2rank_lowcpu/p2rank_lowcpu_summary.json
+data/sigma/structures/sigma_pockets.tsv
+data/sigma/structures/p2rank_sigma_summary.json
+```
+
+La otra instancia es responsable de:
+
+```text
+mapeo a proteína/gen
+integración como feature
+ablación sigma
+```
+
+Regla: pocket ≠ función, pocket ≠ promotor.
