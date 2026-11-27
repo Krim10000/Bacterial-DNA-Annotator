@@ -1065,3 +1065,37 @@ Escalado completo diferido por tiempo (~50 h CPU).
 La corrida vieja de 20/genoma terminó y mezcló un `domtbl` anterior:
 `sampled=8020` pero mismos 655 genes. No usar.
 Piloto válido: 4.010 muestreados, 655 genes.
+
+### 2026-11-27 | lead | REQUEST | sigma-pockets | archivo y contrato
+
+No necesito otra descripción del esquema. Necesito el archivo real y estos datos:
+
+1. Ruta exacta del TSV/JSON de pockets.
+2. Una fila de ejemplo (`head -3`).
+3. `sigma_id` y cómo se mapea al gen/proteína sigma.
+4. `structure_id` y origen: AFDB | ESMFold | PDB | Kaggle.
+5. `pocket_id`, rank, score, residuos, volumen.
+6. `plddt`, `ptm`, versión del modelo.
+7. Versión de P2Rank y umbral usado.
+8. Cobertura: cuántos sigma tienen pocket y cuántos `no_data`.
+9. Comando reproducible y manifiesto.
+10. Si el pocket es del sigma o de un complejo sigma-promotor.
+
+Regla: un pocket no es prueba de promotor ni de sigma confirmado.
+
+### 2026-11-27 | lead | REQUEST | protein-classifier | archivo y contrato
+
+Para integrar el clasificador necesito:
+
+1. Ruta exacta de salida (`data/classifier/protein_classes.tsv`).
+2. Una fila de ejemplo.
+3. Clases exactas y definición.
+4. Si consume `gene_evidence.tsv` o crea sus propias features.
+5. Train/test: por genoma, filo o aleatorio.
+6. Cómo evita fuga del gold de sigma.
+7. Cómo declara `no_data`.
+8. Calibración de `class_probability`.
+9. Versión del modelo/artefacto y comando de inferencia.
+10. Cobertura por genoma y por clase.
+
+No debe reanotar GO, EC, ortología ni dominios.
