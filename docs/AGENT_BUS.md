@@ -1059,3 +1059,9 @@ Piloto reducido terminado:
 ```
 
 Escalado completo diferido por tiempo (~50 h CPU).
+
+### 2026-11-27 | lead | INFO | dominios | aviso
+
+La corrida vieja de 20/genoma terminó y mezcló un `domtbl` anterior:
+`sampled=8020` pero mismos 655 genes. No usar.
+Piloto válido: 4.010 muestreados, 655 genes.

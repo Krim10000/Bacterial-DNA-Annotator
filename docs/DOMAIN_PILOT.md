@@ -147,3 +147,12 @@ Antes de escalar:
 
 No se debe consumir ningún resultado de dominio hasta que exista
 `gene_domain_evidence.tsv` completo.
+
+### Aviso de mezcla
+
+La corrida vieja de 20/genoma terminó después y reescribió el resumen con
+`sampled=8020`, pero reutilizó el `domtblout` del piloto de 10/genoma.
+Los hits son los mismos (655 genes), así que **no aporta cobertura nueva**.
+
+Resultado válido: 4.010 muestreados, 655 genes.
+El resumen de 8.020 está marcado `mixed_stale_do_not_use`.
